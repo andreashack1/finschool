@@ -1,0 +1,76 @@
+[
+  {
+    "width": 320,
+    "flows": "challenge, persistence, salary 25 questions, 3 mini lessons, simulator, profile: passed"
+  },
+  {
+    "width": 375,
+    "flows": "challenge, persistence, salary 25 questions, 3 mini lessons, simulator, profile: passed"
+  },
+  {
+    "width": 390,
+    "tab": "home",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "tab": "learn",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "tab": "simulator",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "tab": "profile",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "tab": "lesson-feedback",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "flows": "challenge, persistence, salary 25 questions, 3 mini lessons, simulator, profile: passed"
+  },
+  {
+    "width": 430,
+    "flows": "challenge, persistence, salary 25 questions, 3 mini lessons, simulator, profile: passed"
+  },
+  {
+    "width": 768,
+    "flows": "challenge, persistence, salary 25 questions, 3 mini lessons, simulator, profile: passed"
+  },
+  {
+    "width": 1440,
+    "tab": "home",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "tab": "learn",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "tab": "simulator",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "tab": "profile",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "tab": "lesson-feedback",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "flows": "challenge, persistence, salary 25 questions, 3 mini lessons, simulator, profile: passed"
+  }
+]

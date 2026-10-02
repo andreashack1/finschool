@@ -1,0 +1,34 @@
+[
+  {
+    "width": 375,
+    "questions": 25,
+    "correctAndIncorrect": "passed",
+    "xp": 30,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "questions": 25,
+    "correctAndIncorrect": "passed",
+    "xp": 30,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 430,
+    "questions": 25,
+    "correctAndIncorrect": "passed",
+    "xp": 30,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "questions": 25,
+    "correctAndIncorrect": "passed",
+    "xp": 30,
+    "overflow": false,
+    "errors": []
+  }
+]

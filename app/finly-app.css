@@ -1,0 +1,293 @@
+/* Finly's shared product system. */
+/* Learning additions use the existing product tokens and component classes. */
+.learning-grid { margin-top: 24px; }
+.learning-grid .course-card { display: block; text-align: left; }
+.learning-grid .learning-card-count { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; color: var(--secondary); margin-top: 20px; }
+.learning-grid .learning-card-count span { font-size: 11px; }
+.learning-grid .learning-card-progress { display: flex; justify-content: space-between; font-size: 12px; color: var(--blue-ink); margin-top: 8px; }
+.learning-soon { color: var(--secondary); background: #FAFCFE; }
+.learning-soon .icon-tile { color: var(--secondary); }
+.learning-summary { padding: 18px; margin: 24px 0 32px; }
+.learning-summary .course-summary { margin: 0 0 12px; }
+.learning-chapter { margin-top: 32px; scroll-margin-top: 24px; }
+.learning-chapter h2 { margin-top: 8px; }
+.learning-chapter > p { color: var(--secondary); font-size: 12px; margin-top: 9px; }
+.learning-chapter .course-path { margin-top: 15px; }
+.learning-chapter .path-row > div { min-width: 0; }
+.learning-chapter .path-row strong { overflow-wrap: anywhere; }
+.learning-chapter .path-row.completed { background: #F5FAF7; }
+.learning-chapter .path-row.completed .path-number { color: #267C4D; background: #EAF6EF; }
+.learning-chapter .path-row.locked { opacity: 1; color: var(--secondary); }
+.learning-context { padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: white; font-size: 15px; line-height: 1.65; margin-bottom: 22px; white-space: pre-line; }
+.learning-fini-note { display: flex; align-items: center; gap: 12px; margin: 20px 0; font-size: 14px; color: var(--secondary); }
+.learning-fini-note img { width: 54px; height: 54px; flex-shrink: 0; }
+.learning-fini-note p { margin: 0; line-height: 1.6; }
+.learning-text-continue { margin-top: 24px; }
+.generic-lesson button:focus-visible, .generic-lesson a:focus-visible { outline: 3px solid var(--blue-ink); outline-offset: 4px; }
+.salary-lesson.generic-lesson { width: min(680px, calc(100% - 40px)); }
+.generic-lesson .lesson-feedback-title > svg { flex-shrink: 0; }
+.generic-lesson .lesson-recap svg { flex-shrink: 0; }
+.generic-lesson .lesson-reward { font-size: clamp(18px, 4vw, 25px); }
+.learning-grid .soon-tag { display: inline-flex; align-items: center; gap: 4px; }
+.learning-grid .learning-soon:hover { transform: none; border-color: var(--border); }
+.learning-grid .course-card > .app-progress { display: block; }
+@media (max-width: 560px) {
+  .course-grid.learning-grid { grid-template-columns: 1fr; }
+  .learning-grid .course-card { padding: 18px; }
+  .learning-grid .course-card h3 { font-size: 18px; }
+  .learning-grid .course-card p { min-height: 0; font-size: 13px; }
+  .learning-grid .soon-tag { font-size: 10px; right: 18px; }
+}
+:root { --background: #F5FAFF; --foreground: #0B1B33; --blue: #69B9FF; --blue-ink: #246EAE; --light-blue: #EAF6FF; --secondary: #5D6D82; --muted: #5D6D82; --border: #DFEBF6; }
+.finly-app, .salary-lesson { font-family: var(--font-finly), sans-serif; font-weight: 500; }
+.finly-app { min-height: 100dvh; padding-bottom: calc(110px + env(safe-area-inset-bottom)); }
+.app-content { width: min(540px, calc(100% - 40px)); margin: 0 auto; padding-top: 30px; animation: app-enter .25s ease both; }
+.finly-app h1, .finly-app h2, .finly-app h3, .finly-app p { margin: 0; }
+.finly-app h1 { font-size: 32px; line-height: 1.12; font-weight: 800; letter-spacing: -1.25px; }
+.finly-app h2 { font-size: 21px; line-height: 1.25; letter-spacing: -.65px; font-weight: 700; }
+.finly-app h3 { font-size: 18px; line-height: 1.3; letter-spacing: -.4px; font-weight: 700; }
+.finly-app button, .finly-app a { transition: background .18s, border-color .18s, transform .18s, color .18s; }
+.finly-app button:focus-visible, .finly-app a:focus-visible, .app-button:focus-visible { outline-color: #378FE5; outline-offset: 3px; }
+.app-card { background: white; border: 1px solid var(--border); border-radius: 20px; box-shadow: 0 6px 20px rgba(20,70,110,.035); }
+.app-greeting { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.app-greeting p { display: flex; align-items: center; gap: 8px; font-size: 15px; color: var(--secondary); margin-bottom: 9px; }
+.greeting-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+.profile-avatar { position: relative; width: 55px; height: 55px; border-radius: 18px; background: #E5F2FF; display: grid; place-items: center; flex-shrink: 0; }
+.profile-avatar img { width: 49px; height: 49px; object-fit: contain; }
+.profile-avatar > span { position: absolute; right: -4px; bottom: -5px; background: var(--foreground); border: 3px solid var(--background); color: white; width: 23px; height: 23px; display: grid; place-items: center; border-radius: 9px; font-size: 10px; font-weight: 700; }
+.status-row { display: flex; gap: 8px; margin: 19px 0 23px; }
+.status-row > span { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; border: 1px solid var(--border); background: white; border-radius: 10px; padding: 8px 10px; white-space: nowrap; }
+.status-row svg { color: var(--blue-ink); }
+.section-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 15px; }
+.section-top > span:not(.card-kicker):not(.reward-chip):not(.tiny-tag) { font-size: 11px; color: var(--secondary); }
+.section-label { margin-bottom: 13px; }
+.section-label h2 { font-size: 15px; letter-spacing: -.2px; }
+.section-label > span { font-size: 9px !important; letter-spacing: 1px; font-weight: 600; }
+.continue-card { position: relative; padding: 24px; background: #E7F3FF; border: 1px solid #D3E9FC; border-radius: 24px; overflow: hidden; }
+.continue-copy { position: relative; z-index: 2; max-width: 76%; }
+.card-kicker, .block-kicker { color: var(--blue-ink); font-size: 10px; letter-spacing: 1.1px; font-weight: 700; display: flex; align-items: center; gap: 7px; }
+.tiny-tag { padding: 4px 7px; border-radius: 6px; font-size: 10px; font-weight: 600; color: var(--secondary); background: #FFFFFFB8; letter-spacing: 0; white-space: nowrap; }
+.card-kicker .tiny-tag { margin-left: 4px; font-size: 9px; padding: 3px 6px; }
+.continue-card h2 { font-size: 31px; line-height: 1.02; letter-spacing: -1px; font-weight: 800; margin-top: 17px; }
+.continue-copy > p { color: #536C85; font-size: 13px; line-height: 1.55; margin-top: 12px; max-width: 205px; }
+.lesson-meta { display: flex; align-items: center; gap: 16px; margin-top: 18px; color: #416485; font-size: 11px; font-weight: 600; }
+.lesson-meta span { display: flex; gap: 5px; align-items: center; }
+.continue-fini { position: absolute; width: 160px; height: 201px; right: -8px; top: 28px; object-fit: contain; }
+.continue-bottom { position: relative; z-index: 2; display: flex; align-items: center; gap: 20px; padding-top: 24px; }
+.continue-progress { flex: 1; min-width: 0; }
+.continue-progress > div:first-child { display: flex; justify-content: space-between; align-items: center; gap: 7px; font-size: 10px; color: #536C85; margin-bottom: 8px; }
+.continue-progress strong { color: var(--blue-ink); font-weight: 700; }
+.app-progress { height: 6px; border-radius: 20px; overflow: hidden; background: #D6E8F8; }
+.app-progress > span { display: block; height: 100%; background: #69B9FF; border-radius: inherit; transition: width .45s ease; }
+.app-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 13px 18px; border-radius: 14px; background: #69B9FF; border: 1px solid transparent; font-family: var(--font-finly), sans-serif; color: #0B1B33; font-weight: 700; font-size: 13px; transition: background .18s, transform .18s; }
+.app-button:hover { background: #55ABF5; transform: translateY(-1px); }
+.app-button:active { transform: translateY(1px); }
+.app-button.secondary { background: white; border-color: var(--border); }
+.app-button.secondary:hover { background: var(--light-blue); }
+.continue-bottom .app-button { font-size: 12px; padding-inline: 15px; gap: 8px; }
+.explore-section, .quick-section { margin-top: 25px; }
+.swipe-hint { display: flex; align-items: center; gap: 5px; }
+.category-scroll { display: flex; gap: 10px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; padding: 2px 2px 6px; margin-inline: -2px; scroll-snap-type: x proximity; }
+.category-scroll::-webkit-scrollbar { display: none; }
+.category-tile { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 14px; flex: 0 0 108px; min-height: 94px; padding: 14px 13px; border: 1px solid #DBEAF7; border-radius: 16px; text-align: left; color: #325F88; scroll-snap-align: start; background: #EDF5FF; }
+.category-tile span { font-size: 12px; line-height: 1.3; font-weight: 600; color: var(--foreground); }
+.category-tile:hover { transform: translateY(-2px); border-color: #A4CFF3; }
+.cat-job, .cat-primul-job { background: #EAF4FF; color: #3579B6; }
+.cat-cards, .cat-carduri-si-banca { background: #F0F1FC; color: #666AA9; }
+.cat-money, .cat-savings, .cat-bani-de-zi-cu-zi, .cat-economii { background: #EEF6F6; color: #437B85; }
+.cat-safety, .cat-siguranta-financiara { background: #EDF5FA; color: #467B96; }
+.cat-economy, .cat-economia-pe-scurt { background: #EEF3FA; color: #5176A2; }
+.quick-list { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 0 16px; }
+.quick-row { display: flex; align-items: center; gap: 13px; min-height: 79px; padding: 13px 0; }
+.quick-row + .quick-row { border-top: 1px solid #EDF2F8; }
+.quick-row > div { flex: 1; }
+.quick-row strong { display: block; font-size: 14px; font-weight: 700; letter-spacing: -.2px; }
+.quick-row div > span { display: flex; align-items: center; gap: 7px; margin-top: 5px; color: var(--secondary); font-size: 11px; }
+.quick-row i { display: block; width: 3px; height: 3px; border-radius: 50%; background: #A0ACBA; }
+.quick-row > svg { color: #7F94AB; }
+.quick-row:hover { color: var(--blue-ink); }
+.icon-tile { width: 42px; height: 42px; border-radius: 13px; background: #EDF5FF; color: var(--blue-ink); display: inline-grid; place-items: center; flex-shrink: 0; }
+.quick-row .completed-icon { color: #25815B; }
+.home-secondary { display: grid; gap: 19px; margin-top: 28px; }
+.daily-card { padding: 21px; }
+.daily-card .section-top { margin-bottom: 17px; }
+.daily-card .card-kicker { font-size: 9px; letter-spacing: .8px; color: var(--secondary); }
+.reward-chip { display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 5px 7px; background: #EFF7FF; border-radius: 7px; font-size: 10px; font-weight: 700; color: var(--blue-ink); white-space: nowrap; }
+.daily-card h3 { font-size: 24px; line-height: 1.14; letter-spacing: -.8px; }
+.daily-card > p { font-size: 13px; line-height: 1.65; color: var(--secondary); margin-top: 12px; }
+.challenge-answers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-top: 18px; }
+.challenge-answers button { display: flex; align-items: center; justify-content: center; gap: 4px; border: 1px solid var(--border); border-radius: 11px; background: #F8FBFF; color: var(--foreground); min-height: 43px; font-size: 13px; font-weight: 700; }
+.challenge-answers button:not(:disabled):hover { border-color: #69B9FF; background: #EAF6FF; }
+.challenge-answers .answer-correct { border-color: #72B69A; color: #216C49; background: #EDF8F1; animation: lesson-pop .25s ease; }
+.challenge-answers .answer-wrong { border-color: #DA8F80; color: #953F33; background: #FFF1ED; }
+.challenge-note { display: block; margin-top: 13px; color: var(--secondary); font-size: 10px; }
+.challenge-feedback { display: flex; align-items: center; gap: 6px; font-size: 11px; line-height: 1.5; margin-top: 13px !important; }
+.success { color: #216C49; }.error { color: #953F33; }
+.fini-tip { display: flex; align-items: center; gap: 13px; padding: 15px 4px; }
+.fini-tip img { width: 58px; height: 58px; flex-shrink: 0; object-fit: contain; }
+.fini-tip .card-kicker { font-size: 9px; color: var(--blue-ink); }
+.fini-tip p { font-size: 12px; line-height: 1.65; color: var(--secondary); margin-top: 6px; }
+.fini-tip strong { color: var(--foreground); font-weight: 600; }
+.simulator-teaser { display: flex; align-items: center; gap: 11px; border: 1px solid var(--border); border-radius: 18px; padding: 15px; background: #FFFFFF80; }
+.simulator-teaser > div { flex: 1; }
+.simulator-teaser strong { display: block; font-size: 13px; }
+.simulator-teaser div > span { display: block; color: var(--secondary); font-size: 10px; margin-top: 4px; }
+.simulator-teaser > svg { color: var(--blue-ink); }
+.home-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 33px !important; padding-top: 20px; border-top: 1px solid var(--border); color: var(--secondary); font-size: 11px; }
+.brand-word { font-size: 31px; font-weight: 800; letter-spacing: -1.8px; color: var(--foreground); line-height: 1; }
+.brand-word > span { color: #378FE5; }
+.home-footer .brand-word { font-size: 25px; }
+.bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; display: grid; grid-template-columns: repeat(4, 1fr); padding: 10px max(14px, calc((100vw - 540px) / 2)) calc(10px + env(safe-area-inset-bottom)); background: #FFFFFFF5; border-top: 1px solid var(--border); backdrop-filter: blur(12px); }
+.bottom-nav a { display: flex; flex-direction: column; align-items: center; gap: 5px; color: #66758A; }
+.bottom-nav a > span { display: grid; place-items: center; width: 52px; height: 33px; border-radius: 11px; transition: background .2s, color .2s; }
+.bottom-nav strong { font-size: 10px; font-weight: 600; }
+.bottom-nav a.active { color: #246EAE; }
+.bottom-nav a.active > span { background: #E5F3FF; }
+.bottom-nav a:hover > span { background: #F0F7FD; }
+.desktop-brand { display: none; }
+.screen-heading { margin-bottom: 28px; }
+.screen-heading > p { font-size: 14px; color: var(--secondary); line-height: 1.65; max-width: 400px; }
+.screen-heading > p:first-child { font-size: 13px; margin-bottom: 9px; }
+.screen-heading h1 + p { margin-top: 12px; }
+.screen-heading > .icon-tile { margin: 12px 0 17px; width: 54px; height: 54px; border-radius: 16px; }
+.block-kicker { display: block; margin-bottom: 12px; font-size: 10px; }
+.learn-categories { margin-top: 30px; }
+.course-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.course-card { position: relative; padding: 17px; color: var(--foreground); text-align: left; }
+.course-card h3 { margin-top: 15px; font-size: 16px; }
+.course-card p { font-size: 12px; line-height: 1.6; color: var(--secondary); margin-top: 7px; min-height: 58px; }
+.course-card > div { display: flex; justify-content: space-between; align-items: center; gap: 5px; margin-top: 15px; color: var(--blue-ink); font-size: 10px; }
+.course-card:hover { border-color: #ACD2F3; transform: translateY(-2px); }
+.soon-tag { position: absolute; right: 11px; top: 20px; font-size: 8px; background: #F0F4F8; }
+.back-button { display: inline-flex; align-items: center; gap: 8px; padding: 8px 0; border: 0; background: transparent; color: var(--secondary); font-size: 13px; margin-bottom: 17px; }
+.course-summary { display: flex; justify-content: space-between; gap: 10px; font-size: 11px; color: var(--secondary); margin-bottom: 16px; }
+.course-path { display: grid; gap: 12px; }
+.path-row { position: relative; display: flex; gap: 15px; align-items: center; padding: 19px 17px; border: 1px solid var(--border); border-radius: 17px; background: white; }
+.path-row > div { flex: 1; }
+.path-number { width: 37px; height: 37px; border-radius: 12px; display: grid; place-items: center; background: #F0F4F8; color: #7A8BA0; font-size: 16px; font-weight: 700; }
+.path-row strong { font-size: 14px; font-weight: 700; }
+.path-row div > span { display: block; margin-top: 6px; font-size: 11px; color: var(--secondary); }
+.path-row.current { border-color: #A7D2F6; background: #EAF6FF; }
+.path-row.current .path-number { background: #69B9FF; color: var(--foreground); }
+.path-row.locked strong { color: #5D6D82; }
+.coming-soon { padding: 30px 24px; text-align: center; }
+.coming-soon img { width: 145px; height: 183px; margin-inline: auto; }
+.coming-soon h2 { margin-top: 19px; }
+.coming-soon p { font-size: 14px; color: var(--secondary); line-height: 1.6; margin: 12px 0 23px; }
+.sim-status { display: grid; grid-template-columns: 1.6fr 1fr; padding: 22px; }
+.sim-status > div + div { padding-left: 22px; border-left: 1px solid var(--border); }
+.sim-status span { display: block; color: var(--secondary); font-size: 12px; margin-bottom: 8px; }
+.sim-status strong { font-size: 30px; letter-spacing: -1px; }
+.sim-status small { font-size: 15px; color: var(--secondary); letter-spacing: 0; }
+.sim-goal { padding: 22px 2px 28px; }
+.sim-goal > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 11px; margin-bottom: 12px; }
+.sim-goal span { display: flex; align-items: center; gap: 7px; }
+.sim-goal strong { font-size: 10px; color: var(--secondary); }
+.sim-event, .sim-feedback, .sim-finish { padding: 25px; animation: app-enter .25s ease both; }
+.sim-event h2, .sim-feedback h2, .sim-finish h2 { font-size: 27px; margin-top: 18px; letter-spacing: -.8px; }
+.sim-event > p, .sim-feedback > p, .sim-finish > p { color: var(--secondary); font-size: 14px; line-height: 1.7; margin-top: 12px; }
+.sim-choices { display: grid; gap: 11px; margin-top: 24px; }
+.sim-choices button { display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1px solid var(--border); background: #F7FBFF; border-radius: 14px; padding: 17px 15px; text-align: left; color: var(--foreground); }
+.sim-choices strong { font-size: 14px; display: block; }
+.sim-choices span { display: block; font-size: 11px; color: var(--secondary); margin-top: 6px; line-height: 1.5; }
+.sim-choices button:not(:disabled):hover { border-color: #69B9FF; background: #EAF6FF; }
+.sim-choices button:disabled { opacity: .6; }
+.sim-feedback, .sim-finish { text-align: center; }
+.sim-feedback > img, .sim-finish > img { display: block; width: 128px; height: 161px; margin: 0 auto 20px; }
+.sim-feedback .app-button, .sim-finish .app-button { margin-top: 24px; width: 100%; }
+.sim-history { display: grid; gap: 13px; margin-top: 23px; text-align: left; }
+.sim-history > div { display: flex; align-items: center; gap: 9px; font-size: 12px; color: var(--secondary); }
+.sim-history svg { color: var(--blue-ink); }
+.screen-note { color: var(--secondary); font-size: 11px; line-height: 1.7; text-align: center; margin-top: 24px !important; }
+.profile-card { padding: 27px 24px; text-align: center; }
+.profile-badge { position: relative; width: 100px; height: 102px; margin: 0 auto 18px; background: #EAF6FF; border-radius: 30px; }
+.profile-badge img { width: 90px; height: 90px; margin: 1px auto; }
+.profile-badge > span { position: absolute; bottom: -5px; left: 7px; right: 7px; display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 9px; border: 3px solid white; background: #69B9FF; }
+.profile-card h2 { font-size: 28px; }
+.profile-card > p { font-size: 12px; color: var(--secondary); margin-top: 6px; }
+.profile-level { display: flex; justify-content: space-between; gap: 10px; font-size: 11px; color: var(--secondary); margin: 27px 0 10px; }
+.profile-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin: 26px 0 31px; }
+.profile-stats > div { display: flex; align-items: center; flex-direction: column; gap: 6px; }
+.profile-stats > div + div { border-left: 1px solid var(--border); }
+.profile-stats svg { color: #378FE5; }
+.profile-stats strong { font-size: 23px; font-weight: 800; letter-spacing: -.7px; }
+.profile-stats span { color: var(--secondary); font-size: 9px; }
+.achievement-list { padding: 8px 15px; }
+.achievement { display: flex; align-items: center; gap: 12px; padding: 15px 0; }
+.achievement + .achievement { border-top: 1px solid #EDF2F8; }
+.achievement > div { flex: 1; }
+.achievement strong { font-size: 14px; }
+.achievement p { color: var(--secondary); font-size: 11px; line-height: 1.5; margin-top: 4px; }
+.achievement.unlocked > svg { color: var(--blue-ink); }
+.achievement.locked .icon-tile { background: #F1F4F7; color: #8996A6; }
+.achievement.locked strong, .achievement.locked > svg { color: #5D6D82; }
+.about-link { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 12px; color: var(--blue-ink); margin-top: 20px; }
+.app-loading { padding: 40px; text-align: center; color: var(--secondary); }
+.salary-lesson { width: min(560px, calc(100% - 40px)); }
+.salary-lesson .button { font-family: var(--font-finly), sans-serif; border-radius: 14px; font-weight: 700; box-shadow: none; }
+.salary-lesson .lesson-answer, .salary-lesson .lesson-highlight, .salary-lesson .lesson-estimate { border-radius: 16px; }
+.salary-lesson .lesson-answer { border-width: 1px; box-shadow: 0 6px 20px rgba(20,70,110,.025); }
+.salary-lesson .lesson-label { color: var(--blue-ink); }
+.salary-lesson .lesson-guide { border: 1px solid var(--border); padding: 12px; border-radius: 16px; background: white; font-size: 13px; }
+.salary-lesson .lesson-guide-mascot { width: 44px; height: 44px; }
+.salary-lesson .lesson-milestone-mascot { width: 42px; height: 42px; }
+.salary-lesson .lesson-finish-mascot { width: 150px; height: 175px; }
+.feedback-fini { width: 42px; height: 42px; object-fit: contain; }
+.quick-finish-fini { display: block; width: 150px; height: 189px; margin: 0 auto 24px; }
+.quick-lesson .app-button { width: 100%; }
+.salary-lesson .lesson-feedback-title { min-height: 42px; }
+@keyframes app-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (min-width: 900px) {
+  .desktop-brand { display: flex; width: min(800px, calc(100% - 64px)); margin: 28px auto 0; align-items: center; gap: 14px; }
+  .desktop-brand > span { font-size: 11px; color: var(--secondary); border-left: 1px solid var(--border); padding-left: 14px; }
+  .app-content { padding-top: 33px; }
+  .tab-home .app-content { width: min(800px, calc(100% - 64px)); }
+  .tab-home .app-greeting h1 { font-size: 36px; }
+  .tab-home .profile-avatar { width: 58px; height: 58px; }
+  .home-layout { display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+  .home-secondary { margin-top: 32px; gap: 18px; }
+  .continue-fini { width: 190px; height: 239px; right: -2px; top: 11px; }
+  .continue-card { padding: 26px; }
+  .continue-card h2 { font-size: 36px; }
+  .continue-copy > p { font-size: 14px; }
+  .continue-bottom { padding-top: 27px; }
+  .daily-card { padding: 21px; }
+  .daily-card h3 { font-size: 27px; }
+  .daily-card > p { margin-top: 18px; }
+  .challenge-answers { margin-top: 22px; }
+  .bottom-nav { left: 50%; right: auto; bottom: 20px; transform: translateX(-50%); width: 520px; border: 1px solid var(--border); border-radius: 20px; padding: 10px 20px; box-shadow: 0 6px 25px rgba(20,70,110,.06); }
+  .home-footer { margin-top: 30px !important; }
+  .salary-lesson { padding-top: 35px; }
+}
+@media (max-width: 390px) {
+  .app-content { width: calc(100% - 36px); }
+  .finly-app h1 { font-size: 30px; }
+  .continue-card { padding: 21px; }
+  .continue-card h2 { font-size: 29px; }
+  .continue-fini { width: 148px; height: 186px; right: -18px; top: 40px; }
+  .continue-copy > p { max-width: 180px; font-size: 12px; }
+  .continue-bottom { gap: 13px; }
+  .continue-bottom .app-button { padding-inline: 11px; font-size: 11px; }
+  .card-kicker .tiny-tag { display: none; }
+  .course-card { padding: 14px; }
+  .course-card h3 { font-size: 15px; }
+  .soon-tag { right: 7px; font-size: 9px; padding-inline: 4px; }
+  .profile-stats strong { font-size: 21px; }
+}
+@media (max-width: 350px) {
+  .status-row { gap: 5px; }
+  .status-row > span { font-size: 10px; padding-inline: 8px; }
+  .finly-app h1 { font-size: 27px; }
+  .finly-app h2 { font-size: 19px; }
+  .continue-card h2 { font-size: 29px; }
+  .continue-fini { opacity: .95; width: 123px; right: -16px; }
+  .continue-copy > p { max-width: 160px; }
+  .continue-progress > div:first-child { font-size: 9px; }
+  .profile-stats span { font-size: 8px; }
+  .course-grid { gap: 9px; }
+  .course-card h3 { font-size: 14px; }
+  .course-card p { font-size: 11px; }
+  .sim-goal > div:first-child { font-size: 10px; }
+  .swipe-hint { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .finly-app *, .salary-lesson * { animation: none !important; transition: none !important; } }

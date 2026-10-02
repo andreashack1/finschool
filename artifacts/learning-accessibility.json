@@ -1,0 +1,92 @@
+[
+  {
+    "width": 375,
+    "label": "/",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "/lectii",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "/lectii/primul-job",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "/lectii/economia-pe-scurt",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "/?tab=profile",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "/?tab=simulator",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "player intro",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "player four answers",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "player wrong + correct revealed",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "/",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "/lectii",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "/lectii/primul-job",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "/lectii/economia-pe-scurt",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "/?tab=profile",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "/?tab=simulator",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "player intro",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "player four answers",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "player wrong + correct revealed",
+    "violations": []
+  }
+]

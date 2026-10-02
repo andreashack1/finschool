@@ -1,0 +1,30 @@
+[
+  {
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "lesson": true,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "feedback": true,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "lesson": true,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "feedback": true,
+    "violations": []
+  }
+]

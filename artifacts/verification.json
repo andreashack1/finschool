@@ -1,0 +1,62 @@
+[
+  {
+    "width": 1440,
+    "viewport": 1440,
+    "documentWidth": 1440,
+    "headingSize": "69.84px",
+    "headingFamily": "\"Bricolage Grotesque\", \"Bricolage Grotesque Fallback\", sans-serif",
+    "imageLoaded": true,
+    "missingAnchors": [],
+    "overflowElements": [],
+    "errors": [],
+    "interactions": "passed"
+  },
+  {
+    "width": 1024,
+    "viewport": 1024,
+    "documentWidth": 1024,
+    "headingSize": "54.272px",
+    "headingFamily": "\"Bricolage Grotesque\", \"Bricolage Grotesque Fallback\", sans-serif",
+    "imageLoaded": true,
+    "missingAnchors": [],
+    "overflowElements": [],
+    "errors": [],
+    "interactions": "passed"
+  },
+  {
+    "width": 768,
+    "viewport": 768,
+    "documentWidth": 768,
+    "headingSize": "59.904px",
+    "headingFamily": "\"Bricolage Grotesque\", \"Bricolage Grotesque Fallback\", sans-serif",
+    "imageLoaded": true,
+    "missingAnchors": [],
+    "overflowElements": [],
+    "errors": [],
+    "interactions": "passed"
+  },
+  {
+    "width": 390,
+    "viewport": 390,
+    "documentWidth": 390,
+    "headingSize": "41.34px",
+    "headingFamily": "\"Bricolage Grotesque\", \"Bricolage Grotesque Fallback\", sans-serif",
+    "imageLoaded": true,
+    "missingAnchors": [],
+    "overflowElements": [],
+    "errors": [],
+    "interactions": "passed"
+  },
+  {
+    "width": 320,
+    "viewport": 320,
+    "documentWidth": 320,
+    "headingSize": "35px",
+    "headingFamily": "\"Bricolage Grotesque\", \"Bricolage Grotesque Fallback\", sans-serif",
+    "imageLoaded": true,
+    "missingAnchors": [],
+    "overflowElements": [],
+    "errors": [],
+    "interactions": "passed"
+  }
+]

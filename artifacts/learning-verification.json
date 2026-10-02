@@ -1,0 +1,45 @@
+{
+  "results": [
+    {
+      "width": 375,
+      "salary": "correct + all wrong + retake",
+      "inflation": "complete",
+      "progress": "0 → 100",
+      "xp": "no duplicate",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "salary": "correct + all wrong + retake",
+      "inflation": "complete",
+      "progress": "0 → 100",
+      "xp": "no duplicate",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "salary": "correct + all wrong + retake",
+      "inflation": "complete",
+      "progress": "0 → 100",
+      "xp": "no duplicate",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "salary": "correct + all wrong + retake",
+      "inflation": "complete",
+      "progress": "0 → 100",
+      "xp": "no duplicate",
+      "overflow": false
+    }
+  ],
+  "storage": [
+    "empty",
+    "corrupted",
+    "blocked",
+    "quota"
+  ],
+  "readyLessons": 4,
+  "activeReady": 2,
+  "errors": []
+}

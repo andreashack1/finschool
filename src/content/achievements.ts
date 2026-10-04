@@ -2,36 +2,43 @@ import { z } from "zod";
 import { categories } from "./categories";
 import { getLessonById } from "./lessons";
 export const AchievementIconSchema = z.enum(["Footprints", "Flame", "CalendarCheck", "Trophy", "PiggyBank", "ShieldCheck", "WalletCards", "BriefcaseBusiness"]);
-export const AchievementConditionSchema = z.discriminatedUnion("type", [
-  z.object({ type: z.literal("completed-lessons"), count: z.number().int().positive() }),
-  z.object({ type: z.literal("longest-streak"), days: z.number().int().positive() }),
-  z.object({ type: z.literal("total-xp"), xp: z.number().int().positive() }),
-  z.object({ type: z.literal("simulator"), simulatorId: z.string().min(1) }),
-  z.object({ type: z.literal("category-correct"), categoryId: z.string().min(1), count: z.number().int().positive() }),
-  z.object({ type: z.literal("lesson"), lessonId: z.string().min(1) }),
-  z.object({ type: z.literal("chapter"), categoryId: z.string().min(1), chapterId: z.string().min(1) }),
-]);
-export const AchievementSchema = z.object({ id: z.string().min(1), title: z.string().min(1), description: z.string().min(1), icon: AchievementIconSchema, condition: AchievementConditionSchema });
+export const AchievementConditionSchema = z.object({ type: z.enum(["completed-lessons", "perfect-lessons", "specialist", "longest-streak", "daily-goals", "total-xp", "daily-answers", "daily-correct", "category", "chapter", "lesson", "simulator"]), target: z.number().int().positive(), refId: z.string().min(1).optional(), categoryId: z.string().min(1).optional() });
+export const AchievementSchema = z.object({ id: z.string().min(1), title: z.string().min(1), description: z.string().min(1), icon: AchievementIconSchema, group: z.enum(["Învățare", "Consecvență", "XP", "Provocări", "Subiecte", "Simulator"]), condition: AchievementConditionSchema });
 export function validateAchievements(value: unknown) {
-  const parsed = AchievementSchema.array().length(8).parse(value);
+  const parsed = AchievementSchema.array().length(21).parse(value);
   if (new Set(parsed.map(a => a.id)).size !== parsed.length) throw new Error("Duplicate achievement ID");
   for (const a of parsed) {
     const c = a.condition;
-    if (c.type === "lesson" && !getLessonById(c.lessonId)) throw new Error(`Achievement "${a.id}" references missing lesson "${c.lessonId}"`);
-    if (c.type === "chapter" && !categories.find(category => category.id === c.categoryId)?.chapters.some(ch => ch.id === c.chapterId)) throw new Error(`Achievement "${a.id}" references missing chapter`);
-    if (c.type === "category-correct" && !categories.some(category => category.id === c.categoryId)) throw new Error(`Achievement "${a.id}" references missing category`);
+    if (c.type === "lesson" && !getLessonById(c.refId!)) throw new Error(`Achievement ${a.id}: missing lesson`);
+    if (c.type === "category" && !categories.some(x => x.id === c.refId)) throw new Error(`Achievement ${a.id}: missing category`);
+    if (c.type === "chapter" && !categories.find(x => x.id === c.categoryId)?.chapters.some(x => x.id === c.refId)) throw new Error(`Achievement ${a.id}: missing chapter`);
   }
   return parsed;
 }
-export const achievements = validateAchievements([
-  { id: "first-step", title: "Primul pas", description: "Termină prima lecție.", icon: "Footprints", condition: { type: "completed-lessons", count: 1 } },
-  { id: "focused", title: "Concentrat", description: "Ajungi la un streak de 7 zile.", icon: "Flame", condition: { type: "longest-streak", days: 7 } },
-  { id: "consistent", title: "Consecvent", description: "Ajungi la un streak de 30 de zile.", icon: "CalendarCheck", condition: { type: "longest-streak", days: 30 } },
-  { id: "xp-1000", title: "Club 1000 XP", description: "Strânge 1.000 XP.", icon: "Trophy", condition: { type: "total-xp", xp: 1000 } },
-  { id: "first-month", title: "Prima lună", description: "Termină simulatorul pentru prima dată.", icon: "PiggyBank", condition: { type: "simulator", simulatorId: "simulator" } },
-  { id: "trained-eye", title: "Ochi format", description: "Răspunde corect la 5 întrebări din categoria «Nu te lăsa păcălit».", icon: "ShieldCheck", condition: { type: "category-correct", categoryId: "siguranta-financiara", count: 5 } },
-  { id: "budget-ready", title: "Buget gata", description: "Termină lecția «Primul tău buget».", icon: "WalletCards", condition: { type: "lesson", lessonId: "primul-buget" } },
-  { id: "first-pay", title: "Prima plată", description: "Termină toate lecțiile disponibile din capitolul «Salariul».", icon: "BriefcaseBusiness", condition: { type: "chapter", categoryId: "primul-job", chapterId: "salariul" } },
-]);
+type Entry = [string, string, string, z.infer<typeof AchievementIconSchema>, z.infer<typeof AchievementSchema>["group"], z.infer<typeof AchievementConditionSchema>];
+const entries: Entry[] = [
+  ["first-step", "Primul pas", "Termină prima lecție.", "Footprints", "Învățare", { type: "completed-lessons", target: 1 }],
+  ["serious-student", "Elev serios", "Termină 5 lecții.", "BriefcaseBusiness", "Învățare", { type: "completed-lessons", target: 5 }],
+  ["passionate", "Pasionat", "Termină 15 lecții.", "Trophy", "Învățare", { type: "completed-lessons", target: 15 }],
+  ["perfectionist", "Perfecționist", "Termină o lecție cu toate răspunsurile corecte din prima.", "Trophy", "Învățare", { type: "perfect-lessons", target: 1 }],
+  ["three-perfect", "Trei de zece", "Termină perfect 3 lecții diferite.", "Trophy", "Învățare", { type: "perfect-lessons", target: 3 }],
+  ["specialist", "Specialist", "Termină toate lecțiile disponibile dintr-o categorie cu minimum 3 lecții gata.", "ShieldCheck", "Învățare", { type: "specialist", target: 1 }],
+  ["three-days", "Trei zile la rând", "Adună 3 zile active într-un streak.", "Flame", "Consecvență", { type: "longest-streak", target: 3 }],
+  ["focused", "Concentrat", "Adună 7 zile active într-un streak.", "Flame", "Consecvență", { type: "longest-streak", target: 7 }],
+  ["consistent", "Consecvent", "Adună 30 de zile active într-un streak.", "CalendarCheck", "Consecvență", { type: "longest-streak", target: 30 }],
+  ["daily-goals-seven", "Obiectiv în mână", "Atinge obiectivul zilnic în 7 zile diferite.", "CalendarCheck", "Consecvență", { type: "daily-goals", target: 7 }],
+  ["xp-100", "100 XP", "Strânge 100 XP din activități.", "Trophy", "XP", { type: "total-xp", target: 100 }],
+  ["xp-500", "500 XP", "Strânge 500 XP din activități.", "Trophy", "XP", { type: "total-xp", target: 500 }],
+  ["xp-1000", "Club 1000 XP", "Strânge 1.000 XP din activități.", "Trophy", "XP", { type: "total-xp", target: 1000 }],
+  ["xp-2500", "2500 XP", "Strânge 2.500 XP din activități.", "Trophy", "XP", { type: "total-xp", target: 2500 }],
+  ["first-challenge", "Prima provocare", "Răspunde la prima provocare a zilei.", "Footprints", "Provocări", { type: "daily-answers", target: 1 }],
+  ["ten-challenges", "10 provocări corecte", "Răspunde corect la provocări în 10 zile diferite.", "CalendarCheck", "Provocări", { type: "daily-correct", target: 10 }],
+  ["trained-eye", "Ochi format", "Termină toate lecțiile disponibile din «Nu te lăsa păcălit».", "ShieldCheck", "Subiecte", { type: "category", target: 1, refId: "siguranta-financiara" }],
+  ["budget-ready", "Buget gata", "Termină lecția «Primul tău buget».", "WalletCards", "Subiecte", { type: "lesson", target: 1, refId: "primul-buget" }],
+  ["first-pay", "Prima plată", "Termină toate lecțiile disponibile din capitolul «Salariul».", "BriefcaseBusiness", "Subiecte", { type: "chapter", target: 1, refId: "salariul", categoryId: "primul-job" }],
+  ["calm-credit", "Calm la credit", "Termină lecția «Scorul de credit».", "WalletCards", "Subiecte", { type: "lesson", target: 1, refId: "scorul-de-credit" }],
+  ["first-month", "Prima lună", "Termină simulatorul pentru prima dată.", "PiggyBank", "Simulator", { type: "simulator", target: 1, refId: "simulator" }],
+];
+export const achievements = validateAchievements(entries.map(([id, title, description, icon, group, condition]) => ({ id, title, description, icon, group, condition })));
 export type Achievement = z.infer<typeof AchievementSchema>;
 export type AchievementIcon = z.infer<typeof AchievementIconSchema>;

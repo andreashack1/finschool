@@ -12,8 +12,8 @@ import { useLearningProgress } from "@/src/lib/use-learning-progress";
 import { categoryProgress, progressFor } from "@/src/lib/learning-progress";
 import { CategoriesView, CategoryView, categoryIcons, difficultyLabels } from "./components/learning-ui";
 import { initialSimulation, getCurrentLevel, getLevelProgress, calculateStreak, useSavedProgress, updateSimulation } from "./lib/progress";
-import { getTodayGoal, SIMULATOR_COMPLETION_XP } from "@/src/lib/progress";
-import { DailyChallengeCard as DailyChallenge, LevelProgress, FreezeIndicator, AchievementsList } from "./components/gamification-ui";
+import { getLessonRewardPreview, SIMULATOR_COMPLETION_XP } from "@/src/lib/progress";
+import { DailyChallengeCard as DailyChallenge, LevelProgress, FreezeIndicator, AchievementsList, DailyGoalRing, LastSevenDays, XpJournal, StreakChip } from "./components/gamification-ui";
 
 const homeCategories = ["primul-job", "carduri-si-banca", "bani-de-zi-cu-zi", "siguranta-financiara", "economia-pe-scurt"].flatMap(id => { const category = getCategory(id); return category ? [category] : []; });
 const tabs = [{ id: "home", title: "Acasă", icon: Home }, { id: "learn", title: "Lecții", icon: BookOpen }, { id: "simulator", title: "Simulator", icon: Gamepad2 }, { id: "profile", title: "Profil", icon: UserRound }];
@@ -29,7 +29,7 @@ function ContinueLesson({ compact = false }: { compact?: boolean }) {
   const Icon = category ? categoryIcons[category.icon] : Check;
   const progress = category ? categoryProgress(category.id, p.completedLessonIds).percentage : progressFor(getReadyLessons(), p.completedLessonIds).percentage;
   return <article className={`continue-card ${compact ? "compact" : ""}`}>
-    <div className="continue-copy"><div className="card-kicker"><Icon size={14}/> {category?.title.toLocaleUpperCase("ro-RO") ?? "PAS CU PAS"} {category && <span className="tiny-tag">{difficultyLabels[category.difficulty]}</span>}</div><h2>{lesson?.title ?? "Ai terminat toate lecțiile disponibile."}</h2><p>{lesson?.description ?? "Mai multe vin în curând."}</p>{lesson && <div className="lesson-meta"><span><Clock3 size={14}/> {lesson.minutes} min</span><span><Zap size={14}/> +{lesson.xp} XP</span></div>}</div>
+    <div className="continue-copy"><div className="card-kicker"><Icon size={14}/> {category?.title.toLocaleUpperCase("ro-RO") ?? "PAS CU PAS"} {category && <span className="tiny-tag">{difficultyLabels[category.difficulty]}</span>}</div><h2>{lesson?.title ?? "Ai terminat toate lecțiile disponibile."}</h2><p>{lesson?.description ?? "Mai multe vin în curând."}</p>{lesson && <div className="lesson-meta"><span><Clock3 size={14}/> {lesson.minutes} min</span><span><Zap size={14}/> Până la {getLessonRewardPreview(lesson)} XP</span></div>}</div>
     <FinlyMascot className="continue-fini" framing="bust" mood={lesson ? "normal" : "excited"} priority/>
     <div className="continue-bottom"><div className="continue-progress"><div><span>{lesson ? "Progresul categoriei" : "Gata. Ai prins ideea."}</span><strong>{progress}%</strong></div><ProgressBar value={progress} label={`Progres ${category?.title ?? "lecții disponibile"}`}/></div><Link className="app-button" href={lesson ? `/lectie/${lesson.slug}` : "/lectii"}>{lesson ? lesson.id === p.lastLessonId ? "Continuă" : "Hai să începem" : "Vezi lecțiile"}<ArrowRight size={18}/></Link></div>
   </article>;
@@ -47,9 +47,9 @@ function QuickLessons() {
 function HomeScreen({ explore }: { explore: (id: string) => void }) {
   const p = useSavedProgress();
   if (!p.hydrated || !p.todayKey) return <div className="app-loading" aria-busy="true">Progresul tău se pregătește…</div>;
-  const level = getCurrentLevel(p.totalXp), streak = calculateStreak(p, p.todayKey), goal = getTodayGoal(p, p.todayKey);
+  const level = getCurrentLevel(p.totalXp), streak = calculateStreak(p, p.todayKey);
   return <><header className="app-greeting"><div><p>Bună, Andrei <span className="greeting-dot"/></p><h1>Ce învățăm azi?</h1></div><Link className="profile-avatar" href="/?tab=profile" aria-label="Deschide profilul"><FinlyMascot framing="head"/><span>{level.level}</span></Link></header>
-    <div className="status-row"><span><Flame size={16}/> {streak.current} zile</span><span><Zap size={16}/> {p.totalXp} XP</span><span><Sparkles size={15}/> Nivel {level.level}</span><span><Check size={15}/> {goal.current ? "1 activitate azi ✓" : "0/1 activitate azi"}</span></div><LevelProgress totalXp={p.totalXp}/><FreezeIndicator progress={p} today={p.todayKey}/>
+    <div className="status-row"><StreakChip current={streak.current}/><span><Zap size={16}/> {p.totalXp} XP</span><span><Sparkles size={15}/> Nivel {level.level}</span><FreezeIndicator progress={p} today={p.todayKey}/></div>{streak.current === 0 && streak.longest > 0 && <p className="screen-note">Hai să o luăm de la capăt.</p>}<LevelProgress totalXp={p.totalXp}/><DailyGoalRing progress={p} today={p.todayKey}/>
     <div className="home-layout"><div className="home-primary"><div className="section-top section-label"><h2>Un pas mai departe</h2><span>ÎN RITMUL TĂU</span></div><ContinueLesson/>
       <section className="explore-section"><div className="section-top"><h2>Ce vrei să înțelegi?</h2><span className="swipe-hint">Explorează <ArrowRight size={13}/></span></div><div className="category-scroll">{homeCategories.map(({ id, title, icon }) => { const Icon = categoryIcons[icon]; return <button className={`category-tile cat-${id}`} key={id} onClick={() => explore(id)}><Icon size={24}/><span>{title === "Carduri & bancă" ? "Carduri" : title === "Siguranță financiară" ? "Siguranță" : title === "Bani de zi cu zi" ? "Banii tăi" : title}</span></button>; })}</div></section>
       <section className="quick-section"><div className="section-top"><h2>Învață în 5 minute</h2><span className="tiny-tag">Mic, dar util</span></div><QuickLessons/></section>
@@ -99,7 +99,7 @@ function ProfileScreen() {
   const p = useSavedProgress();
   if (!p.hydrated || !p.todayKey) return <div className="app-loading" aria-busy="true">Pregătim progresul tău…</div>;
   const level = getLevelProgress(p.totalXp), streak = calculateStreak(p, p.todayKey);
-  return <><header className="screen-heading"><p>Fiecare pas se adună.</p><h1>Progresul tău.</h1></header><section className="profile-card app-card"><div className="profile-badge"><FinlyMascot framing="head" mood="normal"/><span><Sparkles size={14}/> Nivel {level.current.level}</span></div><h2>Andrei</h2><p>{level.current.title}</p><div className="profile-level"><span>{level.isMax ? "Nivel maxim" : `Nivel ${level.current.level}`}</span><span>{level.isMax ? "Money Master" : `${level.remainingXp} XP până la nivelul ${level.next!.level}`}</span></div><ProgressBar value={level.percent} label="Progres către nivelul următor"/></section><div className="profile-stats">{[{ icon: Zap, value: p.totalXp, label: "XP total" }, { icon: Flame, value: streak.current, label: "zile streak" }, { icon: BookOpen, value: p.completedLessonIds.length, label: "lecții terminate" }, { icon: Trophy, value: streak.longest, label: "zile record" }].map(({ icon: Icon, value, label }) => <div key={label}><Icon size={19}/><strong>{value}</strong><span>{label}</span></div>)}</div><FreezeIndicator progress={p} today={p.todayKey}/><AchievementsList progress={p}/><p className="screen-note">Progresul se salvează pe acest dispozitiv.</p><Link className="about-link" href="/despre">Despre Finly <ArrowRight size={14}/></Link></>;
+  return <><header className="screen-heading"><p>Fiecare pas se adună.</p><h1>Progresul tău.</h1></header><section className="profile-card app-card"><div className="profile-badge"><FinlyMascot framing="head" mood="normal"/><span><Sparkles size={14}/> Nivel {level.current.level}</span></div><h2>Andrei</h2><p>{level.current.title}</p><div className="profile-level"><span>{level.isMax ? "Nivel maxim" : `Nivel ${level.current.level}`}</span><span>{level.isMax ? level.current.title : `${level.remainingXp} XP până la nivelul ${level.next!.level}`}</span></div><ProgressBar value={level.percent} label="Progres către nivelul următor"/><p>{level.isMax ? "Nivel maxim" : `${level.earned} / ${level.target} XP în acest nivel`}</p></section><div className="profile-stats">{[{ icon: Zap, value: p.totalXp, label: "XP total" }, { icon: Flame, value: streak.current, label: "zile streak" }, { icon: BookOpen, value: p.completedLessonIds.length, label: "lecții terminate" }, { icon: Trophy, value: streak.longest, label: "zile record" }].map(({ icon: Icon, value, label }) => <div key={label}><Icon size={19}/><strong>{value}</strong><span>{label}</span></div>)}</div><FreezeIndicator progress={p} today={p.todayKey}/><LastSevenDays progress={p} today={p.todayKey}/><AchievementsList progress={p}/><XpJournal progress={p}/><p className="screen-note">Progresul se salvează pe acest dispozitiv.</p><Link className="about-link" href="/despre">Despre Finly <ArrowRight size={14}/></Link></>;
 }
 
 function FinlyApp() {
@@ -113,3 +113,6 @@ function FinlyApp() {
   </main><nav className="bottom-nav" aria-label="Navigare principală">{tabs.map(({ id, title, icon: Icon }) => <Link key={id} href={id === "home" ? "/" : id === "learn" ? "/lectii" : `/?tab=${id}`} aria-current={tab === id ? "page" : undefined} className={tab === id ? "active" : ""}><span><Icon size={21} strokeWidth={tab === id ? 2.3 : 1.8}/></span><strong>{title}</strong></Link>)}</nav></div>;
 }
 export default function Page() { return <Suspense fallback={<div className="app-loading">Finly se pregătește…</div>}><FinlyApp/></Suspense>; }
+
+
+

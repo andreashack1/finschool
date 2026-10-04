@@ -1,3 +1,4 @@
+import { DevelopmentTools } from "./components/development-tools";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
@@ -32,7 +33,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="ro"
       className={`${geistSans.variable} ${geistMono.variable} ${bricolageGrotesque.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}<GamificationMoments/></body>
+      <body className="min-h-full flex flex-col">{children}<GamificationMoments/><DevelopmentTools/></body>
     </html>
   );
 }
+

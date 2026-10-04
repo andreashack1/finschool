@@ -1,0 +1,242 @@
+{
+  "storageVersion": 2,
+  "canonicalKey": "finly-progress-v2",
+  "oldTestDataResetsOnce": true,
+  "freshUser": {
+    "xp": 0,
+    "level": 1,
+    "title": "Money Beginner",
+    "freeze": 1
+  },
+  "xpEconomy": {
+    "lesson_question_first_try": {
+      "xp": 4,
+      "countsTowardDailyGoal": true,
+      "countsTowardEarnedXp": true
+    },
+    "lesson_completion": {
+      "xp": 20,
+      "countsTowardDailyGoal": true,
+      "countsTowardEarnedXp": true
+    },
+    "lesson_perfect": {
+      "xp": 15,
+      "countsTowardDailyGoal": true,
+      "countsTowardEarnedXp": true
+    },
+    "lesson_replay_improvement": {
+      "xp": 0,
+      "countsTowardDailyGoal": true,
+      "countsTowardEarnedXp": true
+    },
+    "daily_challenge_correct": {
+      "xp": 15,
+      "countsTowardDailyGoal": true,
+      "countsTowardEarnedXp": true
+    },
+    "daily_goal_bonus": {
+      "xp": 10,
+      "countsTowardDailyGoal": false,
+      "countsTowardEarnedXp": true
+    },
+    "streak_milestone": {
+      "xp": 0,
+      "countsTowardDailyGoal": false,
+      "countsTowardEarnedXp": true
+    },
+    "simulator_completion": {
+      "xp": 100,
+      "countsTowardDailyGoal": false,
+      "countsTowardEarnedXp": true
+    },
+    "debug_adjustment": {
+      "xp": 0,
+      "countsTowardDailyGoal": false,
+      "countsTowardEarnedXp": false
+    }
+  },
+  "replayCap": 10,
+  "levels": [
+    {
+      "level": 1,
+      "title": "Money Beginner",
+      "minXp": 0
+    },
+    {
+      "level": 2,
+      "title": "Budget Rookie",
+      "minXp": 150
+    },
+    {
+      "level": 3,
+      "title": "Money Explorer",
+      "minXp": 400
+    },
+    {
+      "level": 4,
+      "title": "Money Smart",
+      "minXp": 800
+    },
+    {
+      "level": 5,
+      "title": "Budget Builder",
+      "minXp": 1400
+    },
+    {
+      "level": 6,
+      "title": "Finance Pro",
+      "minXp": 2200
+    },
+    {
+      "level": 7,
+      "title": "Money Master",
+      "minXp": 3200
+    },
+    {
+      "level": 8,
+      "title": "Money Mentor",
+      "minXp": 4500
+    }
+  ],
+  "streakMilestones": [
+    {
+      "days": 3,
+      "xp": 25
+    },
+    {
+      "days": 7,
+      "xp": 75
+    },
+    {
+      "days": 14,
+      "xp": 150
+    },
+    {
+      "days": 30,
+      "xp": 300
+    }
+  ],
+  "freeze": {
+    "initialBalance": 1,
+    "weeklyGrant": 1,
+    "maxBalance": 2
+  },
+  "dailyGoalTarget": 50,
+  "dailyChallengeCount": 40,
+  "achievementCount": 21,
+  "tests": {
+    "vitest": 103,
+    "passed": true,
+    "contentIntegrity": true,
+    "curriculumValidation": true
+  },
+  "browser": {
+    "results": [
+      {
+        "width": 375,
+        "resetV2": true,
+        "lessonFirst": 48,
+        "dailyAction": 25,
+        "replayImprovement": 8,
+        "simulatorOnce": 100,
+        "finalXp": 181,
+        "pendingOnly": true,
+        "stableShuffleAndCase": true,
+        "reloadNoDuplicate": true,
+        "accessibilityViolations": 0
+      },
+      {
+        "width": 390,
+        "resetV2": true,
+        "lessonFirst": 48,
+        "dailyAction": 25,
+        "replayImprovement": 8,
+        "simulatorOnce": 100,
+        "finalXp": 181,
+        "pendingOnly": true,
+        "stableShuffleAndCase": true,
+        "reloadNoDuplicate": true,
+        "accessibilityViolations": 0
+      },
+      {
+        "width": 430,
+        "resetV2": true,
+        "lessonFirst": 48,
+        "dailyAction": 25,
+        "replayImprovement": 8,
+        "simulatorOnce": 100,
+        "finalXp": 181,
+        "pendingOnly": true,
+        "stableShuffleAndCase": true,
+        "reloadNoDuplicate": true,
+        "accessibilityViolations": 0
+      },
+      {
+        "width": 1440,
+        "resetV2": true,
+        "lessonFirst": 48,
+        "dailyAction": 25,
+        "replayImprovement": 8,
+        "simulatorOnce": 100,
+        "finalXp": 181,
+        "pendingOnly": true,
+        "stableShuffleAndCase": true,
+        "reloadNoDuplicate": true,
+        "accessibilityViolations": 0
+      }
+    ],
+    "errors": [],
+    "perfectFirstWithGoal": 81,
+    "futureVersionPreserved": true
+  },
+  "moments": {
+    "results": [
+      {
+        "width": 375,
+        "multiLevelOneDialog": true,
+        "focusAndEscape": true,
+        "notificationNoRepeat": true,
+        "freezeDayAndBalance": true,
+        "noOverflow": true
+      },
+      {
+        "width": 390,
+        "multiLevelOneDialog": true,
+        "focusAndEscape": true,
+        "notificationNoRepeat": true,
+        "freezeDayAndBalance": true,
+        "noOverflow": true
+      },
+      {
+        "width": 430,
+        "multiLevelOneDialog": true,
+        "focusAndEscape": true,
+        "notificationNoRepeat": true,
+        "freezeDayAndBalance": true,
+        "noOverflow": true
+      },
+      {
+        "width": 1440,
+        "multiLevelOneDialog": true,
+        "focusAndEscape": true,
+        "notificationNoRepeat": true,
+        "freezeDayAndBalance": true,
+        "noOverflow": true
+      }
+    ],
+    "errors": []
+  },
+  "development": {
+    "reset": true,
+    "virtualDateAndReset": true,
+    "debugExclusions": true,
+    "levelUp": true,
+    "completeLessonUsesDomain": true,
+    "errors": []
+  },
+  "lint": "passed",
+  "productionBuild": "passed",
+  "productionDevPanelExcluded": true,
+  "lessonContentAndIdsUnchanged": true,
+  "landingUnchanged": true
+}

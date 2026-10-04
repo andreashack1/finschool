@@ -1,4 +1,5 @@
 "use client";
+import { getLessonRewardPreview } from "@/src/lib/progress";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, BriefcaseBusiness, ChartNoAxesCombined, Check, ChevronRight, Clock3, CreditCard, Gamepad2, Home, LockKeyhole, PiggyBank, ShieldCheck, UserRound, WalletCards, Coins, House, Brain, Landmark, Store, TrendingUp } from "lucide-react";
 import { categories, getCategory } from "@/src/content/categories";
@@ -49,8 +50,9 @@ export function CategoryView({ slug }: { slug: string }) {
     return <section className="learning-chapter" key={chapter.id} id={chapter.id}><span className="block-kicker">CAPITOLUL {i + 1}</span><h2>{chapter.title}</h2><p>{cp.available ? `${cp.completed} din ${cp.available} terminate` : "În curând"}</p>{cp.available > 0 && <LearningProgressBar value={cp.percentage} label={`Progres ${chapter.title}`}/>}<div className="course-path">{getLessonsByChapter(chapter.id, category.id).map(lesson => {
       const state = lessonState(lesson, p.completedLessonIds);
       const interactive = state === "completed" || state === "current";
-      const body = <><span className="path-number">{state === "completed" ? <Check size={19}/> : state === "current" ? <BookOpen size={18}/> : state === "locked" ? <LockKeyhole size={16}/> : <Clock3 size={16}/>}</span><div><strong>{lesson.title}</strong><span>{state === "completed" ? "Terminată · Reia" : state === "current" ? lesson.id === p.lastLessonId ? "Gata · Continuă" : "Gata · Începe" : state === "locked" ? "Termină lecția anterioară" : "În curând"} · {lesson.minutes} min · +{lesson.xp} XP</span></div>{interactive && <ChevronRight size={19}/>}</>;
+      const body = <><span className="path-number">{state === "completed" ? <Check size={19}/> : state === "current" ? <BookOpen size={18}/> : state === "locked" ? <LockKeyhole size={16}/> : <Clock3 size={16}/>}</span><div><strong>{lesson.title}</strong><span>{state === "completed" ? "Terminată · Reia" : state === "current" ? lesson.id === p.lastLessonId ? "Gata · Continuă" : "Gata · Începe" : state === "locked" ? "Termină lecția anterioară" : "În curând"} · {lesson.minutes} min · {lesson.status === "ready" ? `Până la ${getLessonRewardPreview(lesson)} XP` : "În curând"}</span></div>{interactive && <ChevronRight size={19}/>}</>;
       return interactive ? <Link className={`path-row ${state}`} href={`/lectie/${lesson.slug}`} key={lesson.id} data-state={state}>{body}</Link> : <div className={`path-row locked ${state}`} key={lesson.id} data-state={state}>{body}</div>;
     })}</div></section>;
   })}</>;
 }
+

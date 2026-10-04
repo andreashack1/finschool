@@ -1,12 +1,3 @@
-// Compatibility helpers for old content/routes. All storage I/O lives in progress.ts.
-import type { LearningProgress } from "../types/learning";
-export { legacyLessonIds } from "./progress";
-export const LEARNING_STORAGE_KEY = "finly-learning-progress-v1";
-export const emptyProgress = (): LearningProgress => ({ version: 1, completedLessonIds: [], lastLessonId: null, updatedAt: null });
-export function parseProgress(raw: string | null): LearningProgress {
-  try {
-    const value: unknown = raw ? JSON.parse(raw) : null;
-    if (!value || typeof value !== "object" || !("completedLessonIds" in value) || !Array.isArray(value.completedLessonIds)) return emptyProgress();
-    return { ...emptyProgress(), completedLessonIds: [...new Set(value.completedLessonIds.filter((id: unknown): id is string => typeof id === "string"))], lastLessonId: "lastLessonId" in value && typeof value.lastLessonId === "string" ? value.lastLessonId : null, updatedAt: "updatedAt" in value && typeof value.updatedAt === "string" ? value.updatedAt : null };
-  } catch { return emptyProgress(); }
-}
+// Stable old-URL aliases only. Progress v1 parsing and persistence were retired;
+// every UI now reads the canonical progress v2 engine.
+export const legacyLessonIds: Readonly<Record<string, string>> = { salary: "salariu-brut-vs-net", inflatie: "ce-este-inflatia", carduri: "card-debit-vs-credit", buget: "primul-buget" };

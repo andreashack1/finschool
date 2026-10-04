@@ -1,0 +1,8 @@
+{
+  "reset": true,
+  "virtualDateAndReset": true,
+  "debugExclusions": true,
+  "levelUp": true,
+  "completeLessonUsesDomain": true,
+  "errors": []
+}

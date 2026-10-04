@@ -1,0 +1,37 @@
+{
+  "results": [
+    {
+      "width": 375,
+      "multiLevelOneDialog": true,
+      "focusAndEscape": true,
+      "notificationNoRepeat": true,
+      "freezeDayAndBalance": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "multiLevelOneDialog": true,
+      "focusAndEscape": true,
+      "notificationNoRepeat": true,
+      "freezeDayAndBalance": true,
+      "noOverflow": true
+    },
+    {
+      "width": 430,
+      "multiLevelOneDialog": true,
+      "focusAndEscape": true,
+      "notificationNoRepeat": true,
+      "freezeDayAndBalance": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1440,
+      "multiLevelOneDialog": true,
+      "focusAndEscape": true,
+      "notificationNoRepeat": true,
+      "freezeDayAndBalance": true,
+      "noOverflow": true
+    }
+  ],
+  "errors": []
+}

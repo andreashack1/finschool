@@ -51,18 +51,20 @@ for (const lesson of lessons) {
     selectedOptionId: getDisplayOptions(screen, lesson.id, seed).find(option => option.id === engine.getCorrectAnswerId(screen)).id,
   }));
   const first = engine.completeLessonSession(engine.createEmptyProgress(), { lessonId: lesson.id, sessionId: 'one', answers: answers('one') }, now);
-  assert.equal(first.xpGained, lesson.xp + 20);
+  const firstBase = lesson.screens.filter(engine.isAnswerScreen).length * 4 + 20 + 15;
+  assert.equal(first.xpGained, firstBase + (firstBase >= 50 ? 10 : 0));
   const replay = engine.completeLessonSession(first.progress, { lessonId: lesson.id, sessionId: 'two', answers: answers('two') }, now);
   assert.equal(replay.xpGained, 0);
   assert.deepEqual(replay.progress.uniqueCorrectAnswers, first.progress.uniqueCorrectAnswers);
-  assert.deepEqual(replay.progress.completedLessonIds, first.progress.completedLessonIds);
-  assert.deepEqual(replay.progress.awardedRewardKeys, first.progress.awardedRewardKeys);
+  assert.deepEqual(engine.getCompletedLessonIds(replay.progress), engine.getCompletedLessonIds(first.progress));
+  assert.deepEqual(replay.progress.xp_events, first.progress.xp_events);
   const wrong = answers('wrong');
   const screen = lesson.screens.find(screen => screen.id === wrong[0].screenId);
   wrong[0].selectedOptionId = getDisplayOptions(screen, lesson.id, 'wrong').find(option => option.id !== engine.getCorrectAnswerId(screen)).id;
   const mistaken = engine.completeLessonSession(engine.createEmptyProgress(), { lessonId: lesson.id, sessionId: 'wrong', answers: wrong }, now);
-  assert.equal(mistaken.xpGained, lesson.xp);
-  assert.equal(engine.completeLessonSession(mistaken.progress, { lessonId: lesson.id, sessionId: 'later', answers: answers('later') }, now).xpGained, 20);
+  const mistakenBase = (lesson.screens.filter(engine.isAnswerScreen).length - 1) * 4 + 20;
+  assert.equal(mistaken.xpGained, mistakenBase + (mistakenBase >= 50 ? 10 : 0));
+  assert.equal(engine.completeLessonSession(mistaken.progress, { lessonId: lesson.id, sessionId: 'later', answers: answers('later') }, now).newEvents.filter(e => e.type === 'lesson_replay_improvement').reduce((sum, e) => sum + e.amount, 0), 4);
 }
 
 const input = Object.freeze(['a', 'b', 'c', 'd'].map(id => Object.freeze({ id })));
@@ -98,3 +100,4 @@ const report = lessons.map(lesson => {
 fs.writeFileSync('artifacts/answer-options-distribution.json', JSON.stringify(report, null, 2));
 console.log(JSON.stringify(report, null, 2));
 console.log('PASS: static balance, exact text/ID/metadata integrity, seeded shuffle stability, exclusions, immutability, first attempts, perfect/replay rewards and unique mastery.');
+

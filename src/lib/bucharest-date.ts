@@ -1,5 +1,5 @@
 const formatter = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Bucharest", year: "numeric", month: "2-digit", day: "2-digit" });
-export function getBucharestDateKey(date: Date = new Date()): string {
+export function getBucharestDateKey(date: Date): string {
   const parts = formatter.formatToParts(date);
   const value = (type: Intl.DateTimeFormatPartTypes) => parts.find(p => p.type === type)!.value;
   return `${value("year")}-${value("month")}-${value("day")}`;
@@ -21,3 +21,4 @@ export function getBucharestWeekKey(key: string): string {
   const week = Math.ceil(((date.getTime() - Date.UTC(year, 0, 1, 12)) / 86400000 + 1) / 7);
   return `${year}-W${String(week).padStart(2, "0")}`;
 }
+

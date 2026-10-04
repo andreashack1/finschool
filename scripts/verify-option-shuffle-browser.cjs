@@ -25,7 +25,7 @@ const errors = [], results = [];
         const progress = JSON.parse(await storage());
         // Existing achievement toasts mark themselves seen asynchronously;
         // this UI acknowledgement is unrelated to opening the case reader.
-        progress.achievements.seenToastIds = [];
+        progress.seenAchievementToastIds = [];
         return JSON.stringify(progress);
       };
       const rounds = [];
@@ -82,15 +82,15 @@ const errors = [], results = [];
           await page.locator('.lesson-continue').click();
         }
         const progress = JSON.parse(await storage());
-        assert.equal(progress.totalXp, round === 0 ? 30 : 50);
-        assert.ok(progress.completedLessonIds.includes(lesson.id));
+        assert.equal(engine.getTotalXp(progress), round === 0 ? 62 : 66);
+        assert.ok(engine.getCompletedLessonIds(progress).includes(lesson.id));
         assert.equal(progress.uniqueCorrectAnswers.filter(key => key.startsWith(`${lesson.id}:`)).length, round === 0 ? 8 : 9);
-        assert.ok(progress.achievements.unlockedIds.includes('trained-eye'));
+        assert.ok(Boolean(progress.achievementUnlocks['trained-eye']));
         rounds.push(sessionOrder);
         if (round < 2) await page.getByRole('button', { name: 'Refă lecția' }).click();
       }
       results.push({ width, stableAfterResizeFeedbackAndCaseReader: true, shortcutsFollowDisplayedOrder: true,
-        trueFalseOrderFixed: true, wrongSessionXp: 30, laterPerfectXp: 20, rewardedReplayXp: 0,
+        trueFalseOrderFixed: true, oneMistakeWithGoalXp: 62, laterImprovementXp: 4, rewardedReplayXp: 0,
         uniqueMastery: 9, replayOrderDiffered: JSON.stringify(rounds[0]) !== JSON.stringify(rounds[1]) });
       await context.close();
     }
@@ -99,3 +99,4 @@ const errors = [], results = [];
     console.log(JSON.stringify({ results, errors }, null, 2));
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });
+

@@ -1,275 +1,218 @@
+import { gamificationConfig as config } from "../content/gamification-config";
 import { levels } from "../content/levels";
 import { achievements, type Achievement } from "../content/achievements";
 import { dailyChallenges } from "../content/daily-challenges";
-import { getLessonById, getLegacyQuickLesson, getLessonsByChapter } from "../content/lessons";
-import type { LessonScreen } from "../types/learning";
-import type { ProgressState, DomainResult, Reward, RewardSource, LessonSessionResult, DailyChallengeResult, LegacyStreak, StreakStatus, SimulationState } from "../types/progress";
+import { getLessonById, getLegacyQuickLesson, getReadyLessons } from "../content/lessons";
+import type { LessonScreen, ReadyLesson } from "../types/learning";
+import type { ProgressState, DomainResult, XpEvent, XpEventType, LessonSessionResult, SimulationState, LessonRewardSummary } from "../types/progress";
+import { ProgressSchema, XpEventSchema, LessonStatsSchema, DailyChallengeResultSchema, SimulationSchema, LevelUpSchema } from "./progress-schema";
 import { addCalendarDays, getBucharestDateKey, getBucharestWeekKey, isDateKey } from "./bucharest-date";
-
+import { shuffleOptions } from "./lesson-options";
 export { getBucharestDateKey, getBucharestWeekKey } from "./bucharest-date";
+export { SIMULATOR_COMPLETION_XP } from "../content/gamification-config";
 export const PROGRESS_STORAGE_KEY = "finly-progress-v2";
-// The existing Zustand envelope has version 0; its successor is version 1.
-// The "v2" in the stable key is a historical key name, not the stored version.
-export const PROGRESS_VERSION = 1 as const;
-export const LEGACY_LEARNING_STORAGE_KEY = "finly-learning-progress-v1";
-export const DEFAULT_LESSON_XP = 30;
-export const PERFECT_BONUS_XP = 20;
-export const DAILY_CHALLENGE_XP = 15;
-export const SIMULATOR_COMPLETION_XP = 50;
-export const STREAK_7_BONUS_XP = 100;
-export const SIMULATOR_ID = "simulator";
-export const legacyLessonIds: Readonly<Record<string, string>> = { salary: "salariu-brut-vs-net", inflatie: "ce-este-inflatia", carduri: "card-debit-vs-credit", buget: "primul-buget" };
+export const PROGRESS_VERSION = config.storageVersion;
+export const SIMULATOR_ID = config.simulatorId;
 export const initialSimulation: SimulationState = { step: 0, balance: 3500, savings: 0, history: [] };
-const resolveLesson = (id: string) => getLegacyQuickLesson(id) ?? getLessonById(id);
-const integer = (value: unknown, fallback = 0) => typeof value === "number" && Number.isFinite(value) ? Math.max(0, Math.floor(value)) : fallback;
-const strings = (value: unknown): string[] => Array.isArray(value) ? [...new Set(value.filter((v): v is string => typeof v === "string" && v.length > 0))] : [];
-const object = (value: unknown): Record<string, unknown> => value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : {};
-const canonicalId = (id: string) => legacyLessonIds[id] ?? id;
-const dateList = (value: unknown, today: string) => strings(value).filter(d => isDateKey(d) && d <= today).sort();
-export function createEmptyProgress(): ProgressState {
-  return { version: PROGRESS_VERSION, totalXp: 0, completedLessonIds: [], awardedRewardKeys: [], lessonStats: {}, activityDates: [], freezeDates: [], longestStreak: 0, legacyStreak: null, dailyChallenges: {}, simulatorCompletions: [], simulation: { ...initialSimulation, history: [] }, uniqueCorrectAnswers: [], achievements: { unlockedIds: [], seenToastIds: [] }, highestCelebratedLevel: 1, lastLessonId: null, updatedAt: null };
+const object = (v: unknown): Record<string, unknown> => v && typeof v === "object" && !Array.isArray(v) ? v as Record<string, unknown> : {};
+const strings = (v: unknown) => Array.isArray(v) ? [...new Set(v.filter((x): x is string => typeof x === "string" && x.length > 0))] : [];
+const dates = (v: unknown) => strings(v).filter(isDateKey).sort();
+const iso = (v: unknown): string | null => typeof v === "string" && /^\d{4}-\d\d-\d\dT/.test(v) && Number.isFinite(Date.parse(v)) ? new Date(v).toISOString() : null;
+const integer = (v: unknown, fallback = 0) => typeof v === "number" && Number.isInteger(v) && v >= 0 ? v : fallback;
+const monday = (key: string) => addCalendarDays(key, -((new Date(key + "T12:00:00Z").getUTCDay() + 6) % 7));
+export function createEmptyProgress(now?: Date): ProgressState {
+  const key = now ? getBucharestDateKey(now) : null, timestamp = now?.toISOString() ?? null;
+  return { version: PROGRESS_VERSION, xp_events: [], lessonStats: {}, activityDates: [], freezeDates: [], freezeBalance: config.freeze.initialBalance, lastFreezeGrantWeekKey: key ? getBucharestWeekKey(key) : null, lastFreezeGrantDateKey: key ? monday(key) : null, dailyChallenges: {}, achievementUnlocks: {}, seenAchievementToastIds: [], seenFreezeToastDates: [], pendingLevelUp: null, simulation: { ...initialSimulation, history: [] }, uniqueCorrectAnswers: [], lastLessonId: null, maxSeenDateKey: key, maxSeenAt: timestamp, createdAt: timestamp, updatedAt: timestamp };
 }
-export function getCurrentLevel(totalXp: number) {
-  const xp = integer(totalXp);
-  return [...levels].reverse().find(level => level.minXp <= xp)!;
-}
+export function getEffectiveDateKey(p: ProgressState, now: Date) { return [getBucharestDateKey(now), p.maxSeenDateKey ?? ""].sort().at(-1)!; }
+function effectiveNow(p: ProgressState, now: Date) { return p.maxSeenAt && p.maxSeenAt > now.toISOString() ? new Date(p.maxSeenAt) : now; }
+function dedupeEvents(events: readonly XpEvent[]) { return [...new Map([...events].reverse().map(e => [e.id, e])).values()].reverse(); }
+export const getTotalXp = (p: ProgressState) => dedupeEvents(p.xp_events).reduce((sum, e) => sum + e.amount, 0);
+export const getEarnedXpExcludingDebug = (p: ProgressState) => dedupeEvents(p.xp_events).filter(e => config.rewards[e.type].countsTowardEarnedXp).reduce((sum, e) => sum + e.amount, 0);
+export const getCompletedLessonIds = (p: ProgressState) => Object.entries(p.lessonStats).filter(([, s]) => s.completed).map(([id]) => id);
+export const getCompletedLessonCount = (p: ProgressState) => getCompletedLessonIds(p).length;
+export const getSimulatorCompletionIds = (p: ProgressState) => [...new Set(p.xp_events.filter(e => e.type === "simulator_completion").map(e => e.refId ?? e.id.replace(/^simulator-completion:/, "")))];
+export function getCurrentLevel(totalXp: number) { return [...levels].reverse().find(l => l.minXp <= Math.max(0, totalXp)) ?? levels[0]; }
 export function getLevelProgress(totalXp: number) {
-  const current = getCurrentLevel(totalXp), next = levels[current.level];
-  const fraction = next ? Math.max(0, Math.min(1, (integer(totalXp) - current.minXp) / (next.minXp - current.minXp))) : 1;
-  return { current, next: next ?? null, fraction, percent: Math.round(fraction * 100), remainingXp: next ? Math.max(0, next.minXp - integer(totalXp)) : 0, isMax: !next };
+  const current = getCurrentLevel(totalXp), next = levels.find(l => l.level === current.level + 1);
+  const earned = Math.max(0, totalXp - current.minXp), target = next ? next.minXp - current.minXp : 0;
+  return { current, next, isMax: !next, earned, target, remainingXp: next ? Math.max(0, next.minXp - totalXp) : 0, percent: next ? Math.max(0, Math.min(100, earned / target * 100)) : 100 };
 }
-export function selectDailyChallenge(dateKey: string) {
-  if (!isDateKey(dateKey)) throw new Error("Invalid Bucharest daily challenge date");
-  // Stable calendar hash: adjacent dates always get distinct indices, including
-  // month/year boundaries. 31 is coprime with 10; no recursive yesterday lookup.
-  const day = Math.floor(Date.parse(dateKey + "T12:00:00Z") / 86400000);
-  const index = ((day * 31 + 7) % dailyChallenges.length + dailyChallenges.length) % dailyChallenges.length;
-  return dailyChallenges[index];
+export function getQualifyingXpForDate(p: ProgressState, key: string) { return dedupeEvents(p.xp_events).filter(e => e.bucharestDateKey === key && config.rewards[e.type].countsTowardDailyGoal).reduce((sum, e) => sum + e.amount, 0); }
+export function getDailyGoalState(p: ProgressState, key: string) { const current = getQualifyingXpForDate(p, key), target = config.dailyGoalTargetXp; return { current, target, completed: current >= target, percent: Math.min(100, current / target * 100) }; }
+export const getTodayGoal = getDailyGoalState;
+export function selectDailyChallenge(key: string) {
+  if (!isDateKey(key)) throw new Error("Invalid challenge date");
+  // One monthly permutation, not a daily modulo hash: no repeated IDs in a month.
+  const ordered = shuffleOptions([...dailyChallenges].sort((a, b) => a.id.localeCompare(b.id)), `${key.slice(0, 7)}:${config.challengeRotationVersion}`);
+  return ordered[Number(key.slice(8)) - 1];
 }
-export const getDailyChallengeFor = (progress: ProgressState, today: string) => dailyChallenges.find(c => c.id === progress.dailyChallenges[today]?.challengeId) ?? selectDailyChallenge(today);
-export const getTodayGoal = (progress: ProgressState, today: string) => ({ current: progress.activityDates.includes(today) ? 1 : 0, target: 1 });
-
-function walkStreak(progress: ProgressState, today: string, automaticFreeze: boolean) {
-  const freezes = [...progress.freezeDates];
-  const frozen = new Set(freezes), usedWeeks = new Set(freezes.map(getBucharestWeekKey));
-  let count = 0, longest = progress.longestStreak, runId: string | null = null, previous: string | null = null;
-  const anchor = progress.legacyStreak;
-  const dates = [...new Set([...progress.activityDates.filter(d => d <= today), ...(anchor && anchor.anchorDate <= today ? [anchor.anchorDate] : [])])].sort();
-  function bridge(until: string) {
-    if (!previous || count === 0) return;
-    for (let day = addCalendarDays(previous, 1); day <= until; day = addCalendarDays(day, 1)) {
-      if (frozen.has(day)) continue;
-      const week = getBucharestWeekKey(day);
-      if (automaticFreeze && !usedWeeks.has(week)) { frozen.add(day); freezes.push(day); usedWeeks.add(week); }
-      else { count = 0; runId = null; break; }
-    }
+export function getDailyChallengeFor(p: ProgressState, key: string) { const saved = p.dailyChallenges[key]; return dailyChallenges.find(c => c.id === saved?.challengeId) ?? selectDailyChallenge(key); }
+export function calculateStreak(p: ProgressState, today: string) {
+  const active = [...new Set(p.activityDates)].filter(d => d <= today).sort(), frozen = new Set(p.freezeDates);
+  let current = 0, longest = 0, previous: string | null = null;
+  for (const day of active) {
+    const connected = previous && (day === addCalendarDays(previous, 1) || (day === addCalendarDays(previous, 2) && frozen.has(addCalendarDays(previous, 1))));
+    current = connected ? current + 1 : 1; longest = Math.max(longest, current); previous = day;
   }
-  for (const date of dates) {
-    bridge(addCalendarDays(date, -1));
-    if (anchor?.anchorDate === date) {
-      count = Math.max(count, anchor.count);
-      runId = anchor.count > 0 ? anchor.runId : runId;
-      if (progress.activityDates.includes(date) && !anchor.includesAnchorActivity) { if (!count) runId = date; count++; }
-    } else {
-      if (!count) runId = date;
-      count++;
-    }
-    longest = Math.max(longest, count);
-    previous = date;
+  if (!previous || (today !== previous && today !== addCalendarDays(previous, 1) && !(today === addCalendarDays(previous, 2) && frozen.has(addCalendarDays(previous, 1))))) current = 0;
+  return { current, longest, freezeAvailable: p.freezeBalance > 0 };
+}
+export const getCurrentStreak = (p: ProgressState, today: string) => calculateStreak(p, today).current;
+export const getLongestStreak = (p: ProgressState) => calculateStreak(p, p.maxSeenDateKey ?? p.activityDates.at(-1) ?? "1970-01-01").longest;
+export const getFreezeState = (p: ProgressState) => ({ balance: p.freezeBalance, max: config.freeze.maxBalance });
+export function getLast7Days(p: ProgressState, today: string) { return Array.from({ length: 7 }, (_, i) => { const date = addCalendarDays(today, i - 6); return { date, weekday: ["D", "L", "Ma", "Mi", "J", "V", "S"][new Date(date + "T12:00:00Z").getUTCDay()], state: p.activityDates.includes(date) ? "activity" : p.freezeDates.includes(date) ? "freeze" : date === today ? "today" : "missed" }; }); }
+export function reconcileCalendar(p: ProgressState, now: Date): ProgressState {
+  const today = getEffectiveDateKey(p, now), timestamp = effectiveNow(p, now).toISOString();
+  let balance = p.freezeBalance, grant = p.lastFreezeGrantDateKey ?? monday(today);
+  const advanceGrants = (until: string) => { const target = monday(until); while (grant < target) { grant = addCalendarDays(grant, 7); balance = Math.min(config.freeze.maxBalance, balance + config.freeze.weeklyGrant); } };
+  const lastActive = p.activityDates.filter(d => d < today).at(-1), missed = lastActive ? addCalendarDays(lastActive, 1) : null;
+  const freezes = [...p.freezeDates];
+  // Only a single fully elapsed day can be bridged. Never chain freezes over
+  // two missed days, even if a prior app load already consumed the first one.
+  if (lastActive && missed && today === addCalendarDays(lastActive, 2) && !p.activityDates.includes(missed) && !freezes.includes(missed) && !freezes.includes(addCalendarDays(missed, -1)) && !freezes.includes(addCalendarDays(missed, 1))) {
+    advanceGrants(missed);
+    if (balance > 0) { freezes.push(missed); balance--; }
   }
-  // Today is never a missed day, even at 00:01.
-  bridge(addCalendarDays(today, -1));
-  return { current: count, longest, runId, freezeDates: freezes.sort(), freezeAvailable: !usedWeeks.has(getBucharestWeekKey(today)) };
-}
-export function calculateStreak(progress: ProgressState, today: string): StreakStatus {
-  const { current, longest, runId, freezeAvailable } = walkStreak(progress, today, false);
-  return { current, longest, runId, freezeAvailable };
-}
-export function getAchievementProgress(achievement: Achievement, progress: ProgressState) {
-  let current = 0, target = 1;
-  const c = achievement.condition;
-  switch (c.type) {
-    case "completed-lessons": current = progress.completedLessonIds.length; target = c.count; break;
-    case "longest-streak": current = progress.longestStreak; target = c.days; break;
-    case "total-xp": current = progress.totalXp; target = c.xp; break;
-    case "simulator": current = Number(progress.simulatorCompletions.includes(c.simulatorId)); break;
-    case "lesson": current = Number(progress.completedLessonIds.includes(c.lessonId)); break;
-    case "category-correct": {
-      const unique = new Set(progress.uniqueCorrectAnswers);
-      current = [...unique].filter(key => {
-        const divider = key.indexOf(":");
-        const lesson = resolveLesson(key.slice(0, divider));
-        return divider > 0 && lesson?.categoryId === c.categoryId && lesson.status === "ready" && lesson.screens.some(screen => screen.id === key.slice(divider + 1) && isAnswerScreen(screen));
-      }).length;
-      target = c.count; break;
-    }
-    case "chapter": {
-      const ready = getLessonsByChapter(c.chapterId, c.categoryId).filter(l => l.status === "ready");
-      target = Math.max(1, ready.length);
-      current = ready.filter(l => progress.completedLessonIds.includes(l.id)).length;
-      break;
-    }
-  }
-  return { current: Math.min(current, target), target, percent: Math.round(Math.max(0, Math.min(1, current / Math.max(1, target))) * 100), eligible: current >= target };
-}
-export function evaluateAchievements(progress: ProgressState): ProgressState {
-  const unlockedIds = [...new Set([...progress.achievements.unlockedIds, ...achievements.filter(a => getAchievementProgress(a, progress).eligible).map(a => a.id)])];
-  return { ...progress, achievements: { ...progress.achievements, unlockedIds } };
-}
-function normalizeSimulation(value: unknown): SimulationState {
-  const v = object(value);
-  const finite = (x: unknown, fallback: number) => typeof x === "number" && Number.isFinite(x) ? x : fallback;
-  return { step: Math.min(5, integer(v.step)), balance: Math.max(0, finite(v.balance, 3500)), savings: Math.max(0, finite(v.savings, 0)), history: strings(v.history) };
+  advanceGrants(today);
+  // Local-clock regression protection; this is not server-side anti-cheat.
+  return { ...p, freezeBalance: balance, freezeDates: freezes.sort(), lastFreezeGrantDateKey: grant, lastFreezeGrantWeekKey: getBucharestWeekKey(today), maxSeenDateKey: today, maxSeenAt: timestamp, createdAt: p.createdAt ?? timestamp };
 }
 export function normalizeProgress(value: unknown, now: Date): ProgressState {
-  const v = object(value), today = getBucharestDateKey(now), empty = createEmptyProgress();
-  const ach = object(v.achievements), stats = object(v.lessonStats), daily = object(v.dailyChallenges);
-  const anchor = object(v.legacyStreak);
-  const legacyStreak: LegacyStreak | null = isDateKey(anchor.anchorDate) && anchor.anchorDate <= today && integer(anchor.count) > 0 ? { count: integer(anchor.count), anchorDate: anchor.anchorDate, runId: typeof anchor.runId === "string" ? anchor.runId : `legacy:${anchor.anchorDate}`, includesAnchorActivity: anchor.includesAnchorActivity === true } : null;
-  const dailyResults: ProgressState["dailyChallenges"] = Object.fromEntries(Object.entries(daily).flatMap(([date, raw]) => {
-    const result = object(raw);
-    if (!isDateKey(date) || typeof result.challengeId !== "string") return [];
-    return [[date, { challengeId: result.challengeId, selectedOptionId: typeof result.selectedOptionId === "string" ? result.selectedOptionId : null, wasCorrect: typeof result.wasCorrect === "boolean" ? result.wasCorrect : null, completedAt: typeof result.completedAt === "string" ? result.completedAt : null, xpAwarded: result.xpAwarded === true } satisfies DailyChallengeResult]];
-  }));
-  const lessonStats: ProgressState["lessonStats"] = Object.fromEntries(Object.entries(stats).map(([id, raw]) => {
-    const s = object(raw);
-    return [id, { sessionIds: strings(s.sessionIds), lastCompletedAt: typeof s.lastCompletedAt === "string" ? s.lastCompletedAt : "", bestCorrectAnswers: integer(s.bestCorrectAnswers), questionCount: integer(s.questionCount) }];
-  }));
-  const weeks = new Set<string>();
-  const freezeDates = dateList(v.freezeDates, today).filter(date => { const week = getBucharestWeekKey(date); if (weeks.has(week)) return false; weeks.add(week); return true; });
-  let progress: ProgressState = { ...empty,
-    totalXp: integer(v.totalXp), completedLessonIds: [...new Set(strings(v.completedLessonIds).map(canonicalId))],
-    awardedRewardKeys: strings(v.awardedRewardKeys), lessonStats, activityDates: dateList(v.activityDates, today), freezeDates,
-    longestStreak: integer(v.longestStreak), legacyStreak, dailyChallenges: dailyResults,
-    simulatorCompletions: strings(v.simulatorCompletions), simulation: normalizeSimulation(v.simulation), uniqueCorrectAnswers: strings(v.uniqueCorrectAnswers),
-    achievements: { unlockedIds: strings(ach.unlockedIds), seenToastIds: strings(ach.seenToastIds) },
-    highestCelebratedLevel: Math.max(1, Math.min(7, integer(v.highestCelebratedLevel, getCurrentLevel(integer(v.totalXp)).level))),
-    lastLessonId: typeof v.lastLessonId === "string" ? canonicalId(v.lastLessonId) : null, updatedAt: typeof v.updatedAt === "string" ? v.updatedAt : null,
-  };
-  // Completion itself proves a base reward must never be claimed again.
-  progress.awardedRewardKeys = [...new Set([...progress.awardedRewardKeys, ...progress.completedLessonIds.map(id => `lesson:${id}`), ...progress.simulatorCompletions.map(id => `simulator:${id}`), ...Object.keys(dailyResults).map(date => `daily:${date}`)])];
-  const streak = walkStreak(progress, today, true);
-  progress = { ...progress, freezeDates: streak.freezeDates, longestStreak: streak.longest };
-  return evaluateAchievements(progress);
-}
-export function migrateProgress(value: unknown, learningValue: unknown, now: Date): ProgressState {
   const root = object(value);
-  if (root.version === PROGRESS_VERSION && !("state" in root)) return normalizeProgress(root, now);
-  const old = object(root.state ?? root), learning = object(learningValue);
-  const today = getBucharestDateKey(now), oldCompleted = strings(old.completed);
-  const ids = [...new Set([...strings(old.completedLessonIds), ...strings(learning.completedLessonIds), ...oldCompleted.filter(id => id !== SIMULATOR_ID && !id.startsWith("challenge-"))].map(canonicalId))];
-  const knownDailyDates = oldCompleted.filter(id => id.startsWith("challenge-")).map(id => id.slice(10)).filter(isDateKey);
-  const current = integer(old.currentStreak ?? old.streak), longest = Math.max(current, integer(old.longestStreak ?? old.record));
-  const legacyStreak: LegacyStreak | null = current > 0 ? { count: current, anchorDate: today, runId: `legacy:${today}`, includesAnchorActivity: old.lastStudy === today || knownDailyDates.includes(today) } : null;
-  const simulators = [...new Set([...strings(old.simulatorCompletions), ...(oldCompleted.includes(SIMULATOR_ID) || integer(object(old.simulation).step) >= 5 ? [SIMULATOR_ID] : [])])];
-  const xp = integer(old.totalXp ?? old.xp);
-  let progress = normalizeProgress({ ...createEmptyProgress(), totalXp: xp, completedLessonIds: ids,
-    awardedRewardKeys: [...ids.map(id => `lesson:${id}`), ...simulators.map(id => `simulator:${id}`), ...knownDailyDates.map(date => `daily:${date}`), ...(legacyStreak && current >= 7 ? [`streak7:${legacyStreak.runId}`] : [])],
-    legacyStreak, longestStreak: longest, simulatorCompletions: simulators, simulation: old.simulation,
-    dailyChallenges: Object.fromEntries(knownDailyDates.map(date => [date, { challengeId: dailyChallenges[0].id, selectedOptionId: "value-15", wasCorrect: true, completedAt: null, xpAwarded: true }])),
-    activityDates: knownDailyDates,
-    highestCelebratedLevel: getCurrentLevel(xp).level,
-    lastLessonId: learning.lastLessonId ?? old.lastLessonId, updatedAt: learning.updatedAt ?? old.updatedAt,
-    achievements: old.achievements,
-  }, now);
-  // Existing achievements are unlocked silently; migration never awards XP.
-  progress = { ...progress, achievements: { ...progress.achievements, seenToastIds: [...progress.achievements.unlockedIds] } };
-  return progress;
+  if (root.version !== PROGRESS_VERSION) return createEmptyProgress(now);
+  const base = createEmptyProgress(now), events: XpEvent[] = [];
+  if (Array.isArray(root.xp_events)) for (const value of root.xp_events) { const parsed = XpEventSchema.safeParse(value); if (parsed.success && !events.some(e => e.id === parsed.data.id)) events.push(parsed.data); }
+  const lessonStats: ProgressState["lessonStats"] = {};
+  for (const [id, value] of Object.entries(object(root.lessonStats))) {
+    const raw = object(value), parsed = LessonStatsSchema.safeParse({ completed: false, bestFirstTryCorrect: 0, questionCount: 0, perfectEver: false, completionCount: 0, sessionIds: [], ...raw });
+    if (parsed.success) { const stats = parsed.data; lessonStats[id] = { ...stats, bestFirstTryCorrect: Math.min(stats.bestFirstTryCorrect, stats.questionCount), sessionIds: strings(stats.sessionIds) }; }
+  }
+  // A partial v2 object must not make a journaled completion look like a first
+  // completion again. Recover the available score evidence, without minting XP.
+  for (const completion of events.filter(e => e.type === "lesson_completion")) {
+    const id = completion.lessonId ?? completion.id.replace(/^lesson-completion:/, "");
+    const content = getLegacyQuickLesson(id) ?? getLessonById(id);
+    const questionCount = content?.status === "ready" ? content.screens.filter(isAnswerScreen).length : lessonStats[id]?.questionCount ?? 0;
+    const firstScore = events.filter(e => e.type === "lesson_question_first_try" && (e.lessonId === id || e.id.startsWith(`lesson-question:${id}:`))).length;
+    const improvements = events.filter(e => e.type === "lesson_replay_improvement" && e.id.startsWith(`lesson-improvement:${id}:best-`)).map(e => Number(e.id.split(":best-")[1])).filter(Number.isInteger);
+    const old = lessonStats[id];
+    const best = Math.min(questionCount, Math.max(old?.bestFirstTryCorrect ?? 0, firstScore, ...improvements));
+    lessonStats[id] = { completed: true, firstCompletedAt: old?.firstCompletedAt ?? completion.createdAt, lastCompletedAt: old?.lastCompletedAt ?? completion.createdAt, bestFirstTryCorrect: best, questionCount, perfectEver: Boolean(old?.perfectEver || (questionCount > 0 && best === questionCount)), completionCount: Math.max(1, old?.completionCount ?? 1), sessionIds: old?.sessionIds ?? [] };
+  }
+  const daily: ProgressState["dailyChallenges"] = {}, unlocks: ProgressState["achievementUnlocks"] = {};
+  for (const [date, value] of Object.entries(object(root.dailyChallenges))) { const parsed = DailyChallengeResultSchema.safeParse(value); if (isDateKey(date) && parsed.success) daily[date] = parsed.data; }
+  for (const [id, value] of Object.entries(object(root.achievementUnlocks))) { const timestamp = iso(object(value).unlockedAt); if (timestamp) unlocks[id] = { unlockedAt: timestamp }; }
+  const activityDates = dates(root.activityDates), freezeDates = dates(root.freezeDates).filter(d => !activityDates.includes(d));
+  const simulation = SimulationSchema.safeParse(root.simulation), levelUp = LevelUpSchema.safeParse(root.pendingLevelUp);
+  const latestDate = [...activityDates, ...freezeDates, ...Object.keys(daily), ...events.map(e => e.bucharestDateKey), ...(isDateKey(root.maxSeenDateKey) ? [root.maxSeenDateKey] : []), base.maxSeenDateKey!].sort().at(-1)!;
+  const latestTimestamp = [iso(root.maxSeenAt), ...events.map(e => e.createdAt), ...Object.values(daily).map(d => d.answeredAt), ...Object.values(lessonStats).map(s => s.lastCompletedAt), base.maxSeenAt].filter((v): v is string => Boolean(v)).sort().at(-1)!;
+  const result: ProgressState = { ...base, xp_events: events, lessonStats, activityDates, freezeDates, freezeBalance: Math.min(config.freeze.maxBalance, integer(root.freezeBalance, config.freeze.initialBalance)), lastFreezeGrantDateKey: isDateKey(root.lastFreezeGrantDateKey) ? monday(root.lastFreezeGrantDateKey) : base.lastFreezeGrantDateKey, lastFreezeGrantWeekKey: typeof root.lastFreezeGrantWeekKey === "string" ? root.lastFreezeGrantWeekKey : base.lastFreezeGrantWeekKey, dailyChallenges: daily, achievementUnlocks: unlocks, seenAchievementToastIds: strings(root.seenAchievementToastIds), seenFreezeToastDates: dates(root.seenFreezeToastDates), pendingLevelUp: levelUp.success ? levelUp.data : null, simulation: simulation.success ? simulation.data : base.simulation, uniqueCorrectAnswers: strings(root.uniqueCorrectAnswers), lastLessonId: typeof root.lastLessonId === "string" ? root.lastLessonId : null, maxSeenDateKey: isDateKey(root.maxSeenDateKey) ? root.maxSeenDateKey : base.maxSeenDateKey, maxSeenAt: iso(root.maxSeenAt) ?? base.maxSeenAt, createdAt: iso(root.createdAt) ?? base.createdAt, updatedAt: iso(root.updatedAt) ?? base.updatedAt };
+  return ProgressSchema.parse(reconcileCalendar({ ...result, maxSeenDateKey: latestDate, maxSeenAt: latestTimestamp }, now));
 }
-export function applyReward(progress: ProgressState, reward: Reward): ProgressState {
-  if (progress.awardedRewardKeys.includes(reward.key)) return progress;
-  const xp = integer(reward.xp);
-  return { ...progress, totalXp: progress.totalXp + xp, awardedRewardKeys: [...progress.awardedRewardKeys, reward.key] };
+export function getAchievementProgress(a: Achievement, p: ProgressState, curriculum: readonly ReadyLesson[] = getReadyLessons()) {
+  const c = a.condition, complete = new Set(getCompletedLessonIds(p));
+  const coverage = (list: readonly ReadyLesson[]) => ({ current: list.filter(l => complete.has(l.id)).length, target: list.length || 1 });
+  let current = 0, target = c.target;
+  switch (c.type) {
+    case "completed-lessons": current = complete.size; break;
+    case "perfect-lessons": current = Object.values(p.lessonStats).filter(s => s.perfectEver).length; break;
+    case "longest-streak": current = getLongestStreak(p); break;
+    case "total-xp": current = getEarnedXpExcludingDebug(p); break;
+    case "daily-goals": current = new Set(p.xp_events.filter(e => e.type === "daily_goal_bonus").map(e => e.bucharestDateKey)).size; break;
+    case "daily-answers": current = Object.keys(p.dailyChallenges).length; break;
+    case "daily-correct": current = Object.values(p.dailyChallenges).filter(d => d.correct).length; break;
+    case "lesson": current = complete.has(c.refId!) ? 1 : 0; break;
+    case "simulator": current = p.xp_events.some(e => e.id === `simulator-completion:${c.refId}`) ? 1 : 0; break;
+    case "category": ({ current, target } = coverage(curriculum.filter(l => l.categoryId === c.refId))); break;
+    case "chapter": ({ current, target } = coverage(curriculum.filter(l => l.chapterId === c.refId && l.categoryId === c.categoryId))); break;
+    case "specialist": {
+      const groups = [...new Set(curriculum.map(l => l.categoryId))].map(id => curriculum.filter(l => l.categoryId === id)).filter(list => list.length >= config.specialistMinReadyLessons).map(coverage).sort((a, b) => b.current / b.target - a.current / a.target);
+      ({ current, target } = groups[0] ?? { current: 0, target: config.specialistMinReadyLessons }); break;
+    }
+  }
+  return { current: Math.min(current, target), target, percentage: Math.min(100, current / target * 100), label: `${Math.min(current, target)} din ${target}` };
 }
-export function recordActivity(progress: ProgressState, now: Date): ProgressState {
-  const today = getBucharestDateKey(now), normalized = normalizeProgress(progress, now);
-  const next = { ...normalized, activityDates: [...new Set([...normalized.activityDates, today])].sort() };
-  const streak = walkStreak(next, today, true);
-  return { ...next, freezeDates: streak.freezeDates, longestStreak: streak.longest };
+export function evaluateAchievements(p: ProgressState, now: Date, curriculum: readonly ReadyLesson[] = getReadyLessons()): ProgressState {
+  const unlocks = { ...p.achievementUnlocks };
+  for (const achievement of achievements) if (!unlocks[achievement.id] && getAchievementProgress(achievement, p, curriculum).percentage >= 100) unlocks[achievement.id] = { unlockedAt: effectiveNow(p, now).toISOString() };
+  return { ...p, achievementUnlocks: unlocks };
 }
-function finishAction(previous: ProgressState, next: ProgressState, candidates: Reward[], now: Date): DomainResult {
-  let progress = next;
-  const rewards: Reward[] = [];
-  for (const reward of candidates) if (!progress.awardedRewardKeys.includes(reward.key)) { progress = applyReward(progress, reward); rewards.push(reward); }
-  progress = evaluateAchievements({ ...progress, updatedAt: now.toISOString() });
-  const achievementsUnlocked = progress.achievements.unlockedIds.filter(id => !previous.achievements.unlockedIds.includes(id));
-  const from = getCurrentLevel(previous.totalXp), to = getCurrentLevel(progress.totalXp);
-  const levelUp = to.level > from.level ? { from, to, levelsGained: to.level - from.level } : null;
-  return { progress, xpGained: progress.totalXp - previous.totalXp, rewards, achievementsUnlocked, levelUp,
-    events: [...rewards.map(reward => ({ type: "reward" as const, reward })), ...(levelUp ? [{ type: "level-up" as const, levelUp }] : []), ...achievementsUnlocked.map(id => ({ type: "achievement" as const, id }))] };
-}
-function streakReward(progress: ProgressState, now: Date): Reward[] {
-  const streak = calculateStreak(progress, getBucharestDateKey(now));
-  return streak.current >= 7 && streak.runId ? [{ source: "streak", key: `streak7:${streak.runId}`, xp: STREAK_7_BONUS_XP }] : [];
-}
-const reward = (source: RewardSource, key: string, xp: number): Reward => ({ source, key, xp });
+export function getAchievementStates(p: ProgressState) { return achievements.map(a => ({ ...a, ...getAchievementProgress(a, p), unlockedAt: p.achievementUnlocks[a.id]?.unlockedAt ?? null })); }
+export function getProfileStats(p: ProgressState, today: string) { const totalXp = getTotalXp(p); return { totalXp, level: getCurrentLevel(totalXp), levelProgress: getLevelProgress(totalXp), ...calculateStreak(p, today), completedLessons: getCompletedLessonCount(p), freeze: getFreezeState(p), dailyGoal: getDailyGoalState(p, today), last7Days: getLast7Days(p, today), achievements: getAchievementStates(p) }; }
 export function isAnswerScreen(screen: LessonScreen): screen is Extract<LessonScreen, { question: string }> { return "question" in screen; }
-export function getCorrectAnswerId(screen: LessonScreen): string | null {
-  if (!isAnswerScreen(screen)) return null;
-  if (screen.type === "adevarat_fals") return String(screen.correctAnswer);
-  if (screen.type === "calcul") return screen.options.find(o => o.value === screen.expectedAnswer)?.id ?? null;
-  return screen.correctOption;
+export function getCorrectAnswerId(screen: LessonScreen): string | null { if (!isAnswerScreen(screen)) return null; if (screen.type === "adevarat_fals") return String(screen.correctAnswer); if (screen.type === "calcul") return screen.options.find(o => o.value === screen.expectedAnswer)?.id ?? null; return screen.correctOption; }
+export function getLessonRewardPreview(lesson: ReadyLesson) { return lesson.screens.filter(isAnswerScreen).length * config.rewards.lesson_question_first_try.xp + config.rewards.lesson_completion.xp + config.rewards.lesson_perfect.xp; }
+export function getPendingQuestionXp(p: ProgressState, lessonId: string, correctFirstTry: boolean) { return !p.lessonStats[lessonId]?.completed && correctFirstTry ? config.rewards.lesson_question_first_try.xp : 0; }
+// Improvement pays only for a new best; the cap applies per replay, not per lifetime.
+export function calculateReplayReward(newScore: number, previousBest: number) { return Math.min(Math.max(newScore - previousBest, 0) * config.rewards.lesson_question_first_try.xp, config.maxReplayXp); }
+const labels: Record<XpEventType, string> = { lesson_question_first_try: "Răspunsuri corecte din prima", lesson_completion: "Lecție terminată", lesson_perfect: "Lecție perfectă", lesson_replay_improvement: "Scor îmbunătățit", daily_challenge_correct: "Provocarea zilei", daily_goal_bonus: "Obiectiv zilnic atins", streak_milestone: "Prag de streak", simulator_completion: "Simulator terminat", debug_adjustment: "XP de test" };
+export const getXpEventLabel = (type: XpEventType) => labels[type];
+export function appendXpEvents(p: ProgressState, candidates: readonly XpEvent[]): ProgressState { const ids = new Set(p.xp_events.map(e => e.id)), newEvents = candidates.filter(e => { XpEventSchema.parse(e); if (ids.has(e.id)) return false; ids.add(e.id); return true; }); return { ...p, xp_events: [...p.xp_events, ...newEvents] }; }
+function event(p: ProgressState, now: Date, id: string, type: XpEventType, amount = config.rewards[type].xp, refs: Partial<Pick<XpEvent, "refId" | "lessonId" | "screenId">> = {}): XpEvent { return { id, type, amount, createdAt: effectiveNow(p, now).toISOString(), bucharestDateKey: getEffectiveDateKey(p, now), ...refs }; }
+export function finishAction(previous: ProgressState, next: ProgressState, candidates: XpEvent[], now: Date, activity = false, lesson?: LessonRewardSummary): DomainResult {
+  let p = reconcileCalendar(appendXpEvents(next, candidates), now);
+  const key = getEffectiveDateKey(p, now);
+  if (activity) {
+    p = reconcileCalendar({ ...p, activityDates: [...new Set([...p.activityDates, key])].sort() }, now);
+    const streak = calculateStreak(p, key).current;
+    p = appendXpEvents(p, config.streakMilestones.filter(m => streak >= m.days).map(m => event(p, now, `streak-milestone:${m.days}`, "streak_milestone", m.xp)));
+  }
+  if (getDailyGoalState(p, key).completed) p = appendXpEvents(p, [event(p, now, `daily-goal:${key}`, "daily_goal_bonus")]);
+  p = evaluateAchievements(p, now);
+  const from = getCurrentLevel(getTotalXp(previous)), to = getCurrentLevel(getTotalXp(p)), levelUp = to.level > from.level ? { from, to, levelsGained: to.level - from.level } : null;
+  if (levelUp) { const earliest = p.pendingLevelUp?.from ?? from; p = { ...p, pendingLevelUp: { from: earliest, to, levelsGained: to.level - earliest.level } }; }
+  p = { ...p, updatedAt: effectiveNow(p, now).toISOString() };
+  const newEvents = p.xp_events.filter(e => !previous.xp_events.some(old => old.id === e.id));
+  const xpBreakdown = [...new Set(newEvents.map(e => e.type))].map(type => { const list = newEvents.filter(e => e.type === type); return { type, label: labels[type], amount: list.reduce((sum, e) => sum + e.amount, 0), count: list.length }; });
+  return { progress: p, newEvents, xpGained: newEvents.reduce((sum, e) => sum + e.amount, 0), xpBreakdown, levelBefore: from, levelAfter: to, levelUpCount: to.level - from.level, levelUp, streakBefore: calculateStreak(previous, key).current, streakAfter: calculateStreak(p, key).current, freezeConsumed: p.freezeDates.filter(d => !previous.freezeDates.includes(d)), dailyGoalCompleted: newEvents.some(e => e.type === "daily_goal_bonus"), achievementsUnlocked: Object.keys(p.achievementUnlocks).filter(id => !previous.achievementUnlocks[id]), lesson };
 }
 export function completeLessonSession(previous: ProgressState, session: LessonSessionResult, now: Date): DomainResult {
-  const lesson = resolveLesson(session.lessonId);
-  if (!lesson || lesson.status !== "ready") throw new Error(`Cannot complete unavailable lesson "${session.lessonId}"`);
-  if (!session.sessionId) throw new Error("Lesson completion requires a session ID");
+  const lesson = getLegacyQuickLesson(session.lessonId) ?? getLessonById(session.lessonId);
+  if (!lesson || lesson.status !== "ready" || !session.sessionId) throw new Error(`Invalid lesson session: ${session.lessonId}`);
   if (previous.lessonStats[lesson.id]?.sessionIds.includes(session.sessionId)) return finishAction(previous, previous, [], now);
-  const questions = lesson.screens.filter(isAnswerScreen), firstAnswers = new Map<string, string>();
-  for (const answer of session.answers) if (!firstAnswers.has(answer.screenId)) firstAnswers.set(answer.screenId, answer.selectedOptionId);
-  if (questions.some(s => !firstAnswers.has(s.id))) throw new Error("Lesson completion requires an answer for every interactive screen");
-  const correctScreens = questions.filter(s => firstAnswers.get(s.id) === getCorrectAnswerId(s));
-  const perfect = questions.length > 0 && correctScreens.length === questions.length;
-  let progress = recordActivity(previous, now);
-  progress = { ...progress, completedLessonIds: [...new Set([...progress.completedLessonIds, lesson.id])],
-    uniqueCorrectAnswers: [...new Set([...progress.uniqueCorrectAnswers, ...correctScreens.map(s => `${lesson.id}:${s.id}`)])],
-    lessonStats: { ...progress.lessonStats, [lesson.id]: { sessionIds: [...(progress.lessonStats[lesson.id]?.sessionIds ?? []), session.sessionId], lastCompletedAt: now.toISOString(), bestCorrectAnswers: Math.max(progress.lessonStats[lesson.id]?.bestCorrectAnswers ?? 0, correctScreens.length), questionCount: questions.length } },
-    lastLessonId: null };
-  const base = previous.completedLessonIds.includes(lesson.id) ? [] : [reward("lesson", `lesson:${lesson.id}`, lesson.xp ?? DEFAULT_LESSON_XP)];
-  return finishAction(previous, progress, [...base, ...(perfect ? [reward("perfect", `perfect:${lesson.id}`, PERFECT_BONUS_XP)] : []), ...streakReward(progress, now)], now);
+  const questions = lesson.screens.filter(isAnswerScreen), answers = new Map<string, string>();
+  for (const a of session.answers) if (!answers.has(a.screenId)) answers.set(a.screenId, a.selectedOptionId);
+  if (questions.some(q => !answers.has(q.id))) throw new Error(`Lesson ${lesson.id}: every question requires a first attempt`);
+  const correct = questions.filter(q => getCorrectAnswerId(q) === answers.get(q.id)), score = correct.length, count = questions.length, old = previous.lessonStats[lesson.id];
+  const firstCompletion = !old?.completed, perfect = count > 0 && score === count, previousBest = old?.bestFirstTryCorrect ?? 0, improvementXp = firstCompletion ? 0 : calculateReplayReward(score, previousBest), timestamp = effectiveNow(previous, now).toISOString();
+  let p = reconcileCalendar(previous, now);
+  p = { ...p, lessonStats: { ...p.lessonStats, [lesson.id]: { completed: true, firstCompletedAt: old?.firstCompletedAt ?? timestamp, lastCompletedAt: timestamp, bestFirstTryCorrect: Math.max(previousBest, score), questionCount: count, perfectEver: Boolean(old?.perfectEver || perfect), completionCount: (old?.completionCount ?? 0) + 1, sessionIds: [...(old?.sessionIds ?? []), session.sessionId] } }, uniqueCorrectAnswers: [...new Set([...p.uniqueCorrectAnswers, ...correct.map(q => `${lesson.id}:${q.id}`)])] };
+  const events: XpEvent[] = [];
+  if (firstCompletion) {
+    events.push(...correct.map(q => event(p, now, `lesson-question:${lesson.id}:${q.id}`, "lesson_question_first_try", undefined, { lessonId: lesson.id, screenId: q.id })), event(p, now, `lesson-completion:${lesson.id}`, "lesson_completion", undefined, { lessonId: lesson.id }));
+    if (perfect) events.push(event(p, now, `lesson-perfect:${lesson.id}`, "lesson_perfect", undefined, { lessonId: lesson.id }));
+  } else if (improvementXp > 0) events.push(event(p, now, `lesson-improvement:${lesson.id}:best-${score}`, "lesson_replay_improvement", improvementXp, { lessonId: lesson.id }));
+  return finishAction(previous, p, events, now, true, { firstCompletion, score, questionCount: count, previousBest, best: Math.max(previousBest, score), perfect, improvementXp });
 }
-export function completeDailyChallenge(previous: ProgressState, selectedOptionId: string, now: Date): DomainResult {
-  const today = getBucharestDateKey(now);
-  if (previous.dailyChallenges[today] || previous.awardedRewardKeys.includes(`daily:${today}`)) return finishAction(previous, previous, [], now);
-  const challenge = selectDailyChallenge(today);
-  if (!challenge.options.some(o => o.id === selectedOptionId)) throw new Error("Daily challenge option does not exist");
-  let progress = recordActivity(previous, now);
-  progress = { ...progress, dailyChallenges: { ...progress.dailyChallenges, [today]: { challengeId: challenge.id, selectedOptionId, wasCorrect: selectedOptionId === challenge.correctOptionId, completedAt: now.toISOString(), xpAwarded: true } } };
-  return finishAction(previous, progress, [reward("daily", `daily:${today}`, DAILY_CHALLENGE_XP), ...streakReward(progress, now)], now);
+export function completeDailyChallenge(previous: ProgressState, optionId: string, now: Date): DomainResult {
+  const p = reconcileCalendar(previous, now), key = getEffectiveDateKey(p, now);
+  if (p.dailyChallenges[key]) return finishAction(previous, p, [], now);
+  const challenge = selectDailyChallenge(key);
+  if (!challenge.options.some(o => o.id === optionId)) throw new Error("Invalid challenge option");
+  const correct = optionId === challenge.correctOptionId, next = { ...p, dailyChallenges: { ...p.dailyChallenges, [key]: { challengeId: challenge.id, selectedOptionId: optionId, correct, answeredAt: effectiveNow(p, now).toISOString() } } };
+  return finishAction(previous, next, correct ? [event(p, now, `daily-challenge:${key}`, "daily_challenge_correct")] : [], now, true);
 }
-export function completeSimulator(previous: ProgressState, simulatorId: string, now: Date, simulation?: SimulationState): DomainResult {
-  if (simulatorId !== SIMULATOR_ID) throw new Error("Unknown simulator ID");
-  const progress = { ...normalizeProgress(previous, now), simulation: simulation ? normalizeSimulation(simulation) : previous.simulation, simulatorCompletions: [...new Set([...previous.simulatorCompletions, simulatorId])] };
-  const claimed = previous.simulatorCompletions.includes(simulatorId);
-  return finishAction(previous, progress, claimed ? [] : [reward("simulator", `simulator:${simulatorId}`, SIMULATOR_COMPLETION_XP)], now);
+export function completeSimulator(p: ProgressState, id: string, now: Date) { if (id !== config.simulatorId) throw new Error("Unknown simulator"); return finishAction(p, p, [event(p, now, `simulator-completion:${id}`, "simulator_completion", undefined, { refId: id })], now); }
+export function saveSimulationStep(p: ProgressState, simulation: SimulationState, now: Date) { const next = { ...p, simulation: SimulationSchema.parse(simulation) }; return simulation.step >= 5 ? finishAction(p, next, [event(p, now, `simulator-completion:${config.simulatorId}`, "simulator_completion", undefined, { refId: config.simulatorId })], now) : finishAction(p, next, [], now); }
+export function addDebugXp(p: ProgressState, id: string, now: Date) { return finishAction(p, p, [event(p, now, `debug:${id}`, "debug_adjustment", config.debugXpAmount)], now); }
+export const markAchievementToastSeen = (p: ProgressState, id: string): ProgressState => ({ ...p, seenAchievementToastIds: [...new Set([...p.seenAchievementToastIds, id])] });
+export const markFreezeToastSeen = (p: ProgressState, date: string): ProgressState => ({ ...p, seenFreezeToastDates: [...new Set([...p.seenFreezeToastDates, date])] });
+export const markLevelCelebrated = (p: ProgressState): ProgressState => ({ ...p, pendingLevelUp: null });
+export const setLastLesson = (p: ProgressState, id: string, now: Date): ProgressState => ({ ...reconcileCalendar(p, now), lastLessonId: id });
+function browserStorage() { try { return typeof window === "undefined" ? null : window.localStorage; } catch { return null; } }
+export function loadProgress(now: Date) {
+  const storage = browserStorage(); let raw: unknown = null;
+  try { raw = JSON.parse(storage?.getItem(PROGRESS_STORAGE_KEY) ?? "null"); } catch { /* Corrupt test/storage data safely starts clean. */ }
+  const future = typeof object(raw).version === "number" && (object(raw).version as number) > PROGRESS_VERSION;
+  if (future && process.env.NODE_ENV === "development") console.warn("Finly: future progress schema is read-only; stored data will not be overwritten.");
+  const progress = normalizeProgress(raw, now);
+  return { progress, persisted: Boolean(storage && raw && !future), changed: !future && JSON.stringify(raw) !== JSON.stringify(progress), readOnly: future };
 }
-export function saveSimulationStep(previous: ProgressState, simulation: SimulationState, now: Date): DomainResult {
-  if (simulation.step >= 5) return completeSimulator(previous, SIMULATOR_ID, now, simulation);
-  return finishAction(previous, { ...normalizeProgress(previous, now), simulation: normalizeSimulation(simulation) }, [], now);
-}
-export function markAchievementToastSeen(progress: ProgressState, id: string): ProgressState {
-  return progress.achievements.unlockedIds.includes(id) ? { ...progress, achievements: { ...progress.achievements, seenToastIds: [...new Set([...progress.achievements.seenToastIds, id])] } } : progress;
-}
-export function markLevelCelebrated(progress: ProgressState): ProgressState {
-  return { ...progress, highestCelebratedLevel: Math.max(progress.highestCelebratedLevel, getCurrentLevel(progress.totalXp).level) };
-}
-export function setLastLesson(progress: ProgressState, id: string, now: Date): ProgressState {
-  return progress.lastLessonId === id ? progress : { ...progress, lastLessonId: id, updatedAt: now.toISOString() };
+export function saveProgress(p: ProgressState): boolean {
+  const storage = browserStorage(); if (!storage) return false;
+  try { const saved = JSON.parse(storage.getItem(PROGRESS_STORAGE_KEY) ?? "null"); if (typeof saved?.version === "number" && saved.version > PROGRESS_VERSION) return false; } catch { /* Replace corrupt JSON only. */ }
+  try { storage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(ProgressSchema.parse(p))); return true; } catch { return false; }
 }
 
-export type ProgressStorage = Pick<Storage, "getItem" | "setItem">;
-function browserStorage(): ProgressStorage | undefined { try { return typeof window === "undefined" ? undefined : window.localStorage; } catch { return undefined; } }
-const parse = (raw: string | null): unknown => { try { return raw ? JSON.parse(raw) : null; } catch { return null; } };
-export function loadProgress(now: Date, storage: ProgressStorage | undefined = browserStorage()) {
-  let raw: string | null = null, learning: unknown = null;
-  try { raw = storage?.getItem(PROGRESS_STORAGE_KEY) ?? null; } catch { /* Read denied. */ }
-  const value = parse(raw), root = object(value);
-  if (root.version !== PROGRESS_VERSION || "state" in root) {
-    try { learning = parse(storage?.getItem(LEGACY_LEARNING_STORAGE_KEY) ?? null); } catch { /* Legacy read denied. */ }
-  }
-  const progress = root.version === PROGRESS_VERSION && !("state" in root) ? normalizeProgress(value, now) : migrateProgress(value, learning, now);
-  return { progress, changed: raw !== JSON.stringify(progress), persisted: value !== null };
-}
-export function saveProgress(progress: ProgressState, storage: ProgressStorage | undefined = browserStorage()): boolean {
-  try { if (!storage) return false; storage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress)); return true; } catch { return false; }
-}
+

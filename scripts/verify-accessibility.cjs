@@ -24,7 +24,7 @@ const base = process.env.FINLY_BASE_URL || 'http://127.0.0.1:3100';
       const {load}=require('./learning-test-content.cjs');
       const {getReadyLessons}=load('src/content/lessons/index.ts');
       const engine=load('src/lib/progress.ts');
-      await page.evaluate(()=>localStorage.setItem('finly-progress-v2',JSON.stringify({version:1,completedLessonIds:['primul-buget']})));
+      await page.evaluate(state=>localStorage.setItem('finly-progress-v2',JSON.stringify(state)),engine.createEmptyProgress(new Date()));
       await page.addLocatorHandler(page.locator('.finly-level-dialog'),async()=>{await page.locator('.finly-level-dialog .app-button').click();});
       for(const lesson of getReadyLessons()){
         await page.goto(base+'/lectie/'+lesson.id,{waitUntil:'networkidle'});
@@ -51,3 +51,4 @@ const base = process.env.FINLY_BASE_URL || 'http://127.0.0.1:3100';
     assert.equal(failures.length, 0);
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });
+

@@ -1,0 +1,59 @@
+{
+  "results": [
+    {
+      "width": 375,
+      "resetV2": true,
+      "lessonFirst": 48,
+      "dailyAction": 25,
+      "replayImprovement": 8,
+      "simulatorOnce": 100,
+      "finalXp": 181,
+      "pendingOnly": true,
+      "stableShuffleAndCase": true,
+      "reloadNoDuplicate": true,
+      "accessibilityViolations": 0
+    },
+    {
+      "width": 390,
+      "resetV2": true,
+      "lessonFirst": 48,
+      "dailyAction": 25,
+      "replayImprovement": 8,
+      "simulatorOnce": 100,
+      "finalXp": 181,
+      "pendingOnly": true,
+      "stableShuffleAndCase": true,
+      "reloadNoDuplicate": true,
+      "accessibilityViolations": 0
+    },
+    {
+      "width": 430,
+      "resetV2": true,
+      "lessonFirst": 48,
+      "dailyAction": 25,
+      "replayImprovement": 8,
+      "simulatorOnce": 100,
+      "finalXp": 181,
+      "pendingOnly": true,
+      "stableShuffleAndCase": true,
+      "reloadNoDuplicate": true,
+      "accessibilityViolations": 0
+    },
+    {
+      "width": 1440,
+      "resetV2": true,
+      "lessonFirst": 48,
+      "dailyAction": 25,
+      "replayImprovement": 8,
+      "simulatorOnce": 100,
+      "finalXp": 181,
+      "pendingOnly": true,
+      "stableShuffleAndCase": true,
+      "reloadNoDuplicate": true,
+      "accessibilityViolations": 0
+    }
+  ],
+  "errors": [],
+  "perfectFirstWithGoal": 81,
+  "futureVersionPreserved": true
+}

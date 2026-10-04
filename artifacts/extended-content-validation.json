@@ -169,9 +169,9 @@
   ],
   "invalidContentRejected": true,
   "originalIdsAndXpPreserved": true,
-  "perfectSessionXp": 50,
-  "oneMistakeXp": 30,
-  "laterPerfectBonusXp": 20,
+  "perfectSessionWithGoalXp": 81,
+  "oneMistakeWithGoalXp": 62,
+  "laterImprovementXp": 4,
   "rewardedReplayXp": 0,
   "historicalMasteryPreserved": true
 }

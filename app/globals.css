@@ -370,3 +370,42 @@ dialog::backdrop { background: #0B1B3370; backdrop-filter: blur(3px); }
   .lesson-finish { margin-top: 25px; }
 }
 @media (prefers-reduced-motion: reduce) { .salary-lesson *, .salary-lesson *::before, .salary-lesson *::after { animation: none !important; transition: none !important; } }
+/* Shared v2 status UI, within Finly's existing cards and color palette. */
+.daily-goal-status { display:flex; align-items:center; justify-content:center; gap:12px; margin:18px 0; }
+.daily-goal-status strong,.daily-goal-status small { display:block; }
+.daily-goal-status small { font-size:13px; color:var(--secondary); margin-top:3px; }
+.daily-goal-ring { width:52px; height:52px; border-radius:50%; position:relative; display:grid; place-items:center; flex-shrink:0; }
+.daily-goal-ring::before { content:""; position:absolute; inset:5px; background:var(--background, #fafbfd); border-radius:50%; }
+.daily-goal-ring svg { position:relative; color:var(--blue-ink); }
+.daily-goal-status.complete .daily-goal-ring { animation:lesson-pop .35s ease; }
+.status-row { flex-wrap:wrap; }
+.status-row > span { white-space:nowrap; }
+.status-row > span:first-child svg,.streak-chip svg { color:#c78027; }
+.freeze-indicator,.freeze-notification { color:#418bb0; }
+.freeze-indicator { white-space:nowrap; }
+.streak-chip { display:inline-flex; align-items:center; gap:6px; }
+.activity-week,.xp-journal { margin-top:20px; padding:20px; }
+.activity-week h2,.xp-journal h2 { font-size:18px; margin-bottom:18px; }
+.activity-week > div { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:5px; }
+.activity-day { text-align:center; min-width:0; }
+.activity-day small { display:block; margin-bottom:8px; color:var(--secondary); }
+.activity-day i { display:grid; place-items:center; width:34px; height:34px; margin:auto; border-radius:50%; font-style:normal; font-size:13px; color:var(--secondary); background:#eef1f4; }
+.activity-day.activity i { background:var(--light-blue); color:var(--blue-ink); }
+.activity-day.freeze i { background:#e3f4fc; color:#418bb0; }
+.activity-day.today i { outline:2px solid var(--blue-ink); outline-offset:2px; }
+.xp-journal ol { padding:0; list-style:none; max-height:360px; overflow:auto; }
+.xp-journal li { display:flex; justify-content:space-between; gap:14px; align-items:center; border-bottom:1px solid #edf0f3; padding:12px 0; font-size:14px; }
+.xp-journal li span { min-width:0; }
+.xp-journal small { display:block; color:var(--secondary); font-size:12px; margin-top:4px; }
+.xp-journal strong { white-space:nowrap; }
+.pending-question-xp { font-size:13px; margin-left:auto; color:var(--blue-ink); padding:5px 9px; border-radius:8px; background:var(--light-blue); animation:lesson-pop .3s ease; }
+.lesson-reward-summary { margin:20px 0; }
+.reward-breakdown { text-align:left; font-size:14px; line-height:1.8; padding-left:20px; }
+.achievement .app-progress { height:4px; margin-top:7px; }
+.gamification-dev { position:fixed; right:12px; bottom:90px; z-index:80; font-size:12px; }
+.gamification-dev button { background:#e8f5fd; border:1px solid #bdd6e4; border-radius:8px; padding:9px; }
+.gamification-dev > div { display:grid; gap:8px; width:240px; padding:12px; background:white; border:1px solid #bdd6e4; border-radius:12px; box-shadow:0 5px 25px #12263818; }
+.lesson-top .lesson-xp { font-size:12px; white-space:nowrap; }
+@media (max-width:560px) { .status-row { gap:8px; } .status-row > span { flex:1 1 40%; } .daily-card .section-top { flex-wrap:wrap; gap:8px; } .daily-card .reward-chip { font-size:11px; } .finly-level-dialog { max-width:calc(100vw - 32px); max-height:80vh; overflow:auto; } .finly-achievement-toast { bottom:calc(86px + env(safe-area-inset-bottom)); } }
+@media (prefers-reduced-motion:reduce) { .daily-goal-ring,.pending-question-xp,.freeze-notification,.streak-chip { animation:none !important; transition:none !important; } }
+.daily-card .section-top { flex-wrap:wrap; gap:8px; } .achievement.unlocked .icon-tile { background:var(--light-blue); color:var(--blue-ink); } .achievement.locked { opacity:.8; } .freeze-notification { animation:lesson-pop .35s ease; }

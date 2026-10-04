@@ -20,5 +20,5 @@ export type ComingSoonLesson = z.infer<typeof ComingSoonLessonSchema>;
 export type Lesson = ReadyLesson | ComingSoonLesson;
 export type Chapter = z.infer<typeof ChapterSchema>;
 export type Category = z.infer<typeof CategorySchema>;
-export type LearningProgress = { version: 1; completedLessonIds: string[]; lastLessonId: string | null; updatedAt: string | null };
 export type LessonState = "completed" | "current" | "locked" | "coming-soon";
+

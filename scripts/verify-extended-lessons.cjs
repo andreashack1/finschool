@@ -27,17 +27,17 @@ for (const lesson of lessons) {
   const answers = questions.map(screen => ({ screenId: screen.id, selectedOptionId: engine.getCorrectAnswerId(screen) }));
   const now = new Date('2026-10-03T10:00:00Z');
   const first = engine.completeLessonSession(engine.createEmptyProgress(), { lessonId: lesson.id, sessionId: 'perfect', answers }, now);
-  assert.equal(first.xpGained, 50);
+  assert.equal(first.xpGained, 81);
   const replay = engine.completeLessonSession(first.progress, { lessonId: lesson.id, sessionId: 'new-content-replay', answers }, now);
   assert.equal(replay.xpGained, 0);
-  const preserved = engine.normalizeProgress({ ...first.progress, uniqueCorrectAnswers: [...first.progress.uniqueCorrectAnswers, lesson.id + ':old-semantic-question'] });
-  assert.deepEqual(preserved.completedLessonIds, first.progress.completedLessonIds);
-  assert.deepEqual(preserved.awardedRewardKeys, first.progress.awardedRewardKeys);
-  assert.equal(preserved.totalXp, first.progress.totalXp);
+  const preserved = engine.normalizeProgress({ ...first.progress, uniqueCorrectAnswers: [...first.progress.uniqueCorrectAnswers, lesson.id + ':old-semantic-question'] }, now);
+  assert.deepEqual(engine.getCompletedLessonIds(preserved), engine.getCompletedLessonIds(first.progress));
+  assert.deepEqual(preserved.xp_events, first.progress.xp_events);
+  assert.equal(engine.getTotalXp(preserved), engine.getTotalXp(first.progress));
   assert.ok(preserved.uniqueCorrectAnswers.includes(lesson.id + ':old-semantic-question'));
   const mistaken = engine.completeLessonSession(engine.createEmptyProgress(), { lessonId: lesson.id, sessionId: 'one-mistake', answers: answers.map((answer, index) => index ? answer : { ...answer, selectedOptionId: 'wrong' }) }, now);
-  assert.equal(mistaken.xpGained, 30);
-  assert.equal(engine.completeLessonSession(mistaken.progress, { lessonId: lesson.id, sessionId: 'later-perfect', answers }, now).xpGained, 20);
+  assert.equal(mistaken.xpGained, 62);
+  assert.equal(engine.completeLessonSession(mistaken.progress, { lessonId: lesson.id, sessionId: 'later-perfect', answers }, now).xpGained, 4);
 }
 const valid = lessons[0];
 const updated = copy(valid);
@@ -79,7 +79,8 @@ fs.writeFileSync('artifacts/extended-content-validation.json', JSON.stringify({
     rememberItems: lesson.screens[14].items.length,
   })),
   invalidContentRejected: true, originalIdsAndXpPreserved: true,
-  perfectSessionXp: 50, oneMistakeXp: 30, laterPerfectBonusXp: 20, rewardedReplayXp: 0,
+  perfectSessionWithGoalXp: 81, oneMistakeWithGoalXp: 62, laterImprovementXp: 4, rewardedReplayXp: 0,
   historicalMasteryPreserved: true,
 }, null, 2));
 console.log('PASS: seven extended lessons, 112 steps, 63 questions; invalid formats throw; IDs, rewards, completed progress and historical mastery preserved.');
+

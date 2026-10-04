@@ -1,0 +1,38 @@
+[
+  {
+    "width": 375,
+    "sessionReloadStartsAtOne": true,
+    "globalProgressPreserved": true,
+    "oneMistakeXp": 30,
+    "laterPerfectXp": 20,
+    "replayXp": 0,
+    "caseModalNeutral": true
+  },
+  {
+    "width": 390,
+    "sessionReloadStartsAtOne": true,
+    "globalProgressPreserved": true,
+    "oneMistakeXp": 30,
+    "laterPerfectXp": 20,
+    "replayXp": 0,
+    "caseModalNeutral": true
+  },
+  {
+    "width": 430,
+    "sessionReloadStartsAtOne": true,
+    "globalProgressPreserved": true,
+    "oneMistakeXp": 30,
+    "laterPerfectXp": 20,
+    "replayXp": 0,
+    "caseModalNeutral": true
+  },
+  {
+    "width": 1440,
+    "sessionReloadStartsAtOne": true,
+    "globalProgressPreserved": true,
+    "oneMistakeXp": 30,
+    "laterPerfectXp": 20,
+    "replayXp": 0,
+    "caseModalNeutral": true
+  }
+]

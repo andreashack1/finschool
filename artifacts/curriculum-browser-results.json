@@ -1,0 +1,61 @@
+{
+  "results": [
+    {
+      "width": 375,
+      "lessonsCompleted": 7,
+      "legacyQuickPreserved": true,
+      "dailyChallenge": true,
+      "retakeXpStable": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lessonsCompleted": 7,
+      "legacyQuickPreserved": true,
+      "dailyChallenge": true,
+      "retakeXpStable": true,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "lessonsCompleted": 7,
+      "legacyQuickPreserved": true,
+      "dailyChallenge": true,
+      "retakeXpStable": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lessonsCompleted": 7,
+      "legacyQuickPreserved": true,
+      "dailyChallenge": true,
+      "retakeXpStable": true,
+      "overflow": false
+    },
+    {
+      "storage": "no-key",
+      "passed": true
+    },
+    {
+      "storage": "valid-empty",
+      "passed": true
+    },
+    {
+      "storage": "one-completed",
+      "passed": true
+    },
+    {
+      "storage": "all-completed",
+      "passed": true
+    },
+    {
+      "storage": "corrupt",
+      "passed": true
+    },
+    {
+      "storage": "legacy",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,2458 @@
+[
+  {
+    "id": "phishing",
+    "slug": "phishing",
+    "categoryId": "siguranta-financiara",
+    "chapterId": "mesaje-si-apeluri-false",
+    "title": "Phishing",
+    "description": "Recunoști mesajele false și verifici în siguranță.",
+    "minutes": 5,
+    "xp": 30,
+    "status": "ready",
+    "contentVersion": 2,
+    "formatVersion": 2,
+    "screens": [
+      {
+        "type": "situatie",
+        "id": "situatie",
+        "title": "Un SMS urgent.",
+        "body": "Primești un SMS care spune că trebuie să confirmi urgent contul bancar. Are un link și pare să știe numele tău. Înainte să reacționezi, merită să separi mesajul de canalul prin care îl verifici."
+      },
+      {
+        "type": "explicatie",
+        "id": "concept",
+        "title": "Cineva încearcă să îți grăbească decizia.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Phishing-ul este o încercare de a te păcăli să oferi date sensibile sau să intri pe o pagină falsă. Mesajul poate pretinde că vine de la bancă, de la un magazin sau chiar de la un prieten. Scopul este să îți folosească încrederea pentru acces la bani ori conturi.",
+          "Poate cere o parolă, un PIN sau un cod primit prin SMS. Faptul că mesajul pare familiar nu face cererea sigură. O pagină poate copia aspectul unui serviciu real, iar un cont cunoscut poate fi folosit de altcineva.",
+          "Un reflex sigur este să ieși din traseul propus de mesaj. Deschide singur aplicația oficială sau folosește un contact verificat separat. Nu trebuie să apeși linkul ca să afli dacă avertizarea este reală."
+        ],
+        "detail": {
+          "text": "Verificarea printr-un canal separat întrerupe traseul propus de mesaj."
+        }
+      },
+      {
+        "type": "variante",
+        "id": "definitie",
+        "title": "Ce încearcă phishing-ul?",
+        "question": "Care este scopul unui mesaj de phishing?",
+        "explanation": "Mesajul urmărește date sau acces, folosind încrederea și presiunea.",
+        "correctFeedback": "Mesajul urmărește date sau acces, folosind încrederea și presiunea.",
+        "incorrectFeedback": "Aspectul familiar nu schimbă scopul: încercarea de a obține date sau acces prin înșelare.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Să obțină date sau acces prin înșelare."
+          },
+          {
+            "id": "1",
+            "label": "Să confirme că orice link este sigur."
+          },
+          {
+            "id": "2",
+            "label": "Să ofere automat protecție contului."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "variante",
+        "id": "link",
+        "title": "Cum verifici?",
+        "question": "Primești un link suspect despre cont. Ce faci?",
+        "explanation": "Canalul oficial deschis separat nu depinde de linkul primit.",
+        "correctFeedback": "Canalul oficial deschis separat nu depinde de linkul primit.",
+        "incorrectFeedback": "Linkul poate duce la o pagină falsă. Verifică separat, fără să îi urmezi traseul.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Apeși linkul ca să verifici."
+          },
+          {
+            "id": "1",
+            "label": "Intri singur în aplicația sau site-ul oficial."
+          },
+          {
+            "id": "2",
+            "label": "Răspunzi cu datele cerute."
+          }
+        ],
+        "correctOption": "1"
+      },
+      {
+        "type": "explicatie",
+        "id": "semnale",
+        "title": "Semnele care cer o pauză.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Urgența artificială este un semnal de alarmă: «acum», «în cinci minute» sau «pierzi accesul» încearcă să reducă timpul în care gândești. Nu este singurul semn. Contează și linkul, cererea de date sensibile și felul în care mesajul pretinde să fie altcineva.",
+          "Un exemplu: primești o alertă despre o plată de 250 lei, urmată de cererea de a trimite un cod pentru anulare. Suma face mesajul concret, dar nu îl validează. Codul poate proteja accesul sau aprobarea unei acțiuni, nu este o informație de trimis altcuiva.",
+          "Greșelile neobișnuite și adresele ciudate pot ridica semne de întrebare. Totuși, un mesaj bine scris poate fi fals. Nu te baza pe o singură verificare vizuală și nu trimite PIN-uri, parole sau coduri prin conversația primită."
+        ],
+        "example": {
+          "text": "O alertă de 250 lei și un termen de cinci minute pot crea presiune; verificarea rămâne separată."
+        },
+        "detail": {
+          "text": "Un text fără greșeli nu este automat legitim."
+        }
+      },
+      {
+        "type": "adevarat_fals",
+        "id": "pin",
+        "title": "PIN-ul prin SMS?",
+        "question": "O bancă adevărată îți cere PIN-ul cardului prin SMS.",
+        "explanation": "Nu trimite PIN-ul cardului prin SMS sau mesaje.",
+        "correctFeedback": "Nu trimite PIN-ul cardului prin SMS sau mesaje.",
+        "incorrectFeedback": "O cerere de PIN prin mesaj nu trebuie urmată; verifică situația printr-un canal oficial separat.",
+        "correctAnswer": false
+      },
+      {
+        "type": "scenariu",
+        "id": "urgenta-cod",
+        "title": "O alertă cu termen scurt.",
+        "question": "Ce reacție este sigură?",
+        "explanation": "Presiunea nu este o dovadă. Codul rămâne privat, iar situația se verifică separat.",
+        "correctFeedback": "Presiunea nu este o dovadă. Codul rămâne privat, iar situația se verifică separat.",
+        "incorrectFeedback": "Timpul scurt și aspectul mesajului nu justifică trimiterea codului.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Verifici separat și nu trimiți codul."
+          },
+          {
+            "id": "1",
+            "label": "Trimiți codul fiindcă timpul e scurt."
+          },
+          {
+            "id": "2",
+            "label": "Verifici doar dacă logo-ul arată bine."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Mesajul spune că ai cinci minute să trimiți un cod pentru a anula o plată."
+      },
+      {
+        "type": "caz_real",
+        "id": "caz",
+        "title": "Ioana primește două mesaje.",
+        "caseId": "case-phishing-ioana",
+        "label": "Caz real",
+        "paragraphs": [
+          "Ioana are 18 ani și primește un SMS care pare să vină de la banca ei. Textul spune că o plată de 250 lei trebuie confirmată urgent, în cinci minute, printr-un link. Mesajul folosește numele ei și o imagine familiară. Ioana nu își amintește să fi făcut plata și observă că adresa linkului nu este cea pe care o folosește de obicei.",
+          "Câteva clipe mai târziu primește un cod prin SMS. Nu a cerut ea acel cod. Apoi contul unui prieten îi scrie că a câștigat un premiu și că are nevoie de codul ei pentru a-l revendica. Conversația arată ca cele vechi, dar cererea este neobișnuită.",
+          "Ioana poate deschide singură aplicația oficială și poate folosi un contact al băncii verificat separat. Pentru prieten, poate suna la numărul deja cunoscut. Numele, logo-ul și conversația familiară nu dovedesc cine controlează mesajele. Are mai mult de un motiv să încetinească: urgența, adresa neobișnuită și cererea pentru un cod pe care nu trebuie să îl comunice."
+        ],
+        "finiMood": "thinking"
+      },
+      {
+        "type": "variante",
+        "id": "ioana-semn",
+        "title": "De ce merită o pauză?",
+        "question": "Care combinație ridică un semnal de alarmă în cazul Ioanei?",
+        "explanation": "Presiunea și traseul neobișnuit, împreună cu cererea de cod, cer verificare separată.",
+        "correctFeedback": "Presiunea și traseul neobișnuit, împreună cu cererea de cod, cer verificare separată.",
+        "incorrectFeedback": "Suma sau numele nu validează mesajul; trebuie analizate și cererea de cod și canalul propus.",
+        "caseId": "case-phishing-ioana",
+        "options": [
+          {
+            "id": "0",
+            "label": "Urgență, link neobișnuit și cerere de cod."
+          },
+          {
+            "id": "1",
+            "label": "Doar faptul că suma este 250 lei."
+          },
+          {
+            "id": "2",
+            "label": "Faptul că mesajul folosește numele ei."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "scenariu",
+        "id": "ioana-verifica",
+        "title": "Verificare fără link.",
+        "question": "Cum verifică fără să continue traseul mesajului?",
+        "explanation": "Aplicația deschisă separat este independentă de linkul suspect.",
+        "correctFeedback": "Aplicația deschisă separat este independentă de linkul suspect.",
+        "incorrectFeedback": "Verificarea prin același link sau expeditor nu este un canal separat de mesajul suspect.",
+        "caseId": "case-phishing-ioana",
+        "options": [
+          {
+            "id": "0",
+            "label": "Deschide singură aplicația oficială."
+          },
+          {
+            "id": "1",
+            "label": "Folosește linkul și caută acolo un număr."
+          },
+          {
+            "id": "2",
+            "label": "Întreabă expeditorul dacă este banca."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Ioana nu recunoaște plata de 250 lei."
+      },
+      {
+        "type": "scenariu",
+        "id": "cod",
+        "title": "Un «prieten» cere codul.",
+        "question": "Ce face Ioana?",
+        "explanation": "Codul rămâne privat. Un apel pe un canal cunoscut verifică identitatea separat.",
+        "correctFeedback": "Codul rămâne privat. Un apel pe un canal cunoscut verifică identitatea separat.",
+        "incorrectFeedback": "Conversația familiară nu dovedește cine o controlează; nu comunica nici măcar o parte din cod.",
+        "caseId": "case-phishing-ioana",
+        "options": [
+          {
+            "id": "0",
+            "label": "Trimite codul în conversație."
+          },
+          {
+            "id": "1",
+            "label": "Nu trimite codul și sună prietenul separat."
+          },
+          {
+            "id": "2",
+            "label": "Trimite doar o parte din cod."
+          }
+        ],
+        "correctOption": "1",
+        "context": "Contul unui prieten cere codul primit prin SMS pentru un premiu."
+      },
+      {
+        "type": "explicatie",
+        "id": "nuante",
+        "title": "Aspectul familiar nu este dovadă.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Un logo reușit sau un mesaj fără greșeli poate crea încredere, dar este ușor de copiat. Nici faptul că expeditorul îți cunoaște numele nu confirmă identitatea. Datele familiare fac o poveste mai convingătoare, nu o transformă automat în adevăr.",
+          "O greșeală frecventă este să verifici mesajul prin contactul oferit chiar în el. Dacă linkul sau numărul face parte din înșelătorie, verificarea rămâne în același traseu. Folosește aplicația ori un contact pe care îl cunoști dintr-o sursă separată.",
+          "Codurile de verificare, PIN-urile și parolele nu sunt monedă de schimb pentru ajutor sau premii. Dacă ai îndoieli, încetinește și verifică. Nu trebuie să răspunzi repede doar pentru că mesajul cere asta, iar recitirea lui nu înlocuiește un canal de încredere."
+        ],
+        "detail": {
+          "text": "Un contact verificat separat este mai util decât numărul oferit în mesaj."
+        }
+      },
+      {
+        "type": "scenariu",
+        "id": "logo",
+        "title": "Arată exact ca banca.",
+        "question": "Ce concluzie este sigură?",
+        "explanation": "Datele familiare pot fi copiate. Cererea sensibilă se verifică separat, fără a trimite parola.",
+        "correctFeedback": "Datele familiare pot fi copiate. Cererea sensibilă se verifică separat, fără a trimite parola.",
+        "incorrectFeedback": "Logo-ul și numele nu sunt o dovadă suficientă despre cine trimite mesajul.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Aspectul nu validează cererea de parolă."
+          },
+          {
+            "id": "1",
+            "label": "Numele dovedește că este legitim."
+          },
+          {
+            "id": "2",
+            "label": "Logo-ul face orice cerere sigură."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Un mesaj are logo-ul corect și numele tău, dar cere parola."
+      },
+      {
+        "type": "adevarat_fals",
+        "id": "verificare-link",
+        "title": "Un canal cu adevărat separat?",
+        "question": "Numărul găsit pe pagina deschisă din linkul suspect este o verificare independentă.",
+        "explanation": "Numărul poate face parte din aceeași pagină falsă. Folosește un contact verificat separat.",
+        "correctFeedback": "Numărul poate face parte din aceeași pagină falsă. Folosește un contact verificat separat.",
+        "incorrectFeedback": "Un număr din linkul suspect rămâne în traseul propus de mesaj.",
+        "correctAnswer": false
+      },
+      {
+        "type": "tine_minte",
+        "id": "tine-minte",
+        "title": "Ține minte",
+        "finiMood": "happy",
+        "items": [
+          {
+            "id": "punct-1",
+            "title": "Oprește graba",
+            "body": "Urgența artificială încearcă să reducă timpul de gândire. Un termen scurt nu dovedește legitimitatea.",
+            "detail": "Poți încetini chiar dacă mesajul cere o reacție imediată.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-2",
+            "title": "Verifică separat",
+            "body": "Deschide singur aplicația oficială sau folosește un contact cunoscut. Nu verifica doar prin linkul primit.",
+            "detail": "Și numărul de pe o pagină falsă poate fi fals.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-3",
+            "title": "Codurile sunt private",
+            "body": "PIN-urile, parolele și codurile de verificare nu se trimit altcuiva. O promisiune de premiu nu schimbă regula.",
+            "detail": "Nici o parte din cod nu trebuie oferită.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-4",
+            "title": "Identitatea se confirmă",
+            "body": "Logo-ul, numele și un cont familiar nu dovedesc cine trimite mesajul. Un canal separat ajută să verifici persoana.",
+            "detail": "Poți suna prietenul la numărul deja cunoscut.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-5",
+            "title": "Ce poți face azi",
+            "body": "Verifică unde ai aplicația oficială și contactul verificat al băncii. Astfel nu depinzi de un link din SMS când apare o alertă.",
+            "detail": "Salvează contactul dintr-o sursă oficială, nu dintr-un mesaj urgent.",
+            "type": "action"
+          }
+        ]
+      },
+      {
+        "type": "final",
+        "id": "final",
+        "title": "Lecție terminată."
+      }
+    ]
+  },
+  {
+    "id": "primul-buget",
+    "slug": "primul-buget",
+    "categoryId": "economii",
+    "chapterId": "bugetul",
+    "title": "Primul tău buget",
+    "description": "Un plan simplu pentru banii care intră și ies.",
+    "minutes": 5,
+    "xp": 30,
+    "status": "ready",
+    "contentVersion": 2,
+    "formatVersion": 2,
+    "screens": [
+      {
+        "type": "situatie",
+        "id": "situatie",
+        "title": "Unde au dispărut banii?",
+        "body": "Ai primit banii pentru lună, iar după două săptămâni nu mai știi pe ce s-au dus. Ai plătit lucruri mici, câteva abonamente și două ieșiri. Nu ai nevoie de un tabel perfect, ci de un plan care să le facă vizibile."
+      },
+      {
+        "type": "explicatie",
+        "id": "intro",
+        "title": "Un plan, nu o pedeapsă.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Un buget este un plan pentru banii care intră și ies. Începi cu venitul disponibil, apoi decizi ce trebuie acoperit și ce vrei să păstrezi pentru mai târziu. Scopul nu este să interzică orice lucru plăcut, ci să îți arate ce alegeri încap în aceeași sumă.",
+          "Dacă aștepți să vezi ce rămâne la final, economisirea și alte obiective pot primi doar resturile. Planificarea înainte de cheltuire le dă un loc clar, alături de nevoile curente. Asta nu înseamnă că planul nu se poate schimba.",
+          "Nu ai nevoie să cumperi o aplicație înainte să începi. O listă simplă poate fi suficientă pentru primul pas. Contează să folosești venit confirmat, nu bani pe care doar speri să îi primești."
+        ],
+        "detail": {
+          "text": "Mai întâi afli suma disponibilă; abia apoi o împarți."
+        }
+      },
+      {
+        "type": "variante",
+        "id": "start",
+        "title": "De unde începi?",
+        "question": "Care este prima etapă a bugetului?",
+        "explanation": "Trebuie să știi câți bani ai la dispoziție înainte să planifici folosirea lor.",
+        "correctFeedback": "Trebuie să știi câți bani ai la dispoziție înainte să planifici folosirea lor.",
+        "incorrectFeedback": "Aplicația poate ajuta, dar baza planului este venitul disponibil, nu instrumentul folosit.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Notezi venitul disponibil confirmat."
+          },
+          {
+            "id": "1",
+            "label": "Cumperi o aplicație de buget."
+          },
+          {
+            "id": "2",
+            "label": "Cheltuiești și economisești restul."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "adevarat_fals",
+        "id": "resturi",
+        "title": "Plan sau doar resturi?",
+        "question": "Economisirea doar din ce rămâne la final este același lucru cu planificarea ei de la început.",
+        "explanation": "Un obiectiv planificat primește un loc înainte de cheltuire. Resturile pot varia mult.",
+        "correctFeedback": "Un obiectiv planificat primește un loc înainte de cheltuire. Resturile pot varia mult.",
+        "incorrectFeedback": "Așteptarea restului nu oferă aceeași vizibilitate ca o sumă planificată pentru obiectiv.",
+        "correctAnswer": false
+      },
+      {
+        "type": "explicatie",
+        "id": "categorii",
+        "title": "Categorii care te ajută să vezi.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Poți separa cheltuielile fixe, cele variabile și banii pentru obiective. Fixe înseamnă relativ previzibile, cum sunt un abonament sau chiria. Variabile înseamnă că suma poate diferi, cum se întâmplă cu mâncarea sau ieșirile. Variabil nu înseamnă automat neimportant.",
+          "Într-un exemplu ai 2.000 lei, cheltuieli fixe de 700 lei, mâncare de 500 lei și ieșiri de 400 lei. După acestea rămân 400 lei. Dacă ai un obiectiv de economisire, îl pui în plan înainte să tratezi toată diferența drept bani liberi.",
+          "Categoriile sunt o unealtă, nu un examen. O cheltuială poate fi importantă chiar dacă suma ei se schimbă. Planul devine mai util când arată atât obligațiile, cât și locul în care poți ajusta fără să ignori nevoile esențiale."
+        ],
+        "example": {
+          "text": "2.000 − 700 − 500 − 400 = 400 lei disponibili pentru alte alegeri."
+        },
+        "detail": {
+          "text": "Verifică și obiectivele înainte să numești diferența «bani liberi»."
+        }
+      },
+      {
+        "type": "calcul",
+        "id": "ramane",
+        "title": "Ce mai rămâne?",
+        "question": "Ai 2.000 lei. Fixe: 700, mâncare: 500, ieșiri: 400. Cât rămâne?",
+        "explanation": "După cele trei categorii rămân 400 lei. Urmează să decizi ce rol au în plan.",
+        "correctFeedback": "După cele trei categorii rămân 400 lei. Urmează să decizi ce rol au în plan.",
+        "incorrectFeedback": "Scazi fiecare categorie o singură dată: 2.000 minus 700, 500 și 400.",
+        "context": "Exemplu de calcul.",
+        "options": [
+          {
+            "id": "0",
+            "value": 200
+          },
+          {
+            "id": "1",
+            "value": 400
+          },
+          {
+            "id": "2",
+            "value": 600
+          }
+        ],
+        "expectedAnswer": 400,
+        "unit": "lei"
+      },
+      {
+        "type": "scenariu",
+        "id": "categorie",
+        "title": "Variabil nu înseamnă inutil.",
+        "question": "Cum o privești în buget?",
+        "explanation": "Categoria descrie predictibilitatea sumei, nu importanța nevoii.",
+        "correctFeedback": "Categoria descrie predictibilitatea sumei, nu importanța nevoii.",
+        "incorrectFeedback": "O sumă care variază nu face nevoia inutilă și nici nu o transformă într-un cost fix.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Variabilă, dar importantă."
+          },
+          {
+            "id": "1",
+            "label": "Inutilă, fiindcă suma diferă."
+          },
+          {
+            "id": "2",
+            "label": "Fixă, fiindcă ai nevoie de ea."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Costul mâncării diferă între luni, dar ai nevoie de ea."
+      },
+      {
+        "type": "caz_real",
+        "id": "caz",
+        "title": "Vlad și ieșirea neplanificată.",
+        "caseId": "case-budget-vlad",
+        "label": "Caz real",
+        "paragraphs": [
+          "Vlad are 19 ani și un venit disponibil de 2.000 lei pe lună. Planifică 700 lei pentru cheltuieli fixe, inclusiv transportul și un abonament, 500 lei pentru mâncare și 400 lei pentru ieșiri. Vrea să păstreze 300 lei pentru un laptop. Cei 100 lei rămași sunt o mică rezervă în buget, nu întregul lui fond pentru urgențe.",
+          "La jumătatea lunii, prietenii propun o ieșire suplimentară de 150 lei. Vlad ar vrea să participe. Nu are un venit suplimentar confirmat și nu vrea să amâne automat obiectivul pentru laptop. O parte din suma pentru ieșiri nu a fost încă folosită, iar o altă ieșire planificată poate fi simplificată.",
+          "Are mai multe opțiuni aparent rezonabile: poate reduce costul noii ieșiri, poate muta bani din alte activități sociale sau poate ajusta explicit obiectivul. Ce nu funcționează este să pretindă că cei 150 lei nu schimbă nimic. Un plan flexibil îi permite să aleagă, dar trebuie să arate de unde vine diferența."
+        ],
+        "finiMood": "thinking"
+      },
+      {
+        "type": "scenariu",
+        "id": "vlad-obiectiv",
+        "title": "Ce are deja un rol?",
+        "question": "Cum ar trebui privită?",
+        "explanation": "Diferența dintre venit și primele categorii nu este automat liberă; obiectivul are deja un loc.",
+        "correctFeedback": "Diferența dintre venit și primele categorii nu este automat liberă; obiectivul are deja un loc.",
+        "incorrectFeedback": "Cei 300 lei pentru laptop au un rol. O nouă cheltuială cere o ajustare, nu o presupunere.",
+        "caseId": "case-budget-vlad",
+        "options": [
+          {
+            "id": "0",
+            "label": "Ca bani deja împărțiți în plan."
+          },
+          {
+            "id": "1",
+            "label": "Ca 400 lei liberi pentru orice."
+          },
+          {
+            "id": "2",
+            "label": "Ca venit suplimentar sigur."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Diferența de 400 lei include 300 lei pentru laptop și 100 lei rezervă."
+      },
+      {
+        "type": "scenariu",
+        "id": "vlad-flexibil",
+        "title": "Participi fără totul-sau-nimic.",
+        "question": "Care variantă păstrează planul vizibil?",
+        "explanation": "Poate ajusta o categorie flexibilă fără să abandoneze complet obiectivul.",
+        "correctFeedback": "Poate ajusta o categorie flexibilă fără să abandoneze complet obiectivul.",
+        "incorrectFeedback": "O cheltuială socială nu cere automat anularea economiilor; diferența poate fi planificată explicit.",
+        "caseId": "case-budget-vlad",
+        "options": [
+          {
+            "id": "0",
+            "label": "Reduce o altă ieșire sau costul celei noi."
+          },
+          {
+            "id": "1",
+            "label": "Renunță automat la toate economiile."
+          },
+          {
+            "id": "2",
+            "label": "Cheltuiește și verifică abia luna viitoare."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Vlad vrea să păstreze obiectivul și să iasă cu prietenii."
+      },
+      {
+        "type": "calcul",
+        "id": "vlad-diferenta",
+        "title": "Ce sumă trebuie ajustată?",
+        "question": "Vlad folosește rezerva de 100 lei pentru ieșirea de 150 lei. Cât mai trebuie acoperit?",
+        "explanation": "150 − 100 = 50 lei de găsit printr-o ajustare explicită.",
+        "correctFeedback": "150 − 100 = 50 lei de găsit printr-o ajustare explicită.",
+        "incorrectFeedback": "Rezerva acoperă doar 100 lei; diferența de 50 lei încă trebuie planificată.",
+        "caseId": "case-budget-vlad",
+        "context": "Exemplu de calcul.",
+        "options": [
+          {
+            "id": "0",
+            "value": 50
+          },
+          {
+            "id": "1",
+            "value": 100
+          },
+          {
+            "id": "2",
+            "value": 150
+          }
+        ],
+        "expectedAnswer": 50,
+        "unit": "lei"
+      },
+      {
+        "type": "explicatie",
+        "id": "nuante",
+        "title": "Un buget pe care îl poți folosi.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "O capcană este să ignori cheltuielile mici fiindcă fiecare pare neimportantă. Împreună pot schimba mult suma disponibilă. Alta este să construiești un plan fără loc pentru viața reală, apoi să îl abandonezi la prima abatere.",
+          "Un buget prea strict poate arăta bine pe hârtie și să fie greu de respectat. Flexibilitatea nu înseamnă să ignori totalul, ci să vezi ce muți și ce efect are mutarea. Dacă ai cheltuit mai mult într-o categorie, verifică de unde vine diferența.",
+          "O abatere este informație pentru următorul plan, nu dovada că ai eșuat. Poți actualiza estimările folosind cheltuielile observate. Obiectivele rămân mai clare când sunt planificate dinainte, iar ajustările sunt făcute conștient, nu ascunse în restul de la final."
+        ],
+        "detail": {
+          "text": "Un plan util se ajustează când afli ceva nou."
+        }
+      },
+      {
+        "type": "variante",
+        "id": "ajustare",
+        "title": "Ai depășit o estimare.",
+        "question": "Ce faci când o categorie a costat mai mult decât credeai?",
+        "explanation": "Cheltuiala observată este informație pentru o estimare mai bună și o ajustare explicită.",
+        "correctFeedback": "Cheltuiala observată este informație pentru o estimare mai bună și o ajustare explicită.",
+        "incorrectFeedback": "O abatere nu anulează utilitatea planului. Verifică diferența înainte să decizi ce schimbi.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Verifici diferența și ajustezi planul."
+          },
+          {
+            "id": "1",
+            "label": "Abandonezi orice buget."
+          },
+          {
+            "id": "2",
+            "label": "Păstrezi estimarea fără să verifici."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "calcul",
+        "id": "iesire-plan",
+        "title": "O alegere în plan.",
+        "question": "Din 400 lei disponibili planifici o ieșire de 150 lei. Cât rămâne pentru celelalte alegeri?",
+        "explanation": "400 − 150 = 250 lei. Următoarele alegeri trebuie să încapă în această sumă.",
+        "correctFeedback": "400 − 150 = 250 lei. Următoarele alegeri trebuie să încapă în această sumă.",
+        "incorrectFeedback": "Cheltuiala planificată se scade din suma disponibilă; nu păstrezi cei 400 lei ca și cum nimic nu s-a schimbat.",
+        "context": "Exemplu de calcul.",
+        "options": [
+          {
+            "id": "0",
+            "value": 150
+          },
+          {
+            "id": "1",
+            "value": 250
+          },
+          {
+            "id": "2",
+            "value": 350
+          }
+        ],
+        "expectedAnswer": 250,
+        "unit": "lei"
+      },
+      {
+        "type": "tine_minte",
+        "id": "tine-minte",
+        "title": "Ține minte",
+        "finiMood": "happy",
+        "items": [
+          {
+            "id": "punct-1",
+            "title": "Începi cu venitul",
+            "body": "Notezi venitul disponibil confirmat. Nu pornești de la un bonus pe care doar îl speri.",
+            "detail": "O listă simplă este suficientă pentru început.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-2",
+            "title": "Categorii utile",
+            "body": "Separi sumele previzibile de cele care variază. Categoria nu spune dacă o cheltuială este importantă sau inutilă.",
+            "detail": "Mâncarea poate fi variabilă și esențială.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-3",
+            "title": "Planifici înainte",
+            "body": "Obiectivele primesc un loc în buget. Diferența rămasă nu este automat disponibilă pentru orice.",
+            "detail": "Verifică ce rol ai dat deja fiecărei sume.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-4",
+            "title": "Flexibilitate vizibilă",
+            "body": "Poți ajusta un plan fără să renunți la el. O abatere îți arată ce estimare merită schimbată.",
+            "detail": "Arată de unde vine diferența unei cheltuieli noi.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-5",
+            "title": "Ce poți face azi",
+            "body": "Notează ultimele cinci cheltuieli. Pune-le în categorii și observă una pe care nu ai planificat-o.",
+            "detail": "Nu trebuie să le judeci; folosește-le ca informație.",
+            "type": "action"
+          }
+        ]
+      },
+      {
+        "type": "final",
+        "id": "final",
+        "title": "Lecție terminată."
+      }
+    ]
+  },
+  {
+    "id": "fondul-de-urgenta",
+    "slug": "fondul-de-urgenta",
+    "categoryId": "economii",
+    "chapterId": "siguranta-ta-financiara",
+    "title": "Fondul de urgență",
+    "description": "Bani puși separat pentru surprize reale.",
+    "minutes": 5,
+    "xp": 30,
+    "status": "ready",
+    "contentVersion": 2,
+    "formatVersion": 2,
+    "screens": [
+      {
+        "type": "situatie",
+        "id": "situatie",
+        "title": "O reparație care nu era în plan.",
+        "body": "Telefonul de care ai nevoie pentru muncă se strică în mijlocul lunii. Reparația nu era în buget, iar cheltuielile obișnuite continuă. O sumă păstrată separat îți poate da timp să alegi fără grabă."
+      },
+      {
+        "type": "explicatie",
+        "id": "concept",
+        "title": "Pentru surprize, nu pentru orice dorință.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Un fond de urgență este o sumă pusă deoparte pentru cheltuieli importante și neașteptate. Nu este același lucru cu banii pentru o vacanță sau pentru un produs pe care îl dorești. Scopul lui este să îți ofere spațiu de decizie când apare o problemă.",
+          "O urgență se judecă și după context. Un telefon defect poate fi urgent dacă depinzi de el pentru muncă. O reducere la un telefon nou nu devine urgență doar pentru că oferta expiră seara. Întreabă ce se întâmplă dacă amâni cheltuiala.",
+          "Fondul nu face problema plăcută, dar poate evita o decizie luată sub presiune. Îl păstrezi separat în planul tău, tocmai ca să nu pară disponibil pentru fiecare dorință care apare."
+        ],
+        "detail": {
+          "text": "Important și neașteptat sunt indicii mai utile decât «doar azi»."
+        }
+      },
+      {
+        "type": "variante",
+        "id": "urgenta",
+        "title": "Urgență sau dorință?",
+        "question": "Care e o urgență reală în contextul descris?",
+        "explanation": "Telefonul necesar pentru muncă rezolvă o nevoie importantă și neașteptată.",
+        "correctFeedback": "Telefonul necesar pentru muncă rezolvă o nevoie importantă și neașteptată.",
+        "incorrectFeedback": "O ofertă sau un concert poate fi tentant, dar nu rezolvă problema importantă și neașteptată.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Reducere la adidași."
+          },
+          {
+            "id": "1",
+            "label": "Telefonul necesar pentru muncă s-a stricat."
+          },
+          {
+            "id": "2",
+            "label": "Bilete la concert."
+          }
+        ],
+        "correctOption": "1"
+      },
+      {
+        "type": "adevarat_fals",
+        "id": "scop",
+        "title": "Bani pentru orice ofertă?",
+        "question": "Fondul de urgență este o rezervă pentru orice reducere care apare.",
+        "explanation": "Rezerva are un scop separat: surprize importante, nu orice ofertă.",
+        "correctFeedback": "Rezerva are un scop separat: surprize importante, nu orice ofertă.",
+        "incorrectFeedback": "Urgența nu este definită de cât de repede expiră o reducere.",
+        "correctAnswer": false
+      },
+      {
+        "type": "explicatie",
+        "id": "incepi-mic",
+        "title": "Dimensiunea pornește de la cheltuieli.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Mulți oameni pornesc de la ideea de a acoperi mai multe luni de cheltuieli de bază. Este o regulă practică, nu o obligație legală și nici un număr potrivit automat pentru toată lumea. Nevoile și stabilitatea venitului pot fi diferite.",
+          "Într-un exemplu, cheltuielile de bază sunt 1.800 lei pe lună. Pentru trei luni, calculul este 1.800 înmulțit cu 3, adică 5.400 lei. Suma oferă o direcție pentru plan, nu o cerință de atins imediat.",
+          "Poți începe cu o rezervă mică și contribuții pe care le poți susține. Contează și să poți accesa banii când apare problema. Un fond greu de folosit la nevoie nu îndeplinește la fel de bine scopul pentru care l-ai construit."
+        ],
+        "example": {
+          "text": "1.800 lei × 3 luni = 5.400 lei, în exemplul nostru."
+        },
+        "detail": {
+          "text": "Prima țintă poate fi mică; nu trebuie să construiești tot fondul dintr-o singură lună."
+        }
+      },
+      {
+        "type": "calcul",
+        "id": "trei-luni",
+        "title": "Trei luni de cheltuieli.",
+        "question": "Cheltuieli de bază de 1.800 lei pe lună: cât înseamnă 3 luni?",
+        "explanation": "1.800 × 3 = 5.400 lei. Exemplul pornește de la cheltuielile de bază.",
+        "correctFeedback": "1.800 × 3 = 5.400 lei. Exemplul pornește de la cheltuielile de bază.",
+        "incorrectFeedback": "Înmulțești cheltuiala lunară cu numărul de luni; nu adaugi doar trei lei sau o singură lună.",
+        "context": "Exemplu de calcul.",
+        "options": [
+          {
+            "id": "0",
+            "value": 3600
+          },
+          {
+            "id": "1",
+            "value": 5400
+          },
+          {
+            "id": "2",
+            "value": 6000
+          }
+        ],
+        "expectedAnswer": 5400,
+        "unit": "lei"
+      },
+      {
+        "type": "scenariu",
+        "id": "rezerva-mica",
+        "title": "O țintă mare, un început mic.",
+        "question": "Ce abordare este realistă?",
+        "explanation": "O sumă mică și sustenabilă este un început real. Ținta nu trebuie atinsă dintr-o singură mișcare.",
+        "correctFeedback": "O sumă mică și sustenabilă este un început real. Ținta nu trebuie atinsă dintr-o singură mișcare.",
+        "incorrectFeedback": "O țintă mare nu anulează utilitatea unui început mic pe care îl poți menține.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Începi cu suma sustenabilă și ajustezi."
+          },
+          {
+            "id": "1",
+            "label": "Aștepți până poți pune tot fondul odată."
+          },
+          {
+            "id": "2",
+            "label": "Folosești economiile pentru orice ofertă."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Poți păstra separat 50 lei pe lună, dar ținta finală este mult mai mare."
+      },
+      {
+        "type": "caz_real",
+        "id": "caz",
+        "title": "Daria are două cheltuieli în față.",
+        "caseId": "case-emergency-daria",
+        "label": "Caz real",
+        "paragraphs": [
+          "Daria este studentă și folosește laptopul pentru proiecte și câteva ore de muncă online. Are 1.000 lei într-o rezervă separată. Laptopul se defectează înainte de o săptămână cu termene importante. Un service estimează 400 lei pentru reparație, dar Daria vrea să confirme că intervenția rezolvă problema și că aparatul poate fi gata la timp.",
+          "În aceeași zi apare o ofertă la căști de 250 lei, valabilă până seara. Daria și le dorea de ceva vreme. Pentru luna curentă are deja planificate mâncarea și transportul; acești bani nu sunt în rezerva de 1.000 lei. Un coleg îi poate împrumuta temporar un laptop, dar numai pentru două zile.",
+          "Ar putea folosi rezerva pentru reparația necesară și să amâne căștile. Împrumutul temporar îi dă puțin timp pentru verificare, nu elimină problema. După reparație ar rămâne cu 600 lei în fond. Daria poate planifica apoi contribuții mici pentru refacerea rezervei, fără să trateze toată suma rămasă drept bani de cumpărături."
+        ],
+        "finiMood": "thinking"
+      },
+      {
+        "type": "scenariu",
+        "id": "daria-prioritate",
+        "title": "Ce rezolvă problema importantă?",
+        "question": "Ce cheltuială are prioritate în fond?",
+        "explanation": "Reparația susține o nevoie importantă și neașteptată. Oferta nu schimbă scopul fondului.",
+        "correctFeedback": "Reparația susține o nevoie importantă și neașteptată. Oferta nu schimbă scopul fondului.",
+        "incorrectFeedback": "Presiunea unei oferte nu o transformă în urgență; laptopul este necesar activităților Dariei.",
+        "caseId": "case-emergency-daria",
+        "options": [
+          {
+            "id": "0",
+            "label": "Reparația confirmată ca necesară."
+          },
+          {
+            "id": "1",
+            "label": "Căștile, fiindcă oferta expiră."
+          },
+          {
+            "id": "2",
+            "label": "Oricare, fiindcă banii sunt economisiți."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Laptopul este necesar pentru facultate și muncă."
+      },
+      {
+        "type": "calcul",
+        "id": "daria-rezerva",
+        "title": "Păstrează și o rezervă.",
+        "question": "Daria folosește 400 lei din fondul de 1.000 lei. Cât rămâne?",
+        "explanation": "1.000 − 400 = 600 lei. Cheltuiala necesară nu obligă la folosirea întregului fond.",
+        "correctFeedback": "1.000 − 400 = 600 lei. Cheltuiala necesară nu obligă la folosirea întregului fond.",
+        "incorrectFeedback": "Scazi doar reparația din fond. Căștile nu sunt o parte necesară a soluției.",
+        "caseId": "case-emergency-daria",
+        "context": "Exemplu de calcul.",
+        "options": [
+          {
+            "id": "0",
+            "value": 350
+          },
+          {
+            "id": "1",
+            "value": 600
+          },
+          {
+            "id": "2",
+            "value": 750
+          }
+        ],
+        "expectedAnswer": 600,
+        "unit": "lei"
+      },
+      {
+        "type": "variante",
+        "id": "daria-refacere",
+        "title": "Ce urmează după reparație?",
+        "question": "Care plan păstrează scopul fondului?",
+        "explanation": "Folosirea pentru o urgență este scopul fondului. Refacerea lui pregătește următoarea surpriză.",
+        "correctFeedback": "Folosirea pentru o urgență este scopul fondului. Refacerea lui pregătește următoarea surpriză.",
+        "incorrectFeedback": "Fondul nu a eșuat fiindcă a fost folosit; merită reconstruit după cheltuiala necesară.",
+        "caseId": "case-emergency-daria",
+        "options": [
+          {
+            "id": "0",
+            "label": "Reface rezerva prin contribuții sustenabile."
+          },
+          {
+            "id": "1",
+            "label": "Cheltuiește tot restul pe dorințe."
+          },
+          {
+            "id": "2",
+            "label": "Renunță la rezervă, fiindcă a folosit-o."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "explicatie",
+        "id": "nuante",
+        "title": "O rezervă care chiar te ajută.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "O greșeală frecventă este să vezi fondul ca pe bani în plus. Atunci orice dorință poate părea o excepție acceptabilă, iar rezerva dispare înaintea unei probleme reale. O regulă personală despre ce numești urgență face decizia mai clară.",
+          "Altă capcană este să crezi că fondul trebuie construit instant. Dacă o contribuție prea mare te lasă fără bani pentru nevoile curente, planul devine greu de menținut. Un început mic poate fi mai util decât o țintă perfectă pe care nu o poți susține.",
+          "După folosire, verifică ce a rămas și cum poți reface suma treptat. Păstrează accesul la bani și separarea de dorințe. Fondul este o unealtă pentru surprize, nu o promisiune că nu vei mai avea niciodată probleme."
+        ],
+        "detail": {
+          "text": "Folosirea fondului pentru scopul său nu este un eșec."
+        }
+      },
+      {
+        "type": "variante",
+        "id": "dupa-utilizare",
+        "title": "Ai folosit fondul. Acum ce?",
+        "question": "Care reflex este util după o urgență?",
+        "explanation": "Refacerea treptată păstrează rolul rezervei pentru următoarea situație.",
+        "correctFeedback": "Refacerea treptată păstrează rolul rezervei pentru următoarea situație.",
+        "incorrectFeedback": "Banii rămași au încă un scop; nu devin automat bani disponibili pentru dorințe.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Verifici soldul și planifici refacerea."
+          },
+          {
+            "id": "1",
+            "label": "Consideri rezerva rămasă bani în plus."
+          },
+          {
+            "id": "2",
+            "label": "Nu mai păstrezi fondul separat."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "adevarat_fals",
+        "id": "instant",
+        "title": "Totul din prima lună?",
+        "question": "Dacă nu poți construi tot fondul într-o lună, nu merită să începi.",
+        "explanation": "O contribuție mică poate construi o rezervă reală în timp.",
+        "correctFeedback": "O contribuție mică poate construi o rezervă reală în timp.",
+        "incorrectFeedback": "Ținta finală și prima contribuție sunt lucruri diferite. Poți începe cu o sumă sustenabilă.",
+        "correctAnswer": false
+      },
+      {
+        "type": "tine_minte",
+        "id": "tine-minte",
+        "title": "Ține minte",
+        "finiMood": "happy",
+        "items": [
+          {
+            "id": "punct-1",
+            "title": "Surprize reale",
+            "body": "Fondul este pentru cheltuieli importante și neașteptate. O dorință nu devine urgență fiindcă este la reducere.",
+            "detail": "Întreabă ce se întâmplă dacă amâni cheltuiala.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-2",
+            "title": "Cheltuieli de bază",
+            "body": "Dimensiunea poate porni de la cheltuielile esențiale. Mai multe luni sunt o idee practică, nu o lege universală.",
+            "detail": "Folosește cheltuielile tale din exemplul de plan, nu un număr ales la întâmplare.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-3",
+            "title": "Acces când ai nevoie",
+            "body": "Rezerva trebuie să poată fi folosită la o problemă reală. Separarea ei de dorințe ajută la păstrarea scopului.",
+            "detail": "O sumă greu de accesat poate să nu rezolve urgența la timp.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-4",
+            "title": "Începi și reconstruiești",
+            "body": "Poți începe mic. După utilizare, contribuțiile sustenabile refac treptat fondul.",
+            "detail": "Nu trata utilizarea pentru o urgență ca pe un eșec.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-5",
+            "title": "Ce poți face azi",
+            "body": "Notează trei situații care ar conta pentru tine ca urgență. Pentru fiecare, explică de ce este importantă și neașteptată.",
+            "detail": "Lista te ajută când apare o ofertă care pune presiune.",
+            "type": "action"
+          }
+        ]
+      },
+      {
+        "type": "final",
+        "id": "final",
+        "title": "Lecție terminată."
+      }
+    ]
+  },
+  {
+    "id": "salariu-brut-vs-net",
+    "slug": "salariu-brut-vs-net",
+    "categoryId": "primul-job",
+    "chapterId": "salariul",
+    "title": "Salariu brut vs. net",
+    "description": "Înțelege unde merg banii dintre ofertă și cont.",
+    "minutes": 5,
+    "xp": 30,
+    "status": "ready",
+    "contentVersion": 2,
+    "formatVersion": 2,
+    "screens": [
+      {
+        "type": "situatie",
+        "id": "intro",
+        "title": "Ai primul job. Dar cât primești?",
+        "body": "Ai primit prima ofertă de job și suma din contract pare suficientă pentru planurile tale. Apoi afli că în cont va ajunge alt număr. Nu înseamnă automat că e o greșeală: cele două sume descriu lucruri diferite."
+      },
+      {
+        "type": "explicatie",
+        "id": "oferta-concept",
+        "title": "Brutul e startul. Netul e ce rămâne.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Salariul brut este suma înainte de reținerile aplicabile. Netul este suma rămasă pentru angajat după acele rețineri. Ambele descriu același salariu, dar în momente diferite ale calculului. De aceea, o ofertă cu un număr mare nu îți spune singură câți bani vei putea folosi.",
+          "Când cineva comunică un salariu, primul reflex util este să întrebi «brut sau net?». Nu e o întrebare incomodă. Clarifici baza discuției înainte să compari oferte sau să faci un plan pentru chirie, transport și economii.",
+          "Dacă vrei să estimezi banii disponibili pentru cheltuieli personale, te uiți la net. Brutul rămâne important pentru înțelegerea contractului, însă nu îl tratezi ca pe suma care va intra integral în cont."
+        ],
+        "detail": {
+          "text": "O sumă fără eticheta brut/net este o informație incompletă."
+        }
+      },
+      {
+        "type": "variante",
+        "id": "contract",
+        "title": "Ce înseamnă suma din contract?",
+        "question": "Ai semnat pentru 5.000 lei brut. Ce ai stabilit?",
+        "explanation": "Brutul este suma înainte de rețineri. Netul se obține după aplicarea lor.",
+        "correctFeedback": "Brutul este suma înainte de rețineri. Netul se obține după aplicarea lor.",
+        "incorrectFeedback": "Suma din contract este brută, nu suma disponibilă integral pentru cheltuieli.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Suma înainte de rețineri."
+          },
+          {
+            "id": "1",
+            "label": "Suma disponibilă integral în cont."
+          },
+          {
+            "id": "2",
+            "label": "Banii rămași după cheltuieli."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "scenariu",
+        "id": "anunt",
+        "title": "O sumă, un detaliu lipsă.",
+        "question": "Ce informație clarifici înainte să compari oferta?",
+        "explanation": "Brut sau net schimbă sensul sumei. Data și banca nu clarifică valoarea disponibilă.",
+        "correctFeedback": "Brut sau net schimbă sensul sumei. Data și banca nu clarifică valoarea disponibilă.",
+        "incorrectFeedback": "Data plății poate fi utilă, dar primul detaliu pentru comparație este dacă suma e brută sau netă.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Este brut sau net?"
+          },
+          {
+            "id": "1",
+            "label": "În ce zi se plătește?"
+          },
+          {
+            "id": "2",
+            "label": "Ce bancă folosește firma?"
+          }
+        ],
+        "correctOption": "0",
+        "context": "Un recruiter spune «5.000 lei pe lună»."
+      },
+      {
+        "type": "explicatie",
+        "id": "retineri-concept",
+        "title": "Drumul dintre cele două sume.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Între brut și net pot exista contribuții, impozit și alte rețineri aplicabile. Nu este un comision al băncii doar pentru că primești salariul. Calculul depinde de situația angajatului și de regulile relevante, așa că o estimare pentru altcineva nu se potrivește neapărat identic la tine.",
+          "În exemplul simplificat de mai jos urmărim un contract obișnuit de muncă în România și presupunem o lună întreagă, fără deduceri sau situații speciale. Exemplul arată traseul calculului; nu înlocuiește o estimare făcută pentru contractul și situația ta.",
+          "Pentru două oferte, compară aceeași perioadă și separă partea fixă de bonusurile condiționate. O sumă «până la» nu este echivalentă cu un net fix confirmat. Beneficiile contează, dar nu toate pot fi folosite ca bani pentru orice cheltuială."
+        ],
+        "example": {
+          "text": "8.000 lei brut → 4.680 lei net. Exemplu simplificat: contract de muncă în România, lună întreagă, condiții normale, fără deduceri, scutiri, beneficii sau alte rețineri. Nu este un calcul personalizat."
+        },
+        "detail": {
+          "text": "Cere o estimare a netului și condițiile părții variabile."
+        },
+        "figuresNote": "Cifre orientative: condițiile individuale pot schimba netul."
+      },
+      {
+        "type": "variante",
+        "id": "retineri",
+        "title": "Diferența dintre brut și net.",
+        "question": "Ce poate explica diferența dintre brut și net?",
+        "explanation": "Netul rezultă după reținerile aplicabile. Cheltuielile tale apar abia după încasare.",
+        "correctFeedback": "Netul rezultă după reținerile aplicabile. Cheltuielile tale apar abia după încasare.",
+        "incorrectFeedback": "Diferența nu este formată de cumpărăturile tale sau de simpla alegere a băncii.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Reținerile aplicabile salariului."
+          },
+          {
+            "id": "1",
+            "label": "Doar banca în care ai contul."
+          },
+          {
+            "id": "2",
+            "label": "Cheltuielile tale personale."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "adevarat_fals",
+        "id": "bonus",
+        "title": "Un «până la» este garantat?",
+        "question": "«Până la 5.000 lei net, cu bonus» garantează 5.000 lei în fiecare lună.",
+        "explanation": "Bonusul poate avea condiții. Partea fixă și cea variabilă trebuie clarificate separat.",
+        "correctFeedback": "Bonusul poate avea condiții. Partea fixă și cea variabilă trebuie clarificate separat.",
+        "incorrectFeedback": "«Până la» descrie o posibilitate, nu o sumă fixă confirmată pentru fiecare lună.",
+        "correctAnswer": false
+      },
+      {
+        "type": "caz_real",
+        "id": "caz",
+        "title": "Mara compară două oferte.",
+        "caseId": "case-salary-mara",
+        "label": "Caz real",
+        "paragraphs": [
+          "Mara are 19 ani și caută primul job pe care să îl poată combina cu facultatea. Prima ofertă menționează 5.500 lei brut pe lună și un bonus posibil de 400 lei. A doua comunică 3.300 lei net fix, plus un beneficiu pentru mese. Ambele descriu inițial un program de opt ore, dar Mara încă nu a văzut condițiile complete ale bonusului.",
+          "Ea estimează cheltuieli de bază de 1.800 lei pe lună și ar vrea să păstreze o rezervă pentru transport suplimentar. Prima firmă este mai aproape de casă. A doua pare să aibă un program mai flexibil, însă acest lucru trebuie confirmat. Mara observă că ar fi tentant să compare direct cele două numere afișate.",
+          "Înainte să aleagă, poate cere netul estimat al primei oferte, condițiile bonusului și detalii despre program. Beneficiul pentru mese poate ajuta, dar nu plătește automat toate cheltuielile. Decizia nu se reduce la numărul cel mai mare: contează banii disponibili, predictibilitatea lor și contextul în care lucrează."
+        ],
+        "finiMood": "thinking"
+      },
+      {
+        "type": "scenariu",
+        "id": "mara-clarifica",
+        "title": "Înainte de comparație.",
+        "question": "Care este primul pas util?",
+        "explanation": "Netul estimat pune sumele pe o bază comparabilă. Bonusul rămâne separat până îi cunoaște condițiile.",
+        "correctFeedback": "Netul estimat pune sumele pe o bază comparabilă. Bonusul rămâne separat până îi cunoaște condițiile.",
+        "incorrectFeedback": "Compararea directă a brutului cu netul poate schimba concluzia. Mai întâi clarifică netul primei oferte.",
+        "caseId": "case-salary-mara",
+        "options": [
+          {
+            "id": "0",
+            "label": "Cere netul estimat al primei oferte."
+          },
+          {
+            "id": "1",
+            "label": "Adună bonusul posibil la brut."
+          },
+          {
+            "id": "2",
+            "label": "Alege numărul afișat mai mare."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Mara are o ofertă brută și una netă."
+      },
+      {
+        "type": "variante",
+        "id": "mara-context",
+        "title": "O comparație completă.",
+        "question": "Cum compară Mara ofertele fără să decidă doar după bani?",
+        "explanation": "Netul și condițiile de lucru împreună fac comparația mai utilă. Niciun detaliu izolat nu decide automat.",
+        "correctFeedback": "Netul și condițiile de lucru împreună fac comparația mai utilă. Niciun detaliu izolat nu decide automat.",
+        "incorrectFeedback": "Un beneficiu sau un bonus posibil nu înlocuiește verificarea sumei fixe și a programului.",
+        "caseId": "case-salary-mara",
+        "options": [
+          {
+            "id": "0",
+            "label": "Net fix, condiții și program confirmat."
+          },
+          {
+            "id": "1",
+            "label": "Doar suma maximă cu bonus."
+          },
+          {
+            "id": "2",
+            "label": "Doar beneficiul pentru mese."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "variante",
+        "id": "mara-buget",
+        "title": "Baza bugetului.",
+        "question": "Ce sumă poate folosi Mara pentru planul celei de-a doua oferte?",
+        "explanation": "Bugetul pornește de la banii confirmați. Bonusurile posibile nu sunt venit sigur.",
+        "correctFeedback": "Bugetul pornește de la banii confirmați. Bonusurile posibile nu sunt venit sigur.",
+        "incorrectFeedback": "Pentru cheltuieli recurente, baza este venitul net confirmat al ofertei analizate.",
+        "caseId": "case-salary-mara",
+        "options": [
+          {
+            "id": "0",
+            "label": "Netul fix de 3.300 lei."
+          },
+          {
+            "id": "1",
+            "label": "Brutul celeilalte oferte."
+          },
+          {
+            "id": "2",
+            "label": "Netul plus orice bonus posibil."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "explicatie",
+        "id": "nuante",
+        "title": "Uite ce merită verificat.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "O greșeală frecventă este să îți faci bugetul din brut și să observi diferența abia după încasare. Alta este să presupui că orice sumă dintr-un anunț este netă. Eticheta și perioada fac parte din informație, nu sunt detalii de decor.",
+          "Chiar și două sume nete pot descrie situații diferite: o lună întreagă sau doar o parte, un program diferit ori o combinație de salariu fix și bonus. Verifică ce este confirmat înainte să construiești cheltuieli recurente în jurul sumei.",
+          "Beneficiile și flexibilitatea pot conta în comparație, dar nu transformă automat oferta într-una mai bună pentru oricine. Un reflex util este să separi întrebările: ce bani intră, în ce condiții și ce cheltuieli poți susține din suma fixă."
+        ],
+        "detail": {
+          "text": "Compară aceeași perioadă, apoi verifică partea fixă."
+        }
+      },
+      {
+        "type": "scenariu",
+        "id": "plata-partiala",
+        "title": "Prima lună arată diferit.",
+        "question": "Ce verifici întâi?",
+        "explanation": "O plată pentru o parte din lună trebuie comparată cu perioada respectivă, nu automat cu luna întreagă.",
+        "correctFeedback": "O plată pentru o parte din lună trebuie comparată cu perioada respectivă, nu automat cu luna întreagă.",
+        "incorrectFeedback": "Mai întâi verifică perioada și componentele plății; suma pentru o lună întreagă poate să nu fie comparația potrivită.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Perioada plătită și fluturașul."
+          },
+          {
+            "id": "1",
+            "label": "Doar brutul din anunț."
+          },
+          {
+            "id": "2",
+            "label": "Presupui că estimarea era netul garantat."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Ai început la jumătatea lunii și primești mai puțin decât estimarea unei luni întregi."
+      },
+      {
+        "type": "calcul",
+        "id": "bani-ramasi",
+        "title": "Banii disponibili după cheltuieli.",
+        "question": "Într-un exemplu ai 3.300 lei net și cheltuieli de 1.800 lei. Cât rămâne?",
+        "explanation": "3.300 − 1.800 = 1.500 lei. Calculul pornește de la netul disponibil.",
+        "correctFeedback": "3.300 − 1.800 = 1.500 lei. Calculul pornește de la netul disponibil.",
+        "incorrectFeedback": "Cheltuielile se scad din net: 3.300 minus 1.800, nu din brut sau dintr-un bonus posibil.",
+        "context": "Exemplu de calcul.",
+        "options": [
+          {
+            "id": "0",
+            "value": 1200
+          },
+          {
+            "id": "1",
+            "value": 1500
+          },
+          {
+            "id": "2",
+            "value": 1800
+          }
+        ],
+        "expectedAnswer": 1500,
+        "unit": "lei"
+      },
+      {
+        "type": "tine_minte",
+        "id": "tine-minte",
+        "title": "Ține minte",
+        "finiMood": "happy",
+        "items": [
+          {
+            "id": "punct-1",
+            "title": "Brutul este înainte",
+            "body": "Brutul descrie suma înainte de rețineri. Nu este automat suma care intră integral în cont.",
+            "detail": "Caută eticheta sumei în ofertă sau contract.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-2",
+            "title": "Netul este disponibil",
+            "body": "Netul rămâne după reținerile aplicabile. El este baza pentru cheltuielile tale personale.",
+            "detail": "Separă încasarea de banii rămași după propriile cheltuieli.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-3",
+            "title": "Compară aceeași bază",
+            "body": "Compară net cu net și aceeași perioadă. Separă partea fixă de un bonus condiționat.",
+            "detail": "Nu aduna un bonus posibil la venitul sigur.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-4",
+            "title": "Contextul contează",
+            "body": "Programul și beneficiile pot schimba comparația. Nu toate beneficiile înlocuiesc banii pentru orice cheltuială.",
+            "detail": "Confirmă condițiile înainte să tragi concluzii.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-5",
+            "title": "Ce poți face azi",
+            "body": "Alege un anunț de job și caută dacă suma este brută sau netă. Dacă nu scrie, formulează întrebarea pe care ai trimite-o recruiterului.",
+            "detail": "Un mesaj scurt poate clarifica baza întregii oferte.",
+            "type": "action"
+          }
+        ]
+      },
+      {
+        "type": "final",
+        "id": "final",
+        "title": "Lecție terminată."
+      }
+    ],
+    "sourceUrls": [
+      {
+        "label": "ANAF · Codul fiscal, art. 77, 78, 138, 156",
+        "url": "https://static.anaf.ro/static/10/Anaf/legislatie/Cod_fiscal_norme_2023.htm"
+      },
+      {
+        "label": "ANAF · Instrucțiuni D112, Ordinul 605/2026",
+        "url": "https://static.anaf.ro/static/10/Anaf/legislatie/OPANAF_605_2026.pdf"
+      }
+    ]
+  },
+  {
+    "id": "ce-este-inflatia",
+    "slug": "ce-este-inflatia",
+    "categoryId": "economia-pe-scurt",
+    "chapterId": "preturi",
+    "title": "Inflația",
+    "description": "Aceiași bani. Mai puține lucruri în coș.",
+    "minutes": 5,
+    "xp": 30,
+    "status": "ready",
+    "contentVersion": 2,
+    "formatVersion": 2,
+    "screens": [
+      {
+        "type": "situatie",
+        "id": "snack",
+        "title": "Același baton. Alt preț.",
+        "body": "Anul trecut un baton costa 5 lei, iar acum costă 5,50 lei. Observi schimbări și la transport și la cumpărăturile obișnuite. Banii tăi de buzunar au rămas aceiași."
+      },
+      {
+        "type": "explicatie",
+        "id": "concept",
+        "title": "Privește prețurile în general.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Inflația înseamnă creșterea generală a nivelului prețurilor în timp. Nu este suficient să găsești un singur produs mai scump. Un magazin poate schimba prețul unei haine din multe motive, în timp ce alte produse se ieftinesc.",
+          "Ca să înțelegi fenomenul, gândește-te la un coș de bunuri și servicii: mâncare, transport și alte lucruri folosite de oameni. Contează cum se schimbă prețurile privite împreună, nu dacă toate cresc identic. Unele pot rămâne la fel.",
+          "Când nivelul general al prețurilor crește, aceeași sumă tinde să cumpere mai puțin. Asta nu înseamnă că bancnotele dispar din portofel. Înseamnă că între suma pe care o ai și lucrurile pe care le poți cumpăra apare o diferență."
+        ],
+        "detail": {
+          "text": "O singură scumpire nu descrie toate prețurile."
+        }
+      },
+      {
+        "type": "variante",
+        "id": "nivel-general",
+        "title": "Un produs sau un fenomen?",
+        "question": "Un singur tricou se scumpește. Putem concluziona că există inflație?",
+        "explanation": "Inflația privește nivelul general al prețurilor. Un singur produs nu oferă suficiente informații.",
+        "correctFeedback": "Inflația privește nivelul general al prețurilor. Un singur produs nu oferă suficiente informații.",
+        "incorrectFeedback": "O schimbare izolată nu este suficientă pentru o concluzie despre prețurile în general.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Nu încă; trebuie privite prețurile în general."
+          },
+          {
+            "id": "1",
+            "label": "Da, orice scumpire este suficientă."
+          },
+          {
+            "id": "2",
+            "label": "Da, dacă tricoul este popular."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "variante",
+        "id": "putere",
+        "title": "Banii din sertar.",
+        "question": "Ai 100 lei ținuți într-un sertar un an, iar prețurile cresc în general. Ce s-a întâmplat?",
+        "explanation": "Suma rămâne aceeași, dar puterea de cumpărare scade.",
+        "correctFeedback": "Suma rămâne aceeași, dar puterea de cumpărare scade.",
+        "incorrectFeedback": "Numărul de lei nu se schimbă. Se schimbă cantitatea de lucruri pe care o poți cumpăra.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Ai mai mulți bani."
+          },
+          {
+            "id": "1",
+            "label": "Ai tot 100 lei, dar cumperi mai puțin."
+          },
+          {
+            "id": "2",
+            "label": "Nu s-a schimbat nimic."
+          }
+        ],
+        "correctOption": "1"
+      },
+      {
+        "type": "explicatie",
+        "id": "procente",
+        "title": "Suma și puterea ei de cumpărare.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Puterea de cumpărare descrie ce poți obține cu banii tăi. Dacă venitul rămâne la fel și coșul obișnuit devine mai scump, trebuie să alegi între mai puține lucruri sau o împărțire diferită a bugetului. Suma nominală și valoarea ei practică nu sunt același lucru.",
+          "Uite un exemplu matematic: un produs de 20 lei se scumpește cu 10%. Creșterea este de 2 lei, deci noul preț este 22 lei. Acest procent este ipotetic; nu descrie rata actuală a inflației.",
+          "Pentru propriul buget, te ajută să compari cheltuieli similare în perioade diferite. Nu presupune că venitul se ajustează automat odată cu prețurile. O schimbare a salariului sau a banilor de buzunar trebuie confirmată separat."
+        ],
+        "example": {
+          "text": "20 lei × 10% = 2 lei în plus. Noul preț: 22 lei."
+        },
+        "detail": {
+          "text": "Comparațiile sunt mai utile pentru aceeași cantitate și același tip de produs."
+        }
+      },
+      {
+        "type": "calcul",
+        "id": "pret-nou",
+        "title": "Aplici procentul.",
+        "question": "Un produs costă 20 lei. Prețul crește cu 10%. Cât costă după?",
+        "explanation": "10% din 20 este 2. Adaugi creșterea la prețul inițial și obții 22 lei.",
+        "correctFeedback": "10% din 20 este 2. Adaugi creșterea la prețul inițial și obții 22 lei.",
+        "incorrectFeedback": "Procentul se aplică la prețul inițial: 2 lei în plus, nu 10 lei în plus.",
+        "context": "Exemplu de calcul.",
+        "options": [
+          {
+            "id": "0",
+            "value": 20
+          },
+          {
+            "id": "1",
+            "value": 22
+          },
+          {
+            "id": "2",
+            "value": 30
+          }
+        ],
+        "expectedAnswer": 22,
+        "unit": "lei"
+      },
+      {
+        "type": "adevarat_fals",
+        "id": "salariu",
+        "title": "Venitul ține pasul automat?",
+        "question": "Dacă prețurile cresc, salariul tău crește automat în același timp.",
+        "explanation": "Venitul nu se ajustează automat doar pentru că prețurile au crescut.",
+        "correctFeedback": "Venitul nu se ajustează automat doar pentru că prețurile au crescut.",
+        "incorrectFeedback": "Creșterea prețurilor și schimbarea venitului sunt lucruri diferite; venitul trebuie verificat separat.",
+        "correctAnswer": false
+      },
+      {
+        "type": "caz_real",
+        "id": "caz",
+        "title": "Același buget, alte prețuri.",
+        "caseId": "case-inflation-andrei",
+        "label": "Caz real",
+        "paragraphs": [
+          "Andrei primește 300 lei pe săptămână pentru cheltuielile lui. Luna trecută planifica 80 lei pentru transport, 120 lei pentru mâncare și 60 lei pentru ieșiri. Păstra 40 lei pentru alte nevoi. Acum transportul ajunge la 90 lei, iar cumpărăturile alimentare similare costă 135 lei. Banii primiți săptămânal nu s-au schimbat.",
+          "În același timp, un magazin îi arată o pereche de pantofi mai scumpă decât anul trecut. Andrei este tentat să folosească doar acel preț ca dovadă pentru ce se întâmplă în economie. Totuși, schimbările din propriul coș sunt mai utile pentru planul lui decât un produs pe care îl cumpără rar.",
+          "Ar vrea să păstreze ieșirile la 60 lei, dar observă că rezerva se micșorează. Poate compara opțiuni similare, poate ajusta frecvența ieșirilor sau poate verifica ce cheltuieli sunt esențiale. Nu trebuie să renunțe automat la tot. Are nevoie de un plan care pornește de la prețurile actuale și de la venitul confirmat."
+        ],
+        "finiMood": "thinking"
+      },
+      {
+        "type": "scenariu",
+        "id": "andrei-putere",
+        "title": "Ce se schimbă pentru Andrei?",
+        "question": "Care concluzie este justificată?",
+        "explanation": "Același buget acoperă mai puțin din coșul descris. Nu aflăm că toate prețurile au aceeași evoluție.",
+        "correctFeedback": "Același buget acoperă mai puțin din coșul descris. Nu aflăm că toate prețurile au aceeași evoluție.",
+        "incorrectFeedback": "Prețurile din coș au crescut, nu venitul. Asta reduce ce poate acoperi cu aceeași sumă.",
+        "caseId": "case-inflation-andrei",
+        "options": [
+          {
+            "id": "0",
+            "label": "Banii acoperă mai puțin din coșul lui."
+          },
+          {
+            "id": "1",
+            "label": "Venitul lui a crescut în termeni practici."
+          },
+          {
+            "id": "2",
+            "label": "Toate prețurile au crescut identic."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Bugetul rămâne 300 lei, dar transportul și mâncarea costă mai mult."
+      },
+      {
+        "type": "scenariu",
+        "id": "andrei-plan",
+        "title": "Un plan care rămâne realist.",
+        "question": "Ce pas îi păstrează flexibilitatea?",
+        "explanation": "Recalcularea arată ce mai este disponibil. Ajustările pot fi mici și făcute înainte de cheltuire.",
+        "correctFeedback": "Recalcularea arată ce mai este disponibil. Ajustările pot fi mici și făcute înainte de cheltuire.",
+        "incorrectFeedback": "Estimările vechi nu mai descriu coșul actual; rezerva trebuie recalculată înainte de alte decizii.",
+        "caseId": "case-inflation-andrei",
+        "options": [
+          {
+            "id": "0",
+            "label": "Recalculează rezerva și ajustează ieșirile."
+          },
+          {
+            "id": "1",
+            "label": "Păstrează estimările vechi fără verificare."
+          },
+          {
+            "id": "2",
+            "label": "Cheltuiește rezerva înainte de plan."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Transportul și mâncarea ajung împreună la 225 lei."
+      },
+      {
+        "type": "variante",
+        "id": "andrei-concluzie",
+        "title": "Ce nu știm încă?",
+        "question": "Ce NU poate concluziona Andrei doar din prețul pantofilor?",
+        "explanation": "Un singur produs nu arată evoluția generală. Pentru buget poate observa și compara alte cheltuieli.",
+        "correctFeedback": "Un singur produs nu arată evoluția generală. Pentru buget poate observa și compara alte cheltuieli.",
+        "incorrectFeedback": "Prețul pantofilor este o informație despre acel produs, nu o măsură suficientă a inflației.",
+        "caseId": "case-inflation-andrei",
+        "options": [
+          {
+            "id": "0",
+            "label": "Că nivelul general al prețurilor a crescut."
+          },
+          {
+            "id": "1",
+            "label": "Că acea pereche este mai scumpă."
+          },
+          {
+            "id": "2",
+            "label": "Că trebuie să verifice alte prețuri."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "explicatie",
+        "id": "nuante",
+        "title": "Numărul de lei nu spune tot.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "O capcană este să privești doar suma din cont. Poți avea același număr de lei și totuși să observi că acoperi mai puține cumpărături. De aceea, o creștere a venitului nu se analizează doar după număr, ci și în raport cu prețurile relevante.",
+          "Altă capcană este să transformi orice scumpire într-o concluzie despre economie. Pentru propria viață, o listă cu cheltuielile obișnuite este utilă. Pentru fenomenul general, ai nevoie de o privire mai largă decât prețul unui singur produs.",
+          "Procentele sunt utile dacă știi la ce sumă se aplică. Nu compara prețuri fără să verifici cantitatea sau calitatea produsului. Și nu construi bugetul pe o creștere de venit pe care doar o speri; pornește de la banii confirmați."
+        ],
+        "detail": {
+          "text": "Un preț mai mic pentru un ambalaj mai mic nu înseamnă automat o ofertă mai bună."
+        }
+      },
+      {
+        "type": "adevarat_fals",
+        "id": "venit-confirmat",
+        "title": "Un buget dintr-o promisiune?",
+        "question": "Poți presupune în buget o creștere de venit doar fiindcă prețurile au crescut.",
+        "explanation": "Bugetul pornește de la venit confirmat. Creșterea prețurilor nu confirmă o creștere a venitului.",
+        "correctFeedback": "Bugetul pornește de la venit confirmat. Creșterea prețurilor nu confirmă o creștere a venitului.",
+        "incorrectFeedback": "O ajustare a venitului trebuie confirmată separat înainte să o folosești în plan.",
+        "correctAnswer": false
+      },
+      {
+        "type": "calcul",
+        "id": "cos-nou",
+        "title": "Coșul din exemplu.",
+        "question": "Un coș de 100 lei se scumpește cu 10%, într-un exemplu. Cât costă acum?",
+        "explanation": "10% din 100 este 10. Coșul ajunge la 110 lei, fără să se schimbe suma pe care o ai.",
+        "correctFeedback": "10% din 100 este 10. Coșul ajunge la 110 lei, fără să se schimbe suma pe care o ai.",
+        "incorrectFeedback": "Creșterea de 10 lei se adaugă la cei 100 lei inițiali.",
+        "context": "Exemplu de calcul.",
+        "options": [
+          {
+            "id": "0",
+            "value": 100
+          },
+          {
+            "id": "1",
+            "value": 105
+          },
+          {
+            "id": "2",
+            "value": 110
+          }
+        ],
+        "expectedAnswer": 110,
+        "unit": "lei"
+      },
+      {
+        "type": "tine_minte",
+        "id": "tine-minte",
+        "title": "Ține minte",
+        "finiMood": "happy",
+        "items": [
+          {
+            "id": "punct-1",
+            "title": "Prețuri în general",
+            "body": "Inflația privește nivelul general al prețurilor. Un singur produs mai scump nu este suficient ca dovadă.",
+            "detail": "Privește mai multe bunuri și servicii, nu doar o etichetă.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-2",
+            "title": "Puterea de cumpărare",
+            "body": "Aceeași sumă poate cumpăra mai puțin. Numărul de lei și ce obții cu ei sunt lucruri diferite.",
+            "detail": "Compară un coș similar, nu cumpărături complet diferite.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-3",
+            "title": "Procente cu o bază",
+            "body": "Un procent se aplică unei sume inițiale. În exemple, creșterea se adaugă la prețul vechi.",
+            "detail": "10% din 20 lei înseamnă 2 lei, nu 10 lei.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-4",
+            "title": "Venitul se verifică separat",
+            "body": "Salariul nu crește automat odată cu prețurile. Un plan realist folosește venitul confirmat.",
+            "detail": "Nu cheltui dintr-o ajustare încă neconfirmată.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-5",
+            "title": "Ce poți face azi",
+            "body": "Compară prețul unui produs folosit des cu cel de dinainte. Notează diferența, fără să tragi concluzii despre toate prețurile din acel singur produs.",
+            "detail": "Verifică dacă ambalajul și cantitatea sunt aceleași.",
+            "type": "action"
+          }
+        ]
+      },
+      {
+        "type": "final",
+        "id": "final",
+        "title": "Lecție terminată."
+      }
+    ]
+  },
+  {
+    "id": "scorul-de-credit",
+    "slug": "scorul-de-credit",
+    "categoryId": "credite-si-datorii",
+    "chapterId": "bazele-creditului",
+    "title": "Scorul de credit",
+    "description": "Cum contează comportamentul de plată în timp.",
+    "minutes": 5,
+    "xp": 30,
+    "status": "ready",
+    "contentVersion": 2,
+    "formatVersion": 2,
+    "screens": [
+      {
+        "type": "situatie",
+        "id": "situatie",
+        "title": "Un telefon în rate.",
+        "body": "Vrei un telefon în rate, iar instituția care analizează cererea cere informații despre venit și obligațiile tale. Nu se uită doar la telefon. Încearcă să înțeleagă cum ar putea fi plătită noua datorie."
+      },
+      {
+        "type": "explicatie",
+        "id": "istoric",
+        "title": "Istoricul este o parte din imagine.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Istoricul de credit descrie cum ai gestionat obligațiile de plată în trecut. O instituție poate folosi aceste informații ca parte din evaluarea riscului: cât de probabil este ca o datorie să fie plătită în condițiile stabilite. Nu este o etichetă despre valoarea ta ca persoană.",
+          "Plata ratelor la timp este un comportament relevant pentru această imagine. Întârzierile și obligațiile neplătite pot spune altceva. Un scor, dacă este folosit, rezumă anumite informații, dar nu trebuie imaginat ca un număr universal care decide singur orice cerere.",
+          "Venitul, obligațiile existente și condițiile produsului pot conta în analiza unei cereri. Lecția explică ideea generală, fără formule de scoring sau praguri. Pentru detalii despre un sistem concret, contează informațiile verificate ale instituției."
+        ],
+        "detail": {
+          "text": "Un istoric favorabil nu este o promisiune automată de aprobare."
+        }
+      },
+      {
+        "type": "variante",
+        "id": "evaluare",
+        "title": "Ce încearcă să afle instituția?",
+        "question": "De ce poate analiza istoricul de credit?",
+        "explanation": "Istoricul poate contribui la evaluarea riscului ca obligațiile să fie plătite conform acordului.",
+        "correctFeedback": "Istoricul poate contribui la evaluarea riscului ca obligațiile să fie plătite conform acordului.",
+        "incorrectFeedback": "Analiza privește obligațiile și riscul de plată, nu valoarea unei persoane sau o aprobare garantată.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Pentru a evalua riscul de plată."
+          },
+          {
+            "id": "1",
+            "label": "Pentru a garanta orice cerere nouă."
+          },
+          {
+            "id": "2",
+            "label": "Pentru a decide valoarea ta ca persoană."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "variante",
+        "id": "plata",
+        "title": "Ce comportament ajută?",
+        "question": "Ce îți ajută istoricul de credit?",
+        "explanation": "Plata la timp arată respectarea obligațiilor asumate.",
+        "correctFeedback": "Plata la timp arată respectarea obligațiilor asumate.",
+        "incorrectFeedback": "Întârzierile sau ignorarea obligațiilor nu au același sens ca plata conform termenelor.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Plata ratelor la timp."
+          },
+          {
+            "id": "1",
+            "label": "Plata cu întârziere."
+          },
+          {
+            "id": "2",
+            "label": "Ignorarea obligațiilor existente."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "explicatie",
+        "id": "obligatii",
+        "title": "O rată trebuie să încapă în buget.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Înainte de o obligație nouă, imaginea completă include venitul disponibil și plățile pe care le ai deja. Faptul că o instituție ar accepta o cerere nu înseamnă automat că rata este confortabilă pentru bugetul tău. Costul trebuie privit alături de celelalte nevoi.",
+          "Într-un exemplu ai 2.500 lei venit, 1.900 lei cheltuieli curente și o rată existentă de 200 lei. Rămân 400 lei înaintea unei rate noi și a cheltuielilor neprevăzute. O rată nouă de 350 lei ar lăsa doar 50 lei, nu o rezervă mare.",
+          "Dacă apare o problemă de plată, un reflex util este să verifici termenul și să contactezi instituția cât mai repede. Nu presupune că ignorarea mesajelor rezolvă situația. Pentru orice ofertă nouă, clarifică suma totală, scadențele și condițiile."
+        ],
+        "example": {
+          "text": "2.500 − 1.900 − 200 = 400 lei înainte de o rată nouă."
+        },
+        "detail": {
+          "text": "Exemplul este despre buget, nu despre puncte de scoring."
+        }
+      },
+      {
+        "type": "scenariu",
+        "id": "termen",
+        "title": "Termenul este mâine.",
+        "question": "Ce pas este util?",
+        "explanation": "Verificarea și comunicarea rapidă pot ajuta la gestionarea situației înainte să se agraveze.",
+        "correctFeedback": "Verificarea și comunicarea rapidă pot ajuta la gestionarea situației înainte să se agraveze.",
+        "incorrectFeedback": "Amânarea fără verificare nu schimbă obligația sau termenul stabilit.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Verifici plata și contactezi instituția rapid."
+          },
+          {
+            "id": "1",
+            "label": "Aștepți fără să verifici termenul."
+          },
+          {
+            "id": "2",
+            "label": "Ignori mesajele până luna viitoare."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Ai o rată cu termen mâine și observi o problemă cu plata."
+      },
+      {
+        "type": "adevarat_fals",
+        "id": "aprobare",
+        "title": "Aprobarea înlocuiește bugetul?",
+        "question": "Dacă o cerere este aprobată, rata este automat confortabilă pentru orice buget.",
+        "explanation": "Aprobarea și confortul în propriul buget sunt întrebări diferite.",
+        "correctFeedback": "Aprobarea și confortul în propriul buget sunt întrebări diferite.",
+        "incorrectFeedback": "Trebuie privite și cheltuielile, obligațiile existente și spațiul pentru surprize.",
+        "correctAnswer": false
+      },
+      {
+        "type": "caz_real",
+        "id": "caz",
+        "title": "Radu vrea încă o rată.",
+        "caseId": "case-credit-radu",
+        "label": "Caz real",
+        "paragraphs": [
+          "Radu are 21 de ani și un venit disponibil de 2.500 lei pe lună. Cheltuielile obișnuite sunt aproximativ 1.900 lei, iar el mai are o rată de 200 lei. Termenul acestei rate este mâine. Observă că transferul programat ar putea să nu fi fost confirmat și trebuie să verifice situația, nu doar să presupună că totul s-a rezolvat.",
+          "În aceeași săptămână găsește un telefon cu o rată lunară prezentată ca fiind 350 lei. Nu a citit încă suma totală de plată, toate condițiile sau durata. Telefonul actual încă funcționează. Oferta este tentantă fiindcă rata izolată pare mică în comparație cu venitul, dar Radu are deja multe cheltuieli.",
+          "Poate clarifica plata apropiată și apoi analiza oferta completă. În exemplul de buget, după cheltuieli și rata veche rămân 400 lei. Noua rată ar reduce diferența la 50 lei. Nu știm din acest caz dacă cererea va fi aprobată. Știm doar că o decizie informată are nevoie de condiții complete și de o verificare a bugetului."
+        ],
+        "finiMood": "thinking"
+      },
+      {
+        "type": "scenariu",
+        "id": "radu-prioritate",
+        "title": "Ce rezolvă mai întâi?",
+        "question": "Care este primul pas util?",
+        "explanation": "Obligația existentă are un termen apropiat și o problemă concretă de clarificat.",
+        "correctFeedback": "Obligația existentă are un termen apropiat și o problemă concretă de clarificat.",
+        "incorrectFeedback": "O cerere nouă nu clarifică plata care trebuie verificată acum.",
+        "caseId": "case-credit-radu",
+        "options": [
+          {
+            "id": "0",
+            "label": "Verifică plata apropiată."
+          },
+          {
+            "id": "1",
+            "label": "Trimite imediat o cerere nouă."
+          },
+          {
+            "id": "2",
+            "label": "Presupune că transferul s-a făcut."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Rata existentă are termen mâine, iar transferul este neclar."
+      },
+      {
+        "type": "variante",
+        "id": "radu-informatie",
+        "title": "Ce lipsește din ofertă?",
+        "question": "Ce informație cere înainte să analizeze noua datorie?",
+        "explanation": "Rata lunară izolată nu descrie întreaga obligație. Costul total și condițiile completează comparația.",
+        "correctFeedback": "Rata lunară izolată nu descrie întreaga obligație. Costul total și condițiile completează comparația.",
+        "incorrectFeedback": "O singură sumă lunară nu spune cât plătește în total și în ce condiții.",
+        "caseId": "case-credit-radu",
+        "options": [
+          {
+            "id": "0",
+            "label": "Costul total, durata și condițiile."
+          },
+          {
+            "id": "1",
+            "label": "Doar culoarea telefonului."
+          },
+          {
+            "id": "2",
+            "label": "Doar rata lunară afișată."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "scenariu",
+        "id": "radu-flexibilitate",
+        "title": "Mai rămâne spațiu?",
+        "question": "Ce concluzie este rezonabilă?",
+        "explanation": "Diferența de 50 lei arată un buget strâns în acest exemplu. Nu oferă o predicție despre aprobare.",
+        "correctFeedback": "Diferența de 50 lei arată un buget strâns în acest exemplu. Nu oferă o predicție despre aprobare.",
+        "incorrectFeedback": "Datele de buget nu garantează o decizie a instituției, dar arată spațiul disponibil pentru alte nevoi.",
+        "caseId": "case-credit-radu",
+        "options": [
+          {
+            "id": "0",
+            "label": "Bugetul ar avea puțin spațiu pentru surprize."
+          },
+          {
+            "id": "1",
+            "label": "Aprobarea viitoare este sigură."
+          },
+          {
+            "id": "2",
+            "label": "Istoricul lui nu mai contează."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Noua rată ar lăsa 50 lei după cheltuielile din exemplu."
+      },
+      {
+        "type": "explicatie",
+        "id": "nuante",
+        "title": "Nu există o scurtătură magică.",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Un istoric mai bun se construiește în timp prin comportament de plată responsabil. Nu se repară peste noapte doar fiindcă ai făcut o cerere nouă sau ai citit un truc online. Nici nu înseamnă că trebuie să iei credite doar pentru a urmări un scor.",
+          "O altă capcană este să ignori termenul fiindcă plata pare mică. Valoarea și data scadenței sunt informații diferite; o sumă mică are tot un termen. Un calendar sau o verificare a plății poate ajuta fără să presupui că orice automatizare funcționează perfect.",
+          "Înaintea unei datorii noi, separă două întrebări: ce condiții oferă instituția și ce poate susține bugetul. Nu inventa un număr de puncte sau o regulă universală dintr-o poveste auzită. Pentru sisteme concrete, caută informații verificate."
+        ],
+        "detail": {
+          "text": "Nu este necesar să iei o datorie doar ca să «construiești un scor»."
+        }
+      },
+      {
+        "type": "adevarat_fals",
+        "id": "peste-noapte",
+        "title": "Se repară peste noapte?",
+        "question": "Un istoric de credit slab se repară peste noapte.",
+        "explanation": "Comportamentul de plată responsabil se vede în timp, nu printr-o schimbare instantanee.",
+        "correctFeedback": "Comportamentul de plată responsabil se vede în timp, nu printr-o schimbare instantanee.",
+        "incorrectFeedback": "O promisiune de reparare instantanee nu înlocuiește gestionarea obligațiilor în timp.",
+        "correctAnswer": false
+      },
+      {
+        "type": "variante",
+        "id": "scor-motiv",
+        "title": "Un credit doar pentru scor?",
+        "question": "Care reflex este mai util înainte de o datorie nouă?",
+        "explanation": "Nevoia și capacitatea de plată contează în decizie. Un scor nu este un motiv suficient, izolat.",
+        "correctFeedback": "Nevoia și capacitatea de plată contează în decizie. Un scor nu este un motiv suficient, izolat.",
+        "incorrectFeedback": "O datorie nouă aduce obligații; nu trebuie tratată doar ca o metodă de schimbare a unui număr.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Verifici nevoia, condițiile și bugetul."
+          },
+          {
+            "id": "1",
+            "label": "Iei datorii doar pentru un scor."
+          },
+          {
+            "id": "2",
+            "label": "Presupui că o rată mică nu are termen."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "tine_minte",
+        "id": "tine-minte",
+        "title": "Ține minte",
+        "finiMood": "happy",
+        "items": [
+          {
+            "id": "punct-1",
+            "title": "Istoric, nu etichetă",
+            "body": "Istoricul descrie gestionarea obligațiilor de credit. Nu spune cât valorezi ca persoană.",
+            "detail": "Nu presupune că un singur număr universal decide tot.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-2",
+            "title": "Plata la timp",
+            "body": "Termenele fac parte din obligație. Verificarea unei plăți este utilă și când suma pare mică.",
+            "detail": "Nu confunda un transfer programat cu unul confirmat.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-3",
+            "title": "Bugetul contează",
+            "body": "O rată nouă se adaugă plăților existente. Aprobarea nu înseamnă automat confort financiar.",
+            "detail": "Privește și spațiul rămas pentru nevoi neprevăzute.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-4",
+            "title": "Detalii verificate",
+            "body": "Sistemele și condițiile concrete trebuie verificate. Lecția nu oferă formule, durate sau puncte de scoring inventate.",
+            "detail": "Folosește informațiile oficiale ale sistemului și ale instituției.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-5",
+            "title": "Ce poți face azi",
+            "body": "Verifică data unei plăți recurente sau a unei rate pe care o ai. Noteaz-o într-un loc ușor de găsit.",
+            "detail": "Dacă nu ai rate, poți folosi un abonament ca exercițiu.",
+            "type": "action"
+          }
+        ]
+      },
+      {
+        "type": "final",
+        "id": "final",
+        "title": "Lecție terminată."
+      }
+    ]
+  },
+  {
+    "id": "dobanda-compusa",
+    "slug": "dobanda-compusa",
+    "categoryId": "investitii-de-la-zero",
+    "chapterId": "bazele",
+    "title": "Dobânda compusă",
+    "description": "Înțelege dobânda la dobândă, efectul timpului și limitele unui exemplu matematic.",
+    "minutes": 5,
+    "xp": 30,
+    "status": "ready",
+    "contentVersion": 2,
+    "formatVersion": 2,
+    "screens": [
+      {
+        "type": "situatie",
+        "id": "situatie",
+        "title": "Aceeași sumă, altă bază",
+        "body": "Ai 1.000 lei puși deoparte și urmărești un exemplu de calcul cu o creștere ipotetică de 10% pe an. După primul an, suma este mai mare. La ce sumă se aplică procentul în anul următor?"
+      },
+      {
+        "type": "explicatie",
+        "id": "concept",
+        "title": "Câștigul intră în baza de calcul",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Dobânda simplă se calculează doar la suma inițială. Dobânda compusă folosește o bază care poate include și câștigurile acumulate anterior, dacă acestea rămân în sumă. De aici vine expresia «dobândă la dobândă»: în perioada următoare, procentul se aplică și peste câștigul păstrat.",
+          "Imaginează-ți, doar pentru calcul, 1.000 lei și o rată de 10% pentru o perioadă. Câștigul este 100 lei, iar totalul ajunge la 1.100 lei. Dacă păstrezi și cei 100 lei, următoarea perioadă pornește de la acest total. Dacă îi retragi, baza nu crește în același fel. Mecanismul descrie calculul, nu promite o rată reală."
+        ]
+      },
+      {
+        "type": "variante",
+        "id": "mecanism",
+        "title": "Ce se compune?",
+        "question": "Ce diferențiază dobânda compusă de cea simplă?",
+        "explanation": "Și câștigurile păstrate pot participa la calculul următor.",
+        "correctFeedback": "Și câștigurile păstrate pot participa la calculul următor.",
+        "incorrectFeedback": "Diferența este baza de calcul, nu o creștere obligatorie a ratei.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Câștigul păstrat poate intra în baza următorului calcul."
+          },
+          {
+            "id": "1",
+            "label": "Procentul trebuie să crească în fiecare perioadă."
+          },
+          {
+            "id": "2",
+            "label": "Suma inițială se dublează automat."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "calcul",
+        "id": "anul-unu",
+        "title": "Prima perioadă",
+        "question": "În exemplu, 1.000 lei cresc cu 10%. Care este totalul?",
+        "explanation": "10% din 1.000 este 100, iar totalul este 1.100 lei.",
+        "correctFeedback": "10% din 1.000 este 100, iar totalul este 1.100 lei.",
+        "incorrectFeedback": "Adaugi câștigul de 100 lei la suma inițială de 1.000 lei.",
+        "context": "Exemplu de calcul.",
+        "options": [
+          {
+            "id": "0",
+            "value": 100
+          },
+          {
+            "id": "1",
+            "value": 1100
+          },
+          {
+            "id": "2",
+            "value": 1010
+          }
+        ],
+        "expectedAnswer": 1100,
+        "unit": "lei"
+      },
+      {
+        "type": "explicatie",
+        "id": "timp",
+        "title": "Perioadele se leagă între ele",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Timpul contează fiindcă oferă mai multe ocazii pentru ca suma acumulată să intre din nou în calcul. În exemplul nostru, după primul an ai 1.100 lei. Dacă presupunem aceeași rată ipotetică de 10% și păstrăm tot câștigul, al doilea an adaugă 110 lei, nu 100.",
+          "Totalul devine 1.210 lei. Diferența de 10 lei apare din calculul aplicat și câștigului din primul an. La dobânda simplă, două perioade ar adăuga câte 100 lei la aceeași sumă inițială. Comparația are sens doar dacă celelalte condiții sunt identice. Ratele, retragerile și costurile pot schimba rezultatul în situațiile reale."
+        ],
+        "example": {
+          "text": "Exemplu matematic: 1.000 → 1.100 → 1.210 lei, la 10% pe perioadă, cu tot câștigul păstrat."
+        }
+      },
+      {
+        "type": "calcul",
+        "id": "anul-doi",
+        "title": "A doua perioadă",
+        "question": "Aplicăm din nou 10%, acum la 1.100 lei. Care este totalul?",
+        "explanation": "10% din 1.100 este 110, iar totalul este 1.210 lei.",
+        "correctFeedback": "10% din 1.100 este 110, iar totalul este 1.210 lei.",
+        "incorrectFeedback": "Baza este acum 1.100 lei. Adaugi 110 lei, nu doar 100.",
+        "context": "Exemplu de calcul.",
+        "options": [
+          {
+            "id": "0",
+            "value": 1200
+          },
+          {
+            "id": "1",
+            "value": 1210
+          },
+          {
+            "id": "2",
+            "value": 1110
+          }
+        ],
+        "expectedAnswer": 1210,
+        "unit": "lei"
+      },
+      {
+        "type": "variante",
+        "id": "comparatie",
+        "title": "Aceleași condiții",
+        "question": "Cu aceeași rată pozitivă și câștigul păstrat, ce mecanism poate crește mai repede în mai multe perioade?",
+        "explanation": "Baza dobânzii compuse poate crește de la o perioadă la alta.",
+        "correctFeedback": "Baza dobânzii compuse poate crește de la o perioadă la alta.",
+        "incorrectFeedback": "La dobânda simplă baza rămâne suma inițială; la cea compusă include câștigurile păstrate.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Dobânda compusă."
+          },
+          {
+            "id": "1",
+            "label": "Dobânda simplă, calculată doar la suma inițială."
+          },
+          {
+            "id": "2",
+            "label": "Cele două dau mereu același total."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "caz_real",
+        "id": "caz",
+        "title": "Teo compară două calendare",
+        "caseId": "case-compound-teo",
+        "label": "Caz real",
+        "paragraphs": [
+          "Teo, 20 de ani, vrea să înțeleagă un calcul, înainte să citească oferte reale. Desenează două scenarii pe hârtie. În primul, 1.000 lei participă la trei perioade de calcul. În al doilea, aceeași sumă participă doar la două perioade, fiindcă începe mai târziu. Pentru ambele presupune 10% pe perioadă, fără costuri sau retrageri, cu tot câștigul păstrat.",
+          "După două perioade, fiecare scenariu care a parcurs acest interval ajunge la 1.210 lei. Primul mai are încă o perioadă în care procentul se aplică acestui total. Teo observă că timpul schimbă rezultatul chiar dacă suma inițială și rata din calcul sunt identice.",
+          "Un coleg îi spune că poate folosi rezultatul ca promisiune pentru orice investiție. Teo nu este convins: rata a fost aleasă doar pentru exercițiu, iar în realitate ar trebui verificate riscurile, costurile și condițiile. Vrea să separe concluzia despre mecanism de o presupunere despre câștiguri viitoare."
+        ],
+        "finiMood": "thinking"
+      },
+      {
+        "type": "calcul",
+        "id": "teo-perioada",
+        "title": "Încă o perioadă",
+        "question": "În primul scenariu al lui Teo, ce total rezultă după încă 10% aplicat celor 1.210 lei?",
+        "explanation": "Câștigul este 121 lei, deci totalul matematic ajunge la 1.331 lei.",
+        "correctFeedback": "Câștigul este 121 lei, deci totalul matematic ajunge la 1.331 lei.",
+        "incorrectFeedback": "Calculezi 10% din întreaga bază de 1.210 lei, apoi adaugi cei 121 lei.",
+        "caseId": "case-compound-teo",
+        "context": "Exemplu de calcul.",
+        "options": [
+          {
+            "id": "0",
+            "value": 1310
+          },
+          {
+            "id": "1",
+            "value": 1331
+          },
+          {
+            "id": "2",
+            "value": 1320
+          }
+        ],
+        "expectedAnswer": 1331,
+        "unit": "lei"
+      },
+      {
+        "type": "scenariu",
+        "id": "teo-timp",
+        "title": "Ce explică diferența?",
+        "question": "De ce primul scenariu are un total mai mare?",
+        "explanation": "Diferența vine din perioada suplimentară, cu aceeași rată și aceeași sumă inițială.",
+        "correctFeedback": "Diferența vine din perioada suplimentară, cu aceeași rată și aceeași sumă inițială.",
+        "incorrectFeedback": "Nu avem produse sau rate diferite: comparăm doar timpul din exercițiu.",
+        "caseId": "case-compound-teo",
+        "options": [
+          {
+            "id": "0",
+            "label": "A avut o perioadă suplimentară de calcul."
+          },
+          {
+            "id": "1",
+            "label": "A folosit neapărat un produs mai sigur."
+          },
+          {
+            "id": "2",
+            "label": "A avut o rată mai mare."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Teo compară scenariile în aceleași condiții ipotetice."
+      },
+      {
+        "type": "adevarat_fals",
+        "id": "teo-promisiune",
+        "title": "Calcul sau promisiune?",
+        "question": "Rezultatul lui Teo garantează același câștig pentru o investiție reală.",
+        "explanation": "Scenariul explică un mecanism cu ipoteze, nu garantează rezultate reale.",
+        "correctFeedback": "Scenariul explică un mecanism cu ipoteze, nu garantează rezultate reale.",
+        "incorrectFeedback": "Rata de 10% a fost aleasă pentru exercițiu; condițiile reale pot fi diferite.",
+        "caseId": "case-compound-teo",
+        "correctAnswer": false
+      },
+      {
+        "type": "explicatie",
+        "id": "nuante",
+        "title": "Nu confunda ipoteza cu oferta",
+        "eyebrow": "CONCEPT",
+        "finiMood": "thinking",
+        "paragraphs": [
+          "Un exemplu cu aceeași rată în fiecare perioadă este util pentru a vedea mecanismul. Nu înseamnă că rata va rămâne identică într-o situație reală. O greșeală frecventă este să citești totalul calculat și să îl tratezi ca pe o promisiune, fără să verifici condițiile care l-au produs.",
+          "Nici compunerea nu înseamnă «bani gratis». Dacă vorbim despre investiții, contează riscul, costurile și felul în care pot varia rezultatele. Dacă retragi câștigul, baza următoare poate fi mai mică decât în exemplu. Reflexul util este să separi întrebarea «cum funcționează calculul?» de întrebarea «ce condiții are această ofertă?». Prima nu oferă singură răspunsul la a doua."
+        ],
+        "detail": {
+          "text": "Mecanismul de calcul nu este o recomandare de produs și nu garantează câștiguri."
+        }
+      },
+      {
+        "type": "scenariu",
+        "id": "oferta",
+        "title": "Înainte de concluzie",
+        "question": "Ce merită verificat înainte să îl legi de o ofertă reală?",
+        "explanation": "Totalul depinde de condițiile calculului, care pot diferi de o ofertă reală.",
+        "correctFeedback": "Totalul depinde de condițiile calculului, care pot diferi de o ofertă reală.",
+        "incorrectFeedback": "Un grafic nu înlocuiește verificarea ipotezelor, costurilor și riscurilor.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Ipotezele, costurile, riscurile și condițiile ratei."
+          },
+          {
+            "id": "1",
+            "label": "Doar totalul de la finalul graficului."
+          },
+          {
+            "id": "2",
+            "label": "Doar dacă scrie «dobândă compusă»."
+          }
+        ],
+        "correctOption": "0",
+        "context": "Vezi un grafic construit cu o rată constantă ipotetică."
+      },
+      {
+        "type": "calcul",
+        "id": "doua-perioade",
+        "title": "Verifică mecanismul",
+        "question": "Într-un exercițiu, 100 lei cresc cu 10% în fiecare dintre două perioade, fără retrageri. Care este totalul?",
+        "explanation": "Prima perioadă dă 110 lei, iar a doua adaugă 11 lei: total 121.",
+        "correctFeedback": "Prima perioadă dă 110 lei, iar a doua adaugă 11 lei: total 121.",
+        "incorrectFeedback": "Al doilea procent se aplică celor 110 lei, nu doar sumei inițiale.",
+        "context": "Exemplu de calcul.",
+        "options": [
+          {
+            "id": "0",
+            "value": 120
+          },
+          {
+            "id": "1",
+            "value": 121
+          },
+          {
+            "id": "2",
+            "value": 110
+          }
+        ],
+        "expectedAnswer": 121,
+        "unit": "lei"
+      },
+      {
+        "type": "tine_minte",
+        "id": "tine-minte",
+        "title": "Ține minte",
+        "finiMood": "happy",
+        "items": [
+          {
+            "id": "punct-1",
+            "title": "Dobândă la dobândă",
+            "body": "Câștigurile păstrate pot intra în baza următorului calcul. Baza poate crește de la o perioadă la alta.",
+            "detail": "Retragerea câștigului schimbă exemplul.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-2",
+            "title": "Timpul contează",
+            "body": "Mai multe perioade pot amplifica efectul mecanismului. Comparația cere aceleași condiții în celelalte privințe.",
+            "detail": "Separă timpul de diferențele dintre produse.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-3",
+            "title": "Rata este o ipoteză",
+            "body": "Procentul de 10% din lecție servește calculului. Nu reprezintă o ofertă sau o rată curentă.",
+            "detail": "O rată reală poate avea alte condiții.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-4",
+            "title": "Calculul nu garantează",
+            "body": "Un total matematic depinde de ipotezele folosite. În investiții reale contează și riscurile și costurile.",
+            "detail": "Educația despre mecanism nu este sfat financiar.",
+            "type": "normal"
+          },
+          {
+            "id": "punct-5",
+            "title": "Ce poți face azi",
+            "body": "Calculează pe hârtie două perioade pornind de la 100 lei și o rată ipotetică de 10%. Aplică al doilea procent totalului obținut după prima perioadă.",
+            "detail": "Compară rezultatul cu două câștiguri de câte 10 lei.",
+            "type": "action"
+          }
+        ]
+      },
+      {
+        "type": "final",
+        "id": "final",
+        "title": "Lecție terminată."
+      }
+    ]
+  },
+  {
+    "id": "card-debit-vs-credit",
+    "slug": "card-debit-vs-credit",
+    "categoryId": "carduri-si-banca",
+    "chapterId": "cardul",
+    "title": "Debit vs. credit",
+    "description": "Arată la fel. Banii din spate sunt diferiți.",
+    "minutes": 3,
+    "xp": 20,
+    "status": "ready",
+    "screens": [
+      {
+        "type": "explicatie",
+        "id": "intro",
+        "title": "Arată la fel. Funcționează diferit.",
+        "fini": {
+          "mood": "thinking",
+          "message": "Limita de credit nu este venitul tău."
+        },
+        "body": "Cardul este un mod de a plăti. Ca să știi ce cheltuiești, contează dacă banii sunt ai tăi sau împrumutați."
+      },
+      {
+        "type": "variante",
+        "id": "debit",
+        "title": "Banii cui?",
+        "question": "Cu un card de debit, fără descoperit de cont, ce folosești?",
+        "explanation": "Cardul de debit îți dă acces la banii disponibili în cont. Un descoperit de cont este o facilitate de împrumut separată.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Banii disponibili în contul tău."
+          },
+          {
+            "id": "1",
+            "label": "Un împrumut automat pentru fiecare plată."
+          },
+          {
+            "id": "2",
+            "label": "Doar dobânda primită de la bancă."
+          },
+          {
+            "id": "3",
+            "label": "Salariul din luna următoare."
+          }
+        ],
+        "correctOption": "0"
+      },
+      {
+        "type": "scenariu",
+        "id": "credit",
+        "title": "Ai plătit cu un card de credit.",
+        "question": "Trebuie să returnezi suma?",
+        "explanation": "Folosești bani împrumutați. Citește condițiile și scadența înainte să cumperi, inclusiv regulile unei eventuale perioade de grație.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Nu, limita este un bonus."
+          },
+          {
+            "id": "1",
+            "label": "Da, conform condițiilor de rambursare."
+          },
+          {
+            "id": "2",
+            "label": "Doar dacă nu mai folosești cardul."
+          },
+          {
+            "id": "3",
+            "label": "Doar dacă plata a fost online."
+          }
+        ],
+        "correctOption": "1",
+        "context": "Banca ți-a pus la dispoziție o limită din care ai cumpărat ceva."
+      },
+      {
+        "type": "variante",
+        "id": "verifici",
+        "title": "Înainte să alegi.",
+        "question": "Ce verifici la un card de credit?",
+        "explanation": "Costurile și termenele îți arată ce presupune împrumutul. Limita disponibilă nu este o sumă câștigată de tine.",
+        "options": [
+          {
+            "id": "0",
+            "label": "Doar limita maximă de cumpărături."
+          },
+          {
+            "id": "1",
+            "label": "Doar dacă merge contactless."
+          },
+          {
+            "id": "2",
+            "label": "Dobânda, comisioanele și condițiile de rambursare."
+          },
+          {
+            "id": "3",
+            "label": "Doar dacă ai aceeași bancă precum prietenii."
+          }
+        ],
+        "correctOption": "2"
+      },
+      {
+        "type": "recap",
+        "id": "recap",
+        "title": "Ține minte",
+        "points": [
+          "Debit: folosești în mod obișnuit banii din cont.",
+          "Credit: împrumutul trebuie rambursat.",
+          "Verifică dobânda, comisioanele și termenele."
+        ]
+      },
+      {
+        "type": "final",
+        "id": "final",
+        "title": "Lecție terminată."
+      }
+    ],
+    "recapPoints": [
+      "Debit: folosești în mod obișnuit banii din cont.",
+      "Credit: împrumutul trebuie rambursat.",
+      "Verifică dobânda, comisioanele și termenele."
+    ]
+  }
+]

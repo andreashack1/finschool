@@ -15,8 +15,8 @@
 .learning-chapter .course-path { margin-top: 15px; }
 .learning-chapter .path-row > div { min-width: 0; }
 .learning-chapter .path-row strong { overflow-wrap: anywhere; }
-.learning-chapter .path-row.completed { background: #F5FAF7; }
-.learning-chapter .path-row.completed .path-number { color: #267C4D; background: #EAF6EF; }
+.learning-chapter .path-row.completed { background: #F5FAFF; }
+.learning-chapter .path-row.completed .path-number { color: var(--blue-ink); background: var(--light-blue); }
 .learning-chapter .path-row.locked { opacity: 1; color: var(--secondary); }
 .learning-context { padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: white; font-size: 15px; line-height: 1.65; margin-bottom: 22px; white-space: pre-line; }
 .learning-fini-note { display: flex; align-items: center; gap: 12px; margin: 20px 0; font-size: 14px; color: var(--secondary); }
@@ -291,3 +291,96 @@
   .swipe-hint { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .finly-app *, .salary-lesson * { animation: none !important; transition: none !important; } }
+
+/* Curriculum UI: reuse the Finly palette, cards and buttons. */
+.learning-grid .course-card { padding: 20px; min-width: 0; }
+.learning-grid .course-card h3 { font-size: 20px; line-height: 1.25; margin-top: 14px; }
+.learning-grid .course-card > p { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 0; font-size: 14px; line-height: 1.5; }
+.learning-grid .learning-card-top { margin: 0; }
+.difficulty-badge { display: inline-flex; align-items: center; gap: 9px; color: var(--blue-ink); font-size: 12px; font-weight: 650; }
+.difficulty-bars { display: inline-flex; align-items: center; gap: 3px; }
+.difficulty-bars > span { display: block; width: 5px; height: 13px; border-radius: 2px; background: #DBE7F2; }
+.difficulty-bars > .filled { background: var(--blue-ink); }
+.learning-grid .learning-card-count { display: block; margin-top: 13px; color: var(--secondary); font-size: 12px; }
+.learning-grid .learning-card-progress { color: var(--secondary); font-size: 12px; margin-top: 14px; }
+.learning-card-progress > span { display: inline-flex; align-items: center; gap: 6px; }
+.learning-card-progress strong { color: var(--blue-ink); }
+.learning-grid .course-card > .app-progress { margin-top: 8px; }
+.difficulty-box { padding: 16px 18px; margin-bottom: 28px; }
+.difficulty-box > div { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.difficulty-box p { margin-top: 9px; font-size: 14px; line-height: 1.6; color: var(--secondary); }
+.difficulty-box a { color: var(--blue-ink); text-decoration: underline; text-underline-offset: 3px; }
+.learning-chapter > .app-progress { margin-top: 10px; max-width: 240px; }
+.learning-chapter .path-row { min-height: 78px; }
+.learning-chapter .path-row.coming-soon { padding: 19px 17px; text-align: left; }
+.learning-chapter .path-number { flex-shrink: 0; }
+.learning-chapter .path-row.current { border-color: var(--blue); background: #EAF6FF; }
+.learning-chapter .path-row > div > span { font-size: 12px; line-height: 1.5; }
+.learning-recap { list-style: none; padding: 20px; text-align: left; margin-top: 24px; }
+.learning-recap li { display: flex; align-items: flex-start; gap: 12px; font-size: 16px; line-height: 1.6; }
+.learning-recap li + li { margin-top: 17px; }
+.learning-recap svg { margin-top: 5px; color: var(--blue-ink); }
+.lesson-category-progress { margin: 24px 0; padding: 18px; background: white; border: 1px solid var(--border); border-radius: 16px; }
+.lesson-category-progress p { font-size: 14px; line-height: 1.6; color: var(--secondary); }
+.lesson-category-progress .app-progress { margin-top: 12px; }
+@media (max-width: 899px) { .course-grid.learning-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Gamification extends existing Finly cards; no extra currency or guilt UI. */
+.lesson-reading { font-size: 16px; line-height: 1.65; text-align: left; }
+.lesson-reading > p + p { margin-top: 18px; }
+.lesson-reading-guide { display: flex; align-items: center; gap: 10px; margin: 20px 0 14px; color: var(--blue-ink); font-size: 12px; letter-spacing: .08em; }
+.lesson-reading-guide > img { width: 42px; height: 42px; object-fit: contain; }
+.lesson-example, .lesson-detail { margin-top: 20px; border-radius: 16px; padding: 16px; }
+.lesson-example { background: var(--light-blue); }
+.lesson-detail { border: 1px solid var(--border); background: white; }
+.lesson-example > strong, .lesson-detail > strong { font-size: 13px; color: var(--blue-ink); }
+.lesson-example p, .lesson-detail p { margin-top: 7px; }
+.lesson-question-count { display: block; margin: 14px 0; color: var(--secondary); font-size: 13px; }
+.lesson-case-trigger { display: inline-flex; border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; margin-bottom: 18px; color: var(--blue-ink); background: white; font: inherit; font-size: 14px; }
+.lesson-case-dialog { width: min(640px, calc(100% - 32px)); max-height: 78dvh; overflow-y: auto; border: 1px solid var(--border); border-radius: 22px; padding: 24px; background: var(--background); color: var(--foreground); font-family: var(--font-finly), sans-serif; }
+.lesson-case-dialog::backdrop { background: #0B1B3355; }
+.lesson-case-dialog-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--blue-ink); font-size: 12px; }
+.lesson-case-dialog-top > button { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--border); border-radius: 10px; background: white; color: var(--blue-ink); }
+.lesson-case-dialog h2 { font-size: 25px; line-height: 1.3; margin: 16px 0 22px; }
+.lesson-remember { text-align: left; }
+.lesson-remember article { border: 1px solid var(--border); background: white; border-radius: 16px; padding: 16px; margin-top: 14px; }
+.lesson-remember .remember-action { background: var(--light-blue); }
+.lesson-remember article > button { display: flex; justify-content: space-between; gap: 14px; width: 100%; border: 0; padding: 0; text-align: left; background: transparent; color: var(--foreground); font: inherit; font-weight: 650; line-height: 1.5; }
+.remember-body { display: none; }
+.remember-body.is-open { display: block; }
+.remember-body > p, .remember-preview { font-size: 16px; line-height: 1.6; margin-top: 12px; }
+.remember-body small { display: block; font-size: 13px; line-height: 1.6; margin-top: 12px; color: var(--secondary); }
+.remember-body small strong { display: block; color: var(--blue-ink); }
+@media (max-width: 600px) { .lesson-case-dialog { margin: auto auto max(16px, env(safe-area-inset-bottom)); padding: 20px; } }
+.gamification-level { padding: 14px 16px; margin-bottom: 10px; }
+.gamification-level > div:first-child { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 7px; margin-bottom: 10px; font-size: 12px; }
+.gamification-level strong { font-weight: 650; }
+.gamification-level > div > span { color: var(--secondary); }
+.freeze-indicator { display: inline-flex; align-items: center; gap: 6px; color: var(--secondary); font-size: 12px; line-height: 1.5; margin-bottom: 18px; }
+.status-row { flex-wrap: wrap; }
+.status-row > span { min-height: 34px; font-size: 12px; }
+.challenge-answers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.challenge-answers button { min-height: 48px; font-size: 13px; padding: 11px 9px; }
+.challenge-feedback { align-items: flex-start; }
+.challenge-feedback svg { margin-top: 3px; }
+.achievement.unlocked { background: #F0F8FF; border-radius: 12px; padding-inline: 10px; }
+.achievement.locked { opacity: 1; }
+.achievement.locked > svg { opacity: .65; }
+.achievement > div { min-width: 0; }
+.achievement-progress { display: block; margin-top: 6px; font-size: 12px; color: var(--secondary); }
+.reward-breakdown { list-style: none; padding: 0; margin: 14px 0 20px; color: var(--secondary); font-size: 14px; line-height: 1.8; }
+.finly-level-dialog { width: min(390px, calc(100% - 36px)); border: 1px solid var(--border); border-radius: 24px; background: var(--background); color: var(--foreground); padding: 28px; text-align: center; font-family: var(--font-finly), sans-serif; box-shadow: 0 18px 60px #0B1B3320; }
+.finly-level-dialog::backdrop { background: #0B1B3355; }
+.finly-level-dialog > img { width: 85px; height: 85px; display: block; margin: 0 auto 18px; }
+.finly-level-dialog .block-kicker { justify-content: center; }
+.finly-level-dialog h2 { font-size: 28px; line-height: 1.2; margin: 12px 0; }
+.finly-level-dialog p { font-size: 15px; line-height: 1.6; color: var(--secondary); }
+.finly-level-dialog .app-button { margin-top: 12px; min-width: 130px; }
+.finly-achievement-toast { position: fixed; z-index: 60; bottom: calc(105px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); width: min(410px, calc(100% - 32px)); display: flex; align-items: flex-start; gap: 12px; border: 1px solid var(--border); border-radius: 18px; padding: 16px; background: white; color: var(--foreground); box-shadow: 0 10px 35px #0B1B3314; font-family: var(--font-finly), sans-serif; }
+.finly-achievement-toast > img { width: 46px; height: 46px; flex-shrink: 0; }
+.finly-achievement-toast > div { flex: 1; min-width: 0; }
+.finly-achievement-toast span { display: block; color: var(--blue-ink); font-size: 11px; margin-bottom: 5px; }
+.finly-achievement-toast strong { font-size: 16px; }
+.finly-achievement-toast p { font-size: 13px; line-height: 1.5; color: var(--secondary); margin: 6px 0 0; }
+.finly-achievement-toast > button { border: 0; background: var(--light-blue); color: var(--blue-ink); border-radius: 9px; display: grid; place-items: center; width: 36px; height: 36px; flex-shrink: 0; }
+@media (max-width: 430px) { .status-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .status-row > span { justify-content: center; font-size: 12px; padding-inline: 9px; } }

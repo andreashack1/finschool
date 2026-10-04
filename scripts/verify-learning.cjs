@@ -1,83 +1,129 @@
-/* eslint-disable @typescript-eslint/no-require-imports -- Content and persistence contract checks. */
+/* eslint-disable @typescript-eslint/no-require-imports -- Content/persistence contract tests. */
 const assert = require('node:assert/strict');
 const { load } = require('./learning-test-content.cjs');
 const { categories } = load('src/content/categories.ts');
 const registry = load('src/content/lessons/index.ts');
-const { isValidScreen } = load('src/lib/learning-validation.ts');
+const { validateContentTree, isValidScreen } = load('src/lib/learning-validation.ts');
+const { CategorySchema, LessonSchema } = load('src/types/learning-schema.ts');
 const { categoryProgress, chapterProgress, lessonState, progressFor } = load('src/lib/learning-progress.ts');
 const storage = load('src/lib/learning-storage.ts');
-assert.equal(categories.length, 6);
-assert.deepEqual(categories.filter(c => c.status === 'active').map(c => c.id), ['primul-job', 'economia-pe-scurt']);
-assert.equal(new Set(registry.lessons.map(l => l.id)).size, registry.lessons.length);
-assert.equal(new Set(registry.lessons.map(l => l.slug)).size, registry.lessons.length);
-for (const category of categories) {
-  assert.ok(category.chapters.length);
-  for (const chapter of category.chapters) {
-    assert.ok(chapter.lessons.length);
-    for (const metadata of chapter.lessons) {
-      const lesson = registry.getLessonById(metadata.id);
-      assert.ok(lesson);
-      assert.equal(lesson.categoryId, category.id);
-      assert.equal(lesson.chapterId, chapter.id);
-      assert.equal(registry.getLessonBySlug(lesson.slug), lesson);
-    }
-  }
-}
-for (const lesson of registry.getReadyLessons()) {
-  assert.ok(lesson.screens.length);
-  assert.equal(new Set(lesson.screens.map(s => s.id)).size, lesson.screens.length);
-  for (const screen of lesson.screens) {
-    assert.equal(isValidScreen(screen), true, `${lesson.id}/${screen.id}`);
-    if (screen.type !== 'text' && screen.type !== 'true-false') assert.equal(screen.options.length, 4);
-  }
-}
+const before = require('../artifacts/curriculum-before.json');
 const salary = registry.getLessonById('salariu-brut-vs-net');
-assert.ok(salary.screens.length >= 20 && salary.screens.length <= 25);
-const interactions = salary.screens.filter(s => s.type !== 'text');
-assert.ok(interactions.length >= 15 && interactions.length <= 20);
-assert.ok(interactions.filter(s => s.type === 'true-false').length / interactions.length <= .15);
-assert.equal(registry.getNextLesson([]).id, salary.id);
-assert.equal(lessonState(salary, []), 'current');
-assert.equal(categoryProgress('primul-job', []).percentage, 0);
-assert.equal(categoryProgress('primul-job', [salary.id]).percentage, 100);
-assert.equal(chapterProgress(salary.chapterId, [salary.id]).percentage, 100);
-assert.equal(registry.getNextLesson([salary.id]).id, 'ce-este-inflatia');
-assert.equal(registry.getNextLesson([], 'ce-este-inflatia').id, 'ce-este-inflatia');
-assert.equal(registry.getNextLesson(registry.getActiveReadyLessons().map(l => l.id)), undefined);
-assert.equal(categoryProgress('economii', []).percentage, 0);
-assert.equal(registry.getLessonById('missing'), undefined);
-assert.equal(lessonState(registry.getLessonById('ce-este-salariul'), []), 'coming-soon');
-assert.equal(isValidScreen({ type: 'quick-calc', id: 'x', title: 'x', question: 'x', explanation: 'x', context: 'x', options: [{ id: 'a', value: 1 }, { id: 'b', value: 2 }], expectedAnswer: 3 }), false);
-assert.equal(isValidScreen({ ...salary.screens[1], correctOption: 'missing' }), false);
-assert.equal(isValidScreen({ ...salary.screens[1], options: [] }), false);
-// Simulate publishing future ready lessons: no player changes required.
-const futureIndex = registry.lessons.findIndex(l => l.id === 'ce-intra-in-cont');
-const oldFuture = registry.lessons[futureIndex];
-const future = { ...oldFuture, status: 'ready', screens: salary.screens };
-registry.lessons[futureIndex] = future;
+const inflation = registry.getLessonById('ce-este-inflatia');
+const readyIds = ['phishing','primul-buget','fondul-de-urgenta',salary.id,inflation.id,'scorul-de-credit','dobanda-compusa'];
+assert.equal(categories.length, 12);
+assert.equal(registry.lessons.length, 119);
+assert.deepEqual(categories.map(c => c.order), Array.from({length:12}, (_,i)=>i+1));
+assert.deepEqual(categories.map(c=>c.chapters.reduce((n,ch)=>n+ch.lessons.length,0)), [9,10,10,9,9,12,11,7,11,9,8,14]);
+assert.deepEqual(registry.getReadyLessons().map(l=>l.id), readyIds);
+assert.deepEqual(registry.legacyQuickLessons.map(l=>l.id), ['card-debit-vs-credit']);
+for (const quick of registry.legacyQuickLessons) assert.ok(LessonSchema.safeParse(quick).success);
+assert.equal(inflation.screens.length, 16);
+const published=[
+ ['ce-este-inflatia','Inflația','economia-pe-scurt','preturi','calcul','adevarat_fals'],
+ ['fondul-de-urgenta','Fondul de urgență','economii','siguranta-ta-financiara','calcul','scenariu'],
+ ['primul-buget','Primul tău buget','economii','bugetul','calcul','scenariu'],
+ ['scorul-de-credit','Scorul de credit','credite-si-datorii','bazele-creditului','adevarat_fals','scenariu'],
+ ['phishing','Phishing','siguranta-financiara','mesaje-si-apeluri-false','adevarat_fals','scenariu'],
+ ['dobanda-compusa','Dobânda compusă','investitii-de-la-zero','bazele','variante','explicatie'],
+];
+for(const [id,title,categoryId,chapterId] of published){
+ const lesson=registry.getLessonById(id);
+ assert.equal(lesson.title,title);assert.equal(lesson.categoryId,categoryId);assert.equal(lesson.chapterId,chapterId);
+ assert.equal(lesson.xp,30);assert.equal(lesson.minutes,5);assert.equal(lesson.status,'ready');
+ assert.equal(registry.lessons.filter(l=>l.id===id||l.title===title).length,1);
+ assert.equal(lesson.screens.length,16); assert.equal(lesson.screens.filter(s=>'question' in s).length,9); assert.equal(lesson.contentVersion,2);
+ assert.ok(categories.find(c=>c.id===categoryId).chapters.find(ch=>ch.id===chapterId).lessons.includes(id));
+}
+assert.equal(registry.getLegacyQuickLesson('primul-buget'),registry.getLessonById('primul-buget'));
+assert.deepEqual(registry.getLessonById('dobanda-compusa').screens.filter(s=>s.type==='calcul').map(s=>s.expectedAnswer),[1100,1210,1331,121]);
+assert.equal(inflation.screens[5].expectedAnswer,22);
+assert.equal(registry.getLessonById('fondul-de-urgenta').screens[5].expectedAnswer,5400);
+assert.equal(registry.getLessonById('primul-buget').screens[5].expectedAnswer,400);
+assert.equal(categoryProgress('economii',[]).percentage,0);
+assert.equal(categoryProgress('economii',['primul-buget']).percentage,50);
+assert.equal(categoryProgress('economii',['primul-buget','fondul-de-urgenta']).percentage,100);
+assert.equal(lessonState(registry.getLessonById('fondul-de-urgenta'),[]),'locked');
+assert.equal(lessonState(registry.getLessonById('fondul-de-urgenta'),['primul-buget']),'current');
+for(const categoryId of ['siguranta-financiara','primul-job','economia-pe-scurt','credite-si-datorii','investitii-de-la-zero']) assert.equal(categoryProgress(categoryId,[]).available,1);
+const engine=load('src/lib/progress.ts'), now=new Date('2026-10-03T10:00:00Z');
+for(const [id] of published){
+ const lesson=registry.getLessonById(id),questions=lesson.screens.filter(engine.isAnswerScreen);
+ const answers=questions.map(s=>({screenId:s.id,selectedOptionId:engine.getCorrectAnswerId(s)}));
+ const imperfect=answers.map((a,i)=>i===0?{...a,selectedOptionId:'wrong'}:a);
+ const base=engine.completeLessonSession(engine.createEmptyProgress(),{lessonId:id,sessionId:'first',answers:imperfect},now);
+ assert.equal(base.xpGained,30);
+ const perfect=engine.completeLessonSession(base.progress,{lessonId:id,sessionId:'perfect',answers},now);
+ assert.equal(perfect.xpGained,20);
+ assert.equal(engine.completeLessonSession(perfect.progress,{lessonId:id,sessionId:'replay',answers},now).xpGained,0);
+ assert.equal(engine.completeLessonSession(perfect.progress,{lessonId:id,sessionId:'perfect',answers},now).xpGained,0);
+ assert.equal(perfect.progress.uniqueCorrectAnswers.length,questions.length);
+ if(id==='primul-buget')assert.ok(base.progress.achievements.unlockedIds.includes('budget-ready'));
+ if(id==='phishing'){
+  const achievement=load('src/content/achievements.ts').achievements.find(a=>a.id==='trained-eye');
+  assert.deepEqual(engine.getAchievementProgress(achievement,perfect.progress),{current:5,target:5,percent:100,eligible:true});
+ }
+}
+const legacyInflation=engine.migrateProgress({version:0,state:{xp:123,completed:['inflatie']}},null,now);
+assert.equal(legacyInflation.totalXp,123);
+assert.ok(legacyInflation.completedLessonIds.includes(inflation.id));
+assert.equal(categoryProgress(inflation.categoryId,legacyInflation.completedLessonIds).percentage,100);
+for (const old of before) {
+  assert.ok(categories.some(c=>c.id===old.id), 'Preserve category '+old.id);
+  for (const ch of old.chapters) for (const lesson of ch.lessons) assert.ok(registry.getLessonById(lesson.id), 'Preserve lesson '+lesson.id);
+}
+for (const lesson of registry.lessons) {
+  assert.ok(LessonSchema.safeParse(lesson).success);
+  if (lesson.status==='coming-soon') assert.equal(lesson.screens, undefined);
+  else {
+    assert.equal(lesson.screens.at(-2).type, 'tine_minte');
+    assert.equal(lesson.screens.at(-1).type, 'final');
+    for (const screen of lesson.screens) assert.ok(isValidScreen(screen), lesson.id+'/'+screen.id);
+  }
+}
+assert.equal(registry.getNextLesson([]).id, 'phishing');
+assert.equal(registry.getNextLesson([salary.id]).id, 'phishing');
+assert.equal(registry.getNextLesson([], inflation.id).id, inflation.id);
+assert.equal(registry.getNextLesson(readyIds), undefined);
+for (const lesson of [salary, inflation]) {
+  assert.equal(lessonState(lesson, []), 'current');
+  assert.equal(categoryProgress(lesson.categoryId, []).percentage, 0);
+  assert.equal(categoryProgress(lesson.categoryId, [lesson.id]).percentage, 100);
+  assert.equal(categoryProgress(lesson.categoryId, [lesson.id]).available, 1);
+  assert.equal(chapterProgress(lesson.chapterId, [lesson.id], lesson.categoryId).percentage, 100);
+}
+assert.equal(categoryProgress('investitii-de-la-zero', []).available, 1);
+assert.equal(lessonState(registry.getLessonById('primul-contract-de-munca'), []), 'coming-soon');
+const futureIndex=registry.lessons.findIndex(l=>l.id==='fluturasul-de-salariu');
+const original=registry.lessons[futureIndex];
+const future={...original,status:'ready',screens:salary.screens};
+registry.lessons[futureIndex]=future;
 assert.equal(lessonState(future, []), 'locked');
 assert.equal(lessonState(future, [salary.id]), 'current');
-assert.equal(categoryProgress('primul-job', [salary.id]).percentage, 50);
-assert.equal(chapterProgress(salary.chapterId, [salary.id]).percentage, 50);
-assert.equal(registry.getNextLesson([salary.id]).id, future.id);
-assert.equal(progressFor([salary, future], [salary.id, salary.id]).completed, 1);
-registry.lessons[futureIndex] = oldFuture;
-assert.deepEqual(storage.parseProgress(null), storage.emptyProgress());
-assert.deepEqual(storage.parseProgress('{invalid'), storage.emptyProgress());
-assert.deepEqual(storage.parseProgress('{"version":2,"completedLessonIds":[]}'), storage.emptyProgress());
-assert.deepEqual(storage.parseProgress('{"version":1,"completedLessonIds":[3]}'), storage.emptyProgress());
-assert.deepEqual(storage.parseProgress('{"version":1,"completedLessonIds":["a","a"]}').completedLessonIds, ['a']);
-const values = new Map();
-global.window = { localStorage: { getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) } };
-assert.deepEqual(storage.readLearningProgress(), storage.emptyProgress());
-values.set('finly-progress-v2', JSON.stringify({ state: { completed: ['salary', 'inflatie', 'simulator'] } }));
-assert.deepEqual(storage.readLearningProgress().completedLessonIds, ['salariu-brut-vs-net', 'ce-este-inflatia']);
-values.set(storage.LEARNING_STORAGE_KEY, 'broken');
-assert.deepEqual(storage.readLearningProgress(), storage.emptyProgress());
-global.window.localStorage.getItem = () => { throw new Error('blocked'); };
-global.window.localStorage.setItem = () => { throw new Error('quota'); };
-assert.deepEqual(storage.readLearningProgress(), storage.emptyProgress());
-assert.equal(storage.writeLearningProgress(storage.emptyProgress()), false);
-delete global.window;
-assert.deepEqual(storage.readLearningProgress(), storage.emptyProgress());
-console.log(`Learning contracts passed: ${registry.lessons.length} lessons, ${registry.getReadyLessons().length} ready, ${salary.screens.length} salary screens (${interactions.length} interactive).`);
+assert.equal(categoryProgress(salary.categoryId, [salary.id]).percentage, 50);
+assert.equal(progressFor([salary, future], [salary.id,salary.id]).completed, 1);
+assert.equal(registry.getNextLesson(readyIds).id, future.id);
+registry.lessons[futureIndex]=original;
+
+// Negative content fixtures must fail with actionable errors.
+const copy = x => JSON.parse(JSON.stringify(x));
+const invalidTree=(mutate, expected)=>{const c=copy(categories), l=copy(registry.lessons);mutate(c,l);assert.throws(()=>validateContentTree(c,l),expected);};
+invalidTree(c=>{c[1].id=c[0].id;},/Duplicate category/);
+invalidTree((c,l)=>{l[1].id=l[0].id;},/Duplicate lesson/);
+invalidTree(c=>{c[0].chapters[0].lessons[0]='missing';},/references missing lesson/);
+invalidTree((c,l)=>{l[0].chapterId='missing';},/chapter reference/);
+invalidTree((c,l)=>{l[0].categoryId='missing';},/category\/chapter reference/);
+invalidTree(c=>{c[1].chapters[0].lessons.push(c[0].chapters[0].lessons[0]);},/more than one chapter/);
+invalidTree(c=>{c[1].order=c[0].order;},/order/);
+assert.equal(CategorySchema.safeParse({...categories[0],difficulty:'invalid'}).success,false);
+assert.equal(LessonSchema.safeParse({...salary,screens:[]}).success,false);
+assert.equal(LessonSchema.safeParse({...salary,status:'invalid'}).success,false);
+assert.equal(LessonSchema.safeParse({...original,screens:salary.screens}).success,false);
+assert.equal(isValidScreen({...inflation.screens[2],correctOption:'missing'}),false);
+assert.equal(isValidScreen({...inflation.screens[2],options:[]}),false);
+assert.equal(isValidScreen({type:'calcul',id:'x',title:'x',question:'x',context:'x',explanation:'x',options:[{id:'a',value:1},{id:'b',value:2},{id:'c',value:4}],expectedAnswer:3}),false);
+assert.deepEqual(storage.parseProgress(null),storage.emptyProgress());
+assert.deepEqual(storage.parseProgress('{invalid'),storage.emptyProgress());
+assert.deepEqual(storage.parseProgress('{"version":1,"completedLessonIds":[3]}'),storage.emptyProgress());
+assert.deepEqual(storage.parseProgress('{"version":1,"completedLessonIds":["a","a"]}').completedLessonIds,['a']);
+console.log('PASS: 12 categories, 119 lessons, 7 ready; existing IDs, validation failures, progress and unlock. Storage contracts: verify-progress.cjs.');

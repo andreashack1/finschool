@@ -1,0 +1,798 @@
+[
+  {
+    "id": "primul-job",
+    "slug": "primul-job",
+    "title": "Primul job",
+    "description": "Salariu, contract și întrebările bune înainte să accepți.",
+    "icon": "BriefcaseBusiness",
+    "softColor": "#EAF6FF",
+    "status": "active",
+    "chapters": [
+      {
+        "id": "primul-tau-salariu",
+        "title": "Primul tău salariu",
+        "lessons": [
+          {
+            "id": "ce-este-salariul",
+            "slug": "ce-este-salariul",
+            "categoryId": "primul-job",
+            "chapterId": "primul-tau-salariu",
+            "title": "Ce este salariul?",
+            "description": "O idee practică: ce este salariul?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "salariu-brut-vs-net",
+            "slug": "salariu-brut-vs-net",
+            "categoryId": "primul-job",
+            "chapterId": "primul-tau-salariu",
+            "title": "Salariu brut vs. net",
+            "description": "O idee practică: salariu brut vs. net",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "ce-intra-in-cont",
+            "slug": "ce-intra-in-cont",
+            "categoryId": "primul-job",
+            "chapterId": "primul-tau-salariu",
+            "title": "Ce intră efectiv în cont?",
+            "description": "O idee practică: ce intră efectiv în cont?",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "fluturasul-de-salariu",
+        "title": "Fluturașul de salariu",
+        "lessons": [
+          {
+            "id": "ce-este-fluturasul",
+            "slug": "ce-este-fluturasul",
+            "categoryId": "primul-job",
+            "chapterId": "fluturasul-de-salariu",
+            "title": "Ce este fluturașul?",
+            "description": "O idee practică: ce este fluturașul?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "taxe-si-contributii",
+            "slug": "taxe-si-contributii",
+            "categoryId": "primul-job",
+            "chapterId": "fluturasul-de-salariu",
+            "title": "Taxe și contribuții",
+            "description": "O idee practică: taxe și contribuții",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "cas-si-cass",
+            "slug": "cas-si-cass",
+            "categoryId": "primul-job",
+            "chapterId": "fluturasul-de-salariu",
+            "title": "CAS și CASS pe înțelesul tău",
+            "description": "O idee practică: cas și cass pe înțelesul tău",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "oferta-de-job",
+        "title": "Oferta de job",
+        "lessons": [
+          {
+            "id": "brut-sau-net",
+            "slug": "brut-sau-net",
+            "categoryId": "primul-job",
+            "chapterId": "oferta-de-job",
+            "title": "Brut sau net?",
+            "description": "O idee practică: brut sau net?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "compari-doua-oferte",
+            "slug": "compari-doua-oferte",
+            "categoryId": "primul-job",
+            "chapterId": "oferta-de-job",
+            "title": "Cum compari două oferte",
+            "description": "O idee practică: cum compari două oferte",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "inainte-sa-accepti",
+            "slug": "inainte-sa-accepti",
+            "categoryId": "primul-job",
+            "chapterId": "oferta-de-job",
+            "title": "Ce întrebi înainte să accepți?",
+            "description": "O idee practică: ce întrebi înainte să accepți?",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "prima-luna-de-munca",
+        "title": "Prima lună de muncă",
+        "lessons": [
+          {
+            "id": "cand-intra-salariul",
+            "slug": "cand-intra-salariul",
+            "categoryId": "primul-job",
+            "chapterId": "prima-luna-de-munca",
+            "title": "Când intră salariul?",
+            "description": "O idee practică: când intră salariul?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "bonusuri-si-beneficii",
+            "slug": "bonusuri-si-beneficii",
+            "categoryId": "primul-job",
+            "chapterId": "prima-luna-de-munca",
+            "title": "Bonusuri și beneficii",
+            "description": "O idee practică: bonusuri și beneficii",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "primul-salariu",
+            "slug": "primul-salariu",
+            "categoryId": "primul-job",
+            "chapterId": "prima-luna-de-munca",
+            "title": "Ce faci cu primul salariu?",
+            "description": "O idee practică: ce faci cu primul salariu?",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bani-de-zi-cu-zi",
+    "slug": "bani-de-zi-cu-zi",
+    "title": "Bani de zi cu zi",
+    "description": "Un plan pentru bani, fără să renunți la tot ce îți place.",
+    "icon": "WalletCards",
+    "softColor": "#F0F1FC",
+    "status": "coming-soon",
+    "chapters": [
+      {
+        "id": "bugetul-tau",
+        "title": "Bugetul tău",
+        "lessons": [
+          {
+            "id": "ce-este-un-buget",
+            "slug": "ce-este-un-buget",
+            "categoryId": "bani-de-zi-cu-zi",
+            "chapterId": "bugetul-tau",
+            "title": "Ce este un buget?",
+            "description": "O idee practică: ce este un buget?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "venituri-vs-cheltuieli",
+            "slug": "venituri-vs-cheltuieli",
+            "categoryId": "bani-de-zi-cu-zi",
+            "chapterId": "bugetul-tau",
+            "title": "Venituri vs. cheltuieli",
+            "description": "O idee practică: venituri vs. cheltuieli",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "fixe-vs-variabile",
+            "slug": "fixe-vs-variabile",
+            "categoryId": "bani-de-zi-cu-zi",
+            "chapterId": "bugetul-tau",
+            "title": "Cheltuieli fixe vs. variabile",
+            "description": "O idee practică: cheltuieli fixe vs. variabile",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "primul-buget",
+            "slug": "primul-buget",
+            "categoryId": "bani-de-zi-cu-zi",
+            "chapterId": "bugetul-tau",
+            "title": "Cum îți faci un buget?",
+            "description": "O idee practică: cum îți faci un buget?",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "alegeri-de-zi-cu-zi",
+        "title": "Alegeri de zi cu zi",
+        "lessons": [
+          {
+            "id": "nevoie-sau-dorinta",
+            "slug": "nevoie-sau-dorinta",
+            "categoryId": "bani-de-zi-cu-zi",
+            "chapterId": "alegeri-de-zi-cu-zi",
+            "title": "Nevoie sau dorință?",
+            "description": "O idee practică: nevoie sau dorință?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "costul-abonamentului",
+            "slug": "costul-abonamentului",
+            "categoryId": "bani-de-zi-cu-zi",
+            "chapterId": "alegeri-de-zi-cu-zi",
+            "title": "Cât costă de fapt un abonament?",
+            "description": "O idee practică: cât costă de fapt un abonament?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "regula-48-de-ore",
+            "slug": "regula-48-de-ore",
+            "categoryId": "bani-de-zi-cu-zi",
+            "chapterId": "alegeri-de-zi-cu-zi",
+            "title": "Regula celor 48 de ore",
+            "description": "O idee practică: regula celor 48 de ore",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "planificare",
+        "title": "Planificare",
+        "lessons": [
+          {
+            "id": "planul-lunii",
+            "slug": "planul-lunii",
+            "categoryId": "bani-de-zi-cu-zi",
+            "chapterId": "planificare",
+            "title": "Cum îți planifici o lună",
+            "description": "O idee practică: cum îți planifici o lună",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "ramai-fara-bani",
+            "slug": "ramai-fara-bani",
+            "categoryId": "bani-de-zi-cu-zi",
+            "chapterId": "planificare",
+            "title": "De ce rămâi fără bani?",
+            "description": "O idee practică: de ce rămâi fără bani?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "setezi-o-limita",
+            "slug": "setezi-o-limita",
+            "categoryId": "bani-de-zi-cu-zi",
+            "chapterId": "planificare",
+            "title": "Cum îți setezi o limită",
+            "description": "O idee practică: cum îți setezi o limită",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "carduri-si-banca",
+    "slug": "carduri-si-banca",
+    "title": "Carduri & bancă",
+    "description": "Conturi, carduri și transferuri explicate simplu.",
+    "icon": "CreditCard",
+    "softColor": "#ECF8FC",
+    "status": "coming-soon",
+    "chapters": [
+      {
+        "id": "primul-tau-cont",
+        "title": "Primul tău cont",
+        "lessons": [
+          {
+            "id": "cont-bancar",
+            "slug": "cont-bancar",
+            "categoryId": "carduri-si-banca",
+            "chapterId": "primul-tau-cont",
+            "title": "Ce este un cont bancar?",
+            "description": "O idee practică: ce este un cont bancar?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "iban",
+            "slug": "iban",
+            "categoryId": "carduri-si-banca",
+            "chapterId": "primul-tau-cont",
+            "title": "Ce este IBAN-ul?",
+            "description": "O idee practică: ce este iban-ul?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "ce-este-un-card",
+            "slug": "ce-este-un-card",
+            "categoryId": "carduri-si-banca",
+            "chapterId": "primul-tau-cont",
+            "title": "Ce este un card?",
+            "description": "O idee practică: ce este un card?",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "cum-functioneaza-cardul",
+        "title": "Cum funcționează cardul",
+        "lessons": [
+          {
+            "id": "card-debit-vs-credit",
+            "slug": "card-debit-vs-credit",
+            "categoryId": "carduri-si-banca",
+            "chapterId": "cum-functioneaza-cardul",
+            "title": "Debit vs. credit",
+            "description": "O idee practică: debit vs. credit",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "contactless",
+            "slug": "contactless",
+            "categoryId": "carduri-si-banca",
+            "chapterId": "cum-functioneaza-cardul",
+            "title": "Contactless, pe scurt",
+            "description": "O idee practică: contactless, pe scurt",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "retrageri-numerar",
+            "slug": "retrageri-numerar",
+            "categoryId": "carduri-si-banca",
+            "chapterId": "cum-functioneaza-cardul",
+            "title": "Retrageri de numerar",
+            "description": "O idee practică: retrageri de numerar",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "transferuri",
+        "title": "Transferuri",
+        "lessons": [
+          {
+            "id": "trimiti-bani",
+            "slug": "trimiti-bani",
+            "categoryId": "carduri-si-banca",
+            "chapterId": "transferuri",
+            "title": "Cum trimiți bani?",
+            "description": "O idee practică: cum trimiți bani?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "transfer-instant",
+            "slug": "transfer-instant",
+            "categoryId": "carduri-si-banca",
+            "chapterId": "transferuri",
+            "title": "Ce este un transfer instant?",
+            "description": "O idee practică: ce este un transfer instant?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "verifici-transferul",
+            "slug": "verifici-transferul",
+            "categoryId": "carduri-si-banca",
+            "chapterId": "transferuri",
+            "title": "Ce verifici înainte să trimiți?",
+            "description": "O idee practică: ce verifici înainte să trimiți?",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "economii",
+    "slug": "economii",
+    "title": "Economii",
+    "description": "Pași mici pentru planurile tale mari.",
+    "icon": "PiggyBank",
+    "softColor": "#EDF8F4",
+    "status": "coming-soon",
+    "chapters": [
+      {
+        "id": "incepe-sa-economisesti",
+        "title": "Începe să economisești",
+        "lessons": [
+          {
+            "id": "de-ce-economisim",
+            "slug": "de-ce-economisim",
+            "categoryId": "economii",
+            "chapterId": "incepe-sa-economisesti",
+            "title": "De ce economisim?",
+            "description": "O idee practică: de ce economisim?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "prima-tinta",
+            "slug": "prima-tinta",
+            "categoryId": "economii",
+            "chapterId": "incepe-sa-economisesti",
+            "title": "Prima ta țintă",
+            "description": "O idee practică: prima ta țintă",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "plateste-te-primul",
+            "slug": "plateste-te-primul",
+            "categoryId": "economii",
+            "chapterId": "incepe-sa-economisesti",
+            "title": "Plătește-te pe tine primul",
+            "description": "O idee practică: plătește-te pe tine primul",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "fond-de-siguranta",
+        "title": "Fond de siguranță",
+        "lessons": [
+          {
+            "id": "ce-este-fondul",
+            "slug": "ce-este-fondul",
+            "categoryId": "economii",
+            "chapterId": "fond-de-siguranta",
+            "title": "Ce este fondul de siguranță?",
+            "description": "O idee practică: ce este fondul de siguranță?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "cat-pui-deoparte",
+            "slug": "cat-pui-deoparte",
+            "categoryId": "economii",
+            "chapterId": "fond-de-siguranta",
+            "title": "Cât ar trebui să ai?",
+            "description": "O idee practică: cât ar trebui să ai?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "cand-folosesti-fondul",
+            "slug": "cand-folosesti-fondul",
+            "categoryId": "economii",
+            "chapterId": "fond-de-siguranta",
+            "title": "Când îl folosești?",
+            "description": "O idee practică: când îl folosești?",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "dobanda",
+        "title": "Dobânda",
+        "lessons": [
+          {
+            "id": "ce-este-dobanda",
+            "slug": "ce-este-dobanda",
+            "categoryId": "economii",
+            "chapterId": "dobanda",
+            "title": "Ce este dobânda?",
+            "description": "O idee practică: ce este dobânda?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "dobanda-simpla",
+            "slug": "dobanda-simpla",
+            "categoryId": "economii",
+            "chapterId": "dobanda",
+            "title": "Dobândă simplă",
+            "description": "O idee practică: dobândă simplă",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "dobanda-compusa",
+            "slug": "dobanda-compusa",
+            "categoryId": "economii",
+            "chapterId": "dobanda",
+            "title": "Dobândă compusă, explicată simplu",
+            "description": "O idee practică: dobândă compusă, explicată simplu",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "siguranta-financiara",
+    "slug": "siguranta-financiara",
+    "title": "Siguranță financiară",
+    "description": "Recunoști capcanele înainte să dai click.",
+    "icon": "ShieldCheck",
+    "softColor": "#FAF1EF",
+    "status": "coming-soon",
+    "chapters": [
+      {
+        "id": "scam-uri",
+        "title": "Scam-uri",
+        "lessons": [
+          {
+            "id": "semne-scam",
+            "slug": "semne-scam",
+            "categoryId": "siguranta-financiara",
+            "chapterId": "scam-uri",
+            "title": "Semnele unui scam",
+            "description": "O idee practică: semnele unui scam",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "mesaje-false",
+            "slug": "mesaje-false",
+            "categoryId": "siguranta-financiara",
+            "chapterId": "scam-uri",
+            "title": "Mesaje false",
+            "description": "O idee practică: mesaje false",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "oferte-prea-bune",
+            "slug": "oferte-prea-bune",
+            "categoryId": "siguranta-financiara",
+            "chapterId": "scam-uri",
+            "title": "Oferte prea bune",
+            "description": "O idee practică: oferte prea bune",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "cardul-tau",
+        "title": "Cardul tău",
+        "lessons": [
+          {
+            "id": "pin",
+            "slug": "pin",
+            "categoryId": "siguranta-financiara",
+            "chapterId": "cardul-tau",
+            "title": "PIN-ul e doar al tău",
+            "description": "O idee practică: pin-ul e doar al tău",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "cvv",
+            "slug": "cvv",
+            "categoryId": "siguranta-financiara",
+            "chapterId": "cardul-tau",
+            "title": "Ce este CVV-ul?",
+            "description": "O idee practică: ce este cvv-ul?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "date-private",
+            "slug": "date-private",
+            "categoryId": "siguranta-financiara",
+            "chapterId": "cardul-tau",
+            "title": "Ce nu dai niciodată altcuiva",
+            "description": "O idee practică: ce nu dai niciodată altcuiva",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "online",
+        "title": "Online",
+        "lessons": [
+          {
+            "id": "phishing",
+            "slug": "phishing",
+            "categoryId": "siguranta-financiara",
+            "chapterId": "online",
+            "title": "Phishing, fără jargon",
+            "description": "O idee practică: phishing, fără jargon",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "magazine-false",
+            "slug": "magazine-false",
+            "categoryId": "siguranta-financiara",
+            "chapterId": "online",
+            "title": "Magazine false",
+            "description": "O idee practică: magazine false",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "bani-trimisi-gresit",
+            "slug": "bani-trimisi-gresit",
+            "categoryId": "siguranta-financiara",
+            "chapterId": "online",
+            "title": "Ce faci dacă ai trimis bani greșit?",
+            "description": "O idee practică: ce faci dacă ai trimis bani greșit?",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "economia-pe-scurt",
+    "slug": "economia-pe-scurt",
+    "title": "Economia pe scurt",
+    "description": "Prețuri, inflație și idei mari în explicații mici.",
+    "icon": "ChartNoAxesCombined",
+    "softColor": "#EEF2FC",
+    "status": "active",
+    "chapters": [
+      {
+        "id": "preturile-se-schimba",
+        "title": "De ce se schimbă prețurile?",
+        "lessons": [
+          {
+            "id": "ce-este-inflatia",
+            "slug": "ce-este-inflatia",
+            "categoryId": "economia-pe-scurt",
+            "chapterId": "preturile-se-schimba",
+            "title": "Ce este inflația?",
+            "description": "O idee practică: ce este inflația?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "de-ce-cresc-preturile",
+            "slug": "de-ce-cresc-preturile",
+            "categoryId": "economia-pe-scurt",
+            "chapterId": "preturile-se-schimba",
+            "title": "De ce cresc prețurile?",
+            "description": "O idee practică: de ce cresc prețurile?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "puterea-de-cumparare",
+            "slug": "puterea-de-cumparare",
+            "categoryId": "economia-pe-scurt",
+            "chapterId": "preturile-se-schimba",
+            "title": "Puterea de cumpărare",
+            "description": "O idee practică: puterea de cumpărare",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "cum-se-formeaza-preturile",
+        "title": "Cum se formează prețurile?",
+        "lessons": [
+          {
+            "id": "cerere-si-oferta",
+            "slug": "cerere-si-oferta",
+            "categoryId": "economia-pe-scurt",
+            "chapterId": "cum-se-formeaza-preturile",
+            "title": "Cerere și ofertă",
+            "description": "O idee practică: cerere și ofertă",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "produs-mai-scump",
+            "slug": "produs-mai-scump",
+            "categoryId": "economia-pe-scurt",
+            "chapterId": "cum-se-formeaza-preturile",
+            "title": "De ce un produs devine mai scump?",
+            "description": "O idee practică: de ce un produs devine mai scump?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "toata-lumea-vrea",
+            "slug": "toata-lumea-vrea",
+            "categoryId": "economia-pe-scurt",
+            "chapterId": "cum-se-formeaza-preturile",
+            "title": "Când toată lumea vrea același lucru",
+            "description": "O idee practică: când toată lumea vrea același lucru",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "economia-mare",
+        "title": "Economia mare, explicată simplu",
+        "lessons": [
+          {
+            "id": "pib",
+            "slug": "pib",
+            "categoryId": "economia-pe-scurt",
+            "chapterId": "economia-mare",
+            "title": "Ce este PIB-ul?",
+            "description": "O idee practică: ce este pib-ul?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "recesiune",
+            "slug": "recesiune",
+            "categoryId": "economia-pe-scurt",
+            "chapterId": "economia-mare",
+            "title": "Ce este o recesiune?",
+            "description": "O idee practică: ce este o recesiune?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "de-ce-conteaza-dobanzile",
+            "slug": "de-ce-conteaza-dobanzile",
+            "categoryId": "economia-pe-scurt",
+            "chapterId": "economia-mare",
+            "title": "De ce contează dobânzile?",
+            "description": "O idee practică: de ce contează dobânzile?",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      },
+      {
+        "id": "banii-in-economie",
+        "title": "Banii în economie",
+        "lessons": [
+          {
+            "id": "cine-creeaza-banii",
+            "slug": "cine-creeaza-banii",
+            "categoryId": "economia-pe-scurt",
+            "chapterId": "banii-in-economie",
+            "title": "Cine creează banii?",
+            "description": "O idee practică: cine creează banii?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "ce-face-bnr",
+            "slug": "ce-face-bnr",
+            "categoryId": "economia-pe-scurt",
+            "chapterId": "banii-in-economie",
+            "title": "Ce face BNR?",
+            "description": "O idee practică: ce face bnr?",
+            "minutes": 3,
+            "xp": 20
+          },
+          {
+            "id": "dobanda-se-schimba",
+            "slug": "dobanda-se-schimba",
+            "categoryId": "economia-pe-scurt",
+            "chapterId": "banii-in-economie",
+            "title": "De ce se schimbă dobânda?",
+            "description": "O idee practică: de ce se schimbă dobânda?",
+            "minutes": 3,
+            "xp": 20
+          }
+        ]
+      }
+    ]
+  }
+]

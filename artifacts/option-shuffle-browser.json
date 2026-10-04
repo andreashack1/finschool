@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "width": 375,
+      "stableAfterResizeFeedbackAndCaseReader": true,
+      "shortcutsFollowDisplayedOrder": true,
+      "trueFalseOrderFixed": true,
+      "wrongSessionXp": 30,
+      "laterPerfectXp": 20,
+      "rewardedReplayXp": 0,
+      "uniqueMastery": 9,
+      "replayOrderDiffered": true
+    },
+    {
+      "width": 390,
+      "stableAfterResizeFeedbackAndCaseReader": true,
+      "shortcutsFollowDisplayedOrder": true,
+      "trueFalseOrderFixed": true,
+      "wrongSessionXp": 30,
+      "laterPerfectXp": 20,
+      "rewardedReplayXp": 0,
+      "uniqueMastery": 9,
+      "replayOrderDiffered": true
+    },
+    {
+      "width": 430,
+      "stableAfterResizeFeedbackAndCaseReader": true,
+      "shortcutsFollowDisplayedOrder": true,
+      "trueFalseOrderFixed": true,
+      "wrongSessionXp": 30,
+      "laterPerfectXp": 20,
+      "rewardedReplayXp": 0,
+      "uniqueMastery": 9,
+      "replayOrderDiffered": true
+    },
+    {
+      "width": 1440,
+      "stableAfterResizeFeedbackAndCaseReader": true,
+      "shortcutsFollowDisplayedOrder": true,
+      "trueFalseOrderFixed": true,
+      "wrongSessionXp": 30,
+      "laterPerfectXp": 20,
+      "rewardedReplayXp": 0,
+      "uniqueMastery": 9,
+      "replayOrderDiffered": true
+    }
+  ],
+  "errors": []
+}

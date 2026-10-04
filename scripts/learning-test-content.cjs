@@ -10,6 +10,7 @@ function load(file) {
   cache.set(absolute, compiled);
   const code = ts.transpileModule(fs.readFileSync(absolute, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 } }).outputText;
   const localRequire = id => {
+    if (!id.startsWith('.')) return require(id);
     const resolved = path.resolve(path.dirname(absolute), id);
     return load(fs.existsSync(resolved + '.ts') ? resolved + '.ts' : path.join(resolved, 'index.ts'));
   };

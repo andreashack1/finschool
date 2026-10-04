@@ -1,0 +1,119 @@
+{
+  "results": [
+    {
+      "accessibility": "profile 375",
+      "violations": 0
+    },
+    {
+      "accessibility": "level-up 375",
+      "violations": 0
+    },
+    {
+      "accessibility": "daily wrong 375",
+      "violations": 0
+    },
+    {
+      "accessibility": "achievement toast 375",
+      "violations": 0
+    },
+    {
+      "width": 375,
+      "replayPerfect": true,
+      "doubleClickSafe": true,
+      "dailyWrongReward": true,
+      "persistedAnswer": true,
+      "simulatorOnce": true
+    },
+    {
+      "accessibility": "profile 390",
+      "violations": 0
+    },
+    {
+      "accessibility": "level-up 390",
+      "violations": 0
+    },
+    {
+      "accessibility": "daily wrong 390",
+      "violations": 0
+    },
+    {
+      "accessibility": "achievement toast 390",
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "replayPerfect": true,
+      "doubleClickSafe": true,
+      "dailyWrongReward": true,
+      "persistedAnswer": true,
+      "simulatorOnce": true
+    },
+    {
+      "accessibility": "profile 430",
+      "violations": 0
+    },
+    {
+      "accessibility": "level-up 430",
+      "violations": 0
+    },
+    {
+      "accessibility": "daily wrong 430",
+      "violations": 0
+    },
+    {
+      "accessibility": "achievement toast 430",
+      "violations": 0
+    },
+    {
+      "width": 430,
+      "replayPerfect": true,
+      "doubleClickSafe": true,
+      "dailyWrongReward": true,
+      "persistedAnswer": true,
+      "simulatorOnce": true
+    },
+    {
+      "accessibility": "profile 1440",
+      "violations": 0
+    },
+    {
+      "accessibility": "level-up 1440",
+      "violations": 0
+    },
+    {
+      "accessibility": "daily wrong 1440",
+      "violations": 0
+    },
+    {
+      "accessibility": "achievement toast 1440",
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "replayPerfect": true,
+      "doubleClickSafe": true,
+      "dailyWrongReward": true,
+      "persistedAnswer": true,
+      "simulatorOnce": true
+    },
+    {
+      "legacyMigration": "passed"
+    },
+    {
+      "pendingMultiLevel": "passed"
+    },
+    {
+      "invalidStorage": "passed"
+    },
+    {
+      "blockedStorageMemory": "passed"
+    },
+    {
+      "bucharestNextDay": "passed"
+    },
+    {
+      "twoTabsAtomic": "passed"
+    }
+  ],
+  "errors": []
+}

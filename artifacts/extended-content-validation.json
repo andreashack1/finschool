@@ -1,0 +1,177 @@
+{
+  "lessons": [
+    {
+      "id": "phishing",
+      "categoryId": "siguranta-financiara",
+      "chapterId": "mesaje-si-apeluri-false",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        120,
+        121,
+        118
+      ],
+      "caseWords": 163,
+      "rememberItems": 5
+    },
+    {
+      "id": "primul-buget",
+      "categoryId": "economii",
+      "chapterId": "bugetul",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "calcul",
+        "scenariu"
+      ],
+      "explanationWords": [
+        117,
+        118,
+        116
+      ],
+      "caseWords": 158,
+      "rememberItems": 5
+    },
+    {
+      "id": "fondul-de-urgenta",
+      "categoryId": "economii",
+      "chapterId": "siguranta-ta-financiara",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "calcul",
+        "scenariu"
+      ],
+      "explanationWords": [
+        115,
+        114,
+        118
+      ],
+      "caseWords": 156,
+      "rememberItems": 5
+    },
+    {
+      "id": "salariu-brut-vs-net",
+      "categoryId": "primul-job",
+      "chapterId": "salariul",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "scenariu",
+        "adevarat_fals",
+        "calcul"
+      ],
+      "explanationWords": [
+        112,
+        121,
+        117
+      ],
+      "caseWords": 161,
+      "rememberItems": 5
+    },
+    {
+      "id": "ce-este-inflatia",
+      "categoryId": "economia-pe-scurt",
+      "chapterId": "preturi",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "calcul",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        112,
+        112,
+        118
+      ],
+      "caseWords": 153,
+      "rememberItems": 5
+    },
+    {
+      "id": "scorul-de-credit",
+      "categoryId": "credite-si-datorii",
+      "chapterId": "bazele-creditului",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "scenariu",
+        "adevarat_fals"
+      ],
+      "explanationWords": [
+        117,
+        122,
+        122
+      ],
+      "caseWords": 163,
+      "rememberItems": 5
+    },
+    {
+      "id": "dobanda-compusa",
+      "categoryId": "investitii-de-la-zero",
+      "chapterId": "bazele",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "calcul",
+        "scenariu",
+        "adevarat_fals"
+      ],
+      "explanationWords": [
+        96,
+        95,
+        103
+      ],
+      "caseWords": 146,
+      "rememberItems": 5
+    }
+  ],
+  "invalidContentRejected": true,
+  "originalIdsAndXpPreserved": true,
+  "perfectSessionXp": 50,
+  "oneMistakeXp": 30,
+  "laterPerfectBonusXp": 20,
+  "rewardedReplayXp": 0,
+  "historicalMasteryPreserved": true
+}

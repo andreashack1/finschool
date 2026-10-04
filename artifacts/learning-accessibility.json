@@ -11,12 +11,22 @@
   },
   {
     "width": 375,
+    "label": "/lectii/economii",
+    "violations": []
+  },
+  {
+    "width": 375,
     "label": "/lectii/primul-job",
     "violations": []
   },
   {
     "width": 375,
     "label": "/lectii/economia-pe-scurt",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "/lectii/investitii-de-la-zero",
     "violations": []
   },
   {
@@ -31,17 +41,702 @@
   },
   {
     "width": 375,
-    "label": "player intro",
+    "label": "phishing/situatie",
     "violations": []
   },
   {
     "width": 375,
-    "label": "player four answers",
+    "label": "phishing/concept",
     "violations": []
   },
   {
     "width": 375,
-    "label": "player wrong + correct revealed",
+    "label": "phishing/definitie/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/feedback",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/link/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/semnale",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/pin/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/urgenta-cod/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/caz",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/ioana-semn/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/ioana-semn/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/ioana-verifica/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/ioana-verifica/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/cod/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/cod/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/nuante",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/logo/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/verificare-link/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "phishing/final",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/situatie",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/intro",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/start/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/feedback",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/resturi/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/categorii",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/ramane/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/categorie/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/caz",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/vlad-obiectiv/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/vlad-obiectiv/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/vlad-flexibil/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/vlad-flexibil/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/vlad-diferenta/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/vlad-diferenta/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/nuante",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/ajustare/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/iesire-plan/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "primul-buget/final",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/situatie",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/concept",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/urgenta/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/feedback",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/scop/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/incepi-mic",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/trei-luni/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/rezerva-mica/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/caz",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/daria-prioritate/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/daria-prioritate/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/daria-rezerva/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/daria-rezerva/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/daria-refacere/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/daria-refacere/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/nuante",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/dupa-utilizare/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/instant/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "fondul-de-urgenta/final",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/intro",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/oferta-concept",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/contract/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/feedback",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/anunt/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/retineri-concept",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/retineri/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/bonus/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/caz",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/mara-clarifica/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/mara-clarifica/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/mara-context/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/mara-context/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/mara-buget/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/mara-buget/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/nuante",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/plata-partiala/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/bani-ramasi/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "salariu-brut-vs-net/final",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/snack",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/concept",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/nivel-general/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/feedback",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/putere/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/procente",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/pret-nou/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/salariu/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/caz",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/andrei-putere/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/andrei-putere/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/andrei-plan/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/andrei-plan/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/andrei-concluzie/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/andrei-concluzie/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/nuante",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/venit-confirmat/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/cos-nou/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "ce-este-inflatia/final",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/situatie",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/istoric",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/evaluare/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/feedback",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/plata/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/obligatii",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/termen/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/aprobare/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/caz",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/radu-prioritate/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/radu-prioritate/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/radu-informatie/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/radu-informatie/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/radu-flexibilitate/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/radu-flexibilitate/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/nuante",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/peste-noapte/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/scor-motiv/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "scorul-de-credit/final",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/situatie",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/concept",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/mecanism/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/feedback",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/anul-unu/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/timp",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/anul-doi/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/comparatie/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/caz",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/teo-perioada/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/teo-perioada/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/teo-timp/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/teo-timp/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/teo-promisiune/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/teo-promisiune/case-reader",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/nuante",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/oferta/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/doua-perioade/question",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "label": "dobanda-compusa/final",
     "violations": []
   },
   {
@@ -56,12 +751,22 @@
   },
   {
     "width": 1440,
+    "label": "/lectii/economii",
+    "violations": []
+  },
+  {
+    "width": 1440,
     "label": "/lectii/primul-job",
     "violations": []
   },
   {
     "width": 1440,
     "label": "/lectii/economia-pe-scurt",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "/lectii/investitii-de-la-zero",
     "violations": []
   },
   {
@@ -76,17 +781,702 @@
   },
   {
     "width": 1440,
-    "label": "player intro",
+    "label": "phishing/situatie",
     "violations": []
   },
   {
     "width": 1440,
-    "label": "player four answers",
+    "label": "phishing/concept",
     "violations": []
   },
   {
     "width": 1440,
-    "label": "player wrong + correct revealed",
+    "label": "phishing/definitie/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/feedback",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/link/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/semnale",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/pin/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/urgenta-cod/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/caz",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/ioana-semn/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/ioana-semn/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/ioana-verifica/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/ioana-verifica/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/cod/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/cod/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/nuante",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/logo/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/verificare-link/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "phishing/final",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/situatie",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/intro",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/start/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/feedback",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/resturi/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/categorii",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/ramane/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/categorie/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/caz",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/vlad-obiectiv/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/vlad-obiectiv/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/vlad-flexibil/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/vlad-flexibil/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/vlad-diferenta/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/vlad-diferenta/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/nuante",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/ajustare/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/iesire-plan/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "primul-buget/final",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/situatie",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/concept",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/urgenta/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/feedback",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/scop/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/incepi-mic",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/trei-luni/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/rezerva-mica/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/caz",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/daria-prioritate/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/daria-prioritate/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/daria-rezerva/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/daria-rezerva/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/daria-refacere/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/daria-refacere/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/nuante",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/dupa-utilizare/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/instant/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "fondul-de-urgenta/final",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/intro",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/oferta-concept",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/contract/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/feedback",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/anunt/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/retineri-concept",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/retineri/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/bonus/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/caz",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/mara-clarifica/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/mara-clarifica/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/mara-context/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/mara-context/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/mara-buget/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/mara-buget/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/nuante",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/plata-partiala/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/bani-ramasi/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "salariu-brut-vs-net/final",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/snack",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/concept",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/nivel-general/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/feedback",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/putere/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/procente",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/pret-nou/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/salariu/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/caz",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/andrei-putere/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/andrei-putere/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/andrei-plan/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/andrei-plan/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/andrei-concluzie/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/andrei-concluzie/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/nuante",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/venit-confirmat/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/cos-nou/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "ce-este-inflatia/final",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/situatie",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/istoric",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/evaluare/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/feedback",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/plata/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/obligatii",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/termen/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/aprobare/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/caz",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/radu-prioritate/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/radu-prioritate/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/radu-informatie/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/radu-informatie/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/radu-flexibilitate/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/radu-flexibilitate/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/nuante",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/peste-noapte/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/scor-motiv/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "scorul-de-credit/final",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/situatie",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/concept",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/mecanism/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/feedback",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/anul-unu/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/timp",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/anul-doi/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/comparatie/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/caz",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/teo-perioada/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/teo-perioada/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/teo-timp/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/teo-timp/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/teo-promisiune/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/teo-promisiune/case-reader",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/nuante",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/oferta/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/doua-perioade/question",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/tine-minte",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "label": "dobanda-compusa/final",
     "violations": []
   }
 ]

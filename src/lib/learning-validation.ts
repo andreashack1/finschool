@@ -1,22 +1,43 @@
-import type { LessonScreen } from "../types/learning";
-export function isValidScreen(value: unknown): value is LessonScreen {
-  if (!value || typeof value !== "object") return false;
-  if (!("id" in value) || typeof value.id !== "string" || !value.id || !("title" in value) || typeof value.title !== "string" || !value.title || !("type" in value)) return false;
-  if (value.type === "text") return "body" in value && typeof value.body === "string" && Boolean(value.body.trim());
-  if (!("question" in value) || typeof value.question !== "string" || !value.question.trim() || !("explanation" in value) || typeof value.explanation !== "string" || !value.explanation.trim()) return false;
-  if (value.type === "true-false") return "correctAnswer" in value && typeof value.correctAnswer === "boolean";
-  if (value.type !== "multiple-choice" && value.type !== "scenario" && value.type !== "quick-calc") return false;
-  if (!("options" in value) || !Array.isArray(value.options) || value.options.length < 2) return false;
-  const ids: string[] = [];
-  for (const option of value.options as unknown[]) {
-    if (!option || typeof option !== "object" || !("id" in option) || typeof option.id !== "string" || !option.id || ids.includes(option.id)) return false;
-    ids.push(option.id);
-    if (value.type === "quick-calc") { if (!("value" in option) || typeof option.value !== "number" || !Number.isFinite(option.value)) return false; }
-    else if (!("label" in option) || typeof option.label !== "string" || !option.label.trim()) return false;
+import { CategorySchema, LessonSchema, LessonScreenSchema } from "../types/learning-schema";
+import type { Category, Lesson, LessonScreen } from "../types/learning";
+import { validateAnswerPositions } from "./lesson-options";
+
+export const isValidScreen = (value: unknown): value is LessonScreen => LessonScreenSchema.safeParse(value).success;
+
+// Called by the registry at module evaluation, including production build.
+export function validateContentTree(categories: readonly Category[], lessons: readonly Lesson[], legacy: readonly Lesson[] = []) {
+  CategorySchema.array().parse(categories);
+  for (const lesson of [...lessons, ...legacy]) {
+    const result = LessonSchema.safeParse(lesson);
+    if (!result.success) throw new Error(`Lesson "${lesson.id}": ${result.error.issues.map(issue => `${issue.path.join(".")}: ${issue.message}`).join("; ")}`);
+    if (result.data.status === "ready") validateAnswerPositions(result.data);
   }
-  if (value.type === "scenario" || value.type === "quick-calc") {
-    if (!("context" in value) || typeof value.context !== "string" || !value.context.trim()) return false;
+  const unique = (ids: readonly string[], name: string) => {
+    const seen = new Set<string>();
+    for (const id of ids) { if (seen.has(id)) throw new Error(`Duplicate ${name} ID "${id}"`); seen.add(id); }
+  };
+  unique(categories.map(c => c.id), "category");
+  unique(categories.map(c => c.slug), "category slug");
+  unique([...lessons, ...legacy].map(l => l.id), "lesson");
+  unique([...lessons, ...legacy].map(l => l.slug), "lesson slug");
+  const orders = categories.map(c => c.order).sort((a, b) => a - b);
+  if (orders.some((order, i) => order !== i + 1)) throw new Error("Category order must be unique and consecutive, starting at 1");
+  const registry = new Map(lessons.map(l => [l.id, l]));
+  const refs = new Set<string>();
+  for (const category of categories) {
+    unique(category.chapters.map(c => c.id), `chapter in category "${category.id}"`);
+    for (const chapter of category.chapters) for (const id of chapter.lessons) {
+      if (refs.has(id)) throw new Error(`Lesson "${id}" appears in more than one chapter`);
+      refs.add(id);
+      const lesson = registry.get(id);
+      if (!lesson) throw new Error(`Chapter "${chapter.id}" references missing lesson "${id}"`);
+      if (lesson.categoryId !== category.id || lesson.chapterId !== chapter.id) throw new Error(`Lesson "${id}" disagrees with its category/chapter reference`);
+    }
   }
-  if (value.type === "quick-calc") return "expectedAnswer" in value && typeof value.expectedAnswer === "number" && Number.isFinite(value.expectedAnswer) && value.options.filter((option: unknown) => Boolean(option && typeof option === "object" && "value" in option && option.value === value.expectedAnswer)).length === 1;
-  return "correctOption" in value && typeof value.correctOption === "string" && ids.includes(value.correctOption);
+  for (const lesson of [...lessons, ...legacy]) {
+    const category = categories.find(c => c.id === lesson.categoryId);
+    if (!category) throw new Error(`Lesson "${lesson.id}" references missing category "${lesson.categoryId}"`);
+    if (!category.chapters.some(c => c.id === lesson.chapterId)) throw new Error(`Lesson "${lesson.id}" references missing chapter "${lesson.chapterId}"`);
+    if (registry.has(lesson.id) && !refs.has(lesson.id)) throw new Error(`Lesson "${lesson.id}" is not referenced in the curriculum`);
+  }
 }

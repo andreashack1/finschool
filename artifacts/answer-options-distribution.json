@@ -1,0 +1,131 @@
+[
+  {
+    "id": "phishing",
+    "title": "Phishing",
+    "sequence": "A A C B C B A",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          2,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "primul-buget",
+    "title": "Primul tău buget",
+    "sequence": "C A B B C",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          1,
+          2,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "fondul-de-urgenta",
+    "title": "Fondul de urgență",
+    "sequence": "A C A C B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          2,
+          1,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "salariu-brut-vs-net",
+    "title": "Salariu brut vs. net",
+    "sequence": "B B C A C C A",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          2,
+          2,
+          3
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "ce-este-inflatia",
+    "title": "Inflația",
+    "sequence": "B B C A C",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          1,
+          2,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "scorul-de-credit",
+    "title": "Scorul de credit",
+    "sequence": "C A A B A B C",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          2,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "dobanda-compusa",
+    "title": "Dobânda compusă",
+    "sequence": "C C B A",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          1,
+          1,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "card-debit-vs-credit",
+    "title": "Debit vs. credit",
+    "sequence": "A B C",
+    "groups": [
+      {
+        "arity": 4,
+        "counts": [
+          1,
+          1,
+          1,
+          0
+        ]
+      }
+    ],
+    "contentVersion": null
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "phishing",
+    "categoryId": "siguranta-financiara",
+    "chapterId": "mesaje-si-apeluri-false",
+    "xp": 30,
+    "screenIds": [
+      "situatie",
+      "concept",
+      "link",
+      "semnale",
+      "pin",
+      "cod",
+      "recap",
+      "final"
+    ]
+  },
+  {
+    "id": "primul-buget",
+    "categoryId": "economii",
+    "chapterId": "bugetul",
+    "xp": 30,
+    "screenIds": [
+      "situatie",
+      "intro",
+      "start",
+      "categorii",
+      "ramane",
+      "iesire",
+      "recap",
+      "final"
+    ]
+  },
+  {
+    "id": "fondul-de-urgenta",
+    "categoryId": "economii",
+    "chapterId": "siguranta-ta-financiara",
+    "xp": 30,
+    "screenIds": [
+      "situatie",
+      "concept",
+      "urgenta",
+      "incepi-mic",
+      "trei-luni",
+      "oferta",
+      "recap",
+      "final"
+    ]
+  },
+  {
+    "id": "salariu-brut-vs-net",
+    "categoryId": "primul-job",
+    "chapterId": "salariul",
+    "xp": 30,
+    "screenIds": [
+      "intro",
+      "oferta-concept",
+      "anunt",
+      "definitii",
+      "contract",
+      "perioada-concept",
+      "perioada",
+      "retineri-concept",
+      "retineri",
+      "contributii",
+      "cas-cass",
+      "angajator",
+      "exemplu",
+      "dupa-contributii",
+      "baza-impozit",
+      "net",
+      "deducere-concept",
+      "deducere",
+      "tanar",
+      "fluturas",
+      "oferte",
+      "cost-firma",
+      "beneficii-concept",
+      "beneficii",
+      "bonus",
+      "buget",
+      "bani-ramasi",
+      "prima-luna",
+      "recap",
+      "tine-minte",
+      "final"
+    ]
+  },
+  {
+    "id": "ce-este-inflatia",
+    "categoryId": "economia-pe-scurt",
+    "chapterId": "preturi",
+    "xp": 30,
+    "screenIds": [
+      "snack",
+      "concept",
+      "putere",
+      "procente",
+      "pret-nou",
+      "salariu",
+      "recap",
+      "final"
+    ]
+  },
+  {
+    "id": "scorul-de-credit",
+    "categoryId": "credite-si-datorii",
+    "chapterId": "bazele-creditului",
+    "xp": 30,
+    "screenIds": [
+      "situatie",
+      "istoric",
+      "plata",
+      "intarzieri",
+      "peste-noapte",
+      "termen",
+      "recap",
+      "final"
+    ]
+  },
+  {
+    "id": "dobanda-compusa",
+    "categoryId": "investitii-de-la-zero",
+    "chapterId": "bazele",
+    "xp": 30,
+    "screenIds": [
+      "situatie",
+      "concept",
+      "anul-unu",
+      "anul-doi",
+      "comparatie",
+      "timp",
+      "recap",
+      "final"
+    ]
+  }
+]

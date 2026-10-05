@@ -1,9 +1,11 @@
-import { DevelopmentTools } from "./components/development-tools";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import "./finly-app.css";
+import './account.css';
 import { GamificationMoments } from "./components/gamification-moments";
+import { AccountBoundary } from './components/account-boundary';
+import { currentUser } from '../src/lib/supabase/server';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,13 +29,14 @@ export const metadata: Metadata = {
   description: "Educație financiară gratuită pentru adolescenți. Învață să economisești și să cheltuiești smart, câte 5 minute pe zi.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const user = await currentUser();
   return (
     <html
       lang="ro"
       className={`${geistSans.variable} ${geistMono.variable} ${bricolageGrotesque.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}<GamificationMoments/><DevelopmentTools/></body>
+      <body className="min-h-full flex flex-col"><AccountBoundary userId={user?.id ?? null}>{children}<GamificationMoments/></AccountBoundary></body>
     </html>
   );
 }

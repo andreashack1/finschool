@@ -1,42 +1,42 @@
 import { CategorySchema } from "../types/learning-schema";
 
-// Existing category IDs and URLs are stable. Titles describe the new curriculum.
 export const categories = CategorySchema.array().parse([
   {
-    "id": "cum-functioneaza-banii",
-    "slug": "cum-functioneaza-banii",
-    "title": "Cum funcționează banii",
-    "subtitle": "De unde vin banii, ce valoare au și ce vrei să faci cu ei.",
-    "icon": "Coins",
+    "id": "cuvintele-banilor",
+    "slug": "cuvintele-banilor",
+    "title": "Cuvintele banilor",
+    "subtitle": "Termenii pe care îi auzi zilnic, explicați pe îndelete: dobândă, TVA, taxe, inflație.",
+    "icon": "BookOpen",
     "softColor": "#EAF6FF",
     "difficulty": "usor",
     "order": 1,
     "chapters": [
       {
-        "id": "ce-sunt-banii",
-        "title": "Ce sunt banii",
+        "id": "bazele",
+        "title": "Bazele",
         "lessons": [
           "ce-sunt-banii",
-          "de-unde-vin-banii",
-          "valoarea-banilor-in-timp"
+          "venit-cheltuieli-si-ce-ramane",
+          "ce-detii-si-ce-datorezi"
         ]
       },
       {
-        "id": "venit-si-cheltuieli",
-        "title": "Venit și cheltuieli",
+        "id": "preturi-si-dobanzi",
+        "title": "Prețuri și dobânzi",
         "lessons": [
-          "venit-vs-cheltuieli",
-          "active-vs-pasive",
-          "costul-de-oportunitate"
+          "ce-este-inflatia",
+          "dobanda",
+          "banca-centrala-bnr",
+          "cerere-si-oferta"
         ]
       },
       {
-        "id": "obiective-financiare",
-        "title": "Obiective financiare",
+        "id": "taxe-si-valute",
+        "title": "Taxe și valute",
         "lessons": [
-          "ce-vrei-de-la-bani",
-          "termen-scurt-vs-termen-lung",
-          "independenta-financiara"
+          "tva",
+          "impozit-taxa-si-contributie",
+          "cursul-valutar-si-euro"
         ]
       }
     ]
@@ -53,11 +53,11 @@ export const categories = CategorySchema.array().parse([
     "chapters": [
       {
         "id": "nevoi-si-dorinte",
-        "title": "Nevoi și dorințe",
+        "title": "Nevoi și costuri reale",
         "lessons": [
-          "nevoie-sau-dorinta",
-          "cumperi-sau-inchiriezi",
-          "costul-real-al-unui-produs"
+          "nevoi-vs-dorinte",
+          "costul-real-al-unui-produs",
+          "bonul-factura-si-chitanta"
         ]
       },
       {
@@ -65,17 +65,17 @@ export const categories = CategorySchema.array().parse([
         "title": "Capcanele cumpărăturilor",
         "lessons": [
           "cumparaturile-pe-impuls",
-          "regula-48-de-ore",
           "reduceri-care-nu-sunt-reduceri",
-          "cum-te-conving-reclamele"
+          "cum-te-conving-reclamele",
+          "cumparaturi-in-jocuri-si-aplicatii"
         ]
       },
       {
         "id": "cumperi-inteligent",
         "title": "Cumperi inteligent",
         "lessons": [
-          "compara-preturile",
           "abonamentele",
+          "drepturile-consumatorului",
           "iesiri-cu-prietenii-fara-sa-te-golesti"
         ]
       }
@@ -95,28 +95,28 @@ export const categories = CategorySchema.array().parse([
         "id": "contul-tau",
         "title": "Contul tău",
         "lessons": [
-          "ce-face-o-banca",
-          "contul-curent",
+          "ce-face-o-banca-si-cum-alegi-un-cont",
           "iban",
           "comisioane-bancare"
         ]
       },
       {
         "id": "cardul",
-        "title": "Cardul",
+        "title": "Cardul și plățile",
         "lessons": [
           "cardul-de-debit",
-          "cum-platesti-cu-cardul",
+          "plati-digitale",
+          "transferuri-si-plati-instant",
           "cardul-in-strainatate"
         ]
       },
       {
-        "id": "bani-in-miscare",
-        "title": "Bani în mișcare",
+        "id": "siguranta-banilor",
+        "title": "Siguranța banilor",
         "lessons": [
-          "transferuri-si-plati-instant",
-          "aplicatii-bancare",
-          "plati-online-in-siguranta"
+          "extrasul-de-cont",
+          "sunt-banii-mei-in-siguranta-la-banca",
+          "contul-pentru-minori"
         ]
       }
     ]
@@ -137,7 +137,7 @@ export const categories = CategorySchema.array().parse([
         "lessons": [
           "phishing",
           "apelul-fals-de-la-banca",
-          "inselatorii-pe-retele-sociale"
+          "anunturi-si-livrari-false"
         ]
       },
       {
@@ -145,16 +145,17 @@ export const categories = CategorySchema.array().parse([
         "title": "Magazine și oferte false",
         "lessons": [
           "magazine-false",
-          "giveaway-uri-false",
-          "oferte-prea-bune"
+          "oferte-prea-bune-ca-sa-fie-reale",
+          "piramide-si-scheme-bani-rapizi"
         ]
       },
       {
         "id": "datele-tale",
-        "title": "Datele tale",
+        "title": "Datele și conturile tale",
         "lessons": [
           "protejeaza-datele-cardului",
           "furtul-de-identitate",
+          "conturi-folosite-de-altii",
           "ce-faci-daca-ai-fost-inselat"
         ]
       }
@@ -175,26 +176,27 @@ export const categories = CategorySchema.array().parse([
         "title": "Bugetul",
         "lessons": [
           "primul-buget",
+          "unde-dispar-banii",
           "metoda-50-30-20",
-          "unde-dispar-banii"
+          "bani-de-buzunar-si-venituri-neregulate"
         ]
       },
       {
         "id": "economisirea",
         "title": "Economisirea",
         "lessons": [
-          "puterea-economisirii",
-          "plateste-te-primul",
-          "economisesti-fara-sa-te-privezi"
+          "de-ce-economisim-si-cat",
+          "plateste-te-pe-tine-primul",
+          "obiective-de-economisire"
         ]
       },
       {
-        "id": "siguranta-ta-financiara",
-        "title": "Siguranța ta financiară",
+        "id": "unde-pui-banii",
+        "title": "Unde pui banii",
         "lessons": [
           "fondul-de-urgenta",
-          "obiective-de-economisire",
-          "cont-de-economii-vs-numerar"
+          "unde-tii-banii-cont-depozit-numerar",
+          "dobanda-compusa"
         ]
       }
     ]
@@ -214,8 +216,8 @@ export const categories = CategorySchema.array().parse([
         "title": "Primul job",
         "lessons": [
           "primul-contract-de-munca",
-          "munca-part-time-si-student",
-          "negocierea-salariului"
+          "cum-citesti-un-contract",
+          "munca-part-time-si-student"
         ]
       },
       {
@@ -230,19 +232,51 @@ export const categories = CategorySchema.array().parse([
       },
       {
         "id": "taxele",
-        "title": "Taxele",
+        "title": "Taxe și după salariu",
         "lessons": [
-          "de-ce-platim-taxe",
-          "taxele-pe-salariu",
-          "declaratia-unica",
-          "angajat-vs-pfa"
+          "taxele-pe-salariu-cas-cass-impozit",
+          "pensia-de-ce-conteaza-de-la-primul-salariu",
+          "ce-faci-cu-primul-salariu"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "credite-si-datorii",
+    "slug": "credite-si-datorii",
+    "title": "Credite și datorii",
+    "subtitle": "Cum funcționează creditele, ce costă și cum eviți capcanele.",
+    "icon": "Landmark",
+    "softColor": "#F0F1FC",
+    "difficulty": "mediu",
+    "order": 7,
+    "chapters": [
+      {
+        "id": "bazele-creditului",
+        "title": "Bazele creditului",
+        "lessons": [
+          "ce-este-creditul",
+          "dobanda-la-credit-si-dae",
+          "rata-lunara-si-costul-total",
+          "dobanda-fixa-vs-variabila"
         ]
       },
       {
-        "id": "dupa-salariu",
-        "title": "După salariu",
+        "id": "credite-de-zi-cu-zi",
+        "title": "Credite de zi cu zi",
         "lessons": [
-          "primul-salariu"
+          "cardul-de-credit",
+          "plata-in-rate-si-cumpara-acum-plateste-mai-tarziu",
+          "creditele-rapide-ifn"
+        ]
+      },
+      {
+        "id": "datorii-si-scor",
+        "title": "Datorii și scor",
+        "lessons": [
+          "scorul-de-credit",
+          "ce-se-intampla-daca-nu-ti-platesti-datoria",
+          "cum-iesi-din-datorii"
         ]
       }
     ]
@@ -255,35 +289,34 @@ export const categories = CategorySchema.array().parse([
     "icon": "House",
     "softColor": "#ECF8FC",
     "difficulty": "mediu",
-    "order": 7,
+    "order": 8,
     "chapters": [
       {
         "id": "casa-ta",
         "title": "Casa ta",
         "lessons": [
-          "mutatul-de-acasa",
+          "cat-costa-sa-te-muti-singur",
           "chirie-si-contract-de-inchiriere",
-          "utilitati",
+          "utilitati-si-cum-citesti-o-factura",
           "cumperi-casa-sau-inchiriezi"
         ]
       },
       {
         "id": "cumparaturi-mari",
-        "title": "Cumpărături mari",
+        "title": "Cheltuieli mari",
         "lessons": [
           "primul-telefon-sau-laptop",
-          "costul-real-al-unei-masini",
-          "asigurari"
+          "asigurari-rca-locuinta-calatorie",
+          "burse-si-costul-facultatii"
         ]
       },
       {
         "id": "viata-de-zi-cu-zi",
         "title": "Viața de zi cu zi",
         "lessons": [
-          "cumparaturile-din-supermarket",
-          "vacanta",
+          "cheltuielile-din-supermarket",
           "cheltuieli-neprevazute",
-          "banii-intr-o-relatie"
+          "banii-intre-prieteni-si-intr-o-relatie"
         ]
       }
     ]
@@ -296,7 +329,7 @@ export const categories = CategorySchema.array().parse([
     "icon": "Brain",
     "softColor": "#EEF2FC",
     "difficulty": "mediu",
-    "order": 8,
+    "order": 9,
     "chapters": [
       {
         "id": "presiunea-din-jur",
@@ -312,139 +345,18 @@ export const categories = CategorySchema.array().parse([
         "title": "Creierul și banii",
         "lessons": [
           "cheltuieli-emotionale",
-          "efectul-de-ancorare"
+          "efectul-de-ancorare",
+          "preturile-psihologice-99-99",
+          "de-ce-cheltuim-mai-mult-cu-cardul-decat-cu-numerarul"
         ]
       },
       {
         "id": "obiceiuri",
         "title": "Obiceiuri",
         "lessons": [
-          "gandirea-pe-termen-lung",
+          "gratificarea-imediata-vs-viitor",
+          "cheltuieli-mici-care-se-aduna",
           "obiceiuri-bune-cu-banii"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "economia-pe-scurt",
-    "slug": "economia-pe-scurt",
-    "title": "Cum funcționează economia",
-    "subtitle": "Inflație, dobânzi, curs valutar și ce se întâmplă cu banii în țară.",
-    "icon": "ChartNoAxesCombined",
-    "softColor": "#EAF6FF",
-    "difficulty": "mediu",
-    "order": 9,
-    "chapters": [
-      {
-        "id": "preturi",
-        "title": "Prețuri",
-        "lessons": [
-          "ce-este-inflatia",
-          "de-ce-cresc-preturile",
-          "cerere-si-oferta"
-        ]
-      },
-      {
-        "id": "dobanzi",
-        "title": "Dobânzi",
-        "lessons": [
-          "ce-este-dobanda",
-          "cine-stabileste-dobanzile",
-          "ce-face-bnr"
-        ]
-      },
-      {
-        "id": "economia-mare",
-        "title": "Economia mare",
-        "lessons": [
-          "pib",
-          "somajul",
-          "recesiune-si-criza"
-        ]
-      },
-      {
-        "id": "valute",
-        "title": "Valute",
-        "lessons": [
-          "cursul-valutar",
-          "leul-si-euro"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "credite-si-datorii",
-    "slug": "credite-si-datorii",
-    "title": "Credite și datorii",
-    "subtitle": "Cum funcționează creditele, ce costă și cum eviți capcanele.",
-    "icon": "Landmark",
-    "softColor": "#F0F1FC",
-    "difficulty": "mediu",
-    "order": 10,
-    "chapters": [
-      {
-        "id": "bazele-creditului",
-        "title": "Bazele creditului",
-        "lessons": [
-          "ce-este-creditul",
-          "dobanda-la-credit-si-dae",
-          "scorul-de-credit"
-        ]
-      },
-      {
-        "id": "credite-de-zi-cu-zi",
-        "title": "Credite de zi cu zi",
-        "lessons": [
-          "cardul-de-credit",
-          "plata-in-rate-si-cumpara-acum-plateste-mai-tarziu",
-          "creditele-rapide-ifn"
-        ]
-      },
-      {
-        "id": "credite-mari-si-riscuri",
-        "title": "Credite mari și riscuri",
-        "lessons": [
-          "girant-si-garantii",
-          "creditul-ipotecar",
-          "cum-iesi-din-datorii"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "afaceri-si-venituri-extra",
-    "slug": "afaceri-si-venituri-extra",
-    "title": "Afaceri și venituri extra",
-    "subtitle": "Cum câștigi bani în plus și cum merge o afacere mică.",
-    "icon": "Store",
-    "softColor": "#ECF8FC",
-    "difficulty": "greu",
-    "order": 11,
-    "chapters": [
-      {
-        "id": "primii-bani",
-        "title": "Primii bani",
-        "lessons": [
-          "idei-de-venit-side-hustle",
-          "freelancing",
-          "vinzi-online"
-        ]
-      },
-      {
-        "id": "cum-merge-o-afacere",
-        "title": "Cum merge o afacere",
-        "lessons": [
-          "costuri-si-profit",
-          "cum-stabilesti-pretul",
-          "primii-clienti"
-        ]
-      },
-      {
-        "id": "taxe-si-realitate",
-        "title": "Taxe și realitate",
-        "lessons": [
-          "taxele-cand-ai-venit-propriu",
-          "esecul-in-afaceri"
         ]
       }
     ]
@@ -457,7 +369,7 @@ export const categories = CategorySchema.array().parse([
     "icon": "TrendingUp",
     "softColor": "#EEF2FC",
     "difficulty": "greu",
-    "order": 12,
+    "order": 10,
     "chapters": [
       {
         "id": "bazele",
@@ -465,7 +377,6 @@ export const categories = CategorySchema.array().parse([
         "lessons": [
           "de-ce-investim",
           "risc-si-randament",
-          "dobanda-compusa",
           "diversificarea"
         ]
       },
@@ -481,23 +392,16 @@ export const categories = CategorySchema.array().parse([
       },
       {
         "id": "atentie-la-capcane",
-        "title": "Atenție la capcane",
+        "title": "Atenție și început",
         "lessons": [
           "investesti-vs-speculezi",
           "crypto-ce-trebuie-sa-stii",
-          "piramide-si-scheme-bani-rapizi"
-        ]
-      },
-      {
-        "id": "pe-termen-lung",
-        "title": "Pe termen lung",
-        "lessons": [
-          "pensiile-pilonul-2-si-3",
-          "cum-incepi-cu-sume-mici",
-          "taxe-pe-castigurile-din-investitii"
+          "cum-incepi-cu-sume-mici"
         ]
       }
     ]
   }
-]).sort((a, b) => a.order - b.order);
-export const getCategory = (idOrSlug: string) => categories.find(c => c.id === idOrSlug || c.slug === idOrSlug);
+]);
+// Existing money/economy links resolve to the combined vocabulary category.
+const categoryAliases: Record<string, string> = { "cum-functioneaza-banii": "cuvintele-banilor", "economia-pe-scurt": "cuvintele-banilor" };
+export const getCategory = (idOrSlug: string) => categories.find(c => c.id === (categoryAliases[idOrSlug] ?? idOrSlug) || c.slug === idOrSlug);

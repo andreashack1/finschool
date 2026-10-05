@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const text = z.string().trim().min(1);
 export const DifficultySchema = z.enum(["usor", "mediu", "greu"]);
-export const CategoryIconSchema = z.enum(["BriefcaseBusiness", "WalletCards", "CreditCard", "PiggyBank", "ShieldCheck", "ChartNoAxesCombined", "Coins", "House", "Brain", "Landmark", "Store", "TrendingUp"]);
+export const CategoryIconSchema = z.enum(["BookOpen", "BriefcaseBusiness", "WalletCards", "CreditCard", "PiggyBank", "ShieldCheck", "ChartNoAxesCombined", "Coins", "House", "Brain", "Landmark", "Store", "TrendingUp"]);
 export const FiniMessageSchema = z.object({ mood: z.enum(["neutral", "happy", "thinking", "encouraging", "surprised", "serious"]), message: text });
 const base = { id: text, title: text, fini: FiniMessageSchema.optional() };
 const prose = { ...base, body: text, highlight: text.optional(), continueLabel: text.optional() };
@@ -49,7 +49,7 @@ export const LessonScreenSchema = z.discriminatedUnion("type", [
     if (screen.options.filter(o => o.value === screen.expectedAnswer).length !== 1) ctx.addIssue({ code: "custom", message: `Screen "${screen.id}" must have exactly one correct calculation option` });
   } else if (!screen.options.some(o => o.id === screen.correctOption)) ctx.addIssue({ code: "custom", message: `Screen "${screen.id}" references missing correct option "${screen.correctOption}"` });
 });
-export const LessonMetadataSchema = z.object({ id: text, slug: text, categoryId: text, chapterId: text, title: text, description: text, minutes: z.number().int().positive(), xp: z.number().int().positive() });
+export const LessonMetadataSchema = z.object({ id: text, slug: text, categoryId: text, chapterId: text, title: text, description: text, objective: z.string().trim().min(30).max(400).optional(), quizFocus: z.array(text).optional(), minutes: z.number().int().positive(), xp: z.number().int().positive() });
 const source = z.object({ label: text, url: z.url() });
 export const ReadyLessonSchema = LessonMetadataSchema.extend({ status: z.literal("ready"), contentVersion: z.number().int().positive().optional(), formatVersion: z.literal(2).optional(), minutes: z.number().int().min(3).max(5), screens: z.array(LessonScreenSchema).min(3), recapPoints: z.array(text).optional(), sourceUrls: z.array(source).optional() }).superRefine((lesson, ctx) => {
   if (new Set(lesson.screens.map(s => s.id)).size !== lesson.screens.length) ctx.addIssue({ code: "custom", message: `Lesson "${lesson.id}" has duplicate screen IDs` });

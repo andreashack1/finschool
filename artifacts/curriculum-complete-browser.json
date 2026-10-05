@@ -1,0 +1,51 @@
+{
+  "production": true,
+  "allLessonRoutes": 100,
+  "results": [
+    {
+      "width": 375,
+      "categories": 10,
+      "readyLessons": 100,
+      "completePlayers": [
+        "ce-sunt-banii",
+        "nevoi-vs-dorinte",
+        "ce-face-o-banca-si-cum-alegi-un-cont",
+        "phishing",
+        "primul-buget",
+        "ce-faci-cu-primul-salariu",
+        "cum-iesi-din-datorii",
+        "banii-intre-prieteni-si-intr-o-relatie",
+        "obiceiuri-bune-cu-banii",
+        "cum-incepi-cu-sume-mici"
+      ],
+      "sourcesVisible": true,
+      "replayXp": 0,
+      "reloadSafe": true,
+      "overflow": false,
+      "legacyLinks": true
+    },
+    {
+      "width": 1440,
+      "categories": 10,
+      "readyLessons": 100,
+      "completePlayers": [
+        "ce-sunt-banii",
+        "nevoi-vs-dorinte",
+        "ce-face-o-banca-si-cum-alegi-un-cont",
+        "phishing",
+        "primul-buget",
+        "ce-faci-cu-primul-salariu",
+        "cum-iesi-din-datorii",
+        "banii-intre-prieteni-si-intr-o-relatie",
+        "obiceiuri-bune-cu-banii",
+        "cum-incepi-cu-sume-mici"
+      ],
+      "sourcesVisible": true,
+      "replayXp": 0,
+      "reloadSafe": true,
+      "overflow": false,
+      "legacyLinks": true
+    }
+  ],
+  "errors": []
+}

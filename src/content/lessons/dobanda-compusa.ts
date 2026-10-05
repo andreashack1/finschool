@@ -3,8 +3,8 @@ import type { ReadyLesson } from "../../types/learning";
 export const compoundInterestLesson: ReadyLesson = {
   "id": "dobanda-compusa",
   "slug": "dobanda-compusa",
-  "categoryId": "investitii-de-la-zero",
-  "chapterId": "bazele",
+  "categoryId": "economii",
+  "chapterId": "unde-pui-banii",
   "title": "Dobânda compusă",
   "description": "Înțelege dobânda la dobândă, efectul timpului și limitele unui exemplu matematic.",
   "minutes": 5,

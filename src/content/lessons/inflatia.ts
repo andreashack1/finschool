@@ -3,8 +3,8 @@ import type { ReadyLesson } from "../../types/learning";
 export const inflationLesson: ReadyLesson = {
   "id": "ce-este-inflatia",
   "slug": "ce-este-inflatia",
-  "categoryId": "economia-pe-scurt",
-  "chapterId": "preturi",
+  "categoryId": "cuvintele-banilor",
+  "chapterId": "preturi-si-dobanzi",
   "title": "Inflația",
   "description": "Aceiași bani. Mai puține lucruri în coș.",
   "minutes": 5,

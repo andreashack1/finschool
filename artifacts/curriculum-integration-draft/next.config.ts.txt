@@ -1,0 +1,14 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  devIndicators: false,
+  async redirects() {
+    return [
+      { source: "/lectii/cum-functioneaza-banii", destination: "/lectii/cuvintele-banilor", permanent: true },
+      { source: "/lectii/economia-pe-scurt", destination: "/lectii/cuvintele-banilor", permanent: true },
+      { source: "/lectii/afaceri-si-venituri-extra", destination: "/lectii", permanent: true },
+    ];
+  },
+};
+
+export default nextConfig;

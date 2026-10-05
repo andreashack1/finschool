@@ -1,0 +1,252 @@
+{
+  "origin": "http://127.0.0.1:3115",
+  "viewports": [
+    {
+      "width": 375,
+      "route": "/bun-venit",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "route": "/creeaza-cont",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "route": "/autentificare",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "route": "/verifica-email",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "route": "/resetare-parola",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "route": "/actualizeaza-parola",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "route": "/termeni",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "route": "/confidentialitate",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/bun-venit",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/creeaza-cont",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/autentificare",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/verifica-email",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/resetare-parola",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/actualizeaza-parola",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/termeni",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/confidentialitate",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/bun-venit",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/creeaza-cont",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/autentificare",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/verifica-email",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/resetare-parola",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/actualizeaza-parola",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/termeni",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/confidentialitate",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/bun-venit",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/creeaza-cont",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/autentificare",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/verifica-email",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/resetare-parola",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/actualizeaza-parola",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/termeni",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/confidentialitate",
+      "overflow": false
+    }
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "result": "/bun-venit"
+    },
+    {
+      "route": "/lectii",
+      "result": "/bun-venit"
+    },
+    {
+      "route": "/lectie/salariu-brut-vs-net",
+      "result": "/bun-venit"
+    },
+    {
+      "route": "/profil",
+      "result": "/bun-venit"
+    },
+    {
+      "route": "/simulator",
+      "result": "/bun-venit"
+    },
+    {
+      "route": "/rapid",
+      "result": "/bun-venit"
+    },
+    {
+      "route": "/despre",
+      "result": "/bun-venit"
+    },
+    {
+      "route": "/bun-venit",
+      "result": "/salveaza-progresul"
+    },
+    {
+      "route": "/incepe",
+      "result": "/salveaza-progresul"
+    }
+  ],
+  "trial": {
+    "version": 1,
+    "lessonId": "ce-sunt-banii",
+    "operationId": "ae4ad9ab-abce-4c74-b182-adff3d859684",
+    "startedAt": "2026-10-05T14:29:45.065Z",
+    "completedAt": "2026-10-05T14:29:51.985Z",
+    "screenIndex": 15,
+    "shuffleSeed": "7a618f2d-8857-4006-8b9f-83db412072a5",
+    "answers": [
+      {
+        "screenId": "q1",
+        "selectedOptionId": "2"
+      },
+      {
+        "screenId": "q2",
+        "selectedOptionId": "2"
+      },
+      {
+        "screenId": "q3",
+        "selectedOptionId": "true"
+      },
+      {
+        "screenId": "q4",
+        "selectedOptionId": "2"
+      },
+      {
+        "screenId": "q5",
+        "selectedOptionId": "2"
+      },
+      {
+        "screenId": "q6",
+        "selectedOptionId": "1"
+      },
+      {
+        "screenId": "q7",
+        "selectedOptionId": "2"
+      },
+      {
+        "screenId": "q8",
+        "selectedOptionId": "0"
+      },
+      {
+        "screenId": "q9",
+        "selectedOptionId": "1"
+      }
+    ],
+    "completed": true
+  },
+  "errors": []
+}

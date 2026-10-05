@@ -1,0 +1,702 @@
+[
+  {
+    "id": "ce-sunt-banii",
+    "title": "Ce sunt banii",
+    "categoryId": "cuvintele-banilor",
+    "chapterId": "bazele",
+    "existing": false
+  },
+  {
+    "id": "venit-cheltuieli-si-ce-ramane",
+    "title": "Venit, cheltuieli și ce rămâne",
+    "categoryId": "cuvintele-banilor",
+    "chapterId": "bazele",
+    "existing": false
+  },
+  {
+    "id": "ce-detii-si-ce-datorezi",
+    "title": "Ce deții și ce datorezi",
+    "categoryId": "cuvintele-banilor",
+    "chapterId": "bazele",
+    "existing": false
+  },
+  {
+    "id": "ce-este-inflatia",
+    "title": "Inflația",
+    "categoryId": "cuvintele-banilor",
+    "chapterId": "preturi-si-dobanzi",
+    "existing": true
+  },
+  {
+    "id": "dobanda",
+    "title": "Dobânda",
+    "categoryId": "cuvintele-banilor",
+    "chapterId": "preturi-si-dobanzi",
+    "existing": false
+  },
+  {
+    "id": "banca-centrala-bnr",
+    "title": "Banca centrală (BNR)",
+    "categoryId": "cuvintele-banilor",
+    "chapterId": "preturi-si-dobanzi",
+    "existing": false
+  },
+  {
+    "id": "cerere-si-oferta",
+    "title": "Cerere și ofertă",
+    "categoryId": "cuvintele-banilor",
+    "chapterId": "preturi-si-dobanzi",
+    "existing": false
+  },
+  {
+    "id": "tva",
+    "title": "TVA",
+    "categoryId": "cuvintele-banilor",
+    "chapterId": "taxe-si-valute",
+    "existing": false
+  },
+  {
+    "id": "impozit-taxa-si-contributie",
+    "title": "Impozit, taxă și contribuție",
+    "categoryId": "cuvintele-banilor",
+    "chapterId": "taxe-si-valute",
+    "existing": false
+  },
+  {
+    "id": "cursul-valutar-si-euro",
+    "title": "Cursul valutar și euro",
+    "categoryId": "cuvintele-banilor",
+    "chapterId": "taxe-si-valute",
+    "existing": false
+  },
+  {
+    "id": "nevoi-vs-dorinte",
+    "title": "Nevoi vs. dorințe",
+    "categoryId": "bani-de-zi-cu-zi",
+    "chapterId": "nevoi-si-dorinte",
+    "existing": false
+  },
+  {
+    "id": "costul-real-al-unui-produs",
+    "title": "Costul real al unui produs",
+    "categoryId": "bani-de-zi-cu-zi",
+    "chapterId": "nevoi-si-dorinte",
+    "existing": false
+  },
+  {
+    "id": "bonul-factura-si-chitanta",
+    "title": "Bonul, factura și chitanța",
+    "categoryId": "bani-de-zi-cu-zi",
+    "chapterId": "nevoi-si-dorinte",
+    "existing": false
+  },
+  {
+    "id": "cumparaturile-pe-impuls",
+    "title": "Cumpărăturile pe impuls",
+    "categoryId": "bani-de-zi-cu-zi",
+    "chapterId": "capcanele-cumparaturilor",
+    "existing": false
+  },
+  {
+    "id": "reduceri-care-nu-sunt-reduceri",
+    "title": "Reduceri care nu sunt reduceri",
+    "categoryId": "bani-de-zi-cu-zi",
+    "chapterId": "capcanele-cumparaturilor",
+    "existing": false
+  },
+  {
+    "id": "cum-te-conving-reclamele",
+    "title": "Cum te conving reclamele",
+    "categoryId": "bani-de-zi-cu-zi",
+    "chapterId": "capcanele-cumparaturilor",
+    "existing": false
+  },
+  {
+    "id": "cumparaturi-in-jocuri-si-aplicatii",
+    "title": "Cumpărături în jocuri și aplicații",
+    "categoryId": "bani-de-zi-cu-zi",
+    "chapterId": "capcanele-cumparaturilor",
+    "existing": false
+  },
+  {
+    "id": "abonamentele",
+    "title": "Abonamentele",
+    "categoryId": "bani-de-zi-cu-zi",
+    "chapterId": "cumperi-inteligent",
+    "existing": false
+  },
+  {
+    "id": "drepturile-consumatorului",
+    "title": "Drepturile consumatorului",
+    "categoryId": "bani-de-zi-cu-zi",
+    "chapterId": "cumperi-inteligent",
+    "existing": false
+  },
+  {
+    "id": "iesiri-cu-prietenii-fara-sa-te-golesti",
+    "title": "Ieșiri cu prietenii fără să te golești",
+    "categoryId": "bani-de-zi-cu-zi",
+    "chapterId": "cumperi-inteligent",
+    "existing": false
+  },
+  {
+    "id": "ce-face-o-banca-si-cum-alegi-un-cont",
+    "title": "Ce face o bancă și cum alegi un cont",
+    "categoryId": "carduri-si-banca",
+    "chapterId": "contul-tau",
+    "existing": false
+  },
+  {
+    "id": "iban",
+    "title": "IBAN",
+    "categoryId": "carduri-si-banca",
+    "chapterId": "contul-tau",
+    "existing": false
+  },
+  {
+    "id": "comisioane-bancare",
+    "title": "Comisioane bancare",
+    "categoryId": "carduri-si-banca",
+    "chapterId": "contul-tau",
+    "existing": false
+  },
+  {
+    "id": "cardul-de-debit",
+    "title": "Cardul de debit",
+    "categoryId": "carduri-si-banca",
+    "chapterId": "cardul",
+    "existing": false
+  },
+  {
+    "id": "plati-digitale",
+    "title": "Plăți digitale",
+    "categoryId": "carduri-si-banca",
+    "chapterId": "cardul",
+    "existing": false
+  },
+  {
+    "id": "transferuri-si-plati-instant",
+    "title": "Transferuri și plăți instant",
+    "categoryId": "carduri-si-banca",
+    "chapterId": "cardul",
+    "existing": false
+  },
+  {
+    "id": "cardul-in-strainatate",
+    "title": "Cardul în străinătate",
+    "categoryId": "carduri-si-banca",
+    "chapterId": "cardul",
+    "existing": false
+  },
+  {
+    "id": "extrasul-de-cont",
+    "title": "Extrasul de cont",
+    "categoryId": "carduri-si-banca",
+    "chapterId": "siguranta-banilor",
+    "existing": false
+  },
+  {
+    "id": "sunt-banii-mei-in-siguranta-la-banca",
+    "title": "Sunt banii mei în siguranță la bancă?",
+    "categoryId": "carduri-si-banca",
+    "chapterId": "siguranta-banilor",
+    "existing": false
+  },
+  {
+    "id": "contul-pentru-minori",
+    "title": "Contul pentru minori",
+    "categoryId": "carduri-si-banca",
+    "chapterId": "siguranta-banilor",
+    "existing": false
+  },
+  {
+    "id": "phishing",
+    "title": "Phishing",
+    "categoryId": "siguranta-financiara",
+    "chapterId": "mesaje-si-apeluri-false",
+    "existing": true
+  },
+  {
+    "id": "apelul-fals-de-la-banca",
+    "title": "Apelul fals de la „bancă”",
+    "categoryId": "siguranta-financiara",
+    "chapterId": "mesaje-si-apeluri-false",
+    "existing": false
+  },
+  {
+    "id": "anunturi-si-livrari-false",
+    "title": "Anunțuri și livrări false",
+    "categoryId": "siguranta-financiara",
+    "chapterId": "mesaje-si-apeluri-false",
+    "existing": false
+  },
+  {
+    "id": "magazine-false",
+    "title": "Magazine false",
+    "categoryId": "siguranta-financiara",
+    "chapterId": "magazine-si-oferte-false",
+    "existing": false
+  },
+  {
+    "id": "oferte-prea-bune-ca-sa-fie-reale",
+    "title": "Oferte prea bune ca să fie reale",
+    "categoryId": "siguranta-financiara",
+    "chapterId": "magazine-si-oferte-false",
+    "existing": false
+  },
+  {
+    "id": "piramide-si-scheme-bani-rapizi",
+    "title": "Piramide și scheme „bani rapizi”",
+    "categoryId": "siguranta-financiara",
+    "chapterId": "magazine-si-oferte-false",
+    "existing": false
+  },
+  {
+    "id": "protejeaza-datele-cardului",
+    "title": "Protejează datele cardului",
+    "categoryId": "siguranta-financiara",
+    "chapterId": "datele-tale",
+    "existing": false
+  },
+  {
+    "id": "furtul-de-identitate",
+    "title": "Furtul de identitate",
+    "categoryId": "siguranta-financiara",
+    "chapterId": "datele-tale",
+    "existing": false
+  },
+  {
+    "id": "conturi-folosite-de-altii",
+    "title": "Conturi folosite de alții",
+    "categoryId": "siguranta-financiara",
+    "chapterId": "datele-tale",
+    "existing": false
+  },
+  {
+    "id": "ce-faci-daca-ai-fost-inselat",
+    "title": "Ce faci dacă ai fost înșelat",
+    "categoryId": "siguranta-financiara",
+    "chapterId": "datele-tale",
+    "existing": false
+  },
+  {
+    "id": "primul-buget",
+    "title": "Primul tău buget",
+    "categoryId": "economii",
+    "chapterId": "bugetul",
+    "existing": true
+  },
+  {
+    "id": "unde-dispar-banii",
+    "title": "Unde dispar banii",
+    "categoryId": "economii",
+    "chapterId": "bugetul",
+    "existing": false
+  },
+  {
+    "id": "metoda-50-30-20",
+    "title": "Metoda 50/30/20",
+    "categoryId": "economii",
+    "chapterId": "bugetul",
+    "existing": false
+  },
+  {
+    "id": "bani-de-buzunar-si-venituri-neregulate",
+    "title": "Bani de buzunar și venituri neregulate",
+    "categoryId": "economii",
+    "chapterId": "bugetul",
+    "existing": false
+  },
+  {
+    "id": "de-ce-economisim-si-cat",
+    "title": "De ce economisim și cât",
+    "categoryId": "economii",
+    "chapterId": "economisirea",
+    "existing": false
+  },
+  {
+    "id": "plateste-te-pe-tine-primul",
+    "title": "Plătește-te pe tine primul",
+    "categoryId": "economii",
+    "chapterId": "economisirea",
+    "existing": false
+  },
+  {
+    "id": "obiective-de-economisire",
+    "title": "Obiective de economisire",
+    "categoryId": "economii",
+    "chapterId": "economisirea",
+    "existing": false
+  },
+  {
+    "id": "fondul-de-urgenta",
+    "title": "Fondul de urgență",
+    "categoryId": "economii",
+    "chapterId": "unde-pui-banii",
+    "existing": true
+  },
+  {
+    "id": "unde-tii-banii-cont-depozit-numerar",
+    "title": "Unde ții banii: cont, depozit, numerar",
+    "categoryId": "economii",
+    "chapterId": "unde-pui-banii",
+    "existing": false
+  },
+  {
+    "id": "dobanda-compusa",
+    "title": "Dobânda compusă",
+    "categoryId": "economii",
+    "chapterId": "unde-pui-banii",
+    "existing": true
+  },
+  {
+    "id": "primul-contract-de-munca",
+    "title": "Primul contract de muncă",
+    "categoryId": "primul-job",
+    "chapterId": "primul-job",
+    "existing": false
+  },
+  {
+    "id": "cum-citesti-un-contract",
+    "title": "Cum citești un contract",
+    "categoryId": "primul-job",
+    "chapterId": "primul-job",
+    "existing": false
+  },
+  {
+    "id": "munca-part-time-si-student",
+    "title": "Muncă part-time și student",
+    "categoryId": "primul-job",
+    "chapterId": "primul-job",
+    "existing": false
+  },
+  {
+    "id": "salariu-brut-vs-net",
+    "title": "Salariu brut vs. net",
+    "categoryId": "primul-job",
+    "chapterId": "salariul",
+    "existing": true
+  },
+  {
+    "id": "fluturasul-de-salariu",
+    "title": "Fluturașul de salariu",
+    "categoryId": "primul-job",
+    "chapterId": "salariul",
+    "existing": false
+  },
+  {
+    "id": "salariul-minim",
+    "title": "Salariul minim",
+    "categoryId": "primul-job",
+    "chapterId": "salariul",
+    "existing": false
+  },
+  {
+    "id": "tichete-si-beneficii",
+    "title": "Tichete și beneficii",
+    "categoryId": "primul-job",
+    "chapterId": "salariul",
+    "existing": false
+  },
+  {
+    "id": "taxele-pe-salariu-cas-cass-impozit",
+    "title": "Taxele pe salariu: CAS, CASS, impozit",
+    "categoryId": "primul-job",
+    "chapterId": "taxele",
+    "existing": false
+  },
+  {
+    "id": "pensia-de-ce-conteaza-de-la-primul-salariu",
+    "title": "Pensia: de ce contează de la primul salariu",
+    "categoryId": "primul-job",
+    "chapterId": "taxele",
+    "existing": false
+  },
+  {
+    "id": "ce-faci-cu-primul-salariu",
+    "title": "Ce faci cu primul salariu",
+    "categoryId": "primul-job",
+    "chapterId": "taxele",
+    "existing": false
+  },
+  {
+    "id": "ce-este-creditul",
+    "title": "Ce este creditul",
+    "categoryId": "credite-si-datorii",
+    "chapterId": "bazele-creditului",
+    "existing": false
+  },
+  {
+    "id": "dobanda-la-credit-si-dae",
+    "title": "Dobânda la credit și DAE",
+    "categoryId": "credite-si-datorii",
+    "chapterId": "bazele-creditului",
+    "existing": false
+  },
+  {
+    "id": "rata-lunara-si-costul-total",
+    "title": "Rata lunară și costul total",
+    "categoryId": "credite-si-datorii",
+    "chapterId": "bazele-creditului",
+    "existing": false
+  },
+  {
+    "id": "dobanda-fixa-vs-variabila",
+    "title": "Dobândă fixă vs. variabilă",
+    "categoryId": "credite-si-datorii",
+    "chapterId": "bazele-creditului",
+    "existing": false
+  },
+  {
+    "id": "cardul-de-credit",
+    "title": "Cardul de credit",
+    "categoryId": "credite-si-datorii",
+    "chapterId": "credite-de-zi-cu-zi",
+    "existing": false
+  },
+  {
+    "id": "plata-in-rate-si-cumpara-acum-plateste-mai-tarziu",
+    "title": "Plata în rate și „cumpără acum, plătește mai târziu”",
+    "categoryId": "credite-si-datorii",
+    "chapterId": "credite-de-zi-cu-zi",
+    "existing": false
+  },
+  {
+    "id": "creditele-rapide-ifn",
+    "title": "Creditele rapide (IFN)",
+    "categoryId": "credite-si-datorii",
+    "chapterId": "credite-de-zi-cu-zi",
+    "existing": false
+  },
+  {
+    "id": "scorul-de-credit",
+    "title": "Scorul de credit",
+    "categoryId": "credite-si-datorii",
+    "chapterId": "datorii-si-scor",
+    "existing": true
+  },
+  {
+    "id": "ce-se-intampla-daca-nu-ti-platesti-datoria",
+    "title": "Ce se întâmplă dacă nu-ți plătești datoria",
+    "categoryId": "credite-si-datorii",
+    "chapterId": "datorii-si-scor",
+    "existing": false
+  },
+  {
+    "id": "cum-iesi-din-datorii",
+    "title": "Cum ieși din datorii",
+    "categoryId": "credite-si-datorii",
+    "chapterId": "datorii-si-scor",
+    "existing": false
+  },
+  {
+    "id": "cat-costa-sa-te-muti-singur",
+    "title": "Cât costă să te muți singur",
+    "categoryId": "pe-cont-propriu",
+    "chapterId": "casa-ta",
+    "existing": false
+  },
+  {
+    "id": "chirie-si-contract-de-inchiriere",
+    "title": "Chirie și contract de închiriere",
+    "categoryId": "pe-cont-propriu",
+    "chapterId": "casa-ta",
+    "existing": false
+  },
+  {
+    "id": "utilitati-si-cum-citesti-o-factura",
+    "title": "Utilități și cum citești o factură",
+    "categoryId": "pe-cont-propriu",
+    "chapterId": "casa-ta",
+    "existing": false
+  },
+  {
+    "id": "cumperi-casa-sau-inchiriezi",
+    "title": "Cumperi casă sau închiriezi",
+    "categoryId": "pe-cont-propriu",
+    "chapterId": "casa-ta",
+    "existing": false
+  },
+  {
+    "id": "primul-telefon-sau-laptop",
+    "title": "Primul telefon sau laptop",
+    "categoryId": "pe-cont-propriu",
+    "chapterId": "cumparaturi-mari",
+    "existing": false
+  },
+  {
+    "id": "asigurari-rca-locuinta-calatorie",
+    "title": "Asigurări: RCA, locuință, călătorie",
+    "categoryId": "pe-cont-propriu",
+    "chapterId": "cumparaturi-mari",
+    "existing": false
+  },
+  {
+    "id": "burse-si-costul-facultatii",
+    "title": "Burse și costul facultății",
+    "categoryId": "pe-cont-propriu",
+    "chapterId": "cumparaturi-mari",
+    "existing": false
+  },
+  {
+    "id": "cheltuielile-din-supermarket",
+    "title": "Cheltuielile din supermarket",
+    "categoryId": "pe-cont-propriu",
+    "chapterId": "viata-de-zi-cu-zi",
+    "existing": false
+  },
+  {
+    "id": "cheltuieli-neprevazute",
+    "title": "Cheltuieli neprevăzute",
+    "categoryId": "pe-cont-propriu",
+    "chapterId": "viata-de-zi-cu-zi",
+    "existing": false
+  },
+  {
+    "id": "banii-intre-prieteni-si-intr-o-relatie",
+    "title": "Banii între prieteni și într-o relație",
+    "categoryId": "pe-cont-propriu",
+    "chapterId": "viata-de-zi-cu-zi",
+    "existing": false
+  },
+  {
+    "id": "fomo-si-cheltuieli",
+    "title": "FOMO și cheltuieli",
+    "categoryId": "de-ce-cheltuim-cum-cheltuim",
+    "chapterId": "presiunea-din-jur",
+    "existing": false
+  },
+  {
+    "id": "presiunea-sociala",
+    "title": "Presiunea socială",
+    "categoryId": "de-ce-cheltuim-cum-cheltuim",
+    "chapterId": "presiunea-din-jur",
+    "existing": false
+  },
+  {
+    "id": "cum-vorbesti-despre-bani",
+    "title": "Cum vorbești despre bani",
+    "categoryId": "de-ce-cheltuim-cum-cheltuim",
+    "chapterId": "presiunea-din-jur",
+    "existing": false
+  },
+  {
+    "id": "cheltuieli-emotionale",
+    "title": "Cheltuieli emoționale",
+    "categoryId": "de-ce-cheltuim-cum-cheltuim",
+    "chapterId": "creierul-si-banii",
+    "existing": false
+  },
+  {
+    "id": "efectul-de-ancorare",
+    "title": "Efectul de ancorare",
+    "categoryId": "de-ce-cheltuim-cum-cheltuim",
+    "chapterId": "creierul-si-banii",
+    "existing": false
+  },
+  {
+    "id": "preturile-psihologice-99-99",
+    "title": "Prețurile psihologice (99,99)",
+    "categoryId": "de-ce-cheltuim-cum-cheltuim",
+    "chapterId": "creierul-si-banii",
+    "existing": false
+  },
+  {
+    "id": "de-ce-cheltuim-mai-mult-cu-cardul-decat-cu-numerarul",
+    "title": "De ce cheltuim mai mult cu cardul decât cu numerarul",
+    "categoryId": "de-ce-cheltuim-cum-cheltuim",
+    "chapterId": "creierul-si-banii",
+    "existing": false
+  },
+  {
+    "id": "gratificarea-imediata-vs-viitor",
+    "title": "Gratificarea imediată vs. viitor",
+    "categoryId": "de-ce-cheltuim-cum-cheltuim",
+    "chapterId": "obiceiuri",
+    "existing": false
+  },
+  {
+    "id": "cheltuieli-mici-care-se-aduna",
+    "title": "Cheltuieli mici care se adună",
+    "categoryId": "de-ce-cheltuim-cum-cheltuim",
+    "chapterId": "obiceiuri",
+    "existing": false
+  },
+  {
+    "id": "obiceiuri-bune-cu-banii",
+    "title": "Obiceiuri bune cu banii",
+    "categoryId": "de-ce-cheltuim-cum-cheltuim",
+    "chapterId": "obiceiuri",
+    "existing": false
+  },
+  {
+    "id": "de-ce-investim",
+    "title": "De ce investim",
+    "categoryId": "investitii-de-la-zero",
+    "chapterId": "bazele",
+    "existing": false
+  },
+  {
+    "id": "risc-si-randament",
+    "title": "Risc și randament",
+    "categoryId": "investitii-de-la-zero",
+    "chapterId": "bazele",
+    "existing": false
+  },
+  {
+    "id": "diversificarea",
+    "title": "Diversificarea",
+    "categoryId": "investitii-de-la-zero",
+    "chapterId": "bazele",
+    "existing": false
+  },
+  {
+    "id": "actiuni",
+    "title": "Acțiuni",
+    "categoryId": "investitii-de-la-zero",
+    "chapterId": "instrumente",
+    "existing": false
+  },
+  {
+    "id": "obligatiuni-si-titluri-de-stat",
+    "title": "Obligațiuni și titluri de stat",
+    "categoryId": "investitii-de-la-zero",
+    "chapterId": "instrumente",
+    "existing": false
+  },
+  {
+    "id": "etf-uri-si-fonduri",
+    "title": "ETF-uri și fonduri",
+    "categoryId": "investitii-de-la-zero",
+    "chapterId": "instrumente",
+    "existing": false
+  },
+  {
+    "id": "cum-functioneaza-bursa",
+    "title": "Cum funcționează bursa",
+    "categoryId": "investitii-de-la-zero",
+    "chapterId": "instrumente",
+    "existing": false
+  },
+  {
+    "id": "investesti-vs-speculezi",
+    "title": "Investești vs. speculezi",
+    "categoryId": "investitii-de-la-zero",
+    "chapterId": "atentie-la-capcane",
+    "existing": false
+  },
+  {
+    "id": "crypto-ce-trebuie-sa-stii",
+    "title": "Crypto: ce trebuie să știi",
+    "categoryId": "investitii-de-la-zero",
+    "chapterId": "atentie-la-capcane",
+    "existing": false
+  },
+  {
+    "id": "cum-incepi-cu-sume-mici",
+    "title": "Cum începi cu sume mici",
+    "categoryId": "investitii-de-la-zero",
+    "chapterId": "atentie-la-capcane",
+    "existing": false
+  }
+]

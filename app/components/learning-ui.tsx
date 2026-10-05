@@ -9,7 +9,7 @@ import { useLearningProgress } from "@/src/lib/use-learning-progress";
 import type { Category, CategoryIcon, Difficulty } from "@/src/types/learning";
 import type { LucideIcon } from "lucide-react";
 
-export const categoryIcons: Record<CategoryIcon, LucideIcon> = { BriefcaseBusiness, WalletCards, CreditCard, PiggyBank, ShieldCheck, ChartNoAxesCombined, Coins, House, Brain, Landmark, Store, TrendingUp };
+export const categoryIcons: Record<CategoryIcon, LucideIcon> = { BookOpen, BriefcaseBusiness, WalletCards, CreditCard, PiggyBank, ShieldCheck, ChartNoAxesCombined, Coins, House, Brain, Landmark, Store, TrendingUp };
 export const difficultyLabels: Record<Difficulty, string> = { usor: "Ușor", mediu: "Mediu", greu: "Greu" };
 const difficultyText: Record<Difficulty, string> = {
   usor: "Perfect de început. Nu ai nevoie de nicio cunoștință înainte.",

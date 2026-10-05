@@ -4,7 +4,7 @@ export const creditScoreLesson: ReadyLesson = {
   "id": "scorul-de-credit",
   "slug": "scorul-de-credit",
   "categoryId": "credite-si-datorii",
-  "chapterId": "bazele-creditului",
+  "chapterId": "datorii-si-scor",
   "title": "Scorul de credit",
   "description": "Cum contează comportamentul de plată în timp.",
   "minutes": 5,

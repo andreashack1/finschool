@@ -12,15 +12,18 @@ const lessons = [...registry.getReadyLessons(), ...registry.legacyQuickLessons];
 const before = JSON.parse(fs.readFileSync('artifacts/answer-options-before.json', 'utf8'));
 const normalize = lesson => {
   const result = structuredClone(lesson);
+  delete result.categoryId;
+  delete result.chapterId;
   for (const screen of result.screens) if (shouldShuffleOptions(screen)) screen.options.sort((a, b) => a.id.localeCompare(b.id));
   return result;
 };
-assert.deepEqual(lessons.map(lesson => lesson.id), before.map(lesson => lesson.id));
+assert.equal(lessons.length, 101);
+for (const previous of before) assert.ok(lessons.some(lesson => lesson.id === previous.id), 'Preserve published ID ' + previous.id);
 const now = new Date('2026-10-04T10:00:00Z');
 for (const lesson of lessons) {
   const previous = before.find(value => value.id === lesson.id);
   // Covers every text, feedback, ID, correct mapping, screen order and metadata.
-  assert.deepEqual(normalize(lesson), normalize(previous), `Only eligible option order may change: ${lesson.id}`);
+  if (previous) assert.deepEqual(normalize(lesson), normalize(previous), `Published content is preserved while its curriculum location may change: ${lesson.id}`);
   validateAnswerPositions(lesson);
   const original = JSON.stringify(lesson);
   for (const screen of lesson.screens) {
@@ -98,6 +101,6 @@ const report = lessons.map(lesson => {
   return { id: lesson.id, title: lesson.title, sequence: questions.map(q => String.fromCharCode(65 + q.position)).join(' '), groups: [...groups].map(([arity, counts]) => ({ arity, counts })), contentVersion: lesson.contentVersion ?? null };
 });
 fs.writeFileSync('artifacts/answer-options-distribution.json', JSON.stringify(report, null, 2));
-console.log(JSON.stringify(report, null, 2));
+console.log('Validated answer positions and shuffle/reward contracts for ' + lessons.length + ' lessons.');
 console.log('PASS: static balance, exact text/ID/metadata integrity, seeded shuffle stability, exclusions, immutability, first attempts, perfect/replay rewards and unique mastery.');
 

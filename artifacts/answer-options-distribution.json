@@ -1,5 +1,485 @@
 [
   {
+    "id": "ce-sunt-banii",
+    "title": "Ce sunt banii",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "venit-cheltuieli-si-ce-ramane",
+    "title": "Venit, cheltuieli și ce rămâne",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "ce-detii-si-ce-datorezi",
+    "title": "Ce deții și ce datorezi",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "ce-este-inflatia",
+    "title": "Inflația",
+    "sequence": "B B C A C",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          1,
+          2,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "dobanda",
+    "title": "Dobânda",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "banca-centrala-bnr",
+    "title": "Banca centrală (BNR)",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cerere-si-oferta",
+    "title": "Cerere și ofertă",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "tva",
+    "title": "TVA",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "impozit-taxa-si-contributie",
+    "title": "Impozit, taxă și contribuție",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cursul-valutar-si-euro",
+    "title": "Cursul valutar și euro",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "nevoi-vs-dorinte",
+    "title": "Nevoi vs. dorințe",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "costul-real-al-unui-produs",
+    "title": "Costul real al unui produs",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "bonul-factura-si-chitanta",
+    "title": "Bonul, factura și chitanța",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cumparaturile-pe-impuls",
+    "title": "Cumpărăturile pe impuls",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "reduceri-care-nu-sunt-reduceri",
+    "title": "Reduceri care nu sunt reduceri",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cum-te-conving-reclamele",
+    "title": "Cum te conving reclamele",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cumparaturi-in-jocuri-si-aplicatii",
+    "title": "Cumpărături în jocuri și aplicații",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "abonamentele",
+    "title": "Abonamentele",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "drepturile-consumatorului",
+    "title": "Drepturile consumatorului",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "iesiri-cu-prietenii-fara-sa-te-golesti",
+    "title": "Ieșiri cu prietenii fără să te golești",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "ce-face-o-banca-si-cum-alegi-un-cont",
+    "title": "Ce face o bancă și cum alegi un cont",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "iban",
+    "title": "IBAN",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "comisioane-bancare",
+    "title": "Comisioane bancare",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cardul-de-debit",
+    "title": "Cardul de debit",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "plati-digitale",
+    "title": "Plăți digitale",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "transferuri-si-plati-instant",
+    "title": "Transferuri și plăți instant",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cardul-in-strainatate",
+    "title": "Cardul în străinătate",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "extrasul-de-cont",
+    "title": "Extrasul de cont",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "sunt-banii-mei-in-siguranta-la-banca",
+    "title": "Sunt banii mei în siguranță la bancă?",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "contul-pentru-minori",
+    "title": "Contul pentru minori",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
     "id": "phishing",
     "title": "Phishing",
     "sequence": "A A C B C B A",
@@ -9,6 +489,150 @@
         "counts": [
           3,
           2,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "apelul-fals-de-la-banca",
+    "title": "Apelul fals de la „bancă”",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "anunturi-si-livrari-false",
+    "title": "Anunțuri și livrări false",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "magazine-false",
+    "title": "Magazine false",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "oferte-prea-bune-ca-sa-fie-reale",
+    "title": "Oferte prea bune ca să fie reale",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "piramide-si-scheme-bani-rapizi",
+    "title": "Piramide și scheme „bani rapizi”",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "protejeaza-datele-cardului",
+    "title": "Protejează datele cardului",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "furtul-de-identitate",
+    "title": "Furtul de identitate",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "conturi-folosite-de-altii",
+    "title": "Conturi folosite de alții",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "ce-faci-daca-ai-fost-inselat",
+    "title": "Ce faci dacă ai fost înșelat",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
           2
         ]
       }
@@ -32,6 +656,102 @@
     "contentVersion": 2
   },
   {
+    "id": "unde-dispar-banii",
+    "title": "Unde dispar banii",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "metoda-50-30-20",
+    "title": "Metoda 50/30/20",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "bani-de-buzunar-si-venituri-neregulate",
+    "title": "Bani de buzunar și venituri neregulate",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "de-ce-economisim-si-cat",
+    "title": "De ce economisim și cât",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "plateste-te-pe-tine-primul",
+    "title": "Plătește-te pe tine primul",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "obiective-de-economisire",
+    "title": "Obiective de economisire",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
     "id": "fondul-de-urgenta",
     "title": "Fondul de urgență",
     "sequence": "A C A C B",
@@ -41,6 +761,86 @@
         "counts": [
           2,
           1,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "unde-tii-banii-cont-depozit-numerar",
+    "title": "Unde ții banii: cont, depozit, numerar",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "dobanda-compusa",
+    "title": "Dobânda compusă",
+    "sequence": "C C B A",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          1,
+          1,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "primul-contract-de-munca",
+    "title": "Primul contract de muncă",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cum-citesti-un-contract",
+    "title": "Cum citești un contract",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "munca-part-time-si-student",
+    "title": "Muncă part-time și student",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
           2
         ]
       }
@@ -64,15 +864,207 @@
     "contentVersion": 2
   },
   {
-    "id": "ce-este-inflatia",
-    "title": "Inflația",
-    "sequence": "B B C A C",
+    "id": "fluturasul-de-salariu",
+    "title": "Fluturașul de salariu",
+    "sequence": "A B C A B C A B",
     "groups": [
       {
         "arity": 3,
         "counts": [
-          1,
-          2,
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "salariul-minim",
+    "title": "Salariul minim",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "tichete-si-beneficii",
+    "title": "Tichete și beneficii",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "taxele-pe-salariu-cas-cass-impozit",
+    "title": "Taxele pe salariu: CAS, CASS, impozit",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "pensia-de-ce-conteaza-de-la-primul-salariu",
+    "title": "Pensia: de ce contează de la primul salariu",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "ce-faci-cu-primul-salariu",
+    "title": "Ce faci cu primul salariu",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "ce-este-creditul",
+    "title": "Ce este creditul",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "dobanda-la-credit-si-dae",
+    "title": "Dobânda la credit și DAE",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "rata-lunara-si-costul-total",
+    "title": "Rata lunară și costul total",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "dobanda-fixa-vs-variabila",
+    "title": "Dobândă fixă vs. variabilă",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cardul-de-credit",
+    "title": "Cardul de credit",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "plata-in-rate-si-cumpara-acum-plateste-mai-tarziu",
+    "title": "Plata în rate și „cumpără acum, plătește mai târziu”",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "creditele-rapide-ifn",
+    "title": "Creditele rapide (IFN)",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
           2
         ]
       }
@@ -96,15 +1088,511 @@
     "contentVersion": 2
   },
   {
-    "id": "dobanda-compusa",
-    "title": "Dobânda compusă",
-    "sequence": "C C B A",
+    "id": "ce-se-intampla-daca-nu-ti-platesti-datoria",
+    "title": "Ce se întâmplă dacă nu-ți plătești datoria",
+    "sequence": "A B C A B C A B",
     "groups": [
       {
         "arity": 3,
         "counts": [
-          1,
-          1,
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cum-iesi-din-datorii",
+    "title": "Cum ieși din datorii",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cat-costa-sa-te-muti-singur",
+    "title": "Cât costă să te muți singur",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "chirie-si-contract-de-inchiriere",
+    "title": "Chirie și contract de închiriere",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "utilitati-si-cum-citesti-o-factura",
+    "title": "Utilități și cum citești o factură",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cumperi-casa-sau-inchiriezi",
+    "title": "Cumperi casă sau închiriezi",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "primul-telefon-sau-laptop",
+    "title": "Primul telefon sau laptop",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "asigurari-rca-locuinta-calatorie",
+    "title": "Asigurări: RCA, locuință, călătorie",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "burse-si-costul-facultatii",
+    "title": "Burse și costul facultății",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cheltuielile-din-supermarket",
+    "title": "Cheltuielile din supermarket",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cheltuieli-neprevazute",
+    "title": "Cheltuieli neprevăzute",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "banii-intre-prieteni-si-intr-o-relatie",
+    "title": "Banii între prieteni și într-o relație",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "fomo-si-cheltuieli",
+    "title": "FOMO și cheltuieli",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "presiunea-sociala",
+    "title": "Presiunea socială",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cum-vorbesti-despre-bani",
+    "title": "Cum vorbești despre bani",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cheltuieli-emotionale",
+    "title": "Cheltuieli emoționale",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "efectul-de-ancorare",
+    "title": "Efectul de ancorare",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "preturile-psihologice-99-99",
+    "title": "Prețurile psihologice (99,99)",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "de-ce-cheltuim-mai-mult-cu-cardul-decat-cu-numerarul",
+    "title": "De ce cheltuim mai mult cu cardul decât cu numerarul",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "gratificarea-imediata-vs-viitor",
+    "title": "Gratificarea imediată vs. viitor",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cheltuieli-mici-care-se-aduna",
+    "title": "Cheltuieli mici care se adună",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "obiceiuri-bune-cu-banii",
+    "title": "Obiceiuri bune cu banii",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "de-ce-investim",
+    "title": "De ce investim",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "risc-si-randament",
+    "title": "Risc și randament",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "diversificarea",
+    "title": "Diversificarea",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "actiuni",
+    "title": "Acțiuni",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "obligatiuni-si-titluri-de-stat",
+    "title": "Obligațiuni și titluri de stat",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "etf-uri-si-fonduri",
+    "title": "ETF-uri și fonduri",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cum-functioneaza-bursa",
+    "title": "Cum funcționează bursa",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "investesti-vs-speculezi",
+    "title": "Investești vs. speculezi",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "crypto-ce-trebuie-sa-stii",
+    "title": "Crypto: ce trebuie să știi",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
+          2
+        ]
+      }
+    ],
+    "contentVersion": 2
+  },
+  {
+    "id": "cum-incepi-cu-sume-mici",
+    "title": "Cum începi cu sume mici",
+    "sequence": "A B C A B C A B",
+    "groups": [
+      {
+        "arity": 3,
+        "counts": [
+          3,
+          3,
           2
         ]
       }

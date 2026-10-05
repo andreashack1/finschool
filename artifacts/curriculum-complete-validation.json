@@ -1,0 +1,62 @@
+{
+  "categories": [
+    {
+      "id": "cuvintele-banilor",
+      "chapters": 3,
+      "lessons": 10
+    },
+    {
+      "id": "bani-de-zi-cu-zi",
+      "chapters": 3,
+      "lessons": 10
+    },
+    {
+      "id": "carduri-si-banca",
+      "chapters": 3,
+      "lessons": 10
+    },
+    {
+      "id": "siguranta-financiara",
+      "chapters": 3,
+      "lessons": 10
+    },
+    {
+      "id": "economii",
+      "chapters": 3,
+      "lessons": 10
+    },
+    {
+      "id": "primul-job",
+      "chapters": 3,
+      "lessons": 10
+    },
+    {
+      "id": "credite-si-datorii",
+      "chapters": 3,
+      "lessons": 10
+    },
+    {
+      "id": "pe-cont-propriu",
+      "chapters": 3,
+      "lessons": 10
+    },
+    {
+      "id": "de-ce-cheltuim-cum-cheltuim",
+      "chapters": 3,
+      "lessons": 10
+    },
+    {
+      "id": "investitii-de-la-zero",
+      "chapters": 3,
+      "lessons": 10
+    }
+  ],
+  "readyLessons": 100,
+  "steps": 1600,
+  "questions": 900,
+  "retiredUrls": 103,
+  "publishedContentPreserved": true,
+  "progressionVerified": true,
+  "progressLedgerPreserved": true,
+  "preservedXp": 507
+}

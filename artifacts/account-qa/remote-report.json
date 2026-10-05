@@ -1,0 +1,20 @@
+{
+  "configured": {
+    "url": true,
+    "publicKey": true,
+    "serviceRole": false
+  },
+  "checks": [
+    {
+      "name": "Auth settings",
+      "status": 200,
+      "reachable": true
+    },
+    {
+      "name": "Username RPC (read-only)",
+      "status": 404,
+      "reachable": true
+    }
+  ],
+  "remoteMutationsTested": false
+}

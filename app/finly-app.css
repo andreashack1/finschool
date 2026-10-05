@@ -64,7 +64,7 @@
 .section-label h2 { font-size: 15px; letter-spacing: -.2px; }
 .section-label > span { font-size: 9px !important; letter-spacing: 1px; font-weight: 600; }
 .continue-card { position: relative; padding: 24px; background: #E7F3FF; border: 1px solid #D3E9FC; border-radius: 24px; overflow: hidden; }
-.continue-copy { position: relative; z-index: 2; max-width: 76%; }
+.continue-copy { position: relative; z-index: 2; max-width: calc(100% - 140px); }
 .card-kicker, .block-kicker { color: var(--blue-ink); font-size: 10px; letter-spacing: 1.1px; font-weight: 700; display: flex; align-items: center; gap: 7px; }
 .tiny-tag { padding: 4px 7px; border-radius: 6px; font-size: 10px; font-weight: 600; color: var(--secondary); background: #FFFFFFB8; letter-spacing: 0; white-space: nowrap; }
 .card-kicker .tiny-tag { margin-left: 4px; font-size: 9px; padding: 3px 6px; }
@@ -247,6 +247,7 @@
   .home-layout { display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr); gap: 24px; align-items: start; }
   .home-secondary { margin-top: 32px; gap: 18px; }
   .continue-fini { width: 190px; height: 239px; right: -2px; top: 11px; }
+  .continue-copy { max-width: calc(100% - 174px); }
   .continue-card { padding: 26px; }
   .continue-card h2 { font-size: 36px; }
   .continue-copy > p { font-size: 14px; }
@@ -265,6 +266,7 @@
   .continue-card { padding: 21px; }
   .continue-card h2 { font-size: 29px; }
   .continue-fini { width: 148px; height: 186px; right: -18px; top: 40px; }
+  .continue-copy { max-width: calc(100% - 121px); }
   .continue-copy > p { max-width: 180px; font-size: 12px; }
   .continue-bottom { gap: 13px; }
   .continue-bottom .app-button { padding-inline: 11px; font-size: 11px; }
@@ -281,6 +283,7 @@
   .finly-app h2 { font-size: 19px; }
   .continue-card h2 { font-size: 29px; }
   .continue-fini { opacity: .95; width: 123px; right: -16px; }
+  .continue-copy { max-width: calc(100% - 98px); }
   .continue-copy > p { max-width: 160px; }
   .continue-progress > div:first-child { font-size: 9px; }
   .profile-stats span { font-size: 8px; }
@@ -323,6 +326,10 @@
 .lesson-category-progress { margin: 24px 0; padding: 18px; background: white; border: 1px solid var(--border); border-radius: 16px; }
 .lesson-category-progress p { font-size: 14px; line-height: 1.6; color: var(--secondary); }
 .lesson-category-progress .app-progress { margin-top: 12px; }
+.lesson-sources { margin-top: 20px; color: var(--secondary); font-size: 14px; line-height: 1.6; }
+.lesson-sources summary { cursor: pointer; }
+.lesson-sources ul { padding-left: 20px; }
+.lesson-sources a { color: var(--foreground); overflow-wrap: anywhere; text-decoration: underline; }
 @media (max-width: 899px) { .course-grid.learning-grid { grid-template-columns: minmax(0, 1fr); } }
 
 /* Gamification extends existing Finly cards; no extra currency or guilt UI. */

@@ -1,6 +1,697 @@
 {
   "lessons": [
     {
+      "id": "ce-sunt-banii",
+      "categoryId": "cuvintele-banilor",
+      "chapterId": "bazele",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        90,
+        88,
+        95
+      ],
+      "caseWords": 132,
+      "rememberItems": 4
+    },
+    {
+      "id": "venit-cheltuieli-si-ce-ramane",
+      "categoryId": "cuvintele-banilor",
+      "chapterId": "bazele",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        85,
+        91,
+        90
+      ],
+      "caseWords": 127,
+      "rememberItems": 4
+    },
+    {
+      "id": "ce-detii-si-ce-datorezi",
+      "categoryId": "cuvintele-banilor",
+      "chapterId": "bazele",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        89,
+        93,
+        89
+      ],
+      "caseWords": 128,
+      "rememberItems": 4
+    },
+    {
+      "id": "ce-este-inflatia",
+      "categoryId": "cuvintele-banilor",
+      "chapterId": "preturi-si-dobanzi",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "calcul",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        112,
+        112,
+        118
+      ],
+      "caseWords": 153,
+      "rememberItems": 5
+    },
+    {
+      "id": "dobanda",
+      "categoryId": "cuvintele-banilor",
+      "chapterId": "preturi-si-dobanzi",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        87,
+        86,
+        94
+      ],
+      "caseWords": 131,
+      "rememberItems": 4
+    },
+    {
+      "id": "banca-centrala-bnr",
+      "categoryId": "cuvintele-banilor",
+      "chapterId": "preturi-si-dobanzi",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        91,
+        92,
+        91
+      ],
+      "caseWords": 128,
+      "rememberItems": 4
+    },
+    {
+      "id": "cerere-si-oferta",
+      "categoryId": "cuvintele-banilor",
+      "chapterId": "preturi-si-dobanzi",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        88,
+        91,
+        88
+      ],
+      "caseWords": 126,
+      "rememberItems": 4
+    },
+    {
+      "id": "tva",
+      "categoryId": "cuvintele-banilor",
+      "chapterId": "taxe-si-valute",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        91,
+        93,
+        96
+      ],
+      "caseWords": 125,
+      "rememberItems": 4
+    },
+    {
+      "id": "impozit-taxa-si-contributie",
+      "categoryId": "cuvintele-banilor",
+      "chapterId": "taxe-si-valute",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        91,
+        88,
+        91
+      ],
+      "caseWords": 127,
+      "rememberItems": 4
+    },
+    {
+      "id": "cursul-valutar-si-euro",
+      "categoryId": "cuvintele-banilor",
+      "chapterId": "taxe-si-valute",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        86,
+        93,
+        91
+      ],
+      "caseWords": 128,
+      "rememberItems": 4
+    },
+    {
+      "id": "nevoi-vs-dorinte",
+      "categoryId": "bani-de-zi-cu-zi",
+      "chapterId": "nevoi-si-dorinte",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        89,
+        88,
+        89
+      ],
+      "caseWords": 129,
+      "rememberItems": 4
+    },
+    {
+      "id": "costul-real-al-unui-produs",
+      "categoryId": "bani-de-zi-cu-zi",
+      "chapterId": "nevoi-si-dorinte",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        88,
+        90,
+        97
+      ],
+      "caseWords": 129,
+      "rememberItems": 4
+    },
+    {
+      "id": "bonul-factura-si-chitanta",
+      "categoryId": "bani-de-zi-cu-zi",
+      "chapterId": "nevoi-si-dorinte",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        88,
+        89,
+        96
+      ],
+      "caseWords": 125,
+      "rememberItems": 4
+    },
+    {
+      "id": "cumparaturile-pe-impuls",
+      "categoryId": "bani-de-zi-cu-zi",
+      "chapterId": "capcanele-cumparaturilor",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        90,
+        88,
+        90
+      ],
+      "caseWords": 123,
+      "rememberItems": 4
+    },
+    {
+      "id": "reduceri-care-nu-sunt-reduceri",
+      "categoryId": "bani-de-zi-cu-zi",
+      "chapterId": "capcanele-cumparaturilor",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        85,
+        88,
+        90
+      ],
+      "caseWords": 125,
+      "rememberItems": 4
+    },
+    {
+      "id": "cum-te-conving-reclamele",
+      "categoryId": "bani-de-zi-cu-zi",
+      "chapterId": "capcanele-cumparaturilor",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        85,
+        92,
+        88
+      ],
+      "caseWords": 124,
+      "rememberItems": 4
+    },
+    {
+      "id": "cumparaturi-in-jocuri-si-aplicatii",
+      "categoryId": "bani-de-zi-cu-zi",
+      "chapterId": "capcanele-cumparaturilor",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        90,
+        90,
+        90
+      ],
+      "caseWords": 133,
+      "rememberItems": 4
+    },
+    {
+      "id": "abonamentele",
+      "categoryId": "bani-de-zi-cu-zi",
+      "chapterId": "cumperi-inteligent",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        87,
+        91,
+        91
+      ],
+      "caseWords": 130,
+      "rememberItems": 4
+    },
+    {
+      "id": "drepturile-consumatorului",
+      "categoryId": "bani-de-zi-cu-zi",
+      "chapterId": "cumperi-inteligent",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        83,
+        88,
+        93
+      ],
+      "caseWords": 122,
+      "rememberItems": 4
+    },
+    {
+      "id": "iesiri-cu-prietenii-fara-sa-te-golesti",
+      "categoryId": "bani-de-zi-cu-zi",
+      "chapterId": "cumperi-inteligent",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        88,
+        90,
+        88
+      ],
+      "caseWords": 131,
+      "rememberItems": 4
+    },
+    {
+      "id": "ce-face-o-banca-si-cum-alegi-un-cont",
+      "categoryId": "carduri-si-banca",
+      "chapterId": "contul-tau",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        93,
+        87,
+        95
+      ],
+      "caseWords": 128,
+      "rememberItems": 4
+    },
+    {
+      "id": "iban",
+      "categoryId": "carduri-si-banca",
+      "chapterId": "contul-tau",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        91,
+        87,
+        91
+      ],
+      "caseWords": 121,
+      "rememberItems": 4
+    },
+    {
+      "id": "comisioane-bancare",
+      "categoryId": "carduri-si-banca",
+      "chapterId": "contul-tau",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        82,
+        88,
+        89
+      ],
+      "caseWords": 125,
+      "rememberItems": 4
+    },
+    {
+      "id": "cardul-de-debit",
+      "categoryId": "carduri-si-banca",
+      "chapterId": "cardul",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        91,
+        82,
+        87
+      ],
+      "caseWords": 130,
+      "rememberItems": 4
+    },
+    {
+      "id": "plati-digitale",
+      "categoryId": "carduri-si-banca",
+      "chapterId": "cardul",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        88,
+        87,
+        86
+      ],
+      "caseWords": 121,
+      "rememberItems": 4
+    },
+    {
+      "id": "transferuri-si-plati-instant",
+      "categoryId": "carduri-si-banca",
+      "chapterId": "cardul",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        87,
+        87,
+        92
+      ],
+      "caseWords": 122,
+      "rememberItems": 4
+    },
+    {
+      "id": "cardul-in-strainatate",
+      "categoryId": "carduri-si-banca",
+      "chapterId": "cardul",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        84,
+        87,
+        90
+      ],
+      "caseWords": 127,
+      "rememberItems": 4
+    },
+    {
+      "id": "extrasul-de-cont",
+      "categoryId": "carduri-si-banca",
+      "chapterId": "siguranta-banilor",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        89,
+        90,
+        87
+      ],
+      "caseWords": 125,
+      "rememberItems": 4
+    },
+    {
+      "id": "sunt-banii-mei-in-siguranta-la-banca",
+      "categoryId": "carduri-si-banca",
+      "chapterId": "siguranta-banilor",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        91,
+        88,
+        94
+      ],
+      "caseWords": 126,
+      "rememberItems": 4
+    },
+    {
+      "id": "contul-pentru-minori",
+      "categoryId": "carduri-si-banca",
+      "chapterId": "siguranta-banilor",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        88,
+        89,
+        89
+      ],
+      "caseWords": 134,
+      "rememberItems": 4
+    },
+    {
       "id": "phishing",
       "categoryId": "siguranta-financiara",
       "chapterId": "mesaje-si-apeluri-false",
@@ -22,6 +713,213 @@
       ],
       "caseWords": 163,
       "rememberItems": 5
+    },
+    {
+      "id": "apelul-fals-de-la-banca",
+      "categoryId": "siguranta-financiara",
+      "chapterId": "mesaje-si-apeluri-false",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        89,
+        90,
+        84
+      ],
+      "caseWords": 131,
+      "rememberItems": 4
+    },
+    {
+      "id": "anunturi-si-livrari-false",
+      "categoryId": "siguranta-financiara",
+      "chapterId": "mesaje-si-apeluri-false",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        93,
+        90,
+        90
+      ],
+      "caseWords": 123,
+      "rememberItems": 4
+    },
+    {
+      "id": "magazine-false",
+      "categoryId": "siguranta-financiara",
+      "chapterId": "magazine-si-oferte-false",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        85,
+        91,
+        89
+      ],
+      "caseWords": 128,
+      "rememberItems": 4
+    },
+    {
+      "id": "oferte-prea-bune-ca-sa-fie-reale",
+      "categoryId": "siguranta-financiara",
+      "chapterId": "magazine-si-oferte-false",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        87,
+        92,
+        91
+      ],
+      "caseWords": 128,
+      "rememberItems": 4
+    },
+    {
+      "id": "piramide-si-scheme-bani-rapizi",
+      "categoryId": "siguranta-financiara",
+      "chapterId": "magazine-si-oferte-false",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        87,
+        87,
+        90
+      ],
+      "caseWords": 132,
+      "rememberItems": 4
+    },
+    {
+      "id": "protejeaza-datele-cardului",
+      "categoryId": "siguranta-financiara",
+      "chapterId": "datele-tale",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        87,
+        88,
+        94
+      ],
+      "caseWords": 134,
+      "rememberItems": 4
+    },
+    {
+      "id": "furtul-de-identitate",
+      "categoryId": "siguranta-financiara",
+      "chapterId": "datele-tale",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        92,
+        89,
+        93
+      ],
+      "caseWords": 122,
+      "rememberItems": 4
+    },
+    {
+      "id": "conturi-folosite-de-altii",
+      "categoryId": "siguranta-financiara",
+      "chapterId": "datele-tale",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        94,
+        98,
+        91
+      ],
+      "caseWords": 134,
+      "rememberItems": 4
+    },
+    {
+      "id": "ce-faci-daca-ai-fost-inselat",
+      "categoryId": "siguranta-financiara",
+      "chapterId": "datele-tale",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        89,
+        86,
+        84
+      ],
+      "caseWords": 125,
+      "rememberItems": 4
     },
     {
       "id": "primul-buget",
@@ -48,9 +946,147 @@
       "rememberItems": 5
     },
     {
+      "id": "unde-dispar-banii",
+      "categoryId": "economii",
+      "chapterId": "bugetul",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        84,
+        84,
+        87
+      ],
+      "caseWords": 123,
+      "rememberItems": 4
+    },
+    {
+      "id": "metoda-50-30-20",
+      "categoryId": "economii",
+      "chapterId": "bugetul",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        87,
+        81,
+        88
+      ],
+      "caseWords": 123,
+      "rememberItems": 4
+    },
+    {
+      "id": "bani-de-buzunar-si-venituri-neregulate",
+      "categoryId": "economii",
+      "chapterId": "bugetul",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        91,
+        88,
+        90
+      ],
+      "caseWords": 136,
+      "rememberItems": 4
+    },
+    {
+      "id": "de-ce-economisim-si-cat",
+      "categoryId": "economii",
+      "chapterId": "economisirea",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        92,
+        91,
+        92
+      ],
+      "caseWords": 133,
+      "rememberItems": 4
+    },
+    {
+      "id": "plateste-te-pe-tine-primul",
+      "categoryId": "economii",
+      "chapterId": "economisirea",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        87,
+        88,
+        93
+      ],
+      "caseWords": 125,
+      "rememberItems": 4
+    },
+    {
+      "id": "obiective-de-economisire",
+      "categoryId": "economii",
+      "chapterId": "economisirea",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        86,
+        84,
+        92
+      ],
+      "caseWords": 132,
+      "rememberItems": 4
+    },
+    {
       "id": "fondul-de-urgenta",
       "categoryId": "economii",
-      "chapterId": "siguranta-ta-financiara",
+      "chapterId": "unde-pui-banii",
       "minutes": 5,
       "xp": 30,
       "contentVersion": 2,
@@ -70,6 +1106,122 @@
       ],
       "caseWords": 156,
       "rememberItems": 5
+    },
+    {
+      "id": "unde-tii-banii-cont-depozit-numerar",
+      "categoryId": "economii",
+      "chapterId": "unde-pui-banii",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        90,
+        90,
+        93
+      ],
+      "caseWords": 132,
+      "rememberItems": 4
+    },
+    {
+      "id": "dobanda-compusa",
+      "categoryId": "economii",
+      "chapterId": "unde-pui-banii",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "calcul",
+        "scenariu",
+        "adevarat_fals"
+      ],
+      "explanationWords": [
+        96,
+        95,
+        103
+      ],
+      "caseWords": 146,
+      "rememberItems": 5
+    },
+    {
+      "id": "primul-contract-de-munca",
+      "categoryId": "primul-job",
+      "chapterId": "primul-job",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        96,
+        89,
+        92
+      ],
+      "caseWords": 130,
+      "rememberItems": 4
+    },
+    {
+      "id": "cum-citesti-un-contract",
+      "categoryId": "primul-job",
+      "chapterId": "primul-job",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        96,
+        94,
+        94
+      ],
+      "caseWords": 137,
+      "rememberItems": 4
+    },
+    {
+      "id": "munca-part-time-si-student",
+      "categoryId": "primul-job",
+      "chapterId": "primul-job",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        98,
+        94,
+        94
+      ],
+      "caseWords": 137,
+      "rememberItems": 4
     },
     {
       "id": "salariu-brut-vs-net",
@@ -96,9 +1248,9 @@
       "rememberItems": 5
     },
     {
-      "id": "ce-este-inflatia",
-      "categoryId": "economia-pe-scurt",
-      "chapterId": "preturi",
+      "id": "fluturasul-de-salariu",
+      "categoryId": "primul-job",
+      "chapterId": "salariul",
       "minutes": 5,
       "xp": 30,
       "contentVersion": 2,
@@ -107,22 +1259,297 @@
       "questions": 9,
       "questionTypes": [
         "variante",
-        "calcul",
         "adevarat_fals",
         "scenariu"
       ],
       "explanationWords": [
-        112,
-        112,
-        118
+        101,
+        94,
+        95
       ],
-      "caseWords": 153,
-      "rememberItems": 5
+      "caseWords": 134,
+      "rememberItems": 4
+    },
+    {
+      "id": "salariul-minim",
+      "categoryId": "primul-job",
+      "chapterId": "salariul",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        98,
+        95,
+        97
+      ],
+      "caseWords": 138,
+      "rememberItems": 4
+    },
+    {
+      "id": "tichete-si-beneficii",
+      "categoryId": "primul-job",
+      "chapterId": "salariul",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        97,
+        97,
+        96
+      ],
+      "caseWords": 141,
+      "rememberItems": 4
+    },
+    {
+      "id": "taxele-pe-salariu-cas-cass-impozit",
+      "categoryId": "primul-job",
+      "chapterId": "taxele",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        96,
+        92,
+        94
+      ],
+      "caseWords": 137,
+      "rememberItems": 4
+    },
+    {
+      "id": "pensia-de-ce-conteaza-de-la-primul-salariu",
+      "categoryId": "primul-job",
+      "chapterId": "taxele",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        97,
+        92,
+        93
+      ],
+      "caseWords": 136,
+      "rememberItems": 4
+    },
+    {
+      "id": "ce-faci-cu-primul-salariu",
+      "categoryId": "primul-job",
+      "chapterId": "taxele",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        92,
+        94,
+        97
+      ],
+      "caseWords": 140,
+      "rememberItems": 4
+    },
+    {
+      "id": "ce-este-creditul",
+      "categoryId": "credite-si-datorii",
+      "chapterId": "bazele-creditului",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        99,
+        96,
+        94
+      ],
+      "caseWords": 135,
+      "rememberItems": 4
+    },
+    {
+      "id": "dobanda-la-credit-si-dae",
+      "categoryId": "credite-si-datorii",
+      "chapterId": "bazele-creditului",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        95,
+        98,
+        97
+      ],
+      "caseWords": 134,
+      "rememberItems": 4
+    },
+    {
+      "id": "rata-lunara-si-costul-total",
+      "categoryId": "credite-si-datorii",
+      "chapterId": "bazele-creditului",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        94,
+        97,
+        96
+      ],
+      "caseWords": 136,
+      "rememberItems": 4
+    },
+    {
+      "id": "dobanda-fixa-vs-variabila",
+      "categoryId": "credite-si-datorii",
+      "chapterId": "bazele-creditului",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        94,
+        100,
+        94
+      ],
+      "caseWords": 141,
+      "rememberItems": 4
+    },
+    {
+      "id": "cardul-de-credit",
+      "categoryId": "credite-si-datorii",
+      "chapterId": "credite-de-zi-cu-zi",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        94,
+        99,
+        95
+      ],
+      "caseWords": 137,
+      "rememberItems": 4
+    },
+    {
+      "id": "plata-in-rate-si-cumpara-acum-plateste-mai-tarziu",
+      "categoryId": "credite-si-datorii",
+      "chapterId": "credite-de-zi-cu-zi",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        93,
+        94,
+        93
+      ],
+      "caseWords": 135,
+      "rememberItems": 4
+    },
+    {
+      "id": "creditele-rapide-ifn",
+      "categoryId": "credite-si-datorii",
+      "chapterId": "credite-de-zi-cu-zi",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        95,
+        96,
+        94
+      ],
+      "caseWords": 135,
+      "rememberItems": 4
     },
     {
       "id": "scorul-de-credit",
       "categoryId": "credite-si-datorii",
-      "chapterId": "bazele-creditului",
+      "chapterId": "datorii-si-scor",
       "minutes": 5,
       "xp": 30,
       "contentVersion": 2,
@@ -143,7 +1570,513 @@
       "rememberItems": 5
     },
     {
-      "id": "dobanda-compusa",
+      "id": "ce-se-intampla-daca-nu-ti-platesti-datoria",
+      "categoryId": "credite-si-datorii",
+      "chapterId": "datorii-si-scor",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        92,
+        92,
+        93
+      ],
+      "caseWords": 134,
+      "rememberItems": 4
+    },
+    {
+      "id": "cum-iesi-din-datorii",
+      "categoryId": "credite-si-datorii",
+      "chapterId": "datorii-si-scor",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        95,
+        93,
+        97
+      ],
+      "caseWords": 132,
+      "rememberItems": 4
+    },
+    {
+      "id": "cat-costa-sa-te-muti-singur",
+      "categoryId": "pe-cont-propriu",
+      "chapterId": "casa-ta",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        93,
+        95,
+        92
+      ],
+      "caseWords": 132,
+      "rememberItems": 4
+    },
+    {
+      "id": "chirie-si-contract-de-inchiriere",
+      "categoryId": "pe-cont-propriu",
+      "chapterId": "casa-ta",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        95,
+        93,
+        93
+      ],
+      "caseWords": 133,
+      "rememberItems": 4
+    },
+    {
+      "id": "utilitati-si-cum-citesti-o-factura",
+      "categoryId": "pe-cont-propriu",
+      "chapterId": "casa-ta",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        92,
+        95,
+        93
+      ],
+      "caseWords": 136,
+      "rememberItems": 4
+    },
+    {
+      "id": "cumperi-casa-sau-inchiriezi",
+      "categoryId": "pe-cont-propriu",
+      "chapterId": "casa-ta",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        95,
+        93,
+        89
+      ],
+      "caseWords": 132,
+      "rememberItems": 4
+    },
+    {
+      "id": "primul-telefon-sau-laptop",
+      "categoryId": "pe-cont-propriu",
+      "chapterId": "cumparaturi-mari",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        98,
+        93,
+        96
+      ],
+      "caseWords": 130,
+      "rememberItems": 4
+    },
+    {
+      "id": "asigurari-rca-locuinta-calatorie",
+      "categoryId": "pe-cont-propriu",
+      "chapterId": "cumparaturi-mari",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        94,
+        98,
+        93
+      ],
+      "caseWords": 135,
+      "rememberItems": 4
+    },
+    {
+      "id": "burse-si-costul-facultatii",
+      "categoryId": "pe-cont-propriu",
+      "chapterId": "cumparaturi-mari",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        91,
+        92,
+        96
+      ],
+      "caseWords": 130,
+      "rememberItems": 4
+    },
+    {
+      "id": "cheltuielile-din-supermarket",
+      "categoryId": "pe-cont-propriu",
+      "chapterId": "viata-de-zi-cu-zi",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        98,
+        95,
+        93
+      ],
+      "caseWords": 136,
+      "rememberItems": 4
+    },
+    {
+      "id": "cheltuieli-neprevazute",
+      "categoryId": "pe-cont-propriu",
+      "chapterId": "viata-de-zi-cu-zi",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        93,
+        96,
+        95
+      ],
+      "caseWords": 136,
+      "rememberItems": 4
+    },
+    {
+      "id": "banii-intre-prieteni-si-intr-o-relatie",
+      "categoryId": "pe-cont-propriu",
+      "chapterId": "viata-de-zi-cu-zi",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        97,
+        97,
+        96
+      ],
+      "caseWords": 139,
+      "rememberItems": 4
+    },
+    {
+      "id": "fomo-si-cheltuieli",
+      "categoryId": "de-ce-cheltuim-cum-cheltuim",
+      "chapterId": "presiunea-din-jur",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        95,
+        96,
+        96
+      ],
+      "caseWords": 132,
+      "rememberItems": 4
+    },
+    {
+      "id": "presiunea-sociala",
+      "categoryId": "de-ce-cheltuim-cum-cheltuim",
+      "chapterId": "presiunea-din-jur",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        98,
+        98,
+        99
+      ],
+      "caseWords": 136,
+      "rememberItems": 4
+    },
+    {
+      "id": "cum-vorbesti-despre-bani",
+      "categoryId": "de-ce-cheltuim-cum-cheltuim",
+      "chapterId": "presiunea-din-jur",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        101,
+        99,
+        99
+      ],
+      "caseWords": 135,
+      "rememberItems": 4
+    },
+    {
+      "id": "cheltuieli-emotionale",
+      "categoryId": "de-ce-cheltuim-cum-cheltuim",
+      "chapterId": "creierul-si-banii",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        97,
+        99,
+        100
+      ],
+      "caseWords": 139,
+      "rememberItems": 4
+    },
+    {
+      "id": "efectul-de-ancorare",
+      "categoryId": "de-ce-cheltuim-cum-cheltuim",
+      "chapterId": "creierul-si-banii",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        97,
+        99,
+        98
+      ],
+      "caseWords": 133,
+      "rememberItems": 4
+    },
+    {
+      "id": "preturile-psihologice-99-99",
+      "categoryId": "de-ce-cheltuim-cum-cheltuim",
+      "chapterId": "creierul-si-banii",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        102,
+        92,
+        100
+      ],
+      "caseWords": 125,
+      "rememberItems": 4
+    },
+    {
+      "id": "de-ce-cheltuim-mai-mult-cu-cardul-decat-cu-numerarul",
+      "categoryId": "de-ce-cheltuim-cum-cheltuim",
+      "chapterId": "creierul-si-banii",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        96,
+        96,
+        97
+      ],
+      "caseWords": 129,
+      "rememberItems": 4
+    },
+    {
+      "id": "gratificarea-imediata-vs-viitor",
+      "categoryId": "de-ce-cheltuim-cum-cheltuim",
+      "chapterId": "obiceiuri",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        99,
+        97,
+        101
+      ],
+      "caseWords": 138,
+      "rememberItems": 4
+    },
+    {
+      "id": "cheltuieli-mici-care-se-aduna",
+      "categoryId": "de-ce-cheltuim-cum-cheltuim",
+      "chapterId": "obiceiuri",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        96,
+        98,
+        96
+      ],
+      "caseWords": 134,
+      "rememberItems": 4
+    },
+    {
+      "id": "obiceiuri-bune-cu-banii",
+      "categoryId": "de-ce-cheltuim-cum-cheltuim",
+      "chapterId": "obiceiuri",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        98,
+        94,
+        98
+      ],
+      "caseWords": 130,
+      "rememberItems": 4
+    },
+    {
+      "id": "de-ce-investim",
       "categoryId": "investitii-de-la-zero",
       "chapterId": "bazele",
       "minutes": 5,
@@ -154,17 +2087,223 @@
       "questions": 9,
       "questionTypes": [
         "variante",
-        "calcul",
-        "scenariu",
-        "adevarat_fals"
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        94,
+        97,
+        98
+      ],
+      "caseWords": 136,
+      "rememberItems": 4
+    },
+    {
+      "id": "risc-si-randament",
+      "categoryId": "investitii-de-la-zero",
+      "chapterId": "bazele",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        96,
+        93,
+        98
+      ],
+      "caseWords": 133,
+      "rememberItems": 4
+    },
+    {
+      "id": "diversificarea",
+      "categoryId": "investitii-de-la-zero",
+      "chapterId": "bazele",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        95,
+        92,
+        96
+      ],
+      "caseWords": 131,
+      "rememberItems": 4
+    },
+    {
+      "id": "actiuni",
+      "categoryId": "investitii-de-la-zero",
+      "chapterId": "instrumente",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        95,
+        95,
+        97
+      ],
+      "caseWords": 133,
+      "rememberItems": 4
+    },
+    {
+      "id": "obligatiuni-si-titluri-de-stat",
+      "categoryId": "investitii-de-la-zero",
+      "chapterId": "instrumente",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        95,
+        93,
+        93
+      ],
+      "caseWords": 134,
+      "rememberItems": 4
+    },
+    {
+      "id": "etf-uri-si-fonduri",
+      "categoryId": "investitii-de-la-zero",
+      "chapterId": "instrumente",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        98,
+        96,
+        102
+      ],
+      "caseWords": 136,
+      "rememberItems": 4
+    },
+    {
+      "id": "cum-functioneaza-bursa",
+      "categoryId": "investitii-de-la-zero",
+      "chapterId": "instrumente",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        93,
+        91,
+        94
+      ],
+      "caseWords": 131,
+      "rememberItems": 4
+    },
+    {
+      "id": "investesti-vs-speculezi",
+      "categoryId": "investitii-de-la-zero",
+      "chapterId": "atentie-la-capcane",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
       ],
       "explanationWords": [
         96,
         95,
-        103
+        91
       ],
-      "caseWords": 146,
-      "rememberItems": 5
+      "caseWords": 136,
+      "rememberItems": 4
+    },
+    {
+      "id": "crypto-ce-trebuie-sa-stii",
+      "categoryId": "investitii-de-la-zero",
+      "chapterId": "atentie-la-capcane",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        98,
+        97,
+        95
+      ],
+      "caseWords": 141,
+      "rememberItems": 4
+    },
+    {
+      "id": "cum-incepi-cu-sume-mici",
+      "categoryId": "investitii-de-la-zero",
+      "chapterId": "atentie-la-capcane",
+      "minutes": 5,
+      "xp": 30,
+      "contentVersion": 2,
+      "formatVersion": 2,
+      "steps": 16,
+      "questions": 9,
+      "questionTypes": [
+        "variante",
+        "adevarat_fals",
+        "scenariu"
+      ],
+      "explanationWords": [
+        97,
+        96,
+        101
+      ],
+      "caseWords": 139,
+      "rememberItems": 4
     }
   ],
   "invalidContentRejected": true,

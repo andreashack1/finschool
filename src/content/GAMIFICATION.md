@@ -3,19 +3,18 @@
 `gamification-config.ts` este unica sursă pentru economia XP, niveluri, obiectivul
 zilnic, freeze-uri și rotația provocărilor. Configul și conținutul sunt validate
 cu Zod la import/build. `progress.ts` este API-ul public: transformări pure cu
-`now: Date` injectat, selectori și o graniță explicită de storage. `use-progress.ts`
-serializează acțiunile, recitește starea canonică și face o singură salvare per
-tranzacție. Web Locks și evenimentul storage sincronizează taburile disponibile.
+`now: Date` injectat și selectori. `use-progress.ts` serializează dovezile din
+coada per cont și înlocuiește starea cu snapshot-ul cloud. Web Locks și evenimentul
+storage sincronizează taburile disponibile. Motorul pur nu scrie localStorage.
 
 ## Storage
 
-Cheia existentă `finly-progress-v2` conține acum `version: 2`. Lipsa versiunii și
-versiunile vechi sunt date de test și se resetează intenționat, fără migrare.
-Un utilizator nou pornește cu 0 XP, Money Beginner, streak 0 și un freeze.
-V2 se normalizează sigur; JSON corupt pornește curat, ID-urile XP duplicate sunt
-numărate o singură dată. O versiune viitoare este read-only și nu este suprascrisă.
-Cheile vechi nu mai sunt citite. Când storage nu este disponibil, se continuă în
-memorie. Aplicația rămâne locală, fără backend sau garanții anti-cheat server-side.
+Pentru cont, Supabase este sursa de adevăr: jurnal XP, lecții, activitate, freeze,
+realizări și provocări zilnice. Next calculează mutațiile cu acest motor și le
+persistă atomic. Cache-ul local și coada offline sunt separate pe userId; datele
+locale istorice de test nu sunt importate. Singura excepție fără cont este trial-ul
+primei lecții, cu dovezi temporare și resume, importat după autentificare.
+Vezi `supabase/SETUP.md` și `supabase/security-checklist.md`.
 
 Obiectul persistat conține jurnalul `xp_events`, `lessonStats`, activitățile și
 freeze-urile pe date locale, balanța și ultima săptămână de grant, răspunsurile
@@ -88,14 +87,13 @@ activitatea de protecție. Mișcarea este discretă și respectă reduced motion
 
 - `npm test`: Vitest și verificările conținutului/curriculumului, inclusiv integritatea
   exactă a textelor, ID-urilor, screen order și metadatelor lecțiilor.
-- `node scripts/verify-gamification.cjs`: QA de producție la 375/390/430/1440 px,
-  reset v2, pending XP, replay, daily goal, refresh, simulator, shuffle și Axe.
-- `node scripts/verify-gamification-moments.cjs`: level-up, focus/Escape, freeze și
-  persistența notificărilor la aceleași dimensiuni.
-- `node scripts/verify-gamification-dev.cjs`: panoul development-only, reset,
-  calendar virtual, debug XP și finalizare prin acțiunea reală de domeniu.
+- `node scripts/verify-account-local.mjs`: browser la 375/390/430/1440 px, Auth
+  simulat și migrarea PostgreSQL reală; signup, trial, mutații, refresh, recovery,
+  două browsere, forme, keyboard, focus și lipsa flashului de cache local.
+- Entry-pointurile vechi `verify-gamification*.cjs`, `verify-curriculum-browser.cjs`,
+  `verify-accessibility.cjs` și `verify-option-shuffle-browser.cjs` sunt aliasuri
+  către suita de cont. Nu mai injectează progres permanent local sau panou dev.
 - `npm run lint` și `npm run build` verifică integrarea finală.
 
-Scripturile browser primesc `FINLY_PLAYWRIGHT_PATH`, `FINLY_AXE_PATH` și opțional
-`FINLY_BASE_URL` / `FINLY_DEV_URL`. Panoul dev este exclus din UI și chunk-urile
-producției; nu implementează reguli alternative de recompensare.
+Suita locală folosește `FINLY_PLAYWRIGHT_PATH` și porturile 3115/3116. Panoul dev
+și stuburile sale au fost eliminate; testele motorului rămân în `npm test`.

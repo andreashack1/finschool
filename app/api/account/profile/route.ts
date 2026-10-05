@@ -1,0 +1,10 @@
+import { NextResponse } from 'next/server';
+import { z } from 'zod';
+import { requireUser,serverSupabase } from '../../../../src/lib/supabase/server';
+import { adminSupabase } from '../../../../src/lib/supabase/admin';
+import { ProfileUpdateSchema } from '../../../../src/lib/account/schemas';
+import { AccountError } from '../../../../src/lib/account/errors';
+import { apiError,sameOrigin,readBody,requireAccountContext } from '../../../../src/lib/account/http';
+import { getAccountSnapshot } from '../../../../src/lib/account/repository';
+export async function POST(request:Request) {try{sameOrigin(request);const user=await requireUser();requireAccountContext(request,user);const parsed=ProfileUpdateSchema.safeParse(await readBody(request));if(!parsed.success)throw new AccountError('VALIDATION_ERROR');await getAccountSnapshot(user);const {error}=await adminSupabase().rpc('update_account_profile',{p_user:user.id,p_username:parsed.data.username,p_display_name:parsed.data.displayName || null});if(error){if(error.code==='23505')throw new AccountError('USERNAME_TAKEN',409);if(['23514','P0001','22P02'].includes(error.code))throw new AccountError('VALIDATION_ERROR');throw new AccountError('SERVER_ERROR',503);}return NextResponse.json(await getAccountSnapshot(user));}catch(error){return apiError(error);}}
+export async function DELETE(request:Request) {try{sameOrigin(request);const user=await requireUser();requireAccountContext(request,user);const parsed=z.object({confirmation:z.string()}).strict().safeParse(await readBody(request));if(!parsed.success)throw new AccountError('VALIDATION_ERROR');const value=parsed.data;const admin=adminSupabase();const {data,error}=await admin.from('profiles').select('username').eq('id',user.id).single();if(error || data?.username!==value.confirmation)throw new AccountError('VALIDATION_ERROR');const deleted=await admin.auth.admin.deleteUser(user.id);if(deleted.error)throw new AccountError('SERVER_ERROR',503);await (await serverSupabase()).auth.signOut({scope:'local'});return NextResponse.json({ok:true},{headers:{'Cache-Control':'no-store'}});}catch(error){return apiError(error);}}

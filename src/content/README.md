@@ -1,135 +1,80 @@
 # Conținutul Finly
 
-`categories.ts` declară cele 12 categorii, dificultatea, ordinea și capitolele.
-Capitolele conțin numai ID-uri de lecție. `lessons/coming-soon.ts` păstrează metadata,
-iar fiecare lecție publicată are un fișier separat. Curriculumul are 119 lecții:
-șapte sunt gata: Salariu brut vs. net și cele șase lecții publicate în acest update.
+Curriculumul activ are **100 de lecții gata**, în **10 categorii** și **30 de capitole**.
+Fiecare categorie are zece lecții. `categories.ts` declară ordinea pedagogică,
+iar `lessons/index.ts` importă explicit fișierele statice și validează întregul arbore.
+Nu există lecții „În curând” în curriculumul activ.
 
-## Publicarea unei lecții
+## Formatul lecțiilor
 
-1. Creează un fișier în `lessons/` cu un `ReadyLesson`.
-2. Importă lecția în `lessons/index.ts` și adaug-o în lista `content`.
-3. Scoate metadata acelui ID din `comingSoonLessons`. Pentru o lecție nouă,
-   adaugă ID-ul în capitolul potrivit din `categories.ts`.
-4. Folosește un ID stabil, fără diacritice; păstrează ID-urile deja publicate.
+Toate cele 100 de lecții au `formatVersion: 2`, `contentVersion: 2`, cinci minute,
+16 pași și nouă întrebări. Pașii sunt: situație, explicație, două întrebări,
+explicație, două întrebări, caz, trei întrebări despre caz, explicație,
+două întrebări, „Ține minte” și final.
 
-Nu trebuie modificat player-ul, Home, progresul sau JSX-ul categoriilor.
-Ordinea categorii → capitole → ID-uri este ordinea pedagogică.
-Blocarea este liniară în fiecare categorie și ignoră lecțiile nepublicate.
+Explicațiile au 2–4 paragrafe și 80–150 de cuvinte; cazul are 120–200.
+Cele trei întrebări de caz folosesc același `caseId`. Recapitularea are 4–6 puncte,
+cu acțiunea „Ce poți face azi” la final. Schema impune ordinea, feedback-ul și
+cel puțin trei tipuri de întrebări. Datele invalide opresc importul/build-ul.
 
-`types/learning-schema.ts` definește schemele Zod și ecranele:
-`situatie`, `explicatie`, `variante`, `adevarat_fals`, `scenariu`, `calcul`,
-`recap`, `caz_real`, `tine_minte`, `final`. Tipurile TypeScript sunt derivate din scheme.
-Cele șapte lecții gata folosesc `contentVersion: 2`, `formatVersion: 2`, 5 minute și XP-ul existent.
-`formatVersion` selectează arhitectura pedagogică; `contentVersion` identifică revizia
-conținutului pentru siguranța sesiunii. O revizie a unei lecții legacy nu îi schimbă formatul.
-Formatul extins are 16 pași și 9 întrebări: situație, explicație, două întrebări,
-explicație, două întrebări, caz, trei întrebări de caz, explicație, două întrebări,
-Ține minte și final. Conținutul rapid vechi poate folosi în continuare recap.
-Explicațiile au 2–4 paragrafe și 80–150 de cuvinte, plus exemplu/detaliu opțional.
-Cazul are 120–200 de cuvinte și un `caseId` stabil, referit de cele trei întrebări.
-Ține minte are 4–6 puncte; ultimul este acțiunea „Ce poți face azi”.
-Schema impune ordinea, lungimile, feedback-ul și minimum trei tipuri de întrebări.
-O lecție extinsă invalidă oprește dezvoltarea/build-ul cu ID-ul și regula încălcată.
-Întrebările au 3–4 variante, feedback și răspuns blocat după selecție.
+Cele 48 de lecții finalizate în această etapă sunt în categoriile:
+primul job (9), credite (9), pe cont propriu (10), comportament (10), investiții (10).
+Sursele oficiale relevante sunt păstrate în `sourceUrls` și se pot deschide
+din ecranul „Ține minte”. Exemplele numerice sunt ipotetice; lecția despre salariul
+minim cere verificarea regulii actuale, fără să fixeze un prag care se poate schimba.
 
-Registry-ul validează întreg arborele la import, inclusiv în production build:
-ID-uri, ordinea categoriilor, referințe, apartenență, opțiuni corecte,
-ecrane duplicate, recap și final. Datele invalide produc erori explicite.
+## Editare și integrare
 
-## Progres, compatibilitate și XP
+Editează direct fișierul lecției din `lessons/`. Tipurile sunt în
+`types/learning-schema.ts`. Păstrează ID-urile întrebărilor dacă sensul lor rămâne
+același; pentru conținut nou, folosește ID-uri noi și crește `contentVersion`.
+`formatVersion` identifică arhitectura pedagogică, separat de revizia conținutului.
 
-Sursa unică este acum `finly-progress-v2`, obiect versionat cu schema 1.
-`finly-learning-progress-v1` este citit numai la migrare și nu este șters.
-Progresul categorie/capitol se derivă numai din
-lecțiile gata din curriculum. Zero lecții disponibile înseamnă „În curând”.
-Home caută prima lecție gata, neterminată și accesibilă în ordinea curriculumului,
-prioritizând ultima lecție începută dacă este încă disponibilă.
+Sursele editoriale ale ultimelor 48 de lecții sunt `scripts/curriculum-*.cjs`.
+`node scripts/author-remaining-lessons.cjs` generează fișiere statice; nu este
+folosit la runtime și suprascrie aceste 48 de fișiere cu sursa editorială.
+`scripts/final-curriculum-map.cjs` păstrează harta celor 100 de titluri.
+`node scripts/integrate-curriculum.cjs` generează harta și registry-ul static;
+păstrează ID-urile celor șapte lecții publicate anterior.
 
-Toate cele șase ID-uri de categorie existente sunt păstrate:
-primul-job, bani-de-zi-cu-zi, carduri-si-banca, economii, siguranta-financiara,
-economia-pe-scurt. Titlurile și organizarea capitolelor s-au schimbat.
-Toate vechile ID-uri de lecție rămân rezolvabile; cele retrase din curriculum
-sunt metadata de compatibilitate și nu intră în numărătoare/progres.
-Titlul „Inflația” păstrează ID-ul și URL-ul `ce-este-inflatia`.
+## Progres și compatibilitate
 
-La migrare se reunesc completările din v1 și din vechiul `finly-progress-v2`,
-inclusiv aliasurile salary, inflatie, carduri și buget. ID-urile necunoscute din
-v1 sunt păstrate. JSON corupt sau localStorage indisponibil nu provoacă crash.
-Salvarea funcționează în memorie chiar când storage e blocat.
-Evenimentele storage sincronizează taburile; SSR folosește snapshot gol.
+Deblocarea este liniară în fiecare categorie, cu prima lecție disponibilă
+independent în fiecare dintre cele zece categorii. Home caută prima lecție
+neterminată și accesibilă, prioritizând ultima lecție începută dacă este accesibilă.
+Progresul categoriei folosește cele zece lecții active; după una terminată este 10%.
 
-Poziția, răspunsurile și încercările unei sesiuni sunt doar în memoria player-ului,
-nu în localStorage. Reîncărcarea începe la primul pas. Cheia React include
-`lesson.id:contentVersion`, astfel încât o schimbare de conținut repornește sesiunea.
-Versiunea conținutului nu schimbă versiunea storage-ului și nu resetează completări,
-ledger, XP, mastery, realizări sau streak. ID-urile întrebărilor păstrează sensul
-vechi acolo unde acesta este același; întrebările diferite au ID-uri noi.
-Contorul întrebărilor se derivă numai din ecranele interactive; bara numără toți pașii.
-Dialogul „Recitește cazul” și accordionul sunt UI local, fără efect asupra scorului.
+ID-urile și ecranele celor șapte lecții publicate au fost păstrate. „Inflația”
+continuă să folosească URL-ul `ce-este-inflatia`, iar „Primul tău buget” folosește
+`primul-buget`. Reorganizarea mută apartenența unor lecții fără să schimbe răspunsurile
+sau completările. Progresul unei categorii poate avea un procent mai mic deoarece
+acum include mai multe lecții; completările și XP-ul câștigat rămân păstrate.
 
-XP, streak, provocarea zilei, simulatorul și realizările folosesc motorul pur
-`src/lib/progress.ts` și același obiect persistent. Completion se salvează numai
-la intrarea pe final. Ledger-ul recompenselor împiedică XP duplicat.
-Regulile și migrarea sunt documentate în [GAMIFICATION.md](GAMIFICATION.md).
+`archive/retired-lessons.ts` păstrează 103 metadata vechi pentru rezolvarea URL-urilor,
+fără a le include în cele 100, deblocare ori recompense. Player-ul arată o explicație
+pentru aceste URL-uri și trimite la catalog. Lecția rapidă `card-debit-vs-credit`
+este păstrată separat; ruta rapidă pentru buget folosește obiectul publicat.
+Linkurile vechi `cum-functioneaza-banii` și `economia-pe-scurt` duc la
+`cuvintele-banilor`; categoria retrasă de afaceri duce la catalog.
 
-Rutele rapide existente de buget și carduri sunt păstrate, pe
-`/rapid?lesson=buget` și `/rapid?lesson=carduri`, cu același player generic,
-aceleași ID-uri. Bugetul folosește acum lecția publicată de 30 XP din registry.
-Doar cardurile rămân conținut rapid separat, fără să crească denominatorul
-curriculumului. Bugetul publicat contează acum în progresul categoriei.
-`/rapid?lesson=salary`, `/rapid?lesson=inflatie` și `/lectie` rămân compatibile.
+Progresul contului este păstrat în Supabase și mapat la ProgressState v2.
+Vechiul progres local de test nu este importat. Numai trial-ul primei lecții
+folosește stare temporară cu resume; cache-ul și coada sunt separate pe userId.
+Economia de replay este păstrată. Vezi `supabase/SETUP.md`.
 
-## Date fiscale
+## Verificări
 
-`ro-facts.ts` centralizează datele fiscale și exemplul de calcul, validate prin
-Zod. verifiedAt este 2026-10-03. Surse: Codul fiscal ANAF (art. 77, 78, 138, 156)
-și instrucțiunile D112 din Ordinul 605/2026.
-Exemplul exclude deduceri, facilități și alte rețineri. Titlurile nu includ cote
-fiscale. Inflația explică creșterea generală a nivelului prețurilor, conform BCE.
-Datele și URL-urile surselor nu apar ca informații de debug în UI.
+- `npm test`: teste de cont, auth, SQL/RLS, sincronizare, gamification, shuffle și recompense pentru toate lecțiile,
+  100 de formate extinse, harta canonică, arhiva, deblocarea și păstrarea progresului.
+- `node scripts/validate-authored-lessons.cjs`: verifică toate cele 93 de lecții noi,
+  inclusiv existența fișierelor și minimum jumătate de întrebări aplicate.
+- `node scripts/verify-curriculum-browser.cjs`: alias de compatibilitate către
+  `verify-account-local.mjs`, care testează playerul și progresul prin API-urile cloud,
+  cu Auth simulat și migrarea PostgreSQL reală, pe mobil și desktop.
+- `npm run lint` și `npm run build`: verificări de cod și build de producție.
 
-## Verificare
-
-- `node scripts/verify-learning.cjs`: schema, referințe invalide, ID-uri vechi,
-  numărătoare, progres, deblocare și storage/migrare.
-- `node scripts/verify-extended-lessons.cjs`: toate cele șapte formate extinse,
-  fixture-uri invalide, XP perfect/replay și păstrarea progresului existent.
-- `node scripts/verify-session-safety.cjs`: reload în mijlocul lecției,
-  utilizator cu recompense deja câștigate, o singură greșeală, replay perfect,
-  dialog neutru și focus de tastatură la 375, 390, 430 și 1440 px.
-- `node scripts/verify-lesson.cjs`: browser, toate cele șapte lecții gata, rutele rapide vechi,
-  feedback, caz/dialog, Ține minte, contoare, final, XP fără farming, refresh, Home, provocare și simulator;
-  375, 390, 430 și 1440 px; cazuri storage gol, valid, complet și corupt.
-- `node scripts/verify-accessibility.cjs`: axe WCAG pe pagini, player,
-  feedback, recap și final.
-- `npm run lint`, apoi `npm run build`.
-
-Testele de browser acceptă FINLY_PLAYWRIGHT_PATH, FINLY_AXE_PATH și FINLY_BASE_URL.
-Implicit serverul de test este http://127.0.0.1:3100. Nu sunt dependențe runtime.
-
-## Ordinea variantelor
-
-`variante` și `scenariu` folosesc implicit shuffle în player. Declară `shuffle: false`
-când textul depinde de ordine (de exemplu „Toate cele de mai sus” sau referințe la
-litere/poziții). Nu reordona static acele întrebări. Adevărat/Fals și `calcul`
-păstrează ordinea existentă și sunt excluse din shuffle și balansarea statică.
-
-`src/lib/lesson-options.ts` implementează Fisher–Yates pe copie, cu seed derivat
-din sesiune, lesson ID și screen ID. Player-ul inițializează seed-ul numai după
-hydration și îl schimbă la replay. Re-randările și recitirea cazului păstrează
-ordinea; corectitudinea, selecția și feedback-ul urmăresc ID-ul opțiunii.
-Seed-ul nu este salvat în localStorage, deoarece sesiunea existentă se resetează
-deja la refresh. Nu este necesară schimbarea contentVersion pentru reorder.
-
-Registry-ul validează toate lecțiile ready, inclusiv conținutul rapid legacy:
-maximum două poziții corecte identice consecutiv în succesiunea întrebărilor
-eligibile; distribuție cu diferență maximum unu per grup de 3/4 opțiuni, pentru
-grupuri de cel puțin trei întrebări. `shuffle: false` este o excepție explicită.
-Conținutul static nu este randomizat la build.
-
-- `node scripts/verify-answer-options.cjs`: integritatea exactă a textelor,
-  ID-urilor și metadata față de snapshot; balansare, shuffle, excepții și XP/mastery.
-- `node scripts/verify-option-shuffle-browser.cjs`: ordine stabilă după feedback,
-  resize și modal; shortcut-uri vizuale, highlights, replay și Ochi format la
-  375/390/430/1440 px.
+Rapoartele sunt în `artifacts/curriculum-complete-validation.json`,
+`artifacts/extended-content-validation.json`, `artifacts/answer-options-distribution.json`
+și `artifacts/curriculum-complete-browser.json`.
+Testul de browser acceptă `FINLY_PLAYWRIGHT_PATH` și `FINLY_BASE_URL`;
+implicit folosește `http://127.0.0.1:3100`.

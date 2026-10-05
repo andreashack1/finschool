@@ -14,7 +14,7 @@ export function GamificationMoments() {
   const nextAchievement = achievements.find(a => p.achievementUnlocks[a.id] && !p.seenAchievementToastIds.includes(a.id));
   const nextFreeze = p.freezeDates.find(d => !p.seenFreezeToastDates.includes(d));
   useEffect(() => {
-    if (!p.hydrated || levelUp || toast || freeze) return;
+    if (!p.hydrated || !p.userId || !p.notificationsReady || levelUp || toast || freeze) return;
     const timer = window.setTimeout(() => {
       // Rewards never cover an active question. Domain unlocks are committed at
       // completion, then displayed once its summary has rendered.
@@ -24,7 +24,7 @@ export function GamificationMoments() {
       else if (nextFreeze) setFreeze(nextFreeze);
     }, gamificationConfig.ui.momentDelayMs);
     return () => window.clearTimeout(timer);
-  }, [p.hydrated, p.pendingLevelUp, nextAchievement, nextFreeze, levelUp, toast, freeze]);
+  }, [p.hydrated, p.userId, p.notificationsReady, p.pendingLevelUp, nextAchievement, nextFreeze, levelUp, toast, freeze]);
   useEffect(() => {
     if (!levelUp || !dialog.current) return;
     returnFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;

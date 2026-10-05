@@ -4,7 +4,7 @@ export const emergencyFundLesson: ReadyLesson = {
   "id": "fondul-de-urgenta",
   "slug": "fondul-de-urgenta",
   "categoryId": "economii",
-  "chapterId": "siguranta-ta-financiara",
+  "chapterId": "unde-pui-banii",
   "title": "Fondul de urgență",
   "description": "Bani puși separat pentru surprize reale.",
   "minutes": 5,

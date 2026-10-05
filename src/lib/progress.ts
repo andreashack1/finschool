@@ -10,7 +10,6 @@ import { addCalendarDays, getBucharestDateKey, getBucharestWeekKey, isDateKey } 
 import { shuffleOptions } from "./lesson-options";
 export { getBucharestDateKey, getBucharestWeekKey } from "./bucharest-date";
 export { SIMULATOR_COMPLETION_XP } from "../content/gamification-config";
-export const PROGRESS_STORAGE_KEY = "finly-progress-v2";
 export const PROGRESS_VERSION = config.storageVersion;
 export const SIMULATOR_ID = config.simulatorId;
 export const initialSimulation: SimulationState = { step: 0, balance: 3500, savings: 0, history: [] };
@@ -200,19 +199,5 @@ export const markAchievementToastSeen = (p: ProgressState, id: string): Progress
 export const markFreezeToastSeen = (p: ProgressState, date: string): ProgressState => ({ ...p, seenFreezeToastDates: [...new Set([...p.seenFreezeToastDates, date])] });
 export const markLevelCelebrated = (p: ProgressState): ProgressState => ({ ...p, pendingLevelUp: null });
 export const setLastLesson = (p: ProgressState, id: string, now: Date): ProgressState => ({ ...reconcileCalendar(p, now), lastLessonId: id });
-function browserStorage() { try { return typeof window === "undefined" ? null : window.localStorage; } catch { return null; } }
-export function loadProgress(now: Date) {
-  const storage = browserStorage(); let raw: unknown = null;
-  try { raw = JSON.parse(storage?.getItem(PROGRESS_STORAGE_KEY) ?? "null"); } catch { /* Corrupt test/storage data safely starts clean. */ }
-  const future = typeof object(raw).version === "number" && (object(raw).version as number) > PROGRESS_VERSION;
-  if (future && process.env.NODE_ENV === "development") console.warn("Finly: future progress schema is read-only; stored data will not be overwritten.");
-  const progress = normalizeProgress(raw, now);
-  return { progress, persisted: Boolean(storage && raw && !future), changed: !future && JSON.stringify(raw) !== JSON.stringify(progress), readOnly: future };
-}
-export function saveProgress(p: ProgressState): boolean {
-  const storage = browserStorage(); if (!storage) return false;
-  try { const saved = JSON.parse(storage.getItem(PROGRESS_STORAGE_KEY) ?? "null"); if (typeof saved?.version === "number" && saved.version > PROGRESS_VERSION) return false; } catch { /* Replace corrupt JSON only. */ }
-  try { storage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(ProgressSchema.parse(p))); return true; } catch { return false; }
-}
 
 

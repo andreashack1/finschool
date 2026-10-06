@@ -1,0 +1,55 @@
+[account/auth] {
+  stage: 'supabase-client',
+  code: 'RATE_LIMITED',
+  message: 'Mai așteaptă puțin înainte de o nouă încercare.'
+}
+[account/auth] {
+  stage: 'supabase-signup',
+  code: 'over_email_send_rate_limit',
+  message: 'email rate limit exceeded'
+}
+[account/auth] {
+  stage: 'supabase-signup',
+  code: 'RATE_LIMITED',
+  message: 'Mai așteaptă puțin înainte de o nouă încercare.'
+}
+[account/auth] {
+  stage: 'supabase-signup',
+  code: 'over_email_send_rate_limit',
+  message: 'email rate limit exceeded'
+}
+[account/auth] {
+  stage: 'supabase-signup',
+  code: 'RATE_LIMITED',
+  message: 'Mai așteaptă puțin înainte de o nouă încercare.'
+}
+[account/auth] {
+  stage: 'supabase-signup',
+  code: 'over_email_send_rate_limit',
+  message: 'email rate limit exceeded'
+}
+[account/auth] {
+  stage: 'supabase-signup',
+  code: 'RATE_LIMITED',
+  message: 'Mai așteaptă puțin înainte de o nouă încercare.'
+}
+[account/auth] {
+  stage: 'supabase-signup',
+  code: 'over_email_send_rate_limit',
+  message: 'email rate limit exceeded'
+}
+[account/auth] {
+  stage: 'supabase-signup',
+  code: 'RATE_LIMITED',
+  message: 'Mai așteaptă puțin înainte de o nouă încercare.'
+}
+[account/auth] {
+  stage: 'supabase-signup',
+  code: 'over_email_send_rate_limit',
+  message: 'email rate limit exceeded'
+}
+[account/auth] {
+  stage: 'supabase-signup',
+  code: 'RATE_LIMITED',
+  message: 'Mai așteaptă puțin înainte de o nouă încercare.'
+}

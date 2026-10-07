@@ -2,3 +2,12 @@
 
 .account-field>label{margin-bottom:8px}
 .account-sync{pointer-events:none}
+.account-card:has(.legal-document){max-width:760px}
+.legal-document{overflow-wrap:anywhere}
+.legal-document .legal-draft{background:#eaf7ff;border:1px solid #c7e6f8;border-radius:12px;padding:14px;font-weight:600}
+.legal-document nav{border-block:1px solid #e1e8ef;padding-block:16px;margin-block:24px}
+.legal-document h2{font-size:21px;line-height:1.35;margin-bottom:12px}
+.legal-document ol,.legal-document ul{padding-left:24px;list-style:revert}
+.legal-document li{line-height:1.6;margin-block:6px}
+.legal-document section{margin-top:32px;scroll-margin-top:24px}
+.legal-document a:focus-visible,.account-check a:focus-visible,.account-settings a:focus-visible{outline:3px solid #b9e5ff;outline-offset:3px;border-radius:3px}

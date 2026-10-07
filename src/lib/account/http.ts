@@ -14,7 +14,18 @@ export function sameOrigin(request: Request) {
   // Next may construct request.url with an internal hostname behind proxying.
   // Compare the browser Origin to our configured public origin, never a
   // client-supplied forwarded host or the internal runtime URL.
-  if (!origin || origin !== appUrl()) throw new AccountError('ORIGIN_REJECTED', 403);
+  if (origin === appUrl()) return;
+  // A local dev server may choose another port when the configured one is
+  // occupied. Only trust loopback origins on this request's protocol + port;
+  // production still requires the canonical origin, never forwarded headers.
+  if (origin && process.env.NODE_ENV === 'development') {
+    try {
+      const browserOrigin = new URL(origin), requestUrl = new URL(request.url);
+      const loopback = (hostname:string) => ['localhost','127.0.0.1','[::1]'].includes(hostname);
+      if (loopback(browserOrigin.hostname) && loopback(requestUrl.hostname) && browserOrigin.protocol === requestUrl.protocol && browserOrigin.port === requestUrl.port) return;
+    } catch { /* Reject malformed origins. */ }
+  }
+  throw new AccountError('ORIGIN_REJECTED', 403);
 }
 export async function readBody(request:Request):Promise<unknown> {
   const text=await request.text();if(Buffer.byteLength(text,'utf8')>65536)throw new AccountError('VALIDATION_ERROR',413);

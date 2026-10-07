@@ -39,6 +39,11 @@ describe('Account queue runtime',()=>{
   it('validation rejection removes operation and rolls back cache',async()=>{postMode='invalid';await expect(runtime.finishLessonSession(session())).rejects.toThrow();expect(storage.readQueue(a)).toEqual([]);expect(getTotalXp(storage.readAccountCache(a)!.progress)).toBe(0);});
   it('401 preserves A queue but clears cache; B never sends A operations',async()=>{online=false;const input=session();await runtime.finishLessonSession(input);online=true;postMode='401';await runtime.flushProgressQueue();expect(storage.readQueue(a)).toHaveLength(1);expect(storage.readAccountCache(a)).toBeNull();dispose?.();activeUser=b;postMode='success';dispose=runtime.initializeAccount(b);await runtime.refreshProgress();await runtime.flushProgressQueue();expect(posts.every(value=>value.startsWith(a+':'))).toBe(true);expect(getTotalXp(storage.readAccountCache(b)!.progress)).toBe(0);expect(storage.readQueue(a)).toHaveLength(1);});
   it('explicit logout clears cache and pending queue',async()=>{online=false;await runtime.finishLessonSession(session());runtime.cleanupAccount();expect(storage.readQueue(a)).toEqual([]);expect(storage.readAccountCache(a)).toBeNull();});
+  it('failed logout hides A and clears only A local data, preserving trial and B',async()=>{
+    online=false;await runtime.finishLessonSession(session());storage.writeAccountCache(snapshots.get(b)!);values.set('finly-onboarding-progress:v1','temporary-trial');
+    runtime.cleanupAccount(true);expect(storage.readQueue(a)).toEqual([]);expect(storage.readAccountCache(a)).toBeNull();expect(storage.readAccountCache(b)?.userId).toBe(b);expect(values.get('finly-onboarding-progress:v1')).toBe('temporary-trial');
+    await runtime.refreshProgress();expect(storage.readAccountCache(a)).toBeNull();await expect(runtime.finishLessonSession(session())).rejects.toThrow();
+  });
   it('denied storage keeps pending evidence in memory and synchronizes it',async()=>{
     vi.stubGlobal('localStorage',{getItem:()=>{throw Error('denied');},setItem:()=>{throw Error('denied');},removeItem:()=>{throw Error('denied');}});
     online=false;await runtime.finishLessonSession(session());expect(storage.readQueue(a)).toHaveLength(1);

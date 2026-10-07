@@ -1,0 +1,30 @@
+▲ Next.js 16.3.8 (Turbopack)
+- Local:         http://localhost:3115
+- Network:       http://0.0.0.0:3115
+- Environments: .env.local
+✓ Ready in 679ms
+✓ Running next.config.ts took 43ms
+
+ GET /bun-venit 200 in 773ms (next.js: 141ms, proxy.ts: 7ms, application-code: 624ms)
+ GET / 200 in 909ms (next.js: 24ms, proxy.ts: 711ms, application-code: 174ms)
+ GET /api/progress 200 in 1264ms (next.js: 225ms, proxy.ts: 81ms, application-code: 958ms)
+ GET /api/progress 200 in 1269ms (next.js: 6ms, proxy.ts: 530ms, application-code: 733ms)
+ GET /lectii 200 in 494ms (next.js: 25ms, proxy.ts: 364ms, application-code: 105ms)
+ GET /lectii/cuvintele-banilor 200 in 1027ms (next.js: 751ms, proxy.ts: 125ms, application-code: 150ms)
+ GET /lectii/cuvintele-banilor 200 in 215ms (next.js: 36ms, proxy.ts: 145ms, application-code: 34ms)
+ GET /lectii/cuvintele-banilor 200 in 107ms (next.js: 5ms, proxy.ts: 90ms, application-code: 11ms)
+ GET /?tab=profile 200 in 565ms (next.js: 3ms, proxy.ts: 447ms, application-code: 115ms)
+ GET /?tab=simulator 200 in 168ms (next.js: 4ms, proxy.ts: 76ms, application-code: 89ms)
+ GET /api/progress 200 in 602ms (next.js: 2ms, proxy.ts: 122ms, application-code: 478ms)
+ GET /?tab=profile 200 in 273ms (next.js: 3ms, proxy.ts: 169ms, application-code: 101ms)
+ GET / 200 in 130ms (next.js: 4ms, proxy.ts: 122ms, application-code: 4ms)
+ GET / 200 in 166ms (next.js: 3ms, proxy.ts: 71ms, application-code: 93ms)
+ POST /api/progress 200 in 776ms (next.js: 2ms, proxy.ts: 173ms, application-code: 600ms)
+ POST /api/progress 200 in 522ms (next.js: 2ms, proxy.ts: 86ms, application-code: 434ms)
+ GET /?tab=profile 200 in 269ms (next.js: 5ms, proxy.ts: 156ms, application-code: 109ms)
+ GET /api/progress 200 in 252ms (next.js: 5ms, proxy.ts: 82ms, application-code: 164ms)
+ GET / 200 in 92ms (next.js: 5ms, proxy.ts: 84ms, application-code: 3ms)
+ GET / 200 in 160ms (next.js: 3ms, proxy.ts: 68ms, application-code: 88ms)
+ GET /lectie/venit-cheltuieli-si-ce-ramane 200 in 832ms (next.js: 669ms, proxy.ts: 74ms, application-code: 89ms)
+ POST /api/progress 200 in 412ms (next.js: 2ms, proxy.ts: 76ms, application-code: 333ms)
+ POST /api/progress 200 in 386ms (next.js: 6ms, proxy.ts: 67ms, application-code: 313ms)

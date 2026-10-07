@@ -17,8 +17,30 @@ beforeEach(()=>{jar.clear();requests=[];vi.stubEnv('NEXT_PUBLIC_SUPABASE_URL','h
 afterEach(()=>{vi.unstubAllGlobals();vi.unstubAllEnvs();});
 const request=(action:string,data?:unknown,origin='https://finly.test')=>POST(new Request('https://finly.test/api/account/auth',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json',...(action==='update'?{'X-Finly-Account':id}:{})},body:JSON.stringify({action,data})}));
 describe('Auth route contract with real SSR SDK and mocked provider transport',()=>{
+  it('development accepts only the actual loopback request port, without weakening production',()=>{
+    vi.stubEnv('NEXT_PUBLIC_APP_URL','http://localhost:3115');vi.stubEnv('NODE_ENV','development');
+    expect(()=>sameOrigin(new Request('http://localhost:3000/api/account/auth',{headers:{Origin:'http://127.0.0.1:3000'}}))).not.toThrow();
+    for(const origin of ['http://localhost:3002','https://localhost:3000','https://evil.test'])expect(()=>sameOrigin(new Request('http://localhost:3000/api/account/auth',{headers:{Origin:origin}}))).toThrow();
+    expect(()=>sameOrigin(new Request('http://internal:3000/api/account/auth',{headers:{Origin:'http://localhost:3000'}}))).toThrow();
+    vi.stubEnv('NODE_ENV','production');expect(()=>sameOrigin(new Request('http://localhost:3000/api/account/auth',{headers:{Origin:'http://127.0.0.1:3000'}}))).toThrow();
+  });
   it('login writes SSR session cookies; a fresh request reads persistent session',async()=>{const response=await request('login',{email:'UNIT@example.test',password:'abcdefgh'});expect(response.status).toBe(200);expect([...jar.keys()].some(key=>key.startsWith('sb-'))).toBe(true);const client=await serverSupabase();const result=await client.auth.getUser();expect(result.data.user?.id).toBe(id);expect(requests.some(r=>r.url.endsWith('/user'))).toBe(true);expect([...jar.keys()].some(key=>key==='finly-access-token' || key==='finly-refresh-token')).toBe(false);});
-  it('logout removes Supabase session cookies',async()=>{await request('login',{email:user.email,password:'abcdefgh'});await request('logout');expect([...jar.keys()].filter(key=>key.includes('auth-token'))).toEqual([]);});
+  it('logout removes Supabase session cookies and a fresh server request has no user',async()=>{await request('login',{email:user.email,password:'abcdefgh'});expect((await request('logout')).status).toBe(200);expect([...jar.keys()].filter(key=>key.includes('auth-token'))).toEqual([]);expect((await (await serverSupabase()).auth.getUser()).data.user).toBeNull();});
+  it.each(['terms','privacy','parentalConsent'])('server requires %s before contacting Auth',async field=>{
+    const response=await request('signup',{email:user.email,username:'new_user',displayName:'',ageRange:'14-15',parentalConsent:true,password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true,[field]:false});
+    expect(response.status).toBe(400);expect((await response.json()).error.code).toBe(field==='parentalConsent'?'PARENT_ACKNOWLEDGEMENT_REQUIRED':'LEGAL_CONSENT_REQUIRED');expect(requests).toHaveLength(0);
+  });
+  it('RPC outage does not prevent valid signup; DB trigger remains authoritative',async()=>{
+    const transport=vi.mocked(fetch).getMockImplementation()!;
+    vi.mocked(fetch).mockImplementation((input,init)=>String(input).includes('/rpc/username_available')?Promise.resolve(Response.json({code:'PGRST202',message:'Missing function'},{status:404})):transport(input,init));
+    const response=await request('signup',{email:user.email,username:'new_user',displayName:'',ageRange:'20+',parentalConsent:false,password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true});
+    expect(response.status).toBe(200);expect(requests.some(value=>value.url.includes('/signup'))).toBe(true);
+  });
+  it('a direct unique conflict maps to a friendly username error even if RPC is unavailable',async()=>{
+    vi.mocked(fetch).mockImplementation(async input=>String(input).includes('/rpc/')?Response.json({code:'PGRST202'},{status:404}):Response.json({msg:'duplicate username',error_code:'23505'},{status:422}));
+    const response=await request('signup',{email:user.email,username:'new_user',displayName:'',ageRange:'20+',parentalConsent:false,password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true});
+    expect(response.status).toBe(409);expect((await response.json()).error.message).toBe('Username-ul e deja folosit. Alege altul.');
+  });
   it('signup sends only credentials to Auth and validated profile/consent metadata',async()=>{const response=await request('signup',{email:user.email,username:'new_user',displayName:'Ștefania',ageRange:'14-15',parentalConsent:true,password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true});expect(response.status).toBe(200);const body=requests.find(r=>r.url.includes('/signup'))?.body as Record<string,unknown>;const data=body.data as Record<string,unknown>;expect(data.username).toBe('new_user');expect(data.parental_consent).toBe(true);expect(data).not.toHaveProperty('password');expect(data).not.toHaveProperty('xp');expect(data).not.toHaveProperty('repeatPassword');});
   it('under 14 never reaches Supabase Auth',async()=>{const response=await request('signup',{email:user.email,username:'new_user',displayName:'',ageRange:'Sub 14',parentalConsent:false,password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true});expect(response.status).toBe(400);expect(requests).toHaveLength(0);});
   it('reset known/unknown email returns exactly the same response',async()=>{const known=await request('reset',{email:user.email});const unknown=await request('reset',{email:'unknown@example.test'});expect(await known.json()).toEqual(await unknown.json());expect(requests.every(r=>!r.url.includes('/admin'))).toBe(true);});
@@ -55,6 +77,37 @@ describe('Auth route contract with real SSR SDK and mocked provider transport',(
     vi.mocked(fetch).mockImplementation(async()=>Response.json({msg:'Provider unavailable'},{status}));
     const known=await request('reset',{email:user.email});const unknown=await request('reset',{email:'unknown@example.test'});
     expect(known.status).toBe(status);expect(await known.json()).toEqual(await unknown.json());
+  });
+  it.each(['signup','login','resend'])('%s distinguishes provider outages and rate limits from invalid input',async action=>{
+    const data=action==='signup'?{email:user.email,username:'new_user',displayName:'',ageRange:'20+',parentalConsent:false,password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true}:action==='login'?{email:user.email,password:'abcdefgh'}:{email:user.email};
+    for(const status of [429,503]){
+      vi.mocked(fetch).mockImplementation(async input=>String(input).includes('/rpc/')?Response.json(true):Response.json({msg:'Provider failure'},{status}));
+      const response=await request(action,data);
+      expect(response.status).toBe(status);expect((await response.json()).error.code).toBe(status===429?'RATE_LIMITED':'SERVER_ERROR');
+    }
+  });
+  it.each(['over_email_send_rate_limit','over_request_rate_limit'])('recognizes provider rate-limit code %s',async code=>{
+    vi.mocked(fetch).mockResolvedValue(Response.json({msg:'Too many requests',error_code:code},{status:422}));
+    const response=await request('login',{email:user.email,password:'abcdefgh'});
+    expect(response.status).toBe(429);expect((await response.json()).error.code).toBe('RATE_LIMITED');
+  });
+  it('resend provider outage remains identical for known and unknown emails',async()=>{
+    vi.mocked(fetch).mockResolvedValue(Response.json({msg:'Provider unavailable'},{status:503}));
+    const known=await request('resend',{email:user.email});const unknown=await request('resend',{email:'unknown@example.test'});
+    expect(known.status).toBe(503);expect(await known.json()).toEqual(await unknown.json());
+  });
+  it.each([400,500])('signup still recognizes a username race after provider failure %s',async status=>{
+    let checks=0;vi.mocked(fetch).mockImplementation(async input=>String(input).includes('/rpc/')?Response.json(++checks===1):Response.json({msg:'Database error saving new user'},{status}));
+    const response=await request('signup',{email:user.email,username:'new_user',displayName:'',ageRange:'20+',parentalConsent:false,password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true});
+    expect(response.status).toBe(409);expect((await response.json()).error.code).toBe('USERNAME_TAKEN');
+  });
+  it.each(['login','resend'])('%s reports transport failure without blaming credentials or claiming delivery',async action=>{
+    const log=vi.spyOn(console,'error').mockImplementation(()=>{});
+    try{
+      vi.mocked(fetch).mockRejectedValue(new TypeError('fetch failed'));
+      const response=await request(action,{email:user.email,...(action==='login'?{password:'abcdefgh'}:{})});
+      expect(response.status).toBe(503);expect((await response.json()).error.code).toBe('SERVER_ERROR');
+    }finally{log.mockRestore();}
   });
   it('expired access cookie refreshes via the SSR SDK',async()=>{
     const token=`${Buffer.from(JSON.stringify({alg:'HS256',typ:'JWT'})).toString('base64url')}.${Buffer.from(JSON.stringify({sub:id,exp:Math.floor(Date.now()/1000)-30})).toString('base64url')}.test-signature`;

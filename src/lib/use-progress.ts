@@ -7,8 +7,8 @@ import { applyAccountOperation,neutralResult,simulatorChoices } from './account/
 import { clearAccountStorage,clearUnverifiedCaches,enqueue,readAccountCache,readQueue,writeAccountCache,writeQueue } from './account/storage';
 import { errorCopy,type AccountErrorCode } from './account/errors';
 import { broadcastAuthChange,listenAuthChanges } from './account/events';
-type State={progress:ReturnType<typeof createEmptyProgress>;hydrated:boolean;todayKey:string|null;account:AccountProgressSnapshot|null;userId:string|null;isSyncing:boolean;pendingCount:number;syncError:string|null;notificationsReady:boolean;authTransition:boolean};
-const initial:State={progress:createEmptyProgress(),hydrated:false,todayKey:null,account:null,userId:null,isSyncing:false,pendingCount:0,syncError:null,notificationsReady:false,authTransition:false};
+type State={progress:ReturnType<typeof createEmptyProgress>;hydrated:boolean;todayKey:string|null;account:AccountProgressSnapshot|null;userId:string|null;isSyncing:boolean;pendingCount:number;syncError:string|null;notificationsReady:boolean;authTransition:boolean;logoutFailed:boolean};
+const initial:State={progress:createEmptyProgress(),hydrated:false,todayKey:null,account:null,userId:null,isSyncing:false,pendingCount:0,syncError:null,notificationsReady:false,authTransition:false,logoutFailed:false};
 let state=initial;let identity:string|null=null;let flushing:Promise<void>|null=null;let confirmedRevision:number|null=null;
 const listeners=new Set<()=>void>();const emit=(update:Partial<State>)=>{state={...state,...update};listeners.forEach(l=>l());};
 const subscribe=(listener:()=>void)=>{listeners.add(listener);return()=>{listeners.delete(listener);};};
@@ -56,7 +56,7 @@ export function flushProgressQueue() {
 }
 export function initializeAccount(userId:string|null) {
   identity=userId;confirmedRevision=null;results.clear();rejected.clear();emit({...initial,userId,hydrated:!userId});
-  const stopAuth=listenAuthChanges(change=>{if(change.type==='logout' && change.userId)clearAccountStorage(change.userId);identity=null;results.clear();clearUnverifiedCaches();emit({...initial,authTransition:true});window.location.replace(new URL('/',window.location.origin).href);});
+  const stopAuth=listenAuthChanges(change=>{if((change.type==='logout' || change.type==='logoutFailed') && change.userId)clearAccountStorage(change.userId);identity=null;results.clear();clearUnverifiedCaches();emit({...initial,authTransition:true,logoutFailed:change.type==='logoutFailed'});if(change.type!=='logoutFailed')window.location.replace(new URL(change.type==='logout'?'/bun-venit':'/',window.location.origin).href);});
   if(!userId){clearUnverifiedCaches();return stopAuth;}
   // A persisted cache is unverified until the server responds. Only use it when
   // the device is already offline; online entry must wait for cloud authority.
@@ -68,7 +68,7 @@ export function initializeAccount(userId:string|null) {
   resume();const timer=window.setInterval(resume,60000);
   return ()=>{stopAuth();window.clearInterval(timer);window.removeEventListener('online',resume);window.removeEventListener('focus',resume);window.removeEventListener('storage',storage);document.removeEventListener('visibilitychange',visible);};
 }
-export function cleanupAccount() {const userId=state.userId;if(userId)clearAccountStorage(userId);identity=null;results.clear();emit({...initial,authTransition:true});broadcastAuthChange('logout',userId);}
+export function cleanupAccount(logoutFailed=false) {const userId=state.userId;if(userId)clearAccountStorage(userId);identity=null;confirmedRevision=null;results.clear();rejected.clear();emit({...initial,authTransition:true,logoutFailed});broadcastAuthChange(logoutFailed?'logoutFailed':'logout',userId);}
 async function mutate(operation:ProgressOperation):Promise<DomainResult> {
   const userId=identity;const account=state.account;if(!userId || !account)throw new Error(errorCopy.AUTH_REQUIRED);
   const optimistic=applyAccountOperation(state.progress,operation,account.profile.created_at,new Date());
@@ -89,5 +89,5 @@ export const saveLastLesson=async(id:string)=>{if(identity && state.account)awai
 export const acknowledgeAchievement=async(id:string)=>{if(identity)await mutate(operation('achievementSeen',{id}));};
 export const acknowledgeLevel=async()=>{if(identity)await mutate(operation('levelSeen',{}));};
 export const acknowledgeFreeze=async(day:string)=>{if(identity)await mutate(operation('freezeSeen',{day}));};
-export function useProgressData() {const value=useSyncExternalStore(subscribe,()=>state,()=>initial);return {...value.progress,totalXp:getTotalXp(value.progress),completedLessonIds:getCompletedLessonIds(value.progress),simulatorCompletions:getSimulatorCompletionIds(value.progress),hydrated:value.hydrated,todayKey:value.todayKey,profile:value.account?.profile ?? null,email:value.account?.email ?? null,userId:value.userId,isSyncing:value.isSyncing,pendingCount:value.pendingCount,syncError:value.syncError,notificationsReady:value.notificationsReady,authTransition:value.authTransition};}
+export function useProgressData() {const value=useSyncExternalStore(subscribe,()=>state,()=>initial);return {...value.progress,totalXp:getTotalXp(value.progress),completedLessonIds:getCompletedLessonIds(value.progress),simulatorCompletions:getSimulatorCompletionIds(value.progress),hydrated:value.hydrated,todayKey:value.todayKey,profile:value.account?.profile ?? null,email:value.account?.email ?? null,userId:value.userId,isSyncing:value.isSyncing,pendingCount:value.pendingCount,syncError:value.syncError,notificationsReady:value.notificationsReady,authTransition:value.authTransition,logoutFailed:value.logoutFailed};}
 export function friendlyApiError(code:unknown) {return typeof code==='string' && Object.hasOwn(errorCopy,code)?errorCopy[code as AccountErrorCode]:errorCopy.SERVER_ERROR;}

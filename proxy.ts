@@ -22,7 +22,8 @@ export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const target = authenticated && (isAuthEntryRoute(path) || path === '/incepe') ? '/' : !authenticated && !isPublicAccountRoute(path) && !path.startsWith('/api/') ? '/bun-venit' : null;
   if (!target) return response;
-  const redirect = NextResponse.redirect(new URL(target, appUrl()));
+  const localDevelopment = process.env.NODE_ENV === 'development' && ['localhost','127.0.0.1','[::1]'].includes(request.nextUrl.hostname);
+  const redirect = NextResponse.redirect(new URL(target, localDevelopment ? request.nextUrl.origin : appUrl()));
   for (const cookie of response.cookies.getAll()) redirect.cookies.set(cookie);
   for (const header of ['cache-control','expires','pragma']) { const value = response.headers.get(header); if (value) redirect.headers.set(header, value); }
   return redirect;

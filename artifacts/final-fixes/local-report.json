@@ -1,0 +1,138 @@
+{
+  "mode": "local Next + actual PostgreSQL migration; simulated Auth provider",
+  "viewports": [
+    {
+      "width": 375,
+      "route": "/incepe",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "route": "/salveaza-progresul",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/incepe",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/salveaza-progresul",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/incepe",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/salveaza-progresul",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/incepe",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/salveaza-progresul",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "route": "/",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "route": "/profil",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/profil",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/profil",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/profil",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "route": "/actualizeaza-parola",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/actualizeaza-parola",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "route": "/actualizeaza-parola",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/actualizeaza-parola",
+      "overflow": false
+    }
+  ],
+  "checks": [
+    "Public routes/forms: 32 viewport checks; trial completion, refresh, gate and age rules",
+    "Invalid login/error focus, expired confirmation message and safe callback redirect",
+    "Legal drafts/TOC/date/new-tab form preservation; local invalid/reserved usernames; available/taken/stale/5s timeout; consent/age validation; conflict preserves fields; signup after unknown availability",
+    "Signup → trial import through actual Next API and SQL; duplicate operation adds no XP or attempt",
+    "Delayed cloud fetch displays loading; forged cached name never flashes",
+    "Authenticated second lesson completes through lesson player and persists in cloud SQL",
+    "Cookie persistence across browser contexts and reload; Daily Challenge saved by actual SQL",
+    "Logout → welcome → refresh → protected profile redirects; auth cookies absent, protected API 401, no previous profile; same account DB progress restored",
+    "Logout/login and independent browser recover the same DB progress; authenticated entry redirects",
+    "User A logout → User B signup/login: B profile and zero XP, no A data; A login restores DB progress",
+    "Logout transport outage: private profile hidden, account cache/queue cleared, uncertain server session explicitly reported, retry then login succeeds",
+    "Recovery OTP callback, signed proof, password form and login with new password (simulated Auth)"
+  ],
+  "errors": [],
+  "apiFailures": [
+    {
+      "path": "/api/account/auth",
+      "status": 401,
+      "code": "INVALID_CREDENTIALS"
+    },
+    {
+      "path": "/api/account/auth",
+      "status": 409,
+      "code": "USERNAME_TAKEN"
+    },
+    {
+      "path": "/api/account/username",
+      "status": 503,
+      "code": "SERVER_ERROR"
+    }
+  ],
+  "providerFailures": []
+}

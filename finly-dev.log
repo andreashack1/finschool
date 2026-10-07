@@ -1,0 +1,7 @@
+▲ Next.js 16.3.8 (Turbopack)
+- Local:         http://127.0.0.1:3001
+- Network:       http://127.0.0.1:3001
+- Environments: .env.local
+✓ Ready in 820ms
+✓ Running next.config.ts took 26ms
+[?25h

@@ -9,6 +9,13 @@ import { proxy } from '../proxy';
 beforeEach(()=>{auth.user=null;auth.refresh=false;vi.stubEnv('NEXT_PUBLIC_SUPABASE_URL','https://unit.supabase.test');vi.stubEnv('NEXT_PUBLIC_SUPABASE_ANON_KEY','unit-anon');vi.stubEnv('NEXT_PUBLIC_APP_URL','https://finly.test');});
 afterEach(()=>vi.unstubAllEnvs());
 describe('Session proxy and account gates',()=>{
+  it('development logout gates stay on the active loopback port; production stays canonical',async()=>{
+    vi.stubEnv('NODE_ENV','development');vi.stubEnv('NEXT_PUBLIC_APP_URL','http://localhost:3115');
+    // NextRequest normalizes loopback names to localhost. The dev server
+    // sends a relative Location on the wire; the active port must stay 3000.
+    expect((await proxy(new NextRequest('http://127.0.0.1:3000/profil'))).headers.get('location')).toBe('http://localhost:3000/bun-venit');
+    vi.stubEnv('NODE_ENV','production');expect((await proxy(new NextRequest('http://127.0.0.1:3000/profil'))).headers.get('location')).toBe('http://localhost:3115/bun-venit');
+  });
   it.each(['/','/profil','/lectii','/lectie/nevoi-vs-dorinte'])('unauthenticated %s redirects to canonical welcome',async path=>{
     const response=await proxy(new NextRequest('http://localhost:3115'+path));expect(response.headers.get('location')).toBe('https://finly.test/bun-venit');
   });

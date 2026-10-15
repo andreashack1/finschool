@@ -1,0 +1,9 @@
+import { lifeEvents } from './life-builder';
+export const weekendEvents = lifeEvents('weekend','iesiri',['free_activity'],['weekend_morning','weekend_daytime'],['liceu','lucrez'],[
+ ['weekend_market_visit','weekend_market','Piața de weekend','Ai ieșit la piață în timpul liber. Poți lua ingrediente pentru câteva mese sau poți doar să te uiți.','Iei ingrediente','groceries','Te plimbi fără cumpărături',{tags:['shopping','preparation'],story:{effect:'food_coverage',phase:'prepare'}}],
+ ['weekend_local_trip','weekend_trip','O ieșire de o jumătate de zi','Grupul propune o ieșire într-o zonă apropiată. Contribuția acoperă transportul; poți alege și să rămâi în oraș.','Contribui la drum','ride','Rămâi în oraș',{tags:['transport','social_outing'],duration:120}],
+ ['weekend_family_meal','weekend_family','Masa cu familia','Ai fost invitat la o masă în familie. Poți lua ceva de împărțit sau poți merge și ajuta la pregătire.','Iei ceva pentru masă','snack','Ajuți la pregătire',{tags:['family','gift']}],
+ ['weekend_flea_market','weekend_market','Târgul cu lucruri folosite','Te plimbi printr-un târg cu lucruri la mâna a doua. Un obiect mic îți atrage atenția, dar nu trebuie să pleci cu o cumpărătură.','Iei obiectul','accessory','Continui plimbarea',{tags:['shopping','reuse','impulse']}],
+ ['weekend_long_walk','leisure_walk','Plimbare mai lungă','Prietenii propun o plimbare mai lungă în oraș. Poți lua o gustare pentru drum sau poți participa fără cumpărături.','Iei o gustare','snack','Participi fără cumpărături',{tags:['free_activity','social_outing'],duration:90}],
+ ['weekend_home_sorting','home_preparation','Pui ordine în lucruri','În weekend ai timp să organizezi colțul tău. Poți lua un organizator sau poți rearanja ce este deja acolo.','Iei un organizator','household','Rearanjezi fără cumpărături',{tags:['home','reuse']}],
+]);

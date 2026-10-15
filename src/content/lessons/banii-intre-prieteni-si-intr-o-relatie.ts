@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -69,10 +69,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Banii împărțiți cer acorduri clare despre sume, scop și termen.",
-      "explanation": "Banii împărțiți cer acorduri clare despre sume, scop și termen. O contribuție egală nu este singura variantă posibilă; persoanele pot conveni o împărțire proporțională sau altă regulă explicită. Un împrumut și un cadou sunt diferite. Nu presupune că apropierea personală elimină nevoia de claritate și nici că trebuie să accepți orice presiune.",
-      "correctFeedback": "Corect. Banii împărțiți cer acorduri clare despre sume, scop și termen. O contribuție egală nu este singura variantă posibilă; persoanele pot conveni o împărțire proporțională sau altă regulă explicită. Un împrumut și un cadou sunt diferite. Nu presupune că apropierea personală elimină nevoia de claritate și nici că trebuie să accepți orice presiune.",
-      "incorrectFeedback": "Nu chiar. Banii împărțiți cer acorduri clare despre sume, scop și termen. O contribuție egală nu este singura variantă posibilă; persoanele pot conveni o împărțire proporțională sau altă regulă explicită. Un împrumut și un cadou sunt diferite. Nu presupune că apropierea personală elimină nevoia de claritate și nici că trebuie să accepți orice presiune.",
+      "question": "Dacă Lia achită temporar factura comună, plata nu devine automat un cadou pentru Dan.",
+      "explanation": "Plata făcută de o persoană și contribuția datorată de cealaltă sunt distincte. Clarificați regula și dacă suma trebuie rambursată.",
+      "correctFeedback": "Corect. Plata făcută de o persoană și contribuția datorată de cealaltă sunt distincte. Clarificați regula și dacă suma trebuie rambursată.",
+      "incorrectFeedback": "Nu chiar. Plata făcută de o persoană și contribuția datorată de cealaltă sunt distincte. Clarificați regula și dacă suma trebuie rambursată.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -89,10 +89,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "300 lei împărțiți egal între doi cer cât fiecare?",
-      "explanation": "150 lei.",
-      "correctFeedback": "Corect. 150 lei.",
-      "incorrectFeedback": "Nu chiar. 150 lei.",
+      "question": "Doi colegi au convenit împărțirea egală a facturii de 300 lei. Unul achită integral. Ce contribuție rămâne de rambursat de celălalt?",
+      "explanation": "În acordul egal, fiecare suportă 150 lei. Cel care a achitat temporar tot primește contribuția celuilalt, fără să numere plata ca un cadou.",
+      "correctFeedback": "Corect. În acordul egal, fiecare suportă 150 lei. Cel care a achitat temporar tot primește contribuția celuilalt, fără să numere plata ca un cadou.",
+      "incorrectFeedback": "Nu chiar. În acordul egal, fiecare suportă 150 lei. Cel care a achitat temporar tot primește contribuția celuilalt, fără să numere plata ca un cadou.",
       "type": "variante",
       "options": [
         {
@@ -147,7 +147,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce a lipsit înainte de plata Liei?",
       "explanation": "Acordul asupra regulii de împărțire.",
       "correctFeedback": "Corect. Acordul asupra regulii de împărțire.",
@@ -166,14 +165,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Un telefon mai scump."
+          "label": "Confirmarea că Lia poate achita temporar, presupunând că stabilește singură contribuția lui Dan."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce clarifică despre suma anterioară?",
       "explanation": "Dacă era împrumut sau cadou.",
       "correctFeedback": "Corect. Dacă era împrumut sau cadou.",
@@ -184,7 +182,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Culoarea bancnotei."
+          "label": "Doar faptul că suma a fost trimisă, fără condițiile returnării."
         },
         {
           "id": "1",
@@ -192,14 +190,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Parola contului lui Dan."
+          "label": "Doar apropierea dintre ei, presupunând că exclude rambursarea."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce protejează chiar într-o relație apropiată?",
       "explanation": "Parolele și controlul conturilor personale.",
       "correctFeedback": "Corect. Parolele și controlul conturilor personale.",
@@ -210,11 +207,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar ambalajele."
+          "label": "Doar dreptul de a vedea soldul, oferind acces pentru plăți."
         },
         {
           "id": "1",
-          "label": "Numărul facturilor."
+          "label": "Doar acordul despre sume, fără limite privind accesul la cont."
         },
         {
           "id": "2",
@@ -292,28 +289,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Banii împărțiți cer acorduri clare despre sume, scop și termen.",
-          "detail": "Banii împărțiți cer acorduri clare despre sume, scop și termen.",
+          "detail": "Lia achită factura, dar ea și Dan nu conveniseră aceeași regulă de împărțire. Plata temporară nu decide singură contribuțiile și nu transformă automat suma într-un cadou.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Doi colegi au o factură comună de 300 lei și aleg să împartă egal: 150 fiecare. Dacă au convenit o regulă de două treimi și o treime, sumele ar fi 200 și 100.",
-          "detail": "Doi colegi au o factură comună de 300 lei și aleg să împartă egal: 150 fiecare. Dacă au convenit o regulă de două treimi și o treime, sumele ar fi 200 și 100.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Nu oferi acces la parole, PIN sau conturi ca dovadă de încredere.",
-          "detail": "Nu oferi acces la parole, PIN sau conturi ca dovadă de încredere.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Formulează un acord fictiv despre suma, termenul și regula unei cheltuieli comune.",
-          "detail": "Formulează un acord fictiv despre suma, termenul și regula unei cheltuieli comune.",
           "type": "action"
         }
       ]

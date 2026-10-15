@@ -1,0 +1,1830 @@
+{
+  "reviewed": 200,
+  "titlesChanged": 65,
+  "events": [
+    {
+      "id": "breakfast",
+      "oldTitles": [
+        "Mic dejun înainte de autobuz",
+        "Mic dejun pe traseul de dimineață"
+      ],
+      "newTitles": [
+        "Mic dejun pe drum",
+        "Mic dejun pe drum"
+      ]
+    },
+    {
+      "id": "morning_coffee",
+      "oldTitles": [
+        "Cafea înainte să înceapă ziua",
+        "O dimineață cu timp de cafea"
+      ],
+      "newTitles": [
+        "Cafea de dimineață",
+        "Cafea de dimineață"
+      ]
+    },
+    {
+      "id": "lunch_break",
+      "oldTitles": [
+        "Prânz într-o pauză scurtă",
+        "Prânz de la locul de lângă"
+      ],
+      "newTitles": [
+        "Prânz în pauză",
+        "Prânz în pauză"
+      ]
+    },
+    {
+      "id": "after_snack",
+      "oldTitles": [
+        "Gustare pe drumul spre casă",
+        "Gustare după o oprire în parc"
+      ],
+      "newTitles": [
+        "Gustare după program",
+        "Gustare după program"
+      ]
+    },
+    {
+      "id": "city_drink",
+      "oldTitles": [
+        "O băutură între două drumuri",
+        "Oprire în piațeta din oraș"
+      ],
+      "newTitles": [
+        "Ceva de băut pe drum",
+        "Ceva de băut pe drum"
+      ]
+    },
+    {
+      "id": "friends_coffee",
+      "oldTitles": [
+        "Cafea și povești cu prietenii",
+        "O întâlnire după ceva timp"
+      ],
+      "newTitles": [
+        "Cafea cu prietenii",
+        "Cafea cu prietenii"
+      ]
+    },
+    {
+      "id": "cinema",
+      "oldTitles": [
+        "Cinema cu prietenii",
+        "Un film revine pe ecran"
+      ],
+      "newTitles": [
+        "Film cu gașca",
+        "Film cu gașca"
+      ]
+    },
+    {
+      "id": "games",
+      "oldTitles": [
+        "Seară de jocuri de societate",
+        "Jocuri în echipă la prieteni"
+      ],
+      "newTitles": [
+        "Seară de jocuri",
+        "Seară de jocuri"
+      ]
+    },
+    {
+      "id": "colleagues_lunch",
+      "oldTitles": [
+        "Prânz comandat cu colegii",
+        "O comandă comună în pauză"
+      ],
+      "newTitles": [
+        "Prânz cu colegii",
+        "Prânz cu colegii"
+      ]
+    },
+    {
+      "id": "weekend_terrace",
+      "oldTitles": [
+        "Terasă într-o zi de weekend",
+        "O terasă după târgul de weekend"
+      ],
+      "newTitles": [
+        "Weekend la terasă",
+        "Weekend la terasă"
+      ]
+    },
+    {
+      "id": "delivery",
+      "oldTitles": [
+        "Mâncare comandată într-o seară liniștită",
+        "Cină după o zi plină"
+      ],
+      "newTitles": [
+        "Comandă de mâncare",
+        "Comandă de mâncare"
+      ]
+    },
+    {
+      "id": "picnic",
+      "oldTitles": [
+        "Picnic în parc",
+        "Picnic lângă lac"
+      ],
+      "newTitles": [
+        "Picnic cu prietenii",
+        "Picnic cu prietenii"
+      ]
+    },
+    {
+      "id": "bakery_queue",
+      "oldTitles": [
+        "Oprire la patiserie"
+      ],
+      "newTitles": [
+        "Oprire la patiserie"
+      ]
+    },
+    {
+      "id": "morning_water",
+      "oldTitles": [
+        "Apă pentru drum"
+      ],
+      "newTitles": [
+        "Apă pentru drum"
+      ]
+    },
+    {
+      "id": "bus_stop_snack",
+      "oldTitles": [
+        "Cât aștepți în stație"
+      ],
+      "newTitles": [
+        "Gustare în stație"
+      ]
+    },
+    {
+      "id": "morning_machine",
+      "oldTitles": [
+        "Automatul din hol"
+      ],
+      "newTitles": [
+        "Cafea la automat"
+      ]
+    },
+    {
+      "id": "fruit_on_route",
+      "oldTitles": [
+        "Taraba de pe traseu"
+      ],
+      "newTitles": [
+        "Taraba de pe traseu"
+      ]
+    },
+    {
+      "id": "small_change_checkout",
+      "oldTitles": [
+        "Încă un produs la casă"
+      ],
+      "newTitles": [
+        "Încă un produs la casă"
+      ]
+    },
+    {
+      "id": "walk_home_drink",
+      "oldTitles": [
+        "Pe drumul spre casă"
+      ],
+      "newTitles": [
+        "Pe drumul spre casă"
+      ]
+    },
+    {
+      "id": "evening_corner_shop",
+      "oldTitles": [
+        "O oprire scurtă seara"
+      ],
+      "newTitles": [
+        "Magazinul de la colț"
+      ]
+    },
+    {
+      "id": "morning_bakery_offer",
+      "oldTitles": [
+        "Pachetul mic de la patiserie"
+      ],
+      "newTitles": [
+        "Pachetul mic de la patiserie"
+      ]
+    },
+    {
+      "id": "refill_bottle_stop",
+      "oldTitles": [
+        "Un loc unde poți lua apă"
+      ],
+      "newTitles": [
+        "Apă înainte de plecare"
+      ]
+    },
+    {
+      "id": "errand_receipt_bag",
+      "oldTitles": [
+        "Punga de la magazin"
+      ],
+      "newTitles": [
+        "Punga de la magazin"
+      ]
+    },
+    {
+      "id": "late_small_hunger",
+      "oldTitles": [
+        "O gustare înainte să pleci"
+      ],
+      "newTitles": [
+        "Gustare după program"
+      ]
+    },
+    {
+      "id": "groceries_two_meals",
+      "oldTitles": [
+        "Cumpărături pentru două mese"
+      ],
+      "newTitles": [
+        "Cumpărături pentru două mese"
+      ]
+    },
+    {
+      "id": "pack_next_lunch",
+      "oldTitles": [
+        "Pregătești ceva pentru pauză"
+      ],
+      "newTitles": [
+        "Pregătești ceva pentru pauză"
+      ]
+    },
+    {
+      "id": "dinner_delivery_choice",
+      "oldTitles": [
+        "Cina fără prea mult efort"
+      ],
+      "newTitles": [
+        "Comandă pentru cină"
+      ]
+    },
+    {
+      "id": "supermarket_ready_meal",
+      "oldTitles": [
+        "Raftul cu mâncare gata pregătită"
+      ],
+      "newTitles": [
+        "Mâncare gata pregătită"
+      ]
+    },
+    {
+      "id": "shared_pizza_evening",
+      "oldTitles": [
+        "Pizza împărțită în grup"
+      ],
+      "newTitles": [
+        "Pizza împărțită în grup"
+      ]
+    },
+    {
+      "id": "delivery_fee_minimum",
+      "oldTitles": [
+        "Taxa de livrare"
+      ],
+      "newTitles": [
+        "Taxa de livrare"
+      ]
+    },
+    {
+      "id": "market_soup",
+      "oldTitles": [
+        "O masă simplă pe traseu"
+      ],
+      "newTitles": [
+        "O supă pe drum"
+      ]
+    },
+    {
+      "id": "food_court_queue",
+      "oldTitles": [
+        "La food court"
+      ],
+      "newTitles": [
+        "La food court"
+      ]
+    },
+    {
+      "id": "weekend_breakfast_out",
+      "oldTitles": [
+        "Mic dejun în oraș"
+      ],
+      "newTitles": [
+        "Mic dejun în oraș"
+      ]
+    },
+    {
+      "id": "late_store_sandwich",
+      "oldTitles": [
+        "Sandvișul de pe raft"
+      ],
+      "newTitles": [
+        "Sandvișul de pe raft"
+      ]
+    },
+    {
+      "id": "ingredients_group_cooking",
+      "oldTitles": [
+        "Gătiți ceva împreună"
+      ],
+      "newTitles": [
+        "Gătiți ceva împreună"
+      ]
+    },
+    {
+      "id": "portion_for_tomorrow",
+      "oldTitles": [
+        "O porție și pentru mâine"
+      ],
+      "newTitles": [
+        "Mâncare și pentru mâine"
+      ]
+    },
+    {
+      "id": "school_corner_shop",
+      "oldTitles": [
+        "Magazinul de lângă liceu"
+      ],
+      "newTitles": [
+        "Magazinul de lângă liceu"
+      ]
+    },
+    {
+      "id": "school_missing_water",
+      "oldTitles": [
+        "Apa a rămas acasă"
+      ],
+      "newTitles": [
+        "Apa a rămas acasă"
+      ]
+    },
+    {
+      "id": "school_big_order",
+      "oldTitles": [
+        "Comanda din pauza mare"
+      ],
+      "newTitles": [
+        "Comanda din pauză"
+      ]
+    },
+    {
+      "id": "school_pencil",
+      "oldTitles": [
+        "Un creion pentru desen"
+      ],
+      "newTitles": [
+        "Un creion pentru desen"
+      ]
+    },
+    {
+      "id": "school_print_outline",
+      "oldTitles": [
+        "Schița pentru proiect"
+      ],
+      "newTitles": [
+        "Schița pentru proiect"
+      ]
+    },
+    {
+      "id": "school_project_cardboard",
+      "oldTitles": [
+        "Material pentru machetă"
+      ],
+      "newTitles": [
+        "Material pentru machetă"
+      ]
+    },
+    {
+      "id": "school_pen_refill",
+      "oldTitles": [
+        "Pixul nu mai scrie"
+      ],
+      "newTitles": [
+        "Pixul nu mai scrie"
+      ]
+    },
+    {
+      "id": "school_notebook_pages",
+      "oldTitles": [
+        "Caietul aproape plin"
+      ],
+      "newTitles": [
+        "Caietul aproape plin"
+      ]
+    },
+    {
+      "id": "school_group_poster",
+      "oldTitles": [
+        "Posterul clasei"
+      ],
+      "newTitles": [
+        "Posterul clasei"
+      ]
+    },
+    {
+      "id": "school_art_supply",
+      "oldTitles": [
+        "Material pentru o activitate"
+      ],
+      "newTitles": [
+        "Material pentru o activitate"
+      ]
+    },
+    {
+      "id": "school_class_birthday",
+      "oldTitles": [
+        "Aniversarea unui coleg"
+      ],
+      "newTitles": [
+        "Aniversarea unui coleg"
+      ]
+    },
+    {
+      "id": "school_missing_snack",
+      "oldTitles": [
+        "Pachetul a rămas pe masă"
+      ],
+      "newTitles": [
+        "Pachetul a rămas pe masă"
+      ]
+    },
+    {
+      "id": "school_study_cafe",
+      "oldTitles": [
+        "Învățați după ore"
+      ],
+      "newTitles": [
+        "Învățați după ore"
+      ]
+    },
+    {
+      "id": "school_project_meeting",
+      "oldTitles": [
+        "Întâlnirea pentru proiect"
+      ],
+      "newTitles": [
+        "Întâlnirea pentru proiect"
+      ]
+    },
+    {
+      "id": "school_mall_walk",
+      "oldTitles": [
+        "O tură prin mall după ore"
+      ],
+      "newTitles": [
+        "Mall după ore"
+      ]
+    },
+    {
+      "id": "school_free_club",
+      "oldTitles": [
+        "Clubul de după ore"
+      ],
+      "newTitles": [
+        "Clubul de după ore"
+      ]
+    },
+    {
+      "id": "school_wait_transport",
+      "oldTitles": [
+        "Mai durează până pleci"
+      ],
+      "newTitles": [
+        "Aștepți transportul"
+      ]
+    },
+    {
+      "id": "school_library_copy",
+      "oldTitles": [
+        "Câteva pagini de copiat"
+      ],
+      "newTitles": [
+        "Câteva pagini de copiat"
+      ]
+    },
+    {
+      "id": "school_practice_sheet",
+      "oldTitles": [
+        "Fișe pentru recapitulare"
+      ],
+      "newTitles": [
+        "Fișe pentru recapitulare"
+      ]
+    },
+    {
+      "id": "school_lunch_nearby",
+      "oldTitles": [
+        "O masă după ultima oră"
+      ],
+      "newTitles": [
+        "Prânz după ore"
+      ]
+    },
+    {
+      "id": "school_presentation_adapter",
+      "oldTitles": [
+        "Conexiunea pentru prezentare"
+      ],
+      "newTitles": [
+        "Conexiunea pentru prezentare"
+      ]
+    },
+    {
+      "id": "school_team_photos",
+      "oldTitles": [
+        "Fotografii pentru panou"
+      ],
+      "newTitles": [
+        "Fotografii pentru panou"
+      ]
+    },
+    {
+      "id": "school_secondhand_book",
+      "oldTitles": [
+        "O carte utilă pentru curs"
+      ],
+      "newTitles": [
+        "O carte utilă pentru curs"
+      ]
+    },
+    {
+      "id": "school_volunteer_material",
+      "oldTitles": [
+        "Materiale pentru voluntariat"
+      ],
+      "newTitles": [
+        "Materiale pentru voluntariat"
+      ]
+    },
+    {
+      "id": "work_canteen",
+      "oldTitles": [
+        "Pauza la cantină"
+      ],
+      "newTitles": [
+        "Pauza la cantină"
+      ]
+    },
+    {
+      "id": "work_group_order",
+      "oldTitles": [
+        "Comandă cu colegii"
+      ],
+      "newTitles": [
+        "Comandă cu colegii"
+      ]
+    },
+    {
+      "id": "work_lunch_forgotten",
+      "oldTitles": [
+        "Prânzul a rămas acasă"
+      ],
+      "newTitles": [
+        "Prânzul a rămas acasă"
+      ]
+    },
+    {
+      "id": "work_break_machine",
+      "oldTitles": [
+        "Pauză scurtă la automat"
+      ],
+      "newTitles": [
+        "Pauză scurtă la automat"
+      ]
+    },
+    {
+      "id": "work_before_coffee",
+      "oldTitles": [
+        "Înainte de prima sarcină"
+      ],
+      "newTitles": [
+        "Cafea înainte de muncă"
+      ]
+    },
+    {
+      "id": "work_notepad",
+      "oldTitles": [
+        "Un carnețel pentru notițe"
+      ],
+      "newTitles": [
+        "Un carnețel pentru notițe"
+      ]
+    },
+    {
+      "id": "work_desk_cable",
+      "oldTitles": [
+        "Cablul pentru telefon"
+      ],
+      "newTitles": [
+        "Cablul pentru telefon"
+      ]
+    },
+    {
+      "id": "work_water_refill",
+      "oldTitles": [
+        "Apă pentru restul programului"
+      ],
+      "newTitles": [
+        "Apă pentru restul programului"
+      ]
+    },
+    {
+      "id": "work_birthday_pool",
+      "oldTitles": [
+        "Cadou pentru un coleg"
+      ],
+      "newTitles": [
+        "Cadou pentru un coleg"
+      ]
+    },
+    {
+      "id": "work_after_walk",
+      "oldTitles": [
+        "O plimbare după program"
+      ],
+      "newTitles": [
+        "O plimbare după program"
+      ]
+    },
+    {
+      "id": "work_after_meal",
+      "oldTitles": [
+        "O masă după muncă"
+      ],
+      "newTitles": [
+        "Prânz după muncă"
+      ]
+    },
+    {
+      "id": "work_after_groceries",
+      "oldTitles": [
+        "Cumpărături după program"
+      ],
+      "newTitles": [
+        "Cumpărături după muncă"
+      ]
+    },
+    {
+      "id": "work_takeaway_dinner",
+      "oldTitles": [
+        "Cină pe drumul spre casă"
+      ],
+      "newTitles": [
+        "Cină pe drumul spre casă"
+      ]
+    },
+    {
+      "id": "work_team_photo",
+      "oldTitles": [
+        "Fotografia echipei"
+      ],
+      "newTitles": [
+        "Fotografia echipei"
+      ]
+    },
+    {
+      "id": "work_headphone_inconvenience",
+      "oldTitles": [
+        "Căștile întrerup pauza"
+      ],
+      "newTitles": [
+        "Căștile întrerup pauza"
+      ]
+    },
+    {
+      "id": "work_phone_notes",
+      "oldTitles": [
+        "Telefonul și notițele"
+      ],
+      "newTitles": [
+        "Telefonul și notițele"
+      ]
+    },
+    {
+      "id": "work_print_pending",
+      "oldTitles": [
+        "Documentul încă netipărit"
+      ],
+      "newTitles": [
+        "Documentul încă netipărit"
+      ]
+    },
+    {
+      "id": "work_shared_fruit",
+      "oldTitles": [
+        "Fructe pentru zona de pauză"
+      ],
+      "newTitles": [
+        "Fructe pentru zona de pauză"
+      ]
+    },
+    {
+      "id": "work_personal_folder",
+      "oldTitles": [
+        "Mapă pentru documentele personale"
+      ],
+      "newTitles": [
+        "Mapă pentru documentele personale"
+      ]
+    },
+    {
+      "id": "work_skill_meetup",
+      "oldTitles": [
+        "O întâlnire după program"
+      ],
+      "newTitles": [
+        "Întâlnire după muncă"
+      ]
+    },
+    {
+      "id": "transport_missed_bus",
+      "oldTitles": [
+        "Ai ratat plecarea"
+      ],
+      "newTitles": [
+        "Ai ratat plecarea"
+      ]
+    },
+    {
+      "id": "transport_short_walk",
+      "oldTitles": [
+        "Doar câteva stații"
+      ],
+      "newTitles": [
+        "Câteva stații pe jos"
+      ]
+    },
+    {
+      "id": "transport_extra_trip",
+      "oldTitles": [
+        "Un drum în plus"
+      ],
+      "newTitles": [
+        "Un drum în plus"
+      ]
+    },
+    {
+      "id": "transport_friend_meeting",
+      "oldTitles": [
+        "Întâlnirea din alt cartier"
+      ],
+      "newTitles": [
+        "Întâlnirea din alt cartier"
+      ]
+    },
+    {
+      "id": "transport_connection_wait",
+      "oldTitles": [
+        "Legătura dintre trasee"
+      ],
+      "newTitles": [
+        "Legătura dintre trasee"
+      ]
+    },
+    {
+      "id": "transport_group_ride",
+      "oldTitles": [
+        "Cursa împărțită"
+      ],
+      "newTitles": [
+        "Uber împărțit cu prietenii"
+      ]
+    },
+    {
+      "id": "transport_route_plan",
+      "oldTitles": [
+        "Pregătești un traseu alternativ"
+      ],
+      "newTitles": [
+        "Pregătești un traseu alternativ"
+      ]
+    },
+    {
+      "id": "transport_route_change",
+      "oldTitles": [
+        "Traseul obișnuit nu te ajută azi"
+      ],
+      "newTitles": [
+        "Traseul obișnuit nu te ajută azi"
+      ]
+    },
+    {
+      "id": "transport_ticket_machine",
+      "oldTitles": [
+        "Bilet înainte de plecare"
+      ],
+      "newTitles": [
+        "Bilet înainte de plecare"
+      ]
+    },
+    {
+      "id": "transport_long_detour",
+      "oldTitles": [
+        "Un ocol pentru un obiect"
+      ],
+      "newTitles": [
+        "Un ocol pentru un obiect"
+      ]
+    },
+    {
+      "id": "transport_station_drink",
+      "oldTitles": [
+        "Pauză în autogară"
+      ],
+      "newTitles": [
+        "Pauză în autogară"
+      ]
+    },
+    {
+      "id": "transport_bike_rental",
+      "oldTitles": [
+        "Un drum cu bicicleta"
+      ],
+      "newTitles": [
+        "Un drum cu bicicleta"
+      ]
+    },
+    {
+      "id": "transport_pickup_locker",
+      "oldTitles": [
+        "Ridicarea de la dulapul de colete"
+      ],
+      "newTitles": [
+        "Ridicarea de la dulapul de colete"
+      ]
+    },
+    {
+      "id": "transport_evening_departure",
+      "oldTitles": [
+        "Grupul pleacă în direcții diferite"
+      ],
+      "newTitles": [
+        "Grupul pleacă în direcții diferite"
+      ]
+    },
+    {
+      "id": "transport_nearby_errand",
+      "oldTitles": [
+        "Un drum scurt pentru o cumpărătură"
+      ],
+      "newTitles": [
+        "Un drum scurt pentru o cumpărătură"
+      ]
+    },
+    {
+      "id": "transport_weekend_excursion",
+      "oldTitles": [
+        "O ieșire la marginea orașului"
+      ],
+      "newTitles": [
+        "Ieșire lângă oraș"
+      ]
+    },
+    {
+      "id": "social_park_drink",
+      "oldTitles": [
+        "Vă vedeți în parc"
+      ],
+      "newTitles": [
+        "Vă vedeți în parc"
+      ]
+    },
+    {
+      "id": "social_birthday_gift",
+      "oldTitles": [
+        "Invitație la aniversare"
+      ],
+      "newTitles": [
+        "Invitație la aniversare"
+      ]
+    },
+    {
+      "id": "social_group_gift",
+      "oldTitles": [
+        "Cadou împreună"
+      ],
+      "newTitles": [
+        "Cadou împreună"
+      ]
+    },
+    {
+      "id": "social_boardgame_visit",
+      "oldTitles": [
+        "Seară de jocuri la cineva"
+      ],
+      "newTitles": [
+        "Jocuri la un prieten"
+      ]
+    },
+    {
+      "id": "social_photo_walk",
+      "oldTitles": [
+        "Plimbare pentru fotografii"
+      ],
+      "newTitles": [
+        "Plimbare pentru fotografii"
+      ]
+    },
+    {
+      "id": "social_small_concert",
+      "oldTitles": [
+        "Un concert mic"
+      ],
+      "newTitles": [
+        "Concert cu prietenii"
+      ]
+    },
+    {
+      "id": "social_cafe_table",
+      "oldTitles": [
+        "La o masă cu prietenii"
+      ],
+      "newTitles": [
+        "Cafea cu prietenii"
+      ]
+    },
+    {
+      "id": "social_family_visit",
+      "oldTitles": [
+        "Treci pe la familie"
+      ],
+      "newTitles": [
+        "Treci pe la familie"
+      ]
+    },
+    {
+      "id": "social_shared_dinner",
+      "oldTitles": [
+        "Cină cu contribuție comună"
+      ],
+      "newTitles": [
+        "Cină cu prietenii"
+      ]
+    },
+    {
+      "id": "social_mall_wait",
+      "oldTitles": [
+        "Aștepți un prieten la mall"
+      ],
+      "newTitles": [
+        "Aștepți un prieten la mall"
+      ]
+    },
+    {
+      "id": "social_picnic_contribution",
+      "oldTitles": [
+        "Ce aduci la picnic"
+      ],
+      "newTitles": [
+        "Ce aduci la picnic"
+      ]
+    },
+    {
+      "id": "social_farewell_card",
+      "oldTitles": [
+        "O felicitare înainte de plecare"
+      ],
+      "newTitles": [
+        "Un prieten pleacă"
+      ]
+    },
+    {
+      "id": "social_event_snack",
+      "oldTitles": [
+        "O gustare la întâlnire"
+      ],
+      "newTitles": [
+        "Gustări la întâlnire"
+      ]
+    },
+    {
+      "id": "social_group_bowling",
+      "oldTitles": [
+        "O oră de bowling"
+      ],
+      "newTitles": [
+        "Bowling cu gașca"
+      ]
+    },
+    {
+      "id": "social_second_round",
+      "oldTitles": [
+        "Încă o oprire"
+      ],
+      "newTitles": [
+        "Încă o oprire"
+      ]
+    },
+    {
+      "id": "social_home_movie",
+      "oldTitles": [
+        "Film la un prieten"
+      ],
+      "newTitles": [
+        "Film la un prieten"
+      ]
+    },
+    {
+      "id": "social_sport_watch",
+      "oldTitles": [
+        "Vedeți meciul împreună"
+      ],
+      "newTitles": [
+        "Vedeți meciul împreună"
+      ]
+    },
+    {
+      "id": "social_handmade_gift",
+      "oldTitles": [
+        "Un cadou făcut de tine"
+      ],
+      "newTitles": [
+        "Cadou făcut de tine"
+      ]
+    },
+    {
+      "id": "shopping_shoe_laces",
+      "oldTitles": [
+        "Șireturile uzate"
+      ],
+      "newTitles": [
+        "Șireturile uzate"
+      ]
+    },
+    {
+      "id": "shopping_discount_tshirt",
+      "oldTitles": [
+        "Tricoul din vitrină"
+      ],
+      "newTitles": [
+        "Tricou la reducere"
+      ]
+    },
+    {
+      "id": "shopping_notebook_design",
+      "oldTitles": [
+        "Caietul cu copertă interesantă"
+      ],
+      "newTitles": [
+        "Un caiet care îți place"
+      ]
+    },
+    {
+      "id": "shopping_personal_soap",
+      "oldTitles": [
+        "Produsul de igienă aproape terminat"
+      ],
+      "newTitles": [
+        "Produsul de igienă aproape terminat"
+      ]
+    },
+    {
+      "id": "shopping_toothbrush",
+      "oldTitles": [
+        "Periuța trebuie schimbată"
+      ],
+      "newTitles": [
+        "Periuța trebuie schimbată"
+      ]
+    },
+    {
+      "id": "shopping_book_offer",
+      "oldTitles": [
+        "O carte la reducere"
+      ],
+      "newTitles": [
+        "O carte la reducere"
+      ]
+    },
+    {
+      "id": "shopping_online_basket",
+      "oldTitles": [
+        "Coșul de cumpărături online"
+      ],
+      "newTitles": [
+        "Cumpărături online"
+      ]
+    },
+    {
+      "id": "shopping_free_shipping",
+      "oldTitles": [
+        "Pragul pentru transport gratuit"
+      ],
+      "newTitles": [
+        "Pragul pentru transport gratuit"
+      ]
+    },
+    {
+      "id": "shopping_secondhand_jacket",
+      "oldTitles": [
+        "O geacă la mâna a doua"
+      ],
+      "newTitles": [
+        "O geacă la mâna a doua"
+      ]
+    },
+    {
+      "id": "shopping_socks",
+      "oldTitles": [
+        "Perechi de șosete de înlocuit"
+      ],
+      "newTitles": [
+        "Perechi de șosete de înlocuit"
+      ]
+    },
+    {
+      "id": "shopping_reusable_bottle",
+      "oldTitles": [
+        "O sticlă reutilizabilă"
+      ],
+      "newTitles": [
+        "O sticlă reutilizabilă"
+      ]
+    },
+    {
+      "id": "shopping_small_organizer",
+      "oldTitles": [
+        "Organizatorul de pe raft"
+      ],
+      "newTitles": [
+        "Organizatorul de pe raft"
+      ]
+    },
+    {
+      "id": "shopping_repair_or_new",
+      "oldTitles": [
+        "Repari sau înlocuiești"
+      ],
+      "newTitles": [
+        "Repari sau înlocuiești"
+      ]
+    },
+    {
+      "id": "shopping_gift_wrap",
+      "oldTitles": [
+        "Ambalaj pentru cadou"
+      ],
+      "newTitles": [
+        "Ambalaj pentru cadou"
+      ]
+    },
+    {
+      "id": "shopping_haircare",
+      "oldTitles": [
+        "Produsul pentru îngrijire"
+      ],
+      "newTitles": [
+        "Produse de îngrijire"
+      ]
+    },
+    {
+      "id": "shopping_retail_receipt",
+      "oldTitles": [
+        "Accesoriul recomandat la casă"
+      ],
+      "newTitles": [
+        "Accesoriul recomandat la casă"
+      ]
+    },
+    {
+      "id": "home_cleaning_supply",
+      "oldTitles": [
+        "Consumabile pentru curățenie"
+      ],
+      "newTitles": [
+        "Consumabile pentru curățenie"
+      ]
+    },
+    {
+      "id": "home_bulb",
+      "oldTitles": [
+        "Becul de la birou"
+      ],
+      "newTitles": [
+        "Becul de la birou"
+      ]
+    },
+    {
+      "id": "home_extension",
+      "oldTitles": [
+        "Prelungitor pentru colțul de lucru"
+      ],
+      "newTitles": [
+        "Prelungitor pentru colțul de lucru"
+      ]
+    },
+    {
+      "id": "home_shared_detergent",
+      "oldTitles": [
+        "O cumpărătură împărțită"
+      ],
+      "newTitles": [
+        "O cumpărătură împărțită"
+      ]
+    },
+    {
+      "id": "home_storage_box",
+      "oldTitles": [
+        "Cutie pentru lucrurile mici"
+      ],
+      "newTitles": [
+        "Cutie pentru lucrurile mici"
+      ]
+    },
+    {
+      "id": "home_mug_chip",
+      "oldTitles": [
+        "Cana cu marginea ciobită"
+      ],
+      "newTitles": [
+        "Cana cu marginea ciobită"
+      ]
+    },
+    {
+      "id": "home_laundry_bag",
+      "oldTitles": [
+        "Săculeț pentru spălat"
+      ],
+      "newTitles": [
+        "Săculeț pentru spălat"
+      ]
+    },
+    {
+      "id": "home_small_fastenings",
+      "oldTitles": [
+        "O piesă slăbită"
+      ],
+      "newTitles": [
+        "O piesă slăbită"
+      ]
+    },
+    {
+      "id": "home_kitchen_cloth",
+      "oldTitles": [
+        "Laveta trebuie înlocuită"
+      ],
+      "newTitles": [
+        "Laveta trebuie înlocuită"
+      ]
+    },
+    {
+      "id": "home_group_meal",
+      "oldTitles": [
+        "O masă împreună acasă"
+      ],
+      "newTitles": [
+        "O masă împreună acasă"
+      ]
+    },
+    {
+      "id": "home_week_supply",
+      "oldTitles": [
+        "Refaci consumabilele mici"
+      ],
+      "newTitles": [
+        "Refaci consumabilele mici"
+      ]
+    },
+    {
+      "id": "home_desk_mat",
+      "oldTitles": [
+        "Protecție pentru birou"
+      ],
+      "newTitles": [
+        "Protecție pentru birou"
+      ]
+    },
+    {
+      "id": "digital_phone_fault",
+      "oldTitles": [
+        "Telefonul răspunde greu"
+      ],
+      "newTitles": [
+        "Telefonul răspunde greu"
+      ]
+    },
+    {
+      "id": "digital_cable_fault",
+      "oldTitles": [
+        "Cablul face contact greu"
+      ],
+      "newTitles": [
+        "Cablul de încărcare s-a stricat"
+      ]
+    },
+    {
+      "id": "digital_headphones_fault",
+      "oldTitles": [
+        "Sunet doar într-o cască"
+      ],
+      "newTitles": [
+        "Sunet doar într-o cască"
+      ]
+    },
+    {
+      "id": "digital_phone_followup",
+      "oldTitles": [
+        "Telefonul și planul din grup"
+      ],
+      "newTitles": [
+        "Telefonul îți încurcă planurile"
+      ]
+    },
+    {
+      "id": "digital_phone_resolution",
+      "oldTitles": [
+        "Ai timp pentru service"
+      ],
+      "newTitles": [
+        "Telefonul la service"
+      ]
+    },
+    {
+      "id": "digital_cable_followup",
+      "oldTitles": [
+        "Încărcarea întreruptă"
+      ],
+      "newTitles": [
+        "Încărcarea întreruptă"
+      ]
+    },
+    {
+      "id": "digital_headphones_resolution",
+      "oldTitles": [
+        "Înlocuiești căștile cu probleme"
+      ],
+      "newTitles": [
+        "Înlocuiești căștile cu probleme"
+      ]
+    },
+    {
+      "id": "digital_screen_protector",
+      "oldTitles": [
+        "Folia deteriorată"
+      ],
+      "newTitles": [
+        "Folia deteriorată"
+      ]
+    },
+    {
+      "id": "digital_game_addon",
+      "oldTitles": [
+        "Conținut suplimentar într-un joc"
+      ],
+      "newTitles": [
+        "Conținut suplimentar într-un joc"
+      ]
+    },
+    {
+      "id": "digital_cloud_export",
+      "oldTitles": [
+        "Spațiul pentru fișiere"
+      ],
+      "newTitles": [
+        "Spațiul pentru fișiere"
+      ]
+    },
+    {
+      "id": "digital_online_course",
+      "oldTitles": [
+        "Un atelier online"
+      ],
+      "newTitles": [
+        "Un atelier online"
+      ]
+    },
+    {
+      "id": "digital_phone_case",
+      "oldTitles": [
+        "Husa de telefon uzată"
+      ],
+      "newTitles": [
+        "Husa de telefon uzată"
+      ]
+    },
+    {
+      "id": "leisure_cinema_solo",
+      "oldTitles": [
+        "Un film pe care vrei să îl vezi"
+      ],
+      "newTitles": [
+        "Film la cinema"
+      ]
+    },
+    {
+      "id": "leisure_museum",
+      "oldTitles": [
+        "Expoziția din apropiere"
+      ],
+      "newTitles": [
+        "Expoziția din apropiere"
+      ]
+    },
+    {
+      "id": "leisure_book_evening",
+      "oldTitles": [
+        "Ce citești în seara asta"
+      ],
+      "newTitles": [
+        "Ce citești în seara asta"
+      ]
+    },
+    {
+      "id": "leisure_sport_court",
+      "oldTitles": [
+        "Un teren pentru o oră"
+      ],
+      "newTitles": [
+        "O oră pe teren"
+      ]
+    },
+    {
+      "id": "leisure_pool",
+      "oldTitles": [
+        "O vizită la bazin"
+      ],
+      "newTitles": [
+        "La bazin"
+      ]
+    },
+    {
+      "id": "leisure_boardgame_cafe",
+      "oldTitles": [
+        "Jocuri într-un local"
+      ],
+      "newTitles": [
+        "Jocuri într-un local"
+      ]
+    },
+    {
+      "id": "leisure_exhibition_workshop",
+      "oldTitles": [
+        "Atelier practic"
+      ],
+      "newTitles": [
+        "Atelier practic"
+      ]
+    },
+    {
+      "id": "leisure_local_match",
+      "oldTitles": [
+        "Un meci în apropiere"
+      ],
+      "newTitles": [
+        "Un meci în apropiere"
+      ]
+    },
+    {
+      "id": "leisure_arcade",
+      "oldTitles": [
+        "Jocurile de la mall"
+      ],
+      "newTitles": [
+        "Jocurile de la mall"
+      ]
+    },
+    {
+      "id": "leisure_music_download",
+      "oldTitles": [
+        "Muzică pentru o seară acasă"
+      ],
+      "newTitles": [
+        "Muzică pentru acasă"
+      ]
+    },
+    {
+      "id": "leisure_craft_kit",
+      "oldTitles": [
+        "Un proiect mic pentru acasă"
+      ],
+      "newTitles": [
+        "Un proiect pentru acasă"
+      ]
+    },
+    {
+      "id": "leisure_city_walk",
+      "oldTitles": [
+        "O plimbare fără program"
+      ],
+      "newTitles": [
+        "Plimbare prin oraș"
+      ]
+    },
+    {
+      "id": "obligation_print_documents",
+      "oldTitles": [
+        "Materialele încă așteaptă printul"
+      ],
+      "newTitles": [
+        "Documente de imprimat"
+      ]
+    },
+    {
+      "id": "obligation_bag_repair",
+      "oldTitles": [
+        "Repari geanta"
+      ],
+      "newTitles": [
+        "Repari geanta"
+      ]
+    },
+    {
+      "id": "obligation_clothing_repair",
+      "oldTitles": [
+        "O cusătură de rezolvat"
+      ],
+      "newTitles": [
+        "Repararea hainelor"
+      ]
+    },
+    {
+      "id": "obligation_cable_replace",
+      "oldTitles": [
+        "Un cablu funcțional"
+      ],
+      "newTitles": [
+        "Înlocuiești cablul"
+      ]
+    },
+    {
+      "id": "obligation_project_folder",
+      "oldTitles": [
+        "Mapă pentru proiect"
+      ],
+      "newTitles": [
+        "Mapă pentru proiect"
+      ]
+    },
+    {
+      "id": "obligation_id_photo",
+      "oldTitles": [
+        "Fotografii pentru un formular"
+      ],
+      "newTitles": [
+        "Fotografii pentru un formular"
+      ]
+    },
+    {
+      "id": "obligation_return_trip",
+      "oldTitles": [
+        "Drum pentru un obiect împrumutat"
+      ],
+      "newTitles": [
+        "Drum pentru un obiect împrumutat"
+      ]
+    },
+    {
+      "id": "obligation_project_refill",
+      "oldTitles": [
+        "Materialul de proiect s-a terminat"
+      ],
+      "newTitles": [
+        "Materialul de proiect s-a terminat"
+      ]
+    },
+    {
+      "id": "unexpected_bag_zip",
+      "oldTitles": [
+        "Fermoarul genții se blochează"
+      ],
+      "newTitles": [
+        "Fermoarul genții se blochează"
+      ]
+    },
+    {
+      "id": "unexpected_clothing_seam",
+      "oldTitles": [
+        "O cusătură desfăcută"
+      ],
+      "newTitles": [
+        "O cusătură desfăcută"
+      ]
+    },
+    {
+      "id": "unexpected_print_request",
+      "oldTitles": [
+        "Material cerut pe hârtie"
+      ],
+      "newTitles": [
+        "Material cerut pe hârtie"
+      ]
+    },
+    {
+      "id": "unexpected_bag_followup",
+      "oldTitles": [
+        "Geanta îți încurcă drumul"
+      ],
+      "newTitles": [
+        "Geanta îți încurcă drumul"
+      ]
+    },
+    {
+      "id": "unexpected_clothing_followup",
+      "oldTitles": [
+        "Obiectul de care ai fi avut nevoie"
+      ],
+      "newTitles": [
+        "Haina încă nereparată"
+      ]
+    },
+    {
+      "id": "unexpected_lost_small_item",
+      "oldTitles": [
+        "Nu mai găsești un obiect mic"
+      ],
+      "newTitles": [
+        "Un obiect dispărut"
+      ]
+    },
+    {
+      "id": "unexpected_spilled_notebook",
+      "oldTitles": [
+        "Câteva pagini deteriorate"
+      ],
+      "newTitles": [
+        "Apă pe caiet"
+      ]
+    },
+    {
+      "id": "unexpected_delivery_collect",
+      "oldTitles": [
+        "Coletul cere un drum separat"
+      ],
+      "newTitles": [
+        "Drum după colet"
+      ]
+    },
+    {
+      "id": "opportunity_free_exhibit",
+      "oldTitles": [
+        "Expoziție cu intrare liberă"
+      ],
+      "newTitles": [
+        "Expoziție cu intrare liberă"
+      ]
+    },
+    {
+      "id": "opportunity_borrow_tool",
+      "oldTitles": [
+        "Poți împrumuta unealta"
+      ],
+      "newTitles": [
+        "Poți împrumuta unealta"
+      ]
+    },
+    {
+      "id": "opportunity_repair_help",
+      "oldTitles": [
+        "Ajutor pentru un obiect mic"
+      ],
+      "newTitles": [
+        "Ajutor pentru un obiect mic"
+      ]
+    },
+    {
+      "id": "opportunity_free_sport",
+      "oldTitles": [
+        "Mișcare fără taxă"
+      ],
+      "newTitles": [
+        "Mișcare fără taxă"
+      ]
+    },
+    {
+      "id": "opportunity_prepared_meal",
+      "oldTitles": [
+        "O masă fără comandă nouă"
+      ],
+      "newTitles": [
+        "O masă fără comandă nouă"
+      ]
+    },
+    {
+      "id": "opportunity_material_exchange",
+      "oldTitles": [
+        "Schimb de materiale"
+      ],
+      "newTitles": [
+        "Schimb de materiale"
+      ]
+    },
+    {
+      "id": "weekend_market_visit",
+      "oldTitles": [
+        "Piața de weekend"
+      ],
+      "newTitles": [
+        "Piața de weekend"
+      ]
+    },
+    {
+      "id": "weekend_local_trip",
+      "oldTitles": [
+        "O ieșire de o jumătate de zi"
+      ],
+      "newTitles": [
+        "Ieșire cu prietenii"
+      ]
+    },
+    {
+      "id": "weekend_family_meal",
+      "oldTitles": [
+        "Masa cu familia"
+      ],
+      "newTitles": [
+        "Masa cu familia"
+      ]
+    },
+    {
+      "id": "weekend_flea_market",
+      "oldTitles": [
+        "Târgul cu lucruri folosite"
+      ],
+      "newTitles": [
+        "Târgul cu lucruri folosite"
+      ]
+    },
+    {
+      "id": "weekend_long_walk",
+      "oldTitles": [
+        "Plimbare mai lungă"
+      ],
+      "newTitles": [
+        "Plimbare mai lungă"
+      ]
+    },
+    {
+      "id": "weekend_home_sorting",
+      "oldTitles": [
+        "Pui ordine în lucruri"
+      ],
+      "newTitles": [
+        "Pui ordine în lucruri"
+      ]
+    },
+    {
+      "id": "seasonal_warm_walk",
+      "oldTitles": [
+        "O ieșire în sezonul cald"
+      ],
+      "newTitles": [
+        "Plimbare pe vreme caldă"
+      ]
+    },
+    {
+      "id": "seasonal_cold_drink",
+      "oldTitles": [
+        "O băutură caldă în timpul liber"
+      ],
+      "newTitles": [
+        "Ceva cald de băut"
+      ]
+    },
+    {
+      "id": "seasonal_light_cap",
+      "oldTitles": [
+        "Șapcă pentru plimbări"
+      ],
+      "newTitles": [
+        "Șapcă pentru plimbări"
+      ]
+    },
+    {
+      "id": "seasonal_warm_socks",
+      "oldTitles": [
+        "Un articol pentru sezonul rece"
+      ],
+      "newTitles": [
+        "Șosete pentru iarnă"
+      ]
+    },
+    {
+      "id": "seasonal_study_supplies",
+      "oldTitles": [
+        "Reorganizezi materialele în septembrie"
+      ],
+      "newTitles": [
+        "Reorganizezi materialele în septembrie"
+      ]
+    },
+    {
+      "id": "seasonal_skating_visit",
+      "oldTitles": [
+        "O ieșire la patinoar"
+      ],
+      "newTitles": [
+        "Ieșire la patinoar"
+      ]
+    }
+  ]
+}

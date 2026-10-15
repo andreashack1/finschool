@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -51,11 +51,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar culoarea terminalului."
+          "label": "Doar moneda contului, presupunând că plata nu implică conversie."
         },
         {
           "id": "2",
-          "label": "Doar distanța călătoriei."
+          "label": "Doar prețul în euro, fără tariful serviciului."
         }
       ],
       "correctOption": "0"
@@ -117,7 +117,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Alegi după mărimea fontului."
+          "label": "Alegi lei numai fiindcă suma este mai ușor de recunoscut."
         },
         {
           "id": "1",
@@ -142,11 +142,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
-      "question": "Care este diferența din cazul Sofiei?",
-      "explanation": "106 − 100 = 6 lei în exercițiu.",
-      "correctFeedback": "Corect. 106 − 100 = 6 lei în exercițiu.",
-      "incorrectFeedback": "Nu chiar. 106 − 100 = 6 lei în exercițiu.",
+      "question": "În condițiile ipotetice din caz, Sofia poate plăti 106 lei prin conversia terminalului sau 100 lei prin card. Ce cost suplimentar acceptă dacă alege terminalul?",
+      "explanation": "Pentru aceeași cumpărătură, conversia terminalului costă cu 6 lei mai mult în acest exemplu. Comparația privește totalurile confirmate, fără a generaliza cursul la orice card.",
+      "correctFeedback": "Corect. Pentru aceeași cumpărătură, conversia terminalului costă cu 6 lei mai mult în acest exemplu. Comparația privește totalurile confirmate, fără a generaliza cursul la orice card.",
+      "incorrectFeedback": "Nu chiar. Pentru aceeași cumpărătură, conversia terminalului costă cu 6 lei mai mult în acest exemplu. Comparația privește totalurile confirmate, fără a generaliza cursul la orice card.",
       "caseId": "caz-cardul-in-strainatate",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică la bancomat separat?",
       "explanation": "Retragerea este o nouă operațiune cu propriile costuri.",
       "correctFeedback": "Corect. Retragerea este o nouă operațiune cu propriile costuri.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar tariful filmului."
+          "label": "Doar comisionul conversiei din magazin, presupunând că se aplică și retragerii."
         },
         {
           "id": "1",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce nu generalizează cursul exercițiului?",
       "explanation": "Exemplul învață calculul, nu recomandă un produs.",
       "correctFeedback": "Corect. Exemplul învață calculul, nu recomandă un produs.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Monedă",
           "body": "Verifică în ce monedă se face plata.",
-          "detail": "Verifică în ce monedă se face plata.",
+          "detail": "Un terminal poate propune conversia în lei sau plata în moneda locală. Variantele pot avea costuri diferite; compară totalurile și condițiile serviciului cardului înainte de confirmare.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Conversie",
           "body": "Compară cursul și toate costurile.",
-          "detail": "Compară cursul și toate costurile.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Pregătire",
           "body": "Salvează canalul oficial pentru probleme.",
-          "detail": "Salvează canalul oficial pentru probleme.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Înainte de o călătorie, găsește tarifele pentru o plată și o retragere în altă monedă.",
-          "detail": "Înainte de o călătorie, găsește tarifele pentru o plată și o retragere în altă monedă.",
           "type": "action"
         }
       ]

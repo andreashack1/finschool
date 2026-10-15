@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce credea greșit Vlad despre cei 60 lei?",
       "explanation": "Că închid întreaga datorie.",
       "correctFeedback": "Corect. Că închid întreaga datorie.",
@@ -166,18 +165,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Că sunt o plată."
+          "label": "Că minimumul elimină necesitatea de a citi suma integrală."
         },
         {
           "id": "2",
-          "label": "Că apar în extras."
+          "label": "Că limita rămasă descrie venitul propriu disponibil."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce date caută pentru plata la timp?",
       "explanation": "Scadența și suma relevantă din extras.",
       "correctFeedback": "Corect. Scadența și suma relevantă din extras.",
@@ -188,7 +186,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar logo-ul cardului."
+          "label": "Doar plata minimă, fără suma necesară pentru condițiile grației."
         },
         {
           "id": "1",
@@ -196,14 +194,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar soldul unui prieten."
+          "label": "Doar limita disponibilă, fără datoria din extras."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce verifică separat numerarul?",
       "explanation": "Poate avea alte costuri și reguli de grație.",
       "correctFeedback": "Corect. Poate avea alte costuri și reguli de grație.",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Cardul de credit permite folosirea unei linii de împrumut, spre deosebire de cardul de debit care folosește banii disponibili în cont.",
-          "detail": "Cardul de credit permite folosirea unei linii de împrumut, spre deosebire de cardul de debit care folosește banii disponibili în cont.",
+          "detail": "Vlad utilizează 600 lei și plătește minimumul de 60, dar mai rămân 540 lei principal înainte de costuri. Verifică rambursarea integrală și grația în extras și contract, nu numai minimumul cerut.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Vlad folosește 600 lei din limita cardului și vede pe extras o plată minimă ipotetică de 60 lei. Dacă plătește numai 60, rămâne cel puțin principalul de 540 lei, înainte de eventuale costuri.",
-          "detail": "Vlad folosește 600 lei din limita cardului și vede pe extras o plată minimă ipotetică de 60 lei. Dacă plătește numai 60, rămâne cel puțin principalul de 540 lei, înainte de eventuale costuri.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Limita disponibilă nu este venit propriu.",
-          "detail": "Limita disponibilă nu este venit propriu.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe un extras fictiv, marchează datoria totală, plata minimă și scadența.",
-          "detail": "Pe un extras fictiv, marchează datoria totală, plata minimă și scadența.",
           "type": "action"
         }
       ]

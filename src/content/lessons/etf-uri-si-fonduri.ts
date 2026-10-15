@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -73,10 +73,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Un fond reunește investițiile mai multor persoane într-un portofoliu administrat după o politică.",
-      "explanation": "Un fond reunește investițiile mai multor persoane într-un portofoliu administrat după o politică. Un ETF este un fond ale cărui unități se tranzacționează la bursă. Nu toate fondurile au aceleași dețineri sau același risc. Citește obiectivul, expunerile, costurile și documentul cu informații esențiale, fără să presupui diversificare largă numai din denumire.",
-      "correctFeedback": "Corect. Un fond reunește investițiile mai multor persoane într-un portofoliu administrat după o politică. Un ETF este un fond ale cărui unități se tranzacționează la bursă. Nu toate fondurile au aceleași dețineri sau același risc. Citește obiectivul, expunerile, costurile și documentul cu informații esențiale, fără să presupui diversificare largă numai din denumire.",
-      "incorrectFeedback": "Nu chiar. Un fond reunește investițiile mai multor persoane într-un portofoliu administrat după o politică. Un ETF este un fond ale cărui unități se tranzacționează la bursă. Nu toate fondurile au aceleași dețineri sau același risc. Citește obiectivul, expunerile, costurile și documentul cu informații esențiale, fără să presupui diversificare largă numai din denumire.",
+      "question": "Două fonduri pot avea multe dețineri și totuși expuneri diferite, deci numărul pozițiilor nu arată singur diversificarea.",
+      "explanation": "Contează în ce companii, sectoare și piețe este investit portofoliul. Titlul fondului și numărul deținerilor nu înlocuiesc politica sa.",
+      "correctFeedback": "Corect. Contează în ce companii, sectoare și piețe este investit portofoliul. Titlul fondului și numărul deținerilor nu înlocuiesc politica sa.",
+      "incorrectFeedback": "Nu chiar. Contează în ce companii, sectoare și piețe este investit portofoliul. Titlul fondului și numărul deținerilor nu înlocuiesc politica sa.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -126,11 +126,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar numele."
+          "label": "Doar numărul pozițiilor, presupunând că riscul devine identic."
         },
         {
           "id": "1",
-          "label": "Doar data reclamei."
+          "label": "Doar randamentul trecut, fără sectoarele în care investesc."
         },
         {
           "id": "2",
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce diferență găsește Lia?",
       "explanation": "Concentrarea sectorială față de o expunere mai largă.",
       "correctFeedback": "Corect. Concentrarea sectorială față de o expunere mai largă.",
@@ -177,7 +176,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Unde caută politica și riscurile?",
       "explanation": "În documentele fondului.",
       "correctFeedback": "Corect. În documentele fondului.",
@@ -196,14 +194,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "În prețul telefonului."
+          "label": "În randamentul ultimului an, presupunând că descrie politica."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce costuri verifică dincolo de exemplul anual?",
       "explanation": "Tranzacția și conversia valutară relevante.",
       "correctFeedback": "Corect. Tranzacția și conversia valutară relevante.",
@@ -214,11 +211,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar chiria personală."
+          "label": "Doar comisionul anual, presupunând că tranzacția nu costă."
         },
         {
           "id": "1",
-          "label": "Doar taxele de transport."
+          "label": "Doar costurile în moneda contului, fără conversie."
         },
         {
           "id": "2",
@@ -253,7 +250,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar numărul de aplicații."
+          "label": "Doar numărul total al unităților, fără ce dețin fondurile."
         },
         {
           "id": "2",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Un fond reunește investițiile mai multor persoane într-un portofoliu administrat după o politică.",
-          "detail": "Un fond reunește investițiile mai multor persoane într-un portofoliu administrat după o politică.",
+          "detail": "Două fonduri cu multe poziții pot avea concentrare sectorială diferită. Lia citește politica și expunerile, apoi verifică tarifele fondului, tranzacției și conversiei.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Lia compară un fond concentrat într-un sector cu unul care urmărește o piață mai largă. Ambele pot avea multe dețineri, dar expunerile diferă.",
-          "detail": "Lia compară un fond concentrat într-un sector cu unul care urmărește o piață mai largă. Ambele pot avea multe dețineri, dar expunerile diferă.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Un ETF nu garantează profit și nu este automat ieftin în orice situație.",
-          "detail": "Un ETF nu garantează profit și nu este automat ieftin în orice situație.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară două fonduri fictive după obiectiv, expunere, cost și monedă, fără să alegi un produs real.",
-          "detail": "Compară două fonduri fictive după obiectiv, expunere, cost și monedă, fără să alegi un produs real.",
           "type": "action"
         }
       ]

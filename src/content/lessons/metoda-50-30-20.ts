@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -83,10 +83,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "Cât este 20% din 2.400 lei?",
-      "explanation": "2.400 × 0,20 = 480 lei.",
-      "correctFeedback": "Corect. 2.400 × 0,20 = 480 lei.",
-      "incorrectFeedback": "Nu chiar. 2.400 × 0,20 = 480 lei.",
+      "question": "Pentru 2.400 lei disponibili, reperul de 20% al metodei indică ce sumă pentru economii sau obiective, înainte de adaptarea la costurile reale?",
+      "explanation": "Reperul indică 480 lei. Aceasta este o sumă de pornire pentru comparație, nu o obligație care elimină nevoile reale.",
+      "correctFeedback": "Corect. Reperul indică 480 lei. Aceasta este o sumă de pornire pentru comparație, nu o obligație care elimină nevoile reale.",
+      "incorrectFeedback": "Nu chiar. Reperul indică 480 lei. Aceasta este o sumă de pornire pentru comparație, nu o obligație care elimină nevoile reale.",
       "type": "scenariu",
       "context": "Aplici metoda într-un exemplu.",
       "options": [
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Cu cât depășesc nevoile Marei reperul?",
       "explanation": "1.500 − 1.200 = 300 lei.",
       "correctFeedback": "Corect. 1.500 − 1.200 = 300 lei.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce trebuie păstrat în bugetul final?",
       "explanation": "Reperul ajută planul, nu înlocuiește sumele.",
       "correctFeedback": "Corect. Reperul ajută planul, nu înlocuiește sumele.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Cum compară situația colegului?",
       "explanation": "Contextul diferit poate justifica altă structură.",
       "correctFeedback": "Corect. Contextul diferit poate justifica altă structură.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Reper",
           "body": "Metoda nu este o obligație universală.",
-          "detail": "Metoda nu este o obligație universală.",
+          "detail": "La 2.400 lei, reperul pentru nevoi este 1.200 lei, dar Mara are costuri reale de 1.500 lei. Diferența de 300 lei cere adaptarea planului; procentele nu reduc obligațiile.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Calcul",
           "body": "Aplică procentele la suma disponibilă.",
-          "detail": "Aplică procentele la suma disponibilă.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Adaptare",
           "body": "Bugetul trebuie să acopere realitatea.",
-          "detail": "Bugetul trebuie să acopere realitatea.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Aplică informativ procentele unei sume ipotetice și compară-le cu trei costuri reale sau estimate.",
-          "detail": "Aplică informativ procentele unei sume ipotetice și compară-le cu trei costuri reale sau estimate.",
           "type": "action"
         }
       ]

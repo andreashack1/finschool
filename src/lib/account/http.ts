@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import { AccountError, errorCopy } from './errors';
 import type { User } from '@supabase/supabase-js';
 import { appUrl } from '../supabase/env';
+import { devOriginHosts } from '../../content/dev-origins';
 export function requireAccountContext(request:Request,user:User,required=true) {
   const expected=request.headers.get('X-Finly-Account');
   // This header never selects a user or grants permission. Only the verified
@@ -16,13 +17,15 @@ export function sameOrigin(request: Request) {
   // client-supplied forwarded host or the internal runtime URL.
   if (origin === appUrl()) return;
   // A local dev server may choose another port when the configured one is
-  // occupied. Only trust loopback origins on this request's protocol + port;
+  // occupied. Trust loopback or explicitly configured LAN origins on this
+  // request's protocol + port; Next can use localhost internally for LAN traffic.
   // production still requires the canonical origin, never forwarded headers.
   if (origin && process.env.NODE_ENV === 'development') {
     try {
       const browserOrigin = new URL(origin), requestUrl = new URL(request.url);
       const loopback = (hostname:string) => ['localhost','127.0.0.1','[::1]'].includes(hostname);
       if (loopback(browserOrigin.hostname) && loopback(requestUrl.hostname) && browserOrigin.protocol === requestUrl.protocol && browserOrigin.port === requestUrl.port) return;
+      if (devOriginHosts.includes(browserOrigin.hostname) && (loopback(requestUrl.hostname) || requestUrl.hostname === browserOrigin.hostname) && browserOrigin.protocol === requestUrl.protocol && browserOrigin.port === requestUrl.port && origin === browserOrigin.origin) return;
     } catch { /* Reject malformed origins. */ }
   }
   throw new AccountError('ORIGIN_REJECTED', 403);

@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -101,7 +101,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar numele cafenelei."
+          "label": "Doar numărul orelor zilnice, fără repartizarea lor."
         },
         {
           "id": "1",
@@ -109,7 +109,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar venitul unui prieten."
+          "label": "Doar venitul lunar, fără timpul ocupat de navetă."
         }
       ],
       "correctOption": "1"
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce formulare trebuie clarificată în oferta Dariei?",
       "explanation": "Uneori rămâi cât este nevoie.",
       "correctFeedback": "Corect. Uneori rămâi cât este nevoie.",
@@ -166,18 +165,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Cafeneaua servește băuturi."
+          "label": "Doar salariul lunar, considerând programul deja confirmat."
         },
         {
           "id": "2",
-          "label": "Cursurile sunt dimineața."
+          "label": "Doar cele patru ore din ofertă, fără condiția rămânerii suplimentare."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce include naveta în plan?",
       "explanation": "Ocupă timp în afara orelor plătite.",
       "correctFeedback": "Corect. Ocupă timp în afara orelor plătite.",
@@ -188,7 +186,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Devine automat salariu."
+          "label": "Trebuie considerată automat parte din orele plătite."
         },
         {
           "id": "1",
@@ -196,14 +194,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Înlocuiește programul din contract."
+          "label": "Poate fi ignorată dacă salariul lunar este suficient."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce presupunere evită Daria despre student?",
       "explanation": "Că orice venit ar fi scutit de rețineri.",
       "correctFeedback": "Corect. Că orice venit ar fi scutit de rețineri.",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Un job part-time are un timp de muncă mai mic decât norma întreagă comparabilă.",
-          "detail": "Un job part-time are un timp de muncă mai mic decât norma întreagă comparabilă.",
+          "detail": "Patru ore de lucru pot ocupa alte intervale și pot cere navetă. Daria verifică zilele și schimbările programului, nu doar totalul de ore, înainte să confirme compatibilitatea cu facultatea.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Daria are cursuri dimineața și compară două oferte: patru ore după-amiaza sau un program variabil. Prima pare compatibilă, dar verifică zilele și naveta.",
-          "detail": "Daria are cursuri dimineața și compară două oferte: patru ore după-amiaza sau un program variabil. Prima pare compatibilă, dar verifică zilele și naveta.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Mai puține ore în contract nu înseamnă disponibilitate nelimitată în restul zilei.",
-          "detail": "Mai puține ore în contract nu înseamnă disponibilitate nelimitată în restul zilei.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Desenează o săptămână cu ore de curs, navetă și un program part-time posibil.",
-          "detail": "Desenează o săptămână cu ore de curs, navetă și un program part-time posibil.",
           "type": "action"
         }
       ]

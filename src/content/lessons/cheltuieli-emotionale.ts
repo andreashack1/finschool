@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [],
   "screens": [
@@ -64,10 +64,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "O cumpărătură poate fi folosită pentru confort, recompensă ori reducerea stresului.",
-      "explanation": "O cumpărătură poate fi folosită pentru confort, recompensă ori reducerea stresului. Emoția este reală, dar produsul nu rezolvă automat cauza ei. Observă ce se întâmplă înainte de impuls și ce nevoie încerci să acoperi. O pauză și o alternativă pot ajuta la alegere fără să transformi fiecare plăcere într-o greșeală.",
-      "correctFeedback": "Corect. O cumpărătură poate fi folosită pentru confort, recompensă ori reducerea stresului. Emoția este reală, dar produsul nu rezolvă automat cauza ei. Observă ce se întâmplă înainte de impuls și ce nevoie încerci să acoperi. O pauză și o alternativă pot ajuta la alegere fără să transformi fiecare plăcere într-o greșeală.",
-      "incorrectFeedback": "Nu chiar. O cumpărătură poate fi folosită pentru confort, recompensă ori reducerea stresului. Emoția este reală, dar produsul nu rezolvă automat cauza ei. Observă ce se întâmplă înainte de impuls și ce nevoie încerci să acoperi. O pauză și o alternativă pot ajuta la alegere fără să transformi fiecare plăcere într-o greșeală.",
+      "question": "O emoție reală poate influența cumpărarea, fără ca produsul să rezolve automat cauza stresului.",
+      "explanation": "Confortul promis de achiziție și problema care a declanșat-o sunt distincte. Observarea contextului ajută alegerea, fără să judece orice plăcere.",
+      "correctFeedback": "Corect. Confortul promis de achiziție și problema care a declanșat-o sunt distincte. Observarea contextului ajută alegerea, fără să judece orice plăcere.",
+      "incorrectFeedback": "Nu chiar. Confortul promis de achiziție și problema care a declanșat-o sunt distincte. Observarea contextului ajută alegerea, fără să judece orice plăcere.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce context identifică Sofia?",
       "explanation": "Stresul și conflictul zilei.",
       "correctFeedback": "Corect. Stresul și conflictul zilei.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce lasă coșul pentru mai târziu?",
       "explanation": "Ca să reevalueze utilitatea și bugetul.",
       "correctFeedback": "Corect. Ca să reevalueze utilitatea și bugetul.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Ca să garanteze o reducere."
+          "label": "Ca să concluzioneze că orice cumpărătură după stres este greșită."
         },
         {
           "id": "1",
@@ -187,29 +185,28 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Ca să dubleze banii."
+          "label": "Ca să considere suma din coș bani economisiți deja."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce alternativă încearcă?",
-      "explanation": "O plimbare înainte de reevaluare.",
-      "correctFeedback": "Corect. O plimbare înainte de reevaluare.",
-      "incorrectFeedback": "Nu chiar. O plimbare înainte de reevaluare.",
+      "question": "Sofia încearcă o plimbare înainte să revadă coșul. Ce pas introduce o alternativă la cumpărarea imediată?",
+      "explanation": "Plimbarea introduce o pauză înainte de cost. După ea, Sofia poate verifica utilitatea și bugetul, fără să considere emoția o obligație de cumpărare.",
+      "correctFeedback": "Corect. Plimbarea introduce o pauză înainte de cost. După ea, Sofia poate verifica utilitatea și bugetul, fără să considere emoția o obligație de cumpărare.",
+      "incorrectFeedback": "Nu chiar. Plimbarea introduce o pauză înainte de cost. După ea, Sofia poate verifica utilitatea și bugetul, fără să considere emoția o obligație de cumpărare.",
       "caseId": "caz-cheltuieli-emotionale",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
       "options": [
         {
           "id": "0",
-          "label": "Un credit nou imediat."
+          "label": "Confirmarea achiziției, urmată de verificarea nevoilor."
         },
         {
           "id": "1",
-          "label": "Ștergerea bugetului."
+          "label": "Amânarea verificării bugetului până după plată."
         },
         {
           "id": "2",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "O cumpărătură poate fi folosită pentru confort, recompensă ori reducerea stresului.",
-          "detail": "O cumpărătură poate fi folosită pentru confort, recompensă ori reducerea stresului.",
+          "detail": "Sofia observă că impulsul pentru produsul de 180 lei a apărut după stres. Cu 200 lei pentru săptămână, pauza și alternativa îi permit să verifice nevoile înainte să rămână numai cu 20 lei.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "După o zi dificilă, Sofia pune în coș un produs de 180 lei pe care nu îl planificase. Are 200 pentru restul săptămânii.",
-          "detail": "După o zi dificilă, Sofia pune în coș un produs de 180 lei pe care nu îl planificase. Are 200 pentru restul săptămânii.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Nu diagnostica o persoană doar dintr-o cumpărătură și nu presupune că pauza funcționează identic pentru toată lumea.",
-          "detail": "Nu diagnostica o persoană doar dintr-o cumpărătură și nu presupune că pauza funcționează identic pentru toată lumea.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează un declanșator posibil și o alternativă fără cumpărare pe care ai putea să o încerci.",
-          "detail": "Notează un declanșator posibil și o alternativă fără cumpărare pe care ai putea să o încerci.",
           "type": "action"
         }
       ]

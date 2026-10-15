@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Cât costă prima ofertă din caz?",
       "explanation": "100 × 5 + 15 = 515 lei.",
       "correctFeedback": "Corect. 100 × 5 + 15 = 515 lei.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Care ofertă are totalul mai mic în exemplu?",
       "explanation": "Comisionul poate inversa comparația ratelor.",
       "correctFeedback": "Corect. Comisionul poate inversa comparația ratelor.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce trebuie confirmat despre sensul operațiunii?",
       "explanation": "Cumpărare și vânzare pot fi afișate din perspectiva instituției.",
       "correctFeedback": "Corect. Cumpărare și vânzare pot fi afișate din perspectiva instituției.",
@@ -205,11 +202,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Câți colegi au euro acasă."
+          "label": "Doar cursul pentru operațiunea inversă, presupunând că este identic."
         },
         {
           "id": "1",
-          "label": "Ce curs va exista peste un an."
+          "label": "Doar valuta contului, fără suma finală primită."
         },
         {
           "id": "2",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Sensul",
           "body": "Clarifică moneda dată și moneda primită.",
-          "detail": "Clarifică moneda dată și moneda primită.",
+          "detail": "Cotațiile de cumpărare și vânzare pot fi prezentate din perspectiva instituției. Înainte de confirmare, verifică exact câți lei dai, câți euro primești și ce comision se adaugă.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Calcul",
           "body": "Pentru lei/euro înmulțești euro ca să afli lei.",
-          "detail": "Pentru lei/euro înmulțești euro ca să afli lei.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Totalul",
           "body": "Compară cursul împreună cu toate costurile.",
-          "detail": "Compară cursul împreună cu toate costurile.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară informativ două oferte pentru aceeași sumă și notează totalul, fără să faci schimbul.",
-          "detail": "Compară informativ două oferte pentru aceeași sumă și notează totalul, fără să faci schimbul.",
           "type": "action"
         }
       ]

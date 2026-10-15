@@ -352,7 +352,9 @@
 .lesson-remember { text-align: left; }
 .lesson-remember article { border: 1px solid var(--border); background: white; border-radius: 16px; padding: 16px; margin-top: 14px; }
 .lesson-remember .remember-action { background: var(--light-blue); }
-.lesson-remember article > button { display: flex; justify-content: space-between; gap: 14px; width: 100%; border: 0; padding: 0; text-align: left; background: transparent; color: var(--foreground); font: inherit; font-weight: 650; line-height: 1.5; }
+.lesson-remember article > button { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%; min-height: 44px; border: 0; padding: 0; text-align: left; background: transparent; color: var(--foreground); font: inherit; font-weight: 650; line-height: 1.5; }
+.lesson-remember article > button:focus-visible { outline: 2px solid var(--blue-ink); outline-offset: 4px; border-radius: 4px; }
+.lesson-lead-in { color: var(--blue-ink); line-height: 1.5; }
 .remember-body { display: none; }
 .remember-body.is-open { display: block; }
 .remember-body > p, .remember-preview { font-size: 16px; line-height: 1.6; margin-top: 12px; }

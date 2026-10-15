@@ -1,0 +1,15 @@
+{
+  "scope": "Finly simulator Chapter 4",
+  "tests": { "command": "npm test", "files": 24, "passed": 597, "failed": 0, "chapterFourDomain": 69, "chapterFourPostgresIntegration": 27 },
+  "browser": { "passedFlows": 17, "widths": [320, 390, 430, 1280], "report": "artifacts/simulator-chapter-four-qa/browser-report.json", "mode": "actual Next + SDK + PostgreSQL through PGlite; simulated local Auth" },
+  "production": { "passedChecks": 16, "report": "artifacts/simulator-chapter-four-qa/production-report.json", "authenticatedWrites": false },
+  "lint": "PASS",
+  "typecheck": { "command": "node node_modules/typescript/bin/tsc --noEmit", "result": "PASS" },
+  "build": { "command": "npm run build", "result": "PASS" },
+  "migration": { "file": "supabase/migrations/0005_simulator_consequences.sql", "productionApplied": false, "existingDataReset": false },
+  "foundationRegression": "Automatic ledger sequence now depends on stable per-day event order rather than total batch resolutions; catch-up equals day-by-day processing.",
+  "requiresUserCheck": [
+    "Apply migration 0005 after 0004 using the established deployment process; no production migration was executed.",
+    "Verify hosted Supabase behavior with real authentication and separate concurrent PostgreSQL connections. PGlite validates actual SQL/transactions/permissions but runs through a single local connection."
+  ]
+}

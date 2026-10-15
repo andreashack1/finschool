@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -73,10 +73,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Începerea cu o sumă mică poate ajuta la învățare, dar nu elimină riscul și costurile.",
-      "explanation": "Începerea cu o sumă mică poate ajuta la învățare, dar nu elimină riscul și costurile. Înainte de bani reali, explică instrumentul, verifică intermediarul și citește tarifele. Separă resursele necesare obligațiilor de suma pe care o poți expune unei pierderi. O simulare poate arăta mecanismul fără să creeze o investiție reală.",
-      "correctFeedback": "Corect. Începerea cu o sumă mică poate ajuta la învățare, dar nu elimină riscul și costurile. Înainte de bani reali, explică instrumentul, verifică intermediarul și citește tarifele. Separă resursele necesare obligațiilor de suma pe care o poți expune unei pierderi. O simulare poate arăta mecanismul fără să creeze o investiție reală.",
-      "incorrectFeedback": "Nu chiar. Începerea cu o sumă mică poate ajuta la învățare, dar nu elimină riscul și costurile. Înainte de bani reali, explică instrumentul, verifică intermediarul și citește tarifele. Separă resursele necesare obligațiilor de suma pe care o poți expune unei pierderi. O simulare poate arăta mecanismul fără să creeze o investiție reală.",
+      "question": "Un comision fix poate conta mai mult ca procent într-o tranzacție mică, chiar dacă suma comisionului rămâne aceeași.",
+      "explanation": "Un cost de 5 lei reprezintă 5% din 100 lei și 1% din 500 lei. Procentul mai mic nu justifică automat expunerea unei sume mai mari.",
+      "correctFeedback": "Corect. Un cost de 5 lei reprezintă 5% din 100 lei și 1% din 500 lei. Procentul mai mic nu justifică automat expunerea unei sume mai mari.",
+      "incorrectFeedback": "Nu chiar. Un cost de 5 lei reprezintă 5% din 100 lei și 1% din 500 lei. Procentul mai mic nu justifică automat expunerea unei sume mai mari.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -93,10 +93,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "Comision 5 la suma 100. Ce procent reprezintă?",
-      "explanation": "5%.",
-      "correctFeedback": "Corect. 5%.",
-      "incorrectFeedback": "Nu chiar. 5%.",
+      "question": "Din cei 100 lei disponibili pentru o tranzacție, costul fix este 5 lei. Ce parte din sumă consumă comisionul înainte de orice evoluție a investiției?",
+      "explanation": "Comisionul consumă 5% din sumă. Acest cost trebuie separat de evoluția prețului, care rămâne incertă.",
+      "correctFeedback": "Corect. Comisionul consumă 5% din sumă. Acest cost trebuie separat de evoluția prețului, care rămâne incertă.",
+      "incorrectFeedback": "Nu chiar. Comisionul consumă 5% din sumă. Acest cost trebuie separat de evoluția prețului, care rămâne incertă.",
       "type": "variante",
       "options": [
         {
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce Irina nu mărește automat suma?",
       "explanation": "Capacitatea de pierdere contează, nu doar procentul costului.",
       "correctFeedback": "Corect. Capacitatea de pierdere contează, nu doar procentul costului.",
@@ -177,7 +176,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce folosește înainte de bani reali?",
       "explanation": "O simulare pentru înțelegerea mecanismului.",
       "correctFeedback": "Corect. O simulare pentru înțelegerea mecanismului.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce date verifică despre intermediar?",
       "explanation": "Autorizarea și tarifele relevante.",
       "correctFeedback": "Corect. Autorizarea și tarifele relevante.",
@@ -214,11 +211,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar culoarea aplicației."
+          "label": "Doar suma minimă acceptată, fără registrul oficial."
         },
         {
           "id": "1",
-          "label": "Doar numărul notificărilor."
+          "label": "Doar frecvența tranzacțiilor, fără tarifele aplicabile."
         },
         {
           "id": "2",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Începerea cu o sumă mică poate ajuta la învățare, dar nu elimină riscul și costurile.",
-          "detail": "Începerea cu o sumă mică poate ajuta la învățare, dar nu elimină riscul și costurile.",
+          "detail": "Comisionul fix de 5 lei consumă 5% din 100, dar 1% din 500 în exercițiu. Procentul mai mic nu justifică automat expunerea unei sume mai mari decât poți suporta.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Într-un exercițiu, un comision fix de 5 lei la o tranzacție de 100 reprezintă 5% din sumă, iar la 500 reprezintă 1%. Aceasta nu recomandă o tranzacție mai mare: arată că un cost fix poate conta mult pentru sume mici.",
-          "detail": "Într-un exercițiu, un comision fix de 5 lei la o tranzacție de 100 reprezintă 5% din sumă, iar la 500 reprezintă 1%. Aceasta nu recomandă o tranzacție mai mare: arată că un cost fix poate conta mult pentru sume mici.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Nu împrumuta bani doar ca să începi și nu cumpăra un produs pe care nu îl poți explica.",
-          "detail": "Nu împrumuta bani doar ca să începi și nu cumpăra un produs pe care nu îl poți explica.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează ponderea unui cost fix pentru două sume fictive și verifică ce ai mai avea de învățat.",
-          "detail": "Calculează ponderea unui cost fix pentru două sume fictive și verifică ce ai mai avea de învățat.",
           "type": "action"
         }
       ]

@@ -16,12 +16,11 @@ for (const lesson of lessons) {
   const old = previous.find(value => value.id === lesson.id);
   if (old) for (const key of ['id', 'xp']) assert.equal(lesson[key], old[key]);
   assert.equal(lesson.minutes, 5);
-  assert.equal(lesson.contentVersion, 2);
+  assert.ok(lesson.contentVersion >= 2);
   assert.equal(lesson.formatVersion, 2);
   assert.ok(ReadyLessonSchema.safeParse(lesson).success);
   const questions = lesson.screens.filter(engine.isAnswerScreen);
-  assert.equal(questions.length, 9);
-  assert.equal(lesson.screens.length, 16);
+  assert.ok(questions.length > 0);
   for (const screen of lesson.screens.filter(value => value.type === 'explicatie')) assert.ok(wordCount(screen.paragraphs.join(' ')) >= 80);
   const answers = questions.map(screen => ({ screenId: screen.id, selectedOptionId: engine.getCorrectAnswerId(screen) }));
   const now = new Date('2026-10-03T10:00:00Z');
@@ -53,7 +52,12 @@ function fails(label, mutate, expected) {
   assert.match(result.error.message, expected, label);
   assert.throws(() => validateContentTree(categories, registry.lessons.map(value => value.id === lesson.id ? lesson : value)), new RegExp('Lesson "' + lesson.id + '"'), label);
 }
-fails('seven questions', lesson => lesson.screens.splice(12, 2), /expected 9 interactive questions, found 7/);
+const shorter = copy(valid);
+shorter.screens.splice(12, 2);
+assert.ok(ReadyLessonSchema.safeParse(shorter).success, 'seven useful questions do not require filler');
+const longer = copy(valid);
+longer.screens.splice(-2, 0, { ...copy(valid.screens[2]), id: 'additional-practice' });
+assert.ok(ReadyLessonSchema.safeParse(longer).success, 'additional practice does not require a fixed screen count');
 fails('missing remember', lesson => lesson.screens.splice(14, 1), /tine_minte/);
 fails('short case', lesson => lesson.screens[7].paragraphs = ['Prea scurt.', 'Tot scurt.'], /expected 120-200/);
 fails('long explanation', lesson => lesson.screens[1].paragraphs = [Array(151).fill('cuvânt').join(' '), 'Încă un paragraf.'], /expected 80-150/);

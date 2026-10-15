@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -51,11 +51,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar faptul că există un telefon."
+          "label": "Doar existența unui cod primit, fără operațiunea descrisă."
         },
         {
           "id": "2",
-          "label": "Doar numărul de câmpuri."
+          "label": "Doar tipul datelor, presupunând că aceeași solicitare este legitimă pe orice canal."
         }
       ],
       "correctOption": "0"
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce Mara nu trimite fotografia cardului?",
       "explanation": "Cererea trebuie justificată prin operațiunea legitimă.",
       "correctFeedback": "Corect. Cererea trebuie justificată prin operațiunea legitimă.",
@@ -157,7 +156,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Cardul nu are nicio informație."
+          "label": "O fotografie nu poate autoriza direct plata, deci nu expune niciun risc."
         },
         {
           "id": "2",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce observă în mesajul de autorizare?",
       "explanation": "Conținutul codului arată scopul cererii.",
       "correctFeedback": "Corect. Conținutul codului arată scopul cererii.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce explică băncii dacă a expus date?",
       "explanation": "Datele precise ajută protecția și verificarea.",
       "correctFeedback": "Corect. Datele precise ajută protecția și verificarea.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Roluri",
           "body": "Identificarea și autorizarea sunt diferite.",
-          "detail": "Identificarea și autorizarea sunt diferite.",
+          "detail": "O pagină legitimă de plată și un interlocutor din chat pot cere informații cu scopuri diferite. Citește ce autorizează codul și verifică separat o cerere pentru o operațiune neinițiată.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Canal",
           "body": "Folosește date numai într-o operațiune legitimă verificată.",
-          "detail": "Folosește date numai într-o operațiune legitimă verificată.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Reacție",
           "body": "Expunerea merită verificată înainte de o pierdere.",
-          "detail": "Expunerea merită verificată înainte de o pierdere.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Verifică unde ai salvat date de plată pe dispozitive comune și elimină salvările inutile prin setările legitime.",
-          "detail": "Verifică unde ai salvat date de plată pe dispozitive comune și elimină salvările inutile prin setările legitime.",
           "type": "action"
         }
       ]

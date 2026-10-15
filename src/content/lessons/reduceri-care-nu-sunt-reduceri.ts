@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -121,7 +121,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar numărul de culori din reclamă."
+          "label": "Doar prețul produsului, fără transport și condiția codului."
         },
         {
           "id": "2",
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Care este totalul primei oferte fără cod?",
       "explanation": "150 + 20 = 170 lei cu transport.",
       "correctFeedback": "Corect. 150 + 20 = 170 lei cu transport.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce ofertă este mai ieftină fără cod în caz?",
       "explanation": "Totalul decide comparația costului, nu eticheta promoțională.",
       "correctFeedback": "Corect. Totalul decide comparația costului, nu eticheta promoțională.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică înainte să adauge produse pentru prag?",
       "explanation": "Cheltuiala suplimentară poate depăși beneficiul promoției.",
       "correctFeedback": "Corect. Cheltuiala suplimentară poate depăși beneficiul promoției.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Baza contează",
           "body": "Procentul se aplică unei sume concrete.",
-          "detail": "Procentul se aplică unei sume concrete.",
+          "detail": "O reducere de 20% din 200 lei lasă 160 lei. Încă 10% se aplică noii baze și lasă 144 lei, deci reducerile succesive nu se adună automat.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Totalul contează",
           "body": "Include transportul și condițiile.",
-          "detail": "Include transportul și condițiile.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Procente succesive",
           "body": "Aplică fiecare reducere la baza potrivită.",
-          "detail": "Aplică fiecare reducere la baza potrivită.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Recalculează o ofertă în lei și compară totalul cu o alternativă pentru același produs.",
-          "detail": "Recalculează o ofertă în lei și compară totalul cu o alternativă pentru același produs.",
           "type": "action"
         }
       ]

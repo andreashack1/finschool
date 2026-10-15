@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce semnale apar în cazul lui Vlad?",
       "explanation": "Presiunea și autorizarea sunt centrale în risc.",
       "correctFeedback": "Corect. Presiunea și autorizarea sunt centrale în risc.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce numele corect nu este suficient?",
       "explanation": "Datele personale nu sunt o dovadă completă de identitate.",
       "correctFeedback": "Corect. Datele personale nu sunt o dovadă completă de identitate.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Numele nu există în acte."
+          "label": "Dacă numele e corect, nu mai trebuie verificată cererea."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Orice apel cu nume este autentic."
+          "label": "Numărul afișat și numele sunt două confirmări independente."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Cum tratează promisiunea celui de-al doilea apel?",
       "explanation": "Rolurile pretinse nu înlocuiesc canalul competent.",
       "correctFeedback": "Corect. Rolurile pretinse nu înlocuiesc canalul competent.",
@@ -265,7 +262,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Un profit garantat."
+          "label": "Certitudinea că apelul este fals, fără alte verificări."
         },
         {
           "id": "1",
@@ -273,7 +270,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Promisiunea apelantului."
+          "label": "Posibilitatea de a verifica prin numărul dictat de apelant."
         }
       ],
       "correctOption": "1"
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Nu te grăbi",
           "body": "Urgența poate fi parte din poveste.",
-          "detail": "Urgența poate fi parte din poveste.",
+          "detail": "Povestea despre un credit necunoscut îl împinge pe Vlad să mute bani și să comunice un cod. Închide apelul și verifică situația prin contactul băncii găsit separat, fără să urmeze numărul dictat.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Canal separat",
           "body": "Sună folosind datele oficiale cunoscute.",
-          "detail": "Sună folosind datele oficiale cunoscute.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Coduri protejate",
           "body": "Nu comunica autorizări apelantului.",
-          "detail": "Nu comunica autorizări apelantului.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Găsește și salvează canalul oficial de contact al băncii tale, fără să pornești de la un mesaj nesolicitat.",
-          "detail": "Găsește și salvează canalul oficial de contact al băncii tale, fără să pornești de la un mesaj nesolicitat.",
           "type": "action"
         }
       ]

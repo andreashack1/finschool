@@ -13,6 +13,14 @@ const countedText = (min: number, max: number, name: string) => text.superRefine
 });
 const note = z.object({ title: text.optional(), text });
 const mood = FiniMessageSchema.shape.mood;
+export const normalizeTakeaway = (value: string) => value.toLocaleLowerCase("ro-RO").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+export function isCopiedTakeaway(summary: string, detail: string) {
+  const a = normalizeTakeaway(summary), b = normalizeTakeaway(detail);
+  if (a === b) return true;
+  // Catch a copied sentence with a short label/prefix, without rejecting a
+  // genuine elaboration that naturally reuses the financial vocabulary.
+  return a.length > 0 && b.includes(a) && b.split(" ").length - a.split(" ").length <= 5;
+}
 const explanation = z.object({ type: z.literal("explicatie"), ...base, body: text.optional(), highlight: text.optional(), continueLabel: text.optional(), eyebrow: text.optional(), finiMood: mood.optional(), paragraphs: z.array(text).min(2).max(4).optional(), example: note.optional(), detail: note.optional(), figuresNote: text.optional() }).superRefine((screen, ctx) => {
   if (!screen.paragraphs && !screen.body) ctx.addIssue({ code: "custom", message: `Explanation "${screen.id}" requires paragraphs or legacy body` });
   if (screen.paragraphs) {
@@ -24,12 +32,15 @@ export const CaseScreenSchema = z.object({ type: z.literal("caz_real"), ...base,
   const result = countedText(120, 200, `Case "${screen.caseId}"`).safeParse(screen.paragraphs.join(" "));
   if (!result.success) for (const issue of result.error.issues) ctx.addIssue({ code: "custom", message: issue.message });
 });
-export const RememberScreenSchema = z.object({ type: z.literal("tine_minte"), ...base, finiMood: mood.optional(), items: z.array(z.object({ id: text, title: text, body: text, detail: text, type: z.enum(["normal", "action"]).default("normal") })).min(4).max(6) }).superRefine((screen, ctx) => {
+export const RememberScreenSchema = z.object({ type: z.literal("tine_minte"), ...base, finiMood: mood.optional(), items: z.array(z.object({ id: text, title: text, body: text, detail: text.optional(), type: z.enum(["normal", "action"]).default("normal") })).min(4).max(6) }).superRefine((screen, ctx) => {
   if (screen.items.at(-1)?.title !== "Ce poți face azi" || screen.items.at(-1)?.type !== "action") ctx.addIssue({ code: "custom", message: `Remember screen "${screen.id}" must end with action "Ce poți face azi"` });
   if (new Set(screen.items.map(item => item.id)).size !== screen.items.length) ctx.addIssue({ code: "custom", message: `Remember screen "${screen.id}" has duplicate item IDs` });
+  screen.items.forEach((item, index) => {
+    if (item.detail && isCopiedTakeaway(item.body, item.detail)) ctx.addIssue({ code: "custom", path: ["items", index, "detail"], message: "Expanded takeaway must add information, not copy its summary" });
+  });
 });
 export const LessonOptionSchema = z.object({ id: text, label: text });
-const question = { ...base, question: text, explanation: text, correctFeedback: text.optional(), incorrectFeedback: text.optional(), caseId: text.optional(), feedbackFini: FiniMessageSchema.optional() };
+const question = { ...base, title: text.optional(), question: text, leadIn: text.optional(), explanation: text, correctFeedback: text.optional(), incorrectFeedback: text.optional(), caseId: text.optional(), feedbackFini: FiniMessageSchema.optional() };
 const choice = { ...question, options: z.array(LessonOptionSchema).min(3).max(4), correctOption: text, shuffle: z.boolean().optional() };
 export const LessonScreenSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("situatie"), ...prose }),
@@ -68,21 +79,17 @@ export const ReadyLessonSchema = LessonMetadataSchema.extend({ status: z.literal
   if (!lesson.contentVersion) ctx.addIssue({ code: "custom", message: `Lesson "${lesson.id}": extended format requires contentVersion` });
   const fail = (message: string) => ctx.addIssue({ code: "custom", message: `Lesson "${lesson.id}": ${message}` });
   const screens = lesson.screens, questions = screens.filter(s => "question" in s);
-  if (screens.length !== 16) fail(`expected 16 screens, found ${screens.length}`);
-  if (questions.length !== 9) fail(`expected 9 interactive questions, found ${questions.length}`);
-  if (lesson.minutes !== 5) fail("extended format requires 5 minutes");
-  const structure = ["situatie", "explicatie", "question", "question", "explicatie", "question", "question", "caz_real", "question", "question", "question", "explicatie", "question", "question", "tine_minte", "final"];
-  screens.forEach((screen, index) => {
-    const expected = structure[index];
-    if (expected === "question" ? !("question" in screen) : screen.type !== expected) fail(`screen "${screen.id}" at step ${index + 1}: expected ${expected}`);
+  if (screens[0]?.type !== "situatie") fail("requires an opening situation");
+  if (!screens.some(screen => screen.type === "explicatie")) fail("requires explanations");
+  if (!questions.length) fail("requires meaningful practice");
+  if (screens.at(-2)?.type !== "tine_minte") fail("requires tine_minte before final");
+  screens.forEach(screen => {
     if (screen.type === "explicatie" && !screen.paragraphs) fail(`explanation "${screen.id}" requires structured paragraphs`);
     if ("question" in screen && (!screen.correctFeedback || !screen.incorrectFeedback)) fail(`question "${screen.id}" requires correct and incorrect feedback`);
   });
   if (new Set(questions.map(s => s.type)).size < 3) fail("requires at least 3 question types");
-  const caseScreen = screens[7];
-  if (caseScreen?.type === "caz_real") {
-    const linked = questions.filter(s => "caseId" in s && s.caseId === caseScreen.caseId);
-    if (linked.length !== 3 || screens.slice(8, 11).some(s => !("caseId" in s) || s.caseId !== caseScreen.caseId)) fail("requires exactly 3 case questions immediately after the case");
+  for (const caseScreen of screens.filter(screen => screen.type === "caz_real")) {
+    if (!questions.some(s => "caseId" in s && s.caseId === caseScreen.caseId)) fail(`case "${caseScreen.caseId}" requires linked practice`);
   }
 });
 export const ComingSoonLessonSchema = LessonMetadataSchema.extend({ status: z.literal("coming-soon"), screens: z.array(LessonScreenSchema).max(0).optional() });

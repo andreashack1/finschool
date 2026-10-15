@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Care este diferența simplificată din cazul Dariei?",
       "explanation": "1.800 + 700 − 500 = 2.000 lei.",
       "correctFeedback": "Corect. 1.800 + 700 − 500 = 2.000 lei.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce informație contează pentru plata peste două săptămâni?",
       "explanation": "Capacitatea de plată depinde de bani disponibili la termen.",
       "correctFeedback": "Corect. Capacitatea de plată depinde de bani disponibili la termen.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar prețul inițial al laptopului."
+          "label": "Valoarea tuturor bunurilor, fără termenele de vânzare."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Numărul de aplicații de pe laptop."
+          "label": "Venitul așteptat după scadență, fără banii disponibili până atunci."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce nu tratează laptopul ca numerar?",
       "explanation": "Valoarea estimată nu este o încasare confirmată.",
       "correctFeedback": "Corect. Valoarea estimată nu este o încasare confirmată.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Două liste",
           "body": "Bunurile și obligațiile se notează separat.",
-          "detail": "Bunurile și obligațiile se notează separat.",
+          "detail": "Daria poate avea un laptop valoros și o datorie de plătit în două săptămâni. Bunul nevândut nu este numerar pentru scadență, chiar dacă poziția ei financiară pe hârtie este pozitivă.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Valoare actuală",
           "body": "Prețul plătit nu este garantat la revânzare.",
-          "detail": "Prețul plătit nu este garantat la revânzare.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Acces la bani",
           "body": "Un bun valoros nu plătește automat o factură mâine.",
-          "detail": "Un bun valoros nu plătește automat o factură mâine.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Fă două liste private: trei lucruri pe care le deții și obligațiile de plată pe care le ai, dacă există.",
-          "detail": "Fă două liste private: trei lucruri pe care le deții și obligațiile de plată pe care le ai, dacă există.",
           "type": "action"
         }
       ]

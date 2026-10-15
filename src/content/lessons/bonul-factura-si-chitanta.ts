@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -51,11 +51,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Câte culori are?"
+          "label": "Dacă suma este egală cu alta, fără referința operațiunii."
         },
         {
           "id": "2",
-          "label": "Poate fi ignorat după plată?"
+          "label": "Dacă documentul se numește factură, presupunând că plata e confirmată."
         }
       ],
       "correctOption": "0"
@@ -92,7 +92,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar faptul că ambele sunt pe telefon."
+          "label": "Numai suma egală, fără comerciant sau referință."
         },
         {
           "id": "1",
@@ -100,7 +100,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar dimensiunea documentului."
+          "label": "Numai luna emiterii, fără identificarea cumpărării."
         }
       ],
       "correctOption": "1"
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Câte cheltuieli reprezintă factura și plata aceleiași comenzi?",
       "explanation": "Documentele nu dublează suma folosită.",
       "correctFeedback": "Corect. Documentele nu dublează suma folosită.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce pregătește Ioana pentru problema produsului?",
       "explanation": "Informațiile clare ajută verificarea cu comerciantul.",
       "correctFeedback": "Corect. Informațiile clare ajută verificarea cu comerciantul.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar numele colegului."
+          "label": "Doar factura, fără detalii despre defect."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Un procent fiscal inventat."
+          "label": "Doar extrasul cu suma, fără identificarea produsului."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce face înainte să trimită documentul grupului?",
       "explanation": "Distribui numai informațiile relevante.",
       "correctFeedback": "Corect. Distribui numai informațiile relevante.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Roluri",
           "body": "Achiziția, obligația și încasarea se disting.",
-          "detail": "Achiziția, obligația și încasarea se disting.",
+          "detail": "Factura poate descrie suma datorată fără să confirme singură plata. Leagă documentul de încasare sau tranzacție prin comerciant, sumă și referință, fără să numeri aceeași cumpărătură de două ori.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Legătură",
           "body": "Compară datele și referințele documentelor.",
-          "detail": "Compară datele și referințele documentelor.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Evidență",
           "body": "Două documente nu înseamnă două cheltuieli.",
-          "detail": "Două documente nu înseamnă două cheltuieli.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Alege un document de cumpărare și găsește comerciantul, data, totalul și informația despre plată.",
-          "detail": "Alege un document de cumpărare și găsește comerciantul, data, totalul și informația despre plată.",
           "type": "action"
         }
       ]

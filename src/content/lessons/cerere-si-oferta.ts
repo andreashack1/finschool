@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -51,11 +51,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Numărul de scaune se dublează."
+          "label": "Oferta de locuri, fiindcă interesul creează automat capacitate."
         },
         {
           "id": "2",
-          "label": "Costul oricărui produs dispare."
+          "label": "Prețul oficial, care trebuie să crească imediat."
         }
       ],
       "correctOption": "0"
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce s-au epuizat mai repede biletele oficiale?",
       "explanation": "Cererea mai mare poate accelera vânzările chiar fără schimbarea tarifului.",
       "correctFeedback": "Corect. Cererea mai mare poate accelera vânzările chiar fără schimbarea tarifului.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "S-a dovedit că orice revânzare este sigură."
+          "label": "Prețul oficial trebuie să fi crescut, chiar dacă a rămas fix."
         },
         {
           "id": "2",
-          "label": "Sala a creat bani suplimentari."
+          "label": "Oferta de locuri s-a redus, deși capacitatea sălii este aceeași."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce spune noua reprezentație despre ofertă?",
       "explanation": "Oferta crește, dar tariful concret trebuie verificat.",
       "correctFeedback": "Corect. Oferta crește, dar tariful concret trebuie verificat.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Toate biletele trebuie să fie gratuite."
+          "label": "Prețul trebuie să scadă imediat, indiferent de costuri."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Interesul publicului a dispărut."
+          "label": "Cererea a crescut automat în aceeași proporție."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce nu poate valida popularitatea?",
       "explanation": "Cererea și siguranța tranzacției sunt verificări diferite.",
       "correctFeedback": "Corect. Cererea și siguranța tranzacției sunt verificări diferite.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Cerere",
           "body": "Popularitatea contează când se transformă în cumpărări.",
-          "detail": "Popularitatea contează când se transformă în cumpărări.",
+          "detail": "Un clip apreciat de mulți oameni nu confirmă că aceștia vor plăti prețul cerut. La bilete, interesul mai mare poate grăbi epuizarea locurilor chiar dacă organizatorul păstrează tariful.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Ofertă",
           "body": "Stocul sau numărul de locuri influențează disponibilitatea.",
-          "detail": "Stocul sau numărul de locuri influențează disponibilitatea.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Mai mulți factori",
           "body": "Raritatea nu garantează valoarea sau siguranța.",
-          "detail": "Raritatea nu garantează valoarea sau siguranța.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Observă la un eveniment ce este limitat: numărul de locuri, timpul sau doar mesajul reclamei.",
-          "detail": "Observă la un eveniment ce este limitat: numărul de locuri, timpul sau doar mesajul reclamei.",
           "type": "action"
         }
       ]

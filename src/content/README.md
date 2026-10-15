@@ -7,15 +7,18 @@ Nu există lecții „În curând” în curriculumul activ.
 
 ## Formatul lecțiilor
 
-Toate cele 100 de lecții au `formatVersion: 2`, `contentVersion: 2`, cinci minute,
-16 pași și nouă întrebări. Pașii sunt: situație, explicație, două întrebări,
-explicație, două întrebări, caz, trei întrebări despre caz, explicație,
-două întrebări, „Ține minte” și final.
+Toate cele 100 de lecții au `formatVersion: 2`; `contentVersion` urmărește
+reviziile editoriale. Lecțiile încep cu o situație, alternează explicații și
+practică și se încheie cu „Ține minte” și final. Numărul ecranelor și al
+întrebărilor nu este fix. Metadata duratei folosește minute întregi.
 
 Explicațiile au 2–4 paragrafe și 80–150 de cuvinte; cazul are 120–200.
-Cele trei întrebări de caz folosesc același `caseId`. Recapitularea are 4–6 puncte,
+Întrebările unui caz folosesc același `caseId`. Recapitularea are 4–6 puncte,
 cu acțiunea „Ce poți face azi” la final. Schema impune ordinea, feedback-ul și
-cel puțin trei tipuri de întrebări. Datele invalide opresc importul/build-ul.
+cel puțin trei tipuri de întrebări. Detaliile recapitulării sunt opționale;
+nu pot copia rezumatul. Fără detalii, rendererul nu oferă expandare.
+Titlul și `leadIn` sunt opționale pentru întrebări; întrebarea poate fi singurul
+heading, fără un prompt universal. Datele invalide opresc importul/build-ul.
 
 Cele 48 de lecții finalizate în această etapă sunt în categoriile:
 primul job (9), credite (9), pe cont propriu (10), comportament (10), investiții (10).
@@ -31,8 +34,13 @@ același; pentru conținut nou, folosește ID-uri noi și crește `contentVersio
 `formatVersion` identifică arhitectura pedagogică, separat de revizia conținutului.
 
 Sursele editoriale ale ultimelor 48 de lecții sunt `scripts/curriculum-*.cjs`.
-`node scripts/author-remaining-lessons.cjs` generează fișiere statice; nu este
-folosit la runtime și suprascrie aceste 48 de fișiere cu sursa editorială.
+`node scripts/author-remaining-lessons.cjs` este generatorul istoric; nu este
+folosit la runtime și suprascrie aceste 48 de fișiere cu sursa editorială veche.
+Nu îl folosi pentru regenerarea lecțiilor după auditul de calitate: ar pierde
+intervențiile curate. `lesson-quality-edits.cjs` documentează intervențiile
+selective, iar `audit-lesson-quality.cjs` raportează validarea și ce mai necesită
+revizuire. Testul de calitate păstrează un snapshot anterior pentru verificarea
+materialului predat, ID-urilor și întrebărilor nemodificate.
 `scripts/final-curriculum-map.cjs` păstrează harta celor 100 de titluri.
 `node scripts/integrate-curriculum.cjs` generează harta și registry-ul static;
 păstrează ID-urile celor șapte lecții publicate anterior.

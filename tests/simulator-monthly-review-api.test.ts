@@ -1,0 +1,23 @@
+import { afterEach,beforeEach,describe,expect,it,vi } from 'vitest';
+vi.mock('server-only',()=>({}));
+const mocks=vi.hoisted(()=>({user:vi.fn(),ack:vi.fn(),clock:vi.fn(),load:vi.fn(),state:vi.fn()}));
+vi.mock('../src/lib/supabase/server',()=>({requireUser:mocks.user}));
+vi.mock('../src/lib/simulator/server/monthly-review',()=>({acknowledgeMonthlyReview:mocks.ack}));
+vi.mock('../src/lib/simulator/server/clock',()=>({getServerClock:mocks.clock}));
+vi.mock('../src/lib/simulator/server/service',()=>({loadRun:mocks.load,simulatorState:mocks.state}));
+import { POST } from '../app/api/simulator/monthly-review/route';
+import { GET } from '../app/api/simulator/dev/monthly-reviews/route';
+import { AccountError } from '../src/lib/account/errors';
+import { SimulatorError } from '../src/lib/simulator/errors';
+import { reviewAckSchema } from '../src/lib/simulator/monthly-review';
+import { userA } from './simulator-fixtures';
+const request=(body:unknown={reviewId:crypto.randomUUID(),operationId:crypto.randomUUID()},origin='http://localhost:3000')=>new Request('http://localhost:3000/api/simulator/monthly-review',{method:'POST',headers:{origin,'Content-Type':'application/json','X-Finly-Account':userA},body:JSON.stringify(body)});
+beforeEach(()=>{vi.resetAllMocks();vi.stubEnv('NODE_ENV','development');mocks.user.mockResolvedValue({id:userA});mocks.clock.mockResolvedValue({effectiveDay:'2026-11-01'});mocks.ack.mockImplementation((_user,_clock,input)=>{reviewAckSchema.parse(input);return {pendingMonthlyReview:null};});});
+afterEach(()=>vi.unstubAllEnvs());
+describe('Monthly review authenticated API boundary',()=>{
+ it('passes authenticated ownership and minimal payload, no-store response',async()=>{const body={reviewId:crypto.randomUUID(),operationId:crypto.randomUUID()},r=await POST(request(body));expect(r.status).toBe(200);expect(mocks.ack).toHaveBeenCalledWith(userA,{effectiveDay:'2026-11-01'},body);expect(r.headers.get('Cache-Control')).toBe('no-store');});
+ it.each([{reviewId:crypto.randomUUID(),operationId:crypto.randomUUID(),incomeBani:100},{reviewId:crypto.randomUUID(),operationId:crypto.randomUUID(),month:'2026-10'},{reviewId:'foreign',operationId:'unsafe'},{}])('rejects malformed or forged payload',async body=>{expect((await POST(request(body))).status).toBe(400);});
+ it('requires authentication and same origin',async()=>{expect((await POST(request(undefined,'https://foreign.test'))).status).toBe(403);expect(mocks.ack).not.toHaveBeenCalled();mocks.user.mockRejectedValue(new AccountError('AUTH_REQUIRED',401));expect((await POST(request())).status).toBe(401);});
+ it('structured gate error has human copy',async()=>{mocks.ack.mockRejectedValue(new SimulatorError('MONTHLY_REVIEW_REQUIRED',409));const r=await POST(request());expect(r.status).toBe(409);expect((await r.json()).error.code).toBe('MONTHLY_REVIEW_REQUIRED');});
+ it('dev diagnostics return production 404 before any auth or data access',async()=>{vi.stubEnv('NODE_ENV','production');expect((await GET(new Request('http://localhost:3000/api/simulator/dev/monthly-reviews'))).status).toBe(404);expect(mocks.user).not.toHaveBeenCalled();expect(mocks.state).not.toHaveBeenCalled();});
+});

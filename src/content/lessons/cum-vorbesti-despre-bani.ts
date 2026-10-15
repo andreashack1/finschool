@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [],
   "screens": [
@@ -56,7 +56,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Publicarea parolelor."
+          "label": "O promisiune generală, fără o dată și o sumă."
         }
       ],
       "correctOption": "0"
@@ -142,11 +142,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce termen fusese convenit în cazul Liei?",
-      "explanation": "Vineri.",
-      "correctFeedback": "Corect. Vineri.",
-      "incorrectFeedback": "Nu chiar. Vineri.",
+      "question": "Lia cere clarificare luni pentru o plată promisă vineri. Care reper permite să constate întârzierea?",
+      "explanation": "Data de vineri a fost convenită și poate fi verificată. O formulare vagă nu oferă același reper pentru discuția despre întârziere.",
+      "correctFeedback": "Corect. Data de vineri a fost convenită și poate fi verificată. O formulare vagă nu oferă același reper pentru discuția despre întârziere.",
+      "incorrectFeedback": "Nu chiar. Data de vineri a fost convenită și poate fi verificată. O formulare vagă nu oferă același reper pentru discuția despre întârziere.",
       "caseId": "caz-cum-vorbesti-despre-bani",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Oricând."
+          "label": "O promisiune „cândva”, fără dată."
         },
         {
           "id": "2",
-          "label": "Peste un an."
+          "label": "O intenție de plată, fără termen convenit."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce cere Lia pentru următorul pas?",
       "explanation": "O dată realistă de plată.",
       "correctFeedback": "Corect. O dată realistă de plată.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Parola lui Dan."
+          "label": "Doar confirmarea că Dan vrea să plătească, fără termen."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Un venit garantat din investiții."
+          "label": "Doar explicația întârzierii, fără un pas următor."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce alege o discuție privată?",
       "explanation": "Reduce expunerea inutilă și permite clarificarea.",
       "correctFeedback": "Corect. Reduce expunerea inutilă și permite clarificarea.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "O conversație despre bani devine mai clară când are un scop concret, fapte și un moment potrivit.",
-          "detail": "O conversație despre bani devine mai clară când are un scop concret, fapte și un moment potrivit.",
+          "detail": "Lia spune suma de 100 lei și termenul de vineri, în loc să eticheteze persoana. Dacă acceptă un nou acord, îl clarifică prin sumă și dată, fără să trateze intenția ca plată făcută.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Lia a plătit 200 lei pentru o cheltuială comună, iar partea convenită a lui Dan era 100 până vineri. Luni încă nu a primit-o.",
-          "detail": "Lia a plătit 200 lei pentru o cheltuială comună, iar partea convenită a lui Dan era 100 până vineri. Luni încă nu a primit-o.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Evită discuția în mijlocul unei certe ori în fața unui public inutil.",
-          "detail": "Evită discuția în mijlocul unei certe ori în fața unui public inutil.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Transformă o acuzație generală într-o cerere cu sumă și termen, folosind un exemplu fictiv.",
-          "detail": "Transformă o acuzație generală într-o cerere cu sumă și termen, folosind un exemplu fictiv.",
           "type": "action"
         }
       ]

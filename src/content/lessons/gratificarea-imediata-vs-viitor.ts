@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [],
   "screens": [
@@ -52,11 +52,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar numărul de reclame."
+          "label": "Doar plăcerea de acum, fără ce amâni."
         },
         {
           "id": "2",
-          "label": "Doar opiniile prietenilor."
+          "label": "Doar suma economisită deja, fără efectul retragerii."
         }
       ],
       "correctOption": "0"
@@ -64,10 +64,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Gratificarea imediată înseamnă un beneficiu primit acum, în timp ce alte alegeri cer așteptare.",
-      "explanation": "Gratificarea imediată înseamnă un beneficiu primit acum, în timp ce alte alegeri cer așteptare. Banii folosiți azi nu mai sunt disponibili pentru același scop viitor. Compară costul de oportunitate, fără să consideri orice plăcere actuală greșită. Un plan poate include și prezentul și viitorul, dacă sumele nu sunt numărate de două ori.",
-      "correctFeedback": "Corect. Gratificarea imediată înseamnă un beneficiu primit acum, în timp ce alte alegeri cer așteptare. Banii folosiți azi nu mai sunt disponibili pentru același scop viitor. Compară costul de oportunitate, fără să consideri orice plăcere actuală greșită. Un plan poate include și prezentul și viitorul, dacă sumele nu sunt numărate de două ori.",
-      "incorrectFeedback": "Nu chiar. Gratificarea imediată înseamnă un beneficiu primit acum, în timp ce alte alegeri cer așteptare. Banii folosiți azi nu mai sunt disponibili pentru același scop viitor. Compară costul de oportunitate, fără să consideri orice plăcere actuală greșită. Un plan poate include și prezentul și viitorul, dacă sumele nu sunt numărate de două ori.",
+      "question": "Poți alege o plăcere acum și păstra un obiectiv viitor, dacă arăți explicit ce bani folosești și ce termen se schimbă.",
+      "explanation": "Alegerea implică un cost de oportunitate. Planul poate fi revizuit, dar aceeași sumă nu poate fi integral cheltuită și economisită simultan.",
+      "correctFeedback": "Corect. Alegerea implică un cost de oportunitate. Planul poate fi revizuit, dar aceeași sumă nu poate fi integral cheltuită și economisită simultan.",
+      "incorrectFeedback": "Nu chiar. Alegerea implică un cost de oportunitate. Planul poate fi revizuit, dar aceeași sumă nu poate fi integral cheltuită și economisită simultan.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce efect are ieșirea asupra termenului Marei?",
       "explanation": "Îl prelungește cu o lună în exemplu.",
       "correctFeedback": "Corect. Îl prelungește cu o lună în exemplu.",
@@ -168,33 +167,31 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce sumă are inițial pentru curs?",
-      "explanation": "200 lei.",
-      "correctFeedback": "Corect. 200 lei.",
-      "incorrectFeedback": "Nu chiar. 200 lei.",
+      "question": "Mara are inițial 200 lei pentru curs. De ce nu îi poate considera și buget liber pentru ieșire fără să schimbe planul?",
+      "explanation": "Cei 200 lei fac parte din planul cursului. Dacă folosește o parte acum, suma lipsă și termenul trebuie recalculate.",
+      "correctFeedback": "Corect. Cei 200 lei fac parte din planul cursului. Dacă folosește o parte acum, suma lipsă și termenul trebuie recalculate.",
+      "incorrectFeedback": "Nu chiar. Cei 200 lei fac parte din planul cursului. Dacă folosește o parte acum, suma lipsă și termenul trebuie recalculate.",
       "caseId": "caz-gratificarea-imediata-vs-viitor",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
       "options": [
         {
           "id": "0",
-          "label": "600 lei."
+          "label": "Economisirea îi transformă în bani suplimentari."
         },
         {
           "id": "1",
-          "label": "200 lei."
+          "label": "Suma are deja o destinație; folosirea ei schimbă disponibilul pentru curs."
         },
         {
           "id": "2",
-          "label": "100 lei."
+          "label": "Un obiectiv viitor nu este afectat de cheltuielile de azi."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică înainte să folosească alt disponibil?",
       "explanation": "Să nu numere aceeași sumă de două ori.",
       "correctFeedback": "Corect. Să nu numere aceeași sumă de două ori.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Gratificarea imediată înseamnă un beneficiu primit acum, în timp ce alte alegeri cer așteptare.",
-          "detail": "Gratificarea imediată înseamnă un beneficiu primit acum, în timp ce alte alegeri cer așteptare.",
+          "detail": "O sută de lei folosită acum poate muta termenul cursului Marei de la patru la cinci luni. Alegerea poate fi deliberată, dar efectul asupra economiilor trebuie să rămână vizibil.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Mara are 200 lei separați pentru un curs de 600 și poate adăuga 100 lunar. Fără alte retrageri, ar mai avea nevoie de patru luni.",
-          "detail": "Mara are 200 lei separați pentru un curs de 600 și poate adăuga 100 lunar. Fără alte retrageri, ar mai avea nevoie de patru luni.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Un scop viitor poate deveni neutil, iar planul poate fi revizuit.",
-          "detail": "Un scop viitor poate deveni neutil, iar planul poate fi revizuit.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează cum o cheltuială fictivă de azi ar schimba termenul unui obiectiv.",
-          "detail": "Calculează cum o cheltuială fictivă de azi ar schimba termenul unui obiectiv.",
           "type": "action"
         }
       ]

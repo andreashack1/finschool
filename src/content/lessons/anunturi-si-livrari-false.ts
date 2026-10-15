@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce diferență observă Ana pe pagina de încasare?",
       "explanation": "Citești operațiunea efectivă înainte de cod.",
       "correctFeedback": "Corect. Citești operațiunea efectivă înainte de cod.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Cartea este mai scumpă."
+          "label": "O încasare cere întotdeauna să aprobi mai întâi o plată."
         },
         {
           "id": "2",
-          "label": "Curierul are un alt logo."
+          "label": "Codul confirmă doar livrarea, fără efect asupra banilor."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce mesajul de colet pare plauzibil?",
       "explanation": "O poveste poate folosi un context real.",
       "correctFeedback": "Corect. O poveste poate folosi un context real.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce face pentru expedierea cărții?",
       "explanation": "Plata confirmată și captura sunt diferite.",
       "correctFeedback": "Corect. Plata confirmată și captura sunt diferite.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Operațiunea",
           "body": "Încasarea nu este autorizarea unei plăți.",
-          "detail": "Încasarea nu este autorizarea unei plăți.",
+          "detail": "Ana vinde o carte, dar pagina de încasare îi cere să aprobe o plată. Citește operațiunea descrisă de confirmare și verifică intrarea în propriul cont înainte de expediere.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Coletul",
           "body": "Verifică starea prin canalul cunoscut.",
-          "detail": "Verifică starea prin canalul cunoscut.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Dovada",
           "body": "Confirmă încasarea, nu doar captura.",
-          "detail": "Confirmă încasarea, nu doar captura.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La un mesaj de livrare, verifică separat comanda și expeditorul înainte să deschizi linkul.",
-          "detail": "La un mesaj de livrare, verifică separat comanda și expeditorul înainte să deschizi linkul.",
           "type": "action"
         }
       ]

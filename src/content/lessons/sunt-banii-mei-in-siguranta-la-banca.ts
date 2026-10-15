@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -92,7 +92,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Prin culoarea aplicației."
+          "label": "Prin numele instituției, presupunând că toate produsele sunt garantate."
         },
         {
           "id": "1",
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce trebuie să afle Ioana despre ofertă?",
       "explanation": "Clasificarea produsului precede presupunerea protecției.",
       "correctFeedback": "Corect. Clasificarea produsului precede presupunerea protecției.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar numărul de butoane."
+          "label": "Dacă apare în aplicația contului, presupunând aceeași protecție."
         },
         {
           "id": "2",
-          "label": "Doar popularitatea aplicației."
+          "label": "Dacă randamentul promis depășește dobânda contului, fără riscuri."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce risc descrie solicitarea apelantului?",
       "explanation": "Transferul către un destinatar fals este o situație distinctă.",
       "correctFeedback": "Corect. Transferul către un destinatar fals este o situație distinctă.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Cum verifică apelul?",
       "explanation": "Canalul separat ajută verificarea identității.",
       "correctFeedback": "Corect. Canalul separat ajută verificarea identității.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Straturi",
           "body": "Produsul, instituția și accesul sunt distincte.",
-          "detail": "Produsul, instituția și accesul sunt distincte.",
+          "detail": "O investiție afișată lângă cont nu dobândește automat protecția unui depozit. Separă documentele produsului de verificarea accesului și a solicitărilor suspecte de transfer.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Documente",
           "body": "Verifică protecția aplicabilă, nu aspectul aplicației.",
-          "detail": "Verifică protecția aplicabilă, nu aspectul aplicației.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Fraudă",
           "body": "Nu autoriza transferuri cerute de apelanți neverificați.",
-          "detail": "Nu autoriza transferuri cerute de apelanți neverificați.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Găsește în documentele contului unde este explicată protecția depozitului, fără să publici date personale.",
-          "detail": "Găsește în documentele contului unde este explicată protecția depozitului, fără să publici date personale.",
           "type": "action"
         }
       ]

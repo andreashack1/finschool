@@ -21,7 +21,7 @@ const integer = (v: unknown, fallback = 0) => typeof v === "number" && Number.is
 const monday = (key: string) => addCalendarDays(key, -((new Date(key + "T12:00:00Z").getUTCDay() + 6) % 7));
 export function createEmptyProgress(now?: Date): ProgressState {
   const key = now ? getBucharestDateKey(now) : null, timestamp = now?.toISOString() ?? null;
-  return { version: PROGRESS_VERSION, xp_events: [], lessonStats: {}, activityDates: [], freezeDates: [], freezeBalance: config.freeze.initialBalance, lastFreezeGrantWeekKey: key ? getBucharestWeekKey(key) : null, lastFreezeGrantDateKey: key ? monday(key) : null, dailyChallenges: {}, achievementUnlocks: {}, seenAchievementToastIds: [], seenFreezeToastDates: [], pendingLevelUp: null, simulation: { ...initialSimulation, history: [] }, uniqueCorrectAnswers: [], lastLessonId: null, maxSeenDateKey: key, maxSeenAt: timestamp, createdAt: timestamp, updatedAt: timestamp };
+  return { version: PROGRESS_VERSION, xp_events: [], lessonStats: {}, activityDates: [], freezeDates: [], freezeBalance: config.freeze.initialBalance, freezeInitialBalance: config.freeze.initialBalance, lastFreezeGrantWeekKey: key ? getBucharestWeekKey(key) : null, lastFreezeGrantDateKey: key ? monday(key) : null, dailyChallenges: {}, achievementUnlocks: {}, seenAchievementToastIds: [], seenFreezeToastDates: [], pendingLevelUp: null, simulation: { ...initialSimulation, history: [] }, uniqueCorrectAnswers: [], lastLessonId: null, maxSeenDateKey: key, maxSeenAt: timestamp, createdAt: timestamp, updatedAt: timestamp };
 }
 export function getEffectiveDateKey(p: ProgressState, now: Date) { return [getBucharestDateKey(now), p.maxSeenDateKey ?? ""].sort().at(-1)!; }
 function effectiveNow(p: ProgressState, now: Date) { return p.maxSeenAt && p.maxSeenAt > now.toISOString() ? new Date(p.maxSeenAt) : now; }
@@ -51,10 +51,16 @@ export function calculateStreak(p: ProgressState, today: string) {
   const active = [...new Set(p.activityDates)].filter(d => d <= today).sort(), frozen = new Set(p.freezeDates);
   let current = 0, longest = 0, previous: string | null = null;
   for (const day of active) {
-    const connected = previous && (day === addCalendarDays(previous, 1) || (day === addCalendarDays(previous, 2) && frozen.has(addCalendarDays(previous, 1))));
+    let connected = Boolean(previous);
+    if (previous) for (let gap = addCalendarDays(previous, 1); gap < day; gap = addCalendarDays(gap, 1)) {
+      if (!frozen.has(gap)) { connected = false; break; }
+    }
     current = connected ? current + 1 : 1; longest = Math.max(longest, current); previous = day;
   }
-  if (!previous || (today !== previous && today !== addCalendarDays(previous, 1) && !(today === addCalendarDays(previous, 2) && frozen.has(addCalendarDays(previous, 1))))) current = 0;
+  if (!previous) current = 0;
+  else for (let gap = addCalendarDays(previous, 1); gap < today; gap = addCalendarDays(gap, 1)) {
+    if (!frozen.has(gap)) { current = 0; break; }
+  }
   return { current, longest, freezeAvailable: p.freezeBalance > 0 };
 }
 export const getCurrentStreak = (p: ProgressState, today: string) => calculateStreak(p, today).current;
@@ -65,17 +71,22 @@ export function reconcileCalendar(p: ProgressState, now: Date): ProgressState {
   const today = getEffectiveDateKey(p, now), timestamp = effectiveNow(p, now).toISOString();
   let balance = p.freezeBalance, grant = p.lastFreezeGrantDateKey ?? monday(today);
   const advanceGrants = (until: string) => { const target = monday(until); while (grant < target) { grant = addCalendarDays(grant, 7); balance = Math.min(config.freeze.maxBalance, balance + config.freeze.weeklyGrant); } };
-  const lastActive = p.activityDates.filter(d => d < today).at(-1), missed = lastActive ? addCalendarDays(lastActive, 1) : null;
-  const freezes = [...p.freezeDates];
-  // Only a single fully elapsed day can be bridged. Never chain freezes over
-  // two missed days, even if a prior app load already consumed the first one.
-  if (lastActive && missed && today === addCalendarDays(lastActive, 2) && !p.activityDates.includes(missed) && !freezes.includes(missed) && !freezes.includes(addCalendarDays(missed, -1)) && !freezes.includes(addCalendarDays(missed, 1))) {
-    advanceGrants(missed);
-    if (balance > 0) { freezes.push(missed); balance--; }
+  const start = p.maxSeenDateKey ?? (p.createdAt ? getBucharestDateKey(new Date(p.createdAt)) : today);
+  const freezes = new Set(p.freezeDates), active = new Set(p.activityDates);
+  let alive = calculateStreak(p, start).current > 0;
+  // Finalize closed civil days first. Monday's grant can protect Monday,
+  // but cannot travel backwards to Sunday. Today is never finalized.
+  for (let day = start; day < today; day = addCalendarDays(day, 1)) {
+    advanceGrants(day);
+    if (active.has(day)) alive = true;
+    else if (!freezes.has(day) && alive) {
+      if (balance > 0) { freezes.add(day); balance--; }
+      else alive = false;
+    }
   }
   advanceGrants(today);
   // Local-clock regression protection; this is not server-side anti-cheat.
-  return { ...p, freezeBalance: balance, freezeDates: freezes.sort(), lastFreezeGrantDateKey: grant, lastFreezeGrantWeekKey: getBucharestWeekKey(today), maxSeenDateKey: today, maxSeenAt: timestamp, createdAt: p.createdAt ?? timestamp };
+  return { ...p, freezeBalance: Math.min(config.freeze.maxBalance, balance), freezeDates: [...freezes].sort(), lastFreezeGrantDateKey: grant, lastFreezeGrantWeekKey: getBucharestWeekKey(today), maxSeenDateKey: today, maxSeenAt: timestamp, createdAt: p.createdAt ?? timestamp };
 }
 export function normalizeProgress(value: unknown, now: Date): ProgressState {
   const root = object(value);
@@ -104,9 +115,9 @@ export function normalizeProgress(value: unknown, now: Date): ProgressState {
   for (const [id, value] of Object.entries(object(root.achievementUnlocks))) { const timestamp = iso(object(value).unlockedAt); if (timestamp) unlocks[id] = { unlockedAt: timestamp }; }
   const activityDates = dates(root.activityDates), freezeDates = dates(root.freezeDates).filter(d => !activityDates.includes(d));
   const simulation = SimulationSchema.safeParse(root.simulation), levelUp = LevelUpSchema.safeParse(root.pendingLevelUp);
-  const latestDate = [...activityDates, ...freezeDates, ...Object.keys(daily), ...events.map(e => e.bucharestDateKey), ...(isDateKey(root.maxSeenDateKey) ? [root.maxSeenDateKey] : []), base.maxSeenDateKey!].sort().at(-1)!;
+  const latestDate = [...activityDates, ...freezeDates, ...Object.keys(daily), ...events.map(e => e.bucharestDateKey), ...(isDateKey(root.maxSeenDateKey) ? [root.maxSeenDateKey] : [])].sort().at(-1) ?? base.maxSeenDateKey!;
   const latestTimestamp = [iso(root.maxSeenAt), ...events.map(e => e.createdAt), ...Object.values(daily).map(d => d.answeredAt), ...Object.values(lessonStats).map(s => s.lastCompletedAt), base.maxSeenAt].filter((v): v is string => Boolean(v)).sort().at(-1)!;
-  const result: ProgressState = { ...base, xp_events: events, lessonStats, activityDates, freezeDates, freezeBalance: Math.min(config.freeze.maxBalance, integer(root.freezeBalance, config.freeze.initialBalance)), lastFreezeGrantDateKey: isDateKey(root.lastFreezeGrantDateKey) ? monday(root.lastFreezeGrantDateKey) : base.lastFreezeGrantDateKey, lastFreezeGrantWeekKey: typeof root.lastFreezeGrantWeekKey === "string" ? root.lastFreezeGrantWeekKey : base.lastFreezeGrantWeekKey, dailyChallenges: daily, achievementUnlocks: unlocks, seenAchievementToastIds: strings(root.seenAchievementToastIds), seenFreezeToastDates: dates(root.seenFreezeToastDates), pendingLevelUp: levelUp.success ? levelUp.data : null, simulation: simulation.success ? simulation.data : base.simulation, uniqueCorrectAnswers: strings(root.uniqueCorrectAnswers), lastLessonId: typeof root.lastLessonId === "string" ? root.lastLessonId : null, maxSeenDateKey: isDateKey(root.maxSeenDateKey) ? root.maxSeenDateKey : base.maxSeenDateKey, maxSeenAt: iso(root.maxSeenAt) ?? base.maxSeenAt, createdAt: iso(root.createdAt) ?? base.createdAt, updatedAt: iso(root.updatedAt) ?? base.updatedAt };
+  const result: ProgressState = { ...base, xp_events: events, lessonStats, activityDates, freezeDates, freezeInitialBalance: Math.min(config.freeze.maxBalance, integer(root.freezeInitialBalance, config.freeze.initialBalance)), freezeBalance: Math.min(config.freeze.maxBalance, integer(root.freezeBalance, config.freeze.initialBalance)), lastFreezeGrantDateKey: isDateKey(root.lastFreezeGrantDateKey) ? monday(root.lastFreezeGrantDateKey) : base.lastFreezeGrantDateKey, lastFreezeGrantWeekKey: typeof root.lastFreezeGrantWeekKey === "string" ? root.lastFreezeGrantWeekKey : base.lastFreezeGrantWeekKey, dailyChallenges: daily, achievementUnlocks: unlocks, seenAchievementToastIds: strings(root.seenAchievementToastIds), seenFreezeToastDates: dates(root.seenFreezeToastDates), pendingLevelUp: levelUp.success ? levelUp.data : null, simulation: simulation.success ? simulation.data : base.simulation, uniqueCorrectAnswers: strings(root.uniqueCorrectAnswers), lastLessonId: typeof root.lastLessonId === "string" ? root.lastLessonId : null, maxSeenDateKey: isDateKey(root.maxSeenDateKey) ? root.maxSeenDateKey : base.maxSeenDateKey, maxSeenAt: iso(root.maxSeenAt) ?? base.maxSeenAt, createdAt: iso(root.createdAt) ?? base.createdAt, updatedAt: iso(root.updatedAt) ?? base.updatedAt };
   return ProgressSchema.parse(reconcileCalendar({ ...result, maxSeenDateKey: latestDate, maxSeenAt: latestTimestamp }, now));
 }
 export function getAchievementProgress(a: Achievement, p: ProgressState, curriculum: readonly ReadyLesson[] = getReadyLessons()) {

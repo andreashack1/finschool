@@ -30,7 +30,7 @@ export const gamificationConfig = GamificationConfigSchema.parse({
     { level: 7, title: "Money Master", minXp: 3200 }, { level: 8, title: "Money Mentor", minXp: 4500 },
   ],
   streakMilestones: [{ days: 3, xp: 25 }, { days: 7, xp: 75 }, { days: 14, xp: 150 }, { days: 30, xp: 300 }],
-  freeze: { initialBalance: 1, weeklyGrant: 1, maxBalance: 2 },
+  freeze: { initialBalance: 2, weeklyGrant: 1, maxBalance: 2 },
   dailyChallengeCount: 40, challengeRotationVersion: 1, specialistMinReadyLessons: 3, simulatorId: "simulator", debugXpAmount: 100,
   ui: { toastMs: 5000, momentDelayMs: 200, clockRefreshMs: 30000, countUpMs: 450 },
 });

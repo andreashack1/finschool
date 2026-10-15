@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -57,11 +57,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar camerele de mobilier."
+          "label": "Doar chiria, presupunând că garanția poate fi folosită și pentru mutare."
         },
         {
           "id": "2",
-          "label": "Doar chiria de numele străzii."
+          "label": "Doar totalul primei luni, aplicat identic tuturor lunilor."
         }
       ],
       "correctOption": "0"
@@ -147,7 +147,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Cât îi lipsește Teodorei din cei 2.500 pentru începutul de 2.700?",
       "explanation": "200 lei.",
       "correctFeedback": "Corect. 200 lei.",
@@ -173,7 +172,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce costuri lunare nu sunt incluse în cei 1.450?",
       "explanation": "Hrana și transportul.",
       "correctFeedback": "Corect. Hrana și transportul.",
@@ -199,7 +197,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Cum tratează garanția în disponibilul inițial?",
       "explanation": "Ca bani necesari, chiar dacă pot fi restituiți ulterior.",
       "correctFeedback": "Corect. Ca bani necesari, chiar dacă pot fi restituiți ulterior.",
@@ -278,7 +275,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar soldul unui vecin."
+          "label": "Doar suma garanției, fără starea consemnată la predare."
         }
       ],
       "correctOption": "1"
@@ -292,28 +289,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Mutarea presupune costuri inițiale și costuri lunare.",
-          "detail": "Mutarea presupune costuri inițiale și costuri lunare.",
+          "detail": "Prima chirie, garanția și mutarea cer 2.700 lei în exemplu, peste economiile de 2.500 ale Teodorei. Totalul lunar se calculează separat, cu utilități, hrană și transport.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "În exemplu, chiria este 1.200 lei, garanția 1.200 și mutarea 300. Pentru aceste trei elemente sunt necesari 2.700 lei inițial.",
-          "detail": "În exemplu, chiria este 1.200 lei, garanția 1.200 și mutarea 300. Pentru aceste trei elemente sunt necesari 2.700 lei inițial.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "O chirie accesibilă singură poate deveni dificilă împreună cu toate celelalte costuri.",
-          "detail": "O chirie accesibilă singură poate deveni dificilă împreună cu toate celelalte costuri.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Fă un tabel cu costurile de început și cele lunare ale unei mutări fictive.",
-          "detail": "Fă un tabel cu costurile de început și cele lunare ale unei mutări fictive.",
           "type": "action"
         }
       ]

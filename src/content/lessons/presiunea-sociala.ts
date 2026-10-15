@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [],
   "screens": [
@@ -52,11 +52,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar taxele legale."
+          "label": "Numai achizițiile pe care le-ai planificat înaintea invitației."
         },
         {
           "id": "2",
-          "label": "Numai prețul utilităților."
+          "label": "Numai cheltuielile mari, fiindcă cele mici nu exprimă așteptări."
         }
       ],
       "correctOption": "0"
@@ -64,10 +64,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Presiunea socială apare când alegerea de bani este influențată de așteptările grupului.",
-      "explanation": "Presiunea socială apare când alegerea de bani este influențată de așteptările grupului. Poate privi ieșiri, haine, cadouri sau dispozitive. O invitație nu creează aceeași capacitate de plată pentru fiecare. Poți pune o limită și propune o alternativă fără să explici toate detaliile veniturilor tale. Apartenența nu trebuie măsurată prin suma cheltuită.",
-      "correctFeedback": "Corect. Presiunea socială apare când alegerea de bani este influențată de așteptările grupului. Poate privi ieșiri, haine, cadouri sau dispozitive. O invitație nu creează aceeași capacitate de plată pentru fiecare. Poți pune o limită și propune o alternativă fără să explici toate detaliile veniturilor tale. Apartenența nu trebuie măsurată prin suma cheltuită.",
-      "incorrectFeedback": "Nu chiar. Presiunea socială apare când alegerea de bani este influențată de așteptările grupului. Poate privi ieșiri, haine, cadouri sau dispozitive. O invitație nu creează aceeași capacitate de plată pentru fiecare. Poți pune o limită și propune o alternativă fără să explici toate detaliile veniturilor tale. Apartenența nu trebuie măsurată prin suma cheltuită.",
+      "question": "Refuzul unei ieșiri care depășește bugetul nu înseamnă automat refuzul relației cu grupul.",
+      "explanation": "Poți respecta grupul și păstra o limită financiară. O alternativă sau altă ocazie poate menține legătura fără aceeași cheltuială.",
+      "correctFeedback": "Corect. Poți respecta grupul și păstra o limită financiară. O alternativă sau altă ocazie poate menține legătura fără aceeași cheltuială.",
+      "incorrectFeedback": "Nu chiar. Poți respecta grupul și păstra o limită financiară. O alternativă sau altă ocazie poate menține legătura fără aceeași cheltuială.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce expresie exercită presiune asupra lui Radu?",
       "explanation": "Toată lumea vine.",
       "correctFeedback": "Corect. Toată lumea vine.",
@@ -168,11 +167,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce variantă propune Radu?",
-      "explanation": "O întâlnire de 40 lei.",
-      "correctFeedback": "Corect. O întâlnire de 40 lei.",
-      "incorrectFeedback": "Nu chiar. O întâlnire de 40 lei.",
+      "question": "Întâlnirea propusă de Radu costă 40 lei, sub limita de 60. Ce sumă descrie alternativa care încape în buget?",
+      "explanation": "Varianta de 40 lei lasă 20 lei în limita stabilită. Comparația urmărește o participare suportabilă, fără să impună grupului același buget.",
+      "correctFeedback": "Corect. Varianta de 40 lei lasă 20 lei în limita stabilită. Comparația urmărește o participare suportabilă, fără să impună grupului același buget.",
+      "incorrectFeedback": "Nu chiar. Varianta de 40 lei lasă 20 lei în limita stabilită. Comparația urmărește o participare suportabilă, fără să impună grupului același buget.",
       "caseId": "caz-presiunea-sociala",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce poate face dacă grupul păstrează varianta scumpă?",
       "explanation": "Refuză acea ieșire și caută altă ocazie.",
       "correctFeedback": "Corect. Refuză acea ieșire și caută altă ocazie.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Presiunea socială apare când alegerea de bani este influențată de așteptările grupului.",
-          "detail": "Presiunea socială apare când alegerea de bani este influențată de așteptările grupului.",
+          "detail": "Radu poate propune întâlnirea de 40 lei când ieșirea de 120 depășește limita sa de 60. Grupul poate alege altfel, fără ca el să ofere extrasul bancar sau să se împrumute pentru participare.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Un grup propune o ieșire de 120 lei, iar Radu a stabilit 60 pentru socializare. Spune limita și propune o întâlnire de 40.",
-          "detail": "Un grup propune o ieșire de 120 lei, iar Radu a stabilit 60 pentru socializare. Spune limita și propune o întâlnire de 40.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "A spune nu unei sume nu înseamnă a spune nu persoanei.",
-          "detail": "A spune nu unei sume nu înseamnă a spune nu persoanei.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Scrie o formulare calmă prin care refuzi un cost și propui o alternativă.",
-          "detail": "Scrie o formulare calmă prin care refuzi un cost și propui o alternativă.",
           "type": "action"
         }
       ]

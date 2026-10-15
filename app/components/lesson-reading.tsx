@@ -15,6 +15,9 @@ export function ExplanationReading({ screen }: { screen: ExplanationScreen }) {
 export function CaseReading({ screen }: { screen: CaseScreen }) {
   return <div className="lesson-reading case-reading">{screen.paragraphs.map((paragraph, i) => <p key={i}>{paragraph}</p>)}</div>;
 }
+export function QuestionLeadIn({ text }: { text?: string }) {
+  return text ? <p className="lesson-lead-in">{text}</p> : null;
+}
 export function CaseReader({ screen }: { screen: CaseScreen }) {
   const [open, setOpen] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null), trigger = useRef<HTMLButtonElement>(null);
@@ -27,10 +30,10 @@ export function CaseReader({ screen }: { screen: CaseScreen }) {
   return <><button type="button" ref={trigger} className="lesson-case-trigger" onClick={() => setOpen(true)}>Recitește cazul</button>{open && <dialog ref={dialog} className="lesson-case-dialog" aria-labelledby="case-reader-title" onCancel={() => setOpen(false)} onKeyDown={event => { if (event.key === "Tab") { event.preventDefault(); dialog.current?.querySelector("button")?.focus(); } }}><div className="lesson-case-dialog-top"><span>CAZ REAL</span><button type="button" autoFocus aria-label="Închide cazul" onClick={() => setOpen(false)}><X size={20}/></button></div><h2 id="case-reader-title">{screen.title}</h2><CaseReading screen={screen}/></dialog>}</>;
 }
 export function RememberReading({ screen }: { screen: RememberScreen }) {
-  const [expanded, setExpanded] = useState<Set<string>>(() => new Set([screen.items[0].id]));
+  const [expanded, setExpanded] = useState<Set<string>>(() => new Set());
   return <div className="lesson-remember">{screen.items.map(item => {
-    const open = expanded.has(item.id), firstSentence = item.body.match(/^.*?[.!?](?:\s|$)/u)?.[0] ?? item.body;
+    const open = Boolean(item.detail) && expanded.has(item.id);
     const panelId = `remember-${screen.id}-${item.id}`;
-    return <article key={item.id} className={item.type === "action" ? "remember-action" : ""}><button type="button" aria-expanded={open} aria-controls={panelId} onClick={() => setExpanded(current => { const next = new Set(current); if (next.has(item.id)) next.delete(item.id); else next.add(item.id); return next; })}><span>{item.title}</span><span aria-hidden="true">{open ? "−" : "+"}</span></button>{!open && <p className="remember-preview">{firstSentence}</p>}<div id={panelId} className={`remember-body ${open ? "is-open" : ""}`}><p>{item.body}</p><small><strong>Detaliu de ținut minte</strong> {item.detail}</small></div></article>;
+    return <article key={item.id} className={item.type === "action" ? "remember-action" : ""}>{item.detail ? <button type="button" aria-expanded={open} aria-controls={panelId} onClick={() => setExpanded(current => { const next = new Set(current); if (next.has(item.id)) next.delete(item.id); else next.add(item.id); return next; })}><span>{item.title}</span><span aria-hidden="true">{open ? "−" : "+"}</span></button> : <strong>{item.title}</strong>}<p className="remember-preview">{item.body}</p>{item.detail && <div id={panelId} hidden={!open} className={`remember-body ${open ? "is-open" : ""}`}><p>{item.detail}</p></div>}</article>;
   })}</div>;
 }

@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -61,7 +61,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar fotografia reclamei."
+          "label": "Doar suma maximă afișată, fără riscurile excluse."
         }
       ],
       "correctOption": "0"
@@ -69,10 +69,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Asigurarea transferă anumite riscuri în condițiile poliței, în schimbul unei prime.",
-      "explanation": "Asigurarea transferă anumite riscuri în condițiile poliței, în schimbul unei prime. RCA privește răspunderea pentru daune produse altora prin vehicul, în condițiile legale; nu înlocuiește automat o protecție pentru propria mașină. Polițele de locuință și călătorie au alte riscuri. Citește acoperirile, excluderile, limitele și eventualele franșize înainte de cumpărare.",
-      "correctFeedback": "Corect. Asigurarea transferă anumite riscuri în condițiile poliței, în schimbul unei prime. RCA privește răspunderea pentru daune produse altora prin vehicul, în condițiile legale; nu înlocuiește automat o protecție pentru propria mașină. Polițele de locuință și călătorie au alte riscuri. Citește acoperirile, excluderile, limitele și eventualele franșize înainte de cumpărare.",
-      "incorrectFeedback": "Nu chiar. Asigurarea transferă anumite riscuri în condițiile poliței, în schimbul unei prime. RCA privește răspunderea pentru daune produse altora prin vehicul, în condițiile legale; nu înlocuiește automat o protecție pentru propria mașină. Polițele de locuință și călătorie au alte riscuri. Citește acoperirile, excluderile, limitele și eventualele franșize înainte de cumpărare.",
+      "question": "Două polițe cu același titlu pot oferi protecție diferită; prețul mai mic nu înlocuiește citirea condițiilor.",
+      "explanation": "Polița acoperă riscurile descrise în condițiile sale. Compară acoperiri, excluderi și limite înainte să presupui că protecția este identică.",
+      "correctFeedback": "Corect. Polița acoperă riscurile descrise în condițiile sale. Compară acoperiri, excluderi și limite înainte să presupui că protecția este identică.",
+      "incorrectFeedback": "Nu chiar. Polița acoperă riscurile descrise în condițiile sale. Compară acoperiri, excluderi și limite înainte să presupui că protecția este identică.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -147,7 +147,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce informație caută Irina pentru călătorie?",
       "explanation": "Dacă activitatea sportivă este acoperită.",
       "correctFeedback": "Corect. Dacă activitatea sportivă este acoperită.",
@@ -162,18 +161,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar numărul de pagini."
+          "label": "Doar țara călătoriei, fără activitățile excluse."
         },
         {
           "id": "2",
-          "label": "Doar prețul biletului."
+          "label": "Doar prima mai mică, fără acoperirea sportului planificat."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce reprezintă franșiza din exercițiu?",
       "explanation": "Partea de 200 suportată conform poliței.",
       "correctFeedback": "Corect. Partea de 200 suportată conform poliței.",
@@ -184,7 +182,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Un bonus de 200."
+          "label": "O sumă adăugată peste despăgubire."
         },
         {
           "id": "1",
@@ -192,14 +190,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Prețul bagajului."
+          "label": "Întreaga despăgubire datorată, indiferent de valoarea daunei."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce nu alege numai prima cea mai mică?",
       "explanation": "Protecția și excluderile pot fi diferite.",
       "correctFeedback": "Corect. Protecția și excluderile pot fi diferite.",
@@ -210,11 +207,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Orice primă mică este fraudă."
+          "label": "Prima mai mare garantează acoperirea oricărui incident."
         },
         {
           "id": "1",
-          "label": "Prețul nu există."
+          "label": "Același titlu al poliței garantează condiții identice."
         },
         {
           "id": "2",
@@ -270,7 +267,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar data cumpărării telefonului."
+          "label": "Doar data plății primei, fără perioada asigurată."
         },
         {
           "id": "1",
@@ -278,7 +275,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar numele unui prieten."
+          "label": "Doar destinația principală, fără restul teritoriului călătoriei."
         }
       ],
       "correctOption": "1"
@@ -292,28 +289,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Asigurarea transferă anumite riscuri în condițiile poliței, în schimbul unei prime.",
-          "detail": "Asigurarea transferă anumite riscuri în condițiile poliței, în schimbul unei prime.",
+          "detail": "Irina verifică dacă sportul planificat este acoperit de polița de călătorie. În exemplul cu daună eligibilă de 1.000 și franșiză de 200, partea asigurătorului este 800, sub ipotezele precizate.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Pe o poliță fictivă, un risc este acoperit până la o limită, dar are franșiză de 200 lei. Pentru o daună eligibilă de 1.000 lei, presupunând că nu există alte ajustări, partea suportată de asigurător ar fi 800.",
-          "detail": "Pe o poliță fictivă, un risc este acoperit până la o limită, dar are franșiză de 200 lei. Pentru o daună eligibilă de 1.000 lei, presupunând că nu există alte ajustări, partea suportată de asigurător ar fi 800.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Nu orice incident este acoperit și nu orice poliță cu același titlu are aceleași condiții.",
-          "detail": "Nu orice incident este acoperit și nu orice poliță cu același titlu are aceleași condiții.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Citește un exemplu public de poliță și identifică o limită, o excludere și procedura de notificare.",
-          "detail": "Citește un exemplu public de poliță și identifică o limită, o excludere și procedura de notificare.",
           "type": "action"
         }
       ]

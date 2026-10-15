@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -57,11 +57,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar numărul fotografiilor."
+          "label": "Doar chiria lunară, presupunând că include utilitățile."
         },
         {
           "id": "2",
-          "label": "Doar distanța până la magazin."
+          "label": "Doar garanția, fără condițiile restituirii."
         }
       ],
       "correctOption": "0"
@@ -69,10 +69,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Contractul de închiriere trebuie citit pentru chirie, termen, garanție, plăți separate și condițiile încetării.",
-      "explanation": "Contractul de închiriere trebuie citit pentru chirie, termen, garanție, plăți separate și condițiile încetării. Verifică cine oferă locuința și în ce calitate. Un inventar și documentarea stării inițiale ajută la discutarea eventualelor deteriorări. Nu trimite o garanție doar pe baza unui anunț și a presiunii că există mulți alți doritori.",
-      "correctFeedback": "Corect. Contractul de închiriere trebuie citit pentru chirie, termen, garanție, plăți separate și condițiile încetării. Verifică cine oferă locuința și în ce calitate. Un inventar și documentarea stării inițiale ajută la discutarea eventualelor deteriorări. Nu trimite o garanție doar pe baza unui anunț și a presiunii că există mulți alți doritori.",
-      "incorrectFeedback": "Nu chiar. Contractul de închiriere trebuie citit pentru chirie, termen, garanție, plăți separate și condițiile încetării. Verifică cine oferă locuința și în ce calitate. Un inventar și documentarea stării inițiale ajută la discutarea eventualelor deteriorări. Nu trimite o garanție doar pe baza unui anunț și a presiunii că există mulți alți doritori.",
+      "question": "Dovada chiriei plătite nu înlocuiește verificarea contractului pentru utilități, garanție și plecarea înainte de termen.",
+      "explanation": "Confirmarea plății arată suma și destinația ei. Obligațiile și condițiile încetării trebuie verificate în documentele închirierii.",
+      "correctFeedback": "Corect. Confirmarea plății arată suma și destinația ei. Obligațiile și condițiile încetării trebuie verificate în documentele închirierii.",
+      "incorrectFeedback": "Nu chiar. Confirmarea plății arată suma și destinația ei. Obligațiile și condițiile încetării trebuie verificate în documentele închirierii.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -147,7 +147,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce semnal observă Mara în prima solicitare?",
       "explanation": "Presiunea de plată imediată.",
       "correctFeedback": "Corect. Presiunea de plată imediată.",
@@ -173,7 +172,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce notează Mara la predare?",
       "explanation": "Defectele și indexurile.",
       "correctFeedback": "Corect. Defectele și indexurile.",
@@ -184,7 +182,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Numai numele vecinilor."
+          "label": "Numai chiria, fără starea inițială a locuinței."
         },
         {
           "id": "1",
@@ -192,14 +190,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar parola Wi-Fi."
+          "label": "Doar inventarul bunurilor, fără starea lor și indexuri."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce dovadă păstrează pentru bani?",
       "explanation": "Confirmarea plății și destinația sumei.",
       "correctFeedback": "Corect. Confirmarea plății și destinația sumei.",
@@ -210,11 +207,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar culoarea transferului."
+          "label": "Doar mesajul că suma a fost primită, fără ce reprezintă."
         },
         {
           "id": "1",
-          "label": "Numai anunțul șters."
+          "label": "Numai anunțul cu chiria, fără confirmarea plății."
         },
         {
           "id": "2",
@@ -278,7 +275,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar inventarul de scaune."
+          "label": "Doar condițiile de la începutul contractului, fără încetare."
         }
       ],
       "correctOption": "1"
@@ -292,28 +289,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Contractul de închiriere trebuie citit pentru chirie, termen, garanție, plăți separate și condițiile încetării.",
-          "detail": "Contractul de închiriere trebuie citit pentru chirie, termen, garanție, plăți separate și condițiile încetării.",
+          "detail": "La predare, Mara consemnează ușa deteriorată și indexurile. Documentarea stării inițiale și destinației plăților ajută clarificarea ulterioară a garanției și a costurilor.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Mara vede un apartament și cere înainte de plată contractul, identitatea și confirmarea dreptului de a-l închiria. Verifică dacă utilitățile sunt separate și cum se restituie garanția.",
-          "detail": "Mara vede un apartament și cere înainte de plată contractul, identitatea și confirmarea dreptului de a-l închiria. Verifică dacă utilitățile sunt separate și cum se restituie garanția.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "O clauză neclară despre reparații sau plecare poate crea un cost neașteptat.",
-          "detail": "O clauză neclară despre reparații sau plecare poate crea un cost neașteptat.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează cinci lucruri pe care le-ai verifica înainte de plata unei garanții de chirie.",
-          "detail": "Notează cinci lucruri pe care le-ai verifica înainte de plata unei garanții de chirie.",
           "type": "action"
         }
       ]

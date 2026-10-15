@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -121,7 +121,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Numărul de iconițe."
+          "label": "Doar diferența față de prețul anterior, fără perioada folosită."
         },
         {
           "id": "2",
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Cât plătește Mara lunar în total?",
       "explanation": "25 + 18 + 12 = 55 lei.",
       "correctFeedback": "Corect. 25 + 18 + 12 = 55 lei.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Care abonament merită verificat primul pentru utilizare redusă?",
       "explanation": "Mara nu a folosit editarea, dar trebuie să verifice și condițiile.",
       "correctFeedback": "Corect. Mara nu a folosit editarea, dar trebuie să verifice și condițiile.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Cum confirmă oprirea plății?",
       "explanation": "Confirmarea și tranzacțiile verifică rezultatul.",
       "correctFeedback": "Corect. Confirmarea și tranzacțiile verifică rezultatul.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Adună pe termen lung",
           "body": "Costul lunar se repetă.",
-          "detail": "Costul lunar se repetă.",
+          "detail": "Un serviciu de 25 lei lunar cere 300 lei pentru douăsprezece luni cu preț constant. Compară această sumă cu utilizarea probabilă și verifică reînnoirea, nu doar ultima plată.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Utilizare",
           "body": "Plata și folosirea nu sunt același lucru.",
-          "detail": "Plata și folosirea nu sunt același lucru.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Anulare verificată",
           "body": "Ștergerea aplicației poate să nu oprească plata.",
-          "detail": "Ștergerea aplicației poate să nu oprească plata.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Fă o listă privată cu abonamentele tale, costul și data următoarei plăți, dacă există.",
-          "detail": "Fă o listă privată cu abonamentele tale, costul și data următoarei plăți, dacă există.",
           "type": "action"
         }
       ]

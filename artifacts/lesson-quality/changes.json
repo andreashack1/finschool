@@ -1,0 +1,2087 @@
+[
+  {
+    "id": "ce-sunt-banii",
+    "file": "src\\content\\lessons\\ce-sunt-banii.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q6",
+      "q7",
+      "q8"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q9"
+    ],
+    "removedDetails": 1,
+    "rewrittenDetails": 3,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "venit-cheltuieli-si-ce-ramane",
+    "file": "src\\content\\lessons\\venit-cheltuieli-si-ce-ramane.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q5"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "ce-detii-si-ce-datorezi",
+    "file": "src\\content\\lessons\\ce-detii-si-ce-datorezi.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q6"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "ce-este-inflatia",
+    "file": "src\\content\\lessons\\inflatia.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "venit-confirmat",
+      "cos-nou"
+    ],
+    "kept": [
+      "nivel-general",
+      "putere",
+      "pret-nou",
+      "salariu",
+      "andrei-putere",
+      "andrei-plan",
+      "andrei-concluzie"
+    ],
+    "removedDetails": 0,
+    "rewrittenDetails": 0,
+    "promptsRemoved": 0
+  },
+  {
+    "id": "dobanda",
+    "file": "src\\content\\lessons\\dobanda.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "kept": [
+      "q2"
+    ],
+    "removedDetails": 1,
+    "rewrittenDetails": 3,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "banca-centrala-bnr",
+    "file": "src\\content\\lessons\\banca-centrala-bnr.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3",
+      "q8"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cerere-si-oferta",
+    "file": "src\\content\\lessons\\cerere-si-oferta.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q5",
+      "q6"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "tva",
+    "file": "src\\content\\lessons\\tva.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q4",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q3",
+      "q5",
+      "q6",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "impozit-taxa-si-contributie",
+    "file": "src\\content\\lessons\\impozit-taxa-si-contributie.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q4"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cursul-valutar-si-euro",
+    "file": "src\\content\\lessons\\cursul-valutar-si-euro.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "nevoi-vs-dorinte",
+    "file": "src\\content\\lessons\\nevoi-vs-dorinte.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q7",
+      "q8"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "costul-real-al-unui-produs",
+    "file": "src\\content\\lessons\\costul-real-al-unui-produs.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3",
+      "q4",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q5",
+      "q6",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "bonul-factura-si-chitanta",
+    "file": "src\\content\\lessons\\bonul-factura-si-chitanta.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q3",
+      "q6"
+    ],
+    "kept": [
+      "q2",
+      "q4",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cumparaturile-pe-impuls",
+    "file": "src\\content\\lessons\\cumparaturile-pe-impuls.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q5",
+      "q6",
+      "q8"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q7",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "reduceri-care-nu-sunt-reduceri",
+    "file": "src\\content\\lessons\\reduceri-care-nu-sunt-reduceri.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q4"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cum-te-conving-reclamele",
+    "file": "src\\content\\lessons\\cum-te-conving-reclamele.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q4",
+      "q5",
+      "q6",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cumparaturi-in-jocuri-si-aplicatii",
+    "file": "src\\content\\lessons\\cumparaturi-in-jocuri-si-aplicatii.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q3",
+      "q6"
+    ],
+    "kept": [
+      "q2",
+      "q4",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "abonamentele",
+    "file": "src\\content\\lessons\\abonamentele.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q4"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "drepturile-consumatorului",
+    "file": "src\\content\\lessons\\drepturile-consumatorului.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q6",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "iesiri-cu-prietenii-fara-sa-te-golesti",
+    "file": "src\\content\\lessons\\iesiri-cu-prietenii-fara-sa-te-golesti.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "ce-face-o-banca-si-cum-alegi-un-cont",
+    "file": "src\\content\\lessons\\ce-face-o-banca-si-cum-alegi-un-cont.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q3",
+      "q5",
+      "q7"
+    ],
+    "kept": [
+      "q2",
+      "q4",
+      "q6",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "iban",
+    "file": "src\\content\\lessons\\iban.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q8"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "comisioane-bancare",
+    "file": "src\\content\\lessons\\comisioane-bancare.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q6",
+      "q9"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q7",
+      "q8"
+    ],
+    "removedDetails": 2,
+    "rewrittenDetails": 2,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cardul-de-debit",
+    "file": "src\\content\\lessons\\cardul-de-debit.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q6",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "plati-digitale",
+    "file": "src\\content\\lessons\\plati-digitale.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q5",
+      "q6"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "transferuri-si-plati-instant",
+    "file": "src\\content\\lessons\\transferuri-si-plati-instant.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cardul-in-strainatate",
+    "file": "src\\content\\lessons\\cardul-in-strainatate.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q4",
+      "q5",
+      "q6"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "extrasul-de-cont",
+    "file": "src\\content\\lessons\\extrasul-de-cont.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "sunt-banii-mei-in-siguranta-la-banca",
+    "file": "src\\content\\lessons\\sunt-banii-mei-in-siguranta-la-banca.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3",
+      "q5"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q4",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "contul-pentru-minori",
+    "file": "src\\content\\lessons\\contul-pentru-minori.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q4",
+      "q5",
+      "q6"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "apelul-fals-de-la-banca",
+    "file": "src\\content\\lessons\\apelul-fals-de-la-banca.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q6",
+      "q9"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q7",
+      "q8"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "anunturi-si-livrari-false",
+    "file": "src\\content\\lessons\\anunturi-si-livrari-false.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q5"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "magazine-false",
+    "file": "src\\content\\lessons\\magazine-false.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q4",
+      "q6",
+      "q9"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q5",
+      "q7",
+      "q8"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "oferte-prea-bune-ca-sa-fie-reale",
+    "file": "src\\content\\lessons\\oferte-prea-bune-ca-sa-fie-reale.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q5"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "piramide-si-scheme-bani-rapizi",
+    "file": "src\\content\\lessons\\piramide-si-scheme-bani-rapizi.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q3",
+      "q5"
+    ],
+    "kept": [
+      "q2",
+      "q4",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "protejeaza-datele-cardului",
+    "file": "src\\content\\lessons\\protejeaza-datele-cardului.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q5"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "furtul-de-identitate",
+    "file": "src\\content\\lessons\\furtul-de-identitate.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "conturi-folosite-de-altii",
+    "file": "src\\content\\lessons\\conturi-folosite-de-altii.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q6"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "ce-faci-daca-ai-fost-inselat",
+    "file": "src\\content\\lessons\\ce-faci-daca-ai-fost-inselat.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q4",
+      "q6",
+      "q7",
+      "q9"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q5",
+      "q8"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "unde-dispar-banii",
+    "file": "src\\content\\lessons\\unde-dispar-banii.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q4",
+      "q5",
+      "q6",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "metoda-50-30-20",
+    "file": "src\\content\\lessons\\metoda-50-30-20.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "bani-de-buzunar-si-venituri-neregulate",
+    "file": "src\\content\\lessons\\bani-de-buzunar-si-venituri-neregulate.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "de-ce-economisim-si-cat",
+    "file": "src\\content\\lessons\\de-ce-economisim-si-cat.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "plateste-te-pe-tine-primul",
+    "file": "src\\content\\lessons\\plateste-te-pe-tine-primul.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q5",
+      "q6"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "obiective-de-economisire",
+    "file": "src\\content\\lessons\\obiective-de-economisire.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q8"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "unde-tii-banii-cont-depozit-numerar",
+    "file": "src\\content\\lessons\\unde-tii-banii-cont-depozit-numerar.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q6"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "primul-contract-de-munca",
+    "file": "src\\content\\lessons\\primul-contract-de-munca.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q5",
+      "q8"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q6",
+      "q7",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cum-citesti-un-contract",
+    "file": "src\\content\\lessons\\cum-citesti-un-contract.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q2",
+      "q3"
+    ],
+    "kept": [
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "munca-part-time-si-student",
+    "file": "src\\content\\lessons\\munca-part-time-si-student.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3",
+      "q5",
+      "q6"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q4",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "fluturasul-de-salariu",
+    "file": "src\\content\\lessons\\fluturasul-de-salariu.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q2",
+      "q4",
+      "q5"
+    ],
+    "kept": [
+      "q3",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "salariul-minim",
+    "file": "src\\content\\lessons\\salariul-minim.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3",
+      "q5",
+      "q6"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q4",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "tichete-si-beneficii",
+    "file": "src\\content\\lessons\\tichete-si-beneficii.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q2",
+      "q5",
+      "q6",
+      "q9"
+    ],
+    "kept": [
+      "q3",
+      "q4",
+      "q7",
+      "q8"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "taxele-pe-salariu-cas-cass-impozit",
+    "file": "src\\content\\lessons\\taxele-pe-salariu-cas-cass-impozit.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3",
+      "q4",
+      "q6",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q5",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "pensia-de-ce-conteaza-de-la-primul-salariu",
+    "file": "src\\content\\lessons\\pensia-de-ce-conteaza-de-la-primul-salariu.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q3",
+      "q6",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q4",
+      "q5",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "ce-faci-cu-primul-salariu",
+    "file": "src\\content\\lessons\\ce-faci-cu-primul-salariu.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q6",
+      "q8"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q7",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "ce-este-creditul",
+    "file": "src\\content\\lessons\\ce-este-creditul.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q4",
+      "q6"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "dobanda-la-credit-si-dae",
+    "file": "src\\content\\lessons\\dobanda-la-credit-si-dae.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q3",
+      "q4",
+      "q5"
+    ],
+    "kept": [
+      "q1",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "rata-lunara-si-costul-total",
+    "file": "src\\content\\lessons\\rata-lunara-si-costul-total.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3",
+      "q4",
+      "q5",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q6",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "dobanda-fixa-vs-variabila",
+    "file": "src\\content\\lessons\\dobanda-fixa-vs-variabila.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q2",
+      "q5",
+      "q7"
+    ],
+    "kept": [
+      "q3",
+      "q4",
+      "q6",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cardul-de-credit",
+    "file": "src\\content\\lessons\\cardul-de-credit.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q5",
+      "q6"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "plata-in-rate-si-cumpara-acum-plateste-mai-tarziu",
+    "file": "src\\content\\lessons\\plata-in-rate-si-cumpara-acum-plateste-mai-tarziu.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q3",
+      "q5"
+    ],
+    "kept": [
+      "q1",
+      "q4",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "creditele-rapide-ifn",
+    "file": "src\\content\\lessons\\creditele-rapide-ifn.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q4",
+      "q6"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "scorul-de-credit",
+    "file": "src\\content\\lessons\\scorul-de-credit.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "radu-informatie"
+    ],
+    "kept": [
+      "evaluare",
+      "plata",
+      "termen",
+      "aprobare",
+      "radu-prioritate",
+      "radu-flexibilitate",
+      "peste-noapte",
+      "scor-motiv"
+    ],
+    "removedDetails": 0,
+    "rewrittenDetails": 0,
+    "promptsRemoved": 0
+  },
+  {
+    "id": "ce-se-intampla-daca-nu-ti-platesti-datoria",
+    "file": "src\\content\\lessons\\ce-se-intampla-daca-nu-ti-platesti-datoria.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q4",
+      "q5",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q3",
+      "q6",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cum-iesi-din-datorii",
+    "file": "src\\content\\lessons\\cum-iesi-din-datorii.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q6"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cat-costa-sa-te-muti-singur",
+    "file": "src\\content\\lessons\\cat-costa-sa-te-muti-singur.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q9"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "chirie-si-contract-de-inchiriere",
+    "file": "src\\content\\lessons\\chirie-si-contract-de-inchiriere.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q2",
+      "q6",
+      "q7",
+      "q9"
+    ],
+    "kept": [
+      "q3",
+      "q4",
+      "q5",
+      "q8"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "utilitati-si-cum-citesti-o-factura",
+    "file": "src\\content\\lessons\\utilitati-si-cum-citesti-o-factura.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q3",
+      "q8"
+    ],
+    "kept": [
+      "q2",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cumperi-casa-sau-inchiriezi",
+    "file": "src\\content\\lessons\\cumperi-casa-sau-inchiriezi.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q4",
+      "q6"
+    ],
+    "kept": [
+      "q1",
+      "q3",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "primul-telefon-sau-laptop",
+    "file": "src\\content\\lessons\\primul-telefon-sau-laptop.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3",
+      "q7",
+      "q9"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q4",
+      "q5",
+      "q6",
+      "q8"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "asigurari-rca-locuinta-calatorie",
+    "file": "src\\content\\lessons\\asigurari-rca-locuinta-calatorie.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q2",
+      "q5",
+      "q6",
+      "q7",
+      "q9"
+    ],
+    "kept": [
+      "q3",
+      "q4",
+      "q8"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "burse-si-costul-facultatii",
+    "file": "src\\content\\lessons\\burse-si-costul-facultatii.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q6"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cheltuielile-din-supermarket",
+    "file": "src\\content\\lessons\\cheltuielile-din-supermarket.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q5",
+      "q8"
+    ],
+    "kept": [
+      "q1",
+      "q3",
+      "q4",
+      "q6",
+      "q7",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cheltuieli-neprevazute",
+    "file": "src\\content\\lessons\\cheltuieli-neprevazute.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q6",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "banii-intre-prieteni-si-intr-o-relatie",
+    "file": "src\\content\\lessons\\banii-intre-prieteni-si-intr-o-relatie.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q3",
+      "q5",
+      "q6",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q4",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "fomo-si-cheltuieli",
+    "file": "src\\content\\lessons\\fomo-si-cheltuieli.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q6"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "presiunea-sociala",
+    "file": "src\\content\\lessons\\presiunea-sociala.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q2",
+      "q6"
+    ],
+    "kept": [
+      "q3",
+      "q4",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cum-vorbesti-despre-bani",
+    "file": "src\\content\\lessons\\cum-vorbesti-despre-bani.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q5",
+      "q6"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cheltuieli-emotionale",
+    "file": "src\\content\\lessons\\cheltuieli-emotionale.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q6",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q3",
+      "q4",
+      "q5",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "efectul-de-ancorare",
+    "file": "src\\content\\lessons\\efectul-de-ancorare.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q3",
+      "q4",
+      "q5"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "preturile-psihologice-99-99",
+    "file": "src\\content\\lessons\\preturile-psihologice-99-99.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q5"
+    ],
+    "kept": [
+      "q1",
+      "q3",
+      "q4",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "de-ce-cheltuim-mai-mult-cu-cardul-decat-cu-numerarul",
+    "file": "src\\content\\lessons\\de-ce-cheltuim-mai-mult-cu-cardul-decat-cu-numerarul.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q5"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "gratificarea-imediata-vs-viitor",
+    "file": "src\\content\\lessons\\gratificarea-imediata-vs-viitor.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q2",
+      "q6"
+    ],
+    "kept": [
+      "q3",
+      "q4",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cheltuieli-mici-care-se-aduna",
+    "file": "src\\content\\lessons\\cheltuieli-mici-care-se-aduna.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q5",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q6",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "obiceiuri-bune-cu-banii",
+    "file": "src\\content\\lessons\\obiceiuri-bune-cu-banii.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q3",
+      "q5",
+      "q8"
+    ],
+    "kept": [
+      "q1",
+      "q4",
+      "q6",
+      "q7",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "de-ce-investim",
+    "file": "src\\content\\lessons\\de-ce-investim.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q4",
+      "q5",
+      "q6"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "risc-si-randament",
+    "file": "src\\content\\lessons\\risc-si-randament.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q4",
+      "q5",
+      "q7",
+      "q8"
+    ],
+    "kept": [
+      "q1",
+      "q3",
+      "q6",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "diversificarea",
+    "file": "src\\content\\lessons\\diversificarea.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "actiuni",
+    "file": "src\\content\\lessons\\actiuni.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1",
+      "q2",
+      "q5",
+      "q7"
+    ],
+    "kept": [
+      "q3",
+      "q4",
+      "q6",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "obligatiuni-si-titluri-de-stat",
+    "file": "src\\content\\lessons\\obligatiuni-si-titluri-de-stat.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q5",
+      "q8",
+      "q9"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q6",
+      "q7"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "etf-uri-si-fonduri",
+    "file": "src\\content\\lessons\\etf-uri-si-fonduri.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q4",
+      "q6",
+      "q7",
+      "q8"
+    ],
+    "kept": [
+      "q1",
+      "q3",
+      "q5",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cum-functioneaza-bursa",
+    "file": "src\\content\\lessons\\cum-functioneaza-bursa.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q5",
+      "q6",
+      "q7",
+      "q9"
+    ],
+    "kept": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q8"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "investesti-vs-speculezi",
+    "file": "src\\content\\lessons\\investesti-vs-speculezi.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q6"
+    ],
+    "kept": [
+      "q1",
+      "q3",
+      "q4",
+      "q5",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "crypto-ce-trebuie-sa-stii",
+    "file": "src\\content\\lessons\\crypto-ce-trebuie-sa-stii.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q1"
+    ],
+    "kept": [
+      "q2",
+      "q3",
+      "q4",
+      "q5",
+      "q6",
+      "q7",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  },
+  {
+    "id": "cum-incepi-cu-sume-mici",
+    "file": "src\\content\\lessons\\cum-incepi-cu-sume-mici.ts",
+    "oldQuestions": 9,
+    "newQuestions": 9,
+    "rewritten": [
+      "q2",
+      "q3",
+      "q7"
+    ],
+    "kept": [
+      "q1",
+      "q4",
+      "q5",
+      "q6",
+      "q8",
+      "q9"
+    ],
+    "removedDetails": 3,
+    "rewrittenDetails": 1,
+    "promptsRemoved": 3
+  }
+]

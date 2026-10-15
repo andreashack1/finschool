@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -73,10 +73,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Împărțirea unui preț în plăți viitoare schimbă calendarul, nu elimină obligația.",
-      "explanation": "Împărțirea unui preț în plăți viitoare schimbă calendarul, nu elimină obligația. Verifică cine oferă finanțarea, costurile și consecințele întârzierii. Chiar când oferta are dobândă zero în anumite condiții, mai multe cumpărături pot crea plăți simultane. Prețul mic al unei tranșe poate face mai greu de văzut totalul angajat.",
-      "correctFeedback": "Corect. Împărțirea unui preț în plăți viitoare schimbă calendarul, nu elimină obligația. Verifică cine oferă finanțarea, costurile și consecințele întârzierii. Chiar când oferta are dobândă zero în anumite condiții, mai multe cumpărături pot crea plăți simultane. Prețul mic al unei tranșe poate face mai greu de văzut totalul angajat.",
-      "incorrectFeedback": "Nu chiar. Împărțirea unui preț în plăți viitoare schimbă calendarul, nu elimină obligația. Verifică cine oferă finanțarea, costurile și consecințele întârzierii. Chiar când oferta are dobândă zero în anumite condiții, mai multe cumpărături pot crea plăți simultane. Prețul mic al unei tranșe poate face mai greu de văzut totalul angajat.",
+      "question": "O ofertă cu dobândă zero poate cere totuși verificarea scadențelor și a costurilor întârzierii.",
+      "explanation": "Condiția de dobândă zero privește scenariul descris în ofertă. Nu elimină obligația de plată sau urmările unei întârzieri.",
+      "correctFeedback": "Corect. Condiția de dobândă zero privește scenariul descris în ofertă. Nu elimină obligația de plată sau urmările unei întârzieri.",
+      "incorrectFeedback": "Nu chiar. Condiția de dobândă zero privește scenariul descris în ofertă. Nu elimină obligația de plată sau urmările unei întârzieri.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -93,10 +93,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "Cât însumează 100 + 80 + 70 + 90?",
-      "explanation": "340 lei.",
-      "correctFeedback": "Corect. 340 lei.",
-      "incorrectFeedback": "Nu chiar. 340 lei.",
+      "question": "Eva are plăți lunare de 100, 80 și 70 lei. O nouă tranșă de 90 lei se suprapune cu ele. Ce sumă trebuie să acopere bugetul în lunile comune?",
+      "explanation": "În lunile de suprapunere, obligațiile însumează 340 lei. Evaluarea noii tranșe separat de cele vechi ar subestima presiunea asupra bugetului.",
+      "correctFeedback": "Corect. În lunile de suprapunere, obligațiile însumează 340 lei. Evaluarea noii tranșe separat de cele vechi ar subestima presiunea asupra bugetului.",
+      "incorrectFeedback": "Nu chiar. În lunile de suprapunere, obligațiile însumează 340 lei. Evaluarea noii tranșe separat de cele vechi ar subestima presiunea asupra bugetului.",
       "type": "variante",
       "options": [
         {
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce nu vede Eva dacă privește doar cei 90 lei?",
       "explanation": "Suprapunerea cu celelalte plăți.",
       "correctFeedback": "Corect. Suprapunerea cu celelalte plăți.",
@@ -170,14 +169,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Culoarea căștilor."
+          "label": "Doar costul primei luni, presupunând că celelalte rate se termină imediat."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Cât plătește înainte de noua cumpărătură în lunile comune?",
       "explanation": "250 lei.",
       "correctFeedback": "Corect. 250 lei.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică pentru o eventuală returnare?",
       "explanation": "Procedura și confirmarea ajustării finanțării.",
       "correctFeedback": "Corect. Procedura și confirmarea ajustării finanțării.",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Împărțirea unui preț în plăți viitoare schimbă calendarul, nu elimină obligația.",
-          "detail": "Împărțirea unui preț în plăți viitoare schimbă calendarul, nu elimină obligația.",
+          "detail": "Noua tranșă de 90 lei se suprapune cu plăți de 100, 80 și 70 lei. Eva trebuie să acopere 340 lei în lunile comune și să verifice dacă are banii la fiecare scadență.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Eva are trei achiziții cu plăți lunare de 100, 80 și 70 lei. Împreună cer 250 lei pe lună în perioada de suprapunere.",
-          "detail": "Eva are trei achiziții cu plăți lunare de 100, 80 și 70 lei. Împreună cer 250 lei pe lună în perioada de suprapunere.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "O returnare a produsului nu trebuie presupusă ca anulare imediată a fiecărei plăți.",
-          "detail": "O returnare a produsului nu trebuie presupusă ca anulare imediată a fiecărei plăți.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pune trei obligații fictive într-un calendar și calculează plățile lunilor în care se suprapun.",
-          "detail": "Pune trei obligații fictive într-un calendar și calculează plățile lunilor în care se suprapun.",
           "type": "action"
         }
       ]

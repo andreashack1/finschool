@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce a trimis Ioana pentru cererea legitimă?",
       "explanation": "Distribuirea minimă reduce expunerea datelor.",
       "correctFeedback": "Corect. Distribuirea minimă reduce expunerea datelor.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce semnal schimbă evaluarea celui de-al doilea mesaj?",
       "explanation": "Cererea de autorizare nu este simplă identificare a contului.",
       "correctFeedback": "Corect. Cererea de autorizare nu este simplă identificare a contului.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Cum verifică un IBAN schimbat al furnizorului?",
       "explanation": "Un IBAN valid poate aparține unui destinatar greșit.",
       "correctFeedback": "Corect. Un IBAN valid poate aparține unui destinatar greșit.",
@@ -248,7 +245,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar bateria telefonului."
+          "label": "Doar numărul de caractere, fără titularul contului."
         }
       ],
       "correctOption": "0"
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Identificator",
           "body": "IBAN-ul identifică un cont, nu parola.",
-          "detail": "IBAN-ul identifică un cont, nu parola.",
+          "detail": "Un cont poate avea un identificator valid fără să aparțină destinatarului așteptat. Confirmă separat schimbarea neașteptată a IBAN-ului și nu oferi coduri pentru o simplă încasare.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Coduri separate",
           "body": "Nu comunica credențiale pentru a primi bani.",
-          "detail": "Nu comunica credențiale pentru a primi bani.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Destinatar",
           "body": "Formatul valid nu confirmă autenticitatea cererii.",
-          "detail": "Formatul valid nu confirmă autenticitatea cererii.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Deschide aplicația băncii și găsește unde este afișat IBAN-ul tău, fără să îl trimiți nimănui.",
-          "detail": "Deschide aplicația băncii și găsește unde este afișat IBAN-ul tău, fără să îl trimiți nimănui.",
           "type": "action"
         }
       ]

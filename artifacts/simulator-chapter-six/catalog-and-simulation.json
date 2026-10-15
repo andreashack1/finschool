@@ -1,0 +1,6637 @@
+{
+  "catalog": {
+    "definitions": 200,
+    "variations": 212,
+    "options": 464,
+    "families": 79,
+    "domains": 15,
+    "tags": 33,
+    "domainCounts": {
+      "digital": 12,
+      "food": 15,
+      "home": 12,
+      "leisure": 14,
+      "obligation": 8,
+      "opportunity": 6,
+      "routine": 16,
+      "school": 24,
+      "seasonal": 6,
+      "shopping": 16,
+      "social": 21,
+      "transport": 16,
+      "unexpected": 8,
+      "weekend": 6,
+      "work": 20
+    },
+    "rarityCounts": {
+      "common": 23,
+      "occasional": 163,
+      "rare": 14
+    },
+    "profileCounts": {
+      "liceu": 180,
+      "lucrez": 176
+    },
+    "stateful": 41,
+    "seasonal": 7,
+    "tagCounts": {
+      "cable": 4,
+      "cinema": 2,
+      "clothing": 9,
+      "coffee": 11,
+      "culture": 7,
+      "delivery": 8,
+      "digital": 11,
+      "family": 2,
+      "free_activity": 14,
+      "games": 5,
+      "gift": 9,
+      "headphones": 3,
+      "home": 14,
+      "impulse": 10,
+      "learning": 11,
+      "online_order": 6,
+      "personal_care": 3,
+      "phone": 4,
+      "preparation": 12,
+      "printing": 10,
+      "project": 13,
+      "quick_food": 29,
+      "repair": 20,
+      "reuse": 11,
+      "school_break": 8,
+      "seasonal": 6,
+      "shopping": 13,
+      "social_outing": 38,
+      "sport": 8,
+      "supplies": 15,
+      "transport": 19,
+      "waiting": 7,
+      "work_lunch": 5
+    },
+    "familyCounts": {
+      "after_snack": 2,
+      "bag_problem": 1,
+      "bag_resolution": 2,
+      "birthday": 3,
+      "borrowing": 2,
+      "breakfast": 1,
+      "cable_problem": 1,
+      "cable_resolution": 2,
+      "cinema": 2,
+      "city_drink": 2,
+      "clothing_need": 3,
+      "clothing_problem": 1,
+      "clothing_resolution": 2,
+      "cold_activity": 2,
+      "colleagues_lunch": 1,
+      "commute": 4,
+      "delivery": 2,
+      "device_accessory": 2,
+      "digital_service": 2,
+      "discount_opportunity": 1,
+      "family_visit": 1,
+      "food_group": 3,
+      "free_invitation": 2,
+      "friend_invitation": 7,
+      "friends_coffee": 2,
+      "games": 3,
+      "group_plan": 7,
+      "headphones_problem": 1,
+      "headphones_resolution": 2,
+      "home_maintenance": 4,
+      "home_preparation": 4,
+      "home_shared": 2,
+      "home_supply": 3,
+      "leisure_culture": 2,
+      "leisure_home": 2,
+      "leisure_learning": 3,
+      "leisure_sport": 3,
+      "leisure_walk": 2,
+      "lunch_break": 1,
+      "meal_coverage": 1,
+      "meal_out": 6,
+      "meal_preparation": 3,
+      "morning_coffee": 3,
+      "morning_errand": 6,
+      "online_order": 3,
+      "packed_meal": 1,
+      "personal_care": 3,
+      "phone_followup": 2,
+      "phone_problem": 1,
+      "phone_resolution": 1,
+      "picnic": 2,
+      "printing_problem": 1,
+      "printing_resolution": 2,
+      "repair_opportunity": 1,
+      "route_choice": 6,
+      "school_activity": 3,
+      "school_forgotten": 2,
+      "school_print": 2,
+      "school_project": 5,
+      "school_shop": 1,
+      "school_supplies": 6,
+      "school_team": 4,
+      "season_supply": 3,
+      "shopping_comparison": 5,
+      "shopping_impulse": 3,
+      "shopping_need": 4,
+      "small_gift": 4,
+      "transport_problem": 2,
+      "unexpected_trip": 5,
+      "warm_activity": 1,
+      "weekend_family": 1,
+      "weekend_market": 2,
+      "weekend_terrace": 1,
+      "weekend_trip": 1,
+      "work_break": 3,
+      "work_errand": 2,
+      "work_lunch": 2,
+      "work_supplies": 3,
+      "work_team": 1
+    },
+    "similarTitles": [],
+    "nearConcepts": [
+      [
+        "after_snack",
+        "late_small_hunger"
+      ],
+      [
+        "bakery_queue",
+        "evening_corner_shop"
+      ],
+      [
+        "bakery_queue",
+        "morning_water"
+      ],
+      [
+        "bakery_queue",
+        "refill_bottle_stop"
+      ],
+      [
+        "city_drink",
+        "walk_home_drink"
+      ],
+      [
+        "delivery",
+        "dinner_delivery_choice"
+      ],
+      [
+        "digital_cable_followup",
+        "obligation_cable_replace"
+      ],
+      [
+        "digital_headphones_resolution",
+        "work_headphone_inconvenience"
+      ],
+      [
+        "digital_online_course",
+        "leisure_book_evening"
+      ],
+      [
+        "digital_phone_case",
+        "digital_screen_protector"
+      ],
+      [
+        "digital_phone_followup",
+        "work_phone_notes"
+      ],
+      [
+        "errand_receipt_bag",
+        "shopping_reusable_bottle"
+      ],
+      [
+        "evening_corner_shop",
+        "morning_water"
+      ],
+      [
+        "evening_corner_shop",
+        "refill_bottle_stop"
+      ],
+      [
+        "food_court_queue",
+        "school_lunch_nearby"
+      ],
+      [
+        "friends_coffee",
+        "social_cafe_table"
+      ],
+      [
+        "games",
+        "leisure_boardgame_cafe"
+      ],
+      [
+        "home_bulb",
+        "home_extension"
+      ],
+      [
+        "home_bulb",
+        "home_mug_chip"
+      ],
+      [
+        "home_cleaning_supply",
+        "home_kitchen_cloth"
+      ],
+      [
+        "home_cleaning_supply",
+        "home_laundry_bag"
+      ],
+      [
+        "home_desk_mat",
+        "home_storage_box"
+      ],
+      [
+        "home_extension",
+        "home_mug_chip"
+      ],
+      [
+        "home_kitchen_cloth",
+        "home_laundry_bag"
+      ],
+      [
+        "late_store_sandwich",
+        "market_soup"
+      ],
+      [
+        "late_store_sandwich",
+        "supermarket_ready_meal"
+      ],
+      [
+        "late_store_sandwich",
+        "weekend_breakfast_out"
+      ],
+      [
+        "leisure_local_match",
+        "leisure_pool"
+      ],
+      [
+        "market_soup",
+        "supermarket_ready_meal"
+      ],
+      [
+        "market_soup",
+        "weekend_breakfast_out"
+      ],
+      [
+        "morning_coffee",
+        "morning_machine"
+      ],
+      [
+        "morning_coffee",
+        "work_before_coffee"
+      ],
+      [
+        "morning_machine",
+        "work_before_coffee"
+      ],
+      [
+        "morning_water",
+        "refill_bottle_stop"
+      ],
+      [
+        "obligation_bag_repair",
+        "unexpected_bag_followup"
+      ],
+      [
+        "obligation_clothing_repair",
+        "unexpected_clothing_followup"
+      ],
+      [
+        "obligation_print_documents",
+        "work_print_pending"
+      ],
+      [
+        "obligation_project_folder",
+        "obligation_project_refill"
+      ],
+      [
+        "obligation_project_folder",
+        "school_project_cardboard"
+      ],
+      [
+        "obligation_project_refill",
+        "school_project_cardboard"
+      ],
+      [
+        "picnic",
+        "social_picnic_contribution"
+      ],
+      [
+        "school_group_poster",
+        "school_team_photos"
+      ],
+      [
+        "school_missing_snack",
+        "school_missing_water"
+      ],
+      [
+        "school_notebook_pages",
+        "school_pen_refill"
+      ],
+      [
+        "school_notebook_pages",
+        "school_pencil"
+      ],
+      [
+        "school_pen_refill",
+        "school_pencil"
+      ],
+      [
+        "seasonal_light_cap",
+        "seasonal_warm_socks"
+      ],
+      [
+        "shopping_haircare",
+        "shopping_personal_soap"
+      ],
+      [
+        "shopping_haircare",
+        "shopping_toothbrush"
+      ],
+      [
+        "shopping_personal_soap",
+        "shopping_toothbrush"
+      ],
+      [
+        "shopping_retail_receipt",
+        "small_change_checkout"
+      ],
+      [
+        "social_event_snack",
+        "social_park_drink"
+      ],
+      [
+        "social_event_snack",
+        "social_photo_walk"
+      ],
+      [
+        "social_event_snack",
+        "work_after_walk"
+      ],
+      [
+        "social_farewell_card",
+        "social_group_gift"
+      ],
+      [
+        "social_park_drink",
+        "social_photo_walk"
+      ],
+      [
+        "social_park_drink",
+        "work_after_walk"
+      ],
+      [
+        "social_photo_walk",
+        "work_after_walk"
+      ],
+      [
+        "supermarket_ready_meal",
+        "weekend_breakfast_out"
+      ],
+      [
+        "transport_evening_departure",
+        "transport_missed_bus"
+      ],
+      [
+        "transport_extra_trip",
+        "transport_pickup_locker"
+      ],
+      [
+        "transport_friend_meeting",
+        "transport_group_ride"
+      ],
+      [
+        "transport_nearby_errand",
+        "transport_route_change"
+      ],
+      [
+        "transport_nearby_errand",
+        "transport_short_walk"
+      ],
+      [
+        "transport_route_change",
+        "transport_short_walk"
+      ],
+      [
+        "work_canteen",
+        "work_lunch_forgotten"
+      ]
+    ],
+    "warnings": []
+  },
+  "simulations": [
+    {
+      "profile": "liceu",
+      "seed": "finly-life-liceu",
+      "runId": "67c34c12-12cd-4634-8ac5-67b66960e09b",
+      "days": 30,
+      "totalEvents": 41,
+      "quietDays": 5,
+      "quietPercent": 16.7,
+      "busyDays": 3,
+      "busyPercent": 10,
+      "maxInDay": 5,
+      "eventsPerDay": {
+        "0": 5,
+        "1": 14,
+        "2": 8,
+        "3": 2,
+        "5": 1
+      },
+      "domains": {
+        "digital": 2,
+        "food": 2,
+        "home": 2,
+        "leisure": 4,
+        "obligation": 1,
+        "routine": 8,
+        "school": 13,
+        "shopping": 4,
+        "social": 2,
+        "transport": 3
+      },
+      "rarities": {
+        "common": 13,
+        "occasional": 28
+      },
+      "families": {
+        "breakfast": 2,
+        "city_drink": 1,
+        "clothing_need": 1,
+        "commute": 2,
+        "delivery": 1,
+        "device_accessory": 1,
+        "digital_service": 1,
+        "discount_opportunity": 1,
+        "food_group": 2,
+        "group_plan": 1,
+        "home_shared": 1,
+        "home_supply": 1,
+        "leisure_sport": 2,
+        "leisure_walk": 2,
+        "meal_preparation": 1,
+        "morning_coffee": 2,
+        "morning_errand": 1,
+        "personal_care": 2,
+        "school_forgotten": 1,
+        "school_print": 1,
+        "school_project": 1,
+        "school_shop": 2,
+        "school_supplies": 5,
+        "school_team": 1,
+        "shopping_comparison": 1,
+        "shopping_need": 2,
+        "small_gift": 1,
+        "unexpected_trip": 1
+      },
+      "semanticTags": {
+        "clothing": 1,
+        "coffee": 2,
+        "culture": 1,
+        "delivery": 3,
+        "digital": 2,
+        "free_activity": 2,
+        "games": 1,
+        "gift": 1,
+        "home": 2,
+        "impulse": 2,
+        "learning": 2,
+        "personal_care": 2,
+        "preparation": 1,
+        "printing": 3,
+        "project": 3,
+        "quick_food": 8,
+        "reuse": 4,
+        "school_break": 8,
+        "shopping": 3,
+        "social_outing": 2,
+        "sport": 2,
+        "supplies": 3,
+        "transport": 3
+      },
+      "stateOperations": 1,
+      "repetition": {
+        "exactCooldownViolations": 0,
+        "familyCooldownViolations": 0,
+        "semanticCooldownViolations": 0,
+        "sameDayFamilyViolations": 0,
+        "activityConflicts": 0
+      },
+      "timeline": [
+        {
+          "day": "2026-10-01",
+          "time": "07:14",
+          "title": "Pachetul mic de la patiserie",
+          "family": "discount_opportunity",
+          "domain": "routine",
+          "tags": [
+            "quick_food",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "07:51",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "12:02",
+          "title": "O carte utilă pentru curs",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "learning",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-03",
+          "time": "18:11",
+          "title": "Husa de telefon uzată",
+          "family": "device_accessory",
+          "domain": "digital",
+          "tags": [
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-04",
+          "time": "14:13",
+          "title": "Produsul de igienă aproape terminat",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-04",
+          "time": "20:57",
+          "title": "Comandă de mâncare",
+          "family": "delivery",
+          "domain": "food",
+          "tags": [
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "20:58",
+          "title": "Gătiți ceva împreună",
+          "family": "meal_preparation",
+          "domain": "food",
+          "tags": [
+            "preparation",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "07:29",
+          "title": "Un ocol pentru un obiect",
+          "family": "unexpected_trip",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "10:29",
+          "title": "Caietul aproape plin",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "10:21",
+          "title": "Schița pentru proiect",
+          "family": "school_print",
+          "domain": "school",
+          "tags": [
+            "project",
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "12:17",
+          "title": "Fotografii pentru panou",
+          "family": "school_team",
+          "domain": "school",
+          "tags": [
+            "project",
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "15:46",
+          "title": "Plimbare prin oraș",
+          "family": "leisure_walk",
+          "domain": "leisure",
+          "tags": [
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "12:11",
+          "title": "Apa a rămas acasă",
+          "family": "school_forgotten",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "18:29",
+          "title": "O sticlă reutilizabilă",
+          "family": "shopping_need",
+          "domain": "shopping",
+          "tags": [
+            "reuse",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-11",
+          "time": "09:59",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "07:31",
+          "title": "Încă un produs la casă",
+          "family": "shopping_comparison",
+          "domain": "routine",
+          "tags": [
+            "impulse",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "10:30",
+          "title": "Un creion pentru desen",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "12:08",
+          "title": "Comanda din pauză",
+          "family": "food_group",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "14:35",
+          "title": "Pe drumul spre casă",
+          "family": "city_drink",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "20:33",
+          "title": "Consumabile pentru curățenie",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-13",
+          "time": "19:57",
+          "title": "Un meci în apropiere",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-15",
+          "time": "07:41",
+          "title": "Oprire la patiserie",
+          "family": "morning_errand",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-15",
+          "time": "14:48",
+          "title": "Produse de îngrijire",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-15",
+          "time": "20:38",
+          "title": "Conținut suplimentar într-un joc",
+          "family": "digital_service",
+          "domain": "digital",
+          "tags": [
+            "digital",
+            "games",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-16",
+          "time": "10:23",
+          "title": "O carte utilă pentru curs",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "learning",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-16",
+          "time": "15:28",
+          "title": "Plimbare prin oraș",
+          "family": "leisure_walk",
+          "domain": "leisure",
+          "tags": [
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-17",
+          "time": "14:25",
+          "title": "Bilet înainte de plecare",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-18",
+          "time": "20:07",
+          "title": "O cumpărătură împărțită",
+          "family": "home_shared",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-19",
+          "time": "10:23",
+          "title": "Magazinul de lângă liceu",
+          "family": "school_shop",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-19",
+          "time": "18:45",
+          "title": "Fotografii pentru un formular",
+          "family": "shopping_need",
+          "domain": "obligation",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-20",
+          "time": "15:23",
+          "title": "Perechi de șosete de înlocuit",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-21",
+          "time": "07:25",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-21",
+          "time": "10:34",
+          "title": "Pixul nu mai scrie",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-22",
+          "time": "20:08",
+          "title": "Concert cu prietenii",
+          "family": "group_plan",
+          "domain": "social",
+          "tags": [
+            "culture",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-23",
+          "time": "07:14",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-23",
+          "time": "10:21",
+          "title": "Material pentru o activitate",
+          "family": "school_project",
+          "domain": "school",
+          "tags": [
+            "project",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-24",
+          "time": "13:36",
+          "title": "Bilet înainte de plecare",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-26",
+          "time": "18:02",
+          "title": "Un prieten pleacă",
+          "family": "small_gift",
+          "domain": "social",
+          "tags": [
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-27",
+          "time": "12:17",
+          "title": "Magazinul de lângă liceu",
+          "family": "school_shop",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-28",
+          "time": "12:02",
+          "title": "Comanda din pauză",
+          "family": "food_group",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-29",
+          "time": "15:32",
+          "title": "La bazin",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        }
+      ],
+      "dayCounts": [
+        {
+          "day": "2026-10-01",
+          "count": 1
+        },
+        {
+          "day": "2026-10-02",
+          "count": 2
+        },
+        {
+          "day": "2026-10-03",
+          "count": 1
+        },
+        {
+          "day": "2026-10-04",
+          "count": 2
+        },
+        {
+          "day": "2026-10-05",
+          "count": 1
+        },
+        {
+          "day": "2026-10-06",
+          "count": 2
+        },
+        {
+          "day": "2026-10-07",
+          "count": 3
+        },
+        {
+          "day": "2026-10-08",
+          "count": 2
+        },
+        {
+          "day": "2026-10-09",
+          "count": 0
+        },
+        {
+          "day": "2026-10-10",
+          "count": 0
+        },
+        {
+          "day": "2026-10-11",
+          "count": 1
+        },
+        {
+          "day": "2026-10-12",
+          "count": 5
+        },
+        {
+          "day": "2026-10-13",
+          "count": 1
+        },
+        {
+          "day": "2026-10-14",
+          "count": 0
+        },
+        {
+          "day": "2026-10-15",
+          "count": 3
+        },
+        {
+          "day": "2026-10-16",
+          "count": 2
+        },
+        {
+          "day": "2026-10-17",
+          "count": 1
+        },
+        {
+          "day": "2026-10-18",
+          "count": 1
+        },
+        {
+          "day": "2026-10-19",
+          "count": 2
+        },
+        {
+          "day": "2026-10-20",
+          "count": 1
+        },
+        {
+          "day": "2026-10-21",
+          "count": 2
+        },
+        {
+          "day": "2026-10-22",
+          "count": 1
+        },
+        {
+          "day": "2026-10-23",
+          "count": 2
+        },
+        {
+          "day": "2026-10-24",
+          "count": 1
+        },
+        {
+          "day": "2026-10-25",
+          "count": 0
+        },
+        {
+          "day": "2026-10-26",
+          "count": 1
+        },
+        {
+          "day": "2026-10-27",
+          "count": 1
+        },
+        {
+          "day": "2026-10-28",
+          "count": 1
+        },
+        {
+          "day": "2026-10-29",
+          "count": 1
+        },
+        {
+          "day": "2026-10-30",
+          "count": 0
+        }
+      ],
+      "sample": [
+        {
+          "day": "2026-10-01",
+          "time": "07:14",
+          "title": "Pachetul mic de la patiserie",
+          "family": "discount_opportunity",
+          "domain": "routine",
+          "tags": [
+            "quick_food",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "07:51",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "12:02",
+          "title": "O carte utilă pentru curs",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "learning",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-03",
+          "time": "18:11",
+          "title": "Husa de telefon uzată",
+          "family": "device_accessory",
+          "domain": "digital",
+          "tags": [
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-04",
+          "time": "14:13",
+          "title": "Produsul de igienă aproape terminat",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-04",
+          "time": "20:57",
+          "title": "Comandă de mâncare",
+          "family": "delivery",
+          "domain": "food",
+          "tags": [
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "20:58",
+          "title": "Gătiți ceva împreună",
+          "family": "meal_preparation",
+          "domain": "food",
+          "tags": [
+            "preparation",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "07:29",
+          "title": "Un ocol pentru un obiect",
+          "family": "unexpected_trip",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "10:29",
+          "title": "Caietul aproape plin",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "10:21",
+          "title": "Schița pentru proiect",
+          "family": "school_print",
+          "domain": "school",
+          "tags": [
+            "project",
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "12:17",
+          "title": "Fotografii pentru panou",
+          "family": "school_team",
+          "domain": "school",
+          "tags": [
+            "project",
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "15:46",
+          "title": "Plimbare prin oraș",
+          "family": "leisure_walk",
+          "domain": "leisure",
+          "tags": [
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "12:11",
+          "title": "Apa a rămas acasă",
+          "family": "school_forgotten",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "18:29",
+          "title": "O sticlă reutilizabilă",
+          "family": "shopping_need",
+          "domain": "shopping",
+          "tags": [
+            "reuse",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-11",
+          "time": "09:59",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "07:31",
+          "title": "Încă un produs la casă",
+          "family": "shopping_comparison",
+          "domain": "routine",
+          "tags": [
+            "impulse",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "10:30",
+          "title": "Un creion pentru desen",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "12:08",
+          "title": "Comanda din pauză",
+          "family": "food_group",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "14:35",
+          "title": "Pe drumul spre casă",
+          "family": "city_drink",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "20:33",
+          "title": "Consumabile pentru curățenie",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-13",
+          "time": "19:57",
+          "title": "Un meci în apropiere",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        }
+      ]
+    },
+    {
+      "profile": "liceu",
+      "seed": "finly-life-liceu",
+      "runId": "67c34c12-12cd-4634-8ac5-67b66960e09b",
+      "days": 90,
+      "totalEvents": 110,
+      "quietDays": 24,
+      "quietPercent": 26.7,
+      "busyDays": 9,
+      "busyPercent": 10,
+      "maxInDay": 5,
+      "eventsPerDay": {
+        "0": 24,
+        "1": 34,
+        "2": 23,
+        "3": 7,
+        "4": 1,
+        "5": 1
+      },
+      "domains": {
+        "digital": 4,
+        "food": 8,
+        "home": 4,
+        "leisure": 10,
+        "obligation": 3,
+        "opportunity": 1,
+        "routine": 15,
+        "school": 31,
+        "seasonal": 1,
+        "shopping": 16,
+        "social": 5,
+        "transport": 9,
+        "weekend": 3
+      },
+      "rarities": {
+        "common": 35,
+        "occasional": 75
+      },
+      "families": {
+        "birthday": 1,
+        "breakfast": 3,
+        "cinema": 1,
+        "city_drink": 2,
+        "clothing_need": 5,
+        "commute": 4,
+        "delivery": 1,
+        "device_accessory": 1,
+        "digital_service": 1,
+        "discount_opportunity": 1,
+        "food_group": 3,
+        "free_invitation": 1,
+        "friend_invitation": 2,
+        "group_plan": 2,
+        "home_preparation": 1,
+        "home_shared": 2,
+        "home_supply": 2,
+        "leisure_home": 2,
+        "leisure_learning": 2,
+        "leisure_sport": 4,
+        "leisure_walk": 3,
+        "lunch_break": 3,
+        "meal_preparation": 3,
+        "morning_coffee": 5,
+        "morning_errand": 3,
+        "personal_care": 6,
+        "route_choice": 3,
+        "school_activity": 1,
+        "school_forgotten": 3,
+        "school_print": 3,
+        "school_project": 5,
+        "school_shop": 4,
+        "school_supplies": 11,
+        "school_team": 2,
+        "season_supply": 1,
+        "shopping_comparison": 5,
+        "shopping_need": 2,
+        "small_gift": 1,
+        "unexpected_trip": 3,
+        "weekend_family": 1,
+        "weekend_market": 1
+      },
+      "semanticTags": {
+        "cinema": 1,
+        "clothing": 6,
+        "coffee": 5,
+        "culture": 3,
+        "delivery": 4,
+        "digital": 6,
+        "family": 1,
+        "free_activity": 7,
+        "games": 1,
+        "gift": 3,
+        "home": 5,
+        "impulse": 4,
+        "learning": 10,
+        "online_order": 2,
+        "personal_care": 6,
+        "preparation": 5,
+        "printing": 7,
+        "project": 8,
+        "quick_food": 20,
+        "repair": 2,
+        "reuse": 9,
+        "school_break": 17,
+        "seasonal": 1,
+        "shopping": 8,
+        "social_outing": 8,
+        "sport": 5,
+        "supplies": 11,
+        "transport": 10,
+        "waiting": 2
+      },
+      "stateOperations": 3,
+      "repetition": {
+        "exactCooldownViolations": 0,
+        "familyCooldownViolations": 0,
+        "semanticCooldownViolations": 0,
+        "sameDayFamilyViolations": 0,
+        "activityConflicts": 0
+      },
+      "timeline": [
+        {
+          "day": "2026-10-01",
+          "time": "07:14",
+          "title": "Pachetul mic de la patiserie",
+          "family": "discount_opportunity",
+          "domain": "routine",
+          "tags": [
+            "quick_food",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "07:51",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "12:02",
+          "title": "O carte utilă pentru curs",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "learning",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-03",
+          "time": "18:11",
+          "title": "Husa de telefon uzată",
+          "family": "device_accessory",
+          "domain": "digital",
+          "tags": [
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-04",
+          "time": "14:13",
+          "title": "Produsul de igienă aproape terminat",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-04",
+          "time": "20:57",
+          "title": "Comandă de mâncare",
+          "family": "delivery",
+          "domain": "food",
+          "tags": [
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "20:58",
+          "title": "Gătiți ceva împreună",
+          "family": "meal_preparation",
+          "domain": "food",
+          "tags": [
+            "preparation",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "07:29",
+          "title": "Un ocol pentru un obiect",
+          "family": "unexpected_trip",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "10:29",
+          "title": "Caietul aproape plin",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "10:21",
+          "title": "Schița pentru proiect",
+          "family": "school_print",
+          "domain": "school",
+          "tags": [
+            "project",
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "12:17",
+          "title": "Fotografii pentru panou",
+          "family": "school_team",
+          "domain": "school",
+          "tags": [
+            "project",
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "15:46",
+          "title": "Plimbare prin oraș",
+          "family": "leisure_walk",
+          "domain": "leisure",
+          "tags": [
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "12:11",
+          "title": "Apa a rămas acasă",
+          "family": "school_forgotten",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "18:29",
+          "title": "O sticlă reutilizabilă",
+          "family": "shopping_need",
+          "domain": "shopping",
+          "tags": [
+            "reuse",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-11",
+          "time": "09:59",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "07:31",
+          "title": "Încă un produs la casă",
+          "family": "shopping_comparison",
+          "domain": "routine",
+          "tags": [
+            "impulse",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "10:30",
+          "title": "Un creion pentru desen",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "12:08",
+          "title": "Comanda din pauză",
+          "family": "food_group",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "14:35",
+          "title": "Pe drumul spre casă",
+          "family": "city_drink",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "20:33",
+          "title": "Consumabile pentru curățenie",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-13",
+          "time": "19:57",
+          "title": "Un meci în apropiere",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-15",
+          "time": "07:41",
+          "title": "Oprire la patiserie",
+          "family": "morning_errand",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-15",
+          "time": "14:48",
+          "title": "Produse de îngrijire",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-15",
+          "time": "20:38",
+          "title": "Conținut suplimentar într-un joc",
+          "family": "digital_service",
+          "domain": "digital",
+          "tags": [
+            "digital",
+            "games",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-16",
+          "time": "10:23",
+          "title": "O carte utilă pentru curs",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "learning",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-16",
+          "time": "15:28",
+          "title": "Plimbare prin oraș",
+          "family": "leisure_walk",
+          "domain": "leisure",
+          "tags": [
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-17",
+          "time": "14:25",
+          "title": "Bilet înainte de plecare",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-18",
+          "time": "20:07",
+          "title": "O cumpărătură împărțită",
+          "family": "home_shared",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-19",
+          "time": "10:23",
+          "title": "Magazinul de lângă liceu",
+          "family": "school_shop",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-19",
+          "time": "18:45",
+          "title": "Fotografii pentru un formular",
+          "family": "shopping_need",
+          "domain": "obligation",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-20",
+          "time": "15:23",
+          "title": "Perechi de șosete de înlocuit",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-21",
+          "time": "07:25",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-21",
+          "time": "10:34",
+          "title": "Pixul nu mai scrie",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-22",
+          "time": "20:08",
+          "title": "Concert cu prietenii",
+          "family": "group_plan",
+          "domain": "social",
+          "tags": [
+            "culture",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-23",
+          "time": "07:14",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-23",
+          "time": "10:21",
+          "title": "Material pentru o activitate",
+          "family": "school_project",
+          "domain": "school",
+          "tags": [
+            "project",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-24",
+          "time": "13:36",
+          "title": "Bilet înainte de plecare",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-26",
+          "time": "18:02",
+          "title": "Un prieten pleacă",
+          "family": "small_gift",
+          "domain": "social",
+          "tags": [
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-27",
+          "time": "12:17",
+          "title": "Magazinul de lângă liceu",
+          "family": "school_shop",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-28",
+          "time": "12:02",
+          "title": "Comanda din pauză",
+          "family": "food_group",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-29",
+          "time": "15:32",
+          "title": "La bazin",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-31",
+          "time": "09:56",
+          "title": "Târgul cu lucruri folosite",
+          "family": "weekend_market",
+          "domain": "weekend",
+          "tags": [
+            "shopping",
+            "reuse",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-02",
+          "time": "15:05",
+          "title": "O carte la reducere",
+          "family": "shopping_comparison",
+          "domain": "shopping",
+          "tags": [
+            "learning",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-02",
+          "time": "18:47",
+          "title": "Perechi de șosete de înlocuit",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-03",
+          "time": "12:10",
+          "title": "Prânz în pauză",
+          "family": "lunch_break",
+          "domain": "food",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-03",
+          "time": "14:19",
+          "title": "Periuța trebuie schimbată",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-04",
+          "time": "14:13",
+          "title": "Un proiect pentru acasă",
+          "family": "leisure_home",
+          "domain": "leisure",
+          "tags": [
+            "learning",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-05",
+          "time": "15:39",
+          "title": "Materialul de proiect s-a terminat",
+          "family": "school_project",
+          "domain": "obligation",
+          "tags": [
+            "project",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-09",
+          "time": "12:04",
+          "title": "Apa a rămas acasă",
+          "family": "school_forgotten",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-09",
+          "time": "14:15",
+          "title": "Pragul pentru transport gratuit",
+          "family": "shopping_comparison",
+          "domain": "shopping",
+          "tags": [
+            "online_order",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-10",
+          "time": "10:21",
+          "title": "Aniversarea unui coleg",
+          "family": "birthday",
+          "domain": "school",
+          "tags": [
+            "gift",
+            "school_break"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-10",
+          "time": "18:45",
+          "title": "Gustări la întâlnire",
+          "family": "friend_invitation",
+          "domain": "social",
+          "tags": [
+            "free_activity",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-11",
+          "time": "12:04",
+          "title": "Câteva pagini de copiat",
+          "family": "school_print",
+          "domain": "school",
+          "tags": [
+            "printing",
+            "learning"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-11",
+          "time": "18:43",
+          "title": "Un atelier online",
+          "family": "leisure_learning",
+          "domain": "digital",
+          "tags": [
+            "digital",
+            "learning"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-13",
+          "time": "14:18",
+          "title": "Produsul de igienă aproape terminat",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-14",
+          "time": "10:38",
+          "title": "Masa cu familia",
+          "family": "weekend_family",
+          "domain": "weekend",
+          "tags": [
+            "family",
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-15",
+          "time": "15:19",
+          "title": "Bilet înainte de plecare",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-16",
+          "time": "15:16",
+          "title": "Șireturile uzate",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-16",
+          "time": "20:11",
+          "title": "Pizza împărțită în grup",
+          "family": "food_group",
+          "domain": "food",
+          "tags": [
+            "delivery",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-18",
+          "time": "14:26",
+          "title": "Câteva stații pe jos",
+          "family": "route_choice",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-18",
+          "time": "18:56",
+          "title": "Un atelier online",
+          "family": "leisure_learning",
+          "domain": "digital",
+          "tags": [
+            "digital",
+            "learning"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-20",
+          "time": "10:27",
+          "title": "Apa a rămas acasă",
+          "family": "school_forgotten",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-21",
+          "time": "10:48",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-21",
+          "time": "20:18",
+          "title": "Consumabile pentru curățenie",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-22",
+          "time": "13:22",
+          "title": "Produse de îngrijire",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-23",
+          "time": "12:04",
+          "title": "Material pentru machetă",
+          "family": "school_project",
+          "domain": "school",
+          "tags": [
+            "project",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-23",
+          "time": "19:46",
+          "title": "Film la un prieten",
+          "family": "group_plan",
+          "domain": "social",
+          "tags": [
+            "social_outing",
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-24",
+          "time": "07:30",
+          "title": "Legătura dintre trasee",
+          "family": "route_choice",
+          "domain": "transport",
+          "tags": [
+            "transport",
+            "waiting"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-24",
+          "time": "10:30",
+          "title": "Câteva pagini de copiat",
+          "family": "school_print",
+          "domain": "school",
+          "tags": [
+            "printing",
+            "learning"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-24",
+          "time": "18:01",
+          "title": "Repari sau înlocuiești",
+          "family": "shopping_comparison",
+          "domain": "shopping",
+          "tags": [
+            "repair",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-25",
+          "time": "07:42",
+          "title": "Bilet înainte de plecare",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-25",
+          "time": "10:22",
+          "title": "Magazinul de lângă liceu",
+          "family": "school_shop",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-25",
+          "time": "12:08",
+          "title": "Pixul nu mai scrie",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-25",
+          "time": "14:31",
+          "title": "Plimbare prin oraș",
+          "family": "leisure_walk",
+          "domain": "leisure",
+          "tags": [
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-27",
+          "time": "07:36",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-29",
+          "time": "15:27",
+          "title": "Film la cinema",
+          "family": "cinema",
+          "domain": "leisure",
+          "tags": [
+            "cinema",
+            "culture"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-01",
+          "time": "12:10",
+          "title": "Material pentru machetă",
+          "family": "school_project",
+          "domain": "school",
+          "tags": [
+            "project",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-01",
+          "time": "14:24",
+          "title": "Drum pentru un obiect împrumutat",
+          "family": "unexpected_trip",
+          "domain": "obligation",
+          "tags": [
+            "transport",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-02",
+          "time": "12:11",
+          "title": "Magazinul de lângă liceu",
+          "family": "school_shop",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-03",
+          "time": "15:15",
+          "title": "Ceva de băut pe drum",
+          "family": "city_drink",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-04",
+          "time": "10:28",
+          "title": "Conexiunea pentru prezentare",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "project",
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-04",
+          "time": "15:41",
+          "title": "La bazin",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-07",
+          "time": "10:33",
+          "title": "Caietul aproape plin",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-08",
+          "time": "19:44",
+          "title": "Mâncare și pentru mâine",
+          "family": "meal_preparation",
+          "domain": "food",
+          "tags": [
+            "preparation"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-10",
+          "time": "07:15",
+          "title": "Apă înainte de plecare",
+          "family": "morning_errand",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-10",
+          "time": "20:17",
+          "title": "Muzică pentru acasă",
+          "family": "leisure_home",
+          "domain": "leisure",
+          "tags": [
+            "digital",
+            "culture"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-11",
+          "time": "12:02",
+          "title": "O carte utilă pentru curs",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "learning",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-11",
+          "time": "14:30",
+          "title": "Mișcare fără taxă",
+          "family": "free_invitation",
+          "domain": "opportunity",
+          "tags": [
+            "free_activity",
+            "sport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-11",
+          "time": "20:21",
+          "title": "O oră pe teren",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-14",
+          "time": "15:21",
+          "title": "Șosete pentru iarnă",
+          "family": "season_supply",
+          "domain": "seasonal",
+          "tags": [
+            "seasonal",
+            "clothing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-16",
+          "time": "12:09",
+          "title": "Pixul nu mai scrie",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-17",
+          "time": "10:26",
+          "title": "Posterul clasei",
+          "family": "school_team",
+          "domain": "school",
+          "tags": [
+            "project",
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-17",
+          "time": "12:19",
+          "title": "Prânz în pauză",
+          "family": "lunch_break",
+          "domain": "food",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-18",
+          "time": "07:15",
+          "title": "Cafea la automat",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-18",
+          "time": "10:22",
+          "title": "Fișe pentru recapitulare",
+          "family": "school_project",
+          "domain": "school",
+          "tags": [
+            "printing",
+            "learning"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-18",
+          "time": "15:47",
+          "title": "Aștepți transportul",
+          "family": "school_activity",
+          "domain": "school",
+          "tags": [
+            "waiting",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-19",
+          "time": "09:52",
+          "title": "Pui ordine în lucruri",
+          "family": "home_preparation",
+          "domain": "weekend",
+          "tags": [
+            "home",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-19",
+          "time": "18:52",
+          "title": "Gătiți ceva împreună",
+          "family": "meal_preparation",
+          "domain": "food",
+          "tags": [
+            "preparation",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-20",
+          "time": "15:50",
+          "title": "O geacă la mâna a doua",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-21",
+          "time": "07:51",
+          "title": "Un drum în plus",
+          "family": "unexpected_trip",
+          "domain": "transport",
+          "tags": [
+            "transport",
+            "online_order"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-21",
+          "time": "12:01",
+          "title": "Prânz în pauză",
+          "family": "lunch_break",
+          "domain": "food",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-23",
+          "time": "07:21",
+          "title": "Pregătești un traseu alternativ",
+          "family": "route_choice",
+          "domain": "transport",
+          "tags": [
+            "transport",
+            "preparation"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-23",
+          "time": "15:27",
+          "title": "Perechi de șosete de înlocuit",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-23",
+          "time": "18:32",
+          "title": "Gustări la întâlnire",
+          "family": "friend_invitation",
+          "domain": "social",
+          "tags": [
+            "free_activity",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-25",
+          "time": "07:47",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-25",
+          "time": "12:06",
+          "title": "Pixul nu mai scrie",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-25",
+          "time": "15:14",
+          "title": "Produsul de igienă aproape terminat",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-26",
+          "time": "18:57",
+          "title": "O masă împreună acasă",
+          "family": "home_shared",
+          "domain": "home",
+          "tags": [
+            "home",
+            "preparation"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-27",
+          "time": "13:23",
+          "title": "Repari sau înlocuiești",
+          "family": "shopping_comparison",
+          "domain": "shopping",
+          "tags": [
+            "repair",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-28",
+          "time": "07:14",
+          "title": "Oprire la patiserie",
+          "family": "morning_errand",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        }
+      ],
+      "dayCounts": [
+        {
+          "day": "2026-10-01",
+          "count": 1
+        },
+        {
+          "day": "2026-10-02",
+          "count": 2
+        },
+        {
+          "day": "2026-10-03",
+          "count": 1
+        },
+        {
+          "day": "2026-10-04",
+          "count": 2
+        },
+        {
+          "day": "2026-10-05",
+          "count": 1
+        },
+        {
+          "day": "2026-10-06",
+          "count": 2
+        },
+        {
+          "day": "2026-10-07",
+          "count": 3
+        },
+        {
+          "day": "2026-10-08",
+          "count": 2
+        },
+        {
+          "day": "2026-10-09",
+          "count": 0
+        },
+        {
+          "day": "2026-10-10",
+          "count": 0
+        },
+        {
+          "day": "2026-10-11",
+          "count": 1
+        },
+        {
+          "day": "2026-10-12",
+          "count": 5
+        },
+        {
+          "day": "2026-10-13",
+          "count": 1
+        },
+        {
+          "day": "2026-10-14",
+          "count": 0
+        },
+        {
+          "day": "2026-10-15",
+          "count": 3
+        },
+        {
+          "day": "2026-10-16",
+          "count": 2
+        },
+        {
+          "day": "2026-10-17",
+          "count": 1
+        },
+        {
+          "day": "2026-10-18",
+          "count": 1
+        },
+        {
+          "day": "2026-10-19",
+          "count": 2
+        },
+        {
+          "day": "2026-10-20",
+          "count": 1
+        },
+        {
+          "day": "2026-10-21",
+          "count": 2
+        },
+        {
+          "day": "2026-10-22",
+          "count": 1
+        },
+        {
+          "day": "2026-10-23",
+          "count": 2
+        },
+        {
+          "day": "2026-10-24",
+          "count": 1
+        },
+        {
+          "day": "2026-10-25",
+          "count": 0
+        },
+        {
+          "day": "2026-10-26",
+          "count": 1
+        },
+        {
+          "day": "2026-10-27",
+          "count": 1
+        },
+        {
+          "day": "2026-10-28",
+          "count": 1
+        },
+        {
+          "day": "2026-10-29",
+          "count": 1
+        },
+        {
+          "day": "2026-10-30",
+          "count": 0
+        },
+        {
+          "day": "2026-10-31",
+          "count": 1
+        },
+        {
+          "day": "2026-11-01",
+          "count": 0
+        },
+        {
+          "day": "2026-11-02",
+          "count": 2
+        },
+        {
+          "day": "2026-11-03",
+          "count": 2
+        },
+        {
+          "day": "2026-11-04",
+          "count": 1
+        },
+        {
+          "day": "2026-11-05",
+          "count": 1
+        },
+        {
+          "day": "2026-11-06",
+          "count": 0
+        },
+        {
+          "day": "2026-11-07",
+          "count": 0
+        },
+        {
+          "day": "2026-11-08",
+          "count": 0
+        },
+        {
+          "day": "2026-11-09",
+          "count": 2
+        },
+        {
+          "day": "2026-11-10",
+          "count": 2
+        },
+        {
+          "day": "2026-11-11",
+          "count": 2
+        },
+        {
+          "day": "2026-11-12",
+          "count": 0
+        },
+        {
+          "day": "2026-11-13",
+          "count": 1
+        },
+        {
+          "day": "2026-11-14",
+          "count": 1
+        },
+        {
+          "day": "2026-11-15",
+          "count": 1
+        },
+        {
+          "day": "2026-11-16",
+          "count": 2
+        },
+        {
+          "day": "2026-11-17",
+          "count": 0
+        },
+        {
+          "day": "2026-11-18",
+          "count": 2
+        },
+        {
+          "day": "2026-11-19",
+          "count": 0
+        },
+        {
+          "day": "2026-11-20",
+          "count": 1
+        },
+        {
+          "day": "2026-11-21",
+          "count": 2
+        },
+        {
+          "day": "2026-11-22",
+          "count": 1
+        },
+        {
+          "day": "2026-11-23",
+          "count": 2
+        },
+        {
+          "day": "2026-11-24",
+          "count": 3
+        },
+        {
+          "day": "2026-11-25",
+          "count": 4
+        },
+        {
+          "day": "2026-11-26",
+          "count": 0
+        },
+        {
+          "day": "2026-11-27",
+          "count": 1
+        },
+        {
+          "day": "2026-11-28",
+          "count": 0
+        },
+        {
+          "day": "2026-11-29",
+          "count": 1
+        },
+        {
+          "day": "2026-11-30",
+          "count": 0
+        },
+        {
+          "day": "2026-12-01",
+          "count": 2
+        },
+        {
+          "day": "2026-12-02",
+          "count": 1
+        },
+        {
+          "day": "2026-12-03",
+          "count": 1
+        },
+        {
+          "day": "2026-12-04",
+          "count": 2
+        },
+        {
+          "day": "2026-12-05",
+          "count": 0
+        },
+        {
+          "day": "2026-12-06",
+          "count": 0
+        },
+        {
+          "day": "2026-12-07",
+          "count": 1
+        },
+        {
+          "day": "2026-12-08",
+          "count": 1
+        },
+        {
+          "day": "2026-12-09",
+          "count": 0
+        },
+        {
+          "day": "2026-12-10",
+          "count": 2
+        },
+        {
+          "day": "2026-12-11",
+          "count": 3
+        },
+        {
+          "day": "2026-12-12",
+          "count": 0
+        },
+        {
+          "day": "2026-12-13",
+          "count": 0
+        },
+        {
+          "day": "2026-12-14",
+          "count": 1
+        },
+        {
+          "day": "2026-12-15",
+          "count": 0
+        },
+        {
+          "day": "2026-12-16",
+          "count": 1
+        },
+        {
+          "day": "2026-12-17",
+          "count": 2
+        },
+        {
+          "day": "2026-12-18",
+          "count": 3
+        },
+        {
+          "day": "2026-12-19",
+          "count": 2
+        },
+        {
+          "day": "2026-12-20",
+          "count": 1
+        },
+        {
+          "day": "2026-12-21",
+          "count": 2
+        },
+        {
+          "day": "2026-12-22",
+          "count": 0
+        },
+        {
+          "day": "2026-12-23",
+          "count": 3
+        },
+        {
+          "day": "2026-12-24",
+          "count": 0
+        },
+        {
+          "day": "2026-12-25",
+          "count": 3
+        },
+        {
+          "day": "2026-12-26",
+          "count": 1
+        },
+        {
+          "day": "2026-12-27",
+          "count": 1
+        },
+        {
+          "day": "2026-12-28",
+          "count": 1
+        },
+        {
+          "day": "2026-12-29",
+          "count": 0
+        }
+      ],
+      "sample": [
+        {
+          "day": "2026-10-01",
+          "time": "07:14",
+          "title": "Pachetul mic de la patiserie",
+          "family": "discount_opportunity",
+          "domain": "routine",
+          "tags": [
+            "quick_food",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "07:51",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "12:02",
+          "title": "O carte utilă pentru curs",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "learning",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-03",
+          "time": "18:11",
+          "title": "Husa de telefon uzată",
+          "family": "device_accessory",
+          "domain": "digital",
+          "tags": [
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-04",
+          "time": "14:13",
+          "title": "Produsul de igienă aproape terminat",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-04",
+          "time": "20:57",
+          "title": "Comandă de mâncare",
+          "family": "delivery",
+          "domain": "food",
+          "tags": [
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "20:58",
+          "title": "Gătiți ceva împreună",
+          "family": "meal_preparation",
+          "domain": "food",
+          "tags": [
+            "preparation",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "07:29",
+          "title": "Un ocol pentru un obiect",
+          "family": "unexpected_trip",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "10:29",
+          "title": "Caietul aproape plin",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "10:21",
+          "title": "Schița pentru proiect",
+          "family": "school_print",
+          "domain": "school",
+          "tags": [
+            "project",
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "12:17",
+          "title": "Fotografii pentru panou",
+          "family": "school_team",
+          "domain": "school",
+          "tags": [
+            "project",
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "15:46",
+          "title": "Plimbare prin oraș",
+          "family": "leisure_walk",
+          "domain": "leisure",
+          "tags": [
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "12:11",
+          "title": "Apa a rămas acasă",
+          "family": "school_forgotten",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "18:29",
+          "title": "O sticlă reutilizabilă",
+          "family": "shopping_need",
+          "domain": "shopping",
+          "tags": [
+            "reuse",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-11",
+          "time": "09:59",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "07:31",
+          "title": "Încă un produs la casă",
+          "family": "shopping_comparison",
+          "domain": "routine",
+          "tags": [
+            "impulse",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "10:30",
+          "title": "Un creion pentru desen",
+          "family": "school_supplies",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "12:08",
+          "title": "Comanda din pauză",
+          "family": "food_group",
+          "domain": "school",
+          "tags": [
+            "school_break",
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "14:35",
+          "title": "Pe drumul spre casă",
+          "family": "city_drink",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-12",
+          "time": "20:33",
+          "title": "Consumabile pentru curățenie",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-13",
+          "time": "19:57",
+          "title": "Un meci în apropiere",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        }
+      ]
+    },
+    {
+      "profile": "lucrez",
+      "seed": "finly-life-lucrez",
+      "runId": "6c547377-3307-4f7e-816a-fc1f04aa9e01",
+      "days": 30,
+      "totalEvents": 45,
+      "quietDays": 8,
+      "quietPercent": 26.7,
+      "busyDays": 6,
+      "busyPercent": 20,
+      "maxInDay": 4,
+      "eventsPerDay": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 3,
+        "4": 3
+      },
+      "domains": {
+        "digital": 3,
+        "food": 4,
+        "home": 4,
+        "leisure": 4,
+        "obligation": 2,
+        "opportunity": 1,
+        "routine": 4,
+        "seasonal": 1,
+        "shopping": 5,
+        "social": 1,
+        "transport": 2,
+        "weekend": 1,
+        "work": 13
+      },
+      "rarities": {
+        "common": 8,
+        "occasional": 36,
+        "rare": 1
+      },
+      "families": {
+        "birthday": 2,
+        "borrowing": 1,
+        "breakfast": 1,
+        "cinema": 1,
+        "clothing_need": 2,
+        "commute": 2,
+        "delivery": 2,
+        "digital_service": 1,
+        "friends_coffee": 1,
+        "headphones_problem": 1,
+        "home_maintenance": 1,
+        "home_preparation": 1,
+        "home_supply": 2,
+        "leisure_culture": 1,
+        "leisure_learning": 2,
+        "leisure_sport": 1,
+        "leisure_walk": 1,
+        "meal_out": 1,
+        "morning_coffee": 2,
+        "morning_errand": 1,
+        "online_order": 3,
+        "season_supply": 1,
+        "shopping_comparison": 1,
+        "shopping_need": 2,
+        "weekend_trip": 1,
+        "work_break": 2,
+        "work_lunch": 3,
+        "work_supplies": 3,
+        "work_team": 2
+      },
+      "semanticTags": {
+        "cable": 1,
+        "cinema": 1,
+        "clothing": 3,
+        "coffee": 3,
+        "culture": 2,
+        "delivery": 3,
+        "digital": 4,
+        "free_activity": 2,
+        "gift": 2,
+        "headphones": 1,
+        "home": 4,
+        "impulse": 3,
+        "learning": 3,
+        "online_order": 4,
+        "printing": 4,
+        "project": 1,
+        "quick_food": 4,
+        "repair": 1,
+        "reuse": 1,
+        "seasonal": 1,
+        "shopping": 2,
+        "social_outing": 3,
+        "sport": 1,
+        "supplies": 2,
+        "transport": 3,
+        "work_lunch": 5
+      },
+      "stateOperations": 1,
+      "repetition": {
+        "exactCooldownViolations": 0,
+        "familyCooldownViolations": 0,
+        "semanticCooldownViolations": 0,
+        "sameDayFamilyViolations": 0,
+        "activityConflicts": 0
+      },
+      "timeline": [
+        {
+          "day": "2026-10-01",
+          "time": "08:39",
+          "title": "Cafea la automat",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-01",
+          "time": "17:52",
+          "title": "Cumpărături online",
+          "family": "online_order",
+          "domain": "shopping",
+          "tags": [
+            "online_order",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-01",
+          "time": "18:51",
+          "title": "Fotografii pentru un formular",
+          "family": "shopping_need",
+          "domain": "obligation",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-01",
+          "time": "20:01",
+          "title": "Plimbare prin oraș",
+          "family": "leisure_walk",
+          "domain": "leisure",
+          "tags": [
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "17:50",
+          "title": "Întâlnirea din alt cartier",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "18:59",
+          "title": "Șireturile uzate",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-04",
+          "time": "09:31",
+          "title": "Ieșire cu prietenii",
+          "family": "weekend_trip",
+          "domain": "weekend",
+          "tags": [
+            "transport",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "11:24",
+          "title": "Fructe pentru zona de pauză",
+          "family": "work_break",
+          "domain": "work",
+          "tags": [
+            "quick_food",
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "13:10",
+          "title": "Mapă pentru documentele personale",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "supplies",
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "17:45",
+          "title": "Schimb de materiale",
+          "family": "borrowing",
+          "domain": "opportunity",
+          "tags": [
+            "reuse",
+            "project"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "20:13",
+          "title": "Spațiul pentru fișiere",
+          "family": "digital_service",
+          "domain": "digital",
+          "tags": [
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "17:32",
+          "title": "Întâlnire după muncă",
+          "family": "leisure_learning",
+          "domain": "work",
+          "tags": [
+            "learning",
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "18:56",
+          "title": "Sunet doar într-o cască",
+          "family": "headphones_problem",
+          "domain": "digital",
+          "tags": [
+            "headphones",
+            "repair"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "20:04",
+          "title": "Comandă de mâncare",
+          "family": "delivery",
+          "domain": "food",
+          "tags": [
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "08:46",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "11:33",
+          "title": "Fotografia echipei",
+          "family": "work_team",
+          "domain": "work",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "13:15",
+          "title": "Pauza la cantină",
+          "family": "work_lunch",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "11:20",
+          "title": "Cadou pentru un coleg",
+          "family": "birthday",
+          "domain": "work",
+          "tags": [
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "19:32",
+          "title": "Săculeț pentru spălat",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-09",
+          "time": "11:30",
+          "title": "Apă pentru restul programului",
+          "family": "work_break",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-09",
+          "time": "20:48",
+          "title": "La bazin",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-11",
+          "time": "18:00",
+          "title": "Consumabile pentru curățenie",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-11",
+          "time": "20:14",
+          "title": "Atelier practic",
+          "family": "leisure_culture",
+          "domain": "leisure",
+          "tags": [
+            "culture",
+            "learning"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-13",
+          "time": "20:22",
+          "title": "Taxa de livrare",
+          "family": "online_order",
+          "domain": "food",
+          "tags": [
+            "delivery",
+            "online_order"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-14",
+          "time": "17:37",
+          "title": "Șireturile uzate",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-15",
+          "time": "18:51",
+          "title": "Mâncare gata pregătită",
+          "family": "meal_out",
+          "domain": "food",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-15",
+          "time": "19:39",
+          "title": "Cutie pentru lucrurile mici",
+          "family": "home_preparation",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-16",
+          "time": "08:19",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-16",
+          "time": "13:09",
+          "title": "Pauza la cantină",
+          "family": "work_lunch",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-16",
+          "time": "18:53",
+          "title": "Un atelier online",
+          "family": "leisure_learning",
+          "domain": "digital",
+          "tags": [
+            "digital",
+            "learning"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-16",
+          "time": "19:57",
+          "title": "Becul de la birou",
+          "family": "home_maintenance",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-19",
+          "time": "11:31",
+          "title": "Cadou pentru un coleg",
+          "family": "birthday",
+          "domain": "work",
+          "tags": [
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-19",
+          "time": "17:19",
+          "title": "Fotografii pentru un formular",
+          "family": "shopping_need",
+          "domain": "obligation",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-20",
+          "time": "13:07",
+          "title": "Prânzul a rămas acasă",
+          "family": "work_lunch",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-21",
+          "time": "11:32",
+          "title": "Un carnețel pentru notițe",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-21",
+          "time": "17:34",
+          "title": "Șosete pentru iarnă",
+          "family": "season_supply",
+          "domain": "seasonal",
+          "tags": [
+            "seasonal",
+            "clothing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-22",
+          "time": "20:05",
+          "title": "Comandă de mâncare",
+          "family": "delivery",
+          "domain": "food",
+          "tags": [
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-25",
+          "time": "14:48",
+          "title": "Bilet înainte de plecare",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-26",
+          "time": "13:16",
+          "title": "Cablul pentru telefon",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "digital",
+            "cable"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-28",
+          "time": "17:47",
+          "title": "Pragul pentru transport gratuit",
+          "family": "shopping_comparison",
+          "domain": "shopping",
+          "tags": [
+            "online_order",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-28",
+          "time": "18:58",
+          "title": "Cafea cu prietenii",
+          "family": "friends_coffee",
+          "domain": "social",
+          "tags": [
+            "coffee",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-29",
+          "time": "08:49",
+          "title": "Apă înainte de plecare",
+          "family": "morning_errand",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-29",
+          "time": "13:13",
+          "title": "Fotografia echipei",
+          "family": "work_team",
+          "domain": "work",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-29",
+          "time": "17:37",
+          "title": "Cumpărături online",
+          "family": "online_order",
+          "domain": "shopping",
+          "tags": [
+            "online_order",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-30",
+          "time": "17:12",
+          "title": "Film la cinema",
+          "family": "cinema",
+          "domain": "leisure",
+          "tags": [
+            "cinema",
+            "culture"
+          ],
+          "status": "resolved"
+        }
+      ],
+      "dayCounts": [
+        {
+          "day": "2026-10-01",
+          "count": 4
+        },
+        {
+          "day": "2026-10-02",
+          "count": 2
+        },
+        {
+          "day": "2026-10-03",
+          "count": 0
+        },
+        {
+          "day": "2026-10-04",
+          "count": 1
+        },
+        {
+          "day": "2026-10-05",
+          "count": 4
+        },
+        {
+          "day": "2026-10-06",
+          "count": 3
+        },
+        {
+          "day": "2026-10-07",
+          "count": 3
+        },
+        {
+          "day": "2026-10-08",
+          "count": 2
+        },
+        {
+          "day": "2026-10-09",
+          "count": 2
+        },
+        {
+          "day": "2026-10-10",
+          "count": 0
+        },
+        {
+          "day": "2026-10-11",
+          "count": 2
+        },
+        {
+          "day": "2026-10-12",
+          "count": 0
+        },
+        {
+          "day": "2026-10-13",
+          "count": 1
+        },
+        {
+          "day": "2026-10-14",
+          "count": 1
+        },
+        {
+          "day": "2026-10-15",
+          "count": 2
+        },
+        {
+          "day": "2026-10-16",
+          "count": 4
+        },
+        {
+          "day": "2026-10-17",
+          "count": 0
+        },
+        {
+          "day": "2026-10-18",
+          "count": 0
+        },
+        {
+          "day": "2026-10-19",
+          "count": 2
+        },
+        {
+          "day": "2026-10-20",
+          "count": 1
+        },
+        {
+          "day": "2026-10-21",
+          "count": 2
+        },
+        {
+          "day": "2026-10-22",
+          "count": 1
+        },
+        {
+          "day": "2026-10-23",
+          "count": 0
+        },
+        {
+          "day": "2026-10-24",
+          "count": 0
+        },
+        {
+          "day": "2026-10-25",
+          "count": 1
+        },
+        {
+          "day": "2026-10-26",
+          "count": 1
+        },
+        {
+          "day": "2026-10-27",
+          "count": 0
+        },
+        {
+          "day": "2026-10-28",
+          "count": 2
+        },
+        {
+          "day": "2026-10-29",
+          "count": 3
+        },
+        {
+          "day": "2026-10-30",
+          "count": 1
+        }
+      ],
+      "sample": [
+        {
+          "day": "2026-10-01",
+          "time": "08:39",
+          "title": "Cafea la automat",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-01",
+          "time": "17:52",
+          "title": "Cumpărături online",
+          "family": "online_order",
+          "domain": "shopping",
+          "tags": [
+            "online_order",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-01",
+          "time": "18:51",
+          "title": "Fotografii pentru un formular",
+          "family": "shopping_need",
+          "domain": "obligation",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-01",
+          "time": "20:01",
+          "title": "Plimbare prin oraș",
+          "family": "leisure_walk",
+          "domain": "leisure",
+          "tags": [
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "17:50",
+          "title": "Întâlnirea din alt cartier",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "18:59",
+          "title": "Șireturile uzate",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-04",
+          "time": "09:31",
+          "title": "Ieșire cu prietenii",
+          "family": "weekend_trip",
+          "domain": "weekend",
+          "tags": [
+            "transport",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "11:24",
+          "title": "Fructe pentru zona de pauză",
+          "family": "work_break",
+          "domain": "work",
+          "tags": [
+            "quick_food",
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "13:10",
+          "title": "Mapă pentru documentele personale",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "supplies",
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "17:45",
+          "title": "Schimb de materiale",
+          "family": "borrowing",
+          "domain": "opportunity",
+          "tags": [
+            "reuse",
+            "project"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "20:13",
+          "title": "Spațiul pentru fișiere",
+          "family": "digital_service",
+          "domain": "digital",
+          "tags": [
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "17:32",
+          "title": "Întâlnire după muncă",
+          "family": "leisure_learning",
+          "domain": "work",
+          "tags": [
+            "learning",
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "18:56",
+          "title": "Sunet doar într-o cască",
+          "family": "headphones_problem",
+          "domain": "digital",
+          "tags": [
+            "headphones",
+            "repair"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "20:04",
+          "title": "Comandă de mâncare",
+          "family": "delivery",
+          "domain": "food",
+          "tags": [
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "08:46",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "11:33",
+          "title": "Fotografia echipei",
+          "family": "work_team",
+          "domain": "work",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "13:15",
+          "title": "Pauza la cantină",
+          "family": "work_lunch",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "11:20",
+          "title": "Cadou pentru un coleg",
+          "family": "birthday",
+          "domain": "work",
+          "tags": [
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "19:32",
+          "title": "Săculeț pentru spălat",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-09",
+          "time": "11:30",
+          "title": "Apă pentru restul programului",
+          "family": "work_break",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-09",
+          "time": "20:48",
+          "title": "La bazin",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-11",
+          "time": "18:00",
+          "title": "Consumabile pentru curățenie",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-11",
+          "time": "20:14",
+          "title": "Atelier practic",
+          "family": "leisure_culture",
+          "domain": "leisure",
+          "tags": [
+            "culture",
+            "learning"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-13",
+          "time": "20:22",
+          "title": "Taxa de livrare",
+          "family": "online_order",
+          "domain": "food",
+          "tags": [
+            "delivery",
+            "online_order"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-14",
+          "time": "17:37",
+          "title": "Șireturile uzate",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing",
+            "shopping"
+          ],
+          "status": "resolved"
+        }
+      ]
+    },
+    {
+      "profile": "lucrez",
+      "seed": "finly-life-lucrez",
+      "runId": "6c547377-3307-4f7e-816a-fc1f04aa9e01",
+      "days": 90,
+      "totalEvents": 127,
+      "quietDays": 23,
+      "quietPercent": 25.6,
+      "busyDays": 16,
+      "busyPercent": 17.8,
+      "maxInDay": 4,
+      "eventsPerDay": {
+        "0": 23,
+        "1": 26,
+        "2": 25,
+        "3": 13,
+        "4": 3
+      },
+      "domains": {
+        "digital": 4,
+        "food": 11,
+        "home": 11,
+        "leisure": 11,
+        "obligation": 5,
+        "opportunity": 2,
+        "routine": 16,
+        "seasonal": 1,
+        "shopping": 11,
+        "social": 5,
+        "transport": 10,
+        "unexpected": 1,
+        "weekend": 8,
+        "work": 31
+      },
+      "rarities": {
+        "common": 28,
+        "occasional": 95,
+        "rare": 4
+      },
+      "families": {
+        "after_snack": 1,
+        "bag_problem": 1,
+        "birthday": 3,
+        "borrowing": 1,
+        "breakfast": 3,
+        "cinema": 1,
+        "clothing_need": 2,
+        "colleagues_lunch": 1,
+        "commute": 3,
+        "delivery": 3,
+        "device_accessory": 1,
+        "digital_service": 1,
+        "discount_opportunity": 1,
+        "family_visit": 1,
+        "food_group": 1,
+        "free_invitation": 1,
+        "friend_invitation": 1,
+        "friends_coffee": 1,
+        "games": 3,
+        "headphones_problem": 1,
+        "headphones_resolution": 2,
+        "home_maintenance": 2,
+        "home_preparation": 7,
+        "home_supply": 5,
+        "leisure_culture": 1,
+        "leisure_home": 1,
+        "leisure_learning": 2,
+        "leisure_sport": 4,
+        "leisure_walk": 2,
+        "meal_out": 1,
+        "meal_preparation": 4,
+        "morning_coffee": 9,
+        "morning_errand": 4,
+        "online_order": 3,
+        "personal_care": 3,
+        "route_choice": 5,
+        "school_project": 2,
+        "season_supply": 1,
+        "shopping_comparison": 2,
+        "shopping_impulse": 2,
+        "shopping_need": 2,
+        "small_gift": 2,
+        "unexpected_trip": 3,
+        "weekend_family": 1,
+        "weekend_market": 1,
+        "weekend_trip": 2,
+        "work_break": 5,
+        "work_lunch": 5,
+        "work_supplies": 8,
+        "work_team": 5
+      },
+      "semanticTags": {
+        "cable": 3,
+        "cinema": 1,
+        "clothing": 4,
+        "coffee": 11,
+        "culture": 3,
+        "delivery": 5,
+        "digital": 8,
+        "family": 2,
+        "free_activity": 5,
+        "games": 3,
+        "gift": 7,
+        "headphones": 3,
+        "home": 15,
+        "impulse": 7,
+        "learning": 4,
+        "online_order": 6,
+        "personal_care": 3,
+        "preparation": 6,
+        "printing": 7,
+        "project": 3,
+        "quick_food": 12,
+        "repair": 5,
+        "reuse": 5,
+        "seasonal": 1,
+        "shopping": 5,
+        "social_outing": 11,
+        "sport": 4,
+        "supplies": 8,
+        "transport": 13,
+        "waiting": 2,
+        "work_lunch": 9
+      },
+      "stateOperations": 3,
+      "repetition": {
+        "exactCooldownViolations": 0,
+        "familyCooldownViolations": 0,
+        "semanticCooldownViolations": 0,
+        "sameDayFamilyViolations": 0,
+        "activityConflicts": 0
+      },
+      "timeline": [
+        {
+          "day": "2026-10-01",
+          "time": "08:39",
+          "title": "Cafea la automat",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-01",
+          "time": "17:52",
+          "title": "Cumpărături online",
+          "family": "online_order",
+          "domain": "shopping",
+          "tags": [
+            "online_order",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-01",
+          "time": "18:51",
+          "title": "Fotografii pentru un formular",
+          "family": "shopping_need",
+          "domain": "obligation",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-01",
+          "time": "20:01",
+          "title": "Plimbare prin oraș",
+          "family": "leisure_walk",
+          "domain": "leisure",
+          "tags": [
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "17:50",
+          "title": "Întâlnirea din alt cartier",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "18:59",
+          "title": "Șireturile uzate",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-04",
+          "time": "09:31",
+          "title": "Ieșire cu prietenii",
+          "family": "weekend_trip",
+          "domain": "weekend",
+          "tags": [
+            "transport",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "11:24",
+          "title": "Fructe pentru zona de pauză",
+          "family": "work_break",
+          "domain": "work",
+          "tags": [
+            "quick_food",
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "13:10",
+          "title": "Mapă pentru documentele personale",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "supplies",
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "17:45",
+          "title": "Schimb de materiale",
+          "family": "borrowing",
+          "domain": "opportunity",
+          "tags": [
+            "reuse",
+            "project"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "20:13",
+          "title": "Spațiul pentru fișiere",
+          "family": "digital_service",
+          "domain": "digital",
+          "tags": [
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "17:32",
+          "title": "Întâlnire după muncă",
+          "family": "leisure_learning",
+          "domain": "work",
+          "tags": [
+            "learning",
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "18:56",
+          "title": "Sunet doar într-o cască",
+          "family": "headphones_problem",
+          "domain": "digital",
+          "tags": [
+            "headphones",
+            "repair"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "20:04",
+          "title": "Comandă de mâncare",
+          "family": "delivery",
+          "domain": "food",
+          "tags": [
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "08:46",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "11:33",
+          "title": "Fotografia echipei",
+          "family": "work_team",
+          "domain": "work",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "13:15",
+          "title": "Pauza la cantină",
+          "family": "work_lunch",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "11:20",
+          "title": "Cadou pentru un coleg",
+          "family": "birthday",
+          "domain": "work",
+          "tags": [
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "19:32",
+          "title": "Săculeț pentru spălat",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-09",
+          "time": "11:30",
+          "title": "Apă pentru restul programului",
+          "family": "work_break",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-09",
+          "time": "20:48",
+          "title": "La bazin",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-11",
+          "time": "18:00",
+          "title": "Consumabile pentru curățenie",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-11",
+          "time": "20:14",
+          "title": "Atelier practic",
+          "family": "leisure_culture",
+          "domain": "leisure",
+          "tags": [
+            "culture",
+            "learning"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-13",
+          "time": "20:22",
+          "title": "Taxa de livrare",
+          "family": "online_order",
+          "domain": "food",
+          "tags": [
+            "delivery",
+            "online_order"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-14",
+          "time": "17:37",
+          "title": "Șireturile uzate",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-15",
+          "time": "18:51",
+          "title": "Mâncare gata pregătită",
+          "family": "meal_out",
+          "domain": "food",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-15",
+          "time": "19:39",
+          "title": "Cutie pentru lucrurile mici",
+          "family": "home_preparation",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-16",
+          "time": "08:19",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-16",
+          "time": "13:09",
+          "title": "Pauza la cantină",
+          "family": "work_lunch",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-16",
+          "time": "18:53",
+          "title": "Un atelier online",
+          "family": "leisure_learning",
+          "domain": "digital",
+          "tags": [
+            "digital",
+            "learning"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-16",
+          "time": "19:57",
+          "title": "Becul de la birou",
+          "family": "home_maintenance",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-19",
+          "time": "11:31",
+          "title": "Cadou pentru un coleg",
+          "family": "birthday",
+          "domain": "work",
+          "tags": [
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-19",
+          "time": "17:19",
+          "title": "Fotografii pentru un formular",
+          "family": "shopping_need",
+          "domain": "obligation",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-20",
+          "time": "13:07",
+          "title": "Prânzul a rămas acasă",
+          "family": "work_lunch",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-21",
+          "time": "11:32",
+          "title": "Un carnețel pentru notițe",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-21",
+          "time": "17:34",
+          "title": "Șosete pentru iarnă",
+          "family": "season_supply",
+          "domain": "seasonal",
+          "tags": [
+            "seasonal",
+            "clothing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-22",
+          "time": "20:05",
+          "title": "Comandă de mâncare",
+          "family": "delivery",
+          "domain": "food",
+          "tags": [
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-25",
+          "time": "14:48",
+          "title": "Bilet înainte de plecare",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-26",
+          "time": "13:16",
+          "title": "Cablul pentru telefon",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "digital",
+            "cable"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-28",
+          "time": "17:47",
+          "title": "Pragul pentru transport gratuit",
+          "family": "shopping_comparison",
+          "domain": "shopping",
+          "tags": [
+            "online_order",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-28",
+          "time": "18:58",
+          "title": "Cafea cu prietenii",
+          "family": "friends_coffee",
+          "domain": "social",
+          "tags": [
+            "coffee",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-29",
+          "time": "08:49",
+          "title": "Apă înainte de plecare",
+          "family": "morning_errand",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-29",
+          "time": "13:13",
+          "title": "Fotografia echipei",
+          "family": "work_team",
+          "domain": "work",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-29",
+          "time": "17:37",
+          "title": "Cumpărături online",
+          "family": "online_order",
+          "domain": "shopping",
+          "tags": [
+            "online_order",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-30",
+          "time": "17:12",
+          "title": "Film la cinema",
+          "family": "cinema",
+          "domain": "leisure",
+          "tags": [
+            "cinema",
+            "culture"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-31",
+          "time": "09:34",
+          "title": "Piața de weekend",
+          "family": "weekend_market",
+          "domain": "weekend",
+          "tags": [
+            "shopping",
+            "preparation"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-31",
+          "time": "15:42",
+          "title": "Produsul de igienă aproape terminat",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-31",
+          "time": "20:54",
+          "title": "Cana cu marginea ciobită",
+          "family": "home_maintenance",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-01",
+          "time": "20:45",
+          "title": "Gătiți ceva împreună",
+          "family": "meal_preparation",
+          "domain": "food",
+          "tags": [
+            "preparation",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-03",
+          "time": "17:25",
+          "title": "Cadou împreună",
+          "family": "small_gift",
+          "domain": "social",
+          "tags": [
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-04",
+          "time": "08:36",
+          "title": "Taraba de pe traseu",
+          "family": "morning_errand",
+          "domain": "routine",
+          "tags": [
+            "quick_food",
+            "preparation"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-04",
+          "time": "13:19",
+          "title": "Căștile întrerup pauza",
+          "family": "headphones_resolution",
+          "domain": "work",
+          "tags": [
+            "headphones",
+            "repair"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-05",
+          "time": "08:52",
+          "title": "Un drum în plus",
+          "family": "unexpected_trip",
+          "domain": "transport",
+          "tags": [
+            "transport",
+            "online_order"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-05",
+          "time": "17:32",
+          "title": "Mapă pentru proiect",
+          "family": "school_project",
+          "domain": "obligation",
+          "tags": [
+            "project",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-06",
+          "time": "11:24",
+          "title": "Apă pentru restul programului",
+          "family": "work_break",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-06",
+          "time": "19:37",
+          "title": "La bazin",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-07",
+          "time": "18:46",
+          "title": "Tricou la reducere",
+          "family": "shopping_impulse",
+          "domain": "shopping",
+          "tags": [
+            "impulse",
+            "clothing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-08",
+          "time": "10:37",
+          "title": "Ieșire cu prietenii",
+          "family": "weekend_trip",
+          "domain": "weekend",
+          "tags": [
+            "transport",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-08",
+          "time": "14:43",
+          "title": "Seară de jocuri",
+          "family": "games",
+          "domain": "leisure",
+          "tags": [
+            "games",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-09",
+          "time": "08:31",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-11",
+          "time": "13:04",
+          "title": "Pauza la cantină",
+          "family": "work_lunch",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-11",
+          "time": "20:44",
+          "title": "Cutie pentru lucrurile mici",
+          "family": "home_preparation",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-12",
+          "time": "08:29",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-12",
+          "time": "13:03",
+          "title": "Cadou pentru un coleg",
+          "family": "birthday",
+          "domain": "work",
+          "tags": [
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-12",
+          "time": "18:37",
+          "title": "Drum pentru un obiect împrumutat",
+          "family": "unexpected_trip",
+          "domain": "obligation",
+          "tags": [
+            "transport",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-13",
+          "time": "11:25",
+          "title": "Fotografia echipei",
+          "family": "work_team",
+          "domain": "work",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-13",
+          "time": "13:13",
+          "title": "Un carnețel pentru notițe",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-13",
+          "time": "20:45",
+          "title": "Mâncare și pentru mâine",
+          "family": "meal_preparation",
+          "domain": "food",
+          "tags": [
+            "preparation"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-14",
+          "time": "13:39",
+          "title": "Laveta trebuie înlocuită",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-15",
+          "time": "10:22",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-15",
+          "time": "13:01",
+          "title": "La bazin",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-15",
+          "time": "20:28",
+          "title": "Protecție pentru birou",
+          "family": "home_preparation",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-16",
+          "time": "08:29",
+          "title": "Pachetul mic de la patiserie",
+          "family": "discount_opportunity",
+          "domain": "routine",
+          "tags": [
+            "quick_food",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-16",
+          "time": "18:44",
+          "title": "Fermoarul genții se blochează",
+          "family": "bag_problem",
+          "domain": "unexpected",
+          "tags": [
+            "repair"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-17",
+          "time": "08:21",
+          "title": "Traseul obișnuit nu te ajută azi",
+          "family": "route_choice",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-20",
+          "time": "08:21",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-20",
+          "time": "11:34",
+          "title": "Fotografia echipei",
+          "family": "work_team",
+          "domain": "work",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-20",
+          "time": "17:13",
+          "title": "Jocurile de la mall",
+          "family": "games",
+          "domain": "leisure",
+          "tags": [
+            "games",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-21",
+          "time": "10:37",
+          "title": "Pui ordine în lucruri",
+          "family": "home_preparation",
+          "domain": "weekend",
+          "tags": [
+            "home",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-22",
+          "time": "10:19",
+          "title": "Cafea de dimineață",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-22",
+          "time": "13:08",
+          "title": "Masa cu familia",
+          "family": "weekend_family",
+          "domain": "weekend",
+          "tags": [
+            "family",
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-23",
+          "time": "17:20",
+          "title": "Gustare după program",
+          "family": "after_snack",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-23",
+          "time": "18:15",
+          "title": "Gustări la întâlnire",
+          "family": "friend_invitation",
+          "domain": "social",
+          "tags": [
+            "free_activity",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-24",
+          "time": "08:35",
+          "title": "Legătura dintre trasee",
+          "family": "route_choice",
+          "domain": "transport",
+          "tags": [
+            "transport",
+            "waiting"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-24",
+          "time": "11:26",
+          "title": "Cablul pentru telefon",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "digital",
+            "cable"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-25",
+          "time": "13:16",
+          "title": "Prânzul a rămas acasă",
+          "family": "work_lunch",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-26",
+          "time": "13:00",
+          "title": "Pauză scurtă la automat",
+          "family": "work_break",
+          "domain": "work",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-27",
+          "time": "08:54",
+          "title": "Un drum în plus",
+          "family": "unexpected_trip",
+          "domain": "transport",
+          "tags": [
+            "transport",
+            "online_order"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-27",
+          "time": "13:08",
+          "title": "Căștile întrerup pauza",
+          "family": "headphones_resolution",
+          "domain": "work",
+          "tags": [
+            "headphones",
+            "repair"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-11-29",
+          "time": "10:47",
+          "title": "Pui ordine în lucruri",
+          "family": "home_preparation",
+          "domain": "weekend",
+          "tags": [
+            "home",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-01",
+          "time": "17:39",
+          "title": "Expoziție cu intrare liberă",
+          "family": "free_invitation",
+          "domain": "opportunity",
+          "tags": [
+            "free_activity",
+            "culture"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-03",
+          "time": "13:13",
+          "title": "Prânz cu colegii",
+          "family": "colleagues_lunch",
+          "domain": "food",
+          "tags": [
+            "quick_food",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-03",
+          "time": "18:43",
+          "title": "Comandă pentru cină",
+          "family": "delivery",
+          "domain": "food",
+          "tags": [
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-04",
+          "time": "17:48",
+          "title": "Traseul obișnuit nu te ajută azi",
+          "family": "route_choice",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-04",
+          "time": "18:42",
+          "title": "Repari sau înlocuiești",
+          "family": "shopping_comparison",
+          "domain": "shopping",
+          "tags": [
+            "repair",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-06",
+          "time": "13:00",
+          "title": "Cutie pentru lucrurile mici",
+          "family": "home_preparation",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-06",
+          "time": "18:37",
+          "title": "Materialul de proiect s-a terminat",
+          "family": "school_project",
+          "domain": "obligation",
+          "tags": [
+            "project",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-07",
+          "time": "17:59",
+          "title": "Câteva stații pe jos",
+          "family": "route_choice",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-08",
+          "time": "17:10",
+          "title": "Produse de îngrijire",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-09",
+          "time": "08:23",
+          "title": "Gustare în stație",
+          "family": "morning_errand",
+          "domain": "routine",
+          "tags": [
+            "quick_food",
+            "waiting"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-09",
+          "time": "13:07",
+          "title": "Cablul pentru telefon",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "digital",
+            "cable"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-09",
+          "time": "20:45",
+          "title": "Mâncare și pentru mâine",
+          "family": "meal_preparation",
+          "domain": "food",
+          "tags": [
+            "preparation"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-10",
+          "time": "08:37",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-10",
+          "time": "17:59",
+          "title": "Organizatorul de pe raft",
+          "family": "shopping_impulse",
+          "domain": "shopping",
+          "tags": [
+            "impulse",
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-11",
+          "time": "08:46",
+          "title": "Cafea la automat",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-11",
+          "time": "18:01",
+          "title": "Cadou împreună",
+          "family": "small_gift",
+          "domain": "social",
+          "tags": [
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-11",
+          "time": "20:29",
+          "title": "Pizza împărțită în grup",
+          "family": "food_group",
+          "domain": "food",
+          "tags": [
+            "delivery",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-12",
+          "time": "14:50",
+          "title": "Un drum scurt pentru o cumpărătură",
+          "family": "route_choice",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-13",
+          "time": "10:15",
+          "title": "Plimbare mai lungă",
+          "family": "leisure_walk",
+          "domain": "weekend",
+          "tags": [
+            "free_activity",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-14",
+          "time": "08:20",
+          "title": "Bilet înainte de plecare",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-14",
+          "time": "17:59",
+          "title": "Treci pe la familie",
+          "family": "family_visit",
+          "domain": "social",
+          "tags": [
+            "family",
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-15",
+          "time": "08:16",
+          "title": "Cafea înainte de muncă",
+          "family": "morning_coffee",
+          "domain": "work",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-15",
+          "time": "11:25",
+          "title": "Fotografia echipei",
+          "family": "work_team",
+          "domain": "work",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-15",
+          "time": "17:29",
+          "title": "Produse de îngrijire",
+          "family": "personal_care",
+          "domain": "shopping",
+          "tags": [
+            "personal_care"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-16",
+          "time": "11:31",
+          "title": "Un carnețel pentru notițe",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-19",
+          "time": "15:48",
+          "title": "Husa de telefon uzată",
+          "family": "device_accessory",
+          "domain": "digital",
+          "tags": [
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-19",
+          "time": "18:58",
+          "title": "Consumabile pentru curățenie",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-19",
+          "time": "19:31",
+          "title": "Un proiect pentru acasă",
+          "family": "leisure_home",
+          "domain": "leisure",
+          "tags": [
+            "learning",
+            "supplies"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-20",
+          "time": "10:47",
+          "title": "Pui ordine în lucruri",
+          "family": "home_preparation",
+          "domain": "weekend",
+          "tags": [
+            "home",
+            "reuse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-21",
+          "time": "08:45",
+          "title": "Apă pentru drum",
+          "family": "morning_errand",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-21",
+          "time": "11:23",
+          "title": "Apă pentru restul programului",
+          "family": "work_break",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-21",
+          "time": "17:59",
+          "title": "O oră pe teren",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-24",
+          "time": "08:24",
+          "title": "Cafea înainte de muncă",
+          "family": "morning_coffee",
+          "domain": "work",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-24",
+          "time": "20:25",
+          "title": "Mâncare și pentru mâine",
+          "family": "meal_preparation",
+          "domain": "food",
+          "tags": [
+            "preparation"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-25",
+          "time": "18:30",
+          "title": "Laveta trebuie înlocuită",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-25",
+          "time": "19:43",
+          "title": "Jocurile de la mall",
+          "family": "games",
+          "domain": "leisure",
+          "tags": [
+            "games",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-12-28",
+          "time": "11:21",
+          "title": "Mapă pentru documentele personale",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "supplies",
+            "digital"
+          ],
+          "status": "resolved"
+        }
+      ],
+      "dayCounts": [
+        {
+          "day": "2026-10-01",
+          "count": 4
+        },
+        {
+          "day": "2026-10-02",
+          "count": 2
+        },
+        {
+          "day": "2026-10-03",
+          "count": 0
+        },
+        {
+          "day": "2026-10-04",
+          "count": 1
+        },
+        {
+          "day": "2026-10-05",
+          "count": 4
+        },
+        {
+          "day": "2026-10-06",
+          "count": 3
+        },
+        {
+          "day": "2026-10-07",
+          "count": 3
+        },
+        {
+          "day": "2026-10-08",
+          "count": 2
+        },
+        {
+          "day": "2026-10-09",
+          "count": 2
+        },
+        {
+          "day": "2026-10-10",
+          "count": 0
+        },
+        {
+          "day": "2026-10-11",
+          "count": 2
+        },
+        {
+          "day": "2026-10-12",
+          "count": 0
+        },
+        {
+          "day": "2026-10-13",
+          "count": 1
+        },
+        {
+          "day": "2026-10-14",
+          "count": 1
+        },
+        {
+          "day": "2026-10-15",
+          "count": 2
+        },
+        {
+          "day": "2026-10-16",
+          "count": 4
+        },
+        {
+          "day": "2026-10-17",
+          "count": 0
+        },
+        {
+          "day": "2026-10-18",
+          "count": 0
+        },
+        {
+          "day": "2026-10-19",
+          "count": 2
+        },
+        {
+          "day": "2026-10-20",
+          "count": 1
+        },
+        {
+          "day": "2026-10-21",
+          "count": 2
+        },
+        {
+          "day": "2026-10-22",
+          "count": 1
+        },
+        {
+          "day": "2026-10-23",
+          "count": 0
+        },
+        {
+          "day": "2026-10-24",
+          "count": 0
+        },
+        {
+          "day": "2026-10-25",
+          "count": 1
+        },
+        {
+          "day": "2026-10-26",
+          "count": 1
+        },
+        {
+          "day": "2026-10-27",
+          "count": 0
+        },
+        {
+          "day": "2026-10-28",
+          "count": 2
+        },
+        {
+          "day": "2026-10-29",
+          "count": 3
+        },
+        {
+          "day": "2026-10-30",
+          "count": 1
+        },
+        {
+          "day": "2026-10-31",
+          "count": 3
+        },
+        {
+          "day": "2026-11-01",
+          "count": 1
+        },
+        {
+          "day": "2026-11-02",
+          "count": 0
+        },
+        {
+          "day": "2026-11-03",
+          "count": 1
+        },
+        {
+          "day": "2026-11-04",
+          "count": 2
+        },
+        {
+          "day": "2026-11-05",
+          "count": 2
+        },
+        {
+          "day": "2026-11-06",
+          "count": 2
+        },
+        {
+          "day": "2026-11-07",
+          "count": 1
+        },
+        {
+          "day": "2026-11-08",
+          "count": 2
+        },
+        {
+          "day": "2026-11-09",
+          "count": 1
+        },
+        {
+          "day": "2026-11-10",
+          "count": 0
+        },
+        {
+          "day": "2026-11-11",
+          "count": 2
+        },
+        {
+          "day": "2026-11-12",
+          "count": 3
+        },
+        {
+          "day": "2026-11-13",
+          "count": 3
+        },
+        {
+          "day": "2026-11-14",
+          "count": 1
+        },
+        {
+          "day": "2026-11-15",
+          "count": 3
+        },
+        {
+          "day": "2026-11-16",
+          "count": 2
+        },
+        {
+          "day": "2026-11-17",
+          "count": 1
+        },
+        {
+          "day": "2026-11-18",
+          "count": 0
+        },
+        {
+          "day": "2026-11-19",
+          "count": 0
+        },
+        {
+          "day": "2026-11-20",
+          "count": 3
+        },
+        {
+          "day": "2026-11-21",
+          "count": 1
+        },
+        {
+          "day": "2026-11-22",
+          "count": 2
+        },
+        {
+          "day": "2026-11-23",
+          "count": 2
+        },
+        {
+          "day": "2026-11-24",
+          "count": 2
+        },
+        {
+          "day": "2026-11-25",
+          "count": 1
+        },
+        {
+          "day": "2026-11-26",
+          "count": 1
+        },
+        {
+          "day": "2026-11-27",
+          "count": 2
+        },
+        {
+          "day": "2026-11-28",
+          "count": 0
+        },
+        {
+          "day": "2026-11-29",
+          "count": 1
+        },
+        {
+          "day": "2026-11-30",
+          "count": 0
+        },
+        {
+          "day": "2026-12-01",
+          "count": 1
+        },
+        {
+          "day": "2026-12-02",
+          "count": 0
+        },
+        {
+          "day": "2026-12-03",
+          "count": 2
+        },
+        {
+          "day": "2026-12-04",
+          "count": 2
+        },
+        {
+          "day": "2026-12-05",
+          "count": 0
+        },
+        {
+          "day": "2026-12-06",
+          "count": 2
+        },
+        {
+          "day": "2026-12-07",
+          "count": 1
+        },
+        {
+          "day": "2026-12-08",
+          "count": 1
+        },
+        {
+          "day": "2026-12-09",
+          "count": 3
+        },
+        {
+          "day": "2026-12-10",
+          "count": 2
+        },
+        {
+          "day": "2026-12-11",
+          "count": 3
+        },
+        {
+          "day": "2026-12-12",
+          "count": 1
+        },
+        {
+          "day": "2026-12-13",
+          "count": 1
+        },
+        {
+          "day": "2026-12-14",
+          "count": 2
+        },
+        {
+          "day": "2026-12-15",
+          "count": 3
+        },
+        {
+          "day": "2026-12-16",
+          "count": 1
+        },
+        {
+          "day": "2026-12-17",
+          "count": 0
+        },
+        {
+          "day": "2026-12-18",
+          "count": 0
+        },
+        {
+          "day": "2026-12-19",
+          "count": 3
+        },
+        {
+          "day": "2026-12-20",
+          "count": 1
+        },
+        {
+          "day": "2026-12-21",
+          "count": 3
+        },
+        {
+          "day": "2026-12-22",
+          "count": 0
+        },
+        {
+          "day": "2026-12-23",
+          "count": 0
+        },
+        {
+          "day": "2026-12-24",
+          "count": 2
+        },
+        {
+          "day": "2026-12-25",
+          "count": 2
+        },
+        {
+          "day": "2026-12-26",
+          "count": 0
+        },
+        {
+          "day": "2026-12-27",
+          "count": 0
+        },
+        {
+          "day": "2026-12-28",
+          "count": 1
+        },
+        {
+          "day": "2026-12-29",
+          "count": 0
+        }
+      ],
+      "sample": [
+        {
+          "day": "2026-10-01",
+          "time": "08:39",
+          "title": "Cafea la automat",
+          "family": "morning_coffee",
+          "domain": "routine",
+          "tags": [
+            "coffee"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-01",
+          "time": "17:52",
+          "title": "Cumpărături online",
+          "family": "online_order",
+          "domain": "shopping",
+          "tags": [
+            "online_order",
+            "impulse"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-01",
+          "time": "18:51",
+          "title": "Fotografii pentru un formular",
+          "family": "shopping_need",
+          "domain": "obligation",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-01",
+          "time": "20:01",
+          "title": "Plimbare prin oraș",
+          "family": "leisure_walk",
+          "domain": "leisure",
+          "tags": [
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "17:50",
+          "title": "Întâlnirea din alt cartier",
+          "family": "commute",
+          "domain": "transport",
+          "tags": [
+            "transport",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-02",
+          "time": "18:59",
+          "title": "Șireturile uzate",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing",
+            "shopping"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-04",
+          "time": "09:31",
+          "title": "Ieșire cu prietenii",
+          "family": "weekend_trip",
+          "domain": "weekend",
+          "tags": [
+            "transport",
+            "social_outing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "11:24",
+          "title": "Fructe pentru zona de pauză",
+          "family": "work_break",
+          "domain": "work",
+          "tags": [
+            "quick_food",
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "13:10",
+          "title": "Mapă pentru documentele personale",
+          "family": "work_supplies",
+          "domain": "work",
+          "tags": [
+            "supplies",
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "17:45",
+          "title": "Schimb de materiale",
+          "family": "borrowing",
+          "domain": "opportunity",
+          "tags": [
+            "reuse",
+            "project"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-05",
+          "time": "20:13",
+          "title": "Spațiul pentru fișiere",
+          "family": "digital_service",
+          "domain": "digital",
+          "tags": [
+            "digital"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "17:32",
+          "title": "Întâlnire după muncă",
+          "family": "leisure_learning",
+          "domain": "work",
+          "tags": [
+            "learning",
+            "free_activity"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "18:56",
+          "title": "Sunet doar într-o cască",
+          "family": "headphones_problem",
+          "domain": "digital",
+          "tags": [
+            "headphones",
+            "repair"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-06",
+          "time": "20:04",
+          "title": "Comandă de mâncare",
+          "family": "delivery",
+          "domain": "food",
+          "tags": [
+            "delivery"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "08:46",
+          "title": "Mic dejun pe drum",
+          "family": "breakfast",
+          "domain": "routine",
+          "tags": [
+            "quick_food"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "11:33",
+          "title": "Fotografia echipei",
+          "family": "work_team",
+          "domain": "work",
+          "tags": [
+            "printing"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-07",
+          "time": "13:15",
+          "title": "Pauza la cantină",
+          "family": "work_lunch",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "11:20",
+          "title": "Cadou pentru un coleg",
+          "family": "birthday",
+          "domain": "work",
+          "tags": [
+            "gift"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-08",
+          "time": "19:32",
+          "title": "Săculeț pentru spălat",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-09",
+          "time": "11:30",
+          "title": "Apă pentru restul programului",
+          "family": "work_break",
+          "domain": "work",
+          "tags": [
+            "work_lunch"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-09",
+          "time": "20:48",
+          "title": "La bazin",
+          "family": "leisure_sport",
+          "domain": "leisure",
+          "tags": [
+            "sport"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-11",
+          "time": "18:00",
+          "title": "Consumabile pentru curățenie",
+          "family": "home_supply",
+          "domain": "home",
+          "tags": [
+            "home"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-11",
+          "time": "20:14",
+          "title": "Atelier practic",
+          "family": "leisure_culture",
+          "domain": "leisure",
+          "tags": [
+            "culture",
+            "learning"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-13",
+          "time": "20:22",
+          "title": "Taxa de livrare",
+          "family": "online_order",
+          "domain": "food",
+          "tags": [
+            "delivery",
+            "online_order"
+          ],
+          "status": "resolved"
+        },
+        {
+          "day": "2026-10-14",
+          "time": "17:37",
+          "title": "Șireturile uzate",
+          "family": "clothing_need",
+          "domain": "shopping",
+          "tags": [
+            "clothing",
+            "shopping"
+          ],
+          "status": "resolved"
+        }
+      ]
+    }
+  ]
+}

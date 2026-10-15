@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -73,10 +73,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Dobânda este un cost al folosirii banilor împrumutați.",
-      "explanation": "Dobânda este un cost al folosirii banilor împrumutați. DAE exprimă anual costul total al creditului conform metodei legale, incluzând dobânda și costurile relevante. Nu este același lucru cu suma totală în lei. Pentru comparație, verifică DAE, totalul de plată și calendarul, deoarece un procent singur nu explică toate efectele duratei.",
-      "correctFeedback": "Corect. Dobânda este un cost al folosirii banilor împrumutați. DAE exprimă anual costul total al creditului conform metodei legale, incluzând dobânda și costurile relevante. Nu este același lucru cu suma totală în lei. Pentru comparație, verifică DAE, totalul de plată și calendarul, deoarece un procent singur nu explică toate efectele duratei.",
-      "incorrectFeedback": "Nu chiar. Dobânda este un cost al folosirii banilor împrumutați. DAE exprimă anual costul total al creditului conform metodei legale, incluzând dobânda și costurile relevante. Nu este același lucru cu suma totală în lei. Pentru comparație, verifică DAE, totalul de plată și calendarul, deoarece un procent singur nu explică toate efectele duratei.",
+      "question": "Două credite pot avea aceeași dobândă afișată, dar costuri totale diferite dacă unul cere un comision obligatoriu.",
+      "explanation": "Dobânda este o componentă a costului. Comisionul obligatoriu poate schimba comparația, chiar dacă dobânzile din reclame sunt identice.",
+      "correctFeedback": "Corect. Dobânda este o componentă a costului. Comisionul obligatoriu poate schimba comparația, chiar dacă dobânzile din reclame sunt identice.",
+      "incorrectFeedback": "Nu chiar. Dobânda este o componentă a costului. Comisionul obligatoriu poate schimba comparația, chiar dacă dobânzile din reclame sunt identice.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -101,7 +101,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Culoarea reclamei."
+          "label": "Prezentarea aceleiași dobânzi ca procent, fără alte costuri."
         },
         {
           "id": "1",
@@ -109,7 +109,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Numele produsului."
+          "label": "Împărțirea aceleiași sume de plată în mai multe rânduri descriptive."
         }
       ],
       "correctOption": "1"
@@ -130,7 +130,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar numărul de clienți."
+          "label": "Doar DAE, fără totalul în lei și scadențe."
         },
         {
           "id": "2",
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce presupunere inițială corectează Luca?",
       "explanation": "Că aceeași dobândă înseamnă același cost.",
       "correctFeedback": "Corect. Că aceeași dobândă înseamnă același cost.",
@@ -166,18 +165,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Că există documente."
+          "label": "Că o DAE mai mică garantează un total în lei mai mic la orice durată."
         },
         {
           "id": "2",
-          "label": "Că trebuie să restituie banii."
+          "label": "Că rata lunară cea mai mică identifică întotdeauna costul minim."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Unde caută costurile pentru comparație?",
       "explanation": "În informațiile precontractuale și contract.",
       "correctFeedback": "Corect. În informațiile precontractuale și contract.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce verifică separat întârzierea?",
       "explanation": "Are costuri și consecințe distincte de plata la timp.",
       "correctFeedback": "Corect. Are costuri și consecințe distincte de plata la timp.",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Dobânda este un cost al folosirii banilor împrumutați.",
-          "detail": "Dobânda este un cost al folosirii banilor împrumutați.",
+          "detail": "Două oferte cu aceeași dobândă pot avea costuri diferite dacă una cere un comision obligatoriu. Compară indicatorul anual împreună cu totalul în lei și calendarul, pentru aceeași sumă și durată.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Două oferte fictive pentru aceeași sumă și durată au dobândă afișată similară. Prima are și un comision obligatoriu, a doua nu.",
-          "detail": "Două oferte fictive pentru aceeași sumă și durată au dobândă afișată similară. Prima are și un comision obligatoriu, a doua nu.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Un cost pentru întârziere nu descrie scenariul obișnuit de rambursare la timp.",
-          "detail": "Un cost pentru întârziere nu descrie scenariul obișnuit de rambursare la timp.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Construiește un tabel cu suma, durata, DAE și totalul de plată pentru două oferte fictive.",
-          "detail": "Construiește un tabel cu suma, durata, DAE și totalul de plată pentru două oferte fictive.",
           "type": "action"
         }
       ]

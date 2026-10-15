@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -101,7 +101,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Care articol are mai multe reclame."
+          "label": "Care sumă este mai mare, fără data intrării în vigoare."
         },
         {
           "id": "1",
@@ -109,7 +109,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Care sumă îți place mai mult."
+          "label": "Care articol se referă la aceeași profesie, fără norma de lucru."
         }
       ],
       "correctOption": "1"
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce separă Mihai în oferta sa?",
       "explanation": "Salariul de bază de tichete și prima posibilă.",
       "correctFeedback": "Corect. Salariul de bază de tichete și prima posibilă.",
@@ -166,18 +165,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Numerarul de culoarea cardului."
+          "label": "Totalul cu tichete, presupunând că acesta este salariul de bază."
         },
         {
           "id": "2",
-          "label": "Chiria de numele firmei."
+          "label": "Totalul cu prima posibilă, presupunând că se plătește lunar."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce articolul vechi nu este suficient?",
       "explanation": "Pragul aplicabil poate fi modificat.",
       "correctFeedback": "Corect. Pragul aplicabil poate fi modificat.",
@@ -188,7 +186,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Articolele vechi sunt mereu ilegale."
+          "label": "Articolul cu suma mai mare este întotdeauna cel aplicabil."
         },
         {
           "id": "1",
@@ -196,14 +194,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Pragul este ales de candidat."
+          "label": "Pragul din articol se aplică automat oricărei norme de lucru."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce sumă folosește prudent în buget?",
       "explanation": "Netul estimat cu ipotezele situației sale.",
       "correctFeedback": "Corect. Netul estimat cu ipotezele situației sale.",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Salariul minim este un prag legal al salariului de bază brut, în condițiile aplicabile.",
-          "detail": "Salariul minim este un prag legal al salariului de bază brut, în condițiile aplicabile.",
+          "detail": "Oferta lui Mihai separă baza, tichetele și o primă posibilă. Pentru comparația cu pragul relevant, verifică data, norma și baza din contract, fără să confunzi totalul pachetului cu netul.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Mihai găsește două articole cu praguri diferite și observă că unul este vechi. Caută actul aplicabil la data începerii jobului și verifică dacă oferta este pentru normă întreagă.",
-          "detail": "Mihai găsește două articole cu praguri diferite și observă că unul este vechi. Caută actul aplicabil la data începerii jobului și verifică dacă oferta este pentru normă întreagă.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Un salariu de bază și o primă ocazională sunt componente diferite.",
-          "detail": "Un salariu de bază și o primă ocazională sunt componente diferite.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Verifică într-o sursă oficială data unei reguli salariale, fără să memorezi un prag dintr-un articol vechi.",
-          "detail": "Verifică într-o sursă oficială data unei reguli salariale, fără să memorezi un prag dintr-un articol vechi.",
           "type": "action"
         }
       ]

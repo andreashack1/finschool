@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -151,11 +151,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce nevoie posibilă are Ana?",
-      "explanation": "Acces înainte de scadență.",
-      "correctFeedback": "Corect. Acces înainte de scadență.",
-      "incorrectFeedback": "Nu chiar. Acces înainte de scadență.",
+      "question": "Ana poate avea nevoie de bani înainte de termen. Ce criteriu al produsului trebuie să lege de această nevoie?",
+      "explanation": "Accesul înainte de scadență depinde de condițiile produsului și poate schimba rezultatul. Cuponul singur nu descrie banii disponibili la data necesară.",
+      "correctFeedback": "Corect. Accesul înainte de scadență depinde de condițiile produsului și poate schimba rezultatul. Cuponul singur nu descrie banii disponibili la data necesară.",
+      "incorrectFeedback": "Nu chiar. Accesul înainte de scadență depinde de condițiile produsului și poate schimba rezultatul. Cuponul singur nu descrie banii disponibili la data necesară.",
       "caseId": "caz-obligatiuni-si-titluri-de-stat",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -166,18 +165,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Un salariu din obligațiune."
+          "label": "Doar valoarea cuponului anual, fără ieșirea timpurie."
         },
         {
           "id": "2",
-          "label": "Eliminarea monedei."
+          "label": "Doar numele emitentului, presupunând recuperare integrală oricând."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică pentru ieșirea timpurie?",
       "explanation": "Regulile și condițiile produsului.",
       "correctFeedback": "Corect. Regulile și condițiile produsului.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce separă cuponul de preț?",
       "explanation": "Sunt componente diferite ale rezultatului.",
       "correctFeedback": "Corect. Sunt componente diferite ale rezultatului.",
@@ -253,7 +250,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Numărul de cifre din cupon."
+          "label": "Doar cuponul nominal, presupunând că valorează la fel în moneda cheltuielilor."
         },
         {
           "id": "2",
@@ -274,7 +271,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar popularitatea logo-ului."
+          "label": "Doar valoarea cuponului, fără posibilitatea ca emitentul să nu plătească."
         },
         {
           "id": "1",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "O obligațiune reprezintă un împrumut acordat emitentului, cu condiții privind plățile și scadența.",
-          "detail": "O obligațiune reprezintă un împrumut acordat emitentului, cu condiții privind plățile și scadența.",
+          "detail": "Cuponul anual și prețul unei vânzări înainte de scadență sunt componente diferite. Un preț de 950 față de 1.000 inițial poate modifica rezultatul, chiar dacă produsul are un cupon.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "O obligațiune fictivă de 1.000 lei plătește un cupon anual de 5%, adică 50 lei, în ipoteza respectării condițiilor. Dacă este vândută înainte de termen la 950, prețul de vânzare este cu 50 sub valoarea inițială.",
-          "detail": "O obligațiune fictivă de 1.000 lei plătește un cupon anual de 5%, adică 50 lei, în ipoteza respectării condițiilor. Dacă este vândută înainte de termen la 950, prețul de vânzare este cu 50 sub valoarea inițială.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Titlul de stat nu înseamnă că orice ieșire înainte de termen păstrează automat suma și dobânda.",
-          "detail": "Titlul de stat nu înseamnă că orice ieșire înainte de termen păstrează automat suma și dobânda.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe un produs fictiv, separă cuponul, scadența și condițiile de acces înainte de termen.",
-          "detail": "Pe un produs fictiv, separă cuponul, scadența și condițiile de acces înainte de termen.",
           "type": "action"
         }
       ]

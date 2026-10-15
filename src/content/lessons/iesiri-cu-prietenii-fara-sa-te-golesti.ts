@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Cu cât depășește planul bugetul Ioanei?",
       "explanation": "100 − 80 = 20 lei diferență.",
       "correctFeedback": "Corect. 100 − 80 = 20 lei diferență.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce discută împărțirea înainte?",
       "explanation": "Claritatea reduce neînțelegerile.",
       "correctFeedback": "Corect. Claritatea reduce neînțelegerile.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce trebuie păstrat în alegerea transportului?",
       "explanation": "Costul și siguranța trebuie considerate împreună.",
       "correctFeedback": "Corect. Costul și siguranța trebuie considerate împreună.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Total complet",
           "body": "Adună activitățile și transportul.",
-          "detail": "Adună activitățile și transportul.",
+          "detail": "Filmul, masa și transportul din exemplu cer împreună 100 lei. Cu 80 lei disponibili, compară participarea parțială sau o variantă mai ieftină și păstrează o întoarcere sigură.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Acord clar",
           "body": "Stabiliți cum se împart cheltuielile.",
-          "detail": "Stabiliți cum se împart cheltuielile.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Participare flexibilă",
           "body": "Poți adapta planul fără să judeci preferințele.",
-          "detail": "Poți adapta planul fără să judeci preferințele.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Înaintea următoarei ieșiri, estimează totalul și clarifică o cheltuială comună cu grupul.",
-          "detail": "Înaintea următoarei ieșiri, estimează totalul și clarifică o cheltuială comună cu grupul.",
           "type": "action"
         }
       ]

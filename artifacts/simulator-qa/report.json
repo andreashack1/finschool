@@ -1,0 +1,23 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Auth-required dev page/API; real login; start plus starting-day settlement",
+    "Refresh preserves run, ledger and balance",
+    "+1/+7/+30 civil days, empty-day cursor, next payday, exact lifetime ledger balance",
+    "Repeated and simultaneous HTTP settlement is idempotent (local PGlite queues DB calls; not a multi-connection DB race test)",
+    "Existing run wins start requests; reset cascades current-user data only, preserves B and resets offset",
+    "Reset then fresh rental run; /simulator renders the canonical dashboard",
+    "Accessible housing keyboard; real preview; concurrent two-tab UI start; dashboard and refresh at 320/390/430/1440",
+    "Visibility single-flight; stale-data network error; retry keeps authoritative balance",
+    "Lost response retry; separate browser context; real logout/login retains run",
+    "Historical journal stays within run and current month; hero unaffected",
+    "Discarded committed start response and delivered 503; no optimistic dashboard; retry recovers one persisted run",
+    "Initial delayed response shows stable skeleton, never fake zero or setup",
+    "Initial network error has no financial data; retry restores persisted dashboard",
+    "Server timing deadline revalidates open tab once; subsequent deadline follows real server time",
+    "Presentation fixtures: 0, −1350.50, 125000 lei, long labels, 80 entries and empty journal at all four widths",
+    "Home/Profile/logout/Lessons/lesson navigation; simulator never changes XP, streak, achievements, challenges or completed lessons"
+  ],
+  "errors": [],
+  "providerErrors": []
+}

@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -51,11 +51,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Culoarea aplicației."
+          "label": "Doar suma; procentul arată singur durata."
         },
         {
           "id": "2",
-          "label": "Numărul de reclame."
+          "label": "Doar perioada; procentul produce aceeași sumă pentru orice bază."
         }
       ],
       "correctOption": "0"
@@ -83,24 +83,24 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "Cât reprezintă 5% din 1.000 lei?",
-      "explanation": "1.000 × 0,05 = 50 lei în exemplul simplificat.",
-      "correctFeedback": "Corect. 1.000 × 0,05 = 50 lei în exemplul simplificat.",
-      "incorrectFeedback": "Nu chiar. 1.000 × 0,05 = 50 lei în exemplul simplificat.",
+      "question": "Depozitul de 1.000 lei produce 50 lei dobândă într-un an, fără costuri. O ofertă de împrumut afișează tot 5%, dar lunar și cu comision. Ce poți compara deja?",
+      "explanation": "Cei 50 lei rezultă din baza și durata depozitului. La împrumut, perioada lunară și comisionul schimbă comparația; cifra de 5% nu ajunge.",
+      "correctFeedback": "Corect. Cei 50 lei rezultă din baza și durata depozitului. La împrumut, perioada lunară și comisionul schimbă comparația; cifra de 5% nu ajunge.",
+      "incorrectFeedback": "Nu chiar. Cei 50 lei rezultă din baza și durata depozitului. La împrumut, perioada lunară și comisionul schimbă comparația; cifra de 5% nu ajunge.",
       "type": "scenariu",
       "context": "Suma rămâne constantă un an; nu includem alte costuri.",
       "options": [
         {
           "id": "0",
-          "label": "5 lei."
+          "label": "Costul împrumutului este sigur tot 50 lei."
         },
         {
           "id": "1",
-          "label": "50 lei."
+          "label": "Câștigul depozitului este calculabil, dar costul împrumutului cere alte condiții."
         },
         {
           "id": "2",
-          "label": "500 lei."
+          "label": "Împrumutul este mai ieftin fiindcă procentele sunt egale."
         }
       ],
       "correctOption": "1"
@@ -121,7 +121,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Alegi automat cifra scrisă mai mare."
+          "label": "Compari numai procentul, fiindcă durata este deja inclusă în cifra 5."
         },
         {
           "id": "2",
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce Ioana nu transferă concluzia de la depozit la împrumut?",
       "explanation": "Contextul decide dacă procentul reprezintă venit sau cost.",
       "correctFeedback": "Corect. Contextul decide dacă procentul reprezintă venit sau cost.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Procentele nu pot fi calculate."
+          "label": "Același procent produce aceeași sumă indiferent de durată."
         },
         {
           "id": "2",
-          "label": "Orice dobândă este o fraudă."
+          "label": "Dobânda este întotdeauna bani primiți, chiar și la împrumut."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică pentru banii cursului?",
       "explanation": "Momentul când ai nevoie de bani contează.",
       "correctFeedback": "Corect. Momentul când ai nevoie de bani contează.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar logo-ul instituției."
+          "label": "Doar câștigul la scadență, presupunând că retragerea nu îl afectează."
         },
         {
           "id": "1",
@@ -190,11 +188,11 @@ export const lesson: ReadyLesson = {
           "label": "Doar cifra de 5%."
         }
       ],
-      "correctOption": "1"
+      "correctOption": "1",
+      "leadIn": "Ioana ar putea avea nevoie de sumă înainte de termen."
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce informație trebuie inclusă la împrumut?",
       "explanation": "Costul creditului nu se reduce la dobânda izolată.",
       "correctFeedback": "Corect. Costul creditului nu se reduce la dobânda izolată.",
@@ -205,11 +203,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar mesajul prietenului."
+          "label": "Doar dobânda din reclamă, fără celelalte plăți."
         },
         {
           "id": "1",
-          "label": "Doar valoarea depozitului."
+          "label": "Doar prima plată, fără termenele următoare."
         },
         {
           "id": "2",
@@ -244,11 +242,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar numărul de bancnote."
+          "label": "Doar creșterea soldului, fără prețurile cumpărăturilor."
         },
         {
           "id": "2",
-          "label": "Presupunerea că orice dobândă garantează prosperitate."
+          "label": "Doar procentul dobânzii, indiferent ce sumă primești."
         }
       ],
       "correctOption": "0"
@@ -265,7 +263,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Ce font are contractul?"
+          "label": "Care a fost rata inițială, presupunând că rămâne aceeași?"
         },
         {
           "id": "1",
@@ -273,7 +271,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Poate fi ignorată perioada?"
+          "label": "Cât câștigi dacă folosești rata inițială pentru toată perioada?"
         }
       ],
       "correctOption": "1"
@@ -287,28 +285,27 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Rolul tău",
           "body": "Dobânda poate fi cost sau venit.",
-          "detail": "Dobânda poate fi cost sau venit.",
+          "detail": "La depozit, instituția poate plăti dobândă pentru suma păstrată. La împrumut, tu o plătești pentru folosirea banilor altcuiva; aceeași cifră poate descrie sensuri opuse.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Perioada",
           "body": "Lunar și anual nu sunt echivalente.",
-          "detail": "Lunar și anual nu sunt echivalente.",
+          "detail": "O ofertă de 5% pe lună descrie alt interval decât una de 5% pe an. Adu ofertele la aceeași durată și aceeași sumă înainte să compari rezultatul.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Condiții",
           "body": "Verifică baza, costurile și accesul la bani.",
-          "detail": "Verifică baza, costurile și accesul la bani.",
+          "detail": "Comisionul și calendarul rambursării pot schimba costul unui împrumut. Pentru economii, verifică și ce se întâmplă dacă ai nevoie de sumă înainte de scadență.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Găsește într-o ofertă informativă perioada și baza dobânzii, fără să deschizi un produs.",
-          "detail": "Găsește într-o ofertă informativă perioada și baza dobânzii, fără să deschizi un produs.",
           "type": "action"
         }
       ]

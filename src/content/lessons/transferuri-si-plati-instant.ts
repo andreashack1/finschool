@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce semnale cereau verificarea mesajului lui Radu?",
       "explanation": "Schimbarea neașteptată și graba sunt informații relevante.",
       "correctFeedback": "Corect. Schimbarea neașteptată și graba sunt informații relevante.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Cum a verificat cererea autentică?",
       "explanation": "Contactul cunoscut clarifică identitatea și datele.",
       "correctFeedback": "Corect. Contactul cunoscut clarifică identitatea și datele.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Cum confirmă colegul primirea banilor?",
       "explanation": "Imaginea unei confirmări nu substituie contul destinatarului.",
       "correctFeedback": "Corect. Imaginea unei confirmări nu substituie contul destinatarului.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Înainte",
           "body": "Verifică datele înainte de autorizare.",
-          "detail": "Verifică datele înainte de autorizare.",
+          "detail": "Radu corectează 4.500 lei la 450 lei înainte de confirmare și verifică separat contul schimbat. Viteza transferului nu înlocuiește controlul datelor și nu garantează anularea unei plăți greșite.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Separat",
           "body": "Confirmă schimbările prin contactul cunoscut.",
-          "detail": "Confirmă schimbările prin contactul cunoscut.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "După",
           "body": "Urmărește starea și intrarea reală în cont.",
-          "detail": "Urmărește starea și intrarea reală în cont.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La un transfer viitor, folosește ecranul de revizuire pentru destinatar, sumă și monedă.",
-          "detail": "La un transfer viitor, folosește ecranul de revizuire pentru destinatar, sumă și monedă.",
           "type": "action"
         }
       ]

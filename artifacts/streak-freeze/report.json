@@ -1,0 +1,22 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Real lesson completion saves 8 -> 9; fire transition; cloud ack; refresh no replay",
+    "Second completed lesson/replay same day has no second increment or event",
+    "Daily Challenge submission after lesson preserves same-day streak",
+    "1 missed days: canonical inventory/history; one summary; calendar accessible; refresh no replay",
+    "2 missed days: canonical inventory/history; one summary; calendar accessible; refresh no replay",
+    "3 missed days: canonical inventory/history; one summary; calendar accessible; refresh no replay",
+    "Independent browser/device sees account ack and does not replay",
+    "Failed first acknowledgment is retried client-side; event becomes durably seen",
+    "Wrong first Daily Challenge commits 4 -> 5; lost response preserves event; reload recovers it once; no local increment",
+    "Home, Daily Challenge, Profile/frozen calendar, lesson final and all four moments fit 320px",
+    "Home, Daily Challenge, Profile/frozen calendar, lesson final and all four moments fit 390px",
+    "Home, Daily Challenge, Profile/frozen calendar, lesson final and all four moments fit 430px",
+    "Home, Daily Challenge, Profile/frozen calendar, lesson final and all four moments fit 1440px",
+    "Reduced motion retains text/ack with no flame/particle motion",
+    "Logout/account switch aborts A host; B receives no A moment; A server history retained"
+  ],
+  "errors": [],
+  "providerErrors": []
+}

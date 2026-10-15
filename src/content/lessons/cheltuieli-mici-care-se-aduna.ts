@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [],
   "screens": [
@@ -142,11 +142,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce test face Dan?",
-      "explanation": "Reduce frecvența de la 20 la 10 zile.",
-      "correctFeedback": "Corect. Reduce frecvența de la 20 la 10 zile.",
-      "incorrectFeedback": "Nu chiar. Reduce frecvența de la 20 la 10 zile.",
+      "question": "Dan vrea să păstreze unele cumpărături și să reducă totalul. Ce test compară beneficiul păstrat cu o cheltuială mai mică?",
+      "explanation": "Reducerea frecvenței de la 20 la 10 zile reduce totalul la 120 lei în exemplu. Dan păstrează unele cumpărături și poate verifica efectul asupra scopului său.",
+      "correctFeedback": "Corect. Reducerea frecvenței de la 20 la 10 zile reduce totalul la 120 lei în exemplu. Dan păstrează unele cumpărături și poate verifica efectul asupra scopului său.",
+      "incorrectFeedback": "Nu chiar. Reducerea frecvenței de la 20 la 10 zile reduce totalul la 120 lei în exemplu. Dan păstrează unele cumpărături și poate verifica efectul asupra scopului său.",
       "caseId": "caz-cheltuieli-mici-care-se-aduna",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Elimină toate nevoile."
+          "label": "Elimină numai evidența, păstrând toate cumpărăturile."
         },
         {
           "id": "2",
-          "label": "Mărește costul la 20 lei."
+          "label": "Reduce prețul presupus în tabel, fără schimbarea plăților."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce frecvență folosește inițial?",
       "explanation": "Cea observată în evidență.",
       "correctFeedback": "Corect. Cea observată în evidență.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce mai verifică dincolo de costul mic?",
       "explanation": "Cheltuielile mari și celelalte priorități.",
       "correctFeedback": "Corect. Cheltuielile mari și celelalte priorități.",
@@ -209,7 +206,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar prețul unei reclame."
+          "label": "Doar economisirea unei singure categorii, fără restul bugetului."
         },
         {
           "id": "2",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "O sumă mică repetată poate avea un total important.",
-          "detail": "O sumă mică repetată poate avea un total important.",
+          "detail": "La 12 lei în 20 de zile, Dan cheltuiește 240 lei; în zece zile, 120. Folosește frecvența reală și verifică și celelalte categorii, fără să promită că o singură reducere rezolvă orice buget.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "O cumpărătură de 12 lei făcută în 20 de zile costă 240 lei. Dacă o faci în numai 10 zile, costă 120.",
-          "detail": "O cumpărătură de 12 lei făcută în 20 de zile costă 240 lei. Dacă o faci în numai 10 zile, costă 120.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Nu extrapola un cost zilnic la toate zilele anului dacă frecvența reală este alta.",
-          "detail": "Nu extrapola un cost zilnic la toate zilele anului dacă frecvența reală este alta.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează totalul unui cost mic folosind frecvența reală dintr-un interval fictiv.",
-          "detail": "Calculează totalul unui cost mic folosind frecvența reală dintr-un interval fictiv.",
           "type": "action"
         }
       ]

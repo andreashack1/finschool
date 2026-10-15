@@ -1,0 +1,21 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Login, schedule setup, Chapter 2 dashboard retained, monthly card replaced",
+    "Reproduced UI→API→SQL missing RPC failure (42883/503), applied actual migration 0012, retried stable operation, exactly one goal persisted",
+    "50/100/200 shortcuts persist equal transfers, disabled caps for 80 available/50 remaining, custom 37,50 transfer persists after refresh",
+    "Single dedicated create CTA, permanent balance action with no-goal instruction/focus, immediate create state, refresh persistence, distinct contribution route, card replacement, 1000→800 + 200 reserved, 6%, neutral history, monthly unchanged, no reload, decimal input and responsive screenshots",
+    "Withdrawal 100,50 is not income; edit rejects target below saved; exact completion keeps reserve; reached state and reduced motion; cross-device/focus synchronization",
+    "Archive releases all funds; next goal allowed; network failure stays in form and retries; native dialog keyboard/Escape/focus",
+    "User B cannot see user A goal",
+    "Actual month close persists SQL-validated totals excluding transfers; fixed calendar payment and salary execute; reserve unchanged; monthly gate/acknowledgment works"
+  ],
+  "errors": [],
+  "providerErrors": [],
+  "expectedFailures": [
+    {
+      "code": "42883"
+    }
+  ],
+  "expectMissingGoalRpc": false
+}

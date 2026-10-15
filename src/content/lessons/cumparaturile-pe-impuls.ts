@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce face cumpărătura lui Teo neplanificată?",
       "explanation": "Contextul arată apariția dorinței după stimul.",
       "correctFeedback": "Corect. Contextul arată apariția dorinței după stimul.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Orice cască este o cheltuială greșită."
+          "label": "Reducerea transformă automat produsul într-o nevoie."
         },
         {
           "id": "2",
-          "label": "Toate reclamele sunt false."
+          "label": "Plata salvată dovedește că achiziția fusese planificată."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce nu ajunge soldul de 240 lei pentru comparație?",
       "explanation": "Suma disponibilă după obligații este mai mică.",
       "correctFeedback": "Corect. Suma disponibilă după obligații este mai mică.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Soldul nu reprezintă bani reali."
+          "label": "Toată suma din cont este liberă până când biletul este cumpărat."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Teo trebuie să cheltuiască tot."
+          "label": "Cheltuiala nouă poate fi acoperită din venitul viitor neconfirmat."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce îi permite închiderea aplicației?",
       "explanation": "Pauza schimbă procesul, nu impune rezultatul.",
       "correctFeedback": "Corect. Pauza schimbă procesul, nu impune rezultatul.",
@@ -244,11 +241,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Da, trebuie să plătești diferența."
+          "label": "Da, diferența din reclamă trebuie considerată o economie ratată în buget."
         },
         {
           "id": "2",
-          "label": "Da, orice ofertă este venit sigur."
+          "label": "Da, procentul redus dovedește că produsul trebuia cumpărat."
         }
       ],
       "correctOption": "0"
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Observă stimulul",
           "body": "Reclama și graba pot accelera o dorință.",
-          "detail": "Reclama și graba pot accelera o dorință.",
+          "detail": "Teo nu căuta căști înainte de reclamă, iar cele actuale funcționau. Pauza îi permite să compare utilitatea și cei 90 lei liberi după drumul planificat, fără presiunea cronometrului.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Introdu o pauză",
           "body": "Verificarea contează mai mult decât o durată rigidă.",
-          "detail": "Verificarea contează mai mult decât o durată rigidă.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Sold și plan",
           "body": "Scade obligațiile înainte să decizi.",
-          "detail": "Scade obligațiile înainte să decizi.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Salvează o achiziție neplanificată și verifică ulterior dacă încă rezolvă o problemă pentru tine.",
-          "detail": "Salvează o achiziție neplanificată și verifică ulterior dacă încă rezolvă o problemă pentru tine.",
           "type": "action"
         }
       ]

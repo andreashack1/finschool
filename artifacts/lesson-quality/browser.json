@@ -1,0 +1,38 @@
+{
+  "viewports": [
+    {
+      "width": 320,
+      "expand": true,
+      "collapse": true,
+      "keyboard": true,
+      "optionalDetail": true,
+      "optionalLeadIn": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "expand": true,
+      "collapse": true,
+      "keyboard": true,
+      "optionalDetail": true,
+      "optionalLeadIn": true,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "expand": true,
+      "collapse": true,
+      "keyboard": true,
+      "optionalDetail": true,
+      "optionalLeadIn": true,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "trial": {
+    "completed": true,
+    "answers": 9,
+    "stableScreenIds": true,
+    "saveFlow": true
+  }
+}

@@ -21,6 +21,9 @@ const server=http.createServer(async(req,res)=>{
       if(name==='username_available'){sql='select public.username_available($1) as result';args=[body.candidate];}
       else if(name==='read_account_progress'){if(slowRead)await new Promise(resolve=>setTimeout(resolve,1000));sql='select public.read_account_progress($1) as result';args=[body.p_user];}
       else if(name==='update_account_profile'){sql='select public.update_account_profile($1,$2,$3) as result';args=[body.p_user,body.p_username,body.p_display_name];}
+      else if(name==='claim_streak_moments'){sql='select public.claim_streak_moments($1,$2) as result';args=[body.p_user,body.p_claim];}
+      else if(name==='acknowledge_streak_moments'){sql='select public.acknowledge_streak_moments($1,$2,$3) as result';args=[body.p_user,body.p_claim,body.p_ids];}
+      else if(name==='apply_streak_progress_mutation'){sql='select public.apply_streak_progress_mutation($1,$2,$3,$4,$5::jsonb,$6::jsonb,$7,$8,$9::jsonb) as result';args=[body.p_user,body.p_operation,body.p_type,body.p_revision,JSON.stringify(body.p_state),JSON.stringify(body.p_result),body.p_streak,body.p_longest,JSON.stringify(body.p_moments)];}
       else {sql='select public.apply_progress_mutation($1,$2,$3,$4,$5::jsonb,$6::jsonb,$7,$8) as result';args=[body.p_user,body.p_operation,body.p_type,body.p_revision,JSON.stringify(body.p_state),JSON.stringify(body.p_result),body.p_streak,body.p_longest];}
       return json(res,(await db.query(sql,args)).rows[0].result);
     }
@@ -60,6 +63,7 @@ try{
   await db.exec("create role anon;create role authenticated;create role service_role bypassrls;create schema auth;create table auth.users(id uuid primary key,raw_user_meta_data jsonb);create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid $$;");
   await db.exec(fs.readFileSync('supabase/migrations/0001_accounts_and_progress.sql','utf8'));
   await db.exec(fs.readFileSync('supabase/migrations/0002_username_check.sql','utf8'));
+  await db.exec(fs.readFileSync('supabase/migrations/0011_streak_freeze_moments.sql','utf8'));
   await new Promise(resolve=>server.listen(3116,'127.0.0.1',resolve));
   next=spawn(process.execPath,['--use-system-ca','node_modules/next/dist/bin/next',process.env.FINLY_QA_PRODUCTION?'start':'dev','--hostname','127.0.0.1','--port','3115'],{env:{...process.env,NEXT_PUBLIC_SUPABASE_URL:provider,NEXT_PUBLIC_SUPABASE_ANON_KEY:'local-qa-anon',SUPABASE_SERVICE_ROLE_KEY:'local-qa-server-secret',NEXT_PUBLIC_APP_URL:origin},stdio:['ignore','pipe','pipe'],windowsHide:true});
   next.stdout.resume();next.stderr.resume();

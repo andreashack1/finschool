@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -39,10 +39,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q1",
       "title": "Uite unde e diferența.",
-      "question": "Care este venitul total al lui Teo?",
-      "explanation": "400 + 200 = 600 lei intrări reale.",
-      "correctFeedback": "Corect. 400 + 200 = 600 lei intrări reale.",
-      "incorrectFeedback": "Nu chiar. 400 + 200 = 600 lei intrări reale.",
+      "question": "Teo primește 400 lei de la familie și 200 lei pentru un proiect. Avea deja 90 lei. Ce sumă reprezintă venitul perioadei?",
+      "explanation": "Cei 400 și 200 lei sunt intrări noi. Cei 90 lei existenți fac parte din soldul inițial, nu din venitul perioadei.",
+      "correctFeedback": "Corect. Cei 400 și 200 lei sunt intrări noi. Cei 90 lei existenți fac parte din soldul inițial, nu din venitul perioadei.",
+      "incorrectFeedback": "Nu chiar. Cei 400 și 200 lei sunt intrări noi. Cei 90 lei existenți fac parte din soldul inițial, nu din venitul perioadei.",
       "type": "variante",
       "options": [
         {
@@ -142,11 +142,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
-      "question": "Cât a cheltuit Teo în luna din caz?",
-      "explanation": "120 + 180 + 150 + 60 = 510 lei.",
-      "correctFeedback": "Corect. 120 + 180 + 150 + 60 = 510 lei.",
-      "incorrectFeedback": "Nu chiar. 120 + 180 + 150 + 60 = 510 lei.",
+      "question": "Teo vrea să numere și transferul între conturile lui ca o cheltuială de consum. Ce total descrie cumpărăturile din caz?",
+      "explanation": "Transportul, mâncarea, accesoriul și abonamentul însumează 510 lei. Transferul propriu schimbă locul banilor, nu consumul.",
+      "correctFeedback": "Corect. Transportul, mâncarea, accesoriul și abonamentul însumează 510 lei. Transferul propriu schimbă locul banilor, nu consumul.",
+      "incorrectFeedback": "Nu chiar. Transportul, mâncarea, accesoriul și abonamentul însumează 510 lei. Transferul propriu schimbă locul banilor, nu consumul.",
       "caseId": "caz-venit-cheltuieli-si-ce-ramane",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Cât rămâne din 90 lei după biletul planificat?",
       "explanation": "90 − 70 = 20 lei fără acea obligație apropiată.",
       "correctFeedback": "Corect. 90 − 70 = 20 lei fără acea obligație apropiată.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Cum tratează transferul de 50 lei?",
       "explanation": "Transferul merită urmărit, dar nu dublează resursele.",
       "correctFeedback": "Corect. Transferul merită urmărit, dar nu dublează resursele.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Aceeași perioadă",
           "body": "Compară intrările și ieșirile aceleiași luni sau săptămâni.",
-          "detail": "Compară intrările și ieșirile aceleiași luni sau săptămâni.",
+          "detail": "Un sold poate include bani rămași din luna trecută, deci nu descrie singur venitul lunii. Separă intrările noi și plățile perioadei înainte să stabilești ce ai disponibil.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Sold inițial",
           "body": "Banii din perioada precedentă contează la soldul final.",
-          "detail": "Banii din perioada precedentă contează la soldul final.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Transfer propriu",
           "body": "Mutarea între conturi nu creează venit.",
-          "detail": "Mutarea între conturi nu creează venit.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează intrările și trei cheltuieli din ultima săptămână, apoi calculează diferența.",
-          "detail": "Notează intrările și trei cheltuieli din ultima săptămână, apoi calculează diferența.",
           "type": "action"
         }
       ]

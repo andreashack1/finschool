@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De unde provin cei 200 lei ai lui Paul?",
       "explanation": "Din disponibilul după nevoi și plățile cerute.",
       "correctFeedback": "Corect. Din disponibilul după nevoi și plățile cerute.",
@@ -177,7 +176,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce avantaj poate avea prioritatea costului mai mare?",
       "explanation": "Reducerea costurilor, în condiții comparabile.",
       "correctFeedback": "Corect. Reducerea costurilor, în condiții comparabile.",
@@ -188,7 +186,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Eliminarea tuturor contractelor instant."
+          "label": "Rata lunară scade automat pentru toate datoriile."
         },
         {
           "id": "1",
@@ -196,14 +194,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Garantarea unui venit nou."
+          "label": "Costul total devine neimportant când soldul începe să scadă."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce păstrează Paul indiferent de ordinea aleasă?",
       "explanation": "Plățile obligatorii pentru ambele datorii.",
       "correctFeedback": "Corect. Plățile obligatorii pentru ambele datorii.",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Începe cu o listă completă: creditor, sold, dobândă sau cost relevant, plată minimă și scadență.",
-          "detail": "Începe cu o listă completă: creditor, sold, dobândă sau cost relevant, plată minimă și scadență.",
+          "detail": "Paul are 200 lei suplimentari numai după nevoi și plățile cerute. Compară destinația lor păstrând obligațiile ambelor datorii, iar la refinanțare verifică și durata și totalul nou.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Paul are două datorii și 200 lei disponibili suplimentar după nevoi și plățile cerute. Poate prioritiza datoria cu costul mai mare pentru a reduce costurile, ori pe cea mică pentru progres vizibil, analizând diferența.",
-          "detail": "Paul are două datorii și 200 lei disponibili suplimentar după nevoi și plățile cerute. Poate prioritiza datoria cu costul mai mare pentru a reduce costurile, ori pe cea mică pentru progres vizibil, analizând diferența.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Refinanțarea poate schimba rata și durata, dar nu este automat economie.",
-          "detail": "Refinanțarea poate schimba rata și durata, dar nu este automat economie.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Construiește un inventar fictiv de două datorii și explică o ordine posibilă de plată.",
-          "detail": "Construiește un inventar fictiv de două datorii și explică o ordine posibilă de plată.",
           "type": "action"
         }
       ]

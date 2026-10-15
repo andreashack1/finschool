@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -51,7 +51,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar desenul cardului."
+          "label": "Doar costul cardului, fără drepturile de acces."
         },
         {
           "id": "2",
@@ -117,11 +117,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar culoarea aplicației."
+          "label": "Doar gratuitatea administrării, fără vizibilitatea tranzacțiilor."
         },
         {
           "id": "1",
-          "label": "Doar numărul de reclame."
+          "label": "Doar suma primei încasări, fără limitele plăților."
         },
         {
           "id": "2",
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce informație lipsește Dariei din reclamă?",
       "explanation": "Deschiderea și controlul trebuie clarificate.",
       "correctFeedback": "Corect. Deschiderea și controlul trebuie clarificate.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Ce font are clipul."
+          "label": "Dacă orice funcție din reclamă este disponibilă automat unui minor."
         },
         {
           "id": "2",
-          "label": "Câte librării există."
+          "label": "Dacă un card asociat oferă toate funcțiile unui cont obișnuit."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică pentru schimbarea categoriei de vârstă?",
       "explanation": "Schimbarea produsului trebuie explicată de instituție.",
       "correctFeedback": "Corect. Schimbarea produsului trebuie explicată de instituție.",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Presupune că toți banii dispar."
+          "label": "Presupune că regulile vechi rămân valabile până cere alt card."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce nu oferă contul colegului?",
       "explanation": "Riscul privește controlul și identificarea operațiunilor.",
       "correctFeedback": "Corect. Riscul privește controlul și identificarea operațiunilor.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Condiții",
           "body": "Nu deduce regulile din numele produsului.",
-          "detail": "Nu deduce regulile din numele produsului.",
+          "detail": "Un card și o aplicație din reclamă nu descriu cine poate autoriza fiecare operațiune. Verifică accesul, limitele și schimbările de condiții odată cu vârsta prin instituția cunoscută.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Acces",
           "body": "Clarifică cine vede și autorizează operațiuni.",
-          "detail": "Clarifică cine vede și autorizează operațiuni.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Control",
           "body": "Nu lăsa altă persoană să folosească contul în numele tău.",
-          "detail": "Nu lăsa altă persoană să folosească contul în numele tău.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează trei întrebări despre acces, limite și tarife pe care le-ai verifica la un cont pentru minor.",
-          "detail": "Notează trei întrebări despre acces, limite și tarife pe care le-ai verifica la un cont pentru minor.",
           "type": "action"
         }
       ]

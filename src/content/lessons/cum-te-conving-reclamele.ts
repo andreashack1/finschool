@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -92,7 +92,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Prețul de orice buget."
+          "label": "Popularitatea persoanei de durata ofertei, fără a verifica produsul."
         },
         {
           "id": "1",
@@ -100,7 +100,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Orice informație de funcția produsului."
+          "label": "Prețul de funcție, presupunând că aprecierea creatorului este o dovadă tehnică."
         }
       ],
       "correctOption": "1"
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce informație lipsește Sofiei?",
       "explanation": "Demonstrația cu alt model nu răspunde situației ei.",
       "correctFeedback": "Corect. Demonstrația cu alt model nu răspunde situației ei.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce tehnici apar împreună în clip?",
       "explanation": "Mai multe influențe pot apărea în același mesaj.",
       "correctFeedback": "Corect. Mai multe influențe pot apărea în același mesaj.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verificare poate schimba decizia în mod concret?",
       "explanation": "Datele despre produs completează mesajul comercial.",
       "correctFeedback": "Corect. Datele despre produs completează mesajul comercial.",
@@ -205,7 +202,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar muzica din clip."
+          "label": "Doar utilizarea demonstrată pe alt telefon, fără compatibilitatea cu al ei."
         },
         {
           "id": "1",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Observă tehnica",
           "body": "Popularitatea, asocierea și urgența pot influența.",
-          "detail": "Popularitatea, asocierea și urgența pot influența.",
+          "detail": "Creatorul poate demonstra produsul cu un telefon diferit de al tău. Aprecierea lui nu confirmă compatibilitatea; verifică specificațiile și costurile pentru utilizarea ta.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Separă dovezile",
           "body": "Creatorul apreciat nu garantează potrivirea.",
-          "detail": "Creatorul apreciat nu garantează potrivirea.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Reformulează",
           "body": "Pune oferta în termeni neutri și verificabili.",
-          "detail": "Pune oferta în termeni neutri și verificabili.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Alege o reclamă și notează o tehnică de persuasiune și o informație pe care ai verifica-o separat.",
-          "detail": "Alege o reclamă și notează o tehnică de persuasiune și o informație pe care ai verifica-o separat.",
           "type": "action"
         }
       ]

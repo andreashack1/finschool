@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [],
   "screens": [
@@ -84,10 +84,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "Preț nou 300 și ofertă comparabilă 280. Ce diferență ai?",
-      "explanation": "20 lei.",
-      "correctFeedback": "Corect. 20 lei.",
-      "incorrectFeedback": "Nu chiar. 20 lei.",
+      "question": "Oferta de 300 lei pare avantajoasă față de 500 lei tăiat. Același produs este 280 lei în altă parte, în aceleași condiții. Cât plătești în plus alegând prima ofertă?",
+      "explanation": "Diferența relevantă între alternative este 20 lei. Cei 200 lei față de prețul tăiat nu arată care ofertă actuală are costul mai mic.",
+      "correctFeedback": "Corect. Diferența relevantă între alternative este 20 lei. Cei 200 lei față de prețul tăiat nu arată care ofertă actuală are costul mai mic.",
+      "incorrectFeedback": "Nu chiar. Diferența relevantă între alternative este 20 lei. Cei 200 lei față de prețul tăiat nu arată care ofertă actuală are costul mai mic.",
       "type": "variante",
       "options": [
         {
@@ -121,7 +121,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar mărimea fontului."
+          "label": "Doar dacă prețul vechi a fost real, fără alte oferte actuale."
         },
         {
           "id": "2",
@@ -142,11 +142,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce cifră i-a format prima impresie lui Teo?",
-      "explanation": "500 lei.",
-      "correctFeedback": "Corect. 500 lei.",
-      "incorrectFeedback": "Nu chiar. 500 lei.",
+      "question": "Teo spune „economisesc 200 lei”, fără să fi comparat oferta de 280 lei. Care valoare i-a devenit reper inițial?",
+      "explanation": "Prețul tăiat de 500 lei i-a format prima comparație. Ofertele actuale comparabile oferă un reper mai util pentru alegere.",
+      "correctFeedback": "Corect. Prețul tăiat de 500 lei i-a format prima comparație. Ofertele actuale comparabile oferă un reper mai util pentru alegere.",
+      "incorrectFeedback": "Nu chiar. Prețul tăiat de 500 lei i-a format prima comparație. Ofertele actuale comparabile oferă un reper mai util pentru alegere.",
       "caseId": "caz-efectul-de-ancorare",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -161,14 +160,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Soldul unui prieten."
+          "label": "Bugetul disponibil, fără să fi analizat alte prețuri."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce găsește prin comparație?",
       "explanation": "O ofertă comparabilă la 280 lei.",
       "correctFeedback": "Corect. O ofertă comparabilă la 280 lei.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce verifică și accesoriile?",
       "explanation": "Produsele și totalurile trebuie să fie comparabile.",
       "correctFeedback": "Corect. Produsele și totalurile trebuie să fie comparabile.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Ancorarea apare când prima valoare întâlnită influențează evaluarea unei valori ulterioare.",
-          "detail": "Ancorarea apare când prima valoare întâlnită influențează evaluarea unei valori ulterioare.",
+          "detail": "Prețul tăiat de 500 lei face oferta de 300 să pară atractivă. Oferta comparabilă de 280 arată că reperul inițial nu confirmă cel mai mic cost actual.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Un magazin afișează 500 lei tăiat și preț nou 300. Alt magazin are un produs comparabil la 280.",
-          "detail": "Un magazin afișează 500 lei tăiat și preț nou 300. Alt magazin are un produs comparabil la 280.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Prețul de referință trebuie verificat în contextul regulilor reducerii, dar nici un preț vechi real nu garantează valoarea actuală pentru tine.",
-          "detail": "Prețul de referință trebuie verificat în contextul regulilor reducerii, dar nici un preț vechi real nu garantează valoarea actuală pentru tine.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară o ofertă cu preț tăiat cu două repere independente, folosind cifre fictive.",
-          "detail": "Compară o ofertă cu preț tăiat cu două repere independente, folosind cifre fictive.",
           "type": "action"
         }
       ]

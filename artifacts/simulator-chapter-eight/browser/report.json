@@ -1,0 +1,14 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Login, schedule setup, Chapter 2 dashboard retained, monthly card replaced",
+    "Bell / server unread / bounded inbox / mark-all idempotent / keyboard focus / 320,390,430,1280",
+    "pageshow + reconnect + visibility share bounded canonical sync",
+    "Gesture-only granted permission / actual endpoint registration / refresh dedup / toggle-off unsubscribe; browser PushManager fixture",
+    "Missing VAPID / insecure LAN capabilities / absent randomUUID / settings / inbox still works",
+    "Denied permission calm state / anonymous display 401 / cron secret required",
+    "Offline retains rendered simulator and reconnects after all development chunks finished loading"
+  ],
+  "errors": [],
+  "providerErrors": []
+}

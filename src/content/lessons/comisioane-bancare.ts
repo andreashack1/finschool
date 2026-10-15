@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -51,7 +51,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar culoarea cardului."
+          "label": "Doar procentul, fără minimumul pe operațiune."
         },
         {
           "id": "2",
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Cât costă cele patru retrageri ale Marei?",
       "explanation": "Patru minimumuri de 5 lei însumează 20 lei.",
       "correctFeedback": "Corect. Patru minimumuri de 5 lei însumează 20 lei.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce comparația inițială era incompletă?",
       "explanation": "Procentul și pragul se aplică împreună.",
       "correctFeedback": "Corect. Procentul și pragul se aplică împreună.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Ignora culoarea bancomatului."
+          "label": "Confunda comisionul retragerii cu cel al administrării."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Includea prea multe documente."
+          "label": "Aplica minimumul o singură dată pentru toate retragerile."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică în lunile fără bursă?",
       "explanation": "O condiție neîndeplinită poate modifica un cost.",
       "correctFeedback": "Corect. O condiție neîndeplinită poate modifica un cost.",
@@ -273,7 +270,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Numai după reclamele prietenilor."
+          "label": "Numai după procent, fără costuri fixe și frecvență."
         }
       ],
       "correctOption": "1"
@@ -287,28 +284,26 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Operațiunea",
           "body": "Tarifele diferă între servicii.",
-          "detail": "Tarifele diferă între servicii.",
+          "detail": "Un transfer gratuit nu stabilește tariful retragerilor. Caută costul pentru operațiunea, moneda și canalul pe care le folosești.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Praguri",
           "body": "Un minimum poate depăși procentul.",
-          "detail": "Un minimum poate depăși procentul.",
+          "detail": "La tariful ipotetic de 1%, minimum 5 lei, o retragere de 100 lei costă 5 lei. Patru retrageri separate costă 20 lei, fiindcă minimumul se aplică de fiecare dată.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Frecvență",
           "body": "Costurile mici pe operațiune se adună.",
-          "detail": "Costurile mici pe operațiune se adună.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Găsește tariful unei operațiuni pe care o folosești și verifică dacă are cost fix, procent sau minimum.",
-          "detail": "Găsește tariful unei operațiuni pe care o folosești și verifică dacă are cost fix, procent sau minimum.",
           "type": "action"
         }
       ]

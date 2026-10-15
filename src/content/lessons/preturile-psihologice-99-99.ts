@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [],
   "screens": [
@@ -64,10 +64,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Un preț de 99,99 lei poate părea mai aproape de 99 decât de 100 la o privire rapidă.",
-      "explanation": "Un preț de 99,99 lei poate părea mai aproape de 99 decât de 100 la o privire rapidă. Diferența față de 100 este numai un ban. Rotunjirea pentru planificare poate face totalul mai vizibil, dar la plată folosești suma exactă. Nu presupune că orice preț care se termină în 99 este redus ori mai avantajos.",
-      "correctFeedback": "Corect. Un preț de 99,99 lei poate părea mai aproape de 99 decât de 100 la o privire rapidă. Diferența față de 100 este numai un ban. Rotunjirea pentru planificare poate face totalul mai vizibil, dar la plată folosești suma exactă. Nu presupune că orice preț care se termină în 99 este redus ori mai avantajos.",
-      "incorrectFeedback": "Nu chiar. Un preț de 99,99 lei poate părea mai aproape de 99 decât de 100 la o privire rapidă. Diferența față de 100 este numai un ban. Rotunjirea pentru planificare poate face totalul mai vizibil, dar la plată folosești suma exactă. Nu presupune că orice preț care se termină în 99 este redus ori mai avantajos.",
+      "question": "O economie de un ban față de 100 lei nu schimbă semnificativ o depășire a bugetului cu zeci de lei.",
+      "explanation": "Terminația prețului poate influența impresia, dar totalul trebuie comparat cu disponibilul. Un ban economisit pe produs nu repară o depășire mare.",
+      "correctFeedback": "Corect. Terminația prețului poate influența impresia, dar totalul trebuie comparat cu disponibilul. Un ban economisit pe produs nu repară o depășire mare.",
+      "incorrectFeedback": "Nu chiar. Terminația prețului poate influența impresia, dar totalul trebuie comparat cu disponibilul. Un ban economisit pe produs nu repară o depășire mare.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce primă impresie are Dana?",
       "explanation": "Fiecare produs pare sub pragul de 100.",
       "correctFeedback": "Corect. Fiecare produs pare sub pragul de 100.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Coșul este gratuit."
+          "label": "Fiecare produs ar trebui numărat ca 99 lei, ignorând restul."
         },
         {
           "id": "2",
-          "label": "Bugetul s-a mărit."
+          "label": "Fiecare preț sub 100 garantează că suma coșului rămâne sub buget."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce estimare rapidă îi ajută planul?",
       "explanation": "Aproximativ 300 lei.",
       "correctFeedback": "Corect. Aproximativ 300 lei.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce face înainte de plată?",
       "explanation": "Reduce coșul după verificarea totalului.",
       "correctFeedback": "Corect. Reduce coșul după verificarea totalului.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Un preț de 99,99 lei poate părea mai aproape de 99 decât de 100 la o privire rapidă.",
-          "detail": "Un preț de 99,99 lei poate părea mai aproape de 99 decât de 100 la o privire rapidă.",
+          "detail": "Trei produse de 99,99 lei costă aproape 300, chiar dacă fiecare pare sub pragul de o sută. Rotunjirea ajută estimarea bugetului, apoi totalul exact stabilește plata.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Trei produse de 99,99 lei costă 299,97, aproape 300. Dacă bugetul este 250, depășirea este 49,97.",
-          "detail": "Trei produse de 99,99 lei costă 299,97, aproape 300. Dacă bugetul este 250, depășirea este 49,97.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Prețurile apropiate de un prag nu dovedesc intenția vânzătorului în fiecare caz.",
-          "detail": "Prețurile apropiate de un prag nu dovedesc intenția vânzătorului în fiecare caz.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Rotunjește pentru plan trei prețuri fictive și compară estimarea cu totalul exact.",
-          "detail": "Rotunjește pentru plan trei prețuri fictive și compară estimarea cu totalul exact.",
           "type": "action"
         }
       ]

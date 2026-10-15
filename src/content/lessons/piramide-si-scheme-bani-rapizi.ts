@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -51,11 +51,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Cât de entuziast este prezentatorul?"
+          "label": "Cât s-a plătit primilor participanți, fără sursa banilor."
         },
         {
           "id": "2",
-          "label": "Câte culori are graficul?"
+          "label": "Cât costă intrarea, fără clienți din afara recrutării."
         }
       ],
       "correctOption": "0"
@@ -83,10 +83,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "Trei persoane aduc fiecare trei. Câte sunt în etapa nouă?",
-      "explanation": "3 × 3 = 9, iar nevoia de participanți crește.",
-      "correctFeedback": "Corect. 3 × 3 = 9, iar nevoia de participanți crește.",
-      "incorrectFeedback": "Nu chiar. 3 × 3 = 9, iar nevoia de participanți crește.",
+      "question": "În schemă, cei trei participanți trebuie să aducă fiecare trei oameni noi care plătesc. De câți participanți noi depinde etapa următoare?",
+      "explanation": "Etapa nouă cere nouă oameni. Calculul arată cum crește nevoia de recrutare; nu dovedește că există clienți sau venit sustenabil.",
+      "correctFeedback": "Corect. Etapa nouă cere nouă oameni. Calculul arată cum crește nevoia de recrutare; nu dovedește că există clienți sau venit sustenabil.",
+      "incorrectFeedback": "Nu chiar. Etapa nouă cere nouă oameni. Calculul arată cum crește nevoia de recrutare; nu dovedește că există clienți sau venit sustenabil.",
       "type": "scenariu",
       "context": "Nu numărăm etapele anterioare.",
       "options": [
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce semnal observă Alex în răspunsuri?",
       "explanation": "Evitarea sursei banilor este relevantă.",
       "correctFeedback": "Corect. Evitarea sursei banilor este relevantă.",
@@ -161,14 +160,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Numai fotografia colegului."
+          "label": "Doar existența unei plăți către coleg, fără sursa venitului."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce dovedește captura colegului?",
       "explanation": "Nu extinzi o dovadă punctuală la promisiunea generală.",
       "correctFeedback": "Corect. Nu extinzi o dovadă punctuală la promisiunea generală.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce alegere limitează transferul riscului?",
       "explanation": "Recuperarea personală nu justifică expunerea altora la un mecanism neclar.",
       "correctFeedback": "Corect. Recuperarea personală nu justifică expunerea altora la un mecanism neclar.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Sursa",
           "body": "Cere explicația banilor fără recrutări noi.",
-          "detail": "Cere explicația banilor fără recrutări noi.",
+          "detail": "O captură cu o plată către coleg nu arată cine finanțează câștigurile următoare. Verifică dacă există clienți care cumpără pentru utilitate, fără să fie obligați să aducă alți participanți.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Dovezi",
           "body": "O plată nu garantează sustenabilitatea.",
-          "detail": "O plată nu garantează sustenabilitatea.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Prieteni",
           "body": "Nu transfera riscul pentru a recupera o sumă.",
-          "detail": "Nu transfera riscul pentru a recupera o sumă.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La o promisiune de bani rapizi, formulează întrebarea despre sursa venitului și verifică dacă primești un răspuns concret.",
-          "detail": "La o promisiune de bani rapizi, formulează întrebarea despre sursa venitului și verifică dacă primești un răspuns concret.",
           "type": "action"
         }
       ]

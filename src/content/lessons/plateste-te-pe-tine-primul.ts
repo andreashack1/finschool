@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce Mara nu separă 400 lei?",
       "explanation": "Suma propusă depășește spațiul planului.",
       "correctFeedback": "Corect. Suma propusă depășește spațiul planului.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Economiile sunt mereu inutile."
+          "label": "Contribuția aleasă trebuie păstrată, chiar dacă obligațiile nu mai încap."
         },
         {
           "id": "2",
-          "label": "Transferul creează o datorie obligatorie."
+          "label": "Ordinea transferului este suficientă pentru echilibrarea oricărei sume."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce rol are mutarea celor 100 lei?",
       "explanation": "Transferul propriu schimbă locul sau evidența.",
       "correctFeedback": "Corect. Transferul propriu schimbă locul sau evidența.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Dublez banii."
+          "label": "Înregistrează mutarea drept o cheltuială de consum."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Șterge proprietatea sumei."
+          "label": "Înregistrează intrarea în economii drept un venit nou."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce face când apare o nevoie importantă?",
       "explanation": "Planul poate fi adaptat fără verdict moral.",
       "correctFeedback": "Corect. Planul poate fi adaptat fără verdict moral.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ordine",
           "body": "Separă o contribuție planificată la intrarea venitului.",
-          "detail": "Separă o contribuție planificată la intrarea venitului.",
+          "detail": "Din 1.000 lei, costurile de 700 și contribuția de 100 lasă 200 lei pentru alte alegeri. Separarea a 400 lei nu ar repara lipsa banilor pentru costurile necesare.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Buget",
           "body": "Nu ignora obligațiile relevante.",
-          "detail": "Nu ignora obligațiile relevante.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Revizuire",
           "body": "Automatizarea și suma se adaptează.",
-          "detail": "Automatizarea și suma se adaptează.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Simulează pe hârtie o contribuție mică la intrarea venitului și verifică ce rămâne după obligații.",
-          "detail": "Simulează pe hârtie o contribuție mică la intrarea venitului și verifică ce rămâne după obligații.",
           "type": "action"
         }
       ]

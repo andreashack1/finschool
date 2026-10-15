@@ -1,0 +1,237 @@
+[
+  {
+    "path": "src/content/simulator/events/catalog-v2.server.ts",
+    "bytes": 2972,
+    "sha256": "ABEA054CE3860D4FAD4799AE38FCE3FE9E3ED8991FF2FE6789CE87443BD97804"
+  },
+  {
+    "path": "src/content/simulator/events/policy-v2.ts",
+    "bytes": 691,
+    "sha256": "29E71D4DB868BA89A5AC6F9840907987E6603FE06B7AB149C8503863EEBE2856"
+  },
+  {
+    "path": "src/content/simulator/events/prices.ts",
+    "bytes": 830,
+    "sha256": "7CAA7224C7DCB915280ADAD74B6B38080A90AB7711B202EC90A38E2AD94B7F93"
+  },
+  {
+    "path": "src/content/simulator/events/life-builder.ts",
+    "bytes": 5782,
+    "sha256": "858A7FF6EB990233651DC06D5BF646C425C8D1DA12D2CFA5BEA712BB6E921B18"
+  },
+  {
+    "path": "src/content/simulator/events/routine.ts",
+    "bytes": 3389,
+    "sha256": "2135930971915739889845E184119A1254F9D957BC5FE9AC3E4DC30AA02D936E"
+  },
+  {
+    "path": "src/content/simulator/events/food.ts",
+    "bytes": 3620,
+    "sha256": "DF84CF21C9F1858279D87B939C945BDD281FDB75E2AEEF507F95CCD6950394AB"
+  },
+  {
+    "path": "src/content/simulator/events/school.ts",
+    "bytes": 7465,
+    "sha256": "6FCE01E15B7B4E7430BD59F641233F6052522745D006D70BDDA0459925B3D791"
+  },
+  {
+    "path": "src/content/simulator/events/work.ts",
+    "bytes": 6310,
+    "sha256": "2BD5CE6EA68692D627E8C7507A1CD678CA0720F55C5E88C7FF80D8C903BDD741"
+  },
+  {
+    "path": "src/content/simulator/events/transport.ts",
+    "bytes": 5199,
+    "sha256": "93A1796CCE2C86D84AEE6D5A640375A0366877C9835F4255F8047AC845779988"
+  },
+  {
+    "path": "src/content/simulator/events/social.ts",
+    "bytes": 5448,
+    "sha256": "FA92E5C0C39952E80D1194523918020387887DBC37C2686C3DE10AA7DB3B8FE1"
+  },
+  {
+    "path": "src/content/simulator/events/shopping.ts",
+    "bytes": 4755,
+    "sha256": "1DBBB9427C756157CFE257E5E3E01392938B6F9D89CCADFBD2FE4AE1CC069688"
+  },
+  {
+    "path": "src/content/simulator/events/home.ts",
+    "bytes": 3437,
+    "sha256": "8BC9E6B70FD6CC10A64C8546F022ABA41B8E97FA4BC1BC0E847CD33DE925B624"
+  },
+  {
+    "path": "src/content/simulator/events/digital.ts",
+    "bytes": 4051,
+    "sha256": "C9E5B6581F93C81E13438D95EC87A9A1F22988D848A30BD502D3E7F1F2E0F394"
+  },
+  {
+    "path": "src/content/simulator/events/leisure.ts",
+    "bytes": 3415,
+    "sha256": "349AA304C0C4D6B3943D61D0079A5B30891AE9C9193512F2A89622AB4FC81E8A"
+  },
+  {
+    "path": "src/content/simulator/events/obligations.ts",
+    "bytes": 2722,
+    "sha256": "C84C5B1CF92A325CA24134014F86D82ABDE36A748D3B5ADB93514E0F987EDEBC"
+  },
+  {
+    "path": "src/content/simulator/events/unexpected.ts",
+    "bytes": 2840,
+    "sha256": "EB89A3445FA3EF75D98A8DF1158D7B92AA40B80421561A254B1368287151C27A"
+  },
+  {
+    "path": "src/content/simulator/events/opportunities.ts",
+    "bytes": 2039,
+    "sha256": "0E6D33DE38D2C6226D166EE6BAC82345EDEE1AFA55F41D1AC295278794B18BCD"
+  },
+  {
+    "path": "src/content/simulator/events/weekend.ts",
+    "bytes": 1928,
+    "sha256": "EDDCCC152973869D5602B81C5E9AA05D2330EB9257B3DF0587F5FF6A42179BDB"
+  },
+  {
+    "path": "src/content/simulator/events/seasonal.ts",
+    "bytes": 2109,
+    "sha256": "3F4777E916CA6578A0F3997CFE26960F6AA688E58A4E9F691228CA49BE966CEA"
+  },
+  {
+    "path": "src/lib/simulator/events/life-taxonomy.ts",
+    "bytes": 3215,
+    "sha256": "DDCCCD10FCA7BA68832C98DBD0BE63269E06BA63823B6B8C28387D3B592C8B79"
+  },
+  {
+    "path": "src/lib/simulator/events/life-report.ts",
+    "bytes": 7187,
+    "sha256": "FA70E7DFD51DD0B85E84EBD7AA059EC5D81E25637D4015AD98A5364923B3C811"
+  },
+  {
+    "path": "app/api/simulator/dev/life/route.ts",
+    "bytes": 2533,
+    "sha256": "0BF7CFAE8D545684252C7DEE1275D932B8381903BD76980E2265EBADDDD7773A"
+  },
+  {
+    "path": "supabase/migrations/0007_simulator_life_catalog.sql",
+    "bytes": 2328,
+    "sha256": "FEB3D65F3F87DF441F200AA712447F717F548B58CBED1A3AE08F16CA7DD51CA6"
+  },
+  {
+    "path": "tests/simulator-life.test.ts",
+    "bytes": 7200,
+    "sha256": "E85F1C77385895A942419C7A6C6CB1383E2592388EE70C48911C39FB364C81D3"
+  },
+  {
+    "path": "tests/simulator-life-state.test.ts",
+    "bytes": 7112,
+    "sha256": "59C83CA38C72D9363C5B4D796F488C9D4D04E7C23BEDF17B1EB2CF99F63E7237"
+  },
+  {
+    "path": "tests/simulator-life-integration.test.ts",
+    "bytes": 8526,
+    "sha256": "B2A8313761505F219483E5CB0F64BE8A8B93FDF6CF144C10FA9375641750EC52"
+  },
+  {
+    "path": "tests/simulator-life-api.test.ts",
+    "bytes": 1949,
+    "sha256": "BB166A1700880217E0B4D20198CA1962659466EB8B1E54E63B2E91AEE49CB573"
+  },
+  {
+    "path": "tests/simulator-life-browser.mjs",
+    "bytes": 163,
+    "sha256": "4FD45922767D63917E6F0F0613200EC0AEB0C1FBF3F7B905B87386274C598EA3"
+  },
+  {
+    "path": "scripts/verify-simulator-life.mjs",
+    "bytes": 355,
+    "sha256": "9E0145BECF3B7A7EB8E1BE644975EC03281308711DA3613EAA67B8FE27A5E9DF"
+  },
+  {
+    "path": "src/lib/simulator/CHAPTER_6.md",
+    "bytes": 14457,
+    "sha256": "3BB65DCF93DAB74C413E32F92C42CC48B876214B52CD286C9890E30502169F28"
+  },
+  {
+    "path": "src/content/simulator/events/registry.server.ts",
+    "bytes": 896,
+    "sha256": "122F19A6CA3EEC9FF29807AC0F0A378905DB51414A9CD4E50366293D7D7CF3B1"
+  },
+  {
+    "path": "src/lib/simulator/events/types.ts",
+    "bytes": 9390,
+    "sha256": "72214A9A243543B441ACA23C1217EC71D6F96CF28521B7D6DDD0B6BCB3481081"
+  },
+  {
+    "path": "src/lib/simulator/events/validate.ts",
+    "bytes": 4829,
+    "sha256": "62A03C6505CCB1FF0997DCEEF51A2DC9ABF83734D7E90341358BE497143ADFBA"
+  },
+  {
+    "path": "src/lib/simulator/events/planner.ts",
+    "bytes": 18945,
+    "sha256": "8B41C44047D01A81958272EB619FD0761E1BE9474B7E1B0745002A8B434293E5"
+  },
+  {
+    "path": "src/lib/simulator/events/time.ts",
+    "bytes": 4147,
+    "sha256": "191F3CCFD6AFD03A59D141DFBC812BBB125731E52D06E9F7B2A44B17087313CF"
+  },
+  {
+    "path": "src/lib/simulator/events/synchronize.ts",
+    "bytes": 6326,
+    "sha256": "AE322D59A0BA58E8E904307C2DBFA81D2F7F38D338873D70A138AAEB50F1C88E"
+  },
+  {
+    "path": "src/lib/simulator/server/database.ts",
+    "bytes": 2100,
+    "sha256": "AEC26C3423D3E4E6BDBE7716FFF278B3D3ED832D1DA64B7C56DCBA64A79E7C1D"
+  },
+  {
+    "path": "src/lib/simulator/server/events.ts",
+    "bytes": 9316,
+    "sha256": "C0036075E3DB0A6955708204BB9D10B7E6FC68014B9D98D965433BD99D8A053C"
+  },
+  {
+    "path": "src/lib/simulator/server/chapter-two.ts",
+    "bytes": 4416,
+    "sha256": "FBE71BD3427FA0347F7346ADFA46F50F116D2CA66C08788DE0AE544DAD85C548"
+  },
+  {
+    "path": "src/lib/simulator/server/consequence-demos.ts",
+    "bytes": 3324,
+    "sha256": "D4D37A07D3515FA711BEE26FEC286866FCD50D0AEC95017983A208F181C5B7FF"
+  },
+  {
+    "path": "app/api/simulator/profile/route.ts",
+    "bytes": 821,
+    "sha256": "9089F7CCE60AA0C7333765625B04AA0266047A39C8B36BCDACD98452F3DD3190"
+  },
+  {
+    "path": "app/api/simulator/dev/events/route.ts",
+    "bytes": 3614,
+    "sha256": "2349FCF75950A4D2EEA709FD2514ADBA9E3B6E382C2CA3EA046212D5F77C14FB"
+  },
+  {
+    "path": "app/simulator/dev/simulator-dev-client.tsx",
+    "bytes": 10733,
+    "sha256": "5ACE462A148295EE55A4431FBF02348807433E3E310DBDC242C465E25E062EFF"
+  },
+  {
+    "path": "tests/simulator-events.test.ts",
+    "bytes": 13983,
+    "sha256": "09792C3214F3DFB53C12EBFCA2C621E787D715F520DC147EF537949A01790AAC"
+  },
+  {
+    "path": "tests/simulator-events-api.test.ts",
+    "bytes": 5178,
+    "sha256": "9FE4807870E1014CF1DF5CA31B04A2AA4B724AFECBE2D510CF5EFB6E0DDA33FE"
+  },
+  {
+    "path": "tests/simulator-subscriptions-browser.mjs",
+    "bytes": 28403,
+    "sha256": "A2A1D2BA0854E71768DCE2497CA6EBC438044E9DC48367CB93E4923F1E516CC2"
+  },
+  {
+    "path": "tests/simulator-production.mjs",
+    "bytes": 4144,
+    "sha256": "3E7FDE1E9601D08B8B00122373AB94E408CF90D9A864432644CA50BCA8576859"
+  }
+]

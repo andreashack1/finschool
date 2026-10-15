@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -89,10 +89,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "1.800 plus accesoriu de 200. Care este costul?",
-      "explanation": "2.000 lei.",
-      "correctFeedback": "Corect. 2.000 lei.",
-      "incorrectFeedback": "Nu chiar. 2.000 lei.",
+      "question": "Laptopul de 1.800 lei cere un accesoriu necesar de 200 lei. Ce total compari cu bugetul disponibil de 2.000 lei?",
+      "explanation": "Costul pentru utilizarea cerută este 2.000 lei, nu numai eticheta laptopului. Accesoriul necesar consumă restul bugetului din exemplu.",
+      "correctFeedback": "Corect. Costul pentru utilizarea cerută este 2.000 lei, nu numai eticheta laptopului. Accesoriul necesar consumă restul bugetului din exemplu.",
+      "incorrectFeedback": "Nu chiar. Costul pentru utilizarea cerută este 2.000 lei, nu numai eticheta laptopului. Accesoriul necesar consumă restul bugetului din exemplu.",
       "type": "variante",
       "options": [
         {
@@ -147,7 +147,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce utilizare urmărește Luca?",
       "explanation": "Proiectele pentru care a stabilit cerințe.",
       "correctFeedback": "Corect. Proiectele pentru care a stabilit cerințe.",
@@ -173,7 +172,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce modelul A nu costă doar 1.800 pentru Luca?",
       "explanation": "Are nevoie și de accesoriul de 200.",
       "correctFeedback": "Corect. Are nevoie și de accesoriul de 200.",
@@ -199,7 +197,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică dincolo de total?",
       "explanation": "Vânzătorul, starea și suportul.",
       "correctFeedback": "Corect. Vânzătorul, starea și suportul.",
@@ -210,11 +207,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar cronometru promoțional."
+          "label": "Doar marca, presupunând că starea și suportul sunt identice."
         },
         {
           "id": "1",
-          "label": "Doar numărul like-urilor."
+          "label": "Doar reducerea afișată, fără informațiile vânzătorului."
         },
         {
           "id": "2",
@@ -278,7 +275,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar culoarea cardului."
+          "label": "Doar numărul ratelor, fără valoarea și costurile separate."
         }
       ],
       "correctOption": "1"
@@ -292,28 +289,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "O achiziție mare începe cu nevoia: ce trebuie să facă dispozitivul și cât timp vrei să îl folosești.",
-          "detail": "O achiziție mare începe cu nevoia: ce trebuie să facă dispozitivul și cât timp vrei să îl folosești.",
+          "detail": "Modelul de 1.800 lei ajunge la 2.000 cu accesoriul necesar proiectelor lui Luca. Funcțiile nefolosite sau marca nu justifică singure depășirea bugetului pentru alt model.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Luca are un buget de 2.000 lei. Modelul A costă 1.800 și necesită un accesoriu de 200, deci ajunge la 2.000.",
-          "detail": "Luca are un buget de 2.000 lei. Modelul A costă 1.800 și necesită un accesoriu de 200, deci ajunge la 2.000.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "O tranșă mică poate ascunde un total mare.",
-          "detail": "O tranșă mică poate ascunde un total mare.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Definește trei cerințe reale pentru un dispozitiv și calculează un cost complet fictiv.",
-          "detail": "Definește trei cerințe reale pentru un dispozitiv și calculează un cost complet fictiv.",
           "type": "action"
         }
       ]

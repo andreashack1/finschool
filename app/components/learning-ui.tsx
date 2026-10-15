@@ -1,6 +1,8 @@
 "use client";
 import { getLessonRewardPreview } from "@/src/lib/progress";
 import Link from "next/link";
+import NotificationBell from "./notification-bell";
+import { useProgressData } from "../../src/lib/use-progress";
 import { ArrowLeft, BookOpen, BriefcaseBusiness, ChartNoAxesCombined, Check, ChevronRight, Clock3, CreditCard, Gamepad2, Home, LockKeyhole, PiggyBank, ShieldCheck, UserRound, WalletCards, Coins, House, Brain, Landmark, Store, TrendingUp } from "lucide-react";
 import { categories, getCategory } from "@/src/content/categories";
 import { getLessonsByChapter } from "@/src/content/lessons";
@@ -29,7 +31,8 @@ export function LearningProgressBar({ value, label }: { value: number; label: st
   return <div className="app-progress" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={percentage}><span style={{ width: `${percentage}%` }}/></div>;
 }
 export function LearningShell({ children }: { children: React.ReactNode }) {
-  return <div className="finly-app tab-learn"><a className="skip-link" href="#app-content">Sari la conținut</a><div className="desktop-brand"><Link href="/" className="brand-word">finly<span>.</span></Link><span>Banii, pe înțelesul tău.</span></div><main className="app-content" id="app-content">{children}</main><nav className="bottom-nav" aria-label="Navigare principală">{[{ href: "/", label: "Acasă", icon: Home }, { href: "/lectii", label: "Lecții", icon: BookOpen }, { href: "/?tab=simulator", label: "Simulator", icon: Gamepad2 }, { href: "/?tab=profile", label: "Profil", icon: UserRound }].map(({ href, label, icon: Icon }) => <Link key={label} href={href} aria-current={label === "Lecții" ? "page" : undefined} className={label === "Lecții" ? "active" : ""}><span><Icon size={21} strokeWidth={label === "Lecții" ? 2.3 : 1.8}/></span><strong>{label}</strong></Link>)}</nav></div>;
+  const notificationAccount = useProgressData();
+  return <div className="finly-app tab-learn"><a className="skip-link" href="#app-content">Sari la conținut</a><div className="desktop-brand"><Link href="/" className="brand-word">finly<span>.</span></Link><span>Banii, pe înțelesul tău.</span></div><main className="app-content" id="app-content">{notificationAccount.userId && <div className="notification-utility"><NotificationBell userId={notificationAccount.userId}/></div>}{children}</main><nav className="bottom-nav" aria-label="Navigare principală">{[{ href: "/", label: "Acasă", icon: Home }, { href: "/lectii", label: "Lecții", icon: BookOpen }, { href: "/simulator", label: "Simulator", icon: Gamepad2 }, { href: "/?tab=profile", label: "Profil", icon: UserRound }].map(({ href, label, icon: Icon }) => <Link key={label} href={href} aria-current={label === "Lecții" ? "page" : undefined} className={label === "Lecții" ? "active" : ""}><span><Icon size={21} strokeWidth={label === "Lecții" ? 2.3 : 1.8}/></span><strong>{label}</strong></Link>)}</nav></div>;
 }
 export function CategoriesView() {
   const p = useLearningProgress();

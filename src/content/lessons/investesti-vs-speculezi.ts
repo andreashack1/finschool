@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -73,10 +73,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Investiția urmărește o teză legată de valoare, venituri și obiective, iar speculația mizează mai mult pe schimbări de preț anticipate.",
-      "explanation": "Investiția urmărește o teză legată de valoare, venituri și obiective, iar speculația mizează mai mult pe schimbări de preț anticipate. Distincția nu depinde numai de durata deținerii. Ambele pot pierde bani. Explică motivul deciziei, ce informații îl susțin și ce rezultat nefavorabil ai luat în calcul înainte să cumperi.",
-      "correctFeedback": "Corect. Investiția urmărește o teză legată de valoare, venituri și obiective, iar speculația mizează mai mult pe schimbări de preț anticipate. Distincția nu depinde numai de durata deținerii. Ambele pot pierde bani. Explică motivul deciziei, ce informații îl susțin și ce rezultat nefavorabil ai luat în calcul înainte să cumperi.",
-      "incorrectFeedback": "Nu chiar. Investiția urmărește o teză legată de valoare, venituri și obiective, iar speculația mizează mai mult pe schimbări de preț anticipate. Distincția nu depinde numai de durata deținerii. Ambele pot pierde bani. Explică motivul deciziei, ce informații îl susțin și ce rezultat nefavorabil ai luat în calcul înainte să cumperi.",
+      "question": "Un termen lung de deținere nu transformă singur o anticipare de preț într-o decizie fundamentată pe valoare.",
+      "explanation": "Motivul și informațiile care susțin decizia contează, nu doar durata. Păstrarea unui instrument după scădere nu produce automat analiza care lipsea.",
+      "correctFeedback": "Corect. Motivul și informațiile care susțin decizia contează, nu doar durata. Păstrarea unui instrument după scădere nu produce automat analiza care lipsea.",
+      "incorrectFeedback": "Nu chiar. Motivul și informațiile care susțin decizia contează, nu doar durata. Păstrarea unui instrument după scădere nu produce automat analiza care lipsea.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce lipsă observă Ana în mesaj?",
       "explanation": "O explicație verificabilă.",
       "correctFeedback": "Corect. O explicație verificabilă.",
@@ -177,7 +176,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce notează pentru studiul companiei?",
       "explanation": "Motivele și riscurile.",
       "correctFeedback": "Corect. Motivele și riscurile.",
@@ -188,7 +186,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar numărul mesajelor."
+          "label": "Doar durata deținerii, presupunând că înlocuiește analiza."
         },
         {
           "id": "1",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce evită împrumutul automat?",
       "explanation": "Poate amplifica pierderea și obligațiile.",
       "correctFeedback": "Corect. Poate amplifica pierderea și obligațiile.",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Investiția urmărește o teză legată de valoare, venituri și obiective, iar speculația mizează mai mult pe schimbări de preț anticipate.",
-          "detail": "Investiția urmărește o teză legată de valoare, venituri și obiective, iar speculația mizează mai mult pe schimbări de preț anticipate.",
+          "detail": "Promisiunea că prețul crește mâine nu înlocuiește informațiile despre instrument. Păstrarea lui după o scădere nu transformă automat anticiparea inițială într-o decizie fundamentată.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Ana compară studiul unei companii pentru un obiectiv lung cu o cumpărare bazată pe speranța că prețul crește mâine. A doua idee nu are analiză a companiei și depinde de mișcarea rapidă.",
-          "detail": "Ana compară studiul unei companii pentru un obiectiv lung cu o cumpărare bazată pe speranța că prețul crește mâine. A doua idee nu are analiză a companiei și depinde de mișcarea rapidă.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Un termen lung nu repară automat o decizie fără înțelegerea instrumentului.",
-          "detail": "Un termen lung nu repară automat o decizie fără înțelegerea instrumentului.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Scrie motivul unei decizii fictive și separă informația verificabilă de o anticipare de preț.",
-          "detail": "Scrie motivul unei decizii fictive și separă informația verificabilă de o anticipare de preț.",
           "type": "action"
         }
       ]

@@ -1,0 +1,22 @@
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+vi.mock('server-only',()=>({}));
+const mocks=vi.hoisted(()=>({user:vi.fn(),mutate:vi.fn(),clock:vi.fn(),page:vi.fn()}));
+vi.mock('../src/lib/supabase/server',()=>({requireUser:mocks.user}));
+vi.mock('../src/lib/simulator/server/savings-goal',()=>({mutateGoal:mocks.mutate}));
+vi.mock('../src/lib/simulator/server/clock',()=>({getServerClock:mocks.clock}));
+vi.mock('../src/lib/simulator/server/chapter-two',()=>({simulatorPageState:mocks.page}));
+import { POST } from '../app/api/simulator/goal/route';
+import { goalInputSchema } from '../src/lib/simulator/savings-goal';
+import { AccountError } from '../src/lib/account/errors';
+import { SimulatorError } from '../src/lib/simulator/errors';
+import { userA,userB } from './simulator-fixtures';
+const body=()=>({action:'create',name:'Laptop',amount:'3500',operationId:crypto.randomUUID()});
+const request=(input:unknown=body(),origin='http://localhost:3000',user=userA)=>new Request('http://localhost:3000/api/simulator/goal',{method:'POST',headers:{origin,'Content-Type':'application/json','X-Finly-Account':user},body:JSON.stringify(input)});
+beforeEach(()=>{vi.resetAllMocks();mocks.user.mockResolvedValue({id:userA});mocks.clock.mockResolvedValue({effectiveDay:'2026-10-13'});mocks.mutate.mockImplementation((_user,_clock,input)=>goalInputSchema.parse(input));mocks.page.mockResolvedValue({dashboard:{goal:null}});});
+afterEach(()=>vi.unstubAllEnvs());
+describe('Savings goal authenticated HTTP boundary',()=>{
+  it('derives ownership from session, returns confirmed state without caching',async()=>{const input=body(),response=await POST(request(input));expect(response.status).toBe(200);expect(response.headers.get('Cache-Control')).toBe('no-store');expect(mocks.mutate).toHaveBeenCalledWith(userA,{effectiveDay:'2026-10-13'},input);expect(mocks.page).toHaveBeenCalledWith(userA,{effectiveDay:'2026-10-13'});});
+  it('rejects anonymous, cross-origin and account-switch requests before mutation',async()=>{mocks.user.mockRejectedValueOnce(new AccountError('AUTH_REQUIRED',401));expect((await POST(request())).status).toBe(401);expect((await POST(request(body(),'https://evil.test'))).status).toBe(403);expect((await POST(request(body(),'http://localhost:3000',userB))).status).toBe(401);expect(mocks.mutate).not.toHaveBeenCalled();});
+  it('rejects spoofed owner and invalid money',async()=>{expect((await POST(request({...body(),userId:userB}))).status).toBe(400);expect((await POST(request({...body(),amount:'-100'}))).status).toBe(400);});
+  it('returns safe specific money errors',async()=>{mocks.mutate.mockRejectedValue(new SimulatorError('GOAL_INSUFFICIENT'));const response=await POST(request());expect(response.status).toBe(400);expect(await response.json()).toEqual({error:{code:'GOAL_INSUFFICIENT',message:'Nu ai suficienți bani disponibili.'}});expect(mocks.page).not.toHaveBeenCalled();});
+});

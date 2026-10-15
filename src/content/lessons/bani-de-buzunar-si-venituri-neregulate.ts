@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -83,10 +83,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "Care este media pentru 300, 700 și 500 lei?",
-      "explanation": "1.500 împărțit la 3 este 500 lei.",
-      "correctFeedback": "Corect. 1.500 împărțit la 3 este 500 lei.",
-      "incorrectFeedback": "Nu chiar. 1.500 împărțit la 3 este 500 lei.",
+      "question": "Intrările sunt 300, 700 și 500 lei în trei luni. Ce medie folosești pentru context, fără să o tratezi ca venit garantat luna următoare?",
+      "explanation": "Media este 500 lei, dar nu completează automat luna de 300. Pentru plăți folosești suma și momentul intrărilor efective.",
+      "correctFeedback": "Corect. Media este 500 lei, dar nu completează automat luna de 300. Pentru plăți folosești suma și momentul intrărilor efective.",
+      "incorrectFeedback": "Nu chiar. Media este 500 lei, dar nu completează automat luna de 300. Pentru plăți folosești suma și momentul intrărilor efective.",
       "type": "scenariu",
       "context": "Analizezi trei perioade.",
       "options": [
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce Teo nu cheltuiește după media de 500 în prima lună?",
       "explanation": "Contextul statistic nu înlocuiește banii disponibili.",
       "correctFeedback": "Corect. Contextul statistic nu înlocuiește banii disponibili.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce poate verifica într-o lună mai bună?",
       "explanation": "Separarea resurselor poate crește flexibilitatea.",
       "correctFeedback": "Corect. Separarea resurselor poate crește flexibilitatea.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce analizează abonamentul cu atenție?",
       "explanation": "Un cost recurent cere un scenariu sustenabil.",
       "correctFeedback": "Corect. Un cost recurent cere un scenariu sustenabil.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Moment",
           "body": "Suma și calendarul se verifică împreună.",
-          "detail": "Suma și calendarul se verifică împreună.",
+          "detail": "Media de 500 lei nu adaugă automat 200 lei în luna cu intrări de 300 lei. Pentru fiecare scadență, verifică banii efectiv disponibili și ce venit este confirmat înainte de termen.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Medie",
           "body": "Nu este o încasare garantată.",
-          "detail": "Nu este o încasare garantată.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Flexibilitate",
           "body": "Compară costurile fixe cu luni mai slabe.",
-          "detail": "Compară costurile fixe cu luni mai slabe.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Scrie două scenarii de venit pentru luna următoare și ce obligații rămân în ambele.",
-          "detail": "Scrie două scenarii de venit pentru luna următoare și ce obligații rămân în ambele.",
           "type": "action"
         }
       ]

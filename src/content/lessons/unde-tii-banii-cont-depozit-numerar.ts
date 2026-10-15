@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce nevoie are suma pentru drumul Anei?",
       "explanation": "Momentul plății determină criteriul accesului.",
       "correctFeedback": "Corect. Momentul plății determină criteriul accesului.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce trebuie aflat dincolo de reclamă?",
       "explanation": "Procentul izolat nu descrie varianta completă.",
       "correctFeedback": "Corect. Procentul izolat nu descrie varianta completă.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar culoarea paginii."
+          "label": "Doar dobânda, presupunând că accesul înainte de termen nu o schimbă."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar numărul de stele."
+          "label": "Doar protecția instituției, fără natura produsului."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce nu confundă investiția cu depozitul?",
       "explanation": "Documentele determină categoria produsului.",
       "correctFeedback": "Corect. Documentele determină categoria produsului.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Scop",
           "body": "Compară locul cu momentul folosirii.",
-          "detail": "Compară locul cu momentul folosirii.",
+          "detail": "Banii pentru drumul de săptămâna viitoare cer acces diferit de cei pentru cursul de peste câteva luni. Dobânda mai mare nu spune ce se întâmplă la retragerea înainte de termen.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Condiții",
           "body": "Accesul și costurile contează alături de dobândă.",
-          "detail": "Accesul și costurile contează alături de dobândă.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Total",
           "body": "Mutarea banilor nu creează venit.",
-          "detail": "Mutarea banilor nu creează venit.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară pe hârtie contul, depozitul și numerarul pentru două scopuri cu termene diferite.",
-          "detail": "Compară pe hârtie contul, depozitul și numerarul pentru două scopuri cu termene diferite.",
           "type": "action"
         }
       ]

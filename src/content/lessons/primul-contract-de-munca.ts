@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -61,11 +61,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar numele magazinului."
+          "label": "Numai suma netă primită, fără funcție și program."
         },
         {
           "id": "2",
-          "label": "Doar o promisiune despre bacșiș."
+          "label": "Numai condițiile discutate verbal, fără cele scrise."
         }
       ],
       "correctOption": "0"
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce problemă identifică Alex în propunerea inițială?",
       "explanation": "I se cere să înceapă înainte să primească actele.",
       "correctFeedback": "Corect. I se cere să înceapă înainte să primească actele.",
@@ -166,18 +165,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Magazinul are program luni."
+          "label": "Salariul verbal ar trebui folosit ca sumă confirmată înainte de acte."
         },
         {
           "id": "2",
-          "label": "Oferta nu include o uniformă gratuită."
+          "label": "O perioadă numită probă ar înlocui verificarea contractului."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce document trebuie să păstreze Alex?",
       "explanation": "Exemplarul contractului său.",
       "correctFeedback": "Corect. Exemplarul contractului său.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Cum verifică Alex perioada de probă?",
       "explanation": "Caută condiția în contractul de muncă.",
       "correctFeedback": "Corect. Caută condiția în contractul de muncă.",
@@ -253,11 +250,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar dacă numerarul arată nou."
+          "label": "Doar totalul promis, presupunând că și partea ascunsă este documentată."
         },
         {
           "id": "2",
-          "label": "Doar cât de repede îl poți cheltui."
+          "label": "Doar momentul plății, fără baza contribuțiilor și dovada venitului."
         }
       ],
       "correctOption": "0"
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Contractul individual de muncă stabilește relația dintre salariat și angajator: funcția, salariul, programul și alte condiții.",
-          "detail": "Contractul individual de muncă stabilește relația dintre salariat și angajator: funcția, salariul, programul și alte condiții.",
+          "detail": "Alex verifică angajatorul, salariul și data începerii înainte de prima tură. Oferta verbală și denumirea de probă nu înlocuiesc documentele și exemplarul pe care trebuie să îl păstreze.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Alex primește o ofertă verbală pentru un magazin. Înainte de prima tură cere contractul și verifică identitatea angajatorului, funcția, data începerii și salariul brut.",
-          "detail": "Alex primește o ofertă verbală pentru un magazin. Înainte de prima tură cere contractul și verifică identitatea angajatorului, funcția, data începerii și salariul brut.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Perioada de probă se desfășoară în cadrul contractului; nu este permisiunea de a munci fără documente.",
-          "detail": "Perioada de probă se desfășoară în cadrul contractului; nu este permisiunea de a munci fără documente.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează trei întrebări despre funcție, program și salariul brut pe care le-ai pune înainte de primul job.",
-          "detail": "Notează trei întrebări despre funcție, program și salariul brut pe care le-ai pune înainte de primul job.",
           "type": "action"
         }
       ]

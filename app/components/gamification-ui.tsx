@@ -15,7 +15,7 @@ export function LevelProgress({ totalXp }: { totalXp: number }) {
 }
 export function FreezeIndicator({ progress, today }: { progress: ProgressState; today: string }) {
   void today;
-  return <span className="freeze-indicator" title="Un freeze salvează automat o singură zi ratată."><Snowflake size={14}/>{progress.freezeBalance} / {gamificationConfig.freeze.maxBalance} freeze-uri</span>;
+  return <span className="freeze-indicator" title="Un Freeze îți protejează streak-ul într-o zi în care nu ai activitate."><Snowflake size={14} aria-hidden="true"/>{progress.freezeBalance} / {gamificationConfig.freeze.maxBalance} Freeze-uri</span>;
 }
 export function DailyChallengeCard() {
   const p = useProgressData();
@@ -41,7 +41,22 @@ export function DailyGoalRing({ progress, today }: { progress: ProgressState; to
   return <div className={`daily-goal-status ${goal.completed ? "complete" : ""}`}><div className="daily-goal-ring" role="progressbar" aria-label="Obiectivul zilnic" aria-valuemin={0} aria-valuemax={goal.target} aria-valuenow={Math.min(goal.current, goal.target)} style={{ background: `conic-gradient(var(--finly-sky, #69c9f7) ${goal.percent}%, #e7edf2 0)` }}><Target size={18}/></div><span><strong>{goal.completed ? `${goal.current} XP azi` : `${goal.current} / ${goal.target} XP`}</strong><small>{goal.completed ? "Obiectiv atins" : "Obiectiv zilnic"}</small></span></div>;
 }
 export function LastSevenDays({ progress, today }: { progress: ProgressState; today: string }) {
-  return <section className="app-card activity-week"><h2>Ultimele 7 zile</h2><div>{getLast7Days(progress, today).map(day => <span className={`activity-day ${day.state}`} key={day.date} title={`${day.date}: ${{ activity: "Activitate terminată", freeze: "Freeze folosit", today: "Azi, încă fără activitate", missed: "Fără activitate" }[day.state]}`}><small>{day.weekday}</small><i>{day.state === "activity" ? <Check size={18}/> : day.state === "freeze" ? <Snowflake size={18}/> : new Date(day.date + "T12:00:00Z").getUTCDate()}</i></span>)}</div></section>;
+  const [detail,setDetail]=useState<string|null>(null);
+  const p=useProgressData(),container=useRef<HTMLDivElement>(null);
+  useEffect(()=>{
+    const frost=(event:Event)=>{
+      const data=(event as CustomEvent<{userId:string;days:string[]}>).detail;
+      if(data.userId!==p.userId || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      for(const day of data.days)container.current?.querySelector(`[data-day="${day}"] i`)?.animate([{transform:'scale(.7)',opacity:.5},{transform:'scale(1.1)',opacity:1},{transform:'scale(1)',opacity:1}],{duration:450});
+    };
+    window.addEventListener('finly-streak-moment',frost);return()=>window.removeEventListener('finly-streak-moment',frost);
+  },[p.userId]);
+  return <section className="app-card activity-week"><h2>Ultimele 7 zile</h2><div ref={container}>{getLast7Days(progress, today).map(day=>{
+    const localized=new Date(`${day.date}T12:00:00Z`).toLocaleDateString('ro-RO',{timeZone:'Europe/Bucharest',day:'numeric',month:'long'});
+    const status={activity:'zi activă',freeze:'protejată cu Freeze',today:'azi, încă fără activitate',missed:'fără activitate'}[day.state];
+    const label=`${localized} — ${status}`;
+    return <button type="button" className={`activity-day ${day.state} ${day.date===today?'is-today':''}`} data-day={day.date} key={day.date} title={label} aria-label={label} onClick={()=>setDetail(day.state==='freeze'?`${localized}: Nu ai avut activitate în această zi, dar un Freeze ți-a păstrat streak-ul.`:label)}><small>{day.weekday}</small><i aria-hidden="true">{day.state==='activity'?<Flame size={18}/>:day.state==='freeze'?<Snowflake size={18}/>:Number(day.date.slice(8))}</i></button>;
+  })}</div>{detail && <p className="calendar-detail" role="status">{detail}</p>}</section>;
 }
 export function XpJournal({ progress }: { progress: ProgressState }) {
   return <section className="app-card xp-journal"><h2>Jurnalul XP</h2>{progress.xp_events.length ? <ol>{[...progress.xp_events].reverse().map(event => <li key={event.id}><span>{getXpEventLabel(event.type)}<small>{new Date(event.createdAt).toLocaleString("ro-RO", { timeZone: "Europe/Bucharest", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}</small></span><strong>+{event.amount} XP</strong></li>)}</ol> : <p>Primii tăi pași vor apărea aici.</p>}</section>;

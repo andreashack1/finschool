@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -93,10 +93,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "Cât înseamnă 24 de rate de 60 lei?",
-      "explanation": "1.440 lei.",
-      "correctFeedback": "Corect. 1.440 lei.",
-      "incorrectFeedback": "Nu chiar. 1.440 lei.",
+      "question": "Oferta B cere 24 de rate de 60 lei. Ce total compari cu cei 1.200 lei ai ofertei A?",
+      "explanation": "B costă 1.440 lei fără alte costuri. Plata lunară este mai mică, dar repetarea ei pe mai multe luni crește totalul.",
+      "correctFeedback": "Corect. B costă 1.440 lei fără alte costuri. Plata lunară este mai mică, dar repetarea ei pe mai multe luni crește totalul.",
+      "incorrectFeedback": "Nu chiar. B costă 1.440 lei fără alte costuri. Plata lunară este mai mică, dar repetarea ei pe mai multe luni crește totalul.",
       "type": "variante",
       "options": [
         {
@@ -117,10 +117,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q4",
       "title": "Uite unde e diferența.",
-      "question": "Care este diferența dintre totalurile A și B?",
-      "explanation": "240 lei.",
-      "correctFeedback": "Corect. 240 lei.",
-      "incorrectFeedback": "Nu chiar. 240 lei.",
+      "question": "A costă 1.200 lei și B costă 1.440 lei. Ce sumă suplimentară plătești pentru calendarul B, cu rata lunară mai mică?",
+      "explanation": "Diferența totală este de 240 lei. Nu o confunda cu reducerea lunară de 40 lei; sunt două criterii diferite.",
+      "correctFeedback": "Corect. Diferența totală este de 240 lei. Nu o confunda cu reducerea lunară de 40 lei; sunt două criterii diferite.",
+      "incorrectFeedback": "Nu chiar. Diferența totală este de 240 lei. Nu o confunda cu reducerea lunară de 40 lei; sunt două criterii diferite.",
       "type": "scenariu",
       "context": "Pentru același împrumut fictiv, oferta A cere 12 plăți de 100 lei, iar B cere 24 de 60 lei, fără alte costuri în exercițiu. Totalurile sunt 1.200 și 1.440 lei. B reduce presiunea lunară cu 40 lei, dar cere cu 240 lei mai mult în total. Cele două criterii răspund unor întrebări diferite.",
       "options": [
@@ -151,33 +151,31 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
-      "question": "Care ofertă are rata lunară mai mică?",
-      "explanation": "B, cu 60 lei.",
-      "correctFeedback": "Corect. B, cu 60 lei.",
-      "incorrectFeedback": "Nu chiar. B, cu 60 lei.",
+      "question": "De ce plata de 60 lei a ofertei B nu dovedește că împrumutul este mai ieftin?",
+      "explanation": "B reduce plata lunară, dar o prelungește. Compari atât numărul plăților, cât și totalul lor înainte să decizi.",
+      "correctFeedback": "Corect. B reduce plata lunară, dar o prelungește. Compari atât numărul plăților, cât și totalul lor înainte să decizi.",
+      "incorrectFeedback": "Nu chiar. B reduce plata lunară, dar o prelungește. Compari atât numărul plăților, cât și totalul lor înainte să decizi.",
       "caseId": "caz-rata-lunara-si-costul-total",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
       "options": [
         {
           "id": "0",
-          "label": "B, cu 60 lei."
+          "label": "Se repetă 24 de luni, față de 12 luni la oferta A."
         },
         {
           "id": "1",
-          "label": "A, cu 100 lei."
+          "label": "Plata lunară include automat orice cost posibil."
         },
         {
           "id": "2",
-          "label": "Au rate identice."
+          "label": "Aceeași sumă împrumutată garantează totaluri identice."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Care ofertă are totalul mai mic în exercițiu?",
       "explanation": "A, cu 1.200 lei.",
       "correctFeedback": "Corect. A, cu 1.200 lei.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verificare face Teo dincolo de reclamă?",
       "explanation": "Existența unor plăți finale sau costuri separate.",
       "correctFeedback": "Corect. Existența unor plăți finale sau costuri separate.",
@@ -214,11 +211,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar fontul ratei."
+          "label": "Doar cea mai mică rată, fără calendarul complet."
         },
         {
           "id": "1",
-          "label": "Doar numărul de reclame."
+          "label": "Doar înmulțirea ratei lunare, presupunând că nu există plăți separate."
         },
         {
           "id": "2",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Rata lunară este plata periodică, iar totalul de plată privește toate sumele datorate în scenariul stabilit.",
-          "detail": "Rata lunară este plata periodică, iar totalul de plată privește toate sumele datorate în scenariul stabilit.",
+          "detail": "Pentru același împrumut fictiv, 24 de plăți de 60 lei costă 1.440 lei, iar 12 de 100 lei costă 1.200 lei. Prima variantă cere mai puțin lunar, dar mai mult în total.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Pentru același împrumut fictiv, oferta A cere 12 plăți de 100 lei, iar B cere 24 de 60 lei, fără alte costuri în exercițiu. Totalurile sunt 1.200 și 1.440 lei.",
-          "detail": "Pentru același împrumut fictiv, oferta A cere 12 plăți de 100 lei, iar B cere 24 de 60 lei, fără alte costuri în exercițiu. Totalurile sunt 1.200 și 1.440 lei.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Nu compara numai rata atunci când există o plată finală mare sau comisioane separate.",
-          "detail": "Nu compara numai rata atunci când există o plată finală mare sau comisioane separate.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează totalul ratelor din exemplu și explică diferența față de rata lunară.",
-          "detail": "Calculează totalul ratelor din exemplu și explică diferența față de rata lunară.",
           "type": "action"
         }
       ]

@@ -7,4 +7,7 @@ export type Database={public:{Tables:{profiles:{Row:AccountProfile;Insert:Accoun
   update_account_profile:{Args:{p_user:string;p_username:string;p_display_name:string|null};Returns:boolean};
   read_account_progress:{Args:{p_user:string};Returns:Json};
   apply_progress_mutation:{Args:{p_user:string;p_operation:string|null;p_type:string;p_revision:number;p_state:Json;p_result:Json;p_streak:number;p_longest:number};Returns:Json};
+  apply_streak_progress_mutation:{Args:{p_user:string;p_operation:string|null;p_type:string;p_revision:number;p_state:Json;p_result:Json;p_streak:number;p_longest:number;p_moments:Json};Returns:Json};
+  claim_streak_moments:{Args:{p_user:string;p_claim:string};Returns:Json};
+  acknowledge_streak_moments:{Args:{p_user:string;p_claim:string;p_ids:string[]};Returns:boolean};
 }}};

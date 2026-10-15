@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce a făcut util Vlad înainte de contact?",
       "explanation": "Documentarea susține o solicitare precisă.",
       "correctFeedback": "Corect. Documentarea susține o solicitare precisă.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce lipsește din termenul amintit de prieten?",
       "explanation": "Un termen fără context poate induce în eroare.",
       "correctFeedback": "Corect. Un termen fără context poate induce în eroare.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Entuziasmul."
+          "label": "Doar data cumpărării, fără tipul problemei."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Un număr mai mare."
+          "label": "Doar prețul produsului, fără modul de cumpărare."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce pregătește dacă trebuie să verifice o sesizare?",
       "explanation": "O prezentare verificabilă ajută analiza cazului.",
       "correctFeedback": "Corect. O prezentare verificabilă ajută analiza cazului.",
@@ -205,11 +202,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar porecla unui coleg."
+          "label": "Doar suma cerută, fără dovezi sau date."
         },
         {
           "id": "1",
-          "label": "Numai o acuzație fără date."
+          "label": "Numai răspunsul comerciantului, fără descrierea problemei."
         },
         {
           "id": "2",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Documentează",
           "body": "Păstrează dovada și descrie problema.",
-          "detail": "Păstrează dovada și descrie problema.",
+          "detail": "Pentru lampa defectă, Vlad pregătește dovada cumpărării, fotografiile și cronologia. Aceste date ajută comerciantul să înțeleagă cazul, dar nu confirmă automat aceeași soluție pentru orice problemă.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Diferențiază",
           "body": "Defectul, livrarea greșită și răzgândirea nu sunt identice.",
-          "detail": "Defectul, livrarea greșită și răzgândirea nu sunt identice.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Verifică oficial",
           "body": "Procedura și termenele actuale cer surse competente.",
-          "detail": "Procedura și termenele actuale cer surse competente.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Găsește unde păstrezi dovada unei cumpărături și notează canalul verificat al comerciantului.",
-          "detail": "Găsește unde păstrezi dovada unei cumpărături și notează canalul verificat al comerciantului.",
           "type": "action"
         }
       ]

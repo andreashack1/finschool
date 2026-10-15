@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -61,7 +61,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar logo-ul."
+          "label": "Doar autorizarea furnizorului, presupunând că garantează prețul."
         }
       ],
       "correctOption": "0"
@@ -147,7 +147,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce informație nu transmite Ana mesajului?",
       "explanation": "Fraza de acces sau recuperare.",
       "correctFeedback": "Corect. Fraza de acces sau recuperare.",
@@ -173,7 +172,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică dincolo de promisiune?",
       "explanation": "Furnizorul prin sursa oficială relevantă.",
       "correctFeedback": "Corect. Furnizorul prin sursa oficială relevantă.",
@@ -199,7 +197,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce nu crede în recuperare sigură?",
       "explanation": "Prețul viitor nu este garantat.",
       "correctFeedback": "Corect. Prețul viitor nu este garantat.",
@@ -292,28 +289,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Cryptoactivele sunt o categorie variată de active digitale, cu mecanisme și riscuri diferite.",
-          "detail": "Cryptoactivele sunt o categorie variată de active digitale, cu mecanisme și riscuri diferite.",
+          "detail": "După scăderea de la 100 la 60, o creștere de 40% aplicată noii baze duce la 84, nu la 100. Calculul explică diferența dintre baze și nu promite recuperarea.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Un cryptoactiv fictiv cumpărat cu 100 lei ajunge la o valoare de 60, o scădere de 40%. Pentru a reveni de la 60 la 100 ar avea nevoie de o creștere de aproximativ 66,7%, nu de 40%.",
-          "detail": "Un cryptoactiv fictiv cumpărat cu 100 lei ajunge la o valoare de 60, o scădere de 40%. Pentru a reveni de la 60 la 100 ar avea nevoie de o creștere de aproximativ 66,7%, nu de 40%.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Nu dezvălui fraza de recuperare ori cheile private.",
-          "detail": "Nu dezvălui fraza de recuperare ori cheile private.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează scăderea din exemplu și notează datele de acces pe care nu le-ai comunica nimănui.",
-          "detail": "Calculează scăderea din exemplu și notează datele de acces pe care nu le-ai comunica nimănui.",
           "type": "action"
         }
       ]

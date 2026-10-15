@@ -1,0 +1,18 @@
+{
+  "status": "Catalog editorial pass implemented; +30–40 second average is not confirmed by timing evidence",
+  "lessons": 100,
+  "questions": 900,
+  "questionsUnchanged": 654,
+  "questionsRewritten": 246,
+  "questionsAdded": 0,
+  "questionsRemoved": 0,
+  "lessonsWithQuestionEdits": 90,
+  "takeawayDetailsRewritten": 98,
+  "expandRemoved": 274,
+  "genericTitlesRemoved": 279,
+  "repeatedQuestions": [],
+  "reviewCandidates": [],
+  "errors": [],
+  "duration": "5-minute labels retained. No screens added. Deeper distractors, applied wording and optional elaborations target slightly more reflection; actual average duration requires learner timing.",
+  "databaseMigration": "NONE"
+}

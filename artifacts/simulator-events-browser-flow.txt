@@ -1,0 +1,65 @@
+  await page.goto(origin + '/simulator');
+  await page.getByRole('heading', { name: 'Începe viața pe cont propriu' }).waitFor();
+  await page.getByRole('radio', { name: 'Liceu', exact: true }).check();
+  await page.getByRole('button', { name: 'Începe simularea', exact: true }).click();
+  await page.getByRole('heading', { name: 'Evenimentele de azi' }).waitFor();
+  assert(await page.getByText('Luna aceasta',{exact:true}).count()===0,'Monthly summary still visible');
+  report.checks.push('Login, schedule setup, Chapter 2 dashboard retained, monthly card replaced');
+  const first = await api('dashboard');
+  assert(first.events.profile==='liceu','Profile not saved');
+  const config = (await db.query('select event_policy_snapshot as policy from public.sim_runs where id=$1',[first.dashboard.runId])).rows[0].policy;
+  config.routineChances.morning=1; config.routineChances.lunch=1; config.routineChances.after_program=1;
+  await db.query('update public.sim_runs set event_policy_snapshot=$1::jsonb where id=$2',[JSON.stringify(config),first.dashboard.runId]);
+  await api('dev/events',{minutes:1440});
+  let today=await api('dashboard');
+  await page.reload(); await page.getByRole('heading',{name:'Evenimentele de azi'}).waitFor();
+  assert(today.events.pending.length>=2,'Expected full-day fixture events');
+  const freeEvent=today.events.pending[0], free=freeEvent.options.find(o=>o.costBani===0);
+  await page.getByRole('link',{name:'Vezi situația',exact:true}).first().click();
+  await page.getByRole('heading',{name:freeEvent.title,exact:true}).waitFor();
+  await page.getByRole('button',{name:new RegExp(free.label)}).click();
+  await page.getByRole('heading',{name:'Alegerea ta',exact:true}).waitFor();
+  assert((await db.query('select * from public.sim_ledger where ref_key=$1',[`${first.dashboard.runId}:event:${freeEvent.id}:cost`])).rows.length===0,'Free choice wrote ledger');
+  report.checks.push('Visible event detail, free choice saves feedback without ledger');
+  await page.getByRole('link',{name:'← Înapoi la simulator',exact:true}).click();
+  await page.getByRole('heading',{name:'Evenimentele de azi'}).waitFor();
+  today=await api('dashboard'); const paidEvent=today.events.pending[0], paid=paidEvent.options.find(o=>o.costBani>0);
+  await page.goto(origin+`/simulator/eveniment/${paidEvent.id}`); await page.getByRole('heading',{name:paidEvent.title,exact:true}).waitFor();
+  await page.getByRole('button',{name:new RegExp(paid.label)}).click(); await page.getByRole('button',{name:'Confirmă',exact:true}).waitFor();
+  for(const width of [320,390,430]){
+    await page.setViewportSize({width,height:900});
+    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`Detail overflow ${width}`);
+    await page.screenshot({path:`artifacts/simulator-events-qa/confirm-${width}.png`,fullPage:true,animations:'disabled'});
+  }
+  await page.getByRole('button',{name:'Confirmă',exact:true}).click(); await page.getByRole('heading',{name:'Alegerea ta',exact:true}).waitFor();
+  const after=await api('dashboard'); assert(after.dashboard.balanceBani===today.dashboard.balanceBani-paid.costBani,'Paid balance incorrect');
+  assert((await db.query('select * from public.sim_ledger where ref_key=$1',[`${first.dashboard.runId}:event:${paidEvent.id}:cost`])).rows.length===1,'Paid ledger missing/duplicate');
+  report.checks.push('Paid confirmation, exact debit, one ledger row, detail at 320/390/430');
+  await api('dev/events',{minutes:1440}); const auto=await api('dashboard');
+  for(const previous of after.events.pending){const row=(await db.query('select status,resolution_mode from public.sim_event_instances where id=$1',[previous.id])).rows[0]; assert(row.status==='resolved' && row.resolution_mode==='automatic','Expiry not saved');}
+  report.checks.push('Midnight auto-resolves old-day events');
+  today=auto; const negativeEvent=today.events.pending[0]; assert(negativeEvent,'Need insufficient-funds fixture');
+  await db.query("insert into public.sim_ledger(run_id,user_id,day,sequence,kind,category,amount_bani,label,auto_resolved,ref_key) values($1,$2,$3,9999,'ajustare','mancare',$4,'QA sold',false,'qa-balance')",[first.dashboard.runId,[...users.values()][0].user.id,today.dashboard.currentDay,-today.dashboard.balanceBani-100]);
+  await page.goto(origin+`/simulator/eveniment/${negativeEvent.id}`); await page.getByRole('heading',{name:negativeEvent.title,exact:true}).waitFor();
+  assert(await page.getByText('Sold insuficient',{exact:true}).count()===2,'Paid options lack reasons');
+  const zero=negativeEvent.options.find(o=>o.costBani===0); assert(await page.getByRole('button',{name:new RegExp(zero.label)}).isEnabled(),'Free fallback disabled');
+  await page.getByRole('button',{name:new RegExp(zero.label)}).click(); await page.getByRole('heading',{name:'Alegerea ta',exact:true}).waitFor();
+  report.checks.push('Negative balance disables paid choices, free remains available');
+  await api('dev/events',{minutes:10080}); today=await api('dashboard');
+  const sums=(await db.query('select sum(amount_bani)::integer as balance,count(*)::integer as n,count(distinct ref_key)::integer as u from public.sim_ledger where run_id=$1',[first.dashboard.runId])).rows[0];
+  assert(sums.balance===today.dashboard.balanceBani && sums.n===sums.u,'Absence ledger mismatch');
+  await page.goto(origin+'/simulator'); await page.getByRole('heading',{name:'Simulator',exact:true}).waitFor();
+  for(const width of [320,390,430]){await page.setViewportSize({width,height:900}); assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`Dashboard overflow ${width}`); await page.screenshot({path:`artifacts/simulator-events-qa/dashboard-${width}.png`,fullPage:true,animations:'disabled'});}
+  for(const name of ['Salariul tău','Cheltuieli fixe','Jurnal financiar'])assert(await page.getByRole('heading',{name,exact:true}).count()===1,`${name} regression`);
+  report.checks.push('Seven-day absence matches ledger; Chapter 2 UI and mobile retained');
+  await page.goto(origin+'/simulator/dev'); await page.getByRole('heading',{name:'Motorul de evenimente',exact:true}).waitFor();
+  await page.getByRole('button',{name:'Inspectează planul / continuă sincronizarea',exact:true}).click(); await page.waitForFunction(()=>document.querySelector('pre')?.textContent.includes('rngNamespaces'));
+  assert(report.errors.length===0 && report.providerErrors.length===0,JSON.stringify(report));
+  fs.writeFileSync('artifacts/simulator-events-qa/report.json',JSON.stringify(report,null,2));
+  console.log(`PASS: ${report.checks.length} event browser flows; Next + SDK + PGlite, simulated Auth. No remote mutation.`);
+} catch(error){fs.writeFileSync('artifacts/simulator-events-qa/report.json',JSON.stringify({...report,failure:error.message},null,2));throw error;}
+finally{
+ await browser?.close();
+ if(next?.pid)await new Promise(resolve=>{const kill=spawn('taskkill',['/pid',String(next.pid),'/t','/f'],{windowsHide:true,stdio:'ignore'});kill.on('exit',resolve);});
+ if(server.listening)await new Promise(resolve=>server.close(resolve));await db.close();
+}

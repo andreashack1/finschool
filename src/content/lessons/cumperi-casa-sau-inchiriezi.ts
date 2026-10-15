@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -69,10 +69,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Cumpărarea și închirierea au costuri, riscuri și flexibilitate diferite.",
-      "explanation": "Cumpărarea și închirierea au costuri, riscuri și flexibilitate diferite. La cumpărare pot exista avans, finanțare, taxe și întreținere. La închiriere contează chiria, garanția și condițiile contractului. Nu compara rata creditului cu chiria ca și cum acestea ar fi toate costurile. Contează și cât timp intenționezi să rămâi în acel loc.",
-      "correctFeedback": "Corect. Cumpărarea și închirierea au costuri, riscuri și flexibilitate diferite. La cumpărare pot exista avans, finanțare, taxe și întreținere. La închiriere contează chiria, garanția și condițiile contractului. Nu compara rata creditului cu chiria ca și cum acestea ar fi toate costurile. Contează și cât timp intenționezi să rămâi în acel loc.",
-      "incorrectFeedback": "Nu chiar. Cumpărarea și închirierea au costuri, riscuri și flexibilitate diferite. La cumpărare pot exista avans, finanțare, taxe și întreținere. La închiriere contează chiria, garanția și condițiile contractului. Nu compara rata creditului cu chiria ca și cum acestea ar fi toate costurile. Contează și cât timp intenționezi să rămâi în acel loc.",
+      "question": "Chiar dacă rata creditului este mai mică decât chiria, costurile proprietății și o mutare posibilă pot schimba comparația.",
+      "explanation": "Rata nu este costul complet. Avansul, întreținerea și flexibilitatea necesară trebuie evaluate alături de plata lunară.",
+      "correctFeedback": "Corect. Rata nu este costul complet. Avansul, întreținerea și flexibilitatea necesară trebuie evaluate alături de plata lunară.",
+      "incorrectFeedback": "Nu chiar. Rata nu este costul complet. Avansul, întreținerea și flexibilitatea necesară trebuie evaluate alături de plata lunară.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -122,11 +122,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar culoarea pereților."
+          "label": "Doar rata mai mică, presupunând revânzare imediată."
         },
         {
           "id": "1",
-          "label": "Doar numărul de rate."
+          "label": "Doar avansul disponibil, fără durata probabilă de ședere."
         },
         {
           "id": "2",
@@ -147,7 +147,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce incertitudine are Ana?",
       "explanation": "Dacă va rămâne în oraș.",
       "correctFeedback": "Corect. Dacă va rămâne în oraș.",
@@ -173,7 +172,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce cost inițial mai verifică pentru cumpărare?",
       "explanation": "Avansul.",
       "correctFeedback": "Corect. Avansul.",
@@ -184,7 +182,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Chiria vecinului."
+          "label": "Doar rezerva lunară, fără suma necesară la început."
         },
         {
           "id": "1",
@@ -192,14 +190,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Prețul unui abonament medical."
+          "label": "Doar prima rată, presupunând că nu există alt cost inițial."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce ipoteză evită despre revânzare?",
       "explanation": "Că va vinde repede și sigur cu profit.",
       "correctFeedback": "Corect. Că va vinde repede și sigur cu profit.",
@@ -292,28 +289,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Cumpărarea și închirierea au costuri, riscuri și flexibilitate diferite.",
-          "detail": "Cumpărarea și închirierea au costuri, riscuri și flexibilitate diferite.",
+          "detail": "Rata de 1.400 plus costuri estimate de 200 depășește chiria de 1.500 în comparația parțială. Ana verifică separat avansul și mutarea posibilă, fără să presupună revânzare rapidă cu profit.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Într-un exercițiu, o locuință închiriată are chirie de 1.500 lei. Cumpărarea ar implica rată de 1.400 și o rezervă lunară de 200 pentru costuri ale proprietății, fără alte componente incluse.",
-          "detail": "Într-un exercițiu, o locuință închiriată are chirie de 1.500 lei. Cumpărarea ar implica rată de 1.400 și o rezervă lunară de 200 pentru costuri ale proprietății, fără alte componente incluse.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Prețul locuinței și costul finanțării pot evolua; o revânzare profitabilă nu este garantată.",
-          "detail": "Prețul locuinței și costul finanțării pot evolua; o revânzare profitabilă nu este garantată.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară într-un tabel costuri inițiale, lunare și flexibilitate pentru două variante fictive de locuire.",
-          "detail": "Compară într-un tabel costuri inițiale, lunare și flexibilitate pentru două variante fictive de locuire.",
           "type": "action"
         }
       ]

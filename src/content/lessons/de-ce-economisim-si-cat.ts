@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Care este diferența față de scopul Sofiei?",
       "explanation": "600 − 450 = 150 lei.",
       "correctFeedback": "Corect. 600 − 450 = 150 lei.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce opțiune păstrează planul realist?",
       "explanation": "Suma lipsă trebuie explicată printr-o adaptare.",
       "correctFeedback": "Corect. Suma lipsă trebuie explicată printr-o adaptare.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce separă rezerva de curs?",
       "explanation": "Destinațiile separate arată resursele reale.",
       "correctFeedback": "Corect. Destinațiile separate arată resursele reale.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Scop",
           "body": "Clarifică suma și termenul.",
-          "detail": "Clarifică suma și termenul.",
+          "detail": "Cursul de 600 lei în șase luni ar cere 100 lei lunar dacă nu există economii inițiale. Dacă sunt realizabili numai 75 lei, marchează diferența și compară alt termen sau o alternativă.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Realism",
           "body": "Contribuția trebuie susținută de buget.",
-          "detail": "Contribuția trebuie susținută de buget.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Separare",
           "body": "Nu număra aceeași sumă pentru două scopuri.",
-          "detail": "Nu număra aceeași sumă pentru două scopuri.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Alege un scop mic și estimează suma și termenul, fără să stabilești o contribuție pe care nu o poți susține.",
-          "detail": "Alege un scop mic și estimează suma și termenul, fără să stabilești o contribuție pe care nu o poți susține.",
           "type": "action"
         }
       ]

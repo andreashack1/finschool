@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -65,7 +65,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "O factură de utilități."
+          "label": "Un împrumut către companie, cu aceeași relație ca o obligațiune."
         }
       ],
       "correctOption": "0"
@@ -73,10 +73,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "O acțiune reprezintă o participație la o companie.",
-      "explanation": "O acțiune reprezintă o participație la o companie. Prețul poate varia, iar unele companii pot distribui dividende în condițiile aplicabile. Dividendele nu sunt salariu și nu sunt garantate în fiecare an. Deținerea unei acțiuni nu este un depozit bancar și poate pierde valoare, inclusiv mult din suma investită.",
-      "correctFeedback": "Corect. O acțiune reprezintă o participație la o companie. Prețul poate varia, iar unele companii pot distribui dividende în condițiile aplicabile. Dividendele nu sunt salariu și nu sunt garantate în fiecare an. Deținerea unei acțiuni nu este un depozit bancar și poate pierde valoare, inclusiv mult din suma investită.",
-      "incorrectFeedback": "Nu chiar. O acțiune reprezintă o participație la o companie. Prețul poate varia, iar unele companii pot distribui dividende în condițiile aplicabile. Dividendele nu sunt salariu și nu sunt garantate în fiecare an. Deținerea unei acțiuni nu este un depozit bancar și poate pierde valoare, inclusiv mult din suma investită.",
+      "question": "Poți deține o participație într-o companie fără să primești dividende în fiecare an.",
+      "explanation": "Dividendele depind de distribuirea lor și de condițiile aplicabile. Deținerea acțiunii nu creează un salariu anual garantat.",
+      "correctFeedback": "Corect. Dividendele depind de distribuirea lor și de condițiile aplicabile. Deținerea acțiunii nu creează un salariu anual garantat.",
+      "incorrectFeedback": "Nu chiar. Dividendele depind de distribuirea lor și de condițiile aplicabile. Deținerea acțiunii nu creează un salariu anual garantat.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce presupunere corectează Teo?",
       "explanation": "Popularitatea produsului garantează acțiunea.",
       "correctFeedback": "Corect. Popularitatea produsului garantează acțiunea.",
@@ -166,18 +165,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Există zece acțiuni."
+          "label": "Prețul observat arată singur cât de sigură este deținerea."
         },
         {
           "id": "2",
-          "label": "Prețul poate fi observat."
+          "label": "Folosirea produsului înlocuiește evaluarea riscului la prețul acțiunii."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Cât a investit inițial înainte de costuri?",
       "explanation": "200 lei.",
       "correctFeedback": "Corect. 200 lei.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce ar adăuga pentru rezultatul complet?",
       "explanation": "Costurile și eventualele venituri.",
       "correctFeedback": "Corect. Costurile și eventualele venituri.",
@@ -214,11 +211,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar numărul de like-uri."
+          "label": "Doar variația prețului, fără comisioane."
         },
         {
           "id": "1",
-          "label": "Doar prețul unui produs al firmei."
+          "label": "Doar dividendele posibile, fără valoarea deținerii."
         },
         {
           "id": "2",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "O acțiune reprezintă o participație la o companie.",
-          "detail": "O acțiune reprezintă o participație la o companie.",
+          "detail": "Teo apreciază produsele companiei, dar cele zece acțiuni pot scădea de la 200 la 180 lei în exercițiu. Familiaritatea cu produsul nu garantează prețul acțiunii sau dividendele.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Teo cumpără fictiv zece acțiuni la 20 lei, pentru 200 înainte de costuri. Dacă prețul ajunge la 18, valoarea lor este 180, o scădere de 20.",
-          "detail": "Teo cumpără fictiv zece acțiuni la 20 lei, pentru 200 înainte de costuri. Dacă prețul ajunge la 18, valoarea lor este 180, o scădere de 20.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "O companie cunoscută poate fi o investiție riscantă la un anumit preț.",
-          "detail": "O companie cunoscută poate fi o investiție riscantă la un anumit preț.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează valoarea a zece acțiuni fictive la două prețuri și separă rezultatul de opinia despre produse.",
-          "detail": "Calculează valoarea a zece acțiuni fictive la două prețuri și separă rezultatul de opinia despre produse.",
           "type": "action"
         }
       ]

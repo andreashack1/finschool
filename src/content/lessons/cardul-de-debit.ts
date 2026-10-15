@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Câți bani are Teo în total înainte de târg?",
       "explanation": "120 în cont plus 100 în portofel.",
       "correctFeedback": "Corect. 120 în cont plus 100 în portofel.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce a confundat colegul?",
       "explanation": "Extrasul include și operațiuni care mută bani.",
       "correctFeedback": "Corect. Extrasul include și operațiuni care mută bani.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Cardul cu un obiect colorat."
+          "label": "Soldul contului cu suma cheltuită efectiv."
         },
         {
           "id": "1",
@@ -187,29 +185,28 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Prețul accesoriului cu reducerea."
+          "label": "Suma numerarului disponibil cu soldul disponibil pe card."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
-      "question": "Poate cardul plăti automat și bancnotele din portofel?",
-      "explanation": "Locul banilor contează pentru instrumentul de plată.",
-      "correctFeedback": "Corect. Locul banilor contează pentru instrumentul de plată.",
-      "incorrectFeedback": "Nu chiar. Locul banilor contează pentru instrumentul de plată.",
+      "question": "Teo are 120 lei în cont și 100 lei în numerar. Poate plăti cu cardul de debit o cumpărătură de 150 lei, fără descoperit de cont?",
+      "explanation": "Bancnotele din portofel nu sunt disponibile automat pe card. Cei 120 lei din cont nu acoperă plata de 150 lei.",
+      "correctFeedback": "Corect. Bancnotele din portofel nu sunt disponibile automat pe card. Cei 120 lei din cont nu acoperă plata de 150 lei.",
+      "incorrectFeedback": "Nu chiar. Bancnotele din portofel nu sunt disponibile automat pe card. Cei 120 lei din cont nu acoperă plata de 150 lei.",
       "caseId": "caz-cardul-de-debit",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
       "options": [
         {
           "id": "0",
-          "label": "Da, cardul numără numerarul de acasă."
+          "label": "Da, fiindcă resursele sale totale sunt 220 lei."
         },
         {
           "id": "1",
-          "label": "Da, orice debit este credit."
+          "label": "Da, retragerea anterioară îi mărește automat disponibilul pe card."
         },
         {
           "id": "2",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Debit",
           "body": "Folosești disponibilul contului, cu facilități distincte.",
-          "detail": "Folosești disponibilul contului, cu facilități distincte.",
+          "detail": "Teo are 120 lei în cont și 100 lei în portofel, dar cardul nu folosește automat bancnotele. Retragerea schimbă locul banilor; cumpărăturile și eventualele comisioane sunt costuri distincte.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Retragere",
           "body": "Numerarul primit nu este automat consumat.",
-          "detail": "Numerarul primit nu este automat consumat.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Evidență",
           "body": "Separă banii din cont de cei din portofel.",
-          "detail": "Separă banii din cont de cei din portofel.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La o retragere din istoricul tău, distinge suma mutată de eventualul comision și de cumpărăturile ulterioare.",
-          "detail": "La o retragere din istoricul tău, distinge suma mutată de eventualul comision și de cumpărăturile ulterioare.",
           "type": "action"
         }
       ]

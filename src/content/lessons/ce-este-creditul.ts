@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -65,7 +65,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "O donație automată."
+          "label": "Doar acces la o limită, fără obligații până la prima scadență."
         }
       ],
       "correctOption": "0"
@@ -130,7 +130,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar cât de repede o poți cheltui."
+          "label": "Doar limita aprobată, presupunând că banca a confirmat confortul bugetului."
         },
         {
           "id": "2",
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce incertitudine are Mara?",
       "explanation": "Venitul viitor pentru rambursare.",
       "correctFeedback": "Corect. Venitul viitor pentru rambursare.",
@@ -177,11 +176,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce sumă totală trebuie returnată în cazul ei?",
-      "explanation": "1.100 lei.",
-      "correctFeedback": "Corect. 1.100 lei.",
-      "incorrectFeedback": "Nu chiar. 1.100 lei.",
+      "question": "Mara primește 1.000 lei și vede costul de 100 lei. Ce sumă trebuie să acopere sursa ei de rambursare până la termen?",
+      "explanation": "Trebuie restituiți 1.100 lei: suma împrumutată plus costul. Planul nu poate acoperi numai costul de 100 lei.",
+      "correctFeedback": "Corect. Trebuie restituiți 1.100 lei: suma împrumutată plus costul. Planul nu poate acoperi numai costul de 100 lei.",
+      "incorrectFeedback": "Nu chiar. Trebuie restituiți 1.100 lei: suma împrumutată plus costul. Planul nu poate acoperi numai costul de 100 lei.",
       "caseId": "caz-ce-este-creditul",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce alternativă poate compara dacă achiziția poate aștepta?",
       "explanation": "Economisirea până la cumpărare.",
       "correctFeedback": "Corect. Economisirea până la cumpărare.",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Creditul îți permite să folosești acum o sumă pe care te obligi să o restitui conform unui contract.",
-          "detail": "Creditul îți permite să folosești acum o sumă pe care te obligi să o restitui conform unui contract.",
+          "detail": "Mara primește 1.000 lei, dar trebuie să restituie 1.100 în exemplu. Intrarea din cont vine împreună cu o obligație; verifică sursa plăților și termenele înainte să folosești limita aprobată.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Mara împrumută ipotetic 1.000 lei și trebuie să returneze în total 1.100 lei în perioada stabilită. Costul este 100 lei, iar intrarea inițială nu îi crește averea cu 1.000: are și obligația de plată.",
-          "detail": "Mara împrumută ipotetic 1.000 lei și trebuie să returneze în total 1.100 lei în perioada stabilită. Costul este 100 lei, iar intrarea inițială nu îi crește averea cu 1.000: are și obligația de plată.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Aprobarea unui împrumut nu garantează că toate lunile viitoare vor fi ușoare.",
-          "detail": "Aprobarea unui împrumut nu garantează că toate lunile viitoare vor fi ușoare.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe hârtie, separă o sumă împrumutată de venitul câștigat și notează obligația de rambursare.",
-          "detail": "Pe hârtie, separă o sumă împrumutată de venitul câștigat și notează obligația de rambursare.",
           "type": "action"
         }
       ]

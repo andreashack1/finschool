@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -147,7 +147,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce reparația Sofiei este relevantă acum?",
       "explanation": "Dispozitivul este necesar la cursuri.",
       "correctFeedback": "Corect. Dispozitivul este necesar la cursuri.",
@@ -173,7 +172,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică înainte de reparație?",
       "explanation": "Explicația și necesitatea costului.",
       "correctFeedback": "Corect. Explicația și necesitatea costului.",
@@ -184,7 +182,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar numărul atelierelor."
+          "label": "Doar termenul promoției atelierului, fără diagnostic."
         },
         {
           "id": "1",
@@ -192,18 +190,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar culoarea telefonului."
+          "label": "Doar disponibilul din rezervă, fără necesitatea lucrării."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce sold notează după plată?",
-      "explanation": "200 lei rămași.",
-      "correctFeedback": "Corect. 200 lei rămași.",
-      "incorrectFeedback": "Nu chiar. 200 lei rămași.",
+      "question": "După reparație, Sofia vrea să planifice alt cost. Ce sumă mai poate considera disponibilă în aceeași rezervă?",
+      "explanation": "După plata celor 400 lei, rezerva de 600 lei mai are 200 lei. Nu poate fi numărată încă întreagă pentru un al doilea scop.",
+      "correctFeedback": "Corect. După plata celor 400 lei, rezerva de 600 lei mai are 200 lei. Nu poate fi numărată încă întreagă pentru un al doilea scop.",
+      "incorrectFeedback": "Nu chiar. După plata celor 400 lei, rezerva de 600 lei mai are 200 lei. Nu poate fi numărată încă întreagă pentru un al doilea scop.",
       "caseId": "caz-cheltuieli-neprevazute",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -292,28 +289,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "O cheltuială neprevăzută apare fără să fie inclusă concret în plan, dar unele costuri neregulate pot fi anticipate.",
-          "detail": "O cheltuială neprevăzută apare fără să fie inclusă concret în plan, dar unele costuri neregulate pot fi anticipate.",
+          "detail": "Reparația necesară cere 400 lei din rezerva de 600, lăsând 200. Costul anual cunoscut de 240 lei poate fi planificat separat; nu este aceeași situație ca o reparație apărută neașteptat.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Sofia are o reparație necesară de 400 lei și o rezervă accesibilă de 600. Dacă o folosește, rămân 200, apoi poate planifica refacerea treptată.",
-          "detail": "Sofia are o reparație necesară de 400 lei și o rezervă accesibilă de 600. Dacă o folosește, rămân 200, apoi poate planifica refacerea treptată.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Nu orice ofertă urgentă este o urgență reală.",
-          "detail": "Nu orice ofertă urgentă este o urgență reală.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Separă trei costuri neregulate previzibile de un exemplu de urgență și notează cum le-ai pregăti.",
-          "detail": "Separă trei costuri neregulate previzibile de un exemplu de urgență și notează cum le-ai pregăti.",
           "type": "action"
         }
       ]

@@ -1,0 +1,16 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Login, schedule setup, Chapter 2 dashboard retained, monthly card replaced",
+    "A: open month, existing run and actual subscription/small-spend fixtures",
+    "B/C/D/H/I/J/M: close panel, stable snapshot/localStorage, mandatory focus, exact evidence, partial month, responsive 320/390/430",
+    "Back and event deep-link return to the same mandatory review",
+    "E/F: acknowledgment persists, cross-device sync, retry retains review, mutation blocked",
+    "L: discrete actual category comparison between full months",
+    "G: multi-month catch-up behind gate, chronological single panels, normal events/calendar restored",
+    "Dev diagnostics stored snapshot and source rebuild",
+    "K: genuine low-data historical month falls back and acknowledgment works"
+  ],
+  "errors": [],
+  "providerErrors": []
+}

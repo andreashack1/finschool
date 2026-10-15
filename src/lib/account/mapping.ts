@@ -11,6 +11,7 @@ export function accountSnapshotToProgressState(input: unknown, now: Date) {
   const meta = record.parse(db.stats?.state_meta ?? {});
   const base = createEmptyProgress(new Date(db.profile.created_at));
   return ProgressSchema.parse({ ...base, ...meta,
+    freezeInitialBalance: meta.freezeInitialBalance ?? (Number(db.stats?.revision ?? 0)>0 ? 1 : base.freezeBalance),
     freezeBalance: db.stats ? db.stats.streak_freezes : base.freezeBalance,
     xp_events: db.events.map(e => ({ id: e.event_key, type: e.source, amount: e.amount, refId: e.ref_id ?? undefined, lessonId: e.lesson_id ?? undefined, screenId: e.screen_id ?? undefined, createdAt: new Date(String(e.created_at)).toISOString(), bucharestDateKey: e.bucharest_day })),
     lessonStats: Object.fromEntries(db.lessons.map(l => [l.lesson_id, { completed: true, bestFirstTryCorrect: l.best_correct, questionCount: l.total_questions, completionCount: l.attempts, perfectEver: l.perfect_ever, sessionIds: l.session_ids, firstCompletedAt: new Date(String(l.first_completed_at)).toISOString(), lastCompletedAt: new Date(String(l.last_completed_at)).toISOString() }])),

@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -117,11 +117,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Un logo mai mare."
+          "label": "Confirmarea că pagina are conexiune protejată."
         },
         {
           "id": "1",
-          "label": "O promisiune de la reclamă."
+          "label": "Confirmarea că site-ul folosește adresa unei firme reale."
         },
         {
           "id": "2",
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce semnale observă Daria?",
       "explanation": "Ansamblul cere verificarea operatorului.",
       "correctFeedback": "Corect. Ansamblul cere verificarea operatorului.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce recenziile nu sunt suficiente?",
       "explanation": "Informația independentă completează afirmațiile site-ului.",
       "correctFeedback": "Corect. Informația independentă completează afirmațiile site-ului.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Orice recenzie este ilegală."
+          "label": "Stelele arată numai popularitatea produsului, deci verifică și comerciantul."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Nicio experiență nu are valoare."
+          "label": "Recenziile de pe site sunt suficiente dacă sunt multe."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce alegere păstrează controlul înainte de card?",
       "explanation": "O ofertă nu creează obligație de plată.",
       "correctFeedback": "Corect. O ofertă nu creează obligație de plată.",
@@ -265,7 +262,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar numele unui prieten."
+          "label": "Doar totalul pierdut, fără legătura cu tranzacția."
         },
         {
           "id": "1",
@@ -273,7 +270,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Nimic, din rușine."
+          "label": "Doar numele firmei copiate, fără adresa exactă a site-ului."
         }
       ],
       "correctOption": "1"
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Identitate",
           "body": "Verifică operatorul și site-ul exact.",
-          "detail": "Verifică operatorul și site-ul exact.",
+          "detail": "Numele unei firme reale poate fi copiat pe altă pagină. Caută legătura cu adresa exactă a magazinului; sigla și conexiunea protejată nu confirmă singure comerciantul.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Ansamblu",
           "body": "Mai multe semnale se analizează împreună.",
-          "detail": "Mai multe semnale se analizează împreună.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Conexiune",
           "body": "Protecția tehnică nu garantează livrarea.",
-          "detail": "Protecția tehnică nu garantează livrarea.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La un magazin necunoscut, caută identitatea și un contact verificabil înainte să introduci date.",
-          "detail": "La un magazin necunoscut, caută identitatea și un contact verificabil înainte să introduci date.",
           "type": "action"
         }
       ]

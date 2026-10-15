@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce cerere ar reduce controlul lui Radu?",
       "explanation": "Accesul oferit permite operațiuni pe care nu le controlează.",
       "correctFeedback": "Corect. Accesul oferit permite operațiuni pe care nu le controlează.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce comisionul nu este suficient?",
       "explanation": "Câștigul personal nu verifică operațiunea.",
       "correctFeedback": "Corect. Câștigul personal nu verifică operațiunea.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Orice comision este interzis."
+          "label": "Mărimea comisionului este suficientă pentru evaluarea operațiunii."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Conturile nu pot primi bani."
+          "label": "O sumă primită în cont devine automat venit legitim."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce face dacă a acceptat deja?",
       "explanation": "Limitarea accesului și documentarea sunt pași utili.",
       "correctFeedback": "Corect. Limitarea accesului și documentarea sunt pași utili.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Sursă",
           "body": "Înțelege de unde vin și unde merg banii.",
-          "detail": "Înțelege de unde vin și unde merg banii.",
+          "detail": "Comisionul promis nu explică legitimitatea transferurilor prin contul tău. La o sumă necunoscută, verifică prin bancă înainte să o cheltuiești sau să o retransmiți la indicațiile aceleiași persoane.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Control",
           "body": "Nu da contul și autorizările altcuiva.",
-          "detail": "Nu da contul și autorizările altcuiva.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Limită",
           "body": "Poți refuza operațiuni neclare fără moralizare.",
-          "detail": "Poți refuza operațiuni neclare fără moralizare.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pregătește o formulare scurtă prin care refuzi folosirea contului tău pentru transferuri fără scop verificat.",
-          "detail": "Pregătește o formulare scurtă prin care refuzi folosirea contului tău pentru transferuri fără scop verificat.",
           "type": "action"
         }
       ]

@@ -1,4 +1,5 @@
 'use client';
+import { createClientUuid } from './uuid';
 import { useSyncExternalStore } from 'react';
 import { createEmptyProgress,getEffectiveDateKey,getTotalXp,getCompletedLessonIds,getSimulatorCompletionIds } from './progress';
 import type { DomainResult,LessonSessionResult,SimulationState } from '../types/progress';
@@ -18,6 +19,9 @@ function replace(snapshot:AccountProgressSnapshot,confirmed=true) {
   if(confirmed)confirmedRevision=snapshot.revision;
   writeAccountCache(snapshot);let progress=snapshot.progress;const pending=readQueue(snapshot.userId);
   for(const item of pending) {try{progress=applyAccountOperation(progress,item.operation,snapshot.profile.created_at,new Date()).progress;}catch{/* Rejected when sent. */}}
+  // Queued lesson/XP previews keep their existing behavior. Streak inventory
+  // and civil activity remain the last confirmed cloud truth until sync.
+  progress={...progress,activityDates:snapshot.progress.activityDates,freezeDates:snapshot.progress.freezeDates,freezeBalance:snapshot.progress.freezeBalance,lastFreezeGrantDateKey:snapshot.progress.lastFreezeGrantDateKey,lastFreezeGrantWeekKey:snapshot.progress.lastFreezeGrantWeekKey};
   emit({account:snapshot,progress,hydrated:true,todayKey:getEffectiveDateKey(progress,new Date()),pendingCount:pending.length});
 }
 export async function refreshProgress() {
@@ -72,6 +76,9 @@ export function cleanupAccount(logoutFailed=false) {const userId=state.userId;if
 async function mutate(operation:ProgressOperation):Promise<DomainResult> {
   const userId=identity;const account=state.account;if(!userId || !account)throw new Error(errorCopy.AUTH_REQUIRED);
   const optimistic=applyAccountOperation(state.progress,operation,account.profile.created_at,new Date());
+  const confirmed=neutralResult(account.progress);
+  optimistic.streakBefore=confirmed.streakBefore;optimistic.streakAfter=confirmed.streakAfter;optimistic.freezeConsumed=[];
+  optimistic.progress={...optimistic.progress,activityDates:account.progress.activityDates,freezeDates:account.progress.freezeDates,freezeBalance:account.progress.freezeBalance};
   await queueTransaction(userId,()=>{enqueue(userId,operation);});if(state.account)replace(state.account,false);
   if(!navigator.onLine){emit({syncError:'Se va sincroniza când revii online.'});return optimistic;}
   await flushProgressQueue();
@@ -81,7 +88,7 @@ async function mutate(operation:ProgressOperation):Promise<DomainResult> {
   if(!result && !readQueue(userId).some(item=>item.operation.operationId===operation.operationId))throw new Error('Nu am putut salva activitatea exact cum era. Progresul tău a fost sincronizat cu contul.');
   return result ?? {...optimistic,progress:state.progress};
 }
-const operation=(type:ProgressOperation['type'],payload:ProgressOperation['payload'],operationId=crypto.randomUUID()):ProgressOperation=>({type,payload,operationId,occurredAt:new Date().toISOString()} as ProgressOperation);
+const operation=(type:ProgressOperation['type'],payload:ProgressOperation['payload'],operationId=createClientUuid()):ProgressOperation=>({type,payload,operationId,occurredAt:new Date().toISOString()} as ProgressOperation);
 export const finishLessonSession=(session:LessonSessionResult)=>mutate(operation('completeLesson',{lessonId:session.lessonId,answers:session.answers,trial:false},session.sessionId));
 export const submitDailyChallenge=(selectedOptionId:string)=>mutate(operation('answerDailyChallenge',{selectedOptionId}));
 export const updateSimulation=(simulation:SimulationState)=>mutate(operation('simulator',{choices:simulatorChoices(simulation.history)}));
@@ -89,5 +96,5 @@ export const saveLastLesson=async(id:string)=>{if(identity && state.account)awai
 export const acknowledgeAchievement=async(id:string)=>{if(identity)await mutate(operation('achievementSeen',{id}));};
 export const acknowledgeLevel=async()=>{if(identity)await mutate(operation('levelSeen',{}));};
 export const acknowledgeFreeze=async(day:string)=>{if(identity)await mutate(operation('freezeSeen',{day}));};
-export function useProgressData() {const value=useSyncExternalStore(subscribe,()=>state,()=>initial);return {...value.progress,totalXp:getTotalXp(value.progress),completedLessonIds:getCompletedLessonIds(value.progress),simulatorCompletions:getSimulatorCompletionIds(value.progress),hydrated:value.hydrated,todayKey:value.todayKey,profile:value.account?.profile ?? null,email:value.account?.email ?? null,userId:value.userId,isSyncing:value.isSyncing,pendingCount:value.pendingCount,syncError:value.syncError,notificationsReady:value.notificationsReady,authTransition:value.authTransition,logoutFailed:value.logoutFailed};}
+export function useProgressData() {const value=useSyncExternalStore(subscribe,()=>state,()=>initial);return {...value.progress,totalXp:getTotalXp(value.progress),completedLessonIds:getCompletedLessonIds(value.progress),simulatorCompletions:getSimulatorCompletionIds(value.progress),hydrated:value.hydrated,todayKey:value.todayKey,accountRevision:value.account?.revision ?? 0,profile:value.account?.profile ?? null,email:value.account?.email ?? null,userId:value.userId,isSyncing:value.isSyncing,pendingCount:value.pendingCount,syncError:value.syncError,notificationsReady:value.notificationsReady,authTransition:value.authTransition,logoutFailed:value.logoutFailed};}
 export function friendlyApiError(code:unknown) {return typeof code==='string' && Object.hasOwn(errorCopy,code)?errorCopy[code as AccountErrorCode]:errorCopy.SERVER_ERROR;}

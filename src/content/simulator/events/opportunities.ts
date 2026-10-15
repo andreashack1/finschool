@@ -1,0 +1,9 @@
+import { lifeEvents } from './life-builder';
+export const opportunityEvents = lifeEvents('opportunity','economii',['free_activity'],['after_program','weekend_daytime'],['liceu','lucrez'],[
+ ['opportunity_free_exhibit','free_invitation','Expoziție cu intrare liberă','Un prieten a găsit o expoziție cu intrare liberă. La ieșire există și un mic catalog opțional.','Vizitezi expoziția','free','Nu intri la expoziție',{duration:45,tags:['free_activity','culture']}],
+ ['opportunity_borrow_tool','borrowing','Poți împrumuta unealta','Pentru o reparație mică ai putea cumpăra o unealtă. Un prieten oferă să îți împrumute una pentru această activitate.','Iei unealta proprie','repair','Împrumuți unealta oferită',{tags:['reuse','repair']}],
+ ['opportunity_repair_help','repair_opportunity','Ajutor pentru un obiect mic','Cineva apropiat oferă ajutor pentru a verifica un obiect mic cu o piesă slăbită. Poți lua un kit sau puteți verifica întâi problema.','Iei kitul','repair','Verificați împreună întâi',{tags:['reuse','repair']}],
+ ['opportunity_free_sport','free_invitation','Mișcare fără taxă','Prietenii propun mișcare într-un parc cu acces liber. Poți lua o băutură pe drum sau poți merge direct.','Participi la mișcare în parc','free','Nu participi',{tags:['free_activity','sport'],duration:60}],
+ ['opportunity_prepared_meal','meal_coverage','O masă fără comandă nouă','Te gândești să comanzi ceva pentru seară. Dacă pregătirea anterioară încă te acoperă, poți folosi acea variantă.','Comanzi o masă','delivery','Nu comanzi acum',{opportunities:['evening'],tags:['preparation','delivery'],story:{effect:'food_coverage',phase:'use'}}],
+ ['opportunity_material_exchange','borrowing','Schimb de materiale','Un grup organizează un schimb de materiale pentru proiecte. Poți cumpăra un set nou sau poți căuta ceva în schimbul gratuit.','Iei un set nou','project','Cauți în schimbul gratuit',{tags:['reuse','project'],story:{effect:'project_ready',phase:'use'}}],
+]);

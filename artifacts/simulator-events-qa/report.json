@@ -1,0 +1,7 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [],
+  "errors": [],
+  "providerErrors": [],
+  "failure": "Next stopped"
+}

@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce Ioana nu folosește linkul de anulare?",
       "explanation": "Verificarea independentă precede datele și plata.",
       "correctFeedback": "Corect. Verificarea independentă precede datele și plata.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică separat de mesaj?",
       "explanation": "Faptele și accesul sunt verificări complementare.",
       "correctFeedback": "Corect. Faptele și accesul sunt verificări complementare.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce păstrează pentru pașii competenți?",
       "explanation": "Datele documentate ajută analiza.",
       "correctFeedback": "Corect. Datele documentate ajută analiza.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Confirmă",
           "body": "Mesajul și operațiunea se verifică separat.",
-          "detail": "Mesajul și operațiunea se verifică separat.",
+          "detail": "Mesajul despre un cont necunoscut poate fi el însuși o înșelătorie. Confirmă dacă există cererea prin instituția contactată separat, înainte să trimiți documente sau o taxă de anulare.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Acces",
           "body": "Protejează e-mailul și credențialele.",
-          "detail": "Protejează e-mailul și credențialele.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Documentează",
           "body": "Păstrează cronologia fără să publici actele.",
-          "detail": "Păstrează cronologia fără să publici actele.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Verifică sesiunile contului de e-mail și modul legitim de recuperare a accesului.",
-          "detail": "Verifică sesiunile contului de e-mail și modul legitim de recuperare a accesului.",
           "type": "action"
         }
       ]

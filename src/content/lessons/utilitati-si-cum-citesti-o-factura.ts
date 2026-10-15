@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -61,7 +61,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar culoarea plicului."
+          "label": "Doar tariful unitar, fără consum și soldul anterior."
         }
       ],
       "correctOption": "0"
@@ -89,10 +89,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "Cât este 100 × 1 + 20 + 30?",
-      "explanation": "150 lei.",
-      "correctFeedback": "Corect. 150 lei.",
-      "incorrectFeedback": "Nu chiar. 150 lei.",
+      "question": "Consumul costă 100 lei, costul fix este 20 lei și soldul anterior este 30 lei. Ce sumă de plată verifici pe factura din exemplu?",
+      "explanation": "Cele trei componente însumează 150 lei, dar numai 100 lei reprezintă consumul. Totalul mai mare nu dovedește singur creșterea tarifului.",
+      "correctFeedback": "Corect. Cele trei componente însumează 150 lei, dar numai 100 lei reprezintă consumul. Totalul mai mare nu dovedește singur creșterea tarifului.",
+      "incorrectFeedback": "Nu chiar. Cele trei componente însumează 150 lei, dar numai 100 lei reprezintă consumul. Totalul mai mare nu dovedește singur creșterea tarifului.",
       "type": "variante",
       "options": [
         {
@@ -147,7 +147,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce parte din factura Elenei este sold anterior?",
       "explanation": "30 lei.",
       "correctFeedback": "Corect. 30 lei.",
@@ -173,7 +172,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Care sunt componentele curente din exemplu?",
       "explanation": "100 lei consum și 20 lei cost fix.",
       "correctFeedback": "Corect. 100 lei consum și 20 lei cost fix.",
@@ -199,7 +197,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce caută plata precedentă?",
       "explanation": "Pentru verificarea soldului de 30 lei.",
       "correctFeedback": "Corect. Pentru verificarea soldului de 30 lei.",
@@ -249,11 +246,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Ștergi factura."
+          "label": "Scazi singur diferența din suma de plată, fără clarificare."
         },
         {
           "id": "2",
-          "label": "Plătești alt furnizor la întâmplare."
+          "label": "Consideri indexul estimat definitiv, fără să păstrezi dovada."
         }
       ],
       "correctOption": "0"
@@ -292,28 +289,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "O factură de utilități arată perioada, consumul, tarifele, taxele, eventualul sold anterior și termenul de plată.",
-          "detail": "O factură de utilități arată perioada, consumul, tarifele, taxele, eventualul sold anterior și termenul de plată.",
+          "detail": "Factura de 150 lei include 100 consum, 20 cost fix și 30 sold anterior. Diferența față de o factură veche nu dovedește singură creșterea tarifului; verifică și perioada și indexul.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Pe o factură fictivă, consumul este 100 de unități la 1 leu, cu un cost fix de 20 lei. Totalul acestor componente este 120 lei.",
-          "detail": "Pe o factură fictivă, consumul este 100 de unități la 1 leu, cu un cost fix de 20 lei. Totalul acestor componente este 120 lei.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "O factură estimată poate fi ajustată ulterior prin regularizare.",
-          "detail": "O factură estimată poate fi ajustată ulterior prin regularizare.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe o factură fictivă, separă consumul curent, costul fix, soldul anterior și scadența.",
-          "detail": "Pe o factură fictivă, separă consumul curent, costul fix, soldul anterior și scadența.",
           "type": "action"
         }
       ]

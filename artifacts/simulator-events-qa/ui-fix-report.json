@@ -1,0 +1,18 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Login, schedule setup, Chapter 2 dashboard retained, monthly card replaced",
+    "new-run: one Events section in former monthly slot at 320/390/430/1280",
+    "Visible event detail, free choice saves feedback without ledger",
+    "Paid confirmation, exact debit, one ledger row, detail at 320/390/430",
+    "Midnight auto-resolves old-day events",
+    "Negative balance disables paid choices, free remains available",
+    "Seven-day absence matches ledger; Chapter 2 UI and mobile retained",
+    "Salary boundary through real API: previous-day negative balance forces free auto-choice before new salary",
+    "existing-picker: one Events section in former monthly slot at 320/390/430/1280",
+    "existing-active: one Events section in former monthly slot at 320/390/430/1280",
+    "Existing run: contextual picker, activation in same slot, profile persists, engine start/run/balance preserved"
+  ],
+  "errors": [],
+  "providerErrors": []
+}

@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -141,7 +141,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce a rezolvat plata pentru carte?",
       "explanation": "Banii permit schimburi între persoane cu nevoi diferite.",
       "correctFeedback": "Corect. Banii permit schimburi între persoane cu nevoi diferite.",
@@ -167,7 +166,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Cum ar trebui comparate ghiozdanele?",
       "explanation": "Prețul este o informație, iar utilitatea completează comparația.",
       "correctFeedback": "Corect. Prețul este o informație, iar utilitatea completează comparația.",
@@ -178,7 +176,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar prețul cel mai mare."
+          "label": "Le alegi după preț, fără să verifici ce accesorii folosești."
         },
         {
           "id": "1",
@@ -186,14 +184,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar culoarea ambalajului."
+          "label": "Le compari doar după numărul accesoriilor incluse."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce explică schimbarea cumpărăturii posibile?",
       "explanation": "Suma nominală diferă de puterea de cumpărare.",
       "correctFeedback": "Corect. Suma nominală diferă de puterea de cumpărare.",
@@ -204,11 +201,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Bancnotele au dispărut automat."
+          "label": "Puterea de cumpărare a rămas aceeași fiindcă soldul este identic."
         },
         {
           "id": "1",
-          "label": "Economisirea a devenit imposibilă."
+          "label": "Economiile trebuie să crească automat când prețul se schimbă."
         },
         {
           "id": "2",
@@ -230,10 +227,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q8",
       "title": "Uite unde e diferența.",
-      "question": "Alex plătește cu cardul de debit. Ce trebuie urmărit?",
-      "explanation": "Instrumentul de plată nu înlocuiește verificarea sursei banilor.",
-      "correctFeedback": "Corect. Instrumentul de plată nu înlocuiește verificarea sursei banilor.",
-      "incorrectFeedback": "Nu chiar. Instrumentul de plată nu înlocuiește verificarea sursei banilor.",
+      "question": "Alex are 100 lei în cont și vrea două bilete de câte 60 lei. Ce contează înainte să plătească cu cardul de debit?",
+      "explanation": "Cardul accesează banii din cont. Cele două bilete costă împreună 120 lei, iar soldul de 100 lei nu acoperă plata.",
+      "correctFeedback": "Corect. Cardul accesează banii din cont. Cele două bilete costă împreună 120 lei, iar soldul de 100 lei nu acoperă plata.",
+      "incorrectFeedback": "Nu chiar. Cardul accesează banii din cont. Cele două bilete costă împreună 120 lei, iar soldul de 100 lei nu acoperă plata.",
       "type": "scenariu",
       "context": "Alex cumpără un bilet de tren.",
       "options": [
@@ -243,11 +240,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Culoarea cardului."
+          "label": "Limita înscrisă pentru o singură plată, fără să verifice soldul."
         },
         {
           "id": "2",
-          "label": "Ideea că fiecare plată produce bani noi."
+          "label": "Valoarea banilor primiți luna trecută, chiar dacă i-a cheltuit."
         }
       ],
       "correctOption": "0"
@@ -286,28 +283,27 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Schimb",
           "body": "Banii reduc nevoia unui troc direct.",
-          "detail": "Banii reduc nevoia unui troc direct.",
+          "detail": "Poți vinde o carte unei persoane și cumpăra un ghiozdan de la alta. Nu trebuie ca fiecare să aibă exact obiectul dorit de celălalt.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Comparație",
           "body": "Prețurile în aceeași monedă oferă o scară comună.",
-          "detail": "Prețurile în aceeași monedă oferă o scară comună.",
+          "detail": "Două etichete în lei pot fi comparate direct ca sumă. Pentru alegere, verifică și dacă produsele rezolvă aceeași nevoie; prețul mai mare nu dovedește utilitatea.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Viitor",
           "body": "O sumă păstrată poate avea altă putere de cumpărare.",
-          "detail": "O sumă păstrată poate avea altă putere de cumpărare.",
+          "detail": "Dacă ghiozdanul se scumpește până la excursie, economiile identice pot să nu mai ajungă. Verifică din nou prețul înainte să consideri obiectivul acoperit.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Identifică la o plată de azi ce rol al banilor folosești și ce informație îți mai trebuie înainte să cumperi.",
-          "detail": "Identifică la o plată de azi ce rol al banilor folosești și ce informație îți mai trebuie înainte să cumperi.",
           "type": "action"
         }
       ]

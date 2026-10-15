@@ -13,7 +13,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "venit-cheltuieli-si-ce-ramane",
@@ -29,7 +29,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "ce-detii-si-ce-datorezi",
@@ -45,7 +45,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "ce-este-inflatia",
@@ -61,7 +61,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "dobanda",
@@ -77,7 +77,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "banca-centrala-bnr",
@@ -93,7 +93,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cerere-si-oferta",
@@ -109,7 +109,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "tva",
@@ -125,7 +125,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "impozit-taxa-si-contributie",
@@ -141,7 +141,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cursul-valutar-si-euro",
@@ -157,7 +157,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "nevoi-vs-dorinte",
@@ -173,7 +173,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "costul-real-al-unui-produs",
@@ -189,7 +189,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "bonul-factura-si-chitanta",
@@ -205,7 +205,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cumparaturile-pe-impuls",
@@ -221,7 +221,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "reduceri-care-nu-sunt-reduceri",
@@ -237,7 +237,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cum-te-conving-reclamele",
@@ -253,7 +253,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cumparaturi-in-jocuri-si-aplicatii",
@@ -269,7 +269,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "abonamentele",
@@ -285,7 +285,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "drepturile-consumatorului",
@@ -301,7 +301,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "iesiri-cu-prietenii-fara-sa-te-golesti",
@@ -317,7 +317,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "ce-face-o-banca-si-cum-alegi-un-cont",
@@ -333,7 +333,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "iban",
@@ -349,7 +349,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "comisioane-bancare",
@@ -365,7 +365,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cardul-de-debit",
@@ -381,7 +381,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "plati-digitale",
@@ -397,7 +397,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "transferuri-si-plati-instant",
@@ -413,7 +413,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cardul-in-strainatate",
@@ -429,7 +429,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "extrasul-de-cont",
@@ -445,7 +445,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "sunt-banii-mei-in-siguranta-la-banca",
@@ -461,7 +461,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "contul-pentru-minori",
@@ -477,7 +477,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "phishing",
@@ -509,7 +509,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "anunturi-si-livrari-false",
@@ -525,7 +525,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "magazine-false",
@@ -541,7 +541,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "oferte-prea-bune-ca-sa-fie-reale",
@@ -557,7 +557,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "piramide-si-scheme-bani-rapizi",
@@ -573,7 +573,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "protejeaza-datele-cardului",
@@ -589,7 +589,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "furtul-de-identitate",
@@ -605,7 +605,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "conturi-folosite-de-altii",
@@ -621,7 +621,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "ce-faci-daca-ai-fost-inselat",
@@ -637,7 +637,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "primul-buget",
@@ -669,7 +669,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "metoda-50-30-20",
@@ -685,7 +685,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "bani-de-buzunar-si-venituri-neregulate",
@@ -701,7 +701,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "de-ce-economisim-si-cat",
@@ -717,7 +717,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "plateste-te-pe-tine-primul",
@@ -733,7 +733,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "obiective-de-economisire",
@@ -749,7 +749,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "fondul-de-urgenta",
@@ -781,7 +781,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "dobanda-compusa",
@@ -813,7 +813,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cum-citesti-un-contract",
@@ -829,7 +829,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "munca-part-time-si-student",
@@ -845,7 +845,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "salariu-brut-vs-net",
@@ -877,7 +877,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "salariul-minim",
@@ -893,7 +893,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "tichete-si-beneficii",
@@ -909,7 +909,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "taxele-pe-salariu-cas-cass-impozit",
@@ -925,7 +925,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "pensia-de-ce-conteaza-de-la-primul-salariu",
@@ -941,7 +941,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "ce-faci-cu-primul-salariu",
@@ -957,7 +957,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "ce-este-creditul",
@@ -973,7 +973,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "dobanda-la-credit-si-dae",
@@ -989,7 +989,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "rata-lunara-si-costul-total",
@@ -1005,7 +1005,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "dobanda-fixa-vs-variabila",
@@ -1021,7 +1021,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cardul-de-credit",
@@ -1037,7 +1037,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "plata-in-rate-si-cumpara-acum-plateste-mai-tarziu",
@@ -1053,7 +1053,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "creditele-rapide-ifn",
@@ -1069,7 +1069,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "scorul-de-credit",
@@ -1085,7 +1085,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "ce-se-intampla-daca-nu-ti-platesti-datoria",
@@ -1101,7 +1101,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cum-iesi-din-datorii",
@@ -1117,7 +1117,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cat-costa-sa-te-muti-singur",
@@ -1133,7 +1133,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "chirie-si-contract-de-inchiriere",
@@ -1149,7 +1149,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "utilitati-si-cum-citesti-o-factura",
@@ -1165,7 +1165,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cumperi-casa-sau-inchiriezi",
@@ -1181,7 +1181,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "primul-telefon-sau-laptop",
@@ -1197,7 +1197,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "asigurari-rca-locuinta-calatorie",
@@ -1213,7 +1213,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "burse-si-costul-facultatii",
@@ -1229,7 +1229,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cheltuielile-din-supermarket",
@@ -1245,7 +1245,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cheltuieli-neprevazute",
@@ -1261,7 +1261,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "banii-intre-prieteni-si-intr-o-relatie",
@@ -1277,7 +1277,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "fomo-si-cheltuieli",
@@ -1293,7 +1293,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "presiunea-sociala",
@@ -1309,7 +1309,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cum-vorbesti-despre-bani",
@@ -1325,7 +1325,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cheltuieli-emotionale",
@@ -1341,7 +1341,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "efectul-de-ancorare",
@@ -1357,7 +1357,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "preturile-psihologice-99-99",
@@ -1373,7 +1373,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "de-ce-cheltuim-mai-mult-cu-cardul-decat-cu-numerarul",
@@ -1389,7 +1389,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "gratificarea-imediata-vs-viitor",
@@ -1405,7 +1405,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cheltuieli-mici-care-se-aduna",
@@ -1421,7 +1421,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "obiceiuri-bune-cu-banii",
@@ -1437,7 +1437,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "de-ce-investim",
@@ -1453,7 +1453,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "risc-si-randament",
@@ -1469,7 +1469,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "diversificarea",
@@ -1485,7 +1485,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "actiuni",
@@ -1501,7 +1501,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "obligatiuni-si-titluri-de-stat",
@@ -1517,7 +1517,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "etf-uri-si-fonduri",
@@ -1533,7 +1533,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cum-functioneaza-bursa",
@@ -1549,7 +1549,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "investesti-vs-speculezi",
@@ -1565,7 +1565,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "crypto-ce-trebuie-sa-stii",
@@ -1581,7 +1581,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "cum-incepi-cu-sume-mici",
@@ -1597,7 +1597,7 @@
         ]
       }
     ],
-    "contentVersion": 2
+    "contentVersion": 3
   },
   {
     "id": "card-debit-vs-credit",

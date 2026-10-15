@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -61,11 +61,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Preferința zilnică a clientului."
+          "label": "Nivelul inițial, care ar trebui păstrat indiferent de indice."
         },
         {
           "id": "2",
-          "label": "Numărul cumpărăturilor."
+          "label": "Doar marja, fără indicele inclus în formulă."
         }
       ],
       "correctOption": "0"
@@ -73,10 +73,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Dobânda fixă rămâne la nivelul stabilit pentru perioada fixă din contract.",
-      "explanation": "Dobânda fixă rămâne la nivelul stabilit pentru perioada fixă din contract. Dobânda variabilă se modifică potrivit formulei convenite, de obicei cu un indice și o marjă. Nu orice credit este fix pe toată durata. Verifică perioada, formula și calendarul actualizării înainte să folosești rata de azi ca estimare permanentă.",
-      "correctFeedback": "Corect. Dobânda fixă rămâne la nivelul stabilit pentru perioada fixă din contract. Dobânda variabilă se modifică potrivit formulei convenite, de obicei cu un indice și o marjă. Nu orice credit este fix pe toată durata. Verifică perioada, formula și calendarul actualizării înainte să folosești rata de azi ca estimare permanentă.",
-      "incorrectFeedback": "Nu chiar. Dobânda fixă rămâne la nivelul stabilit pentru perioada fixă din contract. Dobânda variabilă se modifică potrivit formulei convenite, de obicei cu un indice și o marjă. Nu orice credit este fix pe toată durata. Verifică perioada, formula și calendarul actualizării înainte să folosești rata de azi ca estimare permanentă.",
+      "question": "Un credit poate avea doi ani cu dobândă fixă și apoi dobândă variabilă, deci rata de azi nu descrie automat toată durata.",
+      "explanation": "Verifică perioada pentru care nivelul este fix. Formula și actualizarea după această perioadă pot schimba estimarea plăților.",
+      "correctFeedback": "Corect. Verifică perioada pentru care nivelul este fix. Formula și actualizarea după această perioadă pot schimba estimarea plăților.",
+      "incorrectFeedback": "Nu chiar. Verifică perioada pentru care nivelul este fix. Formula și actualizarea după această perioadă pot schimba estimarea plăților.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce informație lipsește vizibil din reclama Irinei?",
       "explanation": "Condițiile după perioada fixă.",
       "correctFeedback": "Corect. Condițiile după perioada fixă.",
@@ -166,18 +165,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Numele produsului."
+          "label": "Doar rata inițială, considerată valabilă pe toată durata."
         },
         {
           "id": "2",
-          "label": "Faptul că există două oferte."
+          "label": "Doar marja ulterioară, fără indice și actualizare."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Cu indice 4% și marjă 3 puncte, care este nivelul din exemplu?",
       "explanation": "7%.",
       "correctFeedback": "Corect. 7%.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce rol are simularea creșterii?",
       "explanation": "Testează bugetul fără să prezică indicele.",
       "correctFeedback": "Corect. Testează bugetul fără să prezică indicele.",
@@ -214,11 +211,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Garantează o rată identică."
+          "label": "Arată nivelul sigur al indicelui viitor."
         },
         {
           "id": "1",
-          "label": "Elimină contractul."
+          "label": "Înlocuiește datele creditului necesare pentru calculul ratei."
         },
         {
           "id": "2",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Dobânda fixă rămâne la nivelul stabilit pentru perioada fixă din contract.",
-          "detail": "Dobânda fixă rămâne la nivelul stabilit pentru perioada fixă din contract.",
+          "detail": "O ofertă fixă doi ani poate deveni variabilă după aceea. Cere formula și calendarul ulterior înainte să folosești rata inițială pentru întregul plan de rambursare.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "O ofertă fictivă are dobândă fixă doi ani, apoi variabilă. Alta folosește de la început formula indice plus marjă de 3 puncte procentuale.",
-          "detail": "O ofertă fictivă are dobândă fixă doi ani, apoi variabilă. Alta folosește de la început formula indice plus marjă de 3 puncte procentuale.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Dobânda variabilă poate urca sau coborî; niciuna dintre direcții nu este garantată.",
-          "detail": "Dobânda variabilă poate urca sau coborî; niciuna dintre direcții nu este garantată.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Scrie ce ai verifica la sfârșitul unei perioade de dobândă fixă și testează un buget cu plăți mai mari.",
-          "detail": "Scrie ce ai verifica la sfârșitul unei perioade de dobândă fixă și testează un buget cu plăți mai mari.",
           "type": "action"
         }
       ]

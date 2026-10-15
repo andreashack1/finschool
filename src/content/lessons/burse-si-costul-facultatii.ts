@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -61,7 +61,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Numai o diplomă."
+          "label": "Doar materialele, presupunând că locuirea nu intră în costul studiilor."
         }
       ],
       "correctOption": "0"
@@ -147,7 +147,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce venit nu este încă sigur pentru Ana?",
       "explanation": "Bursa solicitată.",
       "correctFeedback": "Corect. Bursa solicitată.",
@@ -173,7 +172,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Unde verifică Ana condițiile bursei?",
       "explanation": "În metodologia oficială a instituției.",
       "correctFeedback": "Corect. În metodologia oficială a instituției.",
@@ -192,14 +190,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "În reclama unui magazin."
+          "label": "În regulile altei facultăți, presupunând că sunt identice."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce verifică data plății?",
       "explanation": "Banii pot veni după unele scadențe.",
       "correctFeedback": "Corect. Banii pot veni după unele scadențe.",
@@ -292,28 +289,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Costul facultății poate include taxă, locuire, hrană, transport și materiale, chiar când studiile nu au taxă.",
-          "detail": "Costul facultății poate include taxă, locuire, hrană, transport și materiale, chiar când studiile nu au taxă.",
+          "detail": "Ana are costuri estimate de 7.500 lei pe semestru și resurse confirmate de 6.000. Cererea de bursă neaprobată nu acoperă deja diferența, iar data încasării trebuie comparată cu scadențele.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Ana estimează costuri de 1.500 lei lunar pentru cinci luni, adică 7.500. Are confirmate resurse de 6.000, deci diferența este 1.500.",
-          "detail": "Ana estimează costuri de 1.500 lei lunar pentru cinci luni, adică 7.500. Are confirmate resurse de 6.000, deci diferența este 1.500.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Condițiile burselor și taxele diferă între instituții și se pot modifica.",
-          "detail": "Condițiile burselor și taxele diferă între instituții și se pot modifica.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Estimează un semestru fictiv și separă resursele confirmate de cele doar solicitate.",
-          "detail": "Estimează un semestru fictiv și separă resursele confirmate de cele doar solicitate.",
           "type": "action"
         }
       ]

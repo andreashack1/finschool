@@ -10,7 +10,7 @@ export const creditScoreLesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -186,7 +186,7 @@ export const creditScoreLesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar culoarea telefonului."
+          "label": "Doar limita aprobată, presupunând că arată ce poate susține bugetul."
         },
         {
           "id": "2",

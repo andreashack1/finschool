@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -61,11 +61,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar ultima pagină."
+          "label": "Doar salariul promis, fără program și responsabilități."
         },
         {
           "id": "2",
-          "label": "Doar fontul documentului."
+          "label": "Doar durata, presupunând că anexele nu creează obligații."
         }
       ],
       "correctOption": "0"
@@ -73,10 +73,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Citește un contract urmărind cine se obligă, ce trebuie făcut, cât se plătește și când începe sau încetează obligația.",
-      "explanation": "Citește un contract urmărind cine se obligă, ce trebuie făcut, cât se plătește și când începe sau încetează obligația. Pentru un job, caută funcția, locul muncii, norma, salariul brut și durata. Anexele și fișa postului pot explica responsabilitățile. O semnătură confirmă acceptarea documentului, nu promisiunile pe care speri să le conțină.",
-      "correctFeedback": "Corect. Citește un contract urmărind cine se obligă, ce trebuie făcut, cât se plătește și când începe sau încetează obligația. Pentru un job, caută funcția, locul muncii, norma, salariul brut și durata. Anexele și fișa postului pot explica responsabilitățile. O semnătură confirmă acceptarea documentului, nu promisiunile pe care speri să le conțină.",
-      "incorrectFeedback": "Nu chiar. Citește un contract urmărind cine se obligă, ce trebuie făcut, cât se plătește și când începe sau încetează obligația. Pentru un job, caută funcția, locul muncii, norma, salariul brut și durata. Anexele și fișa postului pot explica responsabilitățile. O semnătură confirmă acceptarea documentului, nu promisiunile pe care speri să le conțină.",
+      "question": "O ofertă verbală de patru ore și un contract cu opt ore trebuie clarificate înainte să îți planifici programul.",
+      "explanation": "Programul scris poate diferi de discuția inițială. Clarifică diferența înainte de acceptare, ca să nu organizezi cursurile după o promisiune neconfirmată.",
+      "correctFeedback": "Corect. Programul scris poate diferi de discuția inițială. Clarifică diferența înainte de acceptare, ca să nu organizezi cursurile după o promisiune neconfirmată.",
+      "incorrectFeedback": "Nu chiar. Programul scris poate diferi de discuția inițială. Clarifică diferența înainte de acceptare, ca să nu organizezi cursurile după o promisiune neconfirmată.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -101,7 +101,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Culoarea logo-ului."
+          "label": "Doar salariul, presupunând că programul discutat rămâne valabil."
         },
         {
           "id": "1",
@@ -109,7 +109,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Numărul de pagini."
+          "label": "Doar durata contractului, fără punctul de lucru."
         }
       ],
       "correctOption": "1"
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Care este diferența de program în cazul Ioanei?",
       "explanation": "Patru ore discutate, opt ore scrise.",
       "correctFeedback": "Corect. Patru ore discutate, opt ore scrise.",
@@ -177,7 +176,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce cere Ioana fișa postului?",
       "explanation": "Ca să înțeleagă responsabilitățile menționate.",
       "correctFeedback": "Corect. Ca să înțeleagă responsabilitățile menționate.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce risc evită clarificarea locului muncii?",
       "explanation": "Planificarea navetei pe baza unei adrese neconfirmate.",
       "correctFeedback": "Corect. Planificarea navetei pe baza unei adrese neconfirmate.",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Citește un contract urmărind cine se obligă, ce trebuie făcut, cât se plătește și când începe sau încetează obligația.",
-          "detail": "Citește un contract urmărind cine se obligă, ce trebuie făcut, cât se plătește și când începe sau încetează obligația.",
+          "detail": "Ioana a discutat patru ore, dar documentul menționează opt și alt loc de muncă. Clarifică diferențele și cere anexa lipsă înainte să își organizeze cursurile după acea ofertă.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Ioana compară discuția de recrutare cu documentul: i s-a spus patru ore, dar apare o normă de opt ore. Marchează diferența și cere corectarea ori explicația înainte de semnare.",
-          "detail": "Ioana compară discuția de recrutare cu documentul: i s-a spus patru ore, dar apare o normă de opt ore. Marchează diferența și cere corectarea ori explicația înainte de semnare.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Un termen neclar nu trebuie tratat ca avantaj.",
-          "detail": "Un termen neclar nu trebuie tratat ca avantaj.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Fă o listă de verificare cu norma, locul, salariul brut, durata și anexele unui contract fictiv.",
-          "detail": "Fă o listă de verificare cu norma, locul, salariul brut, durata și anexele unui contract fictiv.",
           "type": "action"
         }
       ]

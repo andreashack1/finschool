@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -51,11 +51,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Sunt toate scrise cu același font?"
+          "label": "Care este suma, presupunând că sumele egale au același rol?"
         },
         {
           "id": "2",
-          "label": "Este orice plată o cumpărătură privată?"
+          "label": "Cui îi plătești, presupunând că toate plățile către stat sunt identice?"
         }
       ],
       "correctOption": "0"
@@ -117,11 +117,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Numărul de colegi."
+          "label": "Totalul brut, presupunând că toate reținerile au aceeași bază."
         },
         {
           "id": "1",
-          "label": "Culoarea fluturașului."
+          "label": "Procentele reținute de un coleg, fără condițiile sale."
         },
         {
           "id": "2",
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce Mara cere denumirile și baza calculului?",
       "explanation": "O explicație precisă este mai utilă decât o etichetă generică.",
       "correctFeedback": "Corect. O explicație precisă este mai utilă decât o etichetă generică.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Taxa pentru procedură este identică automat unei contribuții salariale?",
       "explanation": "Plata pentru o procedură și finanțarea unui sistem pot avea roluri diferite.",
       "correctFeedback": "Corect. Plata pentru o procedură și finanțarea unui sistem pot avea roluri diferite.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce face cu solicitarea nesperată de plată?",
       "explanation": "Un termen fiscal nu dovedește autenticitatea mesajului.",
       "correctFeedback": "Corect. Un termen fiscal nu dovedește autenticitatea mesajului.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Denumiri",
           "body": "Termenii nu sunt sinonime perfecte.",
-          "detail": "Termenii nu sunt sinonime perfecte.",
+          "detail": "Două rețineri care reduc salariul pot susține mecanisme diferite. Pentru o plată necunoscută, cere denumirea, baza și scopul din document, fără să îi atribui o regulă doar după sumă.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Mecanisme",
           "body": "Caută baza, scopul și regulile.",
-          "detail": "Caută baza, scopul și regulile.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Verificare",
           "body": "Un cuvânt fiscal nu validează o solicitare de plată.",
-          "detail": "Un cuvânt fiscal nu validează o solicitare de plată.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Alege o plată de pe un document și formulează întrebarea „ce mecanism reprezintă și unde îl verific?”.",
-          "detail": "Alege o plată de pe un document și formulează întrebarea „ce mecanism reprezintă și unde îl verific?”.",
           "type": "action"
         }
       ]

@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Cu 150 lunar, cât lipsește lui Radu la termen?",
       "explanation": "600 + 900 = 1.500, cu 300 sub 1.800.",
       "correctFeedback": "Corect. 600 + 900 = 1.500, cu 300 sub 1.800.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce adaptare poate compara?",
       "explanation": "Diferența trebuie rezolvată prin ipoteze realiste.",
       "correctFeedback": "Corect. Diferența trebuie rezolvată prin ipoteze realiste.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce verifică accesoriile și transportul?",
       "explanation": "Ținta trebuie să includă componentele necesare.",
       "correctFeedback": "Corect. Ținta trebuie să includă componentele necesare.",
@@ -244,11 +241,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar culoarea indicatorului."
+          "label": "Doar contribuția lunară, presupunând că termenul rămâne realizabil."
         },
         {
           "id": "2",
-          "label": "Nimic fiindcă planul este fix pentru totdeauna."
+          "label": "Doar procentul de progres, păstrând ținta la prețul vechi."
         }
       ],
       "correctOption": "0"
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Diferență",
           "body": "Scade economiile dedicate din țintă.",
-          "detail": "Scade economiile dedicate din țintă.",
+          "detail": "Pentru laptopul de 1.800 lei, cei 600 lei dedicați lasă 1.200 lei de strâns. Nu include în aceeași sumă și banii rezervați drumului la familie.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Ritm",
           "body": "Împarte ce lipsește la perioadele disponibile.",
-          "detail": "Împarte ce lipsește la perioadele disponibile.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Revizuire",
           "body": "Actualizează costul, termenul și utilitatea.",
-          "detail": "Actualizează costul, termenul și utilitatea.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pentru un obiectiv, calculează ce lipsește și contribuția periodică într-un scenariu fără randament promis.",
-          "detail": "Pentru un obiectiv, calculează ce lipsește și contribuția periodică într-un scenariu fără randament promis.",
           "type": "action"
         }
       ]

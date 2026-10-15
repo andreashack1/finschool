@@ -1,0 +1,80 @@
+▲ Next.js 16.3.8 (webpack)
+✓ Running next.config.ts took 44ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 12.3s
+  Running TypeScript ...
+  Finished TypeScript in 5.3s ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/52) ...
+  Generating static pages using 15 workers (13/52) 
+  Generating static pages using 15 workers (26/52) 
+  Generating static pages using 15 workers (39/52) 
+✓ Generating static pages using 15 workers (52/52) in 1620ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ƒ /
+├ ƒ /_not-found
+├ ƒ /actualizeaza-parola
+├ ƒ /api/account/auth
+├ ƒ /api/account/profile
+├ ƒ /api/account/username
+├ ƒ /api/cron/simulator-notifications
+├ ƒ /api/notifications
+├ ƒ /api/notifications/preferences
+├ ƒ /api/notifications/push
+├ ƒ /api/notifications/push/display
+├ ƒ /api/progress
+├ ƒ /api/progress/moments
+├ ƒ /api/simulator/calendar
+├ ƒ /api/simulator/dashboard
+├ ƒ /api/simulator/dev/clock
+├ ƒ /api/simulator/dev/consequences
+├ ƒ /api/simulator/dev/events
+├ ƒ /api/simulator/dev/life
+├ ƒ /api/simulator/dev/monthly-reviews
+├ ƒ /api/simulator/dev/notifications
+├ ƒ /api/simulator/dev/reset
+├ ƒ /api/simulator/dev/subscriptions
+├ ƒ /api/simulator/events/[id]
+├ ƒ /api/simulator/journal
+├ ƒ /api/simulator/monthly-review
+├ ƒ /api/simulator/preview
+├ ƒ /api/simulator/profile
+├ ƒ /api/simulator/run
+├ ƒ /api/simulator/settle
+├ ƒ /api/simulator/start
+├ ƒ /api/simulator/state
+├ ƒ /api/simulator/subscriptions
+├ ○ /apple-icon.png
+├ ƒ /autentificare
+├ ƒ /auth/callback
+├ ƒ /bun-venit
+├ ƒ /confidentialitate
+├ ƒ /creeaza-cont
+├ ƒ /despre
+├ ○ /icon.svg
+├ ƒ /incepe
+├ ƒ /lectie
+├ ƒ /lectie/[id]
+├ ƒ /lectii
+├ ƒ /lectii/[categorie]
+├ ○ /manifest.webmanifest
+├ ƒ /profil
+├ ƒ /rapid
+├ ƒ /resetare-parola
+├ ƒ /salveaza-progresul
+├ ƒ /simulator
+├ ƒ /simulator/dev
+├ ƒ /simulator/eveniment/[id]
+├ ƒ /termeni
+└ ƒ /verifica-email
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

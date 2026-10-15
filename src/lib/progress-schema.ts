@@ -13,6 +13,7 @@ export const LevelUpSchema = z.object({ from: level, to: level, levelsGained: z.
 export const ProgressSchema = z.object({
   version: z.literal(2), xp_events: z.array(XpEventSchema), lessonStats: z.record(text, LessonStatsSchema),
   activityDates: z.array(DateKeySchema), freezeDates: z.array(DateKeySchema), freezeBalance: integer.max(gamificationConfig.freeze.maxBalance),
+  freezeInitialBalance: integer.max(gamificationConfig.freeze.maxBalance).optional(),
   lastFreezeGrantWeekKey: text.nullable(), lastFreezeGrantDateKey: DateKeySchema.nullable(),
   dailyChallenges: z.record(DateKeySchema, DailyChallengeResultSchema), achievementUnlocks: z.record(text, z.object({ unlockedAt: iso })),
   seenAchievementToastIds: z.array(text), seenFreezeToastDates: z.array(DateKeySchema), pendingLevelUp: LevelUpSchema.nullable(),

@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -73,10 +73,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Randamentul descrie schimbarea valorii și veniturile unei investiții în raport cu suma investită.",
-      "explanation": "Randamentul descrie schimbarea valorii și veniturile unei investiții în raport cu suma investită. Riscul privește rezultatele nesigure, inclusiv pierderea. Un câștig posibil mai mare nu este un câștig garantat. Compară randamentul după costuri și în contextul perioadei, fără să tratezi o medie istorică drept rezultat sigur pentru anul următor.",
-      "correctFeedback": "Corect. Randamentul descrie schimbarea valorii și veniturile unei investiții în raport cu suma investită. Riscul privește rezultatele nesigure, inclusiv pierderea. Un câștig posibil mai mare nu este un câștig garantat. Compară randamentul după costuri și în contextul perioadei, fără să tratezi o medie istorică drept rezultat sigur pentru anul următor.",
-      "incorrectFeedback": "Nu chiar. Randamentul descrie schimbarea valorii și veniturile unei investiții în raport cu suma investită. Riscul privește rezultatele nesigure, inclusiv pierderea. Un câștig posibil mai mare nu este un câștig garantat. Compară randamentul după costuri și în contextul perioadei, fără să tratezi o medie istorică drept rezultat sigur pentru anul următor.",
+      "question": "Un câștig posibil mai mare nu este echivalent cu un câștig garantat; comparația trebuie să includă și riscul.",
+      "explanation": "Randamentul descrie rezultatul, iar riscul privește incertitudinea lui. O valoare posibilă sau istorică nu confirmă cât vei obține.",
+      "correctFeedback": "Corect. Randamentul descrie rezultatul, iar riscul privește incertitudinea lui. O valoare posibilă sau istorică nu confirmă cât vei obține.",
+      "incorrectFeedback": "Nu chiar. Randamentul descrie rezultatul, iar riscul privește incertitudinea lui. O valoare posibilă sau istorică nu confirmă cât vei obține.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -126,11 +126,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar numărul de zile verzi."
+          "label": "Doar câștigul trecut, presupunând că prețul va rămâne favorabil."
         },
         {
           "id": "1",
-          "label": "Doar costul reclamei."
+          "label": "Doar randamentul dorit, fără momentul când trebuie să vinzi."
         },
         {
           "id": "2",
@@ -151,11 +151,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce cost adaugă Dan în calcul?",
-      "explanation": "20 lei.",
-      "correctFeedback": "Corect. 20 lei.",
-      "incorrectFeedback": "Nu chiar. 20 lei.",
+      "question": "Dan a calculat o creștere de 100 lei înainte de costuri și un rezultat net de 80 lei. Ce cost explică diferența?",
+      "explanation": "Costurile de 20 lei reduc rezultatul de la 100 la 80 lei. Compararea randamentelor înainte de costuri poate ascunde această diferență.",
+      "correctFeedback": "Corect. Costurile de 20 lei reduc rezultatul de la 100 la 80 lei. Compararea randamentelor înainte de costuri poate ascunde această diferență.",
+      "incorrectFeedback": "Nu chiar. Costurile de 20 lei reduc rezultatul de la 100 la 80 lei. Compararea randamentelor înainte de costuri poate ascunde această diferență.",
       "caseId": "caz-risc-si-randament",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -177,7 +176,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce nu folosește doar creșterea de 10%?",
       "explanation": "Costurile reduc rezultatul net.",
       "correctFeedback": "Corect. Costurile reduc rezultatul net.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce distincție observă Dan despre calm?",
       "explanation": "Nu este același lucru cu capacitatea de a suporta pierderea.",
       "correctFeedback": "Corect. Nu este același lucru cu capacitatea de a suporta pierderea.",
@@ -214,11 +211,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Garantează profitul."
+          "label": "Calmul garantează că poate păstra investiția până când prețul revine."
         },
         {
           "id": "1",
-          "label": "Elimină scadențele."
+          "label": "Calmul poate înlocui verificarea obligațiilor apropiate."
         },
         {
           "id": "2",
@@ -253,7 +250,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar ce culoare are aplicația."
+          "label": "Doar cât a câștigat alt client, fără garanția concretă."
         },
         {
           "id": "2",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Randamentul descrie schimbarea valorii și veniturile unei investiții în raport cu suma investită.",
-          "detail": "Randamentul descrie schimbarea valorii și veniturile unei investiții în raport cu suma investită.",
+          "detail": "Creșterea fictivă de 100 lei dintr-o investiție de 1.000 lasă 80 lei după costuri de 20. Rezultatul net diferă de cifra inițială, iar scenariul nu garantează evoluția următoare.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "O investiție fictivă de 1.000 lei valorează 1.100 înainte de costuri, o creștere de 10%. Dacă ai costuri de 20 lei incluse în exercițiu, rezultatul net este 80, adică 8% față de suma inițială.",
-          "detail": "O investiție fictivă de 1.000 lei valorează 1.100 înainte de costuri, o creștere de 10%. Dacă ai costuri de 20 lei incluse în exercițiu, rezultatul net este 80, adică 8% față de suma inițială.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Toleranța emoțională la fluctuații și capacitatea financiară de a suporta o pierdere sunt diferite.",
-          "detail": "Toleranța emoțională la fluctuații și capacitatea financiară de a suporta o pierdere sunt diferite.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează un rezultat fictiv înainte și după costuri și notează un scenariu de pierdere.",
-          "detail": "Calculează un rezultat fictiv înainte și după costuri și notează un scenariu de pierdere.",
           "type": "action"
         }
       ]

@@ -51,7 +51,7 @@ export function UsernameField({initial='',enabled=true}:{initial?:string;enabled
 }
 type Mode='signup'|'login'|'reset'|'update'|'verify';
 const headings:Record<Mode,string>={signup:'Hai să-ți facem locul tău în Finly.',login:'Bine ai revenit.',reset:'Ai uitat parola?',update:'Alege o parolă nouă.',verify:'Verifică-ți emailul'};
-export function AuthScreen({mode,recoveryValid=false,verificationInvalid=false,configured=Boolean(publicSupabaseConfig()),accountUserId=null}:{mode:Mode;recoveryValid?:boolean;verificationInvalid?:boolean;configured?:boolean;accountUserId?:string|null}) {
+export function AuthScreen({mode,recoveryValid=false,verificationInvalid=false,configured=Boolean(publicSupabaseConfig()),accountUserId=null,destination='/'}:{mode:Mode;recoveryValid?:boolean;verificationInvalid?:boolean;configured?:boolean;accountUserId?:string|null;destination?:string}) {
   const [busy,setBusy]=useState(false);const [error,setError]=useState<string|null>(verificationInvalid?'Linkul de confirmare nu mai este valid sau a expirat. Cere un email nou.':null);const [message,setMessage]=useState('');const [age,setAge]=useState('');const [cooldown,setCooldown]=useState(0);const alert=useRef<HTMLParagraphElement>(null);
 
   useEffect(()=>{if(error)alert.current?.focus();},[error]);
@@ -70,7 +70,7 @@ export function AuthScreen({mode,recoveryValid=false,verificationInvalid=false,c
     setBusy(true);
     try{const response=await fetch('/api/account/auth',{method:'POST',headers:{'Content-Type':'application/json','X-Finly-Account':accountUserId ?? ''},body:JSON.stringify({action:mode==='verify'?'resend':mode,data})});const result=await response.json();if(!response.ok)throw new Error(friendlyApiError(result.error?.code));
       if(mode==='signup' && !result.session){window.location.assign(new URL('/verifica-email',window.location.origin).href);return;}
-      if(mode==='login' || mode==='signup' || mode==='update'){broadcastAuthChange('sessionChanged',accountUserId);window.location.assign(readTrial()?.completed?'/salveaza-progresul':'/');return;}
+      if(mode==='login' || mode==='signup' || mode==='update'){broadcastAuthChange('sessionChanged',accountUserId);window.location.assign(mode==='login' && destination!=='/'?destination:readTrial()?.completed?'/salveaza-progresul':'/');return;}
       if(mode==='reset')setMessage('Dacă există un cont pentru această adresă, vei primi un email cu instrucțiuni.');else{setMessage('Dacă emailul necesită confirmare, vei primi un link nou.');setCooldown(accountConfig.emailCooldownSeconds);}
     }catch(cause){setError(cause instanceof Error?cause.message:'Mai încearcă puțin mai târziu.');}finally{setBusy(false);}
   }

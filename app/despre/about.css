@@ -1,0 +1,43 @@
+.about-page .back-button { min-height: 44px; }
+.about-page .screen-heading { margin-bottom: 20px; }
+.about-hero { padding: 20px; }
+.about-fini { display: block; width: 96px; height: auto; margin: 0 0 12px; }
+.about-page .about-hero h2 { font-size: 28px; line-height: 1.15; letter-spacing: -.9px; }
+.about-page p { color: var(--secondary); font-size: 14px; line-height: 1.65; }
+.about-page .about-hero p { margin-top: 12px; }
+.about-section { margin-top: 28px; }
+.about-page .about-section > p { margin-top: 12px; }
+.about-steps, .about-features, .about-principles { margin-top: 16px; }
+.about-steps { display: grid; gap: 10px; }
+.about-step { display: flex; align-items: flex-start; gap: 14px; padding: 16px; }
+.about-step .icon-tile { flex-shrink: 0; background: var(--light-blue); }
+.about-page .about-step p, .about-page .about-feature p, .about-page .about-principles p { margin-top: 6px; }
+.about-features { padding: 0 18px; }
+.about-feature { display: flex; gap: 14px; padding: 18px 0; }
+.about-feature + .about-feature { border-top: 1px solid var(--border); }
+.about-feature > svg { flex-shrink: 0; color: var(--blue-ink); margin-top: 2px; }
+.about-page .about-feature h3 { font-size: 16px; }
+.about-practice { padding: 20px; }
+.about-practice > .icon-tile { background: var(--light-blue); margin-bottom: 14px; }
+.about-page .about-note { font-size: 13px; }
+.about-practice .back-button { color: var(--blue-ink); margin: 12px 0 0; font-weight: 700; }
+.about-principles { display: grid; gap: 18px; }
+.about-principles article { padding-left: 16px; border-left: 2px solid var(--blue); }
+.about-end { padding: 20px; margin-top: 28px; }
+.about-page .about-end p { margin: 10px 0 18px; }
+.about-end .app-button { width: 100%; }
+.about-footer { padding-top: 20px; }
+.about-footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
+.about-footer a { display: inline-flex; align-items: center; min-height: 44px; color: var(--secondary); font-size: 13px; }
+.about-page a:focus-visible { outline: 3px solid var(--blue-ink); outline-offset: 4px; }
+@media (min-width: 900px) {
+  .about-page .app-content { width: min(800px, calc(100% - 64px)); }
+  .about-hero { display: flex; flex-direction: row-reverse; align-items: center; gap: 28px; padding: 28px; }
+  .about-fini { width: 140px; margin: 0; flex-shrink: 0; }
+  .about-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .about-step { flex-direction: column; }
+  .about-features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+  .about-feature:nth-child(2) { border-top: 0; }
+  .about-principles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .about-end .app-button { width: auto; }
+}

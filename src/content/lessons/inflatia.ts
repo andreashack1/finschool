@@ -10,7 +10,7 @@ export const inflationLesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -244,19 +244,19 @@ export const inflationLesson: ReadyLesson = {
     {
       "id": "venit-confirmat",
       "type": "adevarat_fals",
-      "title": "Un buget dintr-o promisiune?",
-      "question": "Poți presupune în buget o creștere de venit doar fiindcă prețurile au crescut.",
+      "title": "Venit și prețuri",
+      "question": "Venitul confirmat crește cu 5%, iar coșul obișnuit se scumpește cu 10%. Venitul mai mare garantează că poți cumpăra mai mult.",
       "correctAnswer": false,
-      "explanation": "Bugetul pornește de la venit confirmat. Creșterea prețurilor nu confirmă o creștere a venitului.",
-      "correctFeedback": "Bugetul pornește de la venit confirmat. Creșterea prețurilor nu confirmă o creștere a venitului.",
-      "incorrectFeedback": "O ajustare a venitului trebuie confirmată separat înainte să o folosești în plan."
+      "explanation": "Numărul de lei primit crește, dar prețurile relevante cresc mai mult. Pentru puterea de cumpărare compari cele două schimbări, nu doar salariul nou.",
+      "correctFeedback": "Corect. Numărul de lei primit crește, dar prețurile relevante cresc mai mult. Pentru puterea de cumpărare compari cele două schimbări, nu doar salariul nou.",
+      "incorrectFeedback": "Nu chiar. Numărul de lei primit crește, dar prețurile relevante cresc mai mult. Pentru puterea de cumpărare compari cele două schimbări, nu doar salariul nou."
     },
     {
       "id": "cos-nou",
       "type": "calcul",
       "title": "Coșul din exemplu.",
-      "context": "Exemplu de calcul.",
-      "question": "Un coș de 100 lei se scumpește cu 10%, într-un exemplu. Cât costă acum?",
+      "context": "Cantitatea și produsele sunt identice. Procentul este ipotetic, iar venitul rămâne neschimbat.",
+      "question": "Ai rezervat 100 lei pentru același coș, care se scumpește cu 10%. Ce sumă trebuie să acopere acum bugetul?",
       "options": [
         {
           "id": "0",
@@ -273,9 +273,9 @@ export const inflationLesson: ReadyLesson = {
       ],
       "expectedAnswer": 110,
       "unit": "lei",
-      "explanation": "10% din 100 este 10. Coșul ajunge la 110 lei, fără să se schimbe suma pe care o ai.",
-      "correctFeedback": "10% din 100 este 10. Coșul ajunge la 110 lei, fără să se schimbe suma pe care o ai.",
-      "incorrectFeedback": "Creșterea de 10 lei se adaugă la cei 100 lei inițiali."
+      "explanation": "Coșul costă acum 110 lei. Diferența de 10 lei trebuie acoperită prin adaptarea planului; soldul inițial nu crește automat odată cu prețurile.",
+      "correctFeedback": "Corect. Coșul costă acum 110 lei. Diferența de 10 lei trebuie acoperită prin adaptarea planului; soldul inițial nu crește automat odată cu prețurile.",
+      "incorrectFeedback": "Nu chiar. Coșul costă acum 110 lei. Diferența de 10 lei trebuie acoperită prin adaptarea planului; soldul inițial nu crește automat odată cu prețurile."
     },
     {
       "id": "tine-minte",

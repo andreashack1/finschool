@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -93,10 +93,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "Ce net rezultă din 8.000 − 2.000 − 800 − 520?",
-      "explanation": "4.680 lei.",
-      "correctFeedback": "Corect. 4.680 lei.",
-      "incorrectFeedback": "Nu chiar. 4.680 lei.",
+      "question": "Brutul este 8.000 lei, iar reținerile deja calculate sunt 2.000, 800 și 520 lei. Ce sumă folosești ca net în bugetul acestui exemplu?",
+      "explanation": "În buget intră suma după toate cele trei rețineri: 4.680 lei. Folosești liniile furnizate, fără să transformi exercițiul într-o cotă fiscală universală.",
+      "correctFeedback": "Corect. În buget intră suma după toate cele trei rețineri: 4.680 lei. Folosești liniile furnizate, fără să transformi exercițiul într-o cotă fiscală universală.",
+      "incorrectFeedback": "Nu chiar. În buget intră suma după toate cele trei rețineri: 4.680 lei. Folosești liniile furnizate, fără să transformi exercițiul într-o cotă fiscală universală.",
       "type": "variante",
       "options": [
         {
@@ -126,11 +126,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar numărul de litere din CAS."
+          "label": "Doar procentul, presupunând că baza este întotdeauna salariul brut."
         },
         {
           "id": "1",
-          "label": "Doar data extrasului bancar."
+          "label": "Doar totalul reținerilor unui coleg, fără situația sa."
         },
         {
           "id": "2",
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce Sorin începe cu liniile documentului?",
       "explanation": "Are sumele reținerilor deja indicate.",
       "correctFeedback": "Corect. Are sumele reținerilor deja indicate.",
@@ -177,7 +176,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce rol are contribuția CAS?",
       "explanation": "Asigurările sociale legate de pensii.",
       "correctFeedback": "Corect. Asigurările sociale legate de pensii.",
@@ -188,7 +186,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Asigurarea unui telefon."
+          "label": "Asigurările sociale de sănătate."
         },
         {
           "id": "1",
@@ -196,14 +194,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Comisionul cardului."
+          "label": "Impozitarea venitului salarial."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce lipsește din metoda prietenului?",
       "explanation": "Verificarea bazelor și a condițiilor calculului.",
       "correctFeedback": "Corect. Verificarea bazelor și a condițiilor calculului.",
@@ -214,11 +211,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Culoarea documentului."
+          "label": "Doar suma brută, presupunând o bază comună pentru toate procentele."
         },
         {
           "id": "1",
-          "label": "Numărul de zile de weekend."
+          "label": "Doar procentele memorate, fără deduceri și condițiile situației."
         },
         {
           "id": "2",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "CAS este contribuția de asigurări sociale, legată de sistemul de pensii, iar CASS privește asigurările sociale de sănătate.",
-          "detail": "CAS este contribuția de asigurări sociale, legată de sistemul de pensii, iar CASS privește asigurările sociale de sănătate.",
+          "detail": "Sorin folosește liniile deja calculate ale documentului fictiv înainte să compare rezultatul cu procentele memorate. Baza impozitului poate diferi de brut, iar exemplul nu stabilește reguli universale.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Pe un document fictiv sunt deja calculate un brut de 8.000 lei, CAS de 2.000, CASS de 800 și impozit de 520. Netul este 8.000 minus cele trei rețineri: 4.680 lei.",
-          "detail": "Pe un document fictiv sunt deja calculate un brut de 8.000 lei, CAS de 2.000, CASS de 800 și impozit de 520. Netul este 8.000 minus cele trei rețineri: 4.680 lei.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "CASS și CAS au denumiri apropiate, dar destinații diferite.",
-          "detail": "CASS și CAS au denumiri apropiate, dar destinații diferite.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe cifrele fictive din lecție, calculează netul și explică separat rolul CAS și CASS.",
-          "detail": "Pe cifrele fictive din lecție, calculează netul și explică separat rolul CAS și CASS.",
           "type": "action"
         }
       ]

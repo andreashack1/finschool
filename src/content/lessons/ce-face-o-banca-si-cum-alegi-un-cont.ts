@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -51,11 +51,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar numărul prietenilor la bancă."
+          "label": "Doar comisionul de administrare, fără operațiunile folosite."
         },
         {
           "id": "2",
-          "label": "Doar forma cardului."
+          "label": "Doar bonusul de deschidere, fără costurile ulterioare."
         }
       ],
       "correctOption": "0"
@@ -83,10 +83,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "10 lei lunar într-un an înseamnă cât?",
-      "explanation": "10 × 12 = 120 lei în exemplul ipotetic.",
-      "correctFeedback": "Corect. 10 × 12 = 120 lei în exemplul ipotetic.",
-      "incorrectFeedback": "Nu chiar. 10 × 12 = 120 lei în exemplul ipotetic.",
+      "question": "Contul costă 10 lei în fiecare lună fără încasarea cerută. Dacă nu îndeplinești condiția tot anul, cât rezervi pentru administrare?",
+      "explanation": "Gratuitatea depinde de condiție. În acest scenariu, cele 12 costuri lunare însumează 120 lei, înainte de alte operațiuni.",
+      "correctFeedback": "Corect. Gratuitatea depinde de condiție. În acest scenariu, cele 12 costuri lunare însumează 120 lei, înainte de alte operațiuni.",
+      "incorrectFeedback": "Nu chiar. Gratuitatea depinde de condiție. În acest scenariu, cele 12 costuri lunare însumează 120 lei, înainte de alte operațiuni.",
       "type": "scenariu",
       "context": "Condiția de gratuitate nu este îndeplinită tot anul.",
       "options": [
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce informație îi lipsește lui Vlad?",
       "explanation": "Condiția neclară poate schimba costul contului.",
       "correctFeedback": "Corect. Condiția neclară poate schimba costul contului.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Culoarea băncii centrale."
+          "label": "Dacă titlul „student” este suficient pentru gratuitate."
         },
         {
           "id": "2",
-          "label": "Prețul unui credit necerut."
+          "label": "Dacă transferurile gratuite elimină și administrarea lunară."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce listează retragerile și transferurile?",
       "explanation": "Comparația privește întregul scenariu de utilizare.",
       "correctFeedback": "Corect. Comparația privește întregul scenariu de utilizare.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce completează comparația prețurilor?",
       "explanation": "Un serviciu trebuie să fie și potrivit utilizării.",
       "correctFeedback": "Corect. Un serviciu trebuie să fie și potrivit utilizării.",
@@ -209,7 +206,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "O predicție de curs valutar."
+          "label": "Doar bonusul de deschidere, fără serviciile disponibile."
         },
         {
           "id": "2",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Utilizare",
           "body": "Compară conturi pentru operațiunile tale.",
-          "detail": "Compară conturi pentru operațiunile tale.",
+          "detail": "Administrarea gratuită nu stabilește automat tariful retragerilor și transferurilor. Notează operațiunile folosite și verifică dacă bursa îndeplinește condiția ofertei, inclusiv în lunile fără încasare.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Condiții",
           "body": "Gratuitatea poate fi limitată sau condiționată.",
-          "detail": "Gratuitatea poate fi limitată sau condiționată.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Acces",
           "body": "Costul și serviciile trebuie analizate împreună.",
-          "detail": "Costul și serviciile trebuie analizate împreună.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează trei operațiuni bancare de care ai nevoie și unde ai verifica prețul fiecăreia.",
-          "detail": "Notează trei operațiuni bancare de care ai nevoie și unde ai verifica prețul fiecăreia.",
           "type": "action"
         }
       ]

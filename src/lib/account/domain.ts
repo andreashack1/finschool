@@ -28,8 +28,9 @@ export function applyAccountOperation(previous: ProgressState, operation: Progre
   const activity=operation.type==='completeLesson' || operation.type==='answerDailyChallenge';
   const refund=activity && previous.freezeDates.includes(day);
   const eventBase={...previous,freezeDates:refund?previous.freezeDates.filter(date=>date!==day):previous.freezeDates};
-  const ledger=freezeLedger(eventBase,precedingCalendarDay(occurred));
-  const atEvent = { ...eventBase,freezeBalance:ledger.freezeBalance,lastFreezeGrantDateKey:ledger.lastFreezeGrantDateKey,lastFreezeGrantWeekKey:ledger.lastFreezeGrantWeekKey,maxSeenAt:occurred.toISOString(),maxSeenDateKey:day };
+  const anchor=previous.maxSeenDateKey && previous.maxSeenDateKey<day ? previous.maxSeenDateKey : day;
+  const ledger=freezeLedger(eventBase,new Date(`${anchor}T12:00:00Z`));
+  const atEvent = { ...eventBase,freezeBalance:ledger.freezeBalance,lastFreezeGrantDateKey:ledger.lastFreezeGrantDateKey,lastFreezeGrantWeekKey:ledger.lastFreezeGrantWeekKey,maxSeenAt:occurred.toISOString(),maxSeenDateKey:anchor };
   let result: DomainResult;
   switch(operation.type) {
     case 'completeLesson': {

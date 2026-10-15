@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -73,10 +73,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Pensia privește venitul la o etapă viitoare, iar contribuțiile și istoricul muncii pot influența drepturile.",
-      "explanation": "Pensia privește venitul la o etapă viitoare, iar contribuțiile și istoricul muncii pot influența drepturile. În România există sistemul public și forme de pensii private cu reguli proprii. Nu confunda o contribuție cu un sold bancar pe care îl poți retrage oricând. Documentele oficiale și administratorul explică evidența, condițiile și accesul aplicabil.",
-      "correctFeedback": "Corect. Pensia privește venitul la o etapă viitoare, iar contribuțiile și istoricul muncii pot influența drepturile. În România există sistemul public și forme de pensii private cu reguli proprii. Nu confunda o contribuție cu un sold bancar pe care îl poți retrage oricând. Documentele oficiale și administratorul explică evidența, condițiile și accesul aplicabil.",
-      "incorrectFeedback": "Nu chiar. Pensia privește venitul la o etapă viitoare, iar contribuțiile și istoricul muncii pot influența drepturile. În România există sistemul public și forme de pensii private cu reguli proprii. Nu confunda o contribuție cu un sold bancar pe care îl poți retrage oricând. Documentele oficiale și administratorul explică evidența, condițiile și accesul aplicabil.",
+      "question": "Contribuția de pe fluturaș nu trebuie tratată ca bani disponibili pentru o cumpărătură din contul curent.",
+      "explanation": "Contribuția ține de un sistem cu reguli proprii de acces. Nu este automat o sumă pe care o poți retrage când dorești.",
+      "correctFeedback": "Corect. Contribuția ține de un sistem cu reguli proprii de acces. Nu este automat o sumă pe care o poți retrage când dorești.",
+      "incorrectFeedback": "Nu chiar. Contribuția ține de un sistem cu reguli proprii de acces. Nu este automat o sumă pe care o poți retrage când dorești.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -101,7 +101,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar numărul de reclame."
+          "label": "Doar netul lunar, fără perioadele înregistrate."
         },
         {
           "id": "1",
@@ -109,7 +109,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Soldul bancar al colegului."
+          "label": "Doar primul contract, presupunând că tot istoricul este deja corect."
         }
       ],
       "correctOption": "1"
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce semnal ridică mesajul primit de Andrei?",
       "explanation": "Promisiunea de acces imediat contra taxei.",
       "correctFeedback": "Corect. Promisiunea de acces imediat contra taxei.",
@@ -177,7 +176,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce identifică pentru un cont de pensie privată?",
       "explanation": "Administratorul și informarea oficială.",
       "correctFeedback": "Corect. Administratorul și informarea oficială.",
@@ -188,7 +186,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Codul PIN al cardului."
+          "label": "Doar numele din mesajul primit, fără o sursă independentă."
         },
         {
           "id": "1",
@@ -196,14 +194,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Parola unui coleg."
+          "label": "Doar suma primei contribuții, fără documentele administratorului."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce păstrează documentele?",
       "explanation": "Pentru verificarea eventualelor neconcordanțe.",
       "correctFeedback": "Corect. Pentru verificarea eventualelor neconcordanțe.",
@@ -214,11 +211,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Pentru a garanta un randament."
+          "label": "Pentru a calcula pensia doar din primul venit, fără regulile sistemului."
         },
         {
           "id": "1",
-          "label": "Pentru a opri timpul."
+          "label": "Pentru a considera fiecare contribuție imediat retragibilă."
         },
         {
           "id": "2",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Pensia privește venitul la o etapă viitoare, iar contribuțiile și istoricul muncii pot influența drepturile.",
-          "detail": "Pensia privește venitul la o etapă viitoare, iar contribuțiile și istoricul muncii pot influența drepturile.",
+          "detail": "Andrei verifică perioadele și contribuțiile în evidențele oficiale, nu doar prima linie de pe fluturaș. Pentru pensia privată identifică administratorul și informarea de cont, fără să trateze contribuțiile ca disponibil imediat.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Andrei păstrează primul contract și verifică în evidențele oficiale că perioadele de muncă sunt înregistrate. Dacă participă la un fond de pensii private, identifică administratorul și citește informarea de cont.",
-          "detail": "Andrei păstrează primul contract și verifică în evidențele oficiale că perioadele de muncă sunt înregistrate. Dacă participă la un fond de pensii private, identifică administratorul și citește informarea de cont.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Nu există în lecție o promisiune de pensie sau randament.",
-          "detail": "Nu există în lecție o promisiune de pensie sau randament.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Identifică instituția sau administratorul unde se poate verifica oficial istoricul contribuțiilor.",
-          "detail": "Identifică instituția sau administratorul unde se poate verifica oficial istoricul contribuțiilor.",
           "type": "action"
         }
       ]

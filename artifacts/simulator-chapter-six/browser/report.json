@@ -1,0 +1,24 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Login, schedule setup, Chapter 2 dashboard retained, monthly card replaced",
+    "new-run: one Events section in former monthly slot at 320/390/430/1280",
+    "Persistent Acum remains directly below Ce urmează; events keep existing layout",
+    "Header text controls, primary form fields/default monthly, save without full refresh, immediate upcoming, no future ledger; crypto.randomUUID unavailable in browser",
+    "Calendar marker/selected-day detail/status, salary/fixed/subscriptions, read-only future month, 320/390/430/1280",
+    "Dev date advance changes De plată to Plătit; one real journal/ledger transaction on concurrent refresh",
+    "Edit name/decimal price, preserve history, cancel through management",
+    "Today/negative warnings, automatic negative payment, long 60-character name and large amount responsive",
+    "New browser page/device reads identical persisted subscription",
+    "Logout/login preserves subscriptions",
+    "Dev inspection shows identity/anchor/revision/projections/actual payments",
+    "Calendar/create unauthenticated 401",
+    "V2 activation, 200-definition dev catalog, Liceu/Lucrez 90-day reports and candidate rejection diagnostics",
+    "Seven-day catch-up, cross-tab stable plans/prices, no random events in financial calendar",
+    "Generic event detail handles 2/3/4 options, long title, free and unavailable choices at 320/390/430",
+    "life-v2: one Events section in former monthly slot at 320/390/430/1280",
+    "Dashboard layout after life catch-up and strict dev query validation"
+  ],
+  "errors": [],
+  "providerErrors": []
+}

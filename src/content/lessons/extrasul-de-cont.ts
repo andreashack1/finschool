@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -55,7 +55,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar lungimea textului."
+          "label": "Doar suma, presupunând că fiecare rând este consum."
         }
       ],
       "correctOption": "0"
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce Mara verifică documentul cumpărării?",
       "explanation": "Data și dovada pot lega denumirile.",
       "correctFeedback": "Corect. Data și dovada pot lega denumirile.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce poate face cu abonamentul nefolosit?",
       "explanation": "Identificarea costului permite o decizie conștientă.",
       "correctFeedback": "Corect. Identificarea costului permite o decizie conștientă.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce nu trimite inutil colegilor?",
       "explanation": "Distribuirea informației minime protejează datele.",
       "correctFeedback": "Corect. Distribuirea informației minime protejează datele.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Rânduri",
           "body": "Citește sensul și datele operațiunii.",
-          "detail": "Citește sensul și datele operațiunii.",
+          "detail": "O retragere din cont poate lăsa bani în portofel, fără să îi consume. Leagă rândurile de operațiuni și dovezi înainte să tratezi toate ieșirile drept cheltuieli de consum.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Repetiții",
           "body": "Observă costurile recurente.",
-          "detail": "Observă costurile recurente.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Protecție",
           "body": "Nu distribui extrasul complet fără nevoie.",
-          "detail": "Nu distribui extrasul complet fără nevoie.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Verifică trei tranzacții recente și caută un cost recurent pe care îl poți explica.",
-          "detail": "Verifică trei tranzacții recente și caută un cost recurent pe care îl poți explica.",
           "type": "action"
         }
       ]

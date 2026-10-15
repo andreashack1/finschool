@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -55,7 +55,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Care reclamă este mai strălucitoare?"
+          "label": "Care este prețul cel mai mare, presupunând că rezolvă nevoia mai bine."
         }
       ],
       "correctOption": "0"
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce este necesar în cazul Anei?",
       "explanation": "Necesitatea privește funcția, nu automat marca sau designul.",
       "correctFeedback": "Corect. Necesitatea privește funcția, nu automat marca sau designul.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "După păstrarea celor 80 lei, ce buget are pentru pantofi?",
       "explanation": "350 − 80 = 270 lei disponibili pentru această alegere.",
       "correctFeedback": "Corect. 350 − 80 = 270 lei disponibili pentru această alegere.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce compară înainte de modelul mai scump?",
       "explanation": "Decizia se evaluează în contextul bugetului.",
       "correctFeedback": "Corect. Decizia se evaluează în contextul bugetului.",
@@ -209,7 +206,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Ideea că orice pantof scump este imoral."
+          "label": "Doar diferența de calitate presupusă din preț, fără obligația apropiată."
         },
         {
           "id": "2",
@@ -244,11 +241,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "O urgență identică pentru toată lumea."
+          "label": "O nevoie obligatorie, fiindcă există un model nou."
         },
         {
           "id": "2",
-          "label": "O datorie inevitabilă."
+          "label": "O prioritate față de orice obligație, dacă produsul este popular."
         }
       ],
       "correctOption": "0"
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Funcție",
           "body": "Începe cu problema reală de rezolvat.",
-          "detail": "Începe cu problema reală de rezolvat.",
+          "detail": "Ambele perechi din exemplu pot proteja de ploaie, dar designul preferat costă în plus. Separă funcția necesară de preferință înainte să compari diferența cu alte obligații.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Context",
           "body": "Același produs poate avea roluri diferite.",
-          "detail": "Același produs poate avea roluri diferite.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Preferințe",
           "body": "Dorințele pot fi planificate, fără vinovăție.",
-          "detail": "Dorințele pot fi planificate, fără vinovăție.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La o cumpărătură pe care o ai în minte, scrie funcția necesară și preferința suplimentară.",
-          "detail": "La o cumpărătură pe care o ai în minte, scrie funcția necesară și preferința suplimentară.",
           "type": "action"
         }
       ]

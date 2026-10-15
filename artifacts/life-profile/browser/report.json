@@ -1,0 +1,14 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "liceu: dev clock Tuesday 11:00/17:00 and weekend; contextual plans and unchanged response windows",
+    "a: setup, canonical server profile, finances, repeat submission, refresh and second-device login",
+    "lucrez: dev clock Tuesday 13:00/19:00 and weekend; contextual plans and unchanged response windows",
+    "b: setup, canonical server profile, finances, repeat submission, refresh and second-device login",
+    "c: setup, canonical server profile, finances, repeat submission, refresh and second-device login",
+    "d: setup, canonical server profile, finances, repeat submission, refresh and second-device login",
+    "Legacy account opens dashboard directly; original balance and ledger preserved"
+  ],
+  "errors": [],
+  "providerErrors": []
+}

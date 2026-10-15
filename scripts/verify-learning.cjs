@@ -32,8 +32,14 @@ assert.equal(registry.getLessonsByCategory('economia-pe-scurt').length, 10);
 for (const old of before.written) {
   const lesson = old.formatVersion === 2 ? registry.getLessonById(old.id) : registry.getLegacyQuickLesson(old.id);
   assert.ok(lesson, old.id);
-  for (const key of ['id','slug','title','xp','minutes','contentVersion','formatVersion']) assert.equal(lesson[key], old[key], old.id + ':' + key);
-  assert.deepEqual(lesson.screens, old.screens, 'Preserve question meaning and answer IDs: ' + old.id);
+  for (const key of ['id','slug','title','xp','minutes','formatVersion']) assert.equal(lesson[key], old[key], old.id + ':' + key);
+  assert.ok((lesson.contentVersion ?? 0) >= (old.contentVersion ?? 0));
+  for (const screen of old.screens) {
+    const current = lesson.screens.find(value => value.id === screen.id);
+    assert.ok(current, 'Preserve published screen ID: '+old.id+':'+screen.id);
+    if ('question' in screen) assert.equal(engine.getCorrectAnswerId(current), engine.getCorrectAnswerId(screen), 'Preserve published answer IDs: '+old.id+':'+screen.id);
+    else if (!['recap','tine_minte'].includes(screen.type)) assert.deepEqual(current,screen,'Preserve teaching content: '+old.id+':'+screen.id);
+  }
 }
 for (const category of [...oldCategories, ...before.categories]) for (const chapter of category.chapters) for (const old of chapter.lessons) {
   const id = typeof old === 'string' ? old : old.id;

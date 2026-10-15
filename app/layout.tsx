@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import "./finly-app.css";
 import './account.css';
+import './notifications.css';
+import './streak-moments.css';
 import { GamificationMoments } from "./components/gamification-moments";
 import { AccountBoundary } from './components/account-boundary';
 import { currentUser } from '../src/lib/supabase/server';
@@ -34,6 +36,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ro"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} ${bricolageGrotesque.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col"><AccountBoundary userId={user?.id ?? null}>{children}<GamificationMoments/></AccountBoundary></body>

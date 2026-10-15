@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -73,10 +73,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Neplata poate aduce costuri, comunicări de recuperare și alte consecințe prevăzute de contract și lege.",
-      "explanation": "Neplata poate aduce costuri, comunicări de recuperare și alte consecințe prevăzute de contract și lege. Unele întârzieri pot afecta istoricul de credit în condițiile aplicabile. Nu toate situațiile au același calendar. Verifică suma, scadența și notificările, iar când anticipezi o dificultate contactează creditorul înainte să ignori mesajele.",
-      "correctFeedback": "Corect. Neplata poate aduce costuri, comunicări de recuperare și alte consecințe prevăzute de contract și lege. Unele întârzieri pot afecta istoricul de credit în condițiile aplicabile. Nu toate situațiile au același calendar. Verifică suma, scadența și notificările, iar când anticipezi o dificultate contactează creditorul înainte să ignori mesajele.",
-      "incorrectFeedback": "Nu chiar. Neplata poate aduce costuri, comunicări de recuperare și alte consecințe prevăzute de contract și lege. Unele întârzieri pot afecta istoricul de credit în condițiile aplicabile. Nu toate situațiile au același calendar. Verifică suma, scadența și notificările, iar când anticipezi o dificultate contactează creditorul înainte să ignori mesajele.",
+      "question": "O conversație cu creditorul nu confirmă singură schimbarea ratelor; trebuie verificate condițiile și acordul documentat.",
+      "explanation": "O propunere discutată și un acord confirmat sunt lucruri diferite. În planul de plată folosești termenele și costurile documentate.",
+      "correctFeedback": "Corect. O propunere discutată și un acord confirmat sunt lucruri diferite. În planul de plată folosești termenele și costurile documentate.",
+      "incorrectFeedback": "Nu chiar. O propunere discutată și un acord confirmat sunt lucruri diferite. În planul de plată folosești termenele și costurile documentate.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -126,11 +126,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar tonul conversației."
+          "label": "Doar rata nouă, fără totalul și durata schimbate."
         },
         {
           "id": "1",
-          "label": "Doar durata apelului."
+          "label": "Doar perioada de amânare, fără costurile care continuă."
         },
         {
           "id": "2",
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce schimbare afectează planul Oanei?",
       "explanation": "Scăderea temporară a venitului.",
       "correctFeedback": "Corect. Scăderea temporară a venitului.",
@@ -166,18 +165,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Culoarea SMS-ului."
+          "label": "Presupunerea că o rată mai mică va fi acceptată automat."
         },
         {
           "id": "2",
-          "label": "Creșterea numărului de reclame."
+          "label": "Un transfer către un cont nou, fără verificarea solicitării."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Cum verifică SMS-ul cu un cont necunoscut?",
       "explanation": "Prin canalul oficial al creditorului.",
       "correctFeedback": "Corect. Prin canalul oficial al creditorului.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce cere situația datoriei?",
       "explanation": "Ca să verifice suma și componentele obligației.",
       "correctFeedback": "Corect. Ca să verifice suma și componentele obligației.",
@@ -214,11 +211,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Ca să elimine orice termen."
+          "label": "Ca să urmărească numai rata lunară, fără restul costurilor."
         },
         {
           "id": "1",
-          "label": "Ca să obțină venit nou."
+          "label": "Ca să folosească totalul inițial, fără plățile și costurile ulterioare."
         },
         {
           "id": "2",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Neplata poate aduce costuri, comunicări de recuperare și alte consecințe prevăzute de contract și lege.",
-          "detail": "Neplata poate aduce costuri, comunicări de recuperare și alte consecințe prevăzute de contract și lege.",
+          "detail": "Oana anticipează dificultatea și cere situația datoriei și opțiuni documentate. O discuție telefonică sau un SMS cu alt cont nu confirmă singure un nou acord de plată.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Oana știe că nu va putea plăti integral următoarea rată. Cere în scris situația datoriei și opțiunile de adaptare a plăților.",
-          "detail": "Oana știe că nu va putea plăti integral următoarea rată. Cere în scris situația datoriei și opțiunile de adaptare a plăților.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "O notificare de recuperare trebuie verificată: identitatea expeditorului, documentele și baza sumei.",
-          "detail": "O notificare de recuperare trebuie verificată: identitatea expeditorului, documentele și baza sumei.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Scrie un mesaj fictiv prin care ceri situația datoriei și opțiunile de plată, fără date personale reale.",
-          "detail": "Scrie un mesaj fictiv prin care ceri situația datoriei și opțiunile de plată, fără date personale reale.",
           "type": "action"
         }
       ]

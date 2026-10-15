@@ -1,0 +1,131 @@
+// Run in an isolated copy. Real Next/API/SDK/PostgreSQL, local simulated Auth.
+import fs from 'node:fs';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+let driver=fs.readFileSync('tests/simulator-notifications-browser.mjs','utf8');
+const start=driver.indexOf('source += String.raw`'),end=driver.indexOf('\n`;\nconst runner',start);
+const setup=String.raw`
+source=source.replace('        read_account_progress:', "        apply_streak_progress_mutation: ['select public.apply_streak_progress_mutation($1,$2,$3,$4,$5::jsonb,$6::jsonb,$7,$8,$9::jsonb) as result',[body.p_user,body.p_operation,body.p_type,body.p_revision,JSON.stringify(body.p_state),JSON.stringify(body.p_result),body.p_streak,body.p_longest,JSON.stringify(body.p_moments)]],\n        claim_streak_moments: ['select public.claim_streak_moments($1,$2) as result',[body.p_user,body.p_claim]],\n        acknowledge_streak_moments: ['select public.acknowledge_streak_moments($1,$2,$3) as result',[body.p_user,body.p_claim,body.p_ids]],\n        read_account_progress:");
+source=source.replace("'0009_simulator_notifications.sql']","'0009_simulator_notifications.sql','0010_simulator_decision_policy.sql','0011_streak_freeze_moments.sql']");
+source=source.replace('        read_simulator_state:', "        mutate_simulator_goal: ['select public.mutate_simulator_goal($1,$2,$3,$4,$5,$6,$7::jsonb) as result',[body.p_user,body.p_run,body.p_expected,body.p_day,body.p_now,body.p_development,JSON.stringify(body.p_input)]],\n        upgrade_simulator_decisions: ['select public.upgrade_simulator_decisions($1,$2,$3,$4,$5,$6,$7::jsonb) as result',[body.p_user,body.p_run,body.p_expected,body.p_day,body.p_now,body.p_development,JSON.stringify(body.p_policy)]],\n        read_simulator_state:");
+source=source.replace('providerErrors: []', 'providerErrors: [], expectedFailures: [], expectMissingGoalRpc: false');
+source=source.replace('report.providerErrors.push(error.message);', "if(report.expectMissingGoalRpc && error.code==='42883' && error.message.includes('mutate_simulator_goal')){report.expectedFailures.push({code:error.code});return json(res,{code:error.code,message:error.message},400);}report.providerErrors.push(error.message);");
+source=source.replace('page.setDefaultTimeout(30000)','page.setDefaultTimeout(60000)');
+`;
+const qa=String.raw`
+  const first=await api('dashboard'),userId=[...users.values()][0].user.id,runId=first.dashboard.runId;
+  const baseline=first.dashboard;
+  await db.query("insert into sim_ledger(run_id,user_id,day,sequence,kind,category,amount_bani,label,ref_key) values($1,$2,$3,101,'ajustare','venit',$4,'Local QA opening cash','qa:cash')",[runId,userId,baseline.currentDay,100000-baseline.balanceBani]);
+  await page.reload();await page.locator('.sim-goal').waitFor();
+  const card=page.locator('.sim-goal'),dialog=page.locator('.sim-goal-dialog');
+  assert(await page.getByRole('heading',{name:'Cheltuieli fixe',exact:true}).count()===0,'Permanent fixed card retained');
+  assert(await card.getByText('Pentru ce vrei să pui bani deoparte?',{exact:true}).count()===1,'Empty state missing');
+  assert(await page.locator('.sim-balance').getByRole('button',{name:'Pune bani deoparte',exact:true}).count()===1,'Balance action must always exist');
+  await page.locator('.sim-balance').getByRole('button',{name:'Pune bani deoparte',exact:true}).click();
+  await page.getByText('Creează mai întâi un obiectiv pentru care vrei să pui bani deoparte.',{exact:true}).waitFor();
+  assert(await card.evaluate(e=>e===document.activeElement),'No-goal action must focus existing card');
+  assert(await dialog.count()===0,'No-goal action opened a form');assert(await card.count()===1,'Duplicate goal card');
+  assert(await page.getByRole('button',{name:/^Creează (un )?obiectiv$/}).count()===1,'Exactly one create CTA must exist');
+  await capture('empty');
+  await card.getByRole('button',{name:'Creează un obiectiv',exact:true}).click();
+  await dialog.getByLabel('Numele obiectivului',{exact:true}).fill('Laptop');await dialog.getByLabel('Suma obiectivului',{exact:true}).fill('3500');
+  async function capture(label){for(const width of [320,390,430,1280]){await page.setViewportSize({width,height:width===320?568:850});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Page overflow '+label+' '+width);if(await dialog.isVisible()){assert(await dialog.evaluate(e=>e.scrollWidth<=e.clientWidth),'Sheet overflow '+label+' '+width);await dialog.getByRole('button',{name:/Creează obiectivul|Pune .*deoparte|Scoate bani|Salvează modificările|Șterge obiectivul|Încheie obiectivul/}).scrollIntoViewIfNeeded();}await page.screenshot({path:artifactDirectory+'/'+label+'-'+width+'.png',fullPage:true});}}
+  await capture('create');
+  report.expectMissingGoalRpc=true;
+  const failedCreate=page.waitForResponse(r=>r.url().endsWith('/api/simulator/goal')&&r.request().method()==='POST');
+  await dialog.getByRole('button',{name:'Creează obiectivul',exact:true}).click();
+  const failedResponse=await failedCreate;assert(failedResponse.status()===503,'Missing migration must fail visibly');
+  assert((await failedResponse.json()).error.code==='GOAL_UNAVAILABLE','Creation failure must use safe API error');
+  await dialog.getByRole('alert').waitFor();assert(!/42883|SQL|mutate_simulator_goal|Supabase/i.test(await dialog.getByRole('alert').textContent()),'Creation leaked database internals');
+  assert((await db.query("select to_regclass('public.sim_savings_goals') as goals")).rows[0].goals===null,'Failure reproduction requires missing schema');
+  assert(report.expectedFailures.length===1&&report.expectedFailures[0].code==='42883','Actual missing RPC failure was not reproduced');
+  await db.exec(fs.readFileSync('supabase/migrations/0012_simulator_savings_goal.sql','utf8'));report.expectMissingGoalRpc=false;
+  const createdResponse=page.waitForResponse(r=>r.url().endsWith('/api/simulator/goal')&&r.request().method()==='POST');
+  await dialog.getByRole('button',{name:'Creează obiectivul',exact:true}).click();
+  const created=await createdResponse;assert(created.status()===200,'Creation failed after real migration');
+  assert(created.request().postDataJSON().operationId===failedResponse.request().postDataJSON().operationId,'Creation retry lost stable operation ID');
+  await dialog.waitFor({state:'hidden'});
+  assert(Number((await db.query('select count(*) as n from sim_savings_goals where user_id=$1',[userId])).rows[0].n)===1,'Exactly one goal must persist');
+  report.checks.push('Reproduced UI→API→SQL missing RPC failure (42883/503), applied actual migration 0012, retried stable operation, exactly one goal persisted');assert((await api('dashboard')).dashboard.goal.savedAmountBani===0,'Initial deposit invented');
+  assert(await page.getByRole('button',{name:/^Creează (un )?obiectiv$/}).count()===0,'Creation CTA remains after creation');
+  await card.getByRole('heading',{name:'Laptop',exact:true}).waitFor();
+  assert(await card.getByRole('progressbar').getAttribute('aria-valuenow')==='0','Created card must show zero progress immediately');
+  await capture('created');
+  await page.reload();await card.getByRole('heading',{name:'Laptop',exact:true}).waitFor();
+  assert(await page.locator('.sim-balance').getByRole('button',{name:'Pune bani deoparte',exact:true}).count()===1,'Contribution CTA missing after refresh');
+  for(const amount of [50,100,200]){
+    await page.locator('.sim-balance').getByRole('button',{name:'Pune bani deoparte',exact:true}).click();
+    await dialog.getByText('Laptop',{exact:true}).waitFor();
+    await dialog.getByRole('button',{name:amount+' lei',exact:true}).click();
+    assert(await dialog.getByLabel('Cât vrei să pui deoparte?',{exact:true}).inputValue()===String(amount),'Shortcut must select exact amount');
+    await dialog.getByRole('button',{name:'Pune '+amount+' lei deoparte',exact:true}).click();await dialog.waitFor({state:'hidden'});
+    const expected={50:5000,100:15000,200:35000}[amount],funded=(await api('dashboard')).dashboard;
+    assert(funded.goal.savedAmountBani===expected&&funded.balanceBani===100000-expected,'Shortcut did not persist equal internal movement');
+  }
+  await card.getByRole('button',{name:'Scoate bani',exact:true}).click();await dialog.getByLabel('Cât vrei să scoți?',{exact:true}).fill('350');await dialog.getByRole('button',{name:'Scoate bani',exact:true}).click();await dialog.waitFor({state:'hidden'});
+  async function editTarget(amount){await card.getByLabel('Opțiuni obiectiv').click();await card.getByRole('button',{name:'Editează obiectivul',exact:true}).click();await dialog.getByLabel('Suma obiectivului',{exact:true}).fill(amount);await dialog.getByRole('button',{name:'Salvează modificările',exact:true}).click();await dialog.waitFor({state:'hidden'});}
+  async function checkShortcuts(){assert(await dialog.getByRole('button',{name:'50 lei',exact:true}).isEnabled(),'50 shortcut must be enabled');assert(await dialog.getByRole('button',{name:'100 lei',exact:true}).isDisabled()&&await dialog.getByRole('button',{name:'200 lei',exact:true}).isDisabled(),'100/200 shortcuts must remain visible but disabled');}
+  await editTarget('50');await page.locator('.sim-balance').getByRole('button',{name:'Pune bani deoparte',exact:true}).click();await checkShortcuts();await capture('shortcuts-remaining');await page.keyboard.press('Escape');await dialog.waitFor({state:'hidden'});await editTarget('3500');
+  await db.query("update sim_ledger set amount_bani=amount_bani-92000 where run_id=$1 and ref_key='qa:cash'",[runId]);await page.reload();await card.waitFor();
+  await page.locator('.sim-balance').getByRole('button',{name:'Pune bani deoparte',exact:true}).click();await checkShortcuts();await capture('shortcuts-available');
+  await dialog.getByLabel('Cât vrei să pui deoparte?',{exact:true}).fill('37,50');await dialog.getByRole('button',{name:'Pune 37,5 lei deoparte',exact:true}).click();await dialog.waitFor({state:'hidden'});
+  const custom=(await api('dashboard')).dashboard;assert(custom.balanceBani===4250&&custom.goal.savedAmountBani===3750,'Custom decimal transfer incorrect');
+  await page.reload();await card.waitFor();const persisted=(await api('dashboard')).dashboard;assert(persisted.balanceBani===4250&&persisted.goal.savedAmountBani===3750,'Contribution did not persist after refresh');
+  await card.getByRole('button',{name:'Scoate bani',exact:true}).click();await dialog.getByLabel('Cât vrei să scoți?',{exact:true}).fill('37,50');await dialog.getByRole('button',{name:'Scoate bani',exact:true}).click();await dialog.waitFor({state:'hidden'});
+  await db.query("update sim_ledger set amount_bani=amount_bani+92000 where run_id=$1 and ref_key='qa:cash'",[runId]);await page.reload();await card.waitFor();
+  report.checks.push('50/100/200 shortcuts persist equal transfers, disabled caps for 80 available/50 remaining, custom 37,50 transfer persists after refresh');
+  const navigation=await page.evaluate(()=>performance.getEntriesByType('navigation').length);
+  await page.locator('.sim-balance').getByRole('button',{name:'Pune bani deoparte',exact:true}).click();assert(await dialog.getByRole('heading',{name:'Pune bani deoparte',exact:true}).count()===1,'Balance action must open contribution');
+  assert(await dialog.getByLabel('Numele obiectivului',{exact:true}).count()===0,'Contribution must not open creation');
+  await dialog.getByLabel('Cât vrei să pui deoparte?',{exact:true}).fill('200');await capture('deposit');
+  await page.keyboard.press('Enter');await dialog.waitFor({state:'hidden'});
+  let current=(await api('dashboard')).dashboard;assert(current.balanceBani===80000&&current.goal.savedAmountBani===20000&&current.goal.progressPercent===6,'Transfer accounting incorrect');
+  assert(current.monthlyExpensesPaid===baseline.monthlyExpensesPaid&&current.monthlyIncomeReceived===baseline.monthlyIncomeReceived,'Monthly totals changed');
+  assert(await page.evaluate(()=>performance.getEntriesByType('navigation').length)===navigation,'Transfer reloaded page');
+  assert(await card.getByRole('progressbar').getAttribute('aria-valuenow')==='20000','Progress ARIA incorrect');
+  await capture('active');report.checks.push('Single dedicated create CTA, permanent balance action with no-goal instruction/focus, immediate create state, refresh persistence, distinct contribution route, card replacement, 1000→800 + 200 reserved, 6%, neutral history, monthly unchanged, no reload, decimal input and responsive screenshots');
+  await card.getByRole('button',{name:'Scoate bani',exact:true}).click();await dialog.getByLabel('Cât vrei să scoți?',{exact:true}).fill('100,50');await capture('withdraw');await dialog.getByRole('button',{name:'Scoate bani',exact:true}).click();await dialog.waitFor({state:'hidden'});
+  current=(await api('dashboard')).dashboard;assert(current.balanceBani===90050&&current.goal.savedAmountBani===9950,'Romanian decimal withdrawal incorrect');assert(current.monthlyIncomeReceived===baseline.monthlyIncomeReceived,'Withdrawal counted as income');
+  await card.getByLabel('Opțiuni obiectiv').click();await card.getByRole('button',{name:'Editează obiectivul',exact:true}).click();await dialog.getByLabel('Numele obiectivului',{exact:true}).fill('MacBook');await dialog.getByLabel('Suma obiectivului',{exact:true}).fill('50');await dialog.getByRole('button',{name:'Salvează modificările',exact:true}).click();await dialog.getByRole('alert').waitFor();
+  await dialog.getByLabel('Suma obiectivului',{exact:true}).fill('299,50');await capture('edit');await dialog.getByRole('button',{name:'Salvează modificările',exact:true}).click();await dialog.waitFor({state:'hidden'});
+  const second=await context.newPage();await second.goto(origin+'/simulator');await second.locator('.sim-goal h2').filter({hasText:'MacBook'}).waitFor();
+  await page.locator('.sim-balance').getByRole('button',{name:'Pune bani deoparte',exact:true}).click();await dialog.getByLabel('Cât vrei să pui deoparte?',{exact:true}).fill('300');await dialog.getByRole('button',{name:/^Pune (?:[\d.,]+ lei|bani) deoparte$/}).click();await dialog.getByRole('alert').waitFor();assert((await dialog.getByRole('alert').textContent()).includes('200 lei'),'Remaining amount validation missing');
+  await dialog.getByLabel('Cât vrei să pui deoparte?',{exact:true}).fill('200');await dialog.getByRole('button',{name:/^Pune (?:[\d.,]+ lei|bani) deoparte$/}).click();await dialog.waitFor({state:'hidden'});
+  current=(await api('dashboard')).dashboard;assert(current.goal.status==='reached'&&current.goal.savedAmountBani===29950&&current.balanceBani===70050,'Reached released funds');
+  await card.getByRole('button',{name:'Scoate bani',exact:true}).click();await dialog.getByLabel('Cât vrei să scoți?',{exact:true}).fill('1');await dialog.getByRole('button',{name:'Scoate bani',exact:true}).click();await dialog.waitFor({state:'hidden'});await page.waitForFunction(()=>!document.querySelector('.sim-goal').classList.contains('sim-goal-completed'));assert((await api('dashboard')).dashboard.goal.status==='active','Withdrawal did not reactivate reached goal');
+  await page.locator('.sim-balance').getByRole('button',{name:'Pune bani deoparte',exact:true}).click();await dialog.getByLabel('Cât vrei să pui deoparte?',{exact:true}).fill('1');await dialog.getByRole('button',{name:/^Pune (?:[\d.,]+ lei|bani) deoparte$/}).click();await dialog.waitFor({state:'hidden'});assert((await api('dashboard')).dashboard.goal.status==='reached','Second completion did not persist');
+  await page.emulateMedia({reducedMotion:'reduce'});assert(await card.locator('.sim-goal-track>span').evaluate(e=>getComputedStyle(e).transitionDuration)==='0s','Reduced motion ignored');await capture('reached');
+  await second.evaluate(()=>window.dispatchEvent(new Event('pageshow')));await second.locator('.sim-goal').getByText('OBIECTIV ATINS',{exact:true}).waitFor();await second.close();
+  report.checks.push('Withdrawal 100,50 is not income; edit rejects target below saved; exact completion keeps reserve; reached state and reduced motion; cross-device/focus synchronization');
+  await card.getByLabel('Opțiuni obiectiv').click();await card.getByRole('button',{name:'Încheie obiectivul',exact:true}).click();await dialog.getByText(/299,5 lei.*vor reveni/).waitFor();await capture('archive');await dialog.getByRole('button',{name:'Încheie obiectivul',exact:true}).click();await dialog.waitFor({state:'hidden'});
+  current=(await api('dashboard')).dashboard;assert(current.balanceBani===100000&&current.goal===null,'Archive lost money');
+  await card.getByRole('button',{name:'Creează un obiectiv',exact:true}).click();await dialog.getByLabel('Numele obiectivului',{exact:true}).fill('Fond de rezervă');await dialog.getByLabel('Suma obiectivului',{exact:true}).fill('1000');await dialog.getByRole('button',{name:'Creează obiectivul',exact:true}).click();await dialog.waitFor({state:'hidden'});
+  await page.locator('.sim-balance').getByRole('button',{name:'Pune bani deoparte',exact:true}).click();await dialog.getByLabel('Cât vrei să pui deoparte?',{exact:true}).fill('100');await page.route('**/api/simulator/goal',route=>route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:{message:'Nu am putut salva. Încearcă din nou.'}})}));await dialog.getByRole('button',{name:/^Pune (?:[\d.,]+ lei|bani) deoparte$/}).click();await dialog.getByRole('alert').waitFor();assert(await dialog.isVisible(),'Failure closed sheet');await page.unroute('**/api/simulator/goal');await dialog.getByRole('button',{name:/^Pune (?:[\d.,]+ lei|bani) deoparte$/}).click();await dialog.waitFor({state:'hidden'});assert((await api('dashboard')).dashboard.goal.savedAmountBani===10000,'Retry lost/doubled mutation');
+  await page.locator('.sim-balance').getByRole('button',{name:'Pune bani deoparte',exact:true}).click();await page.keyboard.press('Escape');await dialog.waitFor({state:'hidden'});assert(await page.locator('.sim-balance').getByRole('button',{name:'Pune bani deoparte',exact:true}).evaluate(e=>e===document.activeElement),'Dialog focus not restored');
+  report.checks.push('Archive releases all funds; next goal allowed; network failure stays in form and retries; native dialog keyboard/Escape/focus');
+  const isolated=await browser.newContext();const other=await isolated.newPage();await other.goto(origin+'/autentificare');await other.waitForFunction(()=>{const f=document.querySelector('form');return f&&Object.keys(f).some(k=>k.startsWith('__reactProps'));});await other.getByLabel('Email',{exact:true}).fill('simulator_b@finly.test');await other.getByLabel('Parolă',{exact:true}).fill('localtestpass');await other.getByRole('button',{name:'Conectează-te',exact:true}).click();await other.getByRole('heading',{name:'Ce învățăm azi?'}).waitFor();await other.goto(origin+'/simulator');assert(await other.getByText('Fond de rezervă',{exact:true}).count()===0,'Account goal leaked');await isolated.close();
+  report.checks.push('User B cannot see user A goal');
+  // Compile the existing POST route before measuring the user's request timeout.
+  // GET is unsupported and cannot acknowledge or mutate a review.
+  assert((await page.request.get(origin+'/api/simulator/monthly-review')).status()===405,'Monthly route warmup must not mutate');
+  const beforeClose=(await api('dashboard')).dashboard,startingMonth=beforeClose.currentDay.slice(0,7);
+  for(let step=0;step<35&&(await api('dashboard')).dashboard.currentDay.slice(0,7)===startingMonth;step++)await api('dev/clock',{increment:1});
+  const nextMonth=await api('dashboard'),snapshot=nextMonth.pendingMonthlyReview.snapshot;
+  const totals=(await db.query("select coalesce(sum(amount_bani),0) filter_total from sim_ledger where run_id=$1 and day<=$2 and kind<>'transfer_obiectiv'",[runId,snapshot.periodEnd])).rows[0];
+  const spent=(await db.query("select coalesce(-sum(amount_bani),0) total from sim_ledger where run_id=$1 and day between $2 and $3 and amount_bani<0 and kind<>'transfer_obiectiv'",[runId,snapshot.periodStart,snapshot.periodEnd])).rows[0];
+  assert(snapshot.closingBalanceBani===Number(totals.filter_total)&&snapshot.spentBani===Number(spent.total),'Monthly SQL snapshot includes internal transfers');assert(nextMonth.dashboard.goal.savedAmountBani===beforeClose.goal.savedAmountBani,'Salary/fixed settlement changed reserve');assert(nextMonth.dashboard.salaryReceivedToday,'Next month salary did not settle');
+  const calendar=await api('calendar?month='+startingMonth);assert(calendar.days.flatMap(d=>d.items).some(i=>i.sourceType==='fixed_expense'&&i.status==='paid'),'Fixed expense not paid/in calendar');assert(!calendar.days.flatMap(d=>d.items).some(i=>i.title.includes('Fond de rezervă')),'Goal became calendar payment');
+  const blocked=await page.request.post(origin+'/api/simulator/goal',{headers:{origin},data:{action:'withdrawal',id:beforeClose.goal.id,amount:'1',operationId:crypto.randomUUID()}});assert(blocked.status()===409&&(await blocked.json()).error.code==='MONTHLY_REVIEW_REQUIRED','Monthly review gate bypassed');
+  await page.reload();const monthly=page.locator('.sim-monthly-dialog');await monthly.waitFor({state:'visible'});await monthly.getByRole('button').click();await monthly.waitFor({state:'hidden'});
+  report.checks.push('Actual month close persists SQL-validated totals excluding transfers; fixed calendar payment and salary execute; reserve unchanged; monthly gate/acknowledgment works');
+  assert(report.errors.length===0&&report.providerErrors.length===0,JSON.stringify(report));fs.writeFileSync(artifactDirectory+'/report.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
+`;
+driver=driver.slice(0,start)+setup+'\nsource += String.raw`'+qa+driver.slice(end);
+driver=driver.replace('const runner =', "source += base.slice(base.lastIndexOf('} catch(error)')).replace('} catch(error){', `} catch(error){ if(page){report.failureText=(await page.locator('body').innerText()).slice(0,2500);await page.screenshot({path:artifactDirectory+'/failure.png',fullPage:true}).catch(()=>{});}`);\nconst runner =");
+driver=driver.replaceAll('simulator-chapter-eight','savings-goal').replaceAll('3155','3175').replaceAll('3156','3176');
+// Each isolated QA run has a fresh build directory; persisting its compiler
+// cache only adds disk contention and has no reusable artifacts.
+driver=driver.replace('nextConfig.distDir =', 'nextConfig.experimental = { ...nextConfig.experimental, turbopackFileSystemCacheForDev: false };\nnextConfig.distDir =');
+fs.mkdirSync('artifacts/savings-goal',{recursive:true});
+const generated=path.resolve('artifacts/savings-goal/driver.mjs');fs.writeFileSync(generated,driver);
+await import(pathToFileURL(generated).href);

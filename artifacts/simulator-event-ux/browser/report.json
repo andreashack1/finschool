@@ -1,0 +1,12 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Login, schedule setup, Chapter 2 dashboard retained, monthly card replaced",
+    "Pending hierarchy / 320,390,430,1280 / touch targets / refresh snapshot / cross-device manual result",
+    "+29 pending / +30 deterministic auto / immutable result balance / closed-page catch-up",
+    "Legacy snapshot without presentation renders safely",
+    "Canonical calendar condition / one $ per day / multiple subscriptions / selected day / responsive marker"
+  ],
+  "errors": [],
+  "providerErrors": []
+}

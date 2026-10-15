@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [],
   "screens": [
@@ -64,10 +64,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Un obicei este mai ușor de repetat când are un declanșator clar, un pas mic și o verificare.",
-      "explanation": "Un obicei este mai ușor de repetat când are un declanșator clar, un pas mic și o verificare. Poate însemna notarea unei plăți după cumpărare sau revizuirea bugetului săptămânal. Alege o acțiune care încape în program. Un sistem util trebuie să îți arate realitatea, nu doar să producă un tabel frumos.",
-      "correctFeedback": "Corect. Un obicei este mai ușor de repetat când are un declanșator clar, un pas mic și o verificare. Poate însemna notarea unei plăți după cumpărare sau revizuirea bugetului săptămânal. Alege o acțiune care încape în program. Un sistem util trebuie să îți arate realitatea, nu doar să producă un tabel frumos.",
-      "incorrectFeedback": "Nu chiar. Un obicei este mai ușor de repetat când are un declanșator clar, un pas mic și o verificare. Poate însemna notarea unei plăți după cumpărare sau revizuirea bugetului săptămânal. Alege o acțiune care încape în program. Un sistem util trebuie să îți arate realitatea, nu doar să producă un tabel frumos.",
+      "question": "Dacă ora aleasă pentru verificarea bugetului nu funcționează, schimbarea momentului poate păstra obiceiul util.",
+      "explanation": "Un sistem repetabil trebuie să încapă în program. Adaptarea declanșatorului ajută mai mult decât păstrarea unei ore imposibile.",
+      "correctFeedback": "Corect. Un sistem repetabil trebuie să încapă în program. Adaptarea declanșatorului ajută mai mult decât păstrarea unei ore imposibile.",
+      "incorrectFeedback": "Nu chiar. Un sistem repetabil trebuie să încapă în program. Adaptarea declanșatorului ajută mai mult decât păstrarea unei ore imposibile.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -92,7 +92,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar culoarea aplicației."
+          "label": "Doar soldul afișat, fără plățile omise și obligațiile."
         },
         {
           "id": "1",
@@ -100,7 +100,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Soldul tuturor prietenilor."
+          "label": "Doar planul inițial, fără tranzacțiile reale."
         }
       ],
       "correctOption": "1"
@@ -142,11 +142,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce omisiuni găsește Lia prima dată?",
-      "explanation": "Două plăți mici.",
-      "correctFeedback": "Corect. Două plăți mici.",
-      "incorrectFeedback": "Nu chiar. Două plăți mici.",
+      "question": "Lia găsește două plăți mici omise. Ce trebuie inclus ca disponibilul calculat să reflecte realitatea?",
+      "explanation": "Cele două plăți mici au consumat bani și trebuie incluse. Mărimea lor nu justifică păstrarea unui sold calculat prea mare.",
+      "correctFeedback": "Corect. Cele două plăți mici au consumat bani și trebuie incluse. Mărimea lor nu justifică păstrarea unui sold calculat prea mare.",
+      "incorrectFeedback": "Nu chiar. Cele două plăți mici au consumat bani și trebuie incluse. Mărimea lor nu justifică păstrarea unui sold calculat prea mare.",
       "caseId": "caz-obiceiuri-bune-cu-banii",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Două salarii noi."
+          "label": "Numai plățile mari, fiindcă cele mici nu schimbă disponibilul."
         },
         {
           "id": "2",
-          "label": "O datorie deja ștearsă automat."
+          "label": "Numai cheltuielile prevăzute în planul inițial."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce face după sesiunea ratată?",
       "explanation": "Mută verificarea la un moment potrivit.",
       "correctFeedback": "Corect. Mută verificarea la un moment potrivit.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică înainte de automatizarea economisirii?",
       "explanation": "Banii necesari scadențelor.",
       "correctFeedback": "Corect. Banii necesari scadențelor.",
@@ -248,7 +245,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Numărul de culori din tabel."
+          "label": "Doar respectarea orei, fără plățile reale."
         }
       ],
       "correctOption": "0"
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Un obicei este mai ușor de repetat când are un declanșator clar, un pas mic și o verificare.",
-          "detail": "Un obicei este mai ușor de repetat când are un declanșator clar, un pas mic și o verificare.",
+          "detail": "Lia schimbă ora revizuirii când nu o poate respecta, păstrând verificarea simplă. O bifă fără plățile reale nu ajută decizia; urmărește dacă sistemul actualizează disponibilul.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Lia stabilește ca duminică să verifice zece minute plățile săptămânii. Notează ce lipsește și actualizează disponibilul.",
-          "detail": "Lia stabilește ca duminică să verifice zece minute plățile săptămânii. Notează ce lipsește și actualizează disponibilul.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Automatizarea poate ajuta, dar trebuie adaptată la venitul și scadențele reale.",
-          "detail": "Automatizarea poate ajuta, dar trebuie adaptată la venitul și scadențele reale.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Alege un pas de cinci minute și un moment concret pentru o verificare săptămânală.",
-          "detail": "Alege un pas de cinci minute și un moment concret pentru o verificare săptămânală.",
           "type": "action"
         }
       ]

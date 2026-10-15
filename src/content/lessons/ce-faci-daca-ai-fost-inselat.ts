@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -117,7 +117,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar un verdict despre propria persoană."
+          "label": "Doar totalul pierdut, fără destinatari și confirmări."
         },
         {
           "id": "1",
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce ar fi putut întârzia reacția Dariei?",
       "explanation": "Sentimentele sunt de înțeles, dar nu trebuie să blocheze protecția.",
       "correctFeedback": "Corect. Sentimentele sunt de înțeles, dar nu trebuie să blocheze protecția.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce explică băncii?",
       "explanation": "Acțiunile concrete ajută alegerea pașilor.",
       "correctFeedback": "Corect. Acțiunile concrete ajută alegerea pașilor.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Numai că mesajul arăta frumos."
+          "label": "Numai suma plătită, fără datele și codurile expuse."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "O promisiune anonimă de recuperare."
+          "label": "Doar numele folosit de expeditor, fără operațiunea autorizată."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce refuză recuperarea garantată contra taxă?",
       "explanation": "Identitatea și procedura trebuie verificate separat.",
       "correctFeedback": "Corect. Identitatea și procedura trebuie verificate separat.",
@@ -205,11 +202,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Orice ajutor este imposibil."
+          "label": "Plata taxei ar confirma automat că serviciul este legitim."
         },
         {
           "id": "1",
-          "label": "Dovezile nu mai contează."
+          "label": "Suma mică a taxei ar elimina riscul unei noi pierderi."
         },
         {
           "id": "2",
@@ -256,24 +253,24 @@ export const lesson: ReadyLesson = {
     {
       "id": "q9",
       "title": "Uite unde e diferența.",
-      "question": "Ce poate garanta lecția despre recuperare?",
-      "explanation": "Rezultatul depinde de situație și procedurile competente.",
-      "correctFeedback": "Corect. Rezultatul depinde de situație și procedurile competente.",
-      "incorrectFeedback": "Nu chiar. Rezultatul depinde de situație și procedurile competente.",
+      "question": "Daria a contactat banca și a păstrat dovezile. Ce poate concluziona despre recuperarea banilor?",
+      "explanation": "Limitarea expunerii și dovezile ajută verificarea. Nu confirmă singure recuperarea; urmărește răspunsurile oficiale și pașii potriviți situației.",
+      "correctFeedback": "Corect. Limitarea expunerii și dovezile ajută verificarea. Nu confirmă singure recuperarea; urmărește răspunsurile oficiale și pașii potriviți situației.",
+      "incorrectFeedback": "Nu chiar. Limitarea expunerii și dovezile ajută verificarea. Nu confirmă singure recuperarea; urmărește răspunsurile oficiale și pașii potriviți situației.",
       "type": "scenariu",
       "context": "Ai nevoie de o reacție realistă.",
       "options": [
         {
           "id": "0",
-          "label": "Returnarea tuturor sumelor în orice caz."
+          "label": "Contactarea băncii garantează returnarea integrală."
         },
         {
           "id": "1",
-          "label": "Nu un rezultat; oferă pași de verificare și limitare."
+          "label": "A făcut pași utili, dar rezultatul recuperării trebuie verificat."
         },
         {
           "id": "2",
-          "label": "Un termen inventat pentru toate fraudele."
+          "label": "Dovezile înlocuiesc orice procedură de verificare."
         }
       ],
       "correctOption": "1"
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Oprește",
           "body": "Nu continua operațiunile cerute de sursa suspectă.",
-          "detail": "Nu continua operațiunile cerute de sursa suspectă.",
+          "detail": "O taxă nouă de anulare poate extinde pierderea inițială. Contactează serviciul oficial, explică datele expuse și păstrează mesajele, fără să aștepți o promisiune de recuperare sigură.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Protejează",
           "body": "Contactează serviciile oficiale implicate.",
-          "detail": "Contactează serviciile oficiale implicate.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Documentează",
           "body": "Păstrează datele relevante și cere ajutor fără rușine.",
-          "detail": "Păstrează datele relevante și cere ajutor fără rușine.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Salvează canalele oficiale de ajutor și notează ce date ai păstra dacă ai observa o fraudă.",
-          "detail": "Salvează canalele oficiale de ajutor și notează ce date ai păstra dacă ai observa o fraudă.",
           "type": "action"
         }
       ]

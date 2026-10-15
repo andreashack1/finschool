@@ -10,6 +10,7 @@ const { categories } = load('src/content/categories.ts');
 const { shuffleOptions, shouldShuffleOptions, getDisplayOptions, validateAnswerPositions, answerPositionDistribution } = load('src/lib/lesson-options.ts');
 const lessons = [...registry.getReadyLessons(), ...registry.legacyQuickLessons];
 const before = JSON.parse(fs.readFileSync('artifacts/answer-options-before.json', 'utf8'));
+const editorial = JSON.parse(fs.readFileSync('artifacts/lesson-quality/changes.json', 'utf8'));
 const normalize = lesson => {
   const result = structuredClone(lesson);
   delete result.categoryId;
@@ -22,8 +23,27 @@ for (const previous of before) assert.ok(lessons.some(lesson => lesson.id === pr
 const now = new Date('2026-10-04T10:00:00Z');
 for (const lesson of lessons) {
   const previous = before.find(value => value.id === lesson.id);
-  // Covers every text, feedback, ID, correct mapping, screen order and metadata.
-  if (previous) assert.deepEqual(normalize(lesson), normalize(previous), `Published content is preserved while its curriculum location may change: ${lesson.id}`);
+  if (previous) {
+    const permitted = editorial.find(change => change.id === lesson.id);
+    const expected = normalize(previous), actual = normalize(lesson);
+    if (permitted) {
+      // Only recorded editorial changes may differ from the shuffle fixture.
+      actual.contentVersion = expected.contentVersion;
+      actual.screens = actual.screens.map(screen => {
+        const old = expected.screens.find(value => value.id === screen.id);
+        assert.ok(old, 'Published screen ID: '+lesson.id+':'+screen.id);
+        assert.equal(engine.getCorrectAnswerId(screen),engine.getCorrectAnswerId(old),'Published answer mapping');
+        if (screen.type === 'tine_minte') {
+          assert.deepEqual(screen.items.map(i=>[i.id,i.title,i.body,i.type]),old.items.map(i=>[i.id,i.title,i.body,i.type]));
+          return old;
+        }
+        if (permitted.rewritten.includes(screen.id)) return old;
+        if (old.title === 'Tu ce ai verifica?') return {...screen,title:old.title};
+        return screen;
+      });
+    }
+    assert.deepEqual(actual, expected, `Published content outside curated edits is preserved: ${lesson.id}`);
+  }
   validateAnswerPositions(lesson);
   const original = JSON.stringify(lesson);
   for (const screen of lesson.screens) {

@@ -17,6 +17,20 @@ beforeEach(()=>{jar.clear();requests=[];vi.stubEnv('NEXT_PUBLIC_SUPABASE_URL','h
 afterEach(()=>{vi.unstubAllGlobals();vi.unstubAllEnvs();});
 const request=(action:string,data?:unknown,origin='https://finly.test')=>POST(new Request('https://finly.test/api/account/auth',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json',...(action==='update'?{'X-Finly-Account':id}:{})},body:JSON.stringify({action,data})}));
 describe('Auth route contract with real SSR SDK and mocked provider transport',()=>{
+  it('LAN phone login reaches Auth and writes session cookies in development',async()=>{
+    vi.stubEnv('NODE_ENV','development');
+    const response=await POST(new Request('http://localhost:3000/api/account/auth',{method:'POST',headers:{Origin:'http://192.168.0.123:3000','Content-Type':'application/json'},body:JSON.stringify({action:'login',data:{email:user.email,password:'abcdefgh'}})}));
+    expect(response.status).toBe(200);
+    expect(requests.some(r=>r.url.includes('/token?'))).toBe(true);
+    expect([...jar.keys()].some(key=>key.startsWith('sb-'))).toBe(true);
+  });
+  it('LAN allowance rejects other hosts, ports, protocols and production requests',()=>{
+    vi.stubEnv('NODE_ENV','development');
+    for(const origin of ['http://192.168.0.124:3000','http://192.168.0.123:3001','https://192.168.0.123:3000','https://evil.test'])expect(()=>sameOrigin(new Request('http://localhost:3000/api/account/auth',{headers:{Origin:origin}}))).toThrow();
+    expect(()=>sameOrigin(new Request('http://internal:3000/api/account/auth',{headers:{Origin:'http://192.168.0.123:3000'}}))).toThrow();
+    vi.stubEnv('NODE_ENV','production');
+    expect(()=>sameOrigin(new Request('http://localhost:3000/api/account/auth',{headers:{Origin:'http://192.168.0.123:3000'}}))).toThrow();
+  });
   it('development accepts only the actual loopback request port, without weakening production',()=>{
     vi.stubEnv('NEXT_PUBLIC_APP_URL','http://localhost:3115');vi.stubEnv('NODE_ENV','development');
     expect(()=>sameOrigin(new Request('http://localhost:3000/api/account/auth',{headers:{Origin:'http://127.0.0.1:3000'}}))).not.toThrow();

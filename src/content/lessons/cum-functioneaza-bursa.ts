@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce ordinul lui Dan nu se execută în exemplu?",
       "explanation": "Prețul cerut depășește limita sa.",
       "correctFeedback": "Corect. Prețul cerut depășește limita sa.",
@@ -166,22 +165,21 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Nu are un logo colorat."
+          "label": "Ultimul preț de 100 ar trebui să oblige vânzătorul să accepte 100."
         },
         {
           "id": "2",
-          "label": "Bursa garantează toate ordinele."
+          "label": "Ordinul limită ar trebui să accepte 102 ca să se execute."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce preț maxim a stabilit Dan?",
-      "explanation": "100 lei.",
-      "correctFeedback": "Corect. 100 lei.",
-      "incorrectFeedback": "Nu chiar. 100 lei.",
+      "question": "Vânzătorul cere 102 lei, dar ordinul lui Dan are limită 100. Ce preț maxim poate accepta acest ordin fără schimbarea limitei?",
+      "explanation": "Limita de cumpărare rămâne 100 lei. Faptul că vânzătorul cere mai mult poate lăsa ordinul neexecutat, fără să mărească automat limita.",
+      "correctFeedback": "Corect. Limita de cumpărare rămâne 100 lei. Faptul că vânzătorul cere mai mult poate lăsa ordinul neexecutat, fără să mărească automat limita.",
+      "incorrectFeedback": "Nu chiar. Limita de cumpărare rămâne 100 lei. Faptul că vânzătorul cere mai mult poate lăsa ordinul neexecutat, fără să mărească automat limita.",
       "caseId": "caz-cum-functioneaza-bursa",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică pentru aplicația reală?",
       "explanation": "Intermediarul și tarifele.",
       "correctFeedback": "Corect. Intermediarul și tarifele.",
@@ -214,11 +211,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar aspectul vizual."
+          "label": "Doar prețul afișat, fără confirmarea și tarifele intermediarului."
         },
         {
           "id": "1",
-          "label": "Doar numărul de recenzii."
+          "label": "Doar faptul că aplicația funcționează, fără verificarea autorizării."
         },
         {
           "id": "2",
@@ -274,7 +271,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Identitatea cumpărătorului ca venit."
+          "label": "Prețul maxim al ordinului limită se mărește automat."
         },
         {
           "id": "1",
@@ -282,7 +279,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Valoarea comisioanelor devine mereu zero."
+          "label": "Ultimul preț afișat garantează orice cantitate la acel nivel."
         }
       ],
       "correctOption": "1"
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Bursa oferă un cadru de tranzacționare în care ordinele de cumpărare și vânzare pot fi potrivite conform regulilor pieței.",
-          "detail": "Bursa oferă un cadru de tranzacționare în care ordinele de cumpărare și vânzare pot fi potrivite conform regulilor pieței.",
+          "detail": "Limita de cumpărare de 100 lei nu se potrivește vânzătorului care cere 102 în exercițiu. Plasarea ordinului nu confirmă executarea; verifică statusul și confirmarea tranzacției.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Un cumpărător fictiv acceptă cel mult 100 lei, iar un vânzător cere 102. Ordinele nu se potrivesc la aceste limite.",
-          "detail": "Un cumpărător fictiv acceptă cel mult 100 lei, iar un vânzător cere 102. Ordinele nu se potrivesc la aceste limite.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Nu confunda plasarea ordinului cu executarea sa.",
-          "detail": "Nu confunda plasarea ordinului cu executarea sa.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Simulează două ordine limită și explică de ce unele limite nu se potrivesc.",
-          "detail": "Simulează două ordine limită și explică de ce unele limite nu se potrivesc.",
           "type": "action"
         }
       ]

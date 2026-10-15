@@ -1,3 +1,9 @@
 import { redirect } from 'next/navigation';
 import { currentUser } from '../../src/lib/supabase/server';
-export default async function Page(){if(!await currentUser())redirect('/bun-venit');redirect('/?tab=simulator');}
+import SimulatorClient from './simulator-client';
+import './simulator.css';
+export default async function Page() {
+  const user = await currentUser();
+  if (!user) redirect('/bun-venit');
+  return <SimulatorClient key={user.id} userId={user.id}/>;
+}

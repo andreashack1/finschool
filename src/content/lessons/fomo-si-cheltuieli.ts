@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [],
   "screens": [
@@ -52,11 +52,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "O garanție de reducere."
+          "label": "O nevoie confirmată de faptul că oferta expiră."
         },
         {
           "id": "2",
-          "label": "Un venit nou."
+          "label": "Dovada că produsul este util fiindcă îl cumpără grupul."
         }
       ],
       "correctOption": "0"
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce declanșează presiunea Marei?",
       "explanation": "Postările prietenilor și cronometrul.",
       "correctFeedback": "Corect. Postările prietenilor și cronometrul.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce cost păstrează în plan?",
       "explanation": "Transportul necesar de 80 lei.",
       "correctFeedback": "Corect. Transportul necesar de 80 lei.",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "O donație inventată."
+          "label": "Doar costul biletului, presupunând că restul se poate acoperi ulterior."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce alternativă propune?",
       "explanation": "O altă întâlnire potrivită resurselor.",
       "correctFeedback": "Corect. O altă întâlnire potrivită resurselor.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "FOMO este teama că pierzi o experiență sau o oportunitate pe care ceilalți o au.",
-          "detail": "FOMO este teama că pierzi o experiență sau o oportunitate pe care ceilalți o au.",
+          "detail": "Biletul de 150 lei nu încape în cei 120 rămași după transportul necesar. Chiar dacă oferta expiră cu adevărat, Mara poate căuta altă întâlnire fără să ignore această diferență.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Mara vede un bilet de 150 lei cu mesajul ultima șansă. Are 200 disponibili până la următoarea intrare și un transport necesar de 80.",
-          "detail": "Mara vede un bilet de 150 lei cu mesajul ultima șansă. Are 200 disponibili până la următoarea intrare și un transport necesar de 80.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "O ofertă poate fi limitată și totuși nepotrivită bugetului tău.",
-          "detail": "O ofertă poate fi limitată și totuși nepotrivită bugetului tău.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează o achiziție atrasă de urgență și compar-o cu nevoia și disponibilul real.",
-          "detail": "Notează o achiziție atrasă de urgență și compar-o cu nevoia și disponibilul real.",
           "type": "action"
         }
       ]

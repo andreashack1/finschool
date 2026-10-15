@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -69,10 +69,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "La supermarket compară prețul pe unitate și cantitatea pe care o vei folosi, nu doar prețul ambalajului.",
-      "explanation": "La supermarket compară prețul pe unitate și cantitatea pe care o vei folosi, nu doar prețul ambalajului. O listă legată de mese și stocul de acasă ajută la evitarea duplicatelor. Reducerea poate fi utilă numai dacă produsul îți trebuie și poate fi consumat înainte să se strice. Cantitatea mare nu este automat economie.",
-      "correctFeedback": "Corect. La supermarket compară prețul pe unitate și cantitatea pe care o vei folosi, nu doar prețul ambalajului. O listă legată de mese și stocul de acasă ajută la evitarea duplicatelor. Reducerea poate fi utilă numai dacă produsul îți trebuie și poate fi consumat înainte să se strice. Cantitatea mare nu este automat economie.",
-      "incorrectFeedback": "Nu chiar. La supermarket compară prețul pe unitate și cantitatea pe care o vei folosi, nu doar prețul ambalajului. O listă legată de mese și stocul de acasă ajută la evitarea duplicatelor. Reducerea poate fi utilă numai dacă produsul îți trebuie și poate fi consumat înainte să se strice. Cantitatea mare nu este automat economie.",
+      "question": "Un pachet mai ieftin pe kilogram poate costa mai mult pentru nevoia ta dacă o parte nu poate fi păstrată și se strică.",
+      "explanation": "Prețul pe unitate și cantitatea folosită trebuie privite împreună. Un avantaj pe etichetă nu compensează automat risipa.",
+      "correctFeedback": "Corect. Prețul pe unitate și cantitatea folosită trebuie privite împreună. Un avantaj pe etichetă nu compensează automat risipa.",
+      "incorrectFeedback": "Nu chiar. Prețul pe unitate și cantitatea folosită trebuie privite împreună. Un avantaj pe etichetă nu compensează automat risipa.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -147,7 +147,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce Radu nu alege automat pachetul mare?",
       "explanation": "Poate să nu folosească întreaga cantitate.",
       "correctFeedback": "Corect. Poate să nu folosească întreaga cantitate.",
@@ -162,7 +161,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Pachetele mari sunt mereu false."
+          "label": "Ambalajul mare este automat potrivit fiindcă are preț unitar mai mic."
         },
         {
           "id": "2",
@@ -173,7 +172,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Care variantă are preț unitar mai mic?",
       "explanation": "Pachetul de 1 kg la 18 lei.",
       "correctFeedback": "Corect. Pachetul de 1 kg la 18 lei.",
@@ -199,7 +197,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce rol are lista lui Radu?",
       "explanation": "Leagă cumpărăturile de mesele planificate.",
       "correctFeedback": "Corect. Leagă cumpărăturile de mesele planificate.",
@@ -253,7 +250,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar numărul afișelor."
+          "label": "Doar prețul pe bucată, fără suma plătită pentru toate trei."
         }
       ],
       "correctOption": "0"
@@ -292,28 +289,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "La supermarket compară prețul pe unitate și cantitatea pe care o vei folosi, nu doar prețul ambalajului.",
-          "detail": "La supermarket compară prețul pe unitate și cantitatea pe care o vei folosi, nu doar prețul ambalajului.",
+          "detail": "Pachetul mare poate avea preț mai mic pe kilogram, dar Radu va folosi numai jumătate. Dacă restul nu poate fi păstrat, costul cantității utile poate schimba alegerea.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Un pachet de 500 g costă 10 lei, iar unul de 1 kg costă 18. Prețurile pe kilogram sunt 20 și 18 lei.",
-          "detail": "Un pachet de 500 g costă 10 lei, iar unul de 1 kg costă 18. Prețurile pe kilogram sunt 20 și 18 lei.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "O ofertă condiționată de mai multe bucăți poate depăși lista și bugetul.",
-          "detail": "O ofertă condiționată de mai multe bucăți poate depăși lista și bugetul.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară prețul pe kilogram pentru două ambalaje și notează cât ai folosi efectiv.",
-          "detail": "Compară prețul pe kilogram pentru două ambalaje și notează cât ai folosi efectiv.",
           "type": "action"
         }
       ]

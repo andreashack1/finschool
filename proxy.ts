@@ -3,6 +3,8 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { publicSupabaseConfig,appUrl } from './src/lib/supabase/env';
 import { isPublicAccountRoute, isAuthEntryRoute } from './src/lib/account/redirects';
 export async function proxy(request: NextRequest) {
+  // The new technical simulator surface must be 404 before any auth redirect.
+  if (process.env.NODE_ENV !== 'development' && (request.nextUrl.pathname === '/simulator/dev' || request.nextUrl.pathname.startsWith('/simulator/dev/') || request.nextUrl.pathname.startsWith('/api/simulator/dev/'))) return new NextResponse(null, { status: 404 });
   let response = NextResponse.next({ request });
   const config = publicSupabaseConfig();
   let authenticated = false;
@@ -20,7 +22,8 @@ export async function proxy(request: NextRequest) {
     authenticated = Boolean(data.user);
   }
   const path = request.nextUrl.pathname;
-  const target = authenticated && (isAuthEntryRoute(path) || path === '/incepe') ? '/' : !authenticated && !isPublicAccountRoute(path) && !path.startsWith('/api/') ? '/bun-venit' : null;
+  const pushAsset = ['/finly-push-sw.js', '/manifest.webmanifest'].includes(path);
+  const target = authenticated && (isAuthEntryRoute(path) || path === '/incepe') ? '/' : !authenticated && !isPublicAccountRoute(path) && !pushAsset && !path.startsWith('/api/') ? '/bun-venit' : null;
   if (!target) return response;
   const localDevelopment = process.env.NODE_ENV === 'development' && ['localhost','127.0.0.1','[::1]'].includes(request.nextUrl.hostname);
   const redirect = NextResponse.redirect(new URL(target, localDevelopment ? request.nextUrl.origin : appUrl()));

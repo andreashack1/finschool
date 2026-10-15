@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -92,7 +92,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Da, fără nicio condiție."
+          "label": "Da, aceeași modificare se aplică tuturor produselor."
         },
         {
           "id": "1",
@@ -100,7 +100,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar culoarea cardului decide."
+          "label": "Da, dacă știrea este publicată în aceeași zi."
         }
       ],
       "correctOption": "1"
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce criterii îl ajută pe Alex să aleagă contul?",
       "explanation": "Comparația conturilor cere date despre produsele efective.",
       "correctFeedback": "Corect. Comparația conturilor cere date despre produsele efective.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce poate diferi cursul aplicației de reperul din știre?",
       "explanation": "Verifici ce reprezintă cotația și eventualele costuri.",
       "correctFeedback": "Corect. Verifici ce reprezintă cotația și eventualele costuri.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce poate afla din știrea BNR?",
       "explanation": "Știrile generale nu sunt oferte personale sau predicții garantate.",
       "correctFeedback": "Corect. Știrile generale nu sunt oferte personale sau predicții garantate.",
@@ -244,11 +241,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "O promisiune mai entuziastă."
+          "label": "Doar valoarea noii rate, fără costurile producătorului."
         },
         {
           "id": "2",
-          "label": "O fotografie cu telefonul."
+          "label": "Doar data deciziei, fără condițiile pieței produsului."
         }
       ],
       "correctOption": "0"
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Rol distinct",
           "body": "BNR este banca centrală, nu contul tău curent.",
-          "detail": "BNR este banca centrală, nu contul tău curent.",
+          "detail": "O știre despre politica monetară oferă context pentru economie. Pentru o problemă cu tranzacția sau contul personal, verifică produsul și contactează banca la care îl folosești.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Efecte generale",
           "body": "Politica monetară se transmite prin mai multe mecanisme.",
-          "detail": "Politica monetară se transmite prin mai multe mecanisme.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Tranzacția ta",
           "body": "Verifică oferta efectivă a instituției folosite.",
-          "detail": "Verifică oferta efectivă a instituției folosite.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Ia o știre despre BNR și separă efectul general descris de operațiunea personală pe care ai vrea să o faci.",
-          "detail": "Ia o știre despre BNR și separă efectul general descris de operațiunea personală pe care ai vrea să o faci.",
           "type": "action"
         }
       ]

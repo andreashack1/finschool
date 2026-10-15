@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [],
   "screens": [
@@ -142,11 +142,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce observă Luca la sfârșitul săptămânii?",
-      "explanation": "Totalul cumpărăturilor mici este 100 lei.",
-      "correctFeedback": "Corect. Totalul cumpărăturilor mici este 100 lei.",
-      "incorrectFeedback": "Nu chiar. Totalul cumpărăturilor mici este 100 lei.",
+      "question": "Luca nu și-a amintit fiecare plată de 20 lei. Ce total trebuie inclus în buget pentru cele cinci cumpărături?",
+      "explanation": "Cele cinci plăți însumează 100 lei, indiferent cât de vizibilă a fost fiecare. Extrasul și evidența completează memoria.",
+      "correctFeedback": "Corect. Cele cinci plăți însumează 100 lei, indiferent cât de vizibilă a fost fiecare. Extrasul și evidența completează memoria.",
+      "incorrectFeedback": "Nu chiar. Cele cinci plăți însumează 100 lei, indiferent cât de vizibilă a fost fiecare. Extrasul și evidența completează memoria.",
       "caseId": "caz-de-ce-cheltuim-mai-mult-cu-cardul-decat-cu-numerarul",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Cardul a creat venit."
+          "label": "Contează doar plățile de care își amintește, nu întregul istoric."
         },
         {
           "id": "2",
-          "label": "Numerarul a dispărut automat."
+          "label": "Plățile mici pot fi excluse dacă nu depășesc individual limita."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică pentru plățile uitate?",
       "explanation": "Extrasul tranzacțiilor.",
       "correctFeedback": "Corect. Extrasul tranzacțiilor.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce face cu noua metodă?",
       "explanation": "O testează și compară rezultatul.",
       "correctFeedback": "Corect. O testează și compară rezultatul.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "La unele persoane, plata cu cardul face mai puțin vizibilă pierderea imediată a banilor decât numerarul.",
-          "detail": "La unele persoane, plata cu cardul face mai puțin vizibilă pierderea imediată a banilor decât numerarul.",
+          "detail": "Cele cinci plăți de 20 lei ale lui Luca consumă 100 lei, chiar dacă nu și le amintește separat. Notificările și evidența fac totalul mai vizibil fără să impună aceeași metodă tuturor.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Luca face cinci plăți de 20 lei într-o săptămână. Totalul este 100 chiar dacă fiecare atingere a cardului pare mică.",
-          "detail": "Luca face cinci plăți de 20 lei într-o săptămână. Totalul este 100 chiar dacă fiecare atingere a cardului pare mică.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Numerarul poate face limita vizibilă, dar poate fi pierdut și nu apare automat în extras.",
-          "detail": "Numerarul poate face limita vizibilă, dar poate fi pierdut și nu apare automat în extras.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Adună cinci plăți fictive mici și propune o metodă de a le vedea totalul.",
-          "detail": "Adună cinci plăți fictive mici și propune o metodă de a le vedea totalul.",
           "type": "action"
         }
       ]

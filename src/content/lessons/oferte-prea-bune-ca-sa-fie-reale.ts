@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce informație importantă îi lipsește lui Teo?",
       "explanation": "Produsul exact trebuie verificat.",
       "correctFeedback": "Corect. Produsul exact trebuie verificat.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Numărul tuturor telefoanelor din oraș."
+          "label": "Doar prețurile altor modele, fără starea celui oferit."
         },
         {
           "id": "2",
-          "label": "Preferința prietenilor pentru culori."
+          "label": "Doar fotografiile trimise, fără identificarea aparatului."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Alt cumpărător pretins confirmă oferta?",
       "explanation": "Popularitatea pretinsă nu confirmă identitatea.",
       "correctFeedback": "Corect. Popularitatea pretinsă nu confirmă identitatea.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce trebuie să afle despre actul cerut?",
       "explanation": "Datele personale cer un scop clar și verificat.",
       "correctFeedback": "Corect. Datele personale cer un scop clar și verificat.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Explicație",
           "body": "Caută motivul diferenței de preț.",
-          "detail": "Caută motivul diferenței de preț.",
+          "detail": "Telefonul ieftin poate avea defecte sau condiții care explică prețul. Dacă vânzătorul cere avans fără să clarifice starea și predarea, graba nu înlocuiește informația lipsă.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Avans",
           "body": "Este o plată, nu o verificare a încrederii.",
-          "detail": "Este o plată, nu o verificare a încrederii.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Date",
           "body": "Nu oferi informații personale fără scop legitim.",
-          "detail": "Nu oferi informații personale fără scop legitim.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La o ofertă foarte ieftină, notează trei informații fără de care nu ai plăti.",
-          "detail": "La o ofertă foarte ieftină, notează trei informații fără de care nu ai plăti.",
           "type": "action"
         }
       ]

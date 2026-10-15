@@ -1,0 +1,56 @@
+{
+  "mode": "local Next + actual PostgreSQL migration; simulated Auth provider",
+  "viewports": [
+    {
+      "width": 320,
+      "overflow": false,
+      "height": 2958,
+      "hero": 320.265625
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "height": 2792,
+      "hero": 297.171875
+    },
+    {
+      "width": 430,
+      "overflow": false,
+      "height": 2680,
+      "hero": 297.171875
+    },
+    {
+      "width": 1366,
+      "overflow": false,
+      "height": 2042,
+      "hero": 233.890625
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "height": 2042,
+      "hero": 233.89064025878906
+    },
+    {
+      "width": 1920,
+      "overflow": false,
+      "height": 2042,
+      "hero": 233.890625
+    }
+  ],
+  "checks": [
+    "Guest redirects to /bun-venit",
+    "Authenticated profile → About",
+    "Back returns to profile",
+    "CTA opens real lesson route",
+    "Six viewport screenshots, no overflow, current Fini, headings, keyboard, real counts, no obsolete content"
+  ],
+  "errors": [],
+  "apiFailures": [],
+  "providerFailures": [
+    "23502",
+    "23502",
+    "23502",
+    "23502"
+  ]
+}

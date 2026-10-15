@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -63,10 +63,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "TVA afișat pe un document este un bacșiș voluntar.",
-      "explanation": "TVA are un rol fiscal, diferit de bacșiș.",
-      "correctFeedback": "Corect. TVA are un rol fiscal, diferit de bacșiș.",
-      "incorrectFeedback": "Nu chiar. TVA are un rol fiscal, diferit de bacșiș.",
+      "question": "TVA scris separat pe document trebuie plătit încă o dată peste totalul care îl include.",
+      "explanation": "Baza și TVA sunt componente ale aceluiași total. Separarea pe document explică suma, nu creează o a doua plată peste total.",
+      "correctFeedback": "Corect. Baza și TVA sunt componente ale aceluiași total. Separarea pe document explică suma, nu creează o a doua plată peste total.",
+      "incorrectFeedback": "Nu chiar. Baza și TVA sunt componente ale aceluiași total. Separarea pe document explică suma, nu creează o a doua plată peste total.",
       "type": "adevarat_fals",
       "correctAnswer": false
     },
@@ -108,24 +108,24 @@ export const lesson: ReadyLesson = {
     {
       "id": "q4",
       "title": "Uite unde e diferența.",
-      "question": "Pe un document ipotetic: bază 80, TVA 16. Ce total verifici?",
-      "explanation": "80 + 16 = 96 lei; nu deducem o cotă actuală.",
-      "correctFeedback": "Corect. 80 + 16 = 96 lei; nu deducem o cotă actuală.",
-      "incorrectFeedback": "Nu chiar. 80 + 16 = 96 lei; nu deducem o cotă actuală.",
+      "question": "Oferta A are bază 80 lei și TVA 16 lei. Oferta B are total 96 lei cu TVA inclus. Ce concluzie este justificată înainte de alte costuri?",
+      "explanation": "Aducerea ofertelor la aceeași bază arată două totaluri de 96 lei. Abia apoi verifici alte componente, precum transportul.",
+      "correctFeedback": "Corect. Aducerea ofertelor la aceeași bază arată două totaluri de 96 lei. Abia apoi verifici alte componente, precum transportul.",
+      "incorrectFeedback": "Nu chiar. Aducerea ofertelor la aceeași bază arată două totaluri de 96 lei. Abia apoi verifici alte componente, precum transportul.",
       "type": "scenariu",
       "context": "Verifici numai adunarea componentelor din exercițiu.",
       "options": [
         {
           "id": "0",
-          "label": "64 lei."
+          "label": "A este mai ieftină fiindcă cifra inițială este 80."
         },
         {
           "id": "1",
-          "label": "160 lei."
+          "label": "B este mai scumpă fiindcă TVA este inclus."
         },
         {
           "id": "2",
-          "label": "96 lei."
+          "label": "Totalurile sunt egale: 96 lei pentru fiecare."
         }
       ],
       "correctOption": "2"
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ofertele de 100 fără TVA și 120 cu TVA sunt comparabile direct?",
       "explanation": "Titlul ofertei nu înlocuiește suma finală.",
       "correctFeedback": "Corect. Titlul ofertei nu înlocuiește suma finală.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Care este totalul primei opțiuni cu transport?",
       "explanation": "100 + 20 + 15 = 135 lei în cazul ipotetic.",
       "correctFeedback": "Corect. 100 + 20 + 15 = 135 lei în cazul ipotetic.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce a identificat Radu separat de TVA?",
       "explanation": "Transportul este un cost distinct în comparație.",
       "correctFeedback": "Corect. Transportul este un cost distinct în comparație.",
@@ -205,11 +202,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "O donație obligatorie inventată."
+          "label": "Transportul este aceeași componentă cu TVA fiindcă apare pe document."
         },
         {
           "id": "1",
-          "label": "Venitul personal al colegilor."
+          "label": "Transportul este deja inclus automat în orice preț fără TVA."
         },
         {
           "id": "2",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Componente",
           "body": "Baza și TVA pot forma totalul afișat.",
-          "detail": "Baza și TVA pot forma totalul afișat.",
+          "detail": "În exemplul fictiv, baza de 100 lei și TVA de 20 lei dau 120 lei. Nu adăuga încă o dată TVA peste acel total și verifică separat transportul.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Comparație",
           "body": "Compară totaluri care includ aceleași costuri.",
-          "detail": "Compară totaluri care includ aceleași costuri.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Exemplu și regulă",
           "body": "Cifrele ipotetice nu stabilesc cote actuale.",
-          "detail": "Cifrele ipotetice nu stabilesc cote actuale.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe un bon pe care îl ai, găsește totalul și componentele TVA, fără să publici date personale.",
-          "detail": "Pe un bon pe care îl ai, găsește totalul și componentele TVA, fără să publici date personale.",
           "type": "action"
         }
       ]

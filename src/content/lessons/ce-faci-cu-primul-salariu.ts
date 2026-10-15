@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce presiune apare pentru Radu?",
       "explanation": "Să cumpere înainte să verifice restul bugetului.",
       "correctFeedback": "Corect. Să cumpere înainte să verifice restul bugetului.",
@@ -177,11 +176,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce sumă a rezervat Radu pentru nevoi viitoare?",
-      "explanation": "300 lei.",
-      "correctFeedback": "Corect. 300 lei.",
-      "incorrectFeedback": "Nu chiar. 300 lei.",
+      "question": "Radu a separat 300 lei pentru rezervă. Ce sumă are această destinație și nu poate fi numărată simultan pentru telefon?",
+      "explanation": "Cei 300 lei au fost separați pentru rezervă. Dacă schimbă destinația, trebuie să arate explicit efectul asupra planului, nu să îi numere de două ori.",
+      "correctFeedback": "Corect. Cei 300 lei au fost separați pentru rezervă. Dacă schimbă destinația, trebuie să arate explicit efectul asupra planului, nu să îi numere de două ori.",
+      "incorrectFeedback": "Nu chiar. Cei 300 lei au fost separați pentru rezervă. Dacă schimbă destinația, trebuie să arate explicit efectul asupra planului, nu să îi numere de două ori.",
       "caseId": "caz-ce-faci-cu-primul-salariu",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce alternativă păstrează planul realist?",
       "explanation": "Amânarea sau ajustarea achiziției.",
       "correctFeedback": "Corect. Amânarea sau ajustarea achiziției.",
@@ -253,7 +250,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar soldul prietenilor."
+          "label": "Doar suma primită, presupunând că reprezintă o lună întreagă."
         },
         {
           "id": "2",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Primul salariu poate susține obligații, o rezervă și alegeri care îți fac plăcere.",
-          "detail": "Primul salariu poate susține obligații, o rezervă și alegeri care îți fac plăcere.",
+          "detail": "După costurile necesare de 1.800 și rezerva de 300, Radu are 900 lei din netul de 3.000. Telefonul de 1.500 lei cere schimbarea planului sau amânare, nu un bonus presupus.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Într-un exemplu, din 3.000 lei net, Radu are 1.800 lei costuri necesare și separă 300 pentru o rezervă. Rămân 900 lei pentru alte alegeri.",
-          "detail": "Într-un exemplu, din 3.000 lei net, Radu are 1.800 lei costuri necesare și separă 300 pentru o rezervă. Rămân 900 lei pentru alte alegeri.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "O primă plată poate acoperi doar o parte din lună dacă ai început jobul mai târziu.",
-          "detail": "O primă plată poate acoperi doar o parte din lună dacă ai început jobul mai târziu.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Simulează un plan pentru primul salariu cu costuri necesare, o rezervă și o alegere plăcută.",
-          "detail": "Simulează un plan pentru primul salariu cu costuri necesare, o rezervă și o alegere plăcută.",
           "type": "action"
         }
       ]

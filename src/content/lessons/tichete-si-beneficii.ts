@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -65,7 +65,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar descrierea cea mai lungă."
+          "label": "Doar valoarea totală din reclamă, fără utilizările permise."
         }
       ],
       "correctOption": "0"
@@ -73,10 +73,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q2",
       "title": "Uite unde e diferența.",
-      "question": "Pachetul de remunerare poate include bani și beneficii cu utilizări diferite.",
-      "explanation": "Pachetul de remunerare poate include bani și beneficii cu utilizări diferite. Tichetele de masă nu sunt același lucru cu numerarul liber disponibil. Un abonament medical sau un curs poate fi util, dar valoarea afișată nu este automat venit de cheltuit. Verifică eligibilitatea, frecvența și tratamentul fiscal înainte de a compara două pachete.",
-      "correctFeedback": "Corect. Pachetul de remunerare poate include bani și beneficii cu utilizări diferite. Tichetele de masă nu sunt același lucru cu numerarul liber disponibil. Un abonament medical sau un curs poate fi util, dar valoarea afișată nu este automat venit de cheltuit. Verifică eligibilitatea, frecvența și tratamentul fiscal înainte de a compara două pachete.",
-      "incorrectFeedback": "Nu chiar. Pachetul de remunerare poate include bani și beneficii cu utilizări diferite. Tichetele de masă nu sunt același lucru cu numerarul liber disponibil. Un abonament medical sau un curs poate fi util, dar valoarea afișată nu este automat venit de cheltuit. Verifică eligibilitatea, frecvența și tratamentul fiscal înainte de a compara două pachete.",
+      "question": "O ofertă cu net mai mic, dar cu abonament medical, poate fi utilă în funcție de serviciile folosite; valoarea abonamentului nu este numerar pentru chirie.",
+      "explanation": "Banii și serviciile au utilizări diferite. Compară costul înlocuit de beneficiu și netul fix, fără să adaugi valoarea comercială la sold.",
+      "correctFeedback": "Corect. Banii și serviciile au utilizări diferite. Compară costul înlocuit de beneficiu și netul fix, fără să adaugi valoarea comercială la sold.",
+      "incorrectFeedback": "Nu chiar. Banii și serviciile au utilizări diferite. Compară costul înlocuit de beneficiu și netul fix, fără să adaugi valoarea comercială la sold.",
       "type": "adevarat_fals",
       "correctAnswer": true
     },
@@ -151,11 +151,10 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce plată cere bani disponibili în cazul Liei?",
-      "explanation": "Chiria.",
-      "correctFeedback": "Corect. Chiria.",
-      "incorrectFeedback": "Nu chiar. Chiria.",
+      "question": "Lia trebuie să plătească chiria. Ce componentă cere acoperire din netul disponibil, chiar dacă pachetul include servicii?",
+      "explanation": "Chiria cere bani disponibili. Un serviciu sau un bonus posibil nu acoperă automat o plată care trebuie făcută acum.",
+      "correctFeedback": "Corect. Chiria cere bani disponibili. Un serviciu sau un bonus posibil nu acoperă automat o plată care trebuie făcută acum.",
+      "incorrectFeedback": "Nu chiar. Chiria cere bani disponibili. Un serviciu sau un bonus posibil nu acoperă automat o plată care trebuie făcută acum.",
       "caseId": "caz-tichete-si-beneficii",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -166,18 +165,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Valoarea afișată a abonamentului."
+          "label": "Valoarea comercială a abonamentului medical, tratată ca sumă intrată în cont."
         },
         {
           "id": "2",
-          "label": "Numărul obiectivelor."
+          "label": "Bonusul condiționat, considerat încasat înainte de confirmare."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce clarificare cere Lia despre tichete?",
       "explanation": "Momentul acordării și utilizările permise.",
       "correctFeedback": "Corect. Momentul acordării și utilizările permise.",
@@ -188,7 +186,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "PIN-ul colegului."
+          "label": "Doar valoarea nominală, presupunând că poate fi folosită la orice plată."
         },
         {
           "id": "1",
@@ -196,14 +194,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Prețul acțiunilor firmei."
+          "label": "Doar totalul anual, fără momentul acordării."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Cum compară utilitatea abonamentului?",
       "explanation": "Verifică dacă îl folosește și ce cost ar înlocui.",
       "correctFeedback": "Corect. Verifică dacă îl folosește și ce cost ar înlocui.",
@@ -282,7 +279,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Doar o fotografie a cardului."
+          "label": "Doar valoarea maximă a bonusului, fără condițiile sale."
         }
       ],
       "correctOption": "1"
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Pachetul de remunerare poate include bani și beneficii cu utilizări diferite.",
-          "detail": "Pachetul de remunerare poate include bani și beneficii cu utilizări diferite.",
+          "detail": "Un abonament medical poate înlocui un serviciu folosit, dar nu intră automat ca numerar pentru chirie. Lia compară separat netul fix, serviciile utile și bonusurile condiționate.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Lia compară o ofertă cu 3.000 lei net și beneficii cu una de 3.200 lei net fără aceleași beneficii. Nu adună abonamentul medical la soldul pentru chirie.",
-          "detail": "Lia compară o ofertă cu 3.000 lei net și beneficii cu una de 3.200 lei net fără aceleași beneficii. Nu adună abonamentul medical la soldul pentru chirie.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "O valoare din reclamă poate fi brută, condiționată sau limitată la anumite utilizări.",
-          "detail": "O valoare din reclamă poate fi brută, condiționată sau limitată la anumite utilizări.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Separă într-o ofertă fictivă netul fix, beneficiile folosite și bonusurile condiționate.",
-          "detail": "Separă într-o ofertă fictivă netul fix, beneficiile folosite și bonusurile condiționate.",
           "type": "action"
         }
       ]

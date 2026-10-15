@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -126,7 +126,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Doar dacă butonul funcționează."
+          "label": "Doar scadența nouă, fără costul prelungirii."
         },
         {
           "id": "1",
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce lipsă importantă are planul lui Dan?",
       "explanation": "Venit confirmat înainte de scadență.",
       "correctFeedback": "Corect. Venit confirmat înainte de scadență.",
@@ -177,7 +176,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce verifică dincolo de reclamă?",
       "explanation": "Instituția și documentele costurilor.",
       "correctFeedback": "Corect. Instituția și documentele costurilor.",
@@ -196,14 +194,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Numai numărul descărcărilor."
+          "label": "Numai viteza aprobării, presupunând că aceasta verifică și costul."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce un al doilea împrumut nu este soluție automată?",
       "explanation": "Poate amplifica datoria fără sursă de rambursare.",
       "correctFeedback": "Corect. Poate amplifica datoria fără sursă de rambursare.",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Un IFN este o instituție financiară nebancară; viteza acordării nu descrie costul creditului.",
-          "detail": "Un IFN este o instituție financiară nebancară; viteza acordării nu descrie costul creditului.",
+          "detail": "Dan vede aprobarea în câteva minute, dar nu are un venit confirmat înainte de scadență. Prelungirea poate schimba costurile, deci timpul aprobării nu înlocuiește planul de rambursare.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Într-un exemplu, un împrumut de 1.000 lei cere 1.150 la termen. Diferența este 150 lei.",
-          "detail": "Într-un exemplu, un împrumut de 1.000 lei cere 1.150 la termen. Diferența este 150 lei.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Un nou împrumut luat pentru a acoperi vechiul credit poate amplifica problema dacă venitul nu susține plățile.",
-          "detail": "Un nou împrumut luat pentru a acoperi vechiul credit poate amplifica problema dacă venitul nu susține plățile.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară într-un scenariu suma primită, totalul de plată și data sursei de rambursare.",
-          "detail": "Compară într-un scenariu suma primită, totalul de plată și data sursei de rambursare.",
           "type": "action"
         }
       ]

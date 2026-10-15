@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -83,10 +83,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "12 lei în 15 zile costă cât?",
-      "explanation": "12 × 15 = 180 lei.",
-      "correctFeedback": "Corect. 12 × 15 = 180 lei.",
-      "incorrectFeedback": "Nu chiar. 12 × 15 = 180 lei.",
+      "question": "O gustare costă 12 lei și este cumpărată în 15 zile ale perioadei. Ce total compari cu abonamentul de transport de 120 lei?",
+      "explanation": "Gustările costă 180 lei în total, mai mult decât transportul din exemplu. Frecvența poate schimba ordinea categoriilor, fără să impună eliminarea gustărilor.",
+      "correctFeedback": "Corect. Gustările costă 180 lei în total, mai mult decât transportul din exemplu. Frecvența poate schimba ordinea categoriilor, fără să impună eliminarea gustărilor.",
+      "incorrectFeedback": "Nu chiar. Gustările costă 180 lei în total, mai mult decât transportul din exemplu. Frecvența poate schimba ordinea categoriilor, fără să impună eliminarea gustărilor.",
       "type": "scenariu",
       "context": "Ai cumpărat o gustare în fiecare dintre acele zile.",
       "options": [
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce categorie este mai mare în comparația din caz?",
       "explanation": "Totalul, nu vizibilitatea plății, decide comparația.",
       "correctFeedback": "Corect. Totalul, nu vizibilitatea plății, decide comparația.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce ajustare poate testa Vlad?",
       "explanation": "O ajustare concretă poate fi realistă și măsurabilă.",
       "correctFeedback": "Corect. O ajustare concretă poate fi realistă și măsurabilă.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce notează ieșirea ca excepție?",
       "explanation": "Contextul explică variațiile.",
       "correctFeedback": "Corect. Contextul explică variațiile.",
@@ -209,7 +206,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Ca să dubleze venitul."
+          "label": "Ca să o includă identic în estimarea tuturor lunilor, fără context."
         },
         {
           "id": "2",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Frecvență",
           "body": "Urmărește totalul plăților mici.",
-          "detail": "Urmărește totalul plăților mici.",
+          "detail": "Gustările de 12 lei în 15 zile costă 180 lei, mai mult decât transportul de 120 lei din exemplu. Totalul poate contrazice impresia creată de o singură plată mare.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Evidență",
           "body": "Separă mutările de consum.",
-          "detail": "Separă mutările de consum.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Context",
           "body": "Distinge repetițiile de excepții.",
-          "detail": "Distinge repetițiile de excepții.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Adună o categorie de cheltuieli mici din ultima săptămână și compar-o cu estimarea ta inițială.",
-          "detail": "Adună o categorie de cheltuieli mici din ultima săptămână și compar-o cu estimarea ta inițială.",
           "type": "action"
         }
       ]

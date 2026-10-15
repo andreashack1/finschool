@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Cât pierde prima variantă a Liei la scădere de 50%?",
       "explanation": "500 lei.",
       "correctFeedback": "Corect. 500 lei.",
@@ -177,7 +176,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Ce ipoteză simplificatoare are simularea?",
       "explanation": "Celelalte companii rămân neschimbate.",
       "correctFeedback": "Corect. Celelalte companii rămân neschimbate.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "De ce verifică sectorul companiilor?",
       "explanation": "Pot reacționa similar la același șoc.",
       "correctFeedback": "Corect. Pot reacționa similar la același șoc.",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Diversificarea înseamnă distribuirea expunerilor pentru a reduce dependența de un singur rezultat.",
-          "detail": "Diversificarea înseamnă distribuirea expunerilor pentru a reduce dependența de un singur rezultat.",
+          "detail": "Cinci poziții pot depinde de același sector și pot reacționa la un șoc comun. Verifică expunerile și suprapunerile, nu doar numărul produselor din cont.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Lia are 1.000 lei într-o singură companie. Un alt portofoliu fictiv împarte aceeași sumă între cinci companii, câte 200.",
-          "detail": "Lia are 1.000 lei într-o singură companie. Un alt portofoliu fictiv împarte aceeași sumă între cinci companii, câte 200.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Cinci companii din același sector pot reacționa similar la un șoc.",
-          "detail": "Cinci companii din același sector pot reacționa similar la un șoc.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Desenează două portofolii fictive și caută o dependență comună ascunsă.",
-          "detail": "Desenează două portofolii fictive și caută o dependență comună ascunsă.",
           "type": "action"
         }
       ]

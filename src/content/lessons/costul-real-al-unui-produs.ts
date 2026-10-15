@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -83,10 +83,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q3",
       "title": "Uite unde e diferența.",
-      "question": "Cât costă inițial 250 + 20 + 30 lei?",
-      "explanation": "Aduni toate cele trei componente necesare.",
-      "correctFeedback": "Corect. Aduni toate cele trei componente necesare.",
-      "incorrectFeedback": "Nu chiar. Aduni toate cele trei componente necesare.",
+      "question": "Dispozitivul de 250 lei cere transport de 20 lei și un accesoriu necesar de 30 lei. Ce total compari cu un pachet complet?",
+      "explanation": "Pentru aceeași utilizare incluzi transportul și accesoriul necesar: 300 lei. Eticheta de 250 lei ascunde o parte din costul inițial.",
+      "correctFeedback": "Corect. Pentru aceeași utilizare incluzi transportul și accesoriul necesar: 300 lei. Eticheta de 250 lei ascunde o parte din costul inițial.",
+      "incorrectFeedback": "Nu chiar. Pentru aceeași utilizare incluzi transportul și accesoriul necesar: 300 lei. Eticheta de 250 lei ascunde o parte din costul inițial.",
       "type": "scenariu",
       "context": "Dispozitivul necesită accesoriul din exemplu.",
       "options": [
@@ -108,10 +108,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q4",
       "title": "Uite unde e diferența.",
-      "question": "Un serviciu costă 10 lei lunar. Cât adaugă într-un an?",
-      "explanation": "10 × 12 = 120 lei, dacă este folosit tot anul.",
-      "correctFeedback": "Corect. 10 × 12 = 120 lei, dacă este folosit tot anul.",
-      "incorrectFeedback": "Nu chiar. 10 × 12 = 120 lei, dacă este folosit tot anul.",
+      "question": "Un serviciu opțional costă 10 lei lunar. Dacă îl folosești tot anul, ce sumă rezervi separat de prețul dispozitivului?",
+      "explanation": "Plata se repetă în fiecare lună: 120 lei într-un an. O compari separat, după ce stabilești dacă serviciul îți este necesar.",
+      "correctFeedback": "Corect. Plata se repetă în fiecare lună: 120 lei într-un an. O compari separat, după ce stabilești dacă serviciul îți este necesar.",
+      "incorrectFeedback": "Nu chiar. Plata se repetă în fiecare lună: 120 lei într-un an. O compari separat, după ce stabilești dacă serviciul îți este necesar.",
       "type": "scenariu",
       "context": "Nu există alte costuri în exercițiu.",
       "options": [
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Care ofertă este mai ieftină inițial în caz?",
       "explanation": "Componentele incluse fac diferența.",
       "correctFeedback": "Corect. Componentele incluse fac diferența.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce Radu verifică serviciul opțional?",
       "explanation": "Un cost opțional intră în scenariul relevant dacă îl folosești.",
       "correctFeedback": "Corect. Un cost opțional intră în scenariul relevant dacă îl folosești.",
@@ -194,7 +192,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce informație ar mai putea schimba alegerea?",
       "explanation": "Utilitatea și întreținerea completează costul.",
       "correctFeedback": "Corect. Utilitatea și întreținerea completează costul.",
@@ -205,11 +202,11 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Culoarea mesajului promoțional."
+          "label": "Doar reducerea față de prețul vechi, fără utilizare."
         },
         {
           "id": "1",
-          "label": "Numărul de reclame văzute."
+          "label": "Doar prețul inițial, fără compatibilitate."
         },
         {
           "id": "2",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Total inițial",
           "body": "Adună transportul și accesoriile necesare.",
-          "detail": "Adună transportul și accesoriile necesare.",
+          "detail": "Dispozitivul de 250 lei ajunge la 300 lei cu transportul și accesoriul necesar. Pachetul de 280 lei care le include poate avea un cost inițial mai mic, deși eticheta sa este mai mare.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Perioadă",
           "body": "Compară costurile recurente pe același interval.",
-          "detail": "Compară costurile recurente pe același interval.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Utilitate",
           "body": "Un total mai mic nu înlocuiește potrivirea produsului.",
-          "detail": "Un total mai mic nu înlocuiește potrivirea produsului.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La o ofertă informativă, notează prețul, două costuri suplimentare posibile și ce trebuie confirmat.",
-          "detail": "La o ofertă informativă, notează prețul, două costuri suplimentare posibile și ce trebuie confirmat.",
           "type": "action"
         }
       ]

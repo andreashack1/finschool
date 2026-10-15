@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "/simulator/dev: 404 with forged dev offset",
+    "/simulator/dev/nested: 404 with forged dev offset",
+    "/api/simulator/dev/clock: 404 with forged dev offset",
+    "/api/simulator/dev/reset: 404 with forged dev offset",
+    "/api/simulator/dev/events: 404 with forged dev offset",
+    "/api/simulator/dev/consequences: 404 with forged dev offset",
+    "dashboard: 401, no-store",
+    "journal?month=2026-10: 401, no-store",
+    "state: 401, no-store",
+    "start: 401, no-store",
+    "preview: 401, no-store",
+    "run: 401, no-store",
+    "settle: 401, no-store",
+    "/simulator: existing unauthenticated redirect",
+    "Public JS: no service-role environment reference",
+    "Public JS: catalog v1 titles absent"
+  ]
+}

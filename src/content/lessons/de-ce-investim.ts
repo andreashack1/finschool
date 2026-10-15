@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "sourceUrls": [
   {
@@ -130,7 +130,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar numărul de urmăritori."
+          "label": "Doar perioada recomandată în reclamă, fără scadența propriei obligații."
         },
         {
           "id": "2",
@@ -151,7 +151,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce Ana separă cele două sume?",
       "explanation": "Au scopuri și termene diferite.",
       "correctFeedback": "Corect. Au scopuri și termene diferite.",
@@ -166,22 +165,21 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Se dublează dacă le separă."
+          "label": "Produsul recomandat tuturor ar trebui să se potrivească oricărui termen."
         },
         {
           "id": "2",
-          "label": "Taxa nu mai trebuie plătită."
+          "label": "Orizontul lung ar elimina nevoia de bani disponibili pentru taxă."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
-      "question": "Ce termen are obiectivul lung al Anei?",
-      "explanation": "Peste zece ani.",
-      "correctFeedback": "Corect. Peste zece ani.",
-      "incorrectFeedback": "Nu chiar. Peste zece ani.",
+      "question": "Obiectivul Anei este peste zece ani, dar taxa trebuie plătită în două luni. Ce orizont poate fi studiat separat de disponibilul pentru taxă?",
+      "explanation": "Obiectivul de peste zece ani are alt termen decât taxa apropiată. Separarea permite evaluarea riscurilor fără să presupună că un produs se potrivește tuturor banilor.",
+      "correctFeedback": "Corect. Obiectivul de peste zece ani are alt termen decât taxa apropiată. Separarea permite evaluarea riscurilor fără să presupună că un produs se potrivește tuturor banilor.",
+      "incorrectFeedback": "Nu chiar. Obiectivul de peste zece ani are alt termen decât taxa apropiată. Separarea permite evaluarea riscurilor fără să presupună că un produs se potrivește tuturor banilor.",
       "caseId": "caz-de-ce-investim",
       "type": "scenariu",
       "context": "Aplică ideea în cazul de mai sus.",
@@ -203,7 +201,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce evită din reclama primită?",
       "explanation": "Același produs ales automat pentru toți banii.",
       "correctFeedback": "Corect. Același produs ales automat pentru toți banii.",
@@ -296,28 +293,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Ideea de bază",
           "body": "Investiția folosește resurse acum cu speranța unor beneficii viitoare, asumând riscuri.",
-          "detail": "Investiția folosește resurse acum cu speranța unor beneficii viitoare, asumând riscuri.",
+          "detail": "Taxa Anei de peste două luni cere disponibil la un termen apropiat. Obiectivul de peste zece ani poate fi studiat separat, fără să aleagă automat același produs pentru toți banii.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
           "body": "Ana are bani pentru o taxă peste două luni și un obiectiv separat pentru peste zece ani. Nu pune automat cele două sume în același produs.",
-          "detail": "Ana are bani pentru o taxă peste două luni și un obiectiv separat pentru peste zece ani. Nu pune automat cele două sume în același produs.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Capcana",
           "body": "Nu investi doar pentru că altcineva arată un câștig.",
-          "detail": "Nu investi doar pentru că altcineva arată un câștig.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Separă pe hârtie un scop apropiat și unul îndepărtat și notează cerințele de acces ale fiecăruia.",
-          "detail": "Separă pe hârtie un scop apropiat și unul îndepărtat și notează cerințele de acces ale fiecăruia.",
           "type": "action"
         }
       ]

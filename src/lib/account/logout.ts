@@ -1,10 +1,12 @@
 'use client';
 import { browserSupabase } from '../supabase/browser';
+import { unregisterDevice } from '../simulator/notifications/client';
 
 export const logoutErrorCopy = 'Nu te-am putut deconecta. Încearcă din nou.';
 export const logoutUnconfirmedCopy = 'Datele contului au fost ascunse pe acest dispozitiv. Nu putem confirma închiderea sesiunii pe server.';
 
 export async function logoutAccount(userId: string | null): Promise<boolean> {
+  if (userId) { try { await unregisterDevice(userId); } catch { /* Current-session display validation remains the privacy boundary. */ } }
   const client = browserSupabase();
   let serverConfirmed = false;
   let browserConfirmed = false;

@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -51,11 +51,11 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Transformă toate cumpărăturile în venit."
+          "label": "Fac autentic orice comerciant dacă banca cere autentificare."
         },
         {
           "id": "2",
-          "label": "Elimină orice nevoie de protecție a accesului."
+          "label": "Verifică în locul tău că suma corespunde cumpărăturii."
         }
       ],
       "correctOption": "0"
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "Ce a verificat Ana la terminal?",
       "explanation": "Confirmarea privește totalul efectiv.",
       "correctFeedback": "Corect. Confirmarea privește totalul efectiv.",
@@ -157,18 +156,17 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "1",
-          "label": "Doar logo-ul aplicației."
+          "label": "Doar că telefonul a cerut autentificare."
         },
         {
           "id": "2",
-          "label": "Numărul colegilor."
+          "label": "Doar numele magazinului, fără total."
         }
       ],
       "correctOption": "0"
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "De ce nu aprobă solicitarea online?",
       "explanation": "Diferența cere verificare înainte de autorizare.",
       "correctFeedback": "Corect. Diferența cere verificare înainte de autorizare.",
@@ -179,7 +177,7 @@ export const lesson: ReadyLesson = {
       "options": [
         {
           "id": "0",
-          "label": "Toate plățile online sunt greșite."
+          "label": "O nouă solicitare confirmă automat că prima plată a eșuat."
         },
         {
           "id": "1",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Telefonul nu poate face plăți."
+          "label": "Aceeași aplicație ar trebui să accepte automat orice solicitare ulterioară."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce face cu cererea de cod?",
       "explanation": "Codul poate autoriza operațiuni, nu este pentru apelant.",
       "correctFeedback": "Corect. Codul poate autoriza operațiuni, nu este pentru apelant.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Operațiune",
           "body": "Verifică suma, moneda și destinatarul.",
-          "detail": "Verifică suma, moneda și destinatarul.",
+          "detail": "Dacă ai ales o cumpărătură de 45 lei, o solicitare de 450 lei trebuie clarificată înainte de aprobare. Autentificarea nu confirmă singură că suma și comerciantul sunt cei intenționați.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Acces",
           "body": "Protejează dispozitivul și aplicațiile.",
-          "detail": "Protejează dispozitivul și aplicațiile.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Coduri",
           "body": "Nu comunica autorizări unui apelant.",
-          "detail": "Nu comunica autorizări unui apelant.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La următoarea plată, citește suma și moneda înainte să confirmi.",
-          "detail": "La următoarea plată, citește suma și moneda înainte să confirmi.",
           "type": "action"
         }
       ]

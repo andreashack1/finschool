@@ -17,7 +17,7 @@ export const lesson: ReadyLesson = {
   "minutes": 5,
   "xp": 30,
   "status": "ready",
-  "contentVersion": 2,
+  "contentVersion": 3,
   "formatVersion": 2,
   "screens": [
     {
@@ -39,10 +39,10 @@ export const lesson: ReadyLesson = {
     {
       "id": "q1",
       "title": "Uite unde e diferența.",
-      "question": "Zece plăți de 8 lei totalizează cât?",
-      "explanation": "Costul cumulat este 10 × 8 lei.",
-      "correctFeedback": "Corect. Costul cumulat este 10 × 8 lei.",
-      "incorrectFeedback": "Nu chiar. Costul cumulat este 10 × 8 lei.",
+      "question": "Alex vede zece plăți de 8 lei în aceeași săptămână. Ce total din bugetul real compară cu celelalte activități?",
+      "explanation": "Cele zece plăți consumă 80 lei. Prețul mic al fiecărui pachet și moneda din joc nu reduc totalul în bani reali.",
+      "correctFeedback": "Corect. Cele zece plăți consumă 80 lei. Prețul mic al fiecărui pachet și moneda din joc nu reduc totalul în bani reali.",
+      "incorrectFeedback": "Nu chiar. Cele zece plăți consumă 80 lei. Prețul mic al fiecărui pachet și moneda din joc nu reduc totalul în bani reali.",
       "type": "variante",
       "options": [
         {
@@ -100,7 +100,7 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Consideri restul salariu nou."
+          "label": "Consideri unitățile rămase bani recuperabili automat."
         }
       ],
       "correctOption": "1"
@@ -142,7 +142,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q5",
-      "title": "Tu ce ai verifica?",
       "question": "De ce l-a surprins totalul pe Alex?",
       "explanation": "Mărimea mică a fiecărei plăți poate ascunde totalul perceput.",
       "correctFeedback": "Corect. Mărimea mică a fiecărei plăți poate ascunde totalul perceput.",
@@ -168,7 +167,6 @@ export const lesson: ReadyLesson = {
     },
     {
       "id": "q6",
-      "title": "Tu ce ai verifica?",
       "question": "Restul îl obligă să continue?",
       "explanation": "Banii deja cheltuiți nu justifică automat încă o cumpărătură.",
       "correctFeedback": "Corect. Banii deja cheltuiți nu justifică automat încă o cumpărătură.",
@@ -187,14 +185,13 @@ export const lesson: ReadyLesson = {
         },
         {
           "id": "2",
-          "label": "Da, aplicația îi datorează profit."
+          "label": "Da, costul nou este justificat automat de suma deja plătită."
         }
       ],
       "correctOption": "1"
     },
     {
       "id": "q7",
-      "title": "Tu ce ai verifica?",
       "question": "Ce sistem reduce surprizele?",
       "explanation": "Costul vizibil și confirmarea păstrează controlul deciziei.",
       "correctFeedback": "Corect. Costul vizibil și confirmarea păstrează controlul deciziei.",
@@ -287,28 +284,25 @@ export const lesson: ReadyLesson = {
           "id": "idee-0",
           "title": "Adună plățile",
           "body": "Sumele mici pot forma un total mare.",
-          "detail": "Sumele mici pot forma un total mare.",
+          "detail": "Zece plăți de 8 lei consumă 80 lei din bugetul real. Unitățile virtuale rămase după un pachet nu sunt automat numerar recuperabil și nu te obligă să mai cumperi.",
           "type": "normal"
         },
         {
           "id": "idee-1",
           "title": "Tradu în lei",
           "body": "Monedele virtuale nu elimină costul.",
-          "detail": "Monedele virtuale nu elimină costul.",
           "type": "normal"
         },
         {
           "id": "idee-2",
           "title": "Șansă și garanție",
           "body": "O recompensă incertă poate să nu apară.",
-          "detail": "O recompensă incertă poate să nu apară.",
           "type": "normal"
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Verifică istoricul cumpărăturilor dintr-o aplicație și adună costul unei săptămâni, dacă există.",
-          "detail": "Verifică istoricul cumpărăturilor dintr-o aplicație și adună costul unei săptămâni, dacă există.",
           "type": "action"
         }
       ]

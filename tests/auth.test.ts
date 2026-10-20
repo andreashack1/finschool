@@ -141,13 +141,13 @@ describe('Auth route contract with real SSR SDK and mocked provider transport',(
   it('resend can be called repeatedly and only sends signup resend requests',async()=>{
     for(let i=0;i<3;i++)expect((await request('resend',{email:' UNIT@example.test '})).status).toBe(200);
     expect(requests).toHaveLength(3);
-    for(const r of requests){expect(r.url).toContain('/resend');expect(r.url).toContain(encodeURIComponent('https://finly2-ruddy.vercel.app/auth/callback'));expect(r.body).toMatchObject({email:user.email,type:'signup'});}
+    for(const r of requests){expect(r.url).toContain('/resend');expect(r.url).toContain(encodeURIComponent('https://www.finlyapp.online/auth/callback'));expect(r.body).toMatchObject({email:user.email,type:'signup'});}
   });
   it('masked resend failures retain safe provider diagnostics in production',async()=>{
-    vi.stubEnv('NODE_ENV','production');vi.stubEnv('NEXT_PUBLIC_APP_URL','https://finly2-ruddy.vercel.app');const log=vi.spyOn(console,'error').mockImplementation(()=>{});
+    vi.stubEnv('NODE_ENV','production');vi.stubEnv('NEXT_PUBLIC_APP_URL','https://www.finlyapp.online');const log=vi.spyOn(console,'error').mockImplementation(()=>{});
     try{
       vi.mocked(fetch).mockResolvedValue(Response.json({error_code:'email_not_confirmed',msg:'Sensitive provider message'},{status:422}));
-      const response=await request('resend',{email:user.email},'https://finly2-ruddy.vercel.app');expect(await response.json()).toEqual({ok:true});
+      const response=await request('resend',{email:user.email},'https://www.finlyapp.online');expect(await response.json()).toEqual({ok:true});
       expect(log).toHaveBeenCalledWith('[account/auth]',{stage:'supabase-resend',code:'email_not_confirmed',status:422});
       expect(JSON.stringify(log.mock.calls)).not.toContain(user.email);expect(JSON.stringify(log.mock.calls)).not.toContain('Sensitive');
     }finally{log.mockRestore();}
@@ -168,18 +168,33 @@ describe('Auth route contract with real SSR SDK and mocked provider transport',(
     const log=vi.spyOn(console,'error').mockImplementation(()=>{});
     try{
       const response=await request('reset',{email:user.email});expect(response.status).toBe(503);expect((await response.json()).error.code).toBe('CONFIGURATION_ERROR');expect(requests).toHaveLength(0);
-      const result=await callback(new Request('https://finly2-ruddy.vercel.app/auth/callback?type=recovery&token_hash=secret'));
+      const result=await callback(new Request('https://www.finlyapp.online/auth/callback?type=recovery&token_hash=secret'));
       expect(result.status).toBe(503);expect(result.headers.has('location')).toBe(false);expect(requests).toHaveLength(0);
     }finally{log.mockRestore();}
   });
   it('production reset goes directly to password page and development retains its explicit local port',async()=>{
-    for(const [mode,origin] of [['production','https://finly2-ruddy.vercel.app'],['development','http://localhost:3115']]){
+    for(const [mode,origin] of [['production','https://www.finlyapp.online'],['development','http://localhost:3115']]){
       vi.stubEnv('NODE_ENV',mode);vi.stubEnv('NEXT_PUBLIC_APP_URL',origin);vi.stubEnv('FINLY_DEV_AUTH_EMAIL_ORIGIN',mode==='development'?origin:'');requests=[];
       expect((await request('reset',{email:user.email},origin)).status).toBe(200);
       const r=requests.find(r=>new URL(r.url).pathname==='/auth/v1/recover')!;
       const target=new URL(new URL(r.url).searchParams.get('redirect_to')!);
       expect(target.origin).toBe(origin);expect(target.pathname).toBe('/actualizeaza-parola');expect(target.search).toBe('');
     }
+  });
+  it.each(['signup','resend'])('production %s email uses the custom domain callback',async action=>{
+    const origin='https://www.finlyapp.online';vi.stubEnv('NODE_ENV','production');vi.stubEnv('NEXT_PUBLIC_APP_URL',origin);
+    const response=await request(action,action==='signup'?{email:user.email,username:'new_user',ageRange:'20+',password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true}:{email:user.email},origin);
+    expect(response.status).toBe(200);
+    const sent=requests.find(r=>new URL(r.url).pathname===`/auth/v1/${action}`)!;
+    expect(new URL(sent.url).searchParams.get('redirect_to')).toBe(origin+'/auth/callback');
+  });
+  it('production callback and recovery handoff use the custom domain',async()=>{
+    vi.stubEnv('NODE_ENV','production');vi.stubEnv('NEXT_PUBLIC_APP_URL','https://www.finlyapp.online');
+    const signup=await callback(new Request('https://www.finlyapp.online/auth/callback?token_hash=signup-token&type=signup'));
+    expect(signup.headers.get('location')).toBe('https://www.finlyapp.online/salveaza-progresul');
+    requests=[];
+    const recovery=await callback(new Request('https://www.finlyapp.online/auth/callback?token_hash=recovery-token&type=recovery'));
+    expect(recovery.headers.get('location')).toBe('https://www.finlyapp.online/actualizeaza-parola?token_hash=recovery-token&type=recovery');expect(requests).toHaveLength(0);
   });
   it('ordinary signup PKCE cannot obtain recovery proof by supplying recovery query parameters',async()=>{
     await request('signup',{email:user.email,username:'new_user',ageRange:'20+',password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true});

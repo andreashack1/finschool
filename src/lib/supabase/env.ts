@@ -1,6 +1,6 @@
 import { AccountError } from '../account/errors';
 
-export const productionAppOrigin = 'https://finly2-ruddy.vercel.app';
+export const productionAppOrigin = 'https://www.finlyapp.online';
 
 // Email destinations are independent of the current development server.
 // Local email callbacks require this explicit server-only opt-in.

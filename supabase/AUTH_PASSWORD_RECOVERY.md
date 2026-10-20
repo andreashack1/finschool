@@ -1,6 +1,6 @@
 # Password recovery V4
 
-Runtime production NEXT_PUBLIC_APP_URL must equal https://finly2-ruddy.vercel.app.
+Runtime production NEXT_PUBLIC_APP_URL must equal https://www.finlyapp.online.
 Production rejects missing, malformed, loopback and LAN origins. authEmailOrigin()
 centralizes email destinations. Development local email testing requires explicit
 FINLY_DEV_AUTH_EMAIL_ORIGIN and matching runtime origin/redirect allowlist.
@@ -17,10 +17,10 @@ only on success. Ordinary login does not create proof.
 ## Required hosted configuration (not inspected or changed by this task)
 
 Authentication -> URL Configuration:
-Site URL: https://finly2-ruddy.vercel.app
+Site URL: https://www.finlyapp.online
 Allowed redirects:
-- https://finly2-ruddy.vercel.app/actualizeaza-parola
-- https://finly2-ruddy.vercel.app/auth/callback (signup/resend)
+- https://www.finlyapp.online/actualizeaza-parola
+- https://www.finlyapp.online/auth/callback (signup/resend)
 Retain localhost entries only for intentional development.
 
 Authentication -> Email Templates -> Reset Password:
@@ -49,7 +49,7 @@ sessionStorage and shares deadline-only hints between open tabs.
 4. Request ONE fresh password-reset email.
 5. Ignore/delete all older reset emails.
 6. Click the newest email (also test a separate browser/private window).
-7. Verify URL begins https://finly2-ruddy.vercel.app/actualizeaza-parola.
+7. Verify URL begins https://www.finlyapp.online/actualizeaza-parola.
 8. Verify Parolă nouă and Confirmă parola nouă fields.
 9. Submit valid matching password.
 10. Verify redirect into Finly.

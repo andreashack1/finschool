@@ -14,7 +14,7 @@ describe('Session proxy and account gates',()=>{
     // NextRequest normalizes loopback names to localhost. The dev server
     // sends a relative Location on the wire; the active port must stay 3000.
     expect((await proxy(new NextRequest('http://127.0.0.1:3000/profil'))).headers.get('location')).toBe('http://localhost:3000/bun-venit');
-    vi.stubEnv('NODE_ENV','production');vi.stubEnv('NEXT_PUBLIC_APP_URL','https://finly2-ruddy.vercel.app');expect((await proxy(new NextRequest('http://127.0.0.1:3000/profil'))).headers.get('location')).toBe('https://finly2-ruddy.vercel.app/bun-venit');
+    vi.stubEnv('NODE_ENV','production');vi.stubEnv('NEXT_PUBLIC_APP_URL','https://www.finlyapp.online');expect((await proxy(new NextRequest('http://127.0.0.1:3000/profil'))).headers.get('location')).toBe('https://www.finlyapp.online/bun-venit');
   });
   it.each(['/','/profil','/lectii','/lectie/nevoi-vs-dorinte'])('unauthenticated %s redirects to canonical welcome',async path=>{
     const response=await proxy(new NextRequest('http://localhost:3115'+path));expect(response.headers.get('location')).toBe('https://finly.test/bun-venit');

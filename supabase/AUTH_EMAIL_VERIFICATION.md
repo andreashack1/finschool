@@ -29,10 +29,10 @@ These settings have NOT been inspected or changed remotely by this task.
    Preserve account-enumeration protection; review Confirm phone together with
    Supabase signup documentation because it affects existing-user responses.
 2. Authentication → URL Configuration → Site URL:
-   `https://finly2-ruddy.vercel.app`.
+   `https://www.finlyapp.online`.
 3. Redirect URLs must include:
-   - `https://finly2-ruddy.vercel.app/auth/callback`
-   - `https://finly2-ruddy.vercel.app/auth/callback?next=/actualizeaza-parola`
+   - `https://www.finlyapp.online/auth/callback`
+   - `https://www.finlyapp.online/auth/callback?next=/actualizeaza-parola`
    - `http://localhost:3000/auth/callback`
    - `http://localhost:3000/auth/callback?next=/actualizeaza-parola`
    Add the same two entries for the actual local dev port and 127.0.0.1 if used.
@@ -41,7 +41,7 @@ These settings have NOT been inspected or changed remotely by this task.
    that loopback origin. Without this opt-in, Auth emails target the public app.
    See [password recovery configuration](AUTH_PASSWORD_RECOVERY.md).
 4. Vercel production NEXT_PUBLIC_APP_URL must be
-   `https://finly2-ruddy.vercel.app`. No deployment was performed here.
+   `https://www.finlyapp.online`. No deployment was performed here.
 5. Authentication → Email / SMTP Settings: enable custom SMTP, set the provider's
    host/port/username/password and verified sender. Configure domain SPF/DKIM and
    appropriate DMARC with the provider. Credentials belong only in Supabase's
@@ -68,7 +68,7 @@ use its explicit localhost port; the local configuration inspected was port 3115
 Do not copy that local value into Vercel Production.
 
 The generated production reset destination is:
-`https://finly2-ruddy.vercel.app/auth/callback?next=/actualizeaza-parola`.
+`https://www.finlyapp.online/auth/callback?next=/actualizeaza-parola`.
 The installed SDK may append `sb_flow_id` for PKCE; preserve it when applicable.
 URL allowlisting must accommodate the complete actual recovery redirect/query,
 using a narrowly scoped callback query pattern if the Dashboard requires it.

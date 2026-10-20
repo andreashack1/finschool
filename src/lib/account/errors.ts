@@ -8,6 +8,8 @@ export const errorCopy = {
   PARENT_ACKNOWLEDGEMENT_REQUIRED: 'Pentru intervalul 14–15 ani trebuie să confirmi că un părinte sau tutore știe că îți creezi cont.',
   INVALID_CREDENTIALS: 'Email sau parolă incorectă.',
   RECOVERY_REQUIRED: 'Linkul nu mai este valid sau a expirat.',
+  RECOVERY_AUTH_REQUIRED: 'Cere un link de recuperare pentru a schimba parola.',
+  RECOVERY_TEMPORARY: 'Nu am putut schimba parola acum. Încearcă din nou.',
   RATE_LIMITED: 'Mai așteaptă puțin înainte de o nouă încercare.',
   SERVER_ERROR: 'Nu am putut salva acum. Mai încearcă puțin mai târziu.',
   ORIGIN_REJECTED: 'Cererea nu poate fi acceptată.',

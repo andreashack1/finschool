@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Reper",
           "body": "Metoda nu este o obligație universală.",
           "detail": "La 2.400 lei, reperul pentru nevoi este 1.200 lei, dar Mara are costuri reale de 1.500 lei. Diferența de 300 lei cere adaptarea planului; procentele nu reduc obligațiile.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "obligațiile",
+            "procentele"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Calcul",
           "body": "Aplică procentele la suma disponibilă.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Procentele se aplică aceleiași baze de venit. Separă reținerile înainte să împarți banii disponibili.",
+          "detailHighlights": [
+            "reținerile",
+            "procentele"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Adaptare",
           "body": "Bugetul trebuie să acopere realitatea.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Dacă locuirea depășește reperul, ajustează planul real. Eticheta metodei nu plătește diferența.",
+          "detailHighlights": [
+            "reperul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Aplică informativ procentele unei sume ipotetice și compară-le cu trei costuri reale sau estimate.",
-          "type": "action"
+          "type": "action",
+          "detail": "În tabel, notează unde proporțiile nu încap în obligațiile tale. Folosește abaterea ca informație, fără să ascunzi costuri.",
+          "detailHighlights": [
+            "obligațiile",
+            "costuri"
+          ]
         }
       ]
     },

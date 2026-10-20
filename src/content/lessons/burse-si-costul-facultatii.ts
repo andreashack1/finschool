@@ -288,27 +288,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Costul facultății poate include taxă, locuire, hrană, transport și materiale, chiar când studiile nu au taxă.",
+          "body": "Facultatea poate costa bani chiar dacă nu plătești taxă de studiu.",
           "detail": "Ana are costuri estimate de 7.500 lei pe semestru și resurse confirmate de 6.000. Cererea de bursă neaprobată nu acoperă deja diferența, iar data încasării trebuie comparată cu scadențele.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "scadențele",
+            "costuri"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Ana estimează costuri de 1.500 lei lunar pentru cinci luni, adică 7.500. Are confirmate resurse de 6.000, deci diferența este 1.500.",
-          "type": "normal"
+          "body": "Separă resursele confirmate de bursele doar solicitate.",
+          "type": "normal",
+          "detail": "O bursă solicitată nu este încă venit confirmat. Data aprobării și data plății pot fi diferite.",
+          "detailHighlights": [
+            "venit confirmat",
+            "data"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Condițiile burselor și taxele diferă între instituții și se pot modifica.",
-          "type": "normal"
+          "body": "Verifică regulile burselor și taxele instituției alese.",
+          "type": "normal",
+          "detail": "Un loc fără taxă de studiu poate cere tot bani pentru locuire, hrană și materiale.",
+          "detailHighlights": [
+            "taxă de studiu",
+            "bani"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Estimează un semestru fictiv și separă resursele confirmate de cele doar solicitate.",
-          "type": "action"
+          "type": "action",
+          "detail": "Împarte semestrul pe luni și verifică dacă resursele confirmate ajung înainte de scadențele mari.",
+          "detailHighlights": [
+            "scadențele"
+          ]
         }
       ]
     },

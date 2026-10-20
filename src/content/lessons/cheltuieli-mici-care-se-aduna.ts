@@ -283,27 +283,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "O sumă mică repetată poate avea un total important.",
+          "body": "Un cost mic repetat poate ocupa mult din buget.",
           "detail": "La 12 lei în 20 de zile, Dan cheltuiește 240 lei; în zece zile, 120. Folosește frecvența reală și verifică și celelalte categorii, fără să promită că o singură reducere rezolvă orice buget.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "frecvența",
+            "buget"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "O cumpărătură de 12 lei făcută în 20 de zile costă 240 lei. Dacă o faci în numai 10 zile, costă 120.",
-          "type": "normal"
+          "body": "Calculează totalul după frecvența reală.",
+          "type": "normal",
+          "detail": "Totalul depinde de cât de des cumperi, nu doar de prețul unei porții.",
+          "detailHighlights": [
+            "totalul",
+            "prețul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Nu extrapola un cost zilnic la toate zilele anului dacă frecvența reală este alta.",
-          "type": "normal"
+          "body": "Nu extinde automat obiceiul unei zile la tot anul.",
+          "type": "normal",
+          "detail": "Nu presupune că o cheltuială de luni se repetă în toate zilele anului. Folosește frecvența observată.",
+          "detailHighlights": [
+            "frecvența"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează totalul unui cost mic folosind frecvența reală dintr-un interval fictiv.",
-          "type": "action"
+          "type": "action",
+          "detail": "Alege un interval complet și compară două frecvențe realiste, fără să promiți că o singură reducere rezolvă tot bugetul.",
+          "detailHighlights": [
+            "frecvențe",
+            "bugetul"
+          ]
         }
       ]
     },

@@ -1,0 +1,58 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Home source unchanged; alpha-aware footprint, face/hands inside card, text/controls separated, no viewport overflow, Profile captures at all widths"
+  ],
+  "errors": [],
+  "providerErrors": [],
+  "viewports": [
+    {
+      "width": 350,
+      "canvasWidth": 210,
+      "visibleWidth": 140.93333333333334,
+      "visibleHeight": 191.5666666666666,
+      "textGap": 10.133333333333326,
+      "controlsGap": 87.64583333333337
+    },
+    {
+      "width": 360,
+      "canvasWidth": 210,
+      "visibleWidth": 140.93333333333334,
+      "visibleHeight": 191.5666666666666,
+      "textGap": 10.133333333333326,
+      "controlsGap": 87.64583333333337
+    },
+    {
+      "width": 375,
+      "canvasWidth": 210,
+      "visibleWidth": 140.93333333333334,
+      "visibleHeight": 191.5666666666666,
+      "textGap": 10.133333333333326,
+      "controlsGap": 35.45833333333337
+    },
+    {
+      "width": 390,
+      "canvasWidth": 210,
+      "visibleWidth": 140.93333333333334,
+      "visibleHeight": 191.5666666666666,
+      "textGap": 10.133333333333326,
+      "controlsGap": 18.95833333333337
+    },
+    {
+      "width": 430,
+      "canvasWidth": 210,
+      "visibleWidth": 140.93333333333334,
+      "visibleHeight": 191.5666666666666,
+      "textGap": 13.133333333333326,
+      "controlsGap": 13.333333333333371
+    },
+    {
+      "width": 1280,
+      "canvasWidth": 250,
+      "visibleWidth": 167.77777777777771,
+      "visibleHeight": 228.05555555555554,
+      "textGap": 11.444444444444457,
+      "controlsGap": 21.111111111111086
+    }
+  ]
+}

@@ -285,25 +285,42 @@ export const lesson: ReadyLesson = {
           "title": "Identitate",
           "body": "Verifică operatorul și site-ul exact.",
           "detail": "Numele unei firme reale poate fi copiat pe altă pagină. Caută legătura cu adresa exactă a magazinului; sigla și conexiunea protejată nu confirmă singure comerciantul.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "conexiunea protejată"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Ansamblu",
           "body": "Mai multe semnale se analizează împreună.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Lipsa datelor firmei, prețul neobișnuit și plata grăbită pot forma împreună un semnal. Un singur indiciu nu decide totul.",
+          "detailHighlights": [
+            "prețul",
+            "plata"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Conexiune",
           "body": "Protecția tehnică nu garantează livrarea.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Lacătul conexiunii protejează transferul datelor, nu promite că magazinul va livra.",
+          "detailHighlights": [
+            "transferul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La un magazin necunoscut, caută identitatea și un contact verificabil înainte să introduci date.",
-          "type": "action"
+          "type": "action",
+          "detail": "Caută firma și adresa exactă a site-ului în surse separate. Nu te limita la recenziile afișate de vânzător.",
+          "detailHighlights": [
+            "limita",
+            "surse"
+          ]
         }
       ]
     },

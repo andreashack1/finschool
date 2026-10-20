@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Observă stimulul",
           "body": "Reclama și graba pot accelera o dorință.",
           "detail": "Teo nu căuta căști înainte de reclamă, iar cele actuale funcționau. Pauza îi permite să compare utilitatea și cei 90 lei liberi după drumul planificat, fără presiunea cronometrului.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "utilitatea",
+            "lei"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Introdu o pauză",
           "body": "Verificarea contează mai mult decât o durată rigidă.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "O pauză ajută dacă verifici utilitatea, alternativele și costul complet. Simplul fapt că a trecut o zi nu validează cumpărătura.",
+          "detailHighlights": [
+            "utilitatea",
+            "costul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Sold și plan",
           "body": "Scade obligațiile înainte să decizi.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Soldul poate include bani pentru transportul de mâine. Separă obligațiile apropiate înainte de o achiziție spontană.",
+          "detailHighlights": [
+            "obligațiile",
+            "transportul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Salvează o achiziție neplanificată și verifică ulterior dacă încă rezolvă o problemă pentru tine.",
-          "type": "action"
+          "type": "action",
+          "detail": "Când revii la coș, verifică dacă ai fi căutat produsul și fără reclamă. Compară prețul cu planurile deja făcute.",
+          "detailHighlights": [
+            "prețul"
+          ]
         }
       ]
     },

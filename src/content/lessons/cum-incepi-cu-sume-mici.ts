@@ -292,27 +292,46 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Începerea cu o sumă mică poate ajuta la învățare, dar nu elimină riscul și costurile.",
+          "body": "O sumă mică nu elimină riscul și costurile investiției.",
           "detail": "Comisionul fix de 5 lei consumă 5% din 100, dar 1% din 500 în exercițiu. Procentul mai mic nu justifică automat expunerea unei sume mai mari decât poți suporta.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "comisionul",
+            "procentul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Într-un exercițiu, un comision fix de 5 lei la o tranzacție de 100 reprezintă 5% din sumă, iar la 500 reprezintă 1%. Aceasta nu recomandă o tranzacție mai mare: arată că un cost fix poate conta mult pentru sume mici.",
-          "type": "normal"
+          "body": "Un comision fix poate cântări mult într-o sumă mică.",
+          "type": "normal",
+          "detail": "Un comision fix poate reprezenta o parte mare dintr-o sumă mică. Procentul mai mic la o sumă mare nu este motiv să riști mai mult.",
+          "detailHighlights": [
+            "comision fix",
+            "procentul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Nu împrumuta bani doar ca să începi și nu cumpăra un produs pe care nu îl poți explica.",
-          "type": "normal"
+          "body": "Nu te împrumuta ca să cumperi un produs pe care nu îl înțelegi.",
+          "type": "normal",
+          "detail": "Împrumutul adaugă o obligație certă unei investiții cu rezultat incert.",
+          "detailHighlights": [
+            "împrumutul",
+            "obligație"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează ponderea unui cost fix pentru două sume fictive și verifică ce ai mai avea de învățat.",
-          "type": "action"
+          "type": "action",
+          "detail": "Înainte de un produs real, verifică dacă îi poți explica riscul, costul și accesul la bani, folosind un exemplu fictiv.",
+          "detailHighlights": [
+            "accesul",
+            "costul"
+          ]
         }
       ]
     },

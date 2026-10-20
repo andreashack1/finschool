@@ -15,6 +15,9 @@ const normalize = lesson => {
   const result = structuredClone(lesson);
   delete result.categoryId;
   delete result.chapterId;
+  // The final recap pass changes only authored detail/highlights on the original
+  // published lessons. Their IDs, summaries and every question remain protected.
+  for (const screen of result.screens) if (screen.type === 'tine_minte') for (const item of screen.items) { delete item.detail; delete item.detailHighlights; }
   for (const screen of result.screens) if (shouldShuffleOptions(screen)) screen.options.sort((a, b) => a.id.localeCompare(b.id));
   return result;
 };

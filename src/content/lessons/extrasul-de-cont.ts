@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Rânduri",
           "body": "Citește sensul și datele operațiunii.",
           "detail": "O retragere din cont poate lăsa bani în portofel, fără să îi consume. Leagă rândurile de operațiuni și dovezi înainte să tratezi toate ieșirile drept cheltuieli de consum.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "retragere",
+            "cont"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Repetiții",
           "body": "Observă costurile recurente.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un serviciu uitat poate apărea lunar cu aceeași denumire. Verifică comerciantul înainte să decizi dacă păstrezi abonamentul.",
+          "detailHighlights": [
+            "abonamentul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Protecție",
           "body": "Nu distribui extrasul complet fără nevoie.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Extrasul poate expune soldul, IBAN-ul și obiceiurile tale. Pentru o verificare, trimite doar informația necesară.",
+          "detailHighlights": [
+            "soldul",
+            "IBAN"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Verifică trei tranzacții recente și caută un cost recurent pe care îl poți explica.",
-          "type": "action"
+          "type": "action",
+          "detail": "Leagă fiecare rând de o operațiune cunoscută. Pentru una necunoscută, folosește contactul oficial al băncii.",
+          "detailHighlights": [
+            "operațiune",
+            "contactul"
+          ]
         }
       ]
     },

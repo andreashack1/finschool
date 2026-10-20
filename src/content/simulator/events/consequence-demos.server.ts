@@ -24,7 +24,7 @@ export function consequenceDemoCatalog(scenario: DemoScenario) {
     allowedWindows: ['evening'], expirationPolicy: 'local_midnight', weight: 1,
     rules: { cooldownDays: 0, groups: [], ...(state ? { state } : {}) },
     variations: ['a', 'b'].map(variation => ({ id: `${name}_${variation}`, title: titles[scenario], description: 'Scenariu de verificare Chapter 4. Alegerea se salvează în run-ul tău de development.', weight: 1,
-      presentation:{title:titles[scenario],context:scenario.startsWith('phone')?'Telefonul are nevoie de atenție înainte să îl folosești din nou.':'Pregătești mesele pentru zilele următoare.',bullets:[{text:scenario.startsWith('phone')?'O verificare poate clarifica problema':'Proviziile rămân disponibile după pregătire'},{text:'Alegerea se salvează în simulatorul de development'}]},
+      presentation:{title:titles[scenario],context:scenario.startsWith('phone')?'Telefonul are nevoie de atenție înainte să îl folosești din nou.':'Pregătești mesele pentru zilele următoare.',bullets:[{text:scenario.startsWith('phone')?'O verificare poate clarifica problema':'Proviziile rămân disponibile după pregătire'},{text:'Alegerea se salvează în SimLife de development'}]},
       options: [
         { id: `${name}_${variation}_paid`, label: 'Alegi varianta cu o cumpărătură', priceModel: { type: 'fixed', amountBani: 100 }, feedback: 'Ai ales varianta cu o cheltuială și ai actualizat situația.', durationMinutes: 0, fallbackWhenUnaffordable: false, consequences },
         { id: `${name}_${variation}_alternative`, label: 'Alegi alternativa din scenariu', priceModel: { type: 'fixed', amountBani: 0 }, feedback: 'Ai ales alternativa și ai actualizat situația.', durationMinutes: 0, fallbackWhenUnaffordable: false, consequences },

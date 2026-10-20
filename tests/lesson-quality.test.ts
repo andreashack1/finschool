@@ -14,9 +14,9 @@ const before: ReadyLesson[] = JSON.parse(readFileSync('artifacts/lesson-quality/
 const changes: {id:string;rewritten:string[]}[] = JSON.parse(readFileSync('artifacts/lesson-quality/changes.json','utf8'));
 const lessons = getReadyLessons();
 const now = new Date('2026-10-14T09:00:00Z');
-const remember = (detail?: string): RememberScreen => ({type:'tine_minte',id:'remember',title:'Ține minte',items:[
-  ...Array.from({length:3},(_,index)=>({id:String(index),title:'Idee',body:'O rată mică nu descrie tot costul.',...(detail === undefined ? {} : {detail}),type:'normal' as const})),
-  {id:'action',title:'Ce poți face azi',body:'Compară două oferte pentru aceeași durată.',type:'action'}
+const remember = (detail = 'Compară totalul creditului pentru aceeași durată.'): RememberScreen => ({type:'tine_minte',id:'remember',title:'Ține minte',items:[
+  ...Array.from({length:3},(_,index)=>({id:String(index),title:'Idee',body:'O rată mică nu descrie tot costul.',detail,detailHighlights:['totalul'],type:'normal' as const})),
+  {id:'action',title:'Ce poți face azi',body:'Compară două oferte pentru aceeași durată.',detail:'Folosește aceeași sumă împrumutată ca să poți compara ofertele.',detailHighlights:['sumă'],type:'action'}
 ]});
 afterEach(()=>{clearTrial();vi.unstubAllGlobals();});
 
@@ -32,7 +32,7 @@ describe('Lesson quality contracts',()=>{
       const rewritten=changes.find(c=>c.id===old.id)?.rewritten ?? [];
       for(const screen of old.screens){
         const next=current.screens.find(s=>s.id===screen.id)!;
-        if(screen.type==='tine_minte' && next.type==='tine_minte') expect(next.items.map(i=>[i.id,i.title,i.body,i.type])).toEqual(screen.items.map(i=>[i.id,i.title,i.body,i.type]));
+        if(screen.type==='tine_minte' && next.type==='tine_minte') expect(next.items.map(i=>[i.id,i.title,i.type])).toEqual(screen.items.map(i=>[i.id,i.title,i.type]));
         else if(!isAnswerScreen(screen)) expect(next).toEqual(screen);
         else {
           expect(getCorrectAnswerId(next)).toBe(getCorrectAnswerId(screen));
@@ -54,20 +54,20 @@ describe('Lesson quality contracts',()=>{
     const taught=interest.screens.slice(0,interest.screens.indexOf(question)).filter(s=>s.type==='explicatie').flatMap(s=>s.paragraphs ?? []).join(' ');
     expect(taught).toContain('Comisioanele');expect(taught).toContain('perioadă');
   });
-  it('rejects normalized copies and short-prefix copies, permits related elaboration and missing detail',()=>{
+  it('rejects normalized copies and short-prefix copies, permits related elaboration and requires details',()=>{
     expect(RememberScreenSchema.safeParse(remember(' O RATĂ MICĂ — nu descrie tot costul! ')).success).toBe(false);
     expect(RememberScreenSchema.safeParse(remember('De reținut: o rată mică nu descrie tot costul.')).success).toBe(false);
-    expect(RememberScreenSchema.safeParse(remember('Perioada mai lungă poate reduce plata lunară. Compară și suma totală rambursată pentru aceeași valoare împrumutată.')).success).toBe(true);
-    expect(RememberScreenSchema.safeParse(remember()).success).toBe(true);
+    expect(RememberScreenSchema.safeParse(remember('Perioada mai lungă poate reduce plata lunară. Compară totalul rambursat pentru aceeași valoare împrumutată.')).success).toBe(true);
+    const missing=remember();delete (missing.items[0] as Partial<RememberScreen['items'][number]>).detail;expect(RememberScreenSchema.safeParse(missing).success).toBe(false);
     expect(RememberScreenSchema.safeParse(remember('   ')).success).toBe(false);
     for(const lesson of lessons) for(const screen of lesson.screens) if(screen.type==='tine_minte') for(const item of screen.items) if(item.detail) expect(isCopiedTakeaway(item.body,item.detail)).toBe(false);
   });
-  it('renders complete summaries, no disclosure without details and collapsed distinct details',()=>{
+  it('renders a disclosure for every item with connected collapsed details',()=>{
     const plain=renderToStaticMarkup(createElement(RememberReading,{screen:remember()}));
-    expect(plain).not.toContain('<button');expect(plain).not.toContain('aria-expanded');
+    expect(plain.match(/<button/g)).toHaveLength(4);expect(plain).toContain('aria-expanded="false"');
     const detailed=renderToStaticMarkup(createElement(RememberReading,{screen:remember('Compară totalul. Verifică perioada.')}));
-    expect(detailed).toContain('aria-expanded="false"');expect(detailed).toContain('hidden=""');
-    expect(detailed).toContain('Compară totalul. Verifică perioada.');
+    expect(detailed).toContain('aria-expanded="false"');expect(detailed).toContain('aria-hidden="true"');
+    expect(detailed.replace(/<[^>]+>/g,'')).toContain('Compară totalul. Verifică perioada.');expect(detailed).toContain('class="remember-keyword"');
   });
   it('renders a content-owned lead-in and no placeholder when it is absent',()=>{
     const interest=getLessonById('dobanda') as ReadyLesson;
@@ -83,7 +83,7 @@ describe('Lesson quality contracts',()=>{
     const longer=structuredClone(lessons[0]);longer.screens.splice(-2,0,{...longer.screens[2],id:'transfer-addition'});
     expect(ReadyLessonSchema.safeParse(longer).success).toBe(true);
   });
-  it('historical authoring supports variable counts, optional details and protects curated files',()=>{
+  it('authoring supports variable counts, requires authored details and protects curated files',()=>{
     const source=readFileSync('scripts/write-curriculum-lessons.cjs','utf8');
     const canonical=JSON.parse(readFileSync('artifacts/canonical-curriculum.json','utf8'));
     const content=getLessonById('dobanda') as ReadyLesson;
@@ -92,14 +92,16 @@ describe('Lesson quality contracts',()=>{
     const compiled={exports:{} as {write:(id:string,records:unknown[])=>void}};
     new Function('require','module','console',source)((id:string)=>id==='node:fs'?fakeFs:id==='node:path'?path:canonical,compiled,{log:()=>{}});
     const questions=content.screens.filter(isAnswerScreen).map(s=>[s.question,s.type==='adevarat_fals'?s.correctAnswer:'Răspuns corect','Alternativa A','Alternativa B',s.explanation]);
-    const record=(count:number)=>[content.title,content.objective,content.description,content.screens.filter(s=>s.type==='explicatie').map(s=>s.paragraphs!.join('\n\n')),content.screens.find(s=>s.type==='caz_real')!.paragraphs,Array.from({length:count},(_,i)=>questions[i%questions.length]),[['Idee','Rezumat A.'],['Idee','Rezumat B.'],['Idee','Rezumat C.']],'Compară o ofertă.'];
+    const recap=content.screens.find(s=>s.type==='tine_minte')!;
+    const record=(count:number)=>[content.title,content.objective,content.description,content.screens.filter(s=>s.type==='explicatie').map(s=>s.paragraphs!.join('\n\n')),content.screens.find(s=>s.type==='caz_real')!.paragraphs,Array.from({length:count},(_,i)=>questions[i%questions.length]),recap.items.slice(0,-1).map(i=>[i.title,i.body,i.detail,i.detailHighlights]),[recap.items.at(-1)!.body,recap.items.at(-1)!.detail,recap.items.at(-1)!.detailHighlights]];
+    const missing=record(7);missing[7]='Compară o ofertă.';expect(()=>compiled.exports.write(content.categoryId,[missing])).toThrow('Every takeaway requires authored detail');
     for(const count of [7,10]){
       compiled.exports.write(content.categoryId,[record(count)]);
       const raw=JSON.parse(generated.slice(generated.indexOf('= ')+2).replace(/;\s*$/u,''));
       expect(ReadyLessonSchema.safeParse(raw).success).toBe(true);
       expect(raw.screens.filter((s:{question?:string})=>s.question)).toHaveLength(count);
       expect(raw.screens.some((s:{title?:string})=>s.title==='Tu ce ai verifica?')).toBe(false);
-      expect(raw.screens.find((s:{type:string})=>s.type==='tine_minte').items.every((i:{detail?:string})=>i.detail===undefined)).toBe(true);
+      expect(raw.screens.find((s:{type:string})=>s.type==='tine_minte').items.every((i:{detail?:string;detailHighlights?:string[]})=>i.detail&&i.detailHighlights?.length)).toBe(true);
     }
     existing=true;expect(()=>compiled.exports.write(content.categoryId,[record(9)])).toThrow('Refusing to overwrite curated content');
   });

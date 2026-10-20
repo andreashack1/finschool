@@ -292,27 +292,46 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "O acțiune reprezintă o participație la o companie.",
+          "body": "O acțiune îți oferă o participație la o companie.",
           "detail": "Teo apreciază produsele companiei, dar cele zece acțiuni pot scădea de la 200 la 180 lei în exercițiu. Familiaritatea cu produsul nu garantează prețul acțiunii sau dividendele.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "prețul",
+            "lei"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Teo cumpără fictiv zece acțiuni la 20 lei, pentru 200 înainte de costuri. Dacă prețul ajunge la 18, valoarea lor este 180, o scădere de 20.",
-          "type": "normal"
+          "body": "Valoarea deținerii se schimbă odată cu prețul acțiunii.",
+          "type": "normal",
+          "detail": "Valoarea totală se schimbă odată cu prețul acțiunii. Costurile tranzacției se verifică separat.",
+          "detailHighlights": [
+            "costurile tranzacției",
+            "prețul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "O companie cunoscută poate fi o investiție riscantă la un anumit preț.",
-          "type": "normal"
+          "body": "O marcă familiară nu garantează o investiție bună.",
+          "type": "normal",
+          "detail": "Faptul că folosești produsul unei firme nu îți spune dacă prețul acțiunii este potrivit sau dacă va plăti dividende.",
+          "detailHighlights": [
+            "prețul",
+            "plăti"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează valoarea a zece acțiuni fictive la două prețuri și separă rezultatul de opinia despre produse.",
-          "type": "action"
+          "type": "action",
+          "detail": "Separă în calcul variația de preț de eventualele venituri și costuri. Părerea despre marcă nu este un rezultat financiar.",
+          "detailHighlights": [
+            "costuri",
+            "preț"
+          ]
         }
       ]
     },

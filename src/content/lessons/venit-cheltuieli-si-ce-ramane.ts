@@ -285,25 +285,44 @@ export const lesson: ReadyLesson = {
           "title": "Aceeași perioadă",
           "body": "Compară intrările și ieșirile aceleiași luni sau săptămâni.",
           "detail": "Un sold poate include bani rămași din luna trecută, deci nu descrie singur venitul lunii. Separă intrările noi și plățile perioadei înainte să stabilești ce ai disponibil.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "venitul",
+            "plățile"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Sold inițial",
           "body": "Banii din perioada precedentă contează la soldul final.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Dacă începi săptămâna cu bani rămași, îi incluzi la disponibil, fără să îi numeri din nou ca venit.",
+          "detailHighlights": [
+            "venit",
+            "bani"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Transfer propriu",
           "body": "Mutarea între conturi nu creează venit.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un transfer din cont în portofel schimbă locul banilor. Cheltuiala apare când îi folosești pentru o cumpărătură.",
+          "detailHighlights": [
+            "cumpărătură",
+            "cont"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează intrările și trei cheltuieli din ultima săptămână, apoi calculează diferența.",
-          "type": "action"
+          "type": "action",
+          "detail": "Marchează separat transferurile între conturile tale, ca să nu pară încasări sau cumpărături noi.",
+          "detailHighlights": [
+            "transferurile",
+            "cumpărături"
+          ]
         }
       ]
     },

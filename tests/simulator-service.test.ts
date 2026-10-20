@@ -42,7 +42,7 @@ describe('Server settlement service consistency and limited CAS retry', () => {
   it('stops after two CAS conflicts', async () => {
     const run = { ...fixtureRun(), lastSettledOn: day('2026-10-02') };
     const rpc = vi.fn().mockResolvedValueOnce(success(rows(run))).mockResolvedValueOnce(success({ status: 'conflict' })).mockResolvedValueOnce(success(rows(run))).mockResolvedValueOnce(success({ status: 'conflict' }));
-    await expect(simulatorState(userA, clock, mockClient(rpc))).rejects.toThrow('Starea simulatorului');
+    await expect(simulatorState(userA, clock, mockClient(rpc))).rejects.toThrow('Starea SimLife');
     expect(rpc).toHaveBeenCalledTimes(4);
   });
   it('starting with active run never creates another run', async () => {

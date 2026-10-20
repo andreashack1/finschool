@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Monedă",
           "body": "Verifică în ce monedă se face plata.",
           "detail": "Un terminal poate propune conversia în lei sau plata în moneda locală. Variantele pot avea costuri diferite; compară totalurile și condițiile serviciului cardului înainte de confirmare.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "confirmare",
+            "condițiile"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Conversie",
           "body": "Compară cursul și toate costurile.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un terminal poate oferi propria conversie. Compară costul ei cu condițiile cardului înainte să alegi moneda.",
+          "detailHighlights": [
+            "condițiile",
+            "conversie"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Pregătire",
           "body": "Salvează canalul oficial pentru probleme.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Dacă pierzi cardul, este mai ușor să reacționezi când știi deja unde îl blochezi și cum contactezi banca.",
+          "detailHighlights": [
+            "cardul",
+            "banca"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Înainte de o călătorie, găsește tarifele pentru o plată și o retragere în altă monedă.",
-          "type": "action"
+          "type": "action",
+          "detail": "Caută separat tariful plății și pe cel al retragerii. Gratuitatea uneia nu o garantează pe cealaltă.",
+          "detailHighlights": [
+            "tariful"
+          ]
         }
       ]
     },

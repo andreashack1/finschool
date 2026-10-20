@@ -292,27 +292,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Începe cu o listă completă: creditor, sold, dobândă sau cost relevant, plată minimă și scadență.",
+          "body": "Începe cu lista completă a datoriilor, costurilor și termenelor.",
           "detail": "Paul are 200 lei suplimentari numai după nevoi și plățile cerute. Compară destinația lor păstrând obligațiile ambelor datorii, iar la refinanțare verifică și durata și totalul nou.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "obligațiile",
+            "totalul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Paul are două datorii și 200 lei disponibili suplimentar după nevoi și plățile cerute. Poate prioritiza datoria cu costul mai mare pentru a reduce costurile, ori pe cea mică pentru progres vizibil, analizând diferența.",
-          "type": "normal"
+          "body": "Alege prioritatea fără să ignori plățile obligatorii.",
+          "type": "normal",
+          "detail": "Compară soldul, costul și termenele fiecărei datorii. Ordinea plăților trebuie să lase loc cheltuielilor de bază.",
+          "detailHighlights": [
+            "plăților",
+            "datorii"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Refinanțarea poate schimba rata și durata, dar nu este automat economie.",
-          "type": "normal"
+          "body": "O rată consolidată mai mică nu garantează un total mai mic.",
+          "type": "normal",
+          "detail": "O consolidare poate schimba rata și durata, fără să reducă automat totalul. Compară toate costurile.",
+          "detailHighlights": [
+            "costurile",
+            "totalul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Construiește un inventar fictiv de două datorii și explică o ordine posibilă de plată.",
-          "type": "action"
+          "type": "action",
+          "detail": "Construiește lista completă înainte să alegi prioritatea și actualizeaz-o după fiecare plată reală.",
+          "detailHighlights": [
+            "plată"
+          ]
         }
       ]
     },

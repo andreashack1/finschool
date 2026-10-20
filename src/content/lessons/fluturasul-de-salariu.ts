@@ -292,27 +292,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Fluturașul arată cum se ajunge de la veniturile salariale brute la suma netă și, după caz, la suma de plată.",
+          "body": "Fluturașul arată cum se ajunge de la brut la suma plătită.",
           "detail": "Un net de 3.000 lei poate fi achitat prin avans de 500 și virament final de 2.500. Cele două plăți aparțin aceluiași salariu; nu adăuga netul încă o dată peste virament.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "salariu",
+            "avans"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Într-un fluturaș fictiv, netul lunii este 3.000 lei, iar un avans de 500 lei a fost deja plătit. Suma rămasă de virat este 2.500 lei.",
-          "type": "normal"
+          "body": "Compară documente pentru aceeași perioadă și același program.",
+          "type": "normal",
+          "detail": "Compară perioada și numărul de ore cu documentele tale. Un total diferit poate avea mai multe explicații.",
+          "detailHighlights": [
+            "documentele",
+            "perioada"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "O diferență față de luna trecută poate proveni din zile lucrate, concedii, sporuri sau rețineri.",
-          "type": "normal"
+          "body": "Cere explicația unei rețineri pe care nu o recunoști.",
+          "type": "normal",
+          "detail": "O reținere necunoscută cere explicație prin denumire și bază, nu o presupunere după sumă.",
+          "detailHighlights": [
+            "sumă"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe un fluturaș fictiv, marchează brutul, reținerile, netul și eventualul avans.",
-          "type": "action"
+          "type": "action",
+          "detail": "Marchează încasarea, reținerile și eventualele beneficii; pentru o diferență, întreabă folosind rândul exact.",
+          "detailHighlights": [
+            "reținerile",
+            "încasarea"
+          ]
         }
       ]
     },

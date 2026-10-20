@@ -292,27 +292,46 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Cardul de credit permite folosirea unei linii de împrumut, spre deosebire de cardul de debit care folosește banii disponibili în cont.",
+          "body": "Cu un card de credit folosești bani împrumutați.",
           "detail": "Vlad utilizează 600 lei și plătește minimumul de 60, dar mai rămân 540 lei principal înainte de costuri. Verifică rambursarea integrală și grația în extras și contract, nu numai minimumul cerut.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "contract",
+            "costuri"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Vlad folosește 600 lei din limita cardului și vede pe extras o plată minimă ipotetică de 60 lei. Dacă plătește numai 60, rămâne cel puțin principalul de 540 lei, înainte de eventuale costuri.",
-          "type": "normal"
+          "body": "Plata minimă nu stinge automat toată datoria.",
+          "type": "normal",
+          "detail": "Limita disponibilă este bani împrumutați. Plata minimă nu înseamnă automat stingerea întregii datorii.",
+          "detailHighlights": [
+            "bani împrumutați",
+            "plata minimă"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Limita disponibilă nu este venit propriu.",
-          "type": "normal"
+          "body": "Perioada de grație funcționează doar în condițiile produsului.",
+          "type": "normal",
+          "detail": "Perioada de grație poate cere rambursare integrală și poate exclude unele operațiuni. Citește condițiile produsului.",
+          "detailHighlights": [
+            "rambursare integrală",
+            "perioada de grație"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe un extras fictiv, marchează datoria totală, plata minimă și scadența.",
-          "type": "action"
+          "type": "action",
+          "detail": "Urmărește data extrasului, scadența și suma necesară pentru regula de grație din exemplul analizat.",
+          "detailHighlights": [
+            "scadența",
+            "suma"
+          ]
         }
       ]
     },

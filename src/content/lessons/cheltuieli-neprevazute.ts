@@ -288,27 +288,44 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "O cheltuială neprevăzută apare fără să fie inclusă concret în plan, dar unele costuri neregulate pot fi anticipate.",
+          "body": "Separă surprizele reale de costurile neregulate pe care le poți anticipa.",
           "detail": "Reparația necesară cere 400 lei din rezerva de 600, lăsând 200. Costul anual cunoscut de 240 lei poate fi planificat separat; nu este aceeași situație ca o reparație apărută neașteptat.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "reparație",
+            "rezerva"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Sofia are o reparație necesară de 400 lei și o rezervă accesibilă de 600. Dacă o folosește, rămân 200, apoi poate planifica refacerea treptată.",
-          "type": "normal"
+          "body": "După folosirea rezervei, planifică refacerea ei.",
+          "type": "normal",
+          "detail": "Folosirea rezervei rezolvă problema de acum, dar reduce protecția pentru următoarea. Planifică refacerea ei.",
+          "detailHighlights": [
+            "rezervei"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Nu orice ofertă urgentă este o urgență reală.",
-          "type": "normal"
+          "body": "O ofertă urgentă nu este automat o urgență pentru tine.",
+          "type": "normal",
+          "detail": "Un cronometru de ofertă nu transformă o dorință într-o urgență. Contează consecința amânării.",
+          "detailHighlights": [
+            "urgență"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Separă trei costuri neregulate previzibile de un exemplu de urgență și notează cum le-ai pregăti.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pune costurile anuale cunoscute într-un plan separat, ca să nu consume inutil rezerva pentru surprize reale.",
+          "detailHighlights": [
+            "costurile",
+            "rezerva"
+          ]
         }
       ]
     },

@@ -35,7 +35,7 @@ source += String.raw`
   const userId=[...users.values()][0].user.id;
   const notification=async(path='',body)=>{const response=body===undefined?await page.request.get(origin+'/api/notifications'+path):await page.request.post(origin+'/api/notifications'+path,{headers:{origin},data:body});assert(response.ok(),'Notification API '+path+': '+response.status()+' '+await response.text());return response.json();};
   await api('dev/notifications',{action:'test'});
-  await page.reload();await page.getByRole('heading',{name:'Simulator',exact:true}).waitFor();
+  await page.reload();await page.getByRole('heading',{name:'SimLife',exact:true}).waitFor();
   const bell=page.getByRole('button',{name:/^Notificări/});await bell.waitFor();
   assert((await notification()).unread>0,'Unread count did not persist');
   for(const width of [320,390,430,1280]){
@@ -77,7 +77,7 @@ source += String.raw`
   const cron=await page.request.get(origin+'/api/cron/simulator-notifications');assert(cron.status()===401,'Cron is public');const authorized=await page.request.get(origin+'/api/cron/simulator-notifications',{headers:{authorization:'Bearer local-notification-cron'}});assert(authorized.ok(),'Authorized cron failed');
   const anonymous=await browser.newContext();const noSession=await anonymous.request.get(origin+'/api/notifications/push/display?id=00000000-0000-4000-8000-000000000001');assert(noSession.status()===401,'Unauthenticated push display exposed content');await anonymous.close();
   report.checks.push('Denied permission calm state / anonymous display 401 / cron secret required');
-  await page.goto(origin+'/simulator');await page.getByRole('heading',{name:'Simulator',exact:true}).waitFor();await page.waitForLoadState('networkidle');
+  await page.goto(origin+'/simulator');await page.getByRole('heading',{name:'SimLife',exact:true}).waitFor();await page.waitForLoadState('networkidle');
   await context.setOffline(true);await page.waitForTimeout(300);assert(await page.locator('.sim-sync-status').textContent().then(t=>t.includes('offline')),'Offline state absent');await context.setOffline(false);await page.waitForTimeout(1500);
   report.checks.push('Offline retains rendered simulator and reconnects after all development chunks finished loading');
   assert(report.errors.length===0,'Browser errors: '+report.errors.join('; '));assert(report.providerErrors.length===0,'Provider errors: '+report.providerErrors.join('; '));

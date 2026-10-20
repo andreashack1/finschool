@@ -39,7 +39,7 @@ describe('Chapter 3 catalog and version validation', () => {
     if (kind === 'rule') Reflect.set(d.rules, 'expression', 'eval');
     expect(() => validateCatalog(copy)).toThrow();
   });
-  it('keeps v1 available and rejects unavailable versions', () => { expect(eventCatalog(1)).toEqual(catalogV1); expect(eventPolicy(1)).toEqual(eventPolicyV1); expect(() => eventCatalog(3)).toThrow(); });
+  it('keeps v1 available and rejects unavailable versions', () => { expect(eventCatalog(1)).toEqual(catalogV1); expect(eventPolicy(1)).toEqual(eventPolicyV1); expect(() => eventCatalog(4)).toThrow(); });
   it('fixes integer prices independently and preserves bundle relationships for 250 seeds', () => {
     for (let seed = 0; seed < 250; seed++) for (const d of catalogV1) for (const v of d.variations) {
       const s = materializeSnapshot(`price-${seed}`, 1, day('2026-10-09'), d, v);

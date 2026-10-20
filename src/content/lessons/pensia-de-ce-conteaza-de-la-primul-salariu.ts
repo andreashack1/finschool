@@ -292,27 +292,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Pensia privește venitul la o etapă viitoare, iar contribuțiile și istoricul muncii pot influența drepturile.",
+          "body": "Contribuțiile și evidența lor contează încă de la primul job.",
           "detail": "Andrei verifică perioadele și contribuțiile în evidențele oficiale, nu doar prima linie de pe fluturaș. Pentru pensia privată identifică administratorul și informarea de cont, fără să trateze contribuțiile ca disponibil imediat.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "contribuțiile"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Andrei păstrează primul contract și verifică în evidențele oficiale că perioadele de muncă sunt înregistrate. Dacă participă la un fond de pensii private, identifică administratorul și citește informarea de cont.",
-          "type": "normal"
+          "body": "Verifică istoricul prin canale oficiale.",
+          "type": "normal",
+          "detail": "Istoricul contribuțiilor se urmărește prin evidențe oficiale, separat de suma care intră lunar în cont.",
+          "detailHighlights": [
+            "contribuțiilor",
+            "suma"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Nu există în lecție o promisiune de pensie sau randament.",
-          "type": "normal"
+          "body": "O estimare de pensie nu este o sumă garantată astăzi.",
+          "type": "normal",
+          "detail": "O estimare de pensie depinde de reguli și de contribuțiile viitoare. Nu este un venit garantat astăzi.",
+          "detailHighlights": [
+            "contribuțiile",
+            "venit"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Identifică instituția sau administratorul unde se poate verifica oficial istoricul contribuțiilor.",
-          "type": "action"
+          "type": "action",
+          "detail": "Află unde poți verifica evidența contribuțiilor, folosind canale oficiale și păstrând datele de acces private.",
+          "detailHighlights": [
+            "contribuțiilor",
+            "datele"
+          ]
         }
       ]
     },

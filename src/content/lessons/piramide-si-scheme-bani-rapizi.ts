@@ -285,25 +285,44 @@ export const lesson: ReadyLesson = {
           "title": "Sursa",
           "body": "Cere explicația banilor fără recrutări noi.",
           "detail": "O captură cu o plată către coleg nu arată cine finanțează câștigurile următoare. Verifică dacă există clienți care cumpără pentru utilitate, fără să fie obligați să aducă alți participanți.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "participanți",
+            "plată"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Dovezi",
           "body": "O plată nu garantează sustenabilitatea.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "O captură cu un câștig arată cel mult o plată, nu cum vor fi finanțați următorii participanți.",
+          "detailHighlights": [
+            "participanți",
+            "plată"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Prieteni",
           "body": "Nu transfera riscul pentru a recupera o sumă.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Invitarea prietenilor pentru a recupera banii poate muta pierderea la ei. Oprește recrutarea și păstrează dovezile.",
+          "detailHighlights": [
+            "pierderea",
+            "dovezile"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La o promisiune de bani rapizi, formulează întrebarea despre sursa venitului și verifică dacă primești un răspuns concret.",
-          "type": "action"
+          "type": "action",
+          "detail": "Întreabă cine cumpără produsul pentru utilitate, fără recrutare. Un răspuns care revine doar la membri noi nu explică venitul sustenabil.",
+          "detailHighlights": [
+            "recrutare",
+            "venitul"
+          ]
         }
       ]
     },

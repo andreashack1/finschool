@@ -283,27 +283,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Gratificarea imediată înseamnă un beneficiu primit acum, în timp ce alte alegeri cer așteptare.",
+          "body": "O alegere de azi poate muta termenul unui scop viitor.",
           "detail": "O sută de lei folosită acum poate muta termenul cursului Marei de la patru la cinci luni. Alegerea poate fi deliberată, dar efectul asupra economiilor trebuie să rămână vizibil.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "termenul",
+            "lei"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Mara are 200 lei separați pentru un curs de 600 și poate adăuga 100 lunar. Fără alte retrageri, ar mai avea nevoie de patru luni.",
-          "type": "normal"
+          "body": "Recalculează obiectivul dacă retragi din economii.",
+          "type": "normal",
+          "detail": "O retragere din economii poate muta data obiectivului, chiar dacă suma pare mică azi.",
+          "detailHighlights": [
+            "retragere",
+            "economii"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Un scop viitor poate deveni neutil, iar planul poate fi revizuit.",
-          "type": "normal"
+          "body": "Poți schimba un scop care nu îți mai este util.",
+          "type": "normal",
+          "detail": "Un obiectiv poate fi revizuit dacă nu mai este util. Revizuirea deliberată diferă de o retragere uitată.",
+          "detailHighlights": [
+            "retragere",
+            "obiectiv"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează cum o cheltuială fictivă de azi ar schimba termenul unui obiectiv.",
-          "type": "action"
+          "type": "action",
+          "detail": "Notează noul termen după cheltuiala fictivă și verifică dacă accepți schimbarea înainte să decizi.",
+          "detailHighlights": [
+            "termen"
+          ]
         }
       ]
     },

@@ -285,25 +285,42 @@ export const lesson: ReadyLesson = {
           "title": "Total inițial",
           "body": "Adună transportul și accesoriile necesare.",
           "detail": "Dispozitivul de 250 lei ajunge la 300 lei cu transportul și accesoriul necesar. Pachetul de 280 lei care le include poate avea un cost inițial mai mic, deși eticheta sa este mai mare.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "transportul",
+            "cost"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Perioadă",
           "body": "Compară costurile recurente pe același interval.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "La o imprimantă, consumabilele pot conta mai mult decât diferența inițială de preț. Folosește aceeași perioadă de utilizare.",
+          "detailHighlights": [
+            "utilizare",
+            "preț"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Utilitate",
           "body": "Un total mai mic nu înlocuiește potrivirea produsului.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un telefon mai ieftin care nu rulează aplicația necesară proiectului nu rezolvă aceeași nevoie.",
+          "detailHighlights": [
+            "nevoie"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La o ofertă informativă, notează prețul, două costuri suplimentare posibile și ce trebuie confirmat.",
-          "type": "action"
+          "type": "action",
+          "detail": "Înainte de total, separă accesoriile obligatorii de cele opționale. Nu toate recomandările magazinului sunt necesare.",
+          "detailHighlights": [
+            "accesoriile obligatorii"
+          ]
         }
       ]
     },

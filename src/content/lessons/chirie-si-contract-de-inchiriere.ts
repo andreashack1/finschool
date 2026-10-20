@@ -288,27 +288,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Contractul de închiriere trebuie citit pentru chirie, termen, garanție, plăți separate și condițiile încetării.",
+          "body": "Verifică în contract chiria, garanția și condițiile plecării.",
           "detail": "La predare, Mara consemnează ușa deteriorată și indexurile. Documentarea stării inițiale și destinației plăților ajută clarificarea ulterioară a garanției și a costurilor.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "indexurile",
+            "garanției"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Mara vede un apartament și cere înainte de plată contractul, identitatea și confirmarea dreptului de a-l închiria. Verifică dacă utilitățile sunt separate și cum se restituie garanția.",
-          "type": "normal"
+          "body": "Confirmă cine închiriază înainte să plătești.",
+          "type": "normal",
+          "detail": "Verifică cine închiriază locuința și ce primești pentru fiecare plată înainte de garanție.",
+          "detailHighlights": [
+            "plată"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "O clauză neclară despre reparații sau plecare poate crea un cost neașteptat.",
-          "type": "normal"
+          "body": "Documentează starea locuinței când primești cheile.",
+          "type": "normal",
+          "detail": "Starea inițială și indexurile notate la predare ajută când se discută reparații și restituirea garanției.",
+          "detailHighlights": [
+            "indexurile",
+            "garanției"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează cinci lucruri pe care le-ai verifica înainte de plata unei garanții de chirie.",
-          "type": "action"
+          "type": "action",
+          "detail": "Lângă sumă, caută termenul și condițiile restituirii. O promisiune despre garanție trebuie legată de contract.",
+          "detailHighlights": [
+            "condițiile",
+            "termenul"
+          ]
         }
       ]
     },

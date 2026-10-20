@@ -292,27 +292,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Investiția folosește resurse acum cu speranța unor beneficii viitoare, asumând riscuri.",
+          "body": "Investiția urmărește un beneficiu viitor și presupune riscuri.",
           "detail": "Taxa Anei de peste două luni cere disponibil la un termen apropiat. Obiectivul de peste zece ani poate fi studiat separat, fără să aleagă automat același produs pentru toți banii.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "termen",
+            "banii"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Ana are bani pentru o taxă peste două luni și un obiectiv separat pentru peste zece ani. Nu pune automat cele două sume în același produs.",
-          "type": "normal"
+          "body": "Separă banii pentru scopuri apropiate de cei pentru termen lung.",
+          "type": "normal",
+          "detail": "Banii pentru o taxă apropiată au nevoie de alt acces decât un scop de peste mulți ani.",
+          "detailHighlights": [
+            "nevoie",
+            "acces"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Nu investi doar pentru că altcineva arată un câștig.",
-          "type": "normal"
+          "body": "Câștigul altcuiva nu justifică singur decizia ta.",
+          "type": "normal",
+          "detail": "Câștigul altcuiva nu arată dacă produsul se potrivește scopului tău sau dacă poți suporta o pierdere.",
+          "detailHighlights": [
+            "pierdere"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Separă pe hârtie un scop apropiat și unul îndepărtat și notează cerințele de acces ale fiecăruia.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pentru fiecare scop, scrie termenul și ce s-ar întâmpla dacă suma ar scădea înainte să ai nevoie de ea.",
+          "detailHighlights": [
+            "termenul",
+            "nevoie"
+          ]
         }
       ]
     },

@@ -303,36 +303,55 @@ export const salaryLesson: ReadyLesson = {
           "id": "punct-1",
           "title": "Brutul este înainte",
           "body": "Brutul descrie suma înainte de rețineri. Nu este automat suma care intră integral în cont.",
-          "detail": "Caută eticheta sumei în ofertă sau contract.",
-          "type": "normal"
+          "detail": "În ofertă, brutul este suma înainte de reținerile aplicabile. Dacă eticheta lipsește, cere clarificarea înainte să îți planifici cheltuielile.",
+          "type": "normal",
+          "detailHighlights": [
+            "cheltuielile",
+            "reținerile"
+          ]
         },
         {
           "id": "punct-2",
           "title": "Netul este disponibil",
           "body": "Netul rămâne după reținerile aplicabile. El este baza pentru cheltuielile tale personale.",
-          "detail": "Separă încasarea de banii rămași după propriile cheltuieli.",
-          "type": "normal"
+          "detail": "Din net plătești apoi propriile cheltuieli, precum transportul sau chiria. Suma încasată și suma rămasă la final de lună sunt diferite.",
+          "type": "normal",
+          "detailHighlights": [
+            "transportul",
+            "plătești"
+          ]
         },
         {
           "id": "punct-3",
           "title": "Compară aceeași bază",
           "body": "Compară net cu net și aceeași perioadă. Separă partea fixă de un bonus condiționat.",
-          "detail": "Nu aduna un bonus posibil la venitul sigur.",
-          "type": "normal"
+          "detail": "Un bonus condiționat poate lipsi într-o lună. Compară separat salariul fix și ce trebuie îndeplinit ca să primești bonusul.",
+          "type": "normal",
+          "detailHighlights": [
+            "bonus"
+          ]
         },
         {
           "id": "punct-4",
           "title": "Contextul contează",
           "body": "Programul și beneficiile pot schimba comparația. Nu toate beneficiile înlocuiesc banii pentru orice cheltuială.",
-          "detail": "Confirmă condițiile înainte să tragi concluzii.",
-          "type": "normal"
+          "detail": "Tichetele cu utilizare limitată nu acoperă orice plată. Separă banii disponibili de beneficiile care au reguli proprii.",
+          "type": "normal",
+          "detailHighlights": [
+            "utilizare",
+            "plată"
+          ]
         },
         {
           "id": "punct-5",
           "title": "Ce poți face azi",
           "body": "Alege un anunț de job și caută dacă suma este brută sau netă. Dacă nu scrie, formulează întrebarea pe care ai trimite-o recruiterului.",
-          "detail": "Un mesaj scurt poate clarifica baza întregii oferte.",
-          "type": "action"
+          "detail": "Două joburi pot afișa sume similare, dar comparația corectă cere aceeași bază și beneficiile incluse. O întrebare despre brut sau net poate schimba întregul calcul.",
+          "type": "action",
+          "detailHighlights": [
+            "sume",
+            "brut"
+          ]
         }
       ]
     },

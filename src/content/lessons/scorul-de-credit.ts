@@ -284,36 +284,54 @@ export const creditScoreLesson: ReadyLesson = {
           "id": "punct-1",
           "title": "Istoric, nu etichetă",
           "body": "Istoricul descrie gestionarea obligațiilor de credit. Nu spune cât valorezi ca persoană.",
-          "detail": "Nu presupune că un singur număr universal decide tot.",
-          "type": "normal"
+          "detail": "Instituțiile pot folosi informații și criterii diferite. Un singur număr nu descrie automat toate deciziile de creditare.",
+          "type": "normal",
+          "detailHighlights": [
+            "criterii"
+          ]
         },
         {
           "id": "punct-2",
           "title": "Plata la timp",
           "body": "Termenele fac parte din obligație. Verificarea unei plăți este utilă și când suma pare mică.",
-          "detail": "Nu confunda un transfer programat cu unul confirmat.",
-          "type": "normal"
+          "detail": "Un transfer programat poate eșua dacă nu sunt bani în cont. Verifică plata confirmată înainte să consideri scadența acoperită.",
+          "type": "normal",
+          "detailHighlights": [
+            "scadența",
+            "plata"
+          ]
         },
         {
           "id": "punct-3",
           "title": "Bugetul contează",
           "body": "O rată nouă se adaugă plăților existente. Aprobarea nu înseamnă automat confort financiar.",
-          "detail": "Privește și spațiul rămas pentru nevoi neprevăzute.",
-          "type": "normal"
+          "detail": "Un istoric bun nu face rata comodă dacă îți consumă banii pentru nevoi apropiate. Verifică separat spațiul din buget.",
+          "type": "normal",
+          "detailHighlights": [
+            "buget",
+            "banii"
+          ]
         },
         {
           "id": "punct-4",
           "title": "Detalii verificate",
           "body": "Sistemele și condițiile concrete trebuie verificate. Lecția nu oferă formule, durate sau puncte de scoring inventate.",
-          "detail": "Folosește informațiile oficiale ale sistemului și ale instituției.",
-          "type": "normal"
+          "detail": "Pentru date incorecte sau reguli de raportare, caută procedura oficială și documentele necesare. Nu te baza pe promisiuni de ștergere garantată.",
+          "type": "normal",
+          "detailHighlights": [
+            "documentele"
+          ]
         },
         {
           "id": "punct-5",
           "title": "Ce poți face azi",
           "body": "Verifică data unei plăți recurente sau a unei rate pe care o ai. Noteaz-o într-un loc ușor de găsit.",
-          "detail": "Dacă nu ai rate, poți folosi un abonament ca exercițiu.",
-          "type": "action"
+          "detail": "Notează suma, scadența și sursa banilor pentru fiecare obligație. Așa poți observa un termen dificil înainte să întârzii.",
+          "type": "action",
+          "detailHighlights": [
+            "obligație",
+            "scadența"
+          ]
         }
       ]
     },

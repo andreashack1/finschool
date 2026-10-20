@@ -2,11 +2,13 @@
 import { useEffect,useRef,useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { initializeAccount,useProgressData,refreshProgress,cleanupAccount } from '../../src/lib/use-progress';
+import { clearVerificationState } from '../../src/lib/account/verification';
 import { readTrial } from '../../src/lib/account/onboarding';
 import { logoutAccount,logoutErrorCopy,logoutUnconfirmedCopy } from '../../src/lib/account/logout';
 export function AccountBoundary({userId,children}:{userId:string|null;children:React.ReactNode}) {
   const router=useRouter();const [busy,setBusy]=useState(false);const retrying=useRef(false);
   useEffect(()=>{
+    if(userId)clearVerificationState();
     const allowed=['/salveaza-progresul','/actualizeaza-parola','/resetare-parola','/verifica-email','/termeni','/confidentialitate'];
     if(userId && readTrial()?.completed && !allowed.includes(window.location.pathname)){window.location.replace(new URL('/salveaza-progresul',window.location.origin).href);return;}
     return initializeAccount(userId);

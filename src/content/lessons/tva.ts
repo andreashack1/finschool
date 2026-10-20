@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Componente",
           "body": "Baza și TVA pot forma totalul afișat.",
           "detail": "În exemplul fictiv, baza de 100 lei și TVA de 20 lei dau 120 lei. Nu adăuga încă o dată TVA peste acel total și verifică separat transportul.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "transportul",
+            "TVA"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Comparație",
           "body": "Compară totaluri care includ aceleași costuri.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "O ofertă fără TVA poate părea mai mică decât una cu TVA inclus. Compară suma finală de plată.",
+          "detailHighlights": [
+            "plată",
+            "suma"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Exemplu și regulă",
           "body": "Cifrele ipotetice nu stabilesc cote actuale.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Cotele și excepțiile se verifică în surse actuale; un exemplu de calcul nu stabilește regula pentru orice produs.",
+          "detailHighlights": [
+            "surse actuale"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe un bon pe care îl ai, găsește totalul și componentele TVA, fără să publici date personale.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pe bon, urmărește cum intră TVA în total. Nu îl adăuga încă o dată peste suma finală.",
+          "detailHighlights": [
+            "suma",
+            "TVA"
+          ]
         }
       ]
     },

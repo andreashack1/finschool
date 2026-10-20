@@ -283,27 +283,44 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Un preț de 99,99 lei poate părea mai aproape de 99 decât de 100 la o privire rapidă.",
+          "body": "Un preț puțin sub un prag poate părea mai mic la prima vedere.",
           "detail": "Trei produse de 99,99 lei costă aproape 300, chiar dacă fiecare pare sub pragul de o sută. Rotunjirea ajută estimarea bugetului, apoi totalul exact stabilește plata.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "estimarea",
+            "totalul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Trei produse de 99,99 lei costă 299,97, aproape 300. Dacă bugetul este 250, depășirea este 49,97.",
-          "type": "normal"
+          "body": "Rotunjește pentru estimarea bugetului, apoi verifică totalul exact.",
+          "type": "normal",
+          "detail": "La mai multe produse aproape de un prag, estimează cu valoarea rotunjită ca să vezi mai ușor totalul.",
+          "detailHighlights": [
+            "totalul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Prețurile apropiate de un prag nu dovedesc intenția vânzătorului în fiecare caz.",
-          "type": "normal"
+          "body": "Felul afișării nu dovedește singur intenția vânzătorului.",
+          "type": "normal",
+          "detail": "Felul în care este afișat prețul poate influența percepția, dar nu dovedește singur intenția comerciantului.",
+          "detailHighlights": [
+            "prețul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Rotunjește pentru plan trei prețuri fictive și compară estimarea cu totalul exact.",
-          "type": "action"
+          "type": "action",
+          "detail": "Folosește rotunjirea pentru buget, apoi verifică totalul exact pentru plată. Nu confunda estimarea cu suma debitată.",
+          "detailHighlights": [
+            "estimarea",
+            "totalul"
+          ]
         }
       ]
     },

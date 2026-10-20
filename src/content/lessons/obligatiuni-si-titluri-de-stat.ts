@@ -292,27 +292,46 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "O obligațiune reprezintă un împrumut acordat emitentului, cu condiții privind plățile și scadența.",
+          "body": "Prin obligațiune împrumuți emitentul în condițiile stabilite.",
           "detail": "Cuponul anual și prețul unei vânzări înainte de scadență sunt componente diferite. Un preț de 950 față de 1.000 inițial poate modifica rezultatul, chiar dacă produsul are un cupon.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "cuponul anual",
+            "scadență"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "O obligațiune fictivă de 1.000 lei plătește un cupon anual de 5%, adică 50 lei, în ipoteza respectării condițiilor. Dacă este vândută înainte de termen la 950, prețul de vânzare este cu 50 sub valoarea inițială.",
-          "type": "normal"
+          "body": "Separă cuponul de prețul unei vânzări înainte de scadență.",
+          "type": "normal",
+          "detail": "Cuponul și prețul la care poți vinde înainte de scadență sunt lucruri diferite.",
+          "detailHighlights": [
+            "scadență",
+            "cuponul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Titlul de stat nu înseamnă că orice ieșire înainte de termen păstrează automat suma și dobânda.",
-          "type": "normal"
+          "body": "Ieșirea anticipată poate schimba suma sau dobânda păstrată.",
+          "type": "normal",
+          "detail": "Ieșirea înainte de termen poate avea condiții care modifică suma sau dobânda păstrată. Citește regulile produsului.",
+          "detailHighlights": [
+            "produsului",
+            "condiții"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe un produs fictiv, separă cuponul, scadența și condițiile de acces înainte de termen.",
-          "type": "action"
+          "type": "action",
+          "detail": "Desenează calendarul plăților și marchează ce se schimbă într-o vânzare anticipată față de păstrarea până la scadență.",
+          "detailHighlights": [
+            "plăților",
+            "scadență"
+          ]
         }
       ]
     },

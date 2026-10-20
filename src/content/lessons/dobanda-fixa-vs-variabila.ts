@@ -292,27 +292,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Dobânda fixă rămâne la nivelul stabilit pentru perioada fixă din contract.",
+          "body": "Dobânda fixă și cea variabilă pot duce la plăți diferite în timp.",
           "detail": "O ofertă fixă doi ani poate deveni variabilă după aceea. Cere formula și calendarul ulterior înainte să folosești rata inițială pentru întregul plan de rambursare.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "rambursare",
+            "rata"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "O ofertă fictivă are dobândă fixă doi ani, apoi variabilă. Alta folosește de la început formula indice plus marjă de 3 puncte procentuale.",
-          "type": "normal"
+          "body": "Verifică cât durează perioada cu dobândă fixă.",
+          "type": "normal",
+          "detail": "Verifică dacă dobânda este fixă toată durata sau doar o perioadă inițială. Eticheta ofertei poate scurta explicația.",
+          "detailHighlights": [
+            "dobânda"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Dobânda variabilă poate urca sau coborî; niciuna dintre direcții nu este garantată.",
-          "type": "normal"
+          "body": "Testează dacă ai suporta o rată variabilă mai mare.",
+          "type": "normal",
+          "detail": "La dobânda variabilă, schimbarea indicelui poate modifica rata. Testează și un scenariu mai greu pentru buget.",
+          "detailHighlights": [
+            "dobânda variabilă",
+            "buget"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Scrie ce ai verifica la sfârșitul unei perioade de dobândă fixă și testează un buget cu plăți mai mari.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pe un exemplu, separă perioada fixă de formula de după ea și notează când se poate modifica plata.",
+          "detailHighlights": [
+            "perioada",
+            "plata"
+          ]
         }
       ]
     },

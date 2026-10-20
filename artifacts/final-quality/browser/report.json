@@ -1,0 +1,23 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "a: real event surfaces at scheduled time, mobile rows 390/375/360, 30-minute automatic expiry, stable refresh",
+    "liceu: dev clock Tuesday 11:00/17:00 and weekend; contextual plans and unchanged response windows",
+    "a: setup, canonical server profile, finances, repeat submission, refresh and second-device login",
+    "b: real event surfaces at scheduled time, mobile rows 390/375/360, 30-minute automatic expiry, stable refresh",
+    "lucrez: dev clock Tuesday 13:00/19:00 and weekend; contextual plans and unchanged response windows",
+    "b: setup, canonical server profile, finances, repeat submission, refresh and second-device login",
+    "c: real event surfaces at scheduled time, mobile rows 390/375/360, 30-minute automatic expiry, stable refresh",
+    "lucrez: dev clock Tuesday 13:00/19:00 and weekend; contextual plans and unchanged response windows",
+    "c: setup, canonical server profile, finances, repeat submission, refresh and second-device login",
+    "d: real event surfaces at scheduled time, mobile rows 390/375/360, 30-minute automatic expiry, stable refresh",
+    "liceu: dev clock Tuesday 11:00/17:00 and weekend; contextual plans and unchanged response windows",
+    "d: setup, canonical server profile, finances, repeat submission, refresh and second-device login",
+    "ce-sunt-banii: all cards/action expand, multiple open, blue terms, Enter/Space, reduced motion, 390/375/360 without overflow",
+    "primul-contract-de-munca: all cards/action expand, multiple open, blue terms, Enter/Space, reduced motion, 390/375/360 without overflow",
+    "de-ce-investim: all cards/action expand, multiple open, blue terms, Enter/Space, reduced motion, 390/375/360 without overflow",
+    "Legacy account opens dashboard directly; original balance and ledger preserved"
+  ],
+  "errors": [],
+  "providerErrors": []
+}

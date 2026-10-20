@@ -292,27 +292,43 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Investiția urmărește o teză legată de valoare, venituri și obiective, iar speculația mizează mai mult pe schimbări de preț anticipate.",
+          "body": "Separă analiza unei investiții de o anticipare rapidă de preț.",
           "detail": "Promisiunea că prețul crește mâine nu înlocuiește informațiile despre instrument. Păstrarea lui după o scădere nu transformă automat anticiparea inițială într-o decizie fundamentată.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "scădere",
+            "prețul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Ana compară studiul unei companii pentru un obiectiv lung cu o cumpărare bazată pe speranța că prețul crește mâine. A doua idee nu are analiză a companiei și depinde de mișcarea rapidă.",
-          "type": "normal"
+          "body": "Speranța că prețul crește mâine nu explică valoarea activului.",
+          "type": "normal",
+          "detail": "O cumpărare bazată doar pe creșterea de mâine depinde de o anticipare, nu de înțelegerea activului.",
+          "detailHighlights": [
+            "anticipare"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Un termen lung nu repară automat o decizie fără înțelegerea instrumentului.",
-          "type": "normal"
+          "body": "Timpul nu repară automat o decizie neînțeleasă.",
+          "type": "normal",
+          "detail": "Păstrarea după o scădere nu transformă automat motivul inițial într-o analiză solidă.",
+          "detailHighlights": [
+            "scădere"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Scrie motivul unei decizii fictive și separă informația verificabilă de o anticipare de preț.",
-          "type": "action"
+          "type": "action",
+          "detail": "Scrie ce informație ți-ar putea schimba decizia. Dacă motivul este doar «va urca», marchează incertitudinea.",
+          "detailHighlights": [
+            "incertitudinea"
+          ]
         }
       ]
     },

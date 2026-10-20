@@ -288,27 +288,43 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "La supermarket compară prețul pe unitate și cantitatea pe care o vei folosi, nu doar prețul ambalajului.",
+          "body": "Compară prețul pe unitate și cât vei folosi efectiv.",
           "detail": "Pachetul mare poate avea preț mai mic pe kilogram, dar Radu va folosi numai jumătate. Dacă restul nu poate fi păstrat, costul cantității utile poate schimba alegerea.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "costul",
+            "preț"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Un pachet de 500 g costă 10 lei, iar unul de 1 kg costă 18. Prețurile pe kilogram sunt 20 și 18 lei.",
-          "type": "normal"
+          "body": "Un ambalaj mai mare merită doar dacă îi folosești conținutul.",
+          "type": "normal",
+          "detail": "Ambalajul mare poate costa mai puțin pe kilogram, dar numai cantitatea folosită îți este utilă.",
+          "detailHighlights": [
+            "cantitatea"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "O ofertă condiționată de mai multe bucăți poate depăși lista și bugetul.",
-          "type": "normal"
+          "body": "O promoție cu mai multe bucăți poate depăși bugetul.",
+          "type": "normal",
+          "detail": "Un pachet promoțional poate cere mai multe bucăți decât ai planificat. Verifică totalul la casă.",
+          "detailHighlights": [
+            "totalul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară prețul pe kilogram pentru două ambalaje și notează cât ai folosi efectiv.",
-          "type": "action"
+          "type": "action",
+          "detail": "Compară aceeași unitate și notează ce poți păstra fără risipă, înainte să alegi pachetul mai mare.",
+          "detailHighlights": [
+            "unitate"
+          ]
         }
       ]
     },

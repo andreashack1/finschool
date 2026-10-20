@@ -54,6 +54,9 @@ describe('Chapter 4 real PostgreSQL resolution/state/RLS transactions',()=>{
   db=new PGlite();await db.exec(sqlSetup);
   for(const name of ['0003_simulator_foundation.sql','0004_simulator_events.sql','0005_simulator_consequences.sql'])await db.exec(readFileSync(`supabase/migrations/${name}`,'utf8'));
   mock.rpc.mockImplementation(async(name:string,args:Record<string,unknown>)=>{
+   // This historical fixture installs migrations through 0010: mirror PostgREST's missing-RPC response.
+   if(name==='upgrade_simulator_daily_floor')return {data:null,error:{code:'PGRST202',message:'Daily floor migration not installed in historical fixture'}};
+
    const keys=signatures[name];if(!keys)throw new Error('Unknown RPC');
    const params=keys.map(k=>args[k]!==null && typeof args[k]==='object'?JSON.stringify(args[k]):k==='p_operations' && args[k]===undefined?'[]':args[k]);
    try {const r=await db.query<{result:unknown}>(`select public.${name}(${keys.map((_,i)=>`$${i+1}`).join(',')}) as result`,params);return {data:r.rows[0]?.result??null,error:null};}

@@ -31,7 +31,7 @@ const checks = `
     assert(await page.locator('.desktop-nav,.hero-lesson,.hero-streak,.product-window').count()===0,'Old marketing UI');
     assert(body.includes('100 de lecții · 10 categorii'),'Canonical counts');
     assert(await page.locator('h1').count()===1,'Heading hierarchy');
-    assert(await page.locator('.about-fini').getAttribute('src')==='/brand/fini-bust-normal.svg','Current mascot');
+    assert(decodeURIComponent(await page.locator('.about-fini').getAttribute('src')).includes('/brand/fini-v2/home.webp'),'Current mascot');
     assert(await page.locator('.about-fini').evaluate(e=>e.complete&&e.naturalWidth>0),'Mascot loaded');
     const dims=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,height:document.documentElement.scrollHeight,hero:document.querySelector('.about-hero').getBoundingClientRect().height}));assert(!dims.overflow,'Overflow '+width);assert(dims.hero<450,'Huge hero');
     await page.screenshot({path:'artifacts/about-qa/'+width+'-about.png',fullPage:true});report.viewports.push({width,...dims});

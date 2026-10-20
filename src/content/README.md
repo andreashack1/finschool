@@ -15,8 +15,10 @@ practică și se încheie cu „Ține minte” și final. Numărul ecranelor și
 Explicațiile au 2–4 paragrafe și 80–150 de cuvinte; cazul are 120–200.
 Întrebările unui caz folosesc același `caseId`. Recapitularea are 4–6 puncte,
 cu acțiunea „Ce poți face azi” la final. Schema impune ordinea, feedback-ul și
-cel puțin trei tipuri de întrebări. Detaliile recapitulării sunt opționale;
-nu pot copia rezumatul. Fără detalii, rendererul nu oferă expandare.
+cel puțin trei tipuri de întrebări. Fiecare card din recapitulare, inclusiv
+„Ce poți face azi”, cere un `detail` care adaugă informație și 1–3 expresii
+`detailHighlights` prezente în text. Schema respinge duplicatele și copiile
+aproape identice ale rezumatului. Rendererul oferă întotdeauna expandare.
 Titlul și `leadIn` sunt opționale pentru întrebări; întrebarea poate fi singurul
 heading, fără un prompt universal. Datele invalide opresc importul/build-ul.
 

@@ -1,0 +1,487 @@
+diff --git a/app/api/account/auth/route.ts b/app/api/account/auth/route.ts
+index 18c2b0c..6dc15bc 100644
+--- a/app/api/account/auth/route.ts
++++ b/app/api/account/auth/route.ts
+@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
+ import { z } from 'zod';
+ import { cookies } from 'next/headers';
+ import { serverSupabase,requireUser } from '../../../../src/lib/supabase/server';
+-import { appUrl } from '../../../../src/lib/supabase/env';
++import { authEmailOrigin } from '../../../../src/lib/supabase/env';
+ import { SignupSchema,EmailSchema,PasswordSchema } from '../../../../src/lib/account/schemas';
+ import { accountConfig } from '../../../../src/content/account-config';
+ import { AccountError } from '../../../../src/lib/account/errors';
+@@ -17,10 +17,9 @@ function providerError(error:{status?:number;code?:string},fallback=new AccountE
+ export async function POST(request:Request) {
+   let stage='request';
+   const diagnostic=(error:unknown)=>{
+-    if(process.env.NODE_ENV!=='development')return;
+-    const value=(error instanceof z.ZodError ? new AccountError('VALIDATION_ERROR') : error) as {code?:string;message?:string};
+-    const redact=(text:string)=>text.replace(/(?:sb_(?:secret|publishable)_|eyJ)[A-Za-z0-9._-]+/g,'[redacted]');
+-    console.error('[account/auth]',{stage,code:value?.code ?? 'UNEXPECTED_ERROR',message:redact(value?.message ?? 'Unknown error')});
++    const value=(error instanceof z.ZodError ? new AccountError('VALIDATION_ERROR') : error) as {code?:string;status?:number};
++    // Log structured codes only: provider messages may contain sensitive data.
++    console.error('[account/auth]',{stage,code:value?.code ?? 'UNEXPECTED_ERROR',status:value?.status ?? null});
+   };
+   try {
+     sameOrigin(request);
+@@ -29,7 +28,7 @@ export async function POST(request:Request) {
+     if(action.action!=='logout' && !accountsConfigured())throw new AccountError('CONFIGURATION_ERROR',503);
+     stage='supabase-client';
+     const client=await serverSupabase();
+-    const callback=`${appUrl()}/auth/callback`;
++    const callback=()=>`${authEmailOrigin()}/auth/callback`;
+     if(action.action==='signup') {
+       stage='validation';
+       const parsed=SignupSchema.safeParse(action.data);if(!parsed.success){
+@@ -43,10 +42,10 @@ export async function POST(request:Request) {
+       if(availability.error)diagnostic(availability.error);
+       if(!availability.error && availability.data===false)throw new AccountError('USERNAME_TAKEN',409);
+       stage='supabase-signup';
+-      const {data,error}=await client.auth.signUp({email:v.email,password:v.password,options:{emailRedirectTo:callback, data:{username:v.username,display_name:v.displayName,age_range:v.ageRange,parental_consent:v.parentalConsent,terms:true,privacy:true,terms_version:accountConfig.termsVersion,privacy_version:accountConfig.privacyVersion}}});
++      const {data,error}=await client.auth.signUp({email:v.email,password:v.password,options:{emailRedirectTo:callback(), data:{username:v.username,display_name:v.displayName,age_range:v.ageRange,parental_consent:v.parentalConsent,terms:true,privacy:true,terms_version:accountConfig.termsVersion,privacy_version:accountConfig.privacyVersion}}});
+       if(error) { diagnostic(error);if(error.code==='23505')throw new AccountError('USERNAME_TAKEN',409);const failure=providerError(error);if(failure.code!=='RATE_LIMITED'){const available=await client.rpc('username_available',{candidate:v.username}).abortSignal(AbortSignal.timeout(5000));if(!available.error && available.data===false)throw new AccountError('USERNAME_TAKEN',409);}throw failure; }
+       stage='response';
+-      return NextResponse.json({session:Boolean(data.session)},{headers:{'Cache-Control':'no-store'}});
++      return NextResponse.json({state:data.session?'authenticated':'check_email_or_login'},{headers:{'Cache-Control':'no-store'}});
+     }
+     if(action.action==='login') {
+       stage='supabase-login';
+@@ -56,8 +55,8 @@ export async function POST(request:Request) {
+     if(action.action==='reset' || action.action==='resend') {
+       stage=action.action==='reset'?'supabase-reset':'supabase-resend';
+       const {email}=z.object({email:EmailSchema}).strict().parse(action.data);
+-      const {error}=action.action==='reset'?await client.auth.resetPasswordForEmail(email,{redirectTo:`${callback}?next=/actualizeaza-parola`}):await client.auth.resend({type:'signup',email,options:{emailRedirectTo:callback}});
+-      if(error){const failure=providerError(error);if(failure.code!=='VALIDATION_ERROR')throw failure;}
++      const {error}=action.action==='reset'?await client.auth.resetPasswordForEmail(email,{redirectTo:`${callback()}?next=/actualizeaza-parola`}):await client.auth.resend({type:'signup',email,options:{emailRedirectTo:callback()}});
++      if(error){diagnostic(error);const failure=providerError(error);if(failure.code!=='VALIDATION_ERROR')throw failure;}
+       // The reset response is deliberately identical for known and unknown emails.
+     }
+     if(action.action==='update') {
+diff --git a/app/components/account-screens.tsx b/app/components/account-screens.tsx
+index 42f1c49..7db5f59 100644
+--- a/app/components/account-screens.tsx
++++ b/app/components/account-screens.tsx
+@@ -12,6 +12,7 @@ import { broadcastAuthChange } from '../../src/lib/account/events';
+ import { SnapshotSchema } from '../../src/lib/account/contracts';
+ import { writeAccountCache } from '../../src/lib/account/storage';
+ import { startUsernameCheck,usernameValidationMessage,usernameStatusCopy,type UsernameStatus } from '../../src/lib/account/username-availability';
++import { pendingVerificationEmail,rememberVerificationEmail,verificationCooldown,startVerificationCooldown,clearVerificationState,resetAvailableKey,resendAvailableKey } from '../../src/lib/account/verification';
+ import { errorCopy } from '../../src/lib/account/errors';
+ export function AccountShell({title,children,large=false,intro}:{title:string;children:React.ReactNode;large?:boolean;intro?:React.ReactNode}) {return <main className={`account-page ${large?'account-large':''}`}><Link className="account-brand" href="/bun-venit">finly<span>.</span></Link><section className="account-card"><FinlyMascot className="account-fini" framing={large?'bust':'head'} mood="normal" priority/>{intro}<h1>{title}</h1>{children}</section></main>;}
+ export function WelcomeScreen() {
+@@ -34,7 +35,7 @@ export function GateScreen({authenticated,userId=null}:{authenticated:boolean;us
+ }
+ function PasswordField({label,name}:{label:string;name:string}) {
+   const [shown,setShown]=useState(false);const description=name==='repeatPassword'?'confirmarea parolei':'parola';
+-  return <div className="account-field"><label htmlFor={name}>{label}</label><div className="account-password"><input id={name} required name={name} type={shown?'text':'password'} minLength={8} maxLength={128} autoComplete={name==='loginPassword'?'current-password':'new-password'}/><button type="button" onClick={()=>setShown(!shown)} aria-label={`${shown?'Ascunde':'Arată'} ${description}`} aria-controls={name} aria-pressed={shown}>{shown?<EyeOff size={20}/>:<Eye size={20}/>}</button></div></div>;
++  return <div className="account-field"><label htmlFor={name}>{label}</label><div className="account-password"><input id={name} required name={name} type={shown?'text':'password'} minLength={8} maxLength={128} autoComplete={name==='loginPassword'?'current-password':'new-password'}/><button type="button" onClick={()=>setShown(!shown)} aria-label={`${shown?'Ascunde':'Arată'} ${description}`} aria-controls={name} aria-pressed={shown}>{shown?<EyeOff size={20}/>:<Eye size={20}/>}</button></div>{name==="password" && <small>Minimum 8 caractere.</small>}</div>;
+ }
+ export function UsernameField({initial='',enabled=true}:{initial?:string;enabled?:boolean}) {
+   const [username,setUsername]=useState(initial);
+@@ -55,10 +56,19 @@ export function AuthScreen({mode,recoveryValid=false,verificationInvalid=false,c
+   const [busy,setBusy]=useState(false);const [error,setError]=useState<string|null>(verificationInvalid?'Linkul de confirmare nu mai este valid sau a expirat. Cere un email nou.':null);const [message,setMessage]=useState('');const [age,setAge]=useState('');const [cooldown,setCooldown]=useState(0);const alert=useRef<HTMLParagraphElement>(null);
+ 
+   useEffect(()=>{if(error)alert.current?.focus();},[error]);
+-  useEffect(()=>{if(!cooldown)return;const timer=setTimeout(()=>setCooldown(c=>c-1),1000);return()=>clearTimeout(timer);},[cooldown]);
++  const emailInput=useRef<HTMLInputElement>(null);
++  const cooldownUntil=useRef(0);
++  useEffect(()=>{
++    if(mode!=='verify' && mode!=='reset')return;
++    const key=mode==='reset'?resetAvailableKey:resendAvailableKey;
++    if(mode==='verify' && emailInput.current)emailInput.current.value=pendingVerificationEmail();
++    const update=()=>setCooldown(Math.max(verificationCooldown(Date.now(),key),Math.max(0,Math.ceil((cooldownUntil.current-Date.now())/1000))));
++    const frame=requestAnimationFrame(update);const timer=setInterval(update,1000);
++    return()=>{cancelAnimationFrame(frame);clearInterval(timer);};
++  },[mode]);
+   async function submit(event:React.FormEvent<HTMLFormElement>) {
+-    event.preventDefault();if(busy || !configured)return;const fields=new FormData(event.currentTarget);setError(null);setMessage('');
+-    const email=String(fields.get('email') ?? '');let data:unknown={email};
++    event.preventDefault();if(busy || !configured || ((mode==='verify' || mode==='reset') && (cooldown>0 || verificationCooldown(Date.now(),mode==='reset'?resetAvailableKey:resendAvailableKey)>0)))return;const fields=new FormData(event.currentTarget);setError(null);setMessage('');
++    const email=String(fields.get('email') ?? '').trim().toLowerCase();let data:unknown={email};
+     if(mode==='signup'){
+       if(fields.get('terms')!=='on' || fields.get('privacy')!=='on'){setError(errorCopy.LEGAL_CONSENT_REQUIRED);return;}
+       if(age==='14-15' && fields.get('parentalConsent')!=='on'){setError(errorCopy.PARENT_ACKNOWLEDGEMENT_REQUIRED);return;}
+@@ -68,12 +78,12 @@ export function AuthScreen({mode,recoveryValid=false,verificationInvalid=false,c
+     else if(mode==='update'){const password=String(fields.get('password'));if(!PasswordSchema.safeParse(password).success || password!==fields.get('repeatPassword')){setError('Parola trebuie să aibă minimum 8 caractere, iar cele două parole să coincidă.');return;}data={password,repeatPassword:fields.get('repeatPassword')};}
+     else if(!EmailSchema.safeParse(email).success){setError('Verifică adresa de email.');return;}
+     setBusy(true);
+-    try{const response=await fetch('/api/account/auth',{method:'POST',headers:{'Content-Type':'application/json','X-Finly-Account':accountUserId ?? ''},body:JSON.stringify({action:mode==='verify'?'resend':mode,data})});const result=await response.json();if(!response.ok)throw new Error(friendlyApiError(result.error?.code));
+-      if(mode==='signup' && !result.session){window.location.assign(new URL('/verifica-email',window.location.origin).href);return;}
+-      if(mode==='login' || mode==='signup' || mode==='update'){broadcastAuthChange('sessionChanged',accountUserId);window.location.assign(mode==='login' && destination!=='/'?destination:readTrial()?.completed?'/salveaza-progresul':'/');return;}
+-      if(mode==='reset')setMessage('Dacă există un cont pentru această adresă, vei primi un email cu instrucțiuni.');else{setMessage('Dacă emailul necesită confirmare, vei primi un link nou.');setCooldown(accountConfig.emailCooldownSeconds);}
++    try{const response=await fetch('/api/account/auth',{method:'POST',headers:{'Content-Type':'application/json','X-Finly-Account':accountUserId ?? ''},body:JSON.stringify({action:mode==='verify'?'resend':mode,data})});const result=await response.json();if(!response.ok){if((mode==='verify' || mode==='reset') && result.error?.code==='RATE_LIMITED')throw new Error('Mai așteaptă puțin înainte să ceri un email nou.');throw new Error(friendlyApiError(result.error?.code));}
++      if(mode==='signup' && result.state!=='authenticated'){rememberVerificationEmail(email);startVerificationCooldown();window.location.assign(new URL('/verifica-email',window.location.origin).href);return;}
++      if(mode==='login' || mode==='signup' || mode==='update'){clearVerificationState();broadcastAuthChange('sessionChanged',accountUserId);window.location.assign(mode==='update'?'/':mode==='login' && destination!=='/'?destination:readTrial()?.completed?'/salveaza-progresul':'/');return;}
++      if(mode==='reset'){setMessage('Dacă există un cont pentru această adresă, vei primi un email cu instrucțiuni.');cooldownUntil.current=startVerificationCooldown(Date.now(),resetAvailableKey);setCooldown(accountConfig.emailCooldownSeconds);}else{setMessage('Dacă emailul necesită confirmare, vei primi un link nou.');rememberVerificationEmail(email);cooldownUntil.current=startVerificationCooldown();setCooldown(accountConfig.emailCooldownSeconds);}
+     }catch(cause){setError(cause instanceof Error?cause.message:'Mai încearcă puțin mai târziu.');}finally{setBusy(false);}
+   }
+   if(mode==='update' && !recoveryValid)return <AccountShell title="Linkul nu mai este valid sau a expirat."><Link className="app-button" href="/resetare-parola">Cere un link nou</Link></AccountShell>;
+-  return <AccountShell title={headings[mode]}>{!configured && <p role="status">Conturile nu sunt configurate în acest mediu.</p>}{mode==='verify' && <p>Ți-am trimis un link pentru confirmarea contului. Prima lecție rămâne pregătită până îți confirmi emailul.</p>}<form onSubmit={submit} className="account-form">{mode!=='update' && <label>Email<input name="email" required type="email" autoComplete="email" maxLength={254}/></label>}{mode==='signup' && <><UsernameField enabled={configured}/><label>Cum vrei să-ți spunem? <small>Opțional. Poți folosi un nume inventat.</small><input name="displayName" maxLength={40} autoComplete="nickname"/></label><label>Interval de vârstă<select name="ageRange" required value={age} onChange={event=>setAge(event.target.value)}><option value="">Alege intervalul</option>{accountConfig.ageOptions.map(option=><option key={option}>{option}</option>)}</select></label>{age==='Sub 14' && <p role="status">Finly este momentan pentru persoane de 14 ani sau mai mult.</p>}{age==='14-15' && <label className="account-check"><input required type="checkbox" name="parentalConsent" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.PARENT_ACKNOWLEDGEMENT_REQUIRED)}/>Un părinte sau tutore știe că îmi fac cont.</label>}</>}{(mode==='signup' || mode==='update') && <><PasswordField label="Parolă" name="password"/><PasswordField label="Repetă parola" name="repeatPassword"/></>}{mode==='login' && <PasswordField label="Parolă" name="loginPassword"/>}{mode==='signup' && <><label className="account-check"><input type="checkbox" required name="terms" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.LEGAL_CONSENT_REQUIRED)}/>Accept <Link href="/termeni" target="_blank" rel="noopener noreferrer">Termenii și condițiile</Link>.</label><label className="account-check"><input type="checkbox" required name="privacy" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.LEGAL_CONSENT_REQUIRED)}/>Am citit <Link href="/confidentialitate" target="_blank" rel="noopener noreferrer">Politica de confidențialitate</Link>.</label></>}{error && <p id="signup-error" ref={alert} role="alert" tabIndex={-1}>{error}</p>}{message && <p role="status">{message}</p>}<button className="app-button" disabled={busy || !configured || (mode==='signup' && age==='Sub 14') || cooldown>0}>{busy?(mode==='signup'?'Se creează contul...':mode==='login'?'Te conectăm...':'Lucrăm la cererea ta...'):mode==='signup'?'Creează-mi cont':mode==='login'?'Conectează-te':mode==='reset'?'Trimite linkul':mode==='update'?'Salvează parola':cooldown>0?`Retrimite peste ${cooldown}s`:'Retrimite emailul'}</button></form>{mode==='login' && <><Link href="/resetare-parola">Ai uitat parola?</Link><p>Nu ai cont? <Link href="/creeaza-cont">Creează unul</Link></p></>}{mode==='signup' && <p>Am deja cont. <Link href="/autentificare">Conectează-te</Link></p>}</AccountShell>;
++  return <AccountShell title={headings[mode]}>{!configured && <p role="status">Conturile nu sunt configurate în acest mediu.</p>}{mode==='verify' && <p>Verifică-ți emailul pentru linkul de confirmare. Dacă adresa necesită confirmare, poți cere un link nou. Verifică și folderul Spam.</p>}<form onSubmit={submit} className="account-form">{mode!=='update' && <label>Email<input ref={emailInput} name="email" required type="email" autoComplete="email" maxLength={254}/></label>}{mode==='signup' && <><UsernameField enabled={configured}/><label>Cum vrei să-ți spunem? <small>Opțional. Poți folosi un nume inventat.</small><input name="displayName" maxLength={40} autoComplete="nickname"/></label><label>Interval de vârstă<select name="ageRange" required value={age} onChange={event=>setAge(event.target.value)}><option value="">Alege intervalul</option>{accountConfig.ageOptions.map(option=><option key={option}>{option}</option>)}</select></label>{age==='Sub 14' && <p role="status">Finly este momentan pentru persoane de 14 ani sau mai mult.</p>}{age==='14-15' && <label className="account-check"><input required type="checkbox" name="parentalConsent" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.PARENT_ACKNOWLEDGEMENT_REQUIRED)}/>Un părinte sau tutore știe că îmi fac cont.</label>}</>}{(mode==='signup' || mode==='update') && <><PasswordField label={mode==='update'?'Parolă nouă':'Parolă'} name="password"/><PasswordField label={mode==='update'?'Confirmă parola nouă':'Repetă parola'} name="repeatPassword"/></>}{mode==='login' && <PasswordField label="Parolă" name="loginPassword"/>}{mode==='signup' && <><label className="account-check"><input type="checkbox" required name="terms" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.LEGAL_CONSENT_REQUIRED)}/>Accept <Link href="/termeni" target="_blank" rel="noopener noreferrer">Termenii și condițiile</Link>.</label><label className="account-check"><input type="checkbox" required name="privacy" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.LEGAL_CONSENT_REQUIRED)}/>Am citit <Link href="/confidentialitate" target="_blank" rel="noopener noreferrer">Politica de confidențialitate</Link>.</label></>}{error && <p id="signup-error" ref={alert} role="alert" tabIndex={-1}>{error}</p>}{message && <p role="status">{message}</p>}<button className="app-button" disabled={busy || !configured || (mode==='signup' && age==='Sub 14') || cooldown>0}>{busy?(mode==='signup'?'Se creează contul...':mode==='login'?'Te conectăm...':'Lucrăm la cererea ta...'):mode==='signup'?'Creează-mi cont':mode==='login'?'Conectează-te':mode==='reset'?(cooldown>0?`Trimite din nou peste ${cooldown}s`:'Trimite linkul'):mode==='update'?'Salvează parola':cooldown>0?`Retrimite peste ${cooldown}s`:'Retrimite emailul'}</button></form>{mode==='login' && <><Link href="/resetare-parola">Ai uitat parola?</Link><p>Nu ai cont? <Link href="/creeaza-cont">Creează unul</Link></p></>}{mode==='verify' && <><p>Ai confirmat deja emailul? <Link href="/autentificare">Conectează-te</Link></p><p><Link href="/resetare-parola">Ai uitat parola?</Link></p><p className="account-small"><Link href="/creeaza-cont">Ai folosit alt email? Înapoi la creare cont</Link></p></>}{mode==='signup' && <p>Am deja cont. <Link href="/autentificare">Conectează-te</Link></p>}</AccountShell>;
+ }
+diff --git a/app/components/account-settings.tsx b/app/components/account-settings.tsx
+index 31cc0de..d543edf 100644
+--- a/app/components/account-settings.tsx
++++ b/app/components/account-settings.tsx
+@@ -6,13 +6,16 @@ import { cleanupAccount,friendlyApiError,refreshProgress,useProgressData } from
+ import { ProfileUpdateSchema } from '../../src/lib/account/schemas';
+ import { UsernameField } from './account-screens';
+ import { logoutAccount } from '../../src/lib/account/logout';
+-export function AccountSettings() {
++import { X } from 'lucide-react';
++export function AccountSettings({ onClose }: { onClose: () => void }) {
+   const router=useRouter();const leaving=useRef(false);
+-  const p=useProgressData();const [edit,setEdit]=useState(false);const [deletion,setDeletion]=useState(0);const [confirmation,setConfirmation]=useState('');const [busy,setBusy]=useState(false);const [error,setError]=useState('');const alert=useRef<HTMLParagraphElement>(null);
++  const p=useProgressData();const [deletion,setDeletion]=useState(0);const [confirmation,setConfirmation]=useState('');const [busy,setBusy]=useState(false);const [error,setError]=useState('');const alert=useRef<HTMLParagraphElement>(null);
++  const dialog=useRef<HTMLDialogElement>(null);
++  useEffect(()=>{const panel=dialog.current;panel?.showModal();return()=>panel?.close();},[]);
+   useEffect(()=>{if(error)alert.current?.focus();},[error]);
+   if(!p.profile)return null;
+   async function request(url:string,method:string,data:unknown) {const response=await fetch(url,{method,headers:{'Content-Type':'application/json','X-Finly-Account':p.userId ?? ''},body:JSON.stringify(data)});const result=await response.json();if(!response.ok)throw new Error(friendlyApiError(result.error?.code));return result;}
+-  async function save(event:React.FormEvent<HTMLFormElement>) {event.preventDefault();if(busy)return;const fields=new FormData(event.currentTarget);const parsed=ProfileUpdateSchema.safeParse({username:fields.get('username'),displayName:fields.get('displayName')});if(!parsed.success){setError('Verifică username-ul și numele afișat.');alert.current?.focus();return;}setBusy(true);setError('');try{await request('/api/account/profile','POST',parsed.data);await refreshProgress();setEdit(false);}catch(cause){setError(cause instanceof Error?cause.message:'Nu putem salva acum.');}finally{setBusy(false);}}
++  async function save(event:React.FormEvent<HTMLFormElement>) {event.preventDefault();if(busy)return;const fields=new FormData(event.currentTarget);const parsed=ProfileUpdateSchema.safeParse({username:fields.get('username'),displayName:fields.get('displayName')});if(!parsed.success){setError('Verifică username-ul și numele afișat.');alert.current?.focus();return;}setBusy(true);setError('');try{await request('/api/account/profile','POST',parsed.data);dialog.current?.close();void refreshProgress();}catch(cause){setError(cause instanceof Error?cause.message:'Nu putem salva acum.');}finally{setBusy(false);}}
+   async function leave(remove=false) {
+     if(busy || leaving.current)return;leaving.current=true;setBusy(true);setError('');
+     try {
+@@ -27,5 +30,15 @@ export function AccountSettings() {
+     }catch(cause){setError(cause instanceof Error?cause.message:'Nu putem finaliza acum.');}
+     finally{leaving.current=false;setBusy(false);}
+   }
+-  return <section className="account-settings app-card"><h2>Contul tău</h2><p>@{p.profile.username}</p>{p.email && <p>{p.email}</p>}<p>Interval de vârstă: {p.profile.age_range}</p>{error && <p ref={alert} tabIndex={-1} role="alert">{error}</p>}{edit?<form className="account-form" onSubmit={save}><UsernameField initial={p.profile.username}/><label>Cum vrei să-ți spunem?<input name="displayName" defaultValue={p.profile.display_name ?? ''} maxLength={40}/></label><button className="app-button" disabled={busy}>{busy?'Salvăm...':'Salvează profilul'}</button><button type="button" className="app-button secondary" onClick={()=>setEdit(false)}>Renunță</button></form>:<button className="app-button secondary" onClick={()=>setEdit(true)}>Editează profilul</button>}<Link className="account-action" href="/resetare-parola">Schimbă parola</Link><button className="app-button secondary" disabled={busy} onClick={()=>void leave()}>{busy?'Te deconectăm…':'Deconectează-te'}</button><p><Link href="/termeni" target="_blank" rel="noopener noreferrer">Termeni</Link> · <Link href="/confidentialitate" target="_blank" rel="noopener noreferrer">Confidențialitate</Link></p><div className="account-danger"><h3>Șterge contul</h3>{deletion===0?<button className="account-action" onClick={()=>setDeletion(1)}>Șterge contul</button>:deletion===1?<><p>Această acțiune șterge definitiv progresul.</p><button className="app-button secondary" onClick={()=>setDeletion(2)}>Continuă</button><button className="account-action" onClick={()=>setDeletion(0)}>Renunță</button></>:<><label>Scrie username-ul exact: {p.profile.username}<input value={confirmation} onChange={event=>setConfirmation(event.target.value)} autoComplete="off"/></label><button className="app-button" disabled={busy || confirmation!==p.profile.username} onClick={()=>void leave(true)}>Șterge definitiv contul</button><button className="account-action" onClick={()=>setDeletion(0)}>Renunță</button></>}</div></section>;
++  // Strict Mode can deliver a cleanup close event after the dialog has reopened.
++  return <dialog ref={dialog} className="profile-settings-dialog" aria-labelledby="profile-settings-title" onClose={event=>{if(!event.currentTarget.open)onClose();}} onCancel={event=>{if(busy)event.preventDefault();}}>
++    <header><h2 id="profile-settings-title">Editează profilul</h2><button type="button" className="profile-utility" aria-label="Închide setările profilului" disabled={busy} onClick={()=>dialog.current?.close()}><X size={20} aria-hidden="true"/></button></header>
++    <div className="profile-settings-body">
++      {error && <p ref={alert} tabIndex={-1} role="alert">{error}</p>}
++      <form className="account-form" onSubmit={save}><fieldset disabled={busy}><legend className="sr-only">Profil</legend><UsernameField initial={p.profile.username}/><label>Nume afișat<input name="displayName" defaultValue={p.profile.display_name ?? ''} maxLength={40}/></label></fieldset><div className="profile-form-actions"><button className="app-button" disabled={busy}>{busy?'Salvăm…':'Salvează profilul'}</button><button type="button" className="app-button secondary" disabled={busy} onClick={()=>dialog.current?.close()}>Renunță</button></div></form>
++      <section className="profile-security" aria-labelledby="profile-security-title"><h3 id="profile-security-title">Cont și securitate</h3><Link className="account-action" href="/resetare-parola">Schimbă parola</Link><button className="account-action" disabled={busy} onClick={()=>void leave()}>Deconectează-te</button></section>
++      <section className="account-danger" aria-labelledby="profile-danger-title"><h3 id="profile-danger-title">Șterge contul</h3>{deletion===0?<button className="account-action" disabled={busy} onClick={()=>setDeletion(1)}>Șterge contul</button>:deletion===1?<><p>Această acțiune șterge definitiv progresul.</p><button className="app-button secondary" disabled={busy} onClick={()=>setDeletion(2)}>Continuă</button><button className="account-action" disabled={busy} onClick={()=>setDeletion(0)}>Renunță</button></>:<><label>Scrie username-ul exact: {p.profile.username}<input value={confirmation} disabled={busy} onChange={event=>setConfirmation(event.target.value)} autoComplete="off"/></label><button className="app-button" disabled={busy || confirmation!==p.profile.username} onClick={()=>void leave(true)}>Șterge definitiv contul</button><button className="account-action" disabled={busy} onClick={()=>setDeletion(0)}>Renunță</button></>}</section>
++      <p className="profile-legal"><Link href="/termeni" target="_blank" rel="noopener noreferrer">Termeni</Link> · <Link href="/confidentialitate" target="_blank" rel="noopener noreferrer">Confidențialitate</Link></p>
++    </div>
++  </dialog>;
+ }
+diff --git a/app/components/gamification-ui.tsx b/app/components/gamification-ui.tsx
+index ff955f3..062ae47 100644
+--- a/app/components/gamification-ui.tsx
++++ b/app/components/gamification-ui.tsx
+@@ -1,9 +1,11 @@
+ "use client";
+ import { useEffect, useRef, useState } from "react";
+-import { Check, X, Target, Zap, Snowflake, Footprints, Flame, CalendarCheck, Trophy, PiggyBank, ShieldCheck, WalletCards, BriefcaseBusiness, LockKeyhole } from "lucide-react";
++import { Check, X, Target, Zap, Snowflake, Footprints, Flame, CalendarCheck, Trophy, PiggyBank, ShieldCheck, WalletCards, BriefcaseBusiness } from "lucide-react";
+ import type { LucideIcon } from "lucide-react";
+ import { achievements, type AchievementIcon } from "@/src/content/achievements";
+-import { getLevelProgress, getDailyChallengeFor, getAchievementProgress, getDailyGoalState, getLast7Days, getXpEventLabel } from "@/src/lib/progress";
++import { getLevelProgress, getDailyChallengeFor, getAchievementProgress, getDailyGoalState, getLast7Days } from "@/src/lib/progress";
++import { getActiveAchievements, getProfileLearningProgress } from "@/src/lib/profile-progress";
++import Link from 'next/link';
+ import { submitDailyChallenge, useProgressData } from "@/src/lib/use-progress";
+ import { gamificationConfig } from "@/src/content/gamification-config";
+ import type { ProgressState } from "@/src/types/progress";
+@@ -20,21 +22,25 @@ export function FreezeIndicator({ progress, today }: { progress: ProgressState;
+ export function DailyChallengeCard() {
+   const p = useProgressData();
+   const [saving, setSaving] = useState(false);
++  const [error, setError] = useState('');
+   const submitted = useRef(false);
+   if (!p.hydrated || !p.todayKey) return <section className="daily-card app-card" aria-busy="true"><span className="card-kicker">PROVOCAREA ZILEI</span><p>Pregătim provocarea…</p></section>;
+   const challenge = getDailyChallengeFor(p, p.todayKey), result = p.dailyChallenges[p.todayKey];
+   async function choose(optionId: string) {
+     if (submitted.current || result || saving) return;
+-    submitted.current = true; setSaving(true);
+-    try { await submitDailyChallenge(optionId); } finally { setSaving(false); submitted.current = false; }
++    submitted.current = true; setSaving(true); setError('');
++    try { await submitDailyChallenge(optionId); }
++    catch { setError('Nu am putut trimite răspunsul. Încearcă din nou.'); }
++    finally { setSaving(false); submitted.current = false; }
+   }
+-  return <section className="daily-card app-card"><div className="section-top"><span className="card-kicker"><Target size={15}/> PROVOCAREA ZILEI</span><span className="reward-chip"><Zap size={13}/> {result ? result.correct ? `+${gamificationConfig.rewards.daily_challenge_correct.xp} XP` : "Activitate încheiată" : `+${gamificationConfig.rewards.daily_challenge_correct.xp} XP dacă răspunzi corect`}</span></div><h3>Un calcul mic.<br/>Un obicei bun.</h3><p>{challenge.question}</p><div className="challenge-answers">{challenge.options.map(option => <button key={option.id} disabled={Boolean(result) || saving} aria-pressed={result?.selectedOptionId === option.id} className={result && option.id === challenge.correctOptionId ? "answer-correct" : result?.selectedOptionId === option.id ? "answer-wrong" : ""} onClick={() => { void choose(option.id); }}>{option.label}{result && option.id === challenge.correctOptionId ? <Check size={15} aria-label="Răspuns corect"/> : result?.selectedOptionId === option.id ? <X size={15} aria-label="Răspuns ales, incorect"/> : null}</button>)}</div><div aria-live="polite">{result ? <><p className={`challenge-feedback ${result.correct ? "success" : "error"}`}>{result.correct ? <Check size={15}/> : <X size={15}/>}<span><strong>{result.correct ? "Corect." : "Nu chiar."}</strong> {challenge.explanation}</span></p><span className="challenge-note">{result.correct ? `+${gamificationConfig.rewards.daily_challenge_correct.xp} XP primit` : "0 XP · Ai făcut activitatea de azi"} · Gata pentru azi.</span></> : <span className="challenge-note">O întrebare. Fără presiune.</span>}</div></section>;
++  return <section className="daily-card app-card"><div className="section-top"><span className="card-kicker"><Target size={15}/> PROVOCAREA ZILEI</span><span className="reward-chip"><Zap size={13}/> {result ? result.correct ? `+${gamificationConfig.rewards.daily_challenge_correct.xp} XP` : "Activitate încheiată" : `+${gamificationConfig.rewards.daily_challenge_correct.xp} XP dacă răspunzi corect`}</span></div><h3>Un calcul mic.<br/>Un obicei bun.</h3><p>{challenge.question}</p><div className="challenge-answers">{challenge.options.map(option => <button key={option.id} disabled={Boolean(result) || saving} aria-pressed={result?.selectedOptionId === option.id} className={result && option.id === challenge.correctOptionId ? "answer-correct" : result?.selectedOptionId === option.id ? "answer-wrong" : ""} onClick={() => { void choose(option.id); }}>{option.label}{result && option.id === challenge.correctOptionId ? <Check size={15} aria-label="Răspuns corect"/> : result?.selectedOptionId === option.id ? <X size={15} aria-label="Răspuns ales, incorect"/> : null}</button>)}</div><div aria-live="polite">{error && <p role="alert">{error}</p>}{result ? <><p className={`challenge-feedback ${result.correct ? "success" : "error"}`}>{result.correct ? <Check size={15}/> : <X size={15}/>}<span><strong>{result.correct ? "Corect." : "Nu chiar."}</strong> {challenge.explanation}</span></p><span className="challenge-note">{result.correct ? `+${gamificationConfig.rewards.daily_challenge_correct.xp} XP primit` : "0 XP · Ai făcut activitatea de azi"} · Gata pentru azi.</span></> : <span className="challenge-note">O întrebare. Fără presiune.</span>}</div></section>;
+ }
+ export function AchievementsList({ progress }: { progress: ProgressState }) {
+-  return <section className="achievements"><div className="section-top"><h2>Realizări</h2><span>{achievements.filter(a => Boolean(progress.achievementUnlocks[a.id])).length} / {achievements.length}</span></div><div className="app-card achievement-list">{achievements.map(achievement => {
+-    const Icon = achievementIcons[achievement.icon], unlocked = Boolean(progress.achievementUnlocks[achievement.id]), count = getAchievementProgress(achievement, progress);
+-    return <div className={`achievement ${unlocked ? "unlocked" : "locked"}`} key={achievement.id} data-achievement={achievement.id}><span className="icon-tile"><Icon size={22}/></span><div><strong>{achievement.title}</strong><p>{achievement.description}</p>{unlocked && <span className="achievement-progress">Deblocat pe {new Date(progress.achievementUnlocks[achievement.id].unlockedAt).toLocaleDateString("ro-RO", { timeZone: "Europe/Bucharest", day: "numeric", month: "short" })}</span>}{!unlocked && <span className="achievement-progress">{count.current} / {count.target}{achievement.condition.type === "total-xp" ? " XP" : achievement.condition.type === "longest-streak" ? " zile" : ""}</span>}{!unlocked && <div className="app-progress" role="progressbar" aria-label={`Progres: ${achievement.title}`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={count.percentage}><span style={{ width: `${count.percentage}%` }}/></div>}</div>{unlocked ? <Check size={17} aria-label="Realizare deblocată"/> : <LockKeyhole size={15} aria-label="Realizare încă blocată"/>}</div>;
+-  })}</div></section>;
++  const active=getActiveAchievements(progress);
++  return <section className="achievements"><div className="section-top"><h2>Realizări</h2><span>{achievements.filter(a => Boolean(progress.achievementUnlocks[a.id])).length} deblocate</span></div>{!active.length?<p className="app-card profile-completed">Ai deblocat toate realizările disponibile.</p>:<div className="app-card achievement-list">{active.map(achievement => {
++    const Icon = achievementIcons[achievement.icon], count = getAchievementProgress(achievement, progress);
++    return <div className="achievement active" key={achievement.id} data-achievement={achievement.id}><span className="icon-tile"><Icon size={20} aria-hidden="true"/></span><div><strong>{achievement.title}</strong><p>{achievement.description}</p><span className="achievement-progress">{count.current} / {count.target}{achievement.condition.type === "total-xp" ? " XP" : achievement.condition.type === "longest-streak" ? " zile" : ""}</span><div className="app-progress" role="progressbar" aria-label={`Progres: ${achievement.title}`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={count.percentage}><span style={{ width: `${count.percentage}%` }}/></div></div></div>;
++  })}</div>}</section>;
+ }
+ export function DailyGoalRing({ progress, today }: { progress: ProgressState; today: string }) {
+   const goal = getDailyGoalState(progress, today);
+@@ -58,8 +64,10 @@ export function LastSevenDays({ progress, today }: { progress: ProgressState; to
+     return <button type="button" className={`activity-day ${day.state} ${day.date===today?'is-today':''}`} data-day={day.date} key={day.date} title={label} aria-label={label} onClick={()=>setDetail(day.state==='freeze'?`${localized}: Nu ai avut activitate în această zi, dar un Freeze ți-a păstrat streak-ul.`:label)}><small>{day.weekday}</small><i aria-hidden="true">{day.state==='activity'?<Flame size={18}/>:day.state==='freeze'?<Snowflake size={18}/>:Number(day.date.slice(8))}</i></button>;
+   })}</div>{detail && <p className="calendar-detail" role="status">{detail}</p>}</section>;
+ }
+-export function XpJournal({ progress }: { progress: ProgressState }) {
+-  return <section className="app-card xp-journal"><h2>Jurnalul XP</h2>{progress.xp_events.length ? <ol>{[...progress.xp_events].reverse().map(event => <li key={event.id}><span>{getXpEventLabel(event.type)}<small>{new Date(event.createdAt).toLocaleString("ro-RO", { timeZone: "Europe/Bucharest", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}</small></span><strong>+{event.amount} XP</strong></li>)}</ol> : <p>Primii tăi pași vor apărea aici.</p>}</section>;
++export function ProfileLearningProgress({ progress }: { progress: ProgressState }) {
++  const summary=getProfileLearningProgress(progress);
++  const bar=(value:number,label:string)=><div className="app-progress" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={value}><span style={{width:`${value}%`}}/></div>;
++  return <section className="app-card profile-learning" aria-labelledby="profile-learning-title"><h2 id="profile-learning-title">Progres la lecții</h2><div className="profile-learning-total"><span>{summary.completed} din {summary.available} lecții</span><strong>{summary.percentage}%</strong></div>{bar(summary.percentage,'Progres total la lecții')}{summary.categories.map(c=><div className="profile-category-progress" key={c.category.id}><div><strong>{c.category.title}</strong><span>{c.completed} / {c.available}</span></div>{bar(c.percentage,`Progres: ${c.category.title}`)}</div>)}{summary.completed===summary.available&&summary.available>0?<p>Ai parcurs toate lecțiile disponibile.</p>:!summary.categories.length&&<p>{summary.completed > 0 ? "Categoriile în curs vor apărea aici când continui lecțiile." : "Primele tale categorii vor apărea aici după ce începi lecțiile."}</p>}<Link className="profile-learning-link" href="/lectii">Vezi lecțiile</Link></section>;
+ }
+ export function StreakChip({ current }: { current: number }) {
+   const element = useRef<HTMLSpanElement>(null), previous = useRef(current);
+diff --git a/app/components/notification-settings.tsx b/app/components/notification-settings.tsx
+index b5bcd29..e8668a2 100644
+--- a/app/components/notification-settings.tsx
++++ b/app/components/notification-settings.tsx
+@@ -6,6 +6,9 @@ import { notificationRequest, pushSupported, unregisterDevice } from '../../src/
+ export default function NotificationSettings({ userId }: { userId: string }) {
+   const [p, setP] = useState<Preferences>(defaultPreferences), [configured, setConfigured] = useState(false), [loaded, setLoaded] = useState(false), [busy, setBusy] = useState(false), [message, setMessage] = useState(''), [permission, setPermission] = useState<NotificationPermission | 'unsupported'>('unsupported');
+   const [installHint, setInstallHint] = useState(false);
++  useEffect(() => {
++    if (window.location.hash === '#notification-settings') document.getElementById('notification-settings')?.scrollIntoView({ block: 'start' });
++  }, []);
+   useEffect(() => {
+     const timer = setTimeout(() => { setPermission(pushSupported() ? Notification.permission : 'unsupported'); setInstallHint(globalThis.isSecureContext && !pushSupported() && (navigator as Navigator & { standalone?: boolean }).standalone === false); void notificationRequest(userId, '/preferences').then(value => { const parsed = z.object({ preferences: preferencesSchema, configured: z.boolean() }).parse(value); setP(parsed.preferences); setConfigured(parsed.configured); setLoaded(true); }).catch(() => setMessage('Nu putem încărca setările acum.')); }, 0);
+     return () => clearTimeout(timer);
+@@ -14,7 +17,7 @@ export default function NotificationSettings({ userId }: { userId: string }) {
+     const previous = p; let saved = false;
+     setBusy(true); setMessage(''); setP(next);
+     try { await notificationRequest(userId, '/preferences', next); saved = true; if (!next.push_enabled) await unregisterDevice(userId); }
+-    catch { if (!saved) setP(previous); setMessage('Nu putem actualiza setările acum. Reîncearcă.'); } finally { setBusy(false); }
++    catch { if (!saved) setP(previous); setMessage(saved ? 'Setările sunt salvate. Nu am putut deconecta push pe acest dispozitiv.' : 'Nu putem actualiza setările acum. Reîncearcă.'); } finally { setBusy(false); }
+   }
+   async function activate() {
+     if (!pushSupported() || Notification.permission === 'denied' || !configured || busy) return;
+@@ -39,5 +42,5 @@ export default function NotificationSettings({ userId }: { userId: string }) {
+     } catch { setMessage('Nu am putut activa push pe acest dispozitiv. Notificările din Finly funcționează în continuare.'); }
+     finally { setBusy(false); }
+   }
+-  return <section className="notification-settings app-card" aria-labelledby="notification-settings-title"><h2 id="notification-settings-title">Notificări</h2><p>Primește notificări când apare ceva important în simulator: situații importante, plăți apropiate și rezumatul lunii.</p><label><input type="checkbox" checked={p.push_enabled} disabled={!loaded || busy || (!p.push_enabled && (permission === 'unsupported' || permission === 'denied' || !configured))} onChange={e => e.target.checked ? void activate() : void save({ ...p, push_enabled: false })}/>Notificări push</label>{permission === 'unsupported' ? <p>Notificările push nu sunt disponibile în această configurație. Notificările din Finly funcționează în continuare.</p> : permission === 'denied' ? <p>Notificările push sunt dezactivate în browser.</p> : !configured ? <p>Push nu este încă configurat. Notificările din Finly funcționează în continuare.</p> : <button className="app-button secondary" disabled={busy || !loaded} onClick={() => void activate()}>Activează notificările{p.push_enabled ? ' pe acest dispozitiv' : ''}</button>}{([{ key: 'events_push_enabled', label: 'Evenimente importante' }, { key: 'payments_push_enabled', label: 'Plăți și abonamente' }, { key: 'monthly_review_push_enabled', label: 'Rezumat lunar' }, { key: 'quiet_hours_enabled', label: 'Ore liniștite · 22:00 → 08:00' }] as const).map(item => <label key={item.key}><input type="checkbox" checked={p[item.key]} disabled={!loaded || busy} onChange={e => void save({ ...p, [item.key]: e.target.checked })}/>{item.label}</label>)}{installHint && <p>Încearcă „Adaugă pe ecranul principal”, apoi deschide Finly de acolo.</p>}<small>Orele sunt în Europe/Bucharest. Inbox-ul din Finly rămâne disponibil pe toate dispozitivele.</small>{message && <p role="status">{message}</p>}</section>;
++  return <section id="notification-settings" className="notification-settings app-card" aria-labelledby="notification-settings-title"><h2 id="notification-settings-title">Notificări</h2><p>Primește notificări când apare ceva important în SimLife: situații importante, plăți apropiate și rezumatul lunii.</p><label><input type="checkbox" checked={p.push_enabled} disabled={!loaded || busy || (!p.push_enabled && (permission === 'unsupported' || permission === 'denied' || !configured))} onChange={e => e.target.checked ? void activate() : void save({ ...p, push_enabled: false })}/>Notificări push</label>{permission === 'unsupported' ? <p>Notificările push nu sunt disponibile în această configurație. Notificările din Finly funcționează în continuare.</p> : permission === 'denied' ? <p>Notificările push sunt dezactivate în browser.</p> : !configured ? <p>Push nu este încă configurat. Notificările din Finly funcționează în continuare.</p> : <button className="app-button secondary" disabled={busy || !loaded} onClick={() => void activate()}>Activează notificările{p.push_enabled ? ' pe acest dispozitiv' : ''}</button>}{([{ key: 'events_push_enabled', label: 'Evenimente importante' }, { key: 'payments_push_enabled', label: 'Plăți și abonamente' }, { key: 'monthly_review_push_enabled', label: 'Rezumat lunar' }, { key: 'quiet_hours_enabled', label: 'Ore liniștite · 22:00 → 08:00' }] as const).map(item => <label key={item.key}><input type="checkbox" checked={p[item.key]} disabled={!loaded || busy} onChange={e => void save({ ...p, [item.key]: e.target.checked })}/>{item.label}</label>)}{installHint && <p>Încearcă „Adaugă pe ecranul principal”, apoi deschide Finly de acolo.</p>}<small>Orele sunt în Europe/Bucharest. Inbox-ul din Finly rămâne disponibil pe toate dispozitivele.</small>{message && <p role="status">{message}</p>}</section>;
+ }
+diff --git a/src/lib/supabase/env.ts b/src/lib/supabase/env.ts
+index 80cfb1f..dd3483c 100644
+--- a/src/lib/supabase/env.ts
++++ b/src/lib/supabase/env.ts
+@@ -1,3 +1,20 @@
++import { AccountError } from '../account/errors';
++
++export const productionAppOrigin = 'https://finly2-ruddy.vercel.app';
++
++// Email destinations are independent of the current development server.
++// Local email callbacks require this explicit server-only opt-in.
++export function authEmailOrigin() {
++  if (process.env.NODE_ENV === 'production') return appUrl();
++  const local = process.env.FINLY_DEV_AUTH_EMAIL_ORIGIN;
++  if (!local) return productionAppOrigin;
++  try {
++    const parsed = new URL(local);
++    if (!['http:', 'https:'].includes(parsed.protocol) || !['localhost', '127.0.0.1', '[::1]'].includes(parsed.hostname) || parsed.username || parsed.password || parsed.pathname !== '/' || parsed.search || parsed.hash) throw new Error('origin');
++    return parsed.origin;
++  } catch { throw new AccountError('CONFIGURATION_ERROR', 503); }
++}
++
+ export function publicSupabaseConfig() {
+   const url = process.env.NEXT_PUBLIC_SUPABASE_URL, key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+   if (!url || !key) return null;
+@@ -5,7 +22,17 @@ export function publicSupabaseConfig() {
+   return { url, key };
+ }
+ export function appUrl() {
+-  const value = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+-  try { const parsed=new URL(value);if(['http:','https:'].includes(parsed.protocol))return parsed.origin; } catch {}
+-  return 'http://localhost:3000';
++  const production = process.env.NODE_ENV === 'production';
++  const value = process.env.NEXT_PUBLIC_APP_URL;
++  try {
++    const parsed = new URL(value || (production ? '' : 'http://localhost:3000'));
++    if (!['http:', 'https:'].includes(parsed.protocol) || parsed.username || parsed.password || parsed.search || parsed.hash || parsed.pathname !== '/') throw new Error('origin');
++    // Explicit production configuration is mandatory. Exact origin validation
++    // also excludes loopback, private LAN, alternate ports and arbitrary hosts.
++    if (production && parsed.origin !== productionAppOrigin) throw new Error('production-origin');
++    return parsed.origin;
++  } catch {
++    if (production) throw new AccountError('CONFIGURATION_ERROR', 503);
++    return 'http://localhost:3000';
++  }
+ }
+diff --git a/tests/notification-center-api.test.ts b/tests/notification-center-api.test.ts
+index 64eb10e..4d4ebe9 100644
+--- a/tests/notification-center-api.test.ts
++++ b/tests/notification-center-api.test.ts
+@@ -14,6 +14,15 @@ const request=(body?:unknown,extra:Record<string,string>={})=>new Request('http:
+ beforeEach(()=>{vi.resetAllMocks();vi.stubEnv('NODE_ENV','development');vi.stubEnv('NEXT_PUBLIC_APP_URL','http://localhost:3000');mocks.user.mockResolvedValue({id:user});mocks.clock.mockResolvedValue({effectiveNow:now});mocks.load.mockResolvedValue(null);mocks.inbox.mockResolvedValue({items:[],unread:0});mocks.read.mockResolvedValue({target:'/simulator',items:[],unread:0});});
+ afterEach(()=>vi.unstubAllEnvs());
+ describe('notification API ownership and lifecycle',()=>{
++ it.each(['2026-10-16T12:59:00+00:00','2026-10-16T15:59:00+03:00','2026-10-16T14:59:00+02:00'])('accepts PostgREST timestamp %s without losing the concurrency version',async version=>{
++  mocks.read.mockResolvedValue({target:`/simulator/eveniment/${id}`,items:[],unread:0});
++  const response=await POST(request({id,version}));
++  expect(response.status).toBe(200);expect(mocks.read).toHaveBeenCalledWith(user,id,new Date(now),version);
++  expect((await response.json()).target).toBe(`/simulator/eveniment/${id}`);
++ });
++ it.each(['garbage','2026-10-16','2026-13-16T12:59:00+00:00','2026-10-16T12:59:00','2026-10-16T12:59:00+99:99'])('rejects malformed timestamp %s',async version=>{
++  expect((await POST(request({id,version}))).status).toBe(400);expect(mocks.read).not.toHaveBeenCalled();
++ });
+  it('settles canonical simulator before observing; opening bell is read-only',async()=>{
+   const r=await GET(request());expect(r.status).toBe(200);expect(r.headers.get('cache-control')).toBe('no-store');
+   expect(mocks.sync).toHaveBeenCalledWith(user,{effectiveNow:now});expect(mocks.sync.mock.invocationCallOrder[0]).toBeLessThan(mocks.observe.mock.invocationCallOrder[0]);expect(mocks.read).not.toHaveBeenCalled();
+diff --git a/tests/notification-center-browser.mjs b/tests/notification-center-browser.mjs
+index 4f3aeae..7f2cd78 100644
+--- a/tests/notification-center-browser.mjs
++++ b/tests/notification-center-browser.mjs
+@@ -22,11 +22,69 @@ const qa=String.raw`
+   const future=await fixture('Comandă de mâncare',120);
+   let state=await notification();assert(state.unread===3,'Expected three unread real events');assert(!state.items.some(i=>i.eventId===future.id),'Future event leaked');
+   await page.goto(origin+'/');
++  await page.locator('.continue-card .app-button').click();await page.waitForURL('**/lectie/**');
++  let completionPosts=0;const completionRequests=request=>{if(request.method()==='POST'&&request.url()===origin+'/api/progress'&&request.postDataJSON()?.type==='completeLesson')completionPosts++;};
++  page.on('request',completionRequests);
++  for(let step=0;step<25;step++){
++    if(await page.getByRole('heading',{name:'Lecție terminată.',exact:true}).count())break;
++    const answers=page.locator('.lesson-answer');
++    if(await answers.count()){await page.keyboard.press('1');await page.locator('.lesson-feedback').waitFor();}
++    const count=(await page.locator('.lesson-count').textContent()).match(/(\d+)\s*\/\s*(\d+)/);
++    const button=page.locator('.lesson-continue');await button.waitFor();
++    if(Number(count[1])===Number(count[2])-1)await button.evaluate(button=>{button.click();button.click();});else await button.click();
++    await page.waitForFunction(previous=>document.querySelector('.lesson-count')?.textContent!==previous, count[0]);
++  }
++  await page.getByRole('heading',{name:'Lecție terminată.',exact:true}).waitFor();
++  assert(completionPosts===1,'Lesson completion double-click sent '+completionPosts+' mutations');page.off('request',completionRequests);
++  await page.getByRole('button',{name:'Refă lecția',exact:true}).click();await page.locator('.lesson-question').waitFor();
++  await page.getByRole('link',{name:'Închide lecția',exact:true}).click();await page.waitForURL('**/lectii/**');
++  await page.goto(origin+'/');await page.locator('.category-tile').first().click();await page.waitForURL('**/lectii/**');
++  await page.goto(origin+'/');await page.getByRole('link',{name:'Deschide profilul',exact:true}).click();
++  await page.getByRole('button',{name:'Editează profilul',exact:true}).click();await page.getByRole('button',{name:'Închide setările profilului',exact:true}).click();
++  const eventPreference=page.getByRole('checkbox',{name:'Evenimente importante',exact:true}),paymentPreference=page.getByRole('checkbox',{name:'Plăți și abonamente',exact:true});
++  await eventPreference.waitFor();
++  const paymentBefore=await paymentPreference.isChecked();
++  await Promise.all([page.waitForResponse(response=>response.url()===origin+'/api/notifications/preferences'&&response.request().method()==='POST'),eventPreference.uncheck()]);
++  assert(await paymentPreference.isChecked()===paymentBefore,'Independent preferences toggled together');
++  await page.route(origin+'/api/notifications/preferences',route=>route.request().method()==='POST'?route.fulfill({status:503,contentType:'application/json',body:'{}'}):route.continue());
++  await eventPreference.check();await page.getByText('Nu putem actualiza setările acum. Reîncearcă.',{exact:true}).waitFor();assert(!await eventPreference.isChecked(),'Failed preference mutation was not rolled back');await page.unroute(origin+'/api/notifications/preferences');
++  await page.getByRole('button',{name:'Editează profilul',exact:true}).click();await page.getByRole('link',{name:'Schimbă parola',exact:true}).click();await page.waitForURL('**/resetare-parola');
++  await page.goto(origin+'/simulator');await page.getByRole('heading',{name:'SimLife',exact:true}).waitFor();
++  for(const width of [350,360,375,390,430,1280]){
++    await page.setViewportSize({width,height:850});
++    await page.getByRole('button',{name:'Calendar',exact:true}).click();await page.getByRole('heading',{name:'Calendar financiar',exact:true}).waitFor();
++    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'SimLife overflow '+width);
++    await page.getByRole('button',{name:'Închide',exact:true}).click();
++    await page.getByRole('button',{name:'Adaugă abonament',exact:true}).click();await page.getByLabel('Nume abonament',{exact:true}).waitFor();await page.getByRole('button',{name:'Închide',exact:true}).click();
++    await page.getByRole('button',{name:'Creează un obiectiv',exact:true}).click();await page.getByLabel('Numele obiectivului',{exact:true}).waitFor();await page.getByRole('button',{name:'Închide',exact:true}).click();
++  }
++  report.checks.push('Home primary/category/profile/SimLife; full lesson keyboard answers, completion double-click and replay; profile dialog/reset link; calendar/subscription/goal sheets at 350/360/375/390/430/1280');
++  await page.getByRole('button',{name:'Calendar',exact:true}).click();await context.setOffline(true);await page.getByRole('button',{name:'Închide',exact:true}).click();await page.locator('.sim-financial-dialog').waitFor({state:'hidden'});await context.setOffline(false);
++  report.checks.push('Independent notification preferences; failed save rolls back; offline calendar remains closable');
++  await page.getByRole('button',{name:'Adaugă abonament',exact:true}).click();
++  await page.getByLabel('Nume abonament',{exact:true}).fill('QA abonament');await page.getByLabel('Cost',{exact:true}).fill('1');
++  let subscriptionPosts=0;const subscriptionListener=request=>{if(request.method()==='POST'&&request.url()===origin+'/api/simulator/subscriptions')subscriptionPosts++;};page.on('request',subscriptionListener);
++  await page.route(origin+'/api/simulator/dashboard',route=>route.fulfill({status:503,contentType:'application/json',body:'{}'}));
++  await page.getByRole('button',{name:'Salvează abonamentul',exact:true}).evaluate(button=>{button.click();button.click();});
++  await page.locator('.sim-financial-dialog').waitFor({state:'hidden'});assert(subscriptionPosts===1,'Subscription double-click sent duplicate mutations');page.off('request',subscriptionListener);
++  assert((await api('calendar')).subscriptions.filter(s=>s.name==='QA abonament').length===1,'Committed subscription missing or duplicated');
++  await page.unroute(origin+'/api/simulator/dashboard');await page.goto(origin+'/simulator');await page.getByRole('heading',{name:'SimLife',exact:true}).waitFor();
++  report.checks.push('Subscription double-click commits once; failed secondary dashboard read does not trap form or report save failure');
++  await page.goto(origin+'/');
++  await page.locator('.challenge-answers button').first().waitFor();
++  await page.route(origin+'/api/progress',route=>route.request().method()==='POST'?route.fulfill({status:400,contentType:'application/json',body:JSON.stringify({error:{code:'INVALID_OPERATION'}})}):route.continue());
++  await page.locator('.challenge-answers button').first().click();
++  await page.getByText('Nu am putut trimite răspunsul. Încearcă din nou.',{exact:true}).waitFor();
++  assert(await page.locator('.challenge-answers button').first().isEnabled(),'Daily challenge stayed locked after failure');
++  await page.unroute(origin+'/api/progress');
++  await page.locator('.challenge-answers button').first().evaluate(button=>{button.click();button.click();});
++  await page.locator('.challenge-feedback').waitFor();
++  report.checks.push('Daily challenge server rejection has retry feedback; double-click retry completes once');
+   const bell=page.locator('.notification-bell');await page.waitForFunction(()=>document.querySelector('.notification-bell')?.getAttribute('aria-label')==='Notificări, 3 necitite');
+   assert(await bell.locator('span').textContent()==='3','Badge not 3');
+   const red=await bell.locator('span').evaluate(e=>getComputedStyle(e).backgroundColor);assert(red==='rgb(220, 38, 38)','Badge not red: '+red);
+   const other=await browser.newContext();await other.addCookies(await context.cookies());const tab=await other.newPage();await tab.goto(origin+'/');await tab.waitForFunction(()=>document.querySelector('.notification-bell')?.getAttribute('aria-label')==='Notificări, 3 necitite');
+-  for(const width of [320,390,430,1280]){
++  for(const width of [350,360,375,390,430,1280]){
+     await page.setViewportSize({width,height:850});await bell.click();await page.locator('.notification-inbox').waitFor({state:'visible'});await page.waitForLoadState('networkidle');
+     assert((await notification()).unread===3,'Opening bell read notifications');
+     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth&&document.querySelector('.notification-inbox').scrollWidth<=document.querySelector('.notification-inbox').clientWidth),'Panel overflow '+width);
+@@ -35,34 +93,81 @@ const qa=String.raw`
+     await page.keyboard.press('Tab');assert(await page.evaluate(()=>document.querySelector('.notification-inbox').contains(document.activeElement)),'Dialog focus escaped');
+     await page.screenshot({path:artifactDirectory+'/inbox-'+width+'.png'});await page.keyboard.press('Escape');await page.locator('.notification-inbox').waitFor({state:'hidden'});assert(await bell.evaluate(e=>e===document.activeElement),'Focus not restored');
+   }
+-  await page.setViewportSize({width:390,height:850});await bell.click();await page.getByRole('button',{name:/Cafea după ore.*Vezi opțiunile/}).click();
++  await page.setViewportSize({width:390,height:850});await bell.click();await page.waitForLoadState('networkidle');
++  const notificationEndpoint=origin+'/api/notifications';
++  await page.route(notificationEndpoint,async route=>{
++    if(route.request().method()==='POST')return route.fulfill({status:503,contentType:'application/json',body:'{}'});
++    return route.continue();
++  });
++  await page.getByRole('button',{name:/Cafea după ore.*Deschide/}).click();
++  await page.getByText('Nu am putut deschide acum. Încearcă din nou.',{exact:true}).waitFor();
++  assert(await page.locator('.notification-inbox').isVisible(),'Primary failure closed inbox');
++  assert((await notification()).unread===3,'Primary failure marked item read');
++  await page.unroute(notificationEndpoint);
++  let acknowledged=false,secondaryReads=0;
++  await page.route(notificationEndpoint,async route=>{
++    if(route.request().method()==='POST'){const response=await route.fetch();acknowledged=true;return route.fulfill({response});}
++    if(acknowledged){secondaryReads++;return route.fulfill({status:503,contentType:'application/json',body:'{}'});}
++    return route.continue();
++  });
++  await page.getByRole('button',{name:/Cafea după ore.*Deschide/}).click();
+   await page.waitForURL('**/simulator/eveniment/'+events[0].id);await page.locator('.sim-choice-card').first().waitFor();assert((await notification()).unread===2,'Click did not decrement 3 to 2');
++  assert(secondaryReads===0,'Navigation required a secondary GET');await page.unroute(notificationEndpoint);
++  report.checks.push('Primary acknowledgement failure keeps inbox and unread; successful POST navigates with subsequent GET unavailable');
+   await page.goto(origin+'/');await bell.waitFor();await page.waitForFunction(()=>document.querySelector('.notification-bell')?.getAttribute('aria-label')==='Notificări, 2 necitite');
+-  await bell.click();await page.getByRole('button',{name:'Marchează toate ca citite',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.notification-bell>span'));
+-  assert(await page.getByRole('button',{name:'Marchează toate ca citite',exact:true}).count()===0,'Read-all still visible');await page.keyboard.press('Escape');await page.reload();await bell.waitFor();assert((await notification()).unread===0,'Read lost on refresh');
++  await bell.click();await page.getByRole('button',{name:'Marchează citite',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.notification-bell>span'));
++  assert(await page.getByRole('button',{name:'Marchează citite',exact:true}).count()===0,'Read-all still visible');await page.keyboard.press('Escape');await page.reload();await bell.waitFor();assert((await notification()).unread===0,'Read lost on refresh');
+   await tab.evaluate(()=>window.dispatchEvent(new Event('focus')));await tab.waitForFunction(()=>document.querySelector('.notification-bell')?.getAttribute('aria-label')==='Notificări');assert((await tab.request.get(origin+'/api/notifications').then(r=>r.json())).unread===0,'Cross-device read state stale');
+-  report.checks.push('Red 3 / open stays 3 / click becomes 2 / mark-all hides badge / refresh / separate device focus / future excluded / keyboard / 320,390,430,1280');
++  report.checks.push('Red 3 / open stays 3 / click becomes 2 / mark-all hides badge / refresh / separate device focus / future excluded / keyboard / 350,360,375,390,430,1280');
+   await other.close(); // Dev time controls are per-device cookies; finish cross-device QA before advancing them.
+   await api('dev/events',{minutes:60});state=await notification();
+-  for(const e of events){const n=state.items.find(i=>i.eventId===e.id);assert(n?.status==='missed'&&!n.readAt&&n.body.startsWith('Simulatorul a ales:')&&n.amount!==null&&!n.expiresAt,'Missing automatic result '+e.title);}
+-  const missed=state.items.find(i=>i.eventId===events[0].id);await page.reload();await page.waitForLoadState('networkidle');await bell.click();await page.waitForLoadState('networkidle');await page.getByRole('button',{name:/Cafea după ore.*Ratată.*Vezi ce s-a întâmplat/}).click();await page.waitForURL('**/simulator/eveniment/'+events[0].id);await page.getByRole('heading',{name:'Simulatorul a ales',exact:true}).waitFor();assert(await page.locator('.sim-choice-card').count()===0,'Missed route still allows decisions');await page.screenshot({path:artifactDirectory+'/missed-result-390.png'});
++  for(const e of events){const n=state.items.find(i=>i.eventId===e.id);assert(n?.status==='missed'&&!n.readAt&&n.body.startsWith('SimLife a ales:')&&n.amount!==null&&!n.expiresAt,'Missing automatic result '+e.title);}
++  const missed=state.items.find(i=>i.eventId===events[0].id);await page.reload();await page.waitForLoadState('networkidle');await bell.click();await page.waitForLoadState('networkidle');await page.getByRole('button',{name:/Cafea după ore.*Ratată.*Detalii/}).click();await page.waitForURL('**/simulator/eveniment/'+events[0].id);await page.getByRole('heading',{name:'SimLife a ales',exact:true}).waitFor();assert(await page.locator('.sim-choice-card').count()===0,'Missed route still allows decisions');await page.screenshot({path:artifactDirectory+'/missed-result-390.png'});
+   state=await notification();await notification({id:missed.id,version:missed.availableAt});state=await notification();assert(state.items.find(i=>i.id===missed.id).readAt,'Repeated catch-up reset read result');
+   const count=(await db.query('select target_id,count(*) from sim_notifications where user_id=$1 and target_kind=\'event\' and obsolete_at is null group by target_id having count(*)>1',[userId])).rows;assert(count.length===0,'Duplicate logical event records');
+   report.checks.push('Read active then automatic becomes unread again / missed option and cost / read-only deep link / repeated sync dedup');
+-  await notification({});const manual=await fixture('Plimbare după cursuri');await notification();await page.goto(origin+'/');await page.waitForLoadState('networkidle');await bell.click();await page.waitForLoadState('networkidle');await page.getByRole('button',{name:/Plimbare după cursuri.*Vezi opțiunile/}).click();await page.getByRole('button',{name:'Rămâi acasă 0 lei',exact:true}).click();await page.getByRole('heading',{name:'Ai ales',exact:true}).waitFor();state=await notification();const resolved=state.items.find(i=>i.eventId===manual.id);assert(resolved.status==='resolved'&&resolved.readAt&&resolved.body==='Ai ales: Rămâi acasă','Manual choice not read history');
++  await notification({});const manual=await fixture('Plimbare după cursuri');await notification();await page.goto(origin+'/');await page.waitForLoadState('networkidle');await bell.click();await page.waitForLoadState('networkidle');await page.getByRole('button',{name:/Plimbare după cursuri.*Deschide/}).click();await page.getByRole('button',{name:'Rămâi acasă 0 lei',exact:true}).click();await page.getByRole('heading',{name:'Ai ales',exact:true}).waitFor();state=await notification();const resolved=state.items.find(i=>i.eventId===manual.id);assert(resolved.status==='resolved'&&resolved.readAt&&resolved.body==='Ai ales: Rămâi acasă','Manual choice not read history');
+   await notification({});for(let i=0;i<14;i++)await fixture('O ieșire prin oraș '+(i+1));state=await notification();assert(state.unread===14,'Expected 14 unread');await page.goto(origin+'/');await page.waitForFunction(()=>document.querySelector('.notification-bell')?.getAttribute('aria-label')==='Notificări, 14 necitite');assert(await bell.locator('span').textContent()==='9+','Badge overflow wrong');
+   await page.emulateMedia({reducedMotion:'reduce'});await bell.click();assert(await page.locator('.notification-inbox li>button').first().evaluate(e=>getComputedStyle(e).transitionDuration)==='0s','Reduced motion ignored');await page.screenshot({path:artifactDirectory+'/over-nine-390.png'});
+   await page.keyboard.press('Escape');const switched=await page.request.post(origin+'/api/account/auth',{headers:{origin},data:{action:'login',data:{email:'simulator_b@finly.test',password:'localtestpass'}}});assert(switched.ok(),'Account switch failed');await page.goto(origin+'/');await bell.waitFor();await page.waitForLoadState('networkidle');assert((await notification()).unread===0,'Account A count leaked to B');assert(await bell.locator('span').count()===0,'A badge leaked to B');
+   await bell.click();await page.getByText('Ești la zi.',{exact:true}).waitFor();await page.screenshot({path:artifactDirectory+'/empty-390.png'});
+   report.checks.push('Manual choice read history / 14→9+ exact aria / scrollable long list / reduced motion / account switch / empty state');
++  await page.request.post(origin+'/api/account/auth',{headers:{origin},data:{action:'login',data:{email:'simulator_a@finly.test',password:'localtestpass'}}});
++  await page.goto(origin+'/simulator');await page.getByRole('heading',{name:'SimLife',exact:true}).waitFor();
++  const calendarState=await api('dashboard'),calendarDay=new Date(Date.parse(calendarState.dashboard.currentDay+'T12:00:00Z')+86400000).toISOString().slice(0,10);
++  const clockParts=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Bucharest',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date(calendarState.events.serverNow));
++  const minute=Number(clockParts.find(p=>p.type==='hour').value)*60+Number(clockParts.find(p=>p.type==='minute').value);
++  if(minute<19*60)await api('dev/events',{minutes:19*60-minute});
++  await api('subscriptions',{action:'create',input:{name:'Plată de verificat',amount:'1',nextDueOn:calendarDay,intervalMonths:1,endsOn:null,operationId:crypto.randomUUID()}});
++  await page.goto(origin+'/');await bell.click();await page.getByRole('button',{name:/Plată de verificat.*Detalii/}).click();await page.waitForURL('**/simulator?calendar='+calendarDay);
++  await page.getByRole('heading',{name:'Calendar financiar',exact:true}).waitFor();
++  await page.locator('.sim-calendar-grid button[aria-pressed="true"]').waitFor();
++  assert(await page.locator('.sim-calendar-grid button[aria-pressed="true"]>span').first().textContent()===String(Number(calendarDay.slice(-2))),'Calendar target did not select requested day');
++  await page.getByRole('button',{name:'Închide',exact:true}).click();
++  report.checks.push('Calendar notification acknowledges and opens the requested calendar day');
++  const startingMonth=(await api('dashboard')).dashboard.currentDay.slice(0,7);
++  for(let step=0;step<35&&(await api('dashboard')).dashboard.currentDay.slice(0,7)===startingMonth;step++)await api('dev/clock',{increment:1});
++  await page.reload();const monthly=page.locator('.sim-monthly-dialog');await monthly.waitFor({state:'visible'});
++  let reviewRetryOperation;
++  await page.route(origin+'/api/simulator/monthly-review',route=>{reviewRetryOperation=route.request().postDataJSON().operationId;return route.fulfill({status:503,contentType:'application/json',body:'{}'});});
++  await monthly.getByRole('button').click();await monthly.getByRole('alert').waitFor();assert(await monthly.getByRole('button').isEnabled(),'Monthly retry stayed locked');
++  await page.unroute(origin+'/api/simulator/monthly-review');
++  let monthlyPosts=0;page.on('request',request=>{if(request.method()==='POST'&&request.url()===origin+'/api/simulator/monthly-review'){monthlyPosts++;assert(request.postDataJSON().operationId===reviewRetryOperation,'Monthly retry changed operationId');}});
++  await monthly.getByRole('button').evaluate(button=>{button.click();button.click();});await monthly.waitFor({state:'hidden'});assert(monthlyPosts===1,'Double monthly acknowledgement');
++  report.checks.push('Month close fixture, recoverable acknowledgement failure, double-click finalizes once and modal closes');
+   assert(report.errors.length===0,'Browser errors: '+report.errors.join('; '));assert(report.providerErrors.length===0,'Provider errors: '+report.providerErrors.join('; '));fs.writeFileSync(artifactDirectory+'/report.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
+ }catch(error){report.failure=error.message;fs.mkdirSync(artifactDirectory,{recursive:true});fs.writeFileSync(artifactDirectory+'/report.json',JSON.stringify(report,null,2));if(page)await page.screenshot({path:artifactDirectory+'/failure.png'}).catch(()=>{});throw error;}
+ finally{if(browser)await browser.close();if(next){const p=spawn('taskkill',['/PID',String(next.pid),'/T','/F'],{stdio:'ignore',windowsHide:true});await new Promise(r=>p.on('close',r));}await new Promise(r=>server.close(r));await db.close();}
+ `;
+ driver=driver.slice(0,start)+'source += String.raw`'+qa+driver.slice(end);
++const onboardingStart="  await page.getByRole('heading', { name: 'Începe viața pe cont propriu' }).waitFor();";
++const onboardingEnd="  await page.getByRole('heading', { name: 'Evenimentele de azi' }).waitFor();";
++driver=driver.replace('source += String.raw`',`source=source.slice(0,source.indexOf(${JSON.stringify(onboardingStart)}))+${JSON.stringify("  await page.getByRole('heading',{name:'Cum începi?',exact:true}).waitFor();\n  for(const label of ['Sunt la liceu','Cu părinții / familia','Mai mult pe jos']){await page.getByRole('button',{name:label,exact:true}).click();await page.getByRole('button',{name:'Continuă',exact:true}).click();}\n  await page.getByRole('button',{name:'Începe simularea',exact:true}).click();\n")}+source.slice(source.indexOf(${JSON.stringify(onboardingEnd)}));\nsource += String.raw\``);
+ driver=driver.replaceAll('simulator-chapter-eight','notification-center').replaceAll('.next-ch8-','.next-inbox-').replaceAll('3155','3185').replaceAll('3156','3186');
+ driver=driver.replace("'0009_simulator_notifications.sql']", "'0009_simulator_notifications.sql','0010_simulator_decision_policy.sql','0011_streak_freeze_moments.sql']");
+ const accountRpcs="        apply_streak_progress_mutation: ['select public.apply_streak_progress_mutation($1,$2,$3,$4,$5::jsonb,$6::jsonb,$7,$8,$9::jsonb) as result',[body.p_user,body.p_operation,body.p_type,body.p_revision,JSON.stringify(body.p_state),JSON.stringify(body.p_result),body.p_streak,body.p_longest,JSON.stringify(body.p_moments)]],\n        claim_streak_moments: ['select public.claim_streak_moments($1,$2) as result',[body.p_user,body.p_claim]],\n        acknowledge_streak_moments: ['select public.acknowledge_streak_moments($1,$2,$3) as result',[body.p_user,body.p_claim,body.p_ids]],\n        read_account_progress:";
+ driver=driver.replace('source += String.raw`',`source = source.replace("        read_account_progress:", ${JSON.stringify(accountRpcs)});\n// Turbopack avoids Windows webpack dev-manifest writes racing full navigations.\nsource = source.replace("...(lifeMode?[]:['--webpack']),", "");\nsource += String.raw\``);
+ driver=driver.replace('        finalize_simulator_month:',"        upgrade_simulator_decisions: ['select public.upgrade_simulator_decisions($1,$2,$3,$4,$5,$6,$7::jsonb) as result',[body.p_user,body.p_run,body.p_expected,body.p_day,body.p_now,body.p_development,JSON.stringify(body.p_policy)]],\n        finalize_simulator_month:");
++driver=driver.replace('        upgrade_simulator_decisions:',"        upgrade_simulator_daily_floor: ['select public.upgrade_simulator_daily_floor($1,$2,$3,$4,$5,$6,$7::jsonb) as result',[body.p_user,body.p_run,body.p_expected,body.p_day,body.p_now,body.p_development,JSON.stringify(body.p_policy)]],\n        upgrade_simulator_decisions:");
++driver=driver.replace("'0011_streak_freeze_moments.sql']","'0011_streak_freeze_moments.sql','0012_simulator_savings_goal.sql','0013_simulator_daily_floor.sql']");
+ const entry=path.resolve('artifacts/notification-center/browser-driver.mjs');fs.mkdirSync(path.dirname(entry),{recursive:true});fs.writeFileSync(entry,driver);await import(pathToFileURL(entry).href);

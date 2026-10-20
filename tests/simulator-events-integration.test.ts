@@ -39,6 +39,9 @@ describe('Chapter 3 actual PostgreSQL atomic engine and private APIs', () => {
   await db.exec(readFileSync('supabase/migrations/0005_simulator_consequences.sql','utf8'));
   for(const migration of ['0006_simulator_subscriptions.sql','0007_simulator_life_catalog.sql','0008_simulator_monthly_reviews.sql','0010_simulator_decision_policy.sql'])await db.exec(readFileSync(`supabase/migrations/${migration}`,'utf8'));
   mock.rpc.mockImplementation(async (name: string, args: Record<string, unknown>) => {
+
+   // This historical fixture installs migrations through 0010: mirror PostgREST's missing-RPC response.
+   if(name==='upgrade_simulator_daily_floor')return {data:null,error:{code:'PGRST202',message:'Daily floor migration not installed in historical fixture'}};
    const keys = signatures[name]; if (!keys) throw new Error(`Unknown RPC ${name}`);
    const parameters = keys.map(k => typeof args[k] === 'object' && args[k] !== null ? JSON.stringify(args[k]) : k === 'p_operations' && args[k] === undefined ? '[]' : args[k]);
    try { const result = await db.query<{ result: unknown }>(`select public.${name}(${keys.map((_,i)=>`$${i+1}`).join(',')}) as result`, parameters); return { data: result.rows[0]?.result ?? null, error: null }; }

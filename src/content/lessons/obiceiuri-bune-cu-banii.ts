@@ -283,27 +283,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Un obicei este mai ușor de repetat când are un declanșator clar, un pas mic și o verificare.",
+          "body": "Un pas mic, legat de un moment clar, este mai ușor de repetat.",
           "detail": "Lia schimbă ora revizuirii când nu o poate respecta, păstrând verificarea simplă. O bifă fără plățile reale nu ajută decizia; urmărește dacă sistemul actualizează disponibilul.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "verificarea",
+            "plățile"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Lia stabilește ca duminică să verifice zece minute plățile săptămânii. Notează ce lipsește și actualizează disponibilul.",
-          "type": "normal"
+          "body": "Verificarea ajută dacă actualizează plățile și disponibilul.",
+          "type": "normal",
+          "detail": "O verificare săptămânală ajută numai dacă include plățile reale și actualizează banii rămași.",
+          "detailHighlights": [
+            "plățile",
+            "banii"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Automatizarea poate ajuta, dar trebuie adaptată la venitul și scadențele reale.",
-          "type": "normal"
+          "body": "Adaptează automatizările la veniturile și scadențele reale.",
+          "type": "normal",
+          "detail": "Un transfer automat poate avea loc înainte de încasare dacă datele se schimbă. Verifică periodic calendarul.",
+          "detailHighlights": [
+            "încasare",
+            "datele"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Alege un pas de cinci minute și un moment concret pentru o verificare săptămânală.",
-          "type": "action"
+          "type": "action",
+          "detail": "Leagă verificarea de un moment pe care îl poți respecta și alege un pas atât de mic încât să îl poți repeta.",
+          "detailHighlights": [
+            "verificarea"
+          ]
         }
       ]
     },

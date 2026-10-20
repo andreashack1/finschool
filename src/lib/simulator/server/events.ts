@@ -41,6 +41,12 @@ export async function syncSimulatorThrough(userId: string, clock: SimulatorClock
     if(upgraded)loaded=upgraded;
     if(!loaded.engine)throw new SimulatorError('SIMULATOR_CONFLICT',409);
     if(upgraded && loaded.engine.policyVersion===2)continue;
+    if(loaded.engine.policyVersion!==4 && dayKey(now)>='2026-10-16'){
+      const upgrade=await db.rpc('upgrade_simulator_daily_floor',{p_user:userId,p_run:loaded.run.id,p_expected:loaded.revision,p_day:dayKey(now),p_now:now.toISOString(),p_development:process.env.NODE_ENV==='development',p_policy:jsonSchema.parse(eventPolicy(4))});
+      // Missing migration keeps the persisted engine available during rollout.
+      if(upgrade.error && upgrade.error.code!=='PGRST202')throw new SimulatorError('SIMULATOR_UNAVAILABLE',503);
+      if(!upgrade.error)continue;
+    }
     const result = synchronizeEvents({ ...loaded, engine: loaded.engine }, now, eventCatalog(loaded.engine.catalogVersion), process.env.NODE_ENV === 'development', new Date().toISOString(),eventCatalog);
     const changed = result.newEntries.length || result.newInstances.length || result.resolutions.length || result.cancellations.length || result.plannedDays.length || result.closedDays.length || result.engine.processedAt !== loaded.engine.processedAt;
     if (!changed) { await finalizeClosedMonths(userId,loaded,clock,db); const saved=await loadRun(userId,db); return saved && { ...saved, caughtUp: result.caughtUp }; }
@@ -77,7 +83,7 @@ export async function activateEvents(userId: string, profile: ScheduleProfile, c
 export function eventArea(loaded: NonNullable<Awaited<ReturnType<typeof syncSimulatorThrough>>>, clock: SimulatorClock) {
   const now = effectiveNow(clock), targetDay = dayKey(now), engine = loaded.engine;
   const balance = calculateBalance(loaded.ledger), caughtUp = loaded.caughtUp;
-  const visible = loaded.instances.filter(e => e.scheduledAt <= now.toISOString());
+  const visible = loaded.instances.filter(e => e.scheduledAt <= now.toISOString()).sort((a,b)=>a.scheduledAt.localeCompare(b.scheduledAt)||a.generationKey.localeCompare(b.generationKey));
   const midnight = nextLocalMidnight(targetDay).toISOString();
   const nextRefreshAt=[midnight,...loaded.instances.filter(e=>e.status==='pending').flatMap(e=>[e.scheduledAt,e.expiresAt])].filter(at=>at>now.toISOString()).sort()[0];
   return eventAreaSchema.parse({ serverNow:now.toISOString(), engineStatus: engine ? 'active' : 'needs_profile', profile: engine?.scheduleProfile ?? null, revision: loaded.revision,

@@ -285,25 +285,44 @@ export const lesson: ReadyLesson = {
           "title": "Diferență",
           "body": "Scade economiile dedicate din țintă.",
           "detail": "Pentru laptopul de 1.800 lei, cei 600 lei dedicați lasă 1.200 lei de strâns. Nu include în aceeași sumă și banii rezervați drumului la familie.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "banii",
+            "sumă"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Ritm",
           "body": "Împarte ce lipsește la perioadele disponibile.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Ritmul se calculează din suma rămasă, nu din prețul întreg dacă ai economii deja separate.",
+          "detailHighlights": [
+            "economii",
+            "prețul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Revizuire",
           "body": "Actualizează costul, termenul și utilitatea.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un termen nou sau un preț schimbat cer recalcularea planului. Nu tratezi estimarea veche ca promisiune.",
+          "detailHighlights": [
+            "estimarea",
+            "termen"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pentru un obiectiv, calculează ce lipsește și contribuția periodică într-un scenariu fără randament promis.",
-          "type": "action"
+          "type": "action",
+          "detail": "Scrie și unde păstrezi suma, separat de banii de consum, ca să poți urmări progresul fără dublă numărare.",
+          "detailHighlights": [
+            "banii",
+            "suma"
+          ]
         }
       ]
     },

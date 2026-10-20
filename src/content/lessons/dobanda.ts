@@ -286,27 +286,43 @@ export const lesson: ReadyLesson = {
           "title": "Rolul tău",
           "body": "Dobânda poate fi cost sau venit.",
           "detail": "La depozit, instituția poate plăti dobândă pentru suma păstrată. La împrumut, tu o plătești pentru folosirea banilor altcuiva; aceeași cifră poate descrie sensuri opuse.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "instituția",
+            "împrumut"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Perioada",
           "body": "Lunar și anual nu sunt echivalente.",
           "detail": "O ofertă de 5% pe lună descrie alt interval decât una de 5% pe an. Adu ofertele la aceeași durată și aceeași sumă înainte să compari rezultatul.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "sumă"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Condiții",
           "body": "Verifică baza, costurile și accesul la bani.",
           "detail": "Comisionul și calendarul rambursării pot schimba costul unui împrumut. Pentru economii, verifică și ce se întâmplă dacă ai nevoie de sumă înainte de scadență.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "comisionul",
+            "scadență"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Găsește într-o ofertă informativă perioada și baza dobânzii, fără să deschizi un produs.",
-          "type": "action"
+          "type": "action",
+          "detail": "Notează dacă procentul este anual sau lunar și dacă oferta include comisioane. Fără aceste date, două cifre asemănătoare nu sunt comparabile.",
+          "detailHighlights": [
+            "comisioane",
+            "procentul"
+          ]
         }
       ]
     },

@@ -292,27 +292,44 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Un job part-time are un timp de muncă mai mic decât norma întreagă comparabilă.",
+          "body": "Un job part-time trebuie să încapă și în programul tău de studiu.",
           "detail": "Patru ore de lucru pot ocupa alte intervale și pot cere navetă. Daria verifică zilele și schimbările programului, nu doar totalul de ore, înainte să confirme compatibilitatea cu facultatea.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "compatibilitatea",
+            "totalul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Daria are cursuri dimineața și compară două oferte: patru ore după-amiaza sau un program variabil. Prima pare compatibilă, dar verifică zilele și naveta.",
-          "type": "normal"
+          "body": "Compară venitul împreună cu orele și transportul necesar.",
+          "type": "normal",
+          "detail": "Două oferte pe lună pot presupune un număr diferit de ore. Compară și timpul necesar pe drum.",
+          "detailHighlights": [
+            "ore"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Mai puține ore în contract nu înseamnă disponibilitate nelimitată în restul zilei.",
-          "type": "normal"
+          "body": "Un salariu mai mare nu compensează automat un program imposibil.",
+          "type": "normal",
+          "detail": "Programul care se suprapune cu orele sau examenele poate avea un cost pe care salariul afișat nu îl arată.",
+          "detailHighlights": [
+            "programul",
+            "cost"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Desenează o săptămână cu ore de curs, navetă și un program part-time posibil.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pune orele de lucru, cursurile și transportul într-o săptămână obișnuită înainte să compari ofertele.",
+          "detailHighlights": [
+            "transportul"
+          ]
         }
       ]
     },

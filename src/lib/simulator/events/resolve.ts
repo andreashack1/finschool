@@ -25,7 +25,7 @@ export function publicEvent(instance: EventInstance, balance: MoneyBani, instanc
 }
 export function cancelIrrelevantEvent(instance: EventInstance, state: ConsequenceState, at: string): EventInstance | null {
   if (instance.status !== 'pending' || instance.scheduledAt > at) return null;
-  if(instance.generationKey.startsWith('v2:p3:')&&instance.snapshot.relevance?.length){
+  if((instance.generationKey.startsWith('v2:p3:') || instance.generationKey.startsWith('v3:p4:'))&&instance.snapshot.relevance?.length){
     // First canonical invalidation, not the time a worker happens to observe it.
     // A later restoration must not resurrect an opportunity already cancelled.
     const boundaries=[instance.scheduledAt,...state.operations.map(o=>o.effectiveAt),...state.effects.flatMap(e=>[e.startsAt,e.expiresAt,...(e.endedAt?[e.endedAt]:[])])];

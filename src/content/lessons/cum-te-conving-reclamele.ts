@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Observă tehnica",
           "body": "Popularitatea, asocierea și urgența pot influența.",
           "detail": "Creatorul poate demonstra produsul cu un telefon diferit de al tău. Aprecierea lui nu confirmă compatibilitatea; verifică specificațiile și costurile pentru utilizarea ta.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "compatibilitatea",
+            "utilizarea"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Separă dovezile",
           "body": "Creatorul apreciat nu garantează potrivirea.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un creator poate primi bani pentru promovare și poate avea alte nevoi decât tine. Caută specificațiile separat.",
+          "detailHighlights": [
+            "promovare",
+            "bani"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Reformulează",
           "body": "Pune oferta în termeni neutri și verificabili.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Transformă «ofertă incredibilă» în întrebări despre preț, compatibilitate și costuri. Așa rămân lucruri pe care le poți verifica.",
+          "detailHighlights": [
+            "costuri",
+            "preț"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Alege o reclamă și notează o tehnică de persuasiune și o informație pe care ai verifica-o separat.",
-          "type": "action"
+          "type": "action",
+          "detail": "Alege un fapt din reclamă și caută-l în documentația produsului, fără să pornești de la linkul de cumpărare.",
+          "detailHighlights": [
+            "produsului"
+          ]
         }
       ]
     },

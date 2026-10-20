@@ -292,27 +292,43 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "CAS este contribuția de asigurări sociale, legată de sistemul de pensii, iar CASS privește asigurările sociale de sănătate.",
+          "body": "Reținerile din salariu au roluri și baze de calcul diferite.",
           "detail": "Sorin folosește liniile deja calculate ale documentului fictiv înainte să compare rezultatul cu procentele memorate. Baza impozitului poate diferi de brut, iar exemplul nu stabilește reguli universale.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "procentele",
+            "brut"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Pe un document fictiv sunt deja calculate un brut de 8.000 lei, CAS de 2.000, CASS de 800 și impozit de 520. Netul este 8.000 minus cele trei rețineri: 4.680 lei.",
-          "type": "normal"
+          "body": "Nu aduna procente înainte să verifici baza fiecăruia.",
+          "type": "normal",
+          "detail": "Reținerile pot avea baze și roluri diferite. Nu aduna procente fără să verifici la ce se aplică fiecare.",
+          "detailHighlights": [
+            "reținerile"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "CASS și CAS au denumiri apropiate, dar destinații diferite.",
-          "type": "normal"
+          "body": "Un exemplu de calcul nu înlocuiește regulile fiscale actuale.",
+          "type": "normal",
+          "detail": "O regulă dintr-un exercițiu nu confirmă situația fiscală actuală a oricărei persoane.",
+          "detailHighlights": [
+            "situația fiscală"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe cifrele fictive din lecție, calculează netul și explică separat rolul CAS și CASS.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pe un exemplu, leagă fiecare reținere de baza ei și verifică perioada documentului înainte de comparație.",
+          "detailHighlights": [
+            "perioada"
+          ]
         }
       ]
     },

@@ -1,0 +1,72 @@
+{
+  "mode": "local Next + actual PostgreSQL migration; simulated Auth provider",
+  "viewports": [
+    {
+      "width": 390,
+      "overflow": false,
+      "rows": [
+        68.00006103515625,
+        68
+      ],
+      "height": 1922,
+      "carousel": true
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "rows": [
+        68,
+        78.28125
+      ],
+      "height": 1956,
+      "carousel": true
+    },
+    {
+      "width": 360,
+      "overflow": false,
+      "rows": [
+        68,
+        78.28125
+      ],
+      "height": 2004,
+      "carousel": true
+    },
+    {
+      "width": 350,
+      "overflow": false,
+      "rows": [
+        68,
+        78.28125
+      ],
+      "height": 2003,
+      "carousel": true
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "rows": [
+        68,
+        68
+      ],
+      "height": 1413,
+      "carousel": true
+    }
+  ],
+  "checks": [
+    "Rendered 1 recommendations from intercepted QA progress",
+    "Rendered 0 recommendations from intercepted QA progress"
+  ],
+  "errors": [],
+  "apiFailures": [],
+  "providerFailures": [
+    "23502",
+    "23502",
+    "23502",
+    "23502",
+    "23502",
+    "23502",
+    "23502",
+    "23502",
+    "23502"
+  ]
+}

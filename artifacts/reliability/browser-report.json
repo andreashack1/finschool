@@ -1,0 +1,18 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Login, schedule setup, Chapter 2 dashboard retained, monthly card replaced",
+    "Home primary/category/profile/SimLife; full lesson keyboard answers, completion double-click and replay; profile dialog/reset link; calendar/subscription/goal sheets at 350/360/375/390/430/1280",
+    "Independent notification preferences; failed save rolls back; offline calendar remains closable",
+    "Subscription double-click commits once; failed secondary dashboard read does not trap form or report save failure",
+    "Daily challenge server rejection has retry feedback; double-click retry completes once",
+    "Primary acknowledgement failure keeps inbox and unread; successful POST navigates with subsequent GET unavailable",
+    "Red 3 / open stays 3 / click becomes 2 / mark-all hides badge / refresh / separate device focus / future excluded / keyboard / 320,390,430,1280",
+    "Read active then automatic becomes unread again / missed option and cost / read-only deep link / repeated sync dedup",
+    "Manual choice read history / 14→9+ exact aria / scrollable long list / reduced motion / account switch / empty state",
+    "Calendar notification acknowledges and opens the requested calendar day",
+    "Month close fixture, recoverable acknowledgement failure, double-click finalizes once and modal closes"
+  ],
+  "errors": [],
+  "providerErrors": []
+}

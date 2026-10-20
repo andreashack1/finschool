@@ -1,0 +1,13 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Login, schedule setup, Chapter 2 dashboard retained, monthly card replaced",
+    "Read failure preserves unread/history; busy control remains, disables and prevents duplicates; retry enabled",
+    "Red 3 / open stays 3 / click becomes 2 / mark-all hides badge / refresh / separate device focus / future excluded / keyboard / 390,375,360,350,1280",
+    "Zero unread hides action and dots; mark-read preserves all history; gear closes dialog and scrolls to profile anchor; daily fact stable on refresh and second device, mascot retained",
+    "Read active then automatic becomes unread again / missed option and cost / read-only deep link / repeated sync dedup",
+    "Manual choice read history / 14→9+ exact aria / scrollable long list / reduced motion / account switch / empty state"
+  ],
+  "errors": [],
+  "providerErrors": []
+}

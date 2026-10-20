@@ -285,25 +285,44 @@ export const lesson: ReadyLesson = {
           "title": "Identificator",
           "body": "IBAN-ul identifică un cont, nu parola.",
           "detail": "Un cont poate avea un identificator valid fără să aparțină destinatarului așteptat. Confirmă separat schimbarea neașteptată a IBAN-ului și nu oferi coduri pentru o simplă încasare.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "încasare",
+            "coduri"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Coduri separate",
           "body": "Nu comunica credențiale pentru a primi bani.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Pentru încasare nu trebuie să dai parola aplicației sau codul care autorizează o operațiune.",
+          "detailHighlights": [
+            "operațiune",
+            "încasare"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Destinatar",
           "body": "Formatul valid nu confirmă autenticitatea cererii.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un IBAN cu format corect nu dovedește cui aparține contul. Confirmă separat schimbările neașteptate ale destinatarului.",
+          "detailHighlights": [
+            "contul",
+            "IBAN"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Deschide aplicația băncii și găsește unde este afișat IBAN-ul tău, fără să îl trimiți nimănui.",
-          "type": "action"
+          "type": "action",
+          "detail": "Găsește IBAN-ul în aplicația oficială și observă moneda contului. Nu îl confunda cu numărul de pe card.",
+          "detailHighlights": [
+            "moneda",
+            "IBAN"
+          ]
         }
       ]
     },

@@ -285,26 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Operațiunea",
           "body": "Tarifele diferă între servicii.",
           "detail": "Un transfer gratuit nu stabilește tariful retragerilor. Caută costul pentru operațiunea, moneda și canalul pe care le folosești.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "operațiunea",
+            "tariful"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Praguri",
           "body": "Un minimum poate depăși procentul.",
           "detail": "La tariful ipotetic de 1%, minimum 5 lei, o retragere de 100 lei costă 5 lei. Patru retrageri separate costă 20 lei, fiindcă minimumul se aplică de fiecare dată.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "retragere",
+            "tariful"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Frecvență",
           "body": "Costurile mici pe operațiune se adună.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Mai multe retrageri pot genera mai multe comisioane fixe. Calculează după frecvența ta reală, fără să retragi inutil bani în plus.",
+          "detailHighlights": [
+            "comisioane",
+            "frecvența"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Găsește tariful unei operațiuni pe care o folosești și verifică dacă are cost fix, procent sau minimum.",
-          "type": "action"
+          "type": "action",
+          "detail": "Notează și canalul operațiunii: tariful din aplicație poate diferi de cel de la ghișeu sau de la alt bancomat.",
+          "detailHighlights": [
+            "tariful"
+          ]
         }
       ]
     },

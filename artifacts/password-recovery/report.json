@@ -1,0 +1,13 @@
+{
+  "mode": "local Next + actual PostgreSQL migration; simulated Auth provider",
+  "viewports": [],
+  "checks": [
+    "Browser A reset request → Browser B prefetch GET does not consume token → form → submit-only verifyOtp",
+    "Persistent reset cooldown and matching password validation; 320/390/430px",
+    "Real update endpoint → simulated Auth update → session remains → direct home",
+    "Consumed cookie denied; logout; old password rejected; new password accepted; used link shows recovery error"
+  ],
+  "errors": [],
+  "apiFailures": [],
+  "providerFailures": []
+}

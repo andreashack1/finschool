@@ -72,7 +72,7 @@ Numai luni complete și consecutive, pe aceeași categorie normalizată. Categor
 
 ## 14. Fini UX
 
-Folosește `FinlyMascot`, asset-ul existent `fini-head-thinking.svg`. Un singur panel: header, trei cifre, maximum cinci categorii, maximum trei observații, un CTA. Titlul primește focus la deschidere, cu scroll la început. CTA: „Vezi luna următoare” când există alte review-uri, apoi „Începe luna următoare”. Eșecul de rețea păstrează panelul și același operationId pentru retry.
+Folosește `FinlyMascot`, asset-ul canonic V2 prin `framing="head" mood="thinking"`. Un singur panel: header, trei cifre, maximum cinci categorii, maximum trei observații, un CTA. Titlul primește focus la deschidere, cu scroll la început. CTA: „Vezi luna următoare” când există alte review-uri, apoi „Începe luna următoare”. Eșecul de rețea păstrează panelul și același operationId pentru retry.
 
 ## 15. Mobile
 

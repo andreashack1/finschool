@@ -45,6 +45,9 @@ describe('Chapter 5 real PostgreSQL atomic subscription operations / run CAS / R
    create trigger qa_fail_ledger before insert on public.sim_ledger for each row execute function public.qa_subscription_failure();
    create trigger qa_fail_cursor before update on public.sim_subscriptions for each row execute function public.qa_subscription_failure();`);
   mock.rpc.mockImplementation(async(name:string,args:Record<string,unknown>)=>{
+   // This historical fixture installs migrations through 0010: mirror PostgREST's missing-RPC response.
+   if(name==='upgrade_simulator_daily_floor')return {data:null,error:{code:'PGRST202',message:'Daily floor migration not installed in historical fixture'}};
+
    const keys=signatures[name],params=keys.map(k=>args[k]===undefined?(k==='p_operations'||k==='p_subscriptions'?'[]':null):args[k]!==null && typeof args[k]==='object'?JSON.stringify(args[k]):args[k]);
    try {const result=await db.query<{result:unknown}>(`select public.${name}(${keys.map((_,i)=>`$${i+1}`).join(',')}) as result`,params);return {data:result.rows[0]?.result??null,error:null};}
    catch(error){return {data:null,error};}

@@ -15,8 +15,19 @@ const note = z.object({ title: text.optional(), text });
 const mood = FiniMessageSchema.shape.mood;
 export const normalizeTakeaway = (value: string) => value.toLocaleLowerCase("ro-RO").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
 export function isCopiedTakeaway(summary: string, detail: string) {
-  const a = normalizeTakeaway(summary), b = normalizeTakeaway(detail);
+  const a = normalizeTakeaway(summary), b = normalizeTakeaway(detail).replace(/^(?:ține minte|de reținut|reține|nu uita|pe scurt|important)\s+/u, '');
   if (a === b) return true;
+  const left = a.split(' '), right = b.split(' ');
+  if (left.length >= 7 && Math.abs(left.length-right.length) <= 5) {
+    // Token edit distance catches tiny substitutions/prefixes, not shared jargon.
+    let row = right.map((_,i)=>i+1); row.unshift(0);
+    for (let i=1;i<=left.length;i++) {
+      const next=[i];
+      for(let j=1;j<=right.length;j++) next[j]=Math.min(next[j-1]+1,row[j]+1,row[j-1]+(left[i-1]===right[j-1]?0:1));
+      row=next;
+    }
+    if(row[right.length]<=Math.max(2,Math.floor(left.length*.2)))return true;
+  }
   // Catch a copied sentence with a short label/prefix, without rejecting a
   // genuine elaboration that naturally reuses the financial vocabulary.
   return a.length > 0 && b.includes(a) && b.split(" ").length - a.split(" ").length <= 5;
@@ -32,10 +43,12 @@ export const CaseScreenSchema = z.object({ type: z.literal("caz_real"), ...base,
   const result = countedText(120, 200, `Case "${screen.caseId}"`).safeParse(screen.paragraphs.join(" "));
   if (!result.success) for (const issue of result.error.issues) ctx.addIssue({ code: "custom", message: issue.message });
 });
-export const RememberScreenSchema = z.object({ type: z.literal("tine_minte"), ...base, finiMood: mood.optional(), items: z.array(z.object({ id: text, title: text, body: text, detail: text.optional(), type: z.enum(["normal", "action"]).default("normal") })).min(4).max(6) }).superRefine((screen, ctx) => {
+export const RememberScreenSchema = z.object({ type: z.literal("tine_minte"), ...base, finiMood: mood.optional(), items: z.array(z.object({ id: text, title: text, body: text, detail: text, detailHighlights: z.array(text).min(1).max(3), type: z.enum(["normal", "action"]).default("normal") })).min(4).max(6) }).superRefine((screen, ctx) => {
   if (screen.items.at(-1)?.title !== "Ce poți face azi" || screen.items.at(-1)?.type !== "action") ctx.addIssue({ code: "custom", message: `Remember screen "${screen.id}" must end with action "Ce poți face azi"` });
   if (new Set(screen.items.map(item => item.id)).size !== screen.items.length) ctx.addIssue({ code: "custom", message: `Remember screen "${screen.id}" has duplicate item IDs` });
   screen.items.forEach((item, index) => {
+    const terms=item.detailHighlights.map(term=>term.toLocaleLowerCase('ro-RO'));
+    if(new Set(terms).size!==terms.length || terms.some(term=>!item.detail.toLocaleLowerCase('ro-RO').includes(term))) ctx.addIssue({code:'custom',path:['items',index,'detailHighlights'],message:'Highlights must be unique phrases present in the detail'});
     if (item.detail && isCopiedTakeaway(item.body, item.detail)) ctx.addIssue({ code: "custom", path: ["items", index, "detail"], message: "Expanded takeaway must add information, not copy its summary" });
   });
 });

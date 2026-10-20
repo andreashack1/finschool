@@ -285,25 +285,42 @@ export const lesson: ReadyLesson = {
           "title": "Roluri",
           "body": "Identificarea și autorizarea sunt diferite.",
           "detail": "O pagină legitimă de plată și un interlocutor din chat pot cere informații cu scopuri diferite. Citește ce autorizează codul și verifică separat o cerere pentru o operațiune neinițiată.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "operațiune",
+            "codul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Canal",
           "body": "Folosește date numai într-o operațiune legitimă verificată.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Introdu date numai pentru o operațiune pe care ai inițiat-o pe un canal verificat. Nu le trimite în chat ca «verificare».",
+          "detailHighlights": [
+            "operațiune"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Reacție",
           "body": "Expunerea merită verificată înainte de o pierdere.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Dacă ai expus date sau coduri, contactează rapid banca prin canalul oficial. Nu aștepta neapărat o plată necunoscută.",
+          "detailHighlights": [
+            "canalul oficial",
+            "coduri"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Verifică unde ai salvat date de plată pe dispozitive comune și elimină salvările inutile prin setările legitime.",
-          "type": "action"
+          "type": "action",
+          "detail": "Verifică și sesiunile sau dispozitivele comune. Eliminarea datelor salvate reduce accesul ulterior al altcuiva.",
+          "detailHighlights": [
+            "accesul"
+          ]
         }
       ]
     },

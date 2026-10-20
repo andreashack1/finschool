@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Sensul",
           "body": "Clarifică moneda dată și moneda primită.",
           "detail": "Cotațiile de cumpărare și vânzare pot fi prezentate din perspectiva instituției. Înainte de confirmare, verifică exact câți lei dai, câți euro primești și ce comision se adaugă.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "confirmare",
+            "euro"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Calcul",
           "body": "Pentru lei/euro înmulțești euro ca să afli lei.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Verifică unitatea cotației înainte să calculezi. Un curs afișat pentru un euro se folosește diferit de unul pentru o sută de unități.",
+          "detailHighlights": [
+            "euro"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Totalul",
           "body": "Compară cursul împreună cu toate costurile.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un curs atractiv poate veni cu un comision fix. Pentru sume mici, acesta poate schimba oferta mai avantajoasă.",
+          "detailHighlights": [
+            "comision fix",
+            "sume"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară informativ două oferte pentru aceeași sumă și notează totalul, fără să faci schimbul.",
-          "type": "action"
+          "type": "action",
+          "detail": "Cere sau simulează suma netă primită pentru aceeași sumă dată, ca să compari oferte în aceeași direcție.",
+          "detailHighlights": [
+            "suma netă",
+            "sumă"
+          ]
         }
       ]
     },

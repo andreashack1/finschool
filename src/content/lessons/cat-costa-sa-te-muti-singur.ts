@@ -288,27 +288,44 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Mutarea presupune costuri inițiale și costuri lunare.",
+          "body": "Mutarea cere bani la început și un buget lunar separat.",
           "detail": "Prima chirie, garanția și mutarea cer 2.700 lei în exemplu, peste economiile de 2.500 ale Teodorei. Totalul lunar se calculează separat, cu utilități, hrană și transport.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "economiile",
+            "garanția"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "În exemplu, chiria este 1.200 lei, garanția 1.200 și mutarea 300. Pentru aceste trei elemente sunt necesari 2.700 lei inițial.",
-          "type": "normal"
+          "body": "Garanția și prima chirie pot trebui plătite împreună.",
+          "type": "normal",
+          "detail": "Garanția, prima chirie și mutarea pot fi necesare înainte de următorul venit. Nu le confunda cu totalul lunar.",
+          "detailHighlights": [
+            "garanția",
+            "totalul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "O chirie accesibilă singură poate deveni dificilă împreună cu toate celelalte costuri.",
-          "type": "normal"
+          "body": "Adaugă hrana, utilitățile și transportul când compari locuințe.",
+          "type": "normal",
+          "detail": "O locuință poate părea accesibilă până adaugi utilitățile, transportul și hrana.",
+          "detailHighlights": [
+            "transportul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Fă un tabel cu costurile de început și cele lunare ale unei mutări fictive.",
-          "type": "action"
+          "type": "action",
+          "detail": "Separă în tabel ce plătești înainte de mutare de ce revine lunar și lasă o rezervă pentru diferențe față de estimare.",
+          "detailHighlights": [
+            "plătești"
+          ]
         }
       ]
     },

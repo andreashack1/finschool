@@ -292,27 +292,43 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Contractul individual de muncă stabilește relația dintre salariat și angajator: funcția, salariul, programul și alte condiții.",
+          "body": "Verifică în scris salariul, programul și ce ai de făcut.",
           "detail": "Alex verifică angajatorul, salariul și data începerii înainte de prima tură. Oferta verbală și denumirea de probă nu înlocuiesc documentele și exemplarul pe care trebuie să îl păstreze.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "documentele",
+            "denumirea"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Alex primește o ofertă verbală pentru un magazin. Înainte de prima tură cere contractul și verifică identitatea angajatorului, funcția, data începerii și salariul brut.",
-          "type": "normal"
+          "body": "Compară ofertele după bani și timp, nu doar după suma afișată.",
+          "type": "normal",
+          "detail": "Un salariu atractiv poate veni cu alt program sau alte responsabilități. Citește oferta împreună cu documentul complet.",
+          "detailHighlights": [
+            "salariu"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Perioada de probă se desfășoară în cadrul contractului; nu este permisiunea de a munci fără documente.",
-          "type": "normal"
+          "body": "Cere clarificări pentru promisiunile care lipsesc din contract.",
+          "type": "normal",
+          "detail": "O promisiune verbală despre bonus nu are aceeași claritate ca o condiție scrisă și verificabilă.",
+          "detailHighlights": [
+            "bonus"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează trei întrebări despre funcție, program și salariul brut pe care le-ai pune înainte de primul job.",
-          "type": "action"
+          "type": "action",
+          "detail": "Notează întrebările despre sumă, program și atribuții înainte să semnezi. Cere explicații pentru formulările neclare.",
+          "detailHighlights": [
+            "sumă"
+          ]
         }
       ]
     },

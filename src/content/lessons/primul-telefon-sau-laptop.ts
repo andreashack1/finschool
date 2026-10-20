@@ -288,27 +288,42 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "O achiziție mare începe cu nevoia: ce trebuie să facă dispozitivul și cât timp vrei să îl folosești.",
+          "body": "Alege dispozitivul după ce ai nevoie să facă.",
           "detail": "Modelul de 1.800 lei ajunge la 2.000 cu accesoriul necesar proiectelor lui Luca. Funcțiile nefolosite sau marca nu justifică singure depășirea bugetului pentru alt model.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "lei"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Luca are un buget de 2.000 lei. Modelul A costă 1.800 și necesită un accesoriu de 200, deci ajunge la 2.000.",
-          "type": "normal"
+          "body": "Include accesoriile necesare în buget.",
+          "type": "normal",
+          "detail": "Un accesoriu necesar poate consuma diferența dintre două modele. Compară costul cu tot ce îți trebuie.",
+          "detailHighlights": [
+            "costul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "O tranșă mică poate ascunde un total mare.",
-          "type": "normal"
+          "body": "Compară totalul, chiar dacă plata este împărțită în tranșe.",
+          "type": "normal",
+          "detail": "Tranșele mici pot continua după ce produsul nu îți mai este util. Verifică durata și totalul.",
+          "detailHighlights": [
+            "totalul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Definește trei cerințe reale pentru un dispozitiv și calculează un cost complet fictiv.",
-          "type": "action"
+          "type": "action",
+          "detail": "Transformă cerințele în lucruri verificabile, precum aplicațiile necesare și compatibilitatea, înainte să compari marca.",
+          "detailHighlights": [
+            "compatibilitatea"
+          ]
         }
       ]
     },

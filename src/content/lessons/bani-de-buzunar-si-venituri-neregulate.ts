@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Moment",
           "body": "Suma și calendarul se verifică împreună.",
           "detail": "Media de 500 lei nu adaugă automat 200 lei în luna cu intrări de 300 lei. Pentru fiecare scadență, verifică banii efectiv disponibili și ce venit este confirmat înainte de termen.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "scadență",
+            "termen"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Medie",
           "body": "Nu este o încasare garantată.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Media lunară nu arată în ce zi intră banii. O plată scadentă înaintea încasării cere pregătire separată.",
+          "detailHighlights": [
+            "plată",
+            "banii"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Flexibilitate",
           "body": "Compară costurile fixe cu luni mai slabe.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "O încasare mare ocazională poate acoperi mai multe săptămâni, nu doar dorințele din ziua primirii.",
+          "detailHighlights": [
+            "încasare"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Scrie două scenarii de venit pentru luna următoare și ce obligații rămân în ambele.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pune scadențele și încasările pe aceeași linie de timp. Marchează separat sumele încă neconfirmate.",
+          "detailHighlights": [
+            "scadențele",
+            "încasările"
+          ]
         }
       ]
     },

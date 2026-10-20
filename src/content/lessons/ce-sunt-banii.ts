@@ -284,27 +284,44 @@ export const lesson: ReadyLesson = {
           "title": "Schimb",
           "body": "Banii reduc nevoia unui troc direct.",
           "detail": "Poți vinde o carte unei persoane și cumpăra un ghiozdan de la alta. Nu trebuie ca fiecare să aibă exact obiectul dorit de celălalt.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "vinde o carte",
+            "cumpăra un ghiozdan"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Comparație",
           "body": "Prețurile în aceeași monedă oferă o scară comună.",
           "detail": "Două etichete în lei pot fi comparate direct ca sumă. Pentru alegere, verifică și dacă produsele rezolvă aceeași nevoie; prețul mai mare nu dovedește utilitatea.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "utilitatea",
+            "nevoie"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Viitor",
           "body": "O sumă păstrată poate avea altă putere de cumpărare.",
           "detail": "Dacă ghiozdanul se scumpește până la excursie, economiile identice pot să nu mai ajungă. Verifică din nou prețul înainte să consideri obiectivul acoperit.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "economiile",
+            "prețul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Identifică la o plată de azi ce rol al banilor folosești și ce informație îți mai trebuie înainte să cumperi.",
-          "type": "action"
+          "type": "action",
+          "detail": "La o plată cu cardul folosești tot lei reali. Notează ce ai primit în schimb și dacă puteai compara prețul cu o alternativă.",
+          "detailHighlights": [
+            "cardul",
+            "prețul"
+          ]
         }
       ]
     },

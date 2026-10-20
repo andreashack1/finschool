@@ -1,0 +1,257 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Optimized home: 13724 bytes",
+    "Optimized thinking: 13435 bytes",
+    "Optimized excited: 16922 bytes",
+    "Optimized excited-head: 14323 bytes",
+    "Optimized profile: 14923 bytes",
+    "Optimized correct: 14991 bytes",
+    "Optimized neutral-full: 13219 bytes",
+    "48 route/viewport checks plus fact captures: transparent V2 only, distinct poses, 18 API combinations, real trial completion, no overflow, Home text/CTA separation, no runtime or image errors"
+  ],
+  "errors": [],
+  "providerErrors": [],
+  "viewports": [
+    {
+      "name": "home",
+      "width": 350,
+      "images": 3
+    },
+    {
+      "name": "profile",
+      "width": 350,
+      "images": 1
+    },
+    {
+      "name": "about",
+      "width": 350,
+      "images": 1
+    },
+    {
+      "name": "home",
+      "width": 360,
+      "images": 3
+    },
+    {
+      "name": "profile",
+      "width": 360,
+      "images": 1
+    },
+    {
+      "name": "about",
+      "width": 360,
+      "images": 1
+    },
+    {
+      "name": "home",
+      "width": 375,
+      "images": 3
+    },
+    {
+      "name": "profile",
+      "width": 375,
+      "images": 1
+    },
+    {
+      "name": "about",
+      "width": 375,
+      "images": 1
+    },
+    {
+      "name": "home",
+      "width": 390,
+      "images": 3
+    },
+    {
+      "name": "profile",
+      "width": 390,
+      "images": 1
+    },
+    {
+      "name": "about",
+      "width": 390,
+      "images": 1
+    },
+    {
+      "name": "home",
+      "width": 430,
+      "images": 3
+    },
+    {
+      "name": "profile",
+      "width": 430,
+      "images": 1
+    },
+    {
+      "name": "about",
+      "width": 430,
+      "images": 1
+    },
+    {
+      "name": "home",
+      "width": 1280,
+      "images": 3
+    },
+    {
+      "name": "profile",
+      "width": 1280,
+      "images": 1
+    },
+    {
+      "name": "about",
+      "width": 1280,
+      "images": 1
+    },
+    {
+      "name": "simlife",
+      "width": 350,
+      "images": 1
+    },
+    {
+      "name": "simlife",
+      "width": 360,
+      "images": 1
+    },
+    {
+      "name": "simlife",
+      "width": 375,
+      "images": 1
+    },
+    {
+      "name": "simlife",
+      "width": 390,
+      "images": 1
+    },
+    {
+      "name": "simlife",
+      "width": 430,
+      "images": 1
+    },
+    {
+      "name": "simlife",
+      "width": 1280,
+      "images": 1
+    },
+    {
+      "name": "welcome",
+      "width": 350,
+      "images": 1
+    },
+    {
+      "name": "welcome",
+      "width": 360,
+      "images": 1
+    },
+    {
+      "name": "welcome",
+      "width": 375,
+      "images": 1
+    },
+    {
+      "name": "welcome",
+      "width": 390,
+      "images": 1
+    },
+    {
+      "name": "welcome",
+      "width": 430,
+      "images": 1
+    },
+    {
+      "name": "welcome",
+      "width": 1280,
+      "images": 1
+    },
+    {
+      "name": "lesson-guide",
+      "width": 350,
+      "images": 1
+    },
+    {
+      "name": "lesson-guide",
+      "width": 360,
+      "images": 1
+    },
+    {
+      "name": "lesson-guide",
+      "width": 375,
+      "images": 1
+    },
+    {
+      "name": "lesson-guide",
+      "width": 390,
+      "images": 1
+    },
+    {
+      "name": "lesson-guide",
+      "width": 430,
+      "images": 1
+    },
+    {
+      "name": "lesson-guide",
+      "width": 1280,
+      "images": 1
+    },
+    {
+      "name": "lesson-complete",
+      "width": 350,
+      "images": 1
+    },
+    {
+      "name": "lesson-complete",
+      "width": 360,
+      "images": 1
+    },
+    {
+      "name": "lesson-complete",
+      "width": 375,
+      "images": 1
+    },
+    {
+      "name": "lesson-complete",
+      "width": 390,
+      "images": 1
+    },
+    {
+      "name": "lesson-complete",
+      "width": 430,
+      "images": 1
+    },
+    {
+      "name": "lesson-complete",
+      "width": 1280,
+      "images": 1
+    },
+    {
+      "name": "all-moods",
+      "width": 350,
+      "images": 18
+    },
+    {
+      "name": "all-moods",
+      "width": 360,
+      "images": 18
+    },
+    {
+      "name": "all-moods",
+      "width": 375,
+      "images": 18
+    },
+    {
+      "name": "all-moods",
+      "width": 390,
+      "images": 18
+    },
+    {
+      "name": "all-moods",
+      "width": 430,
+      "images": 18
+    },
+    {
+      "name": "all-moods",
+      "width": 1280,
+      "images": 18
+    }
+  ]
+}

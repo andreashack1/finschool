@@ -287,36 +287,55 @@ export const inflationLesson: ReadyLesson = {
           "id": "punct-1",
           "title": "Prețuri în general",
           "body": "Inflația privește nivelul general al prețurilor. Un singur produs mai scump nu este suficient ca dovadă.",
-          "detail": "Privește mai multe bunuri și servicii, nu doar o etichetă.",
-          "type": "normal"
+          "detail": "Un telefon se poate scumpi din cauza stocului, în timp ce alte produse se ieftinesc. Inflația urmărește un ansamblu de prețuri, nu un singur raft.",
+          "type": "normal",
+          "detailHighlights": [
+            "prețuri"
+          ]
         },
         {
           "id": "punct-2",
           "title": "Puterea de cumpărare",
           "body": "Aceeași sumă poate cumpăra mai puțin. Numărul de lei și ce obții cu ei sunt lucruri diferite.",
-          "detail": "Compară un coș similar, nu cumpărături complet diferite.",
-          "type": "normal"
+          "detail": "Dacă ai economisit pentru un ghiozdan și prețul crește, suma păstrată poate să nu mai ajungă. Verifică prețul înainte de cumpărare.",
+          "type": "normal",
+          "detailHighlights": [
+            "prețul",
+            "suma"
+          ]
         },
         {
           "id": "punct-3",
           "title": "Procente cu o bază",
           "body": "Un procent se aplică unei sume inițiale. În exemple, creșterea se adaugă la prețul vechi.",
-          "detail": "10% din 20 lei înseamnă 2 lei, nu 10 lei.",
-          "type": "normal"
+          "detail": "Procentul se aplică prețului de pornire. Două produse cu prețuri diferite pot avea aceeași creștere procentuală și diferențe diferite în lei.",
+          "type": "normal",
+          "detailHighlights": [
+            "procentul",
+            "creștere"
+          ]
         },
         {
           "id": "punct-4",
           "title": "Venitul se verifică separat",
           "body": "Salariul nu crește automat odată cu prețurile. Un plan realist folosește venitul confirmat.",
-          "detail": "Nu cheltui dintr-o ajustare încă neconfirmată.",
-          "type": "normal"
+          "detail": "O ajustare salarială doar discutată nu plătește cumpărăturile de azi. Folosește în buget venitul confirmat, apoi revizuiește-l când se schimbă.",
+          "type": "normal",
+          "detailHighlights": [
+            "venitul confirmat",
+            "buget"
+          ]
         },
         {
           "id": "punct-5",
           "title": "Ce poți face azi",
           "body": "Compară prețul unui produs folosit des cu cel de dinainte. Notează diferența, fără să tragi concluzii despre toate prețurile din acel singur produs.",
-          "detail": "Verifică dacă ambalajul și cantitatea sunt aceleași.",
-          "type": "action"
+          "detail": "Compară și cantitatea din ambalaj. Un preț neschimbat pentru mai puțin produs înseamnă un cost mai mare pe unitate.",
+          "type": "action",
+          "detailHighlights": [
+            "cantitatea",
+            "unitate"
+          ]
         }
       ]
     },

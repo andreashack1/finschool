@@ -285,25 +285,41 @@ export const lesson: ReadyLesson = {
           "title": "Cerere",
           "body": "Popularitatea contează când se transformă în cumpărări.",
           "detail": "Un clip apreciat de mulți oameni nu confirmă că aceștia vor plăti prețul cerut. La bilete, interesul mai mare poate grăbi epuizarea locurilor chiar dacă organizatorul păstrează tariful.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "tariful",
+            "prețul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Ofertă",
           "body": "Stocul sau numărul de locuri influențează disponibilitatea.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "La un concert, locurile pot dispărea chiar dacă prețul biletului rămâne același.",
+          "detailHighlights": [
+            "prețul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Mai mulți factori",
           "body": "Raritatea nu garantează valoarea sau siguranța.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un produs rar poate fi tot nepotrivit sau nesigur. Mesajul «ultimele bucăți» nu verifică vânzătorul.",
+          "detailHighlights": [
+            "vânzătorul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Observă la un eveniment ce este limitat: numărul de locuri, timpul sau doar mesajul reclamei.",
-          "type": "action"
+          "type": "action",
+          "detail": "Caută o informație verificabilă despre stoc sau locuri, separat de cronometrul reclamei.",
+          "detailHighlights": [
+            "stoc"
+          ]
         }
       ]
     },

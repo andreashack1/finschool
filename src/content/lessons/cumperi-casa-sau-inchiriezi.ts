@@ -288,27 +288,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Cumpărarea și închirierea au costuri, riscuri și flexibilitate diferite.",
+          "body": "Compară locuirea după costuri, riscuri și flexibilitate.",
           "detail": "Rata de 1.400 plus costuri estimate de 200 depășește chiria de 1.500 în comparația parțială. Ana verifică separat avansul și mutarea posibilă, fără să presupună revânzare rapidă cu profit.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "costuri",
+            "rata"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Într-un exercițiu, o locuință închiriată are chirie de 1.500 lei. Cumpărarea ar implica rată de 1.400 și o rezervă lunară de 200 pentru costuri ale proprietății, fără alte componente incluse.",
-          "type": "normal"
+          "body": "Pentru cumpărare, rata este doar o parte din cost.",
+          "type": "normal",
+          "detail": "Pentru cumpărare contează și avansul, reparațiile și costurile proprietății, nu doar rata.",
+          "detailHighlights": [
+            "costurile",
+            "rata"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Prețul locuinței și costul finanțării pot evolua; o revânzare profitabilă nu este garantată.",
-          "type": "normal"
+          "body": "Nu conta pe o revânzare rapidă și profitabilă.",
+          "type": "normal",
+          "detail": "Dacă ai nevoie să te muți repede, vânzarea poate dura sau poate avea un preț mai mic decât sperai.",
+          "detailHighlights": [
+            "vânzarea",
+            "nevoie"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară într-un tabel costuri inițiale, lunare și flexibilitate pentru două variante fictive de locuire.",
-          "type": "action"
+          "type": "action",
+          "detail": "Folosește același interval și aceleași nevoi de locuire. Notează separat flexibilitatea și banii blocați inițial.",
+          "detailHighlights": [
+            "banii"
+          ]
         }
       ]
     },

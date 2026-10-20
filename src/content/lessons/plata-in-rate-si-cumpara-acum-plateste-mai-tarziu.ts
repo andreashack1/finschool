@@ -292,27 +292,46 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Împărțirea unui preț în plăți viitoare schimbă calendarul, nu elimină obligația.",
+          "body": "Ratele împart plata, fără să elimine costul cumpărăturii.",
           "detail": "Noua tranșă de 90 lei se suprapune cu plăți de 100, 80 și 70 lei. Eva trebuie să acopere 340 lei în lunile comune și să verifice dacă are banii la fiecare scadență.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "scadență",
+            "banii"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Eva are trei achiziții cu plăți lunare de 100, 80 și 70 lei. Împreună cer 250 lei pe lună în perioada de suprapunere.",
-          "type": "normal"
+          "body": "Adună tranșele tuturor cumpărăturilor din aceeași lună.",
+          "type": "normal",
+          "detail": "Mai multe rate mici se pot suprapune în aceeași lună. Verifică totalul lor cu obligațiile existente.",
+          "detailHighlights": [
+            "obligațiile",
+            "totalul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "O returnare a produsului nu trebuie presupusă ca anulare imediată a fiecărei plăți.",
-          "type": "normal"
+          "body": "Verifică taxele și ce se întâmplă la întârziere.",
+          "type": "normal",
+          "detail": "«Fără dobândă» nu spune singur ce se întâmplă la întârziere sau ce alte costuri există.",
+          "detailHighlights": [
+            "dobândă",
+            "costuri"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pune trei obligații fictive într-un calendar și calculează plățile lunilor în care se suprapun.",
-          "type": "action"
+          "type": "action",
+          "detail": "Așază toate tranșele pe calendar și compară totalul cu plata integrală, fără să ignori taxele sau condițiile.",
+          "detailHighlights": [
+            "condițiile",
+            "totalul"
+          ]
         }
       ]
     },

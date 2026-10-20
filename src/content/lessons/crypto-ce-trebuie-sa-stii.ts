@@ -288,27 +288,44 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Cryptoactivele sunt o categorie variată de active digitale, cu mecanisme și riscuri diferite.",
+          "body": "Cryptoactivele au mecanisme și riscuri diferite.",
           "detail": "După scăderea de la 100 la 60, o creștere de 40% aplicată noii baze duce la 84, nu la 100. Calculul explică diferența dintre baze și nu promite recuperarea.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "creștere"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Un cryptoactiv fictiv cumpărat cu 100 lei ajunge la o valoare de 60, o scădere de 40%. Pentru a reveni de la 60 la 100 ar avea nevoie de o creștere de aproximativ 66,7%, nu de 40%.",
-          "type": "normal"
+          "body": "După o scădere, revenirea se calculează de la baza rămasă.",
+          "type": "normal",
+          "detail": "După o scădere, procentul necesar revenirii se aplică unei baze mai mici. Procentele nu se anulează automat.",
+          "detailHighlights": [
+            "procentele",
+            "procentul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Nu dezvălui fraza de recuperare ori cheile private.",
-          "type": "normal"
+          "body": "Nu dezvălui fraza de recuperare sau cheile private.",
+          "type": "normal",
+          "detail": "Cine are fraza de recuperare poate obține controlul activelor. Nu o trimite pentru suport sau pentru un premiu.",
+          "detailHighlights": [
+            "recuperare"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează scăderea din exemplu și notează datele de acces pe care nu le-ai comunica nimănui.",
-          "type": "action"
+          "type": "action",
+          "detail": "Separă riscul de preț de riscul pierderii accesului. Un calcul de recuperare nu promite că piața va reveni.",
+          "detailHighlights": [
+            "recuperare",
+            "pierderii"
+          ]
         }
       ]
     },

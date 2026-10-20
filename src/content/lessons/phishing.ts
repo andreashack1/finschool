@@ -285,36 +285,55 @@ export const phishingLesson: ReadyLesson = {
           "id": "punct-1",
           "title": "Oprește graba",
           "body": "Urgența artificială încearcă să reducă timpul de gândire. Un termen scurt nu dovedește legitimitatea.",
-          "detail": "Poți încetini chiar dacă mesajul cere o reacție imediată.",
-          "type": "normal"
+          "detail": "Un mesaj despre blocarea contului încearcă să te facă să sari peste verificare. Poți închide conversația și verifica separat fără să folosești linkul primit.",
+          "type": "normal",
+          "detailHighlights": [
+            "blocarea contului",
+            "verifica separat"
+          ]
         },
         {
           "id": "punct-2",
           "title": "Verifică separat",
           "body": "Deschide singur aplicația oficială sau folosește un contact cunoscut. Nu verifica doar prin linkul primit.",
-          "detail": "Și numărul de pe o pagină falsă poate fi fals.",
-          "type": "normal"
+          "detail": "Și numărul de telefon de pe o pagină falsă poate aparține atacatorului. Găsește contactul în aplicația pe care o foloseai deja.",
+          "type": "normal",
+          "detailHighlights": [
+            "contactul"
+          ]
         },
         {
           "id": "punct-3",
           "title": "Codurile sunt private",
           "body": "PIN-urile, parolele și codurile de verificare nu se trimit altcuiva. O promisiune de premiu nu schimbă regula.",
-          "detail": "Nici o parte din cod nu trebuie oferită.",
-          "type": "normal"
+          "detail": "Codul poate autoriza o plată sau accesul la cont. Citește operațiunea și nu oferi nici fragmente din cod unei persoane care îl cere.",
+          "type": "normal",
+          "detailHighlights": [
+            "operațiunea",
+            "accesul"
+          ]
         },
         {
           "id": "punct-4",
           "title": "Identitatea se confirmă",
           "body": "Logo-ul, numele și un cont familiar nu dovedesc cine trimite mesajul. Un canal separat ajută să verifici persoana.",
-          "detail": "Poți suna prietenul la numărul deja cunoscut.",
-          "type": "normal"
+          "detail": "Un cont de prieten poate fi compromis. Sună la numărul deja cunoscut înainte să răspunzi unei cereri neobișnuite de bani.",
+          "type": "normal",
+          "detailHighlights": [
+            "cont de prieten",
+            "bani"
+          ]
         },
         {
           "id": "punct-5",
           "title": "Ce poți face azi",
           "body": "Verifică unde ai aplicația oficială și contactul verificat al băncii. Astfel nu depinzi de un link din SMS când apare o alertă.",
-          "detail": "Salvează contactul dintr-o sursă oficială, nu dintr-un mesaj urgent.",
-          "type": "action"
+          "detail": "Salvează contactul din aplicația oficială. Când apare o alertă, îl poți folosi fără să depinzi de datele din mesaj.",
+          "type": "action",
+          "detailHighlights": [
+            "contactul",
+            "datele"
+          ]
         }
       ]
     },

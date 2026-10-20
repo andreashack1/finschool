@@ -285,25 +285,42 @@ export const lesson: ReadyLesson = {
           "title": "Oprește",
           "body": "Nu continua operațiunile cerute de sursa suspectă.",
           "detail": "O taxă nouă de anulare poate extinde pierderea inițială. Contactează serviciul oficial, explică datele expuse și păstrează mesajele, fără să aștepți o promisiune de recuperare sigură.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "recuperare",
+            "pierderea"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Protejează",
           "body": "Contactează serviciile oficiale implicate.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Contactează banca și securizează conturile afectate prin canale oficiale. Nu folosi «ajutorul» din același mesaj suspect.",
+          "detailHighlights": [
+            "banca"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Documentează",
           "body": "Păstrează datele relevante și cere ajutor fără rușine.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Păstrează conversațiile, referințele și orele. Nu șterge dovezile doar pentru că vrei să închei discuția.",
+          "detailHighlights": [
+            "dovezile"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Salvează canalele oficiale de ajutor și notează ce date ai păstra dacă ai observa o fraudă.",
-          "type": "action"
+          "type": "action",
+          "detail": "Scrie ordinea reacțiilor și contactele verificate. Cine promite recuperarea garantată contra avans poate încerca o a doua fraudă.",
+          "detailHighlights": [
+            "fraudă",
+            "avans"
+          ]
         }
       ]
     },

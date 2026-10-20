@@ -285,25 +285,44 @@ export const lesson: ReadyLesson = {
           "title": "Explicație",
           "body": "Caută motivul diferenței de preț.",
           "detail": "Telefonul ieftin poate avea defecte sau condiții care explică prețul. Dacă vânzătorul cere avans fără să clarifice starea și predarea, graba nu înlocuiește informația lipsă.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "vânzătorul",
+            "condiții"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Avans",
           "body": "Este o plată, nu o verificare a încrederii.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un avans rămâne bani trimiși, chiar dacă vânzătorul îl numește «garanție de seriozitate».",
+          "detailHighlights": [
+            "vânzătorul",
+            "avans"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Date",
           "body": "Nu oferi informații personale fără scop legitim.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Fotografia actului tău nu dovedește că vânzătorul este legitim. Cere explicația scopului înainte să oferi date.",
+          "detailHighlights": [
+            "vânzătorul",
+            "actului"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La o ofertă foarte ieftină, notează trei informații fără de care nu ai plăti.",
-          "type": "action"
+          "type": "action",
+          "detail": "Clarifică starea produsului, predarea și identitatea vânzătorului înainte de avans, indiferent cât de scurt pare termenul.",
+          "detailHighlights": [
+            "identitatea",
+            "produsului"
+          ]
         }
       ]
     },

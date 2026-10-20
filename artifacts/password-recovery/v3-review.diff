@@ -1,0 +1,409 @@
+diff --git a/app/actualizeaza-parola/page.tsx b/app/actualizeaza-parola/page.tsx
+index 6e0f9de..0ac162e 100644
+--- a/app/actualizeaza-parola/page.tsx
++++ b/app/actualizeaza-parola/page.tsx
+@@ -3,4 +3,12 @@ import { cookies } from 'next/headers';
+ import { currentUser } from '../../src/lib/supabase/server';
+ import { AuthScreen } from '../components/account-screens';
+ import { validRecoveryProof } from '../../src/lib/account/recovery';
+-export default async function Page(){const user=await currentUser();return <AuthScreen configured={accountsConfigured()} mode="update" accountUserId={user?.id ?? null} recoveryValid={Boolean(user && validRecoveryProof((await cookies()).get('finly-recovery')?.value,user.id))}/>;}
++export const metadata={referrer:'no-referrer' as const,robots:{index:false,follow:false}};
++// Opening a recovery URL does not verify or exchange its token.
++export default async function Page({searchParams}:PageProps<'/actualizeaza-parola'>){
++ const params=await searchParams;
++ const tokenHash=params.type==='recovery' && typeof params.token_hash==='string' && /^[A-Za-z0-9_-]{1,512}$/.test(params.token_hash)?params.token_hash:undefined;
++ if(tokenHash)return <AuthScreen configured={accountsConfigured()} mode="update" recoveryValid recoveryTokenHash={tokenHash}/>;
++ const user=await currentUser();
++ return <AuthScreen configured={accountsConfigured()} mode="update" accountUserId={user?.id ?? null} recoveryValid={Boolean(params.invalid!=='1' && user && validRecoveryProof((await cookies()).get('finly-recovery')?.value,user.id))}/>;
++}
+diff --git a/app/api/account/auth/route.ts b/app/api/account/auth/route.ts
+index 18c2b0c..4108931 100644
+--- a/app/api/account/auth/route.ts
++++ b/app/api/account/auth/route.ts
+@@ -2,12 +2,12 @@ import { NextResponse } from 'next/server';
+ import { z } from 'zod';
+ import { cookies } from 'next/headers';
+ import { serverSupabase,requireUser } from '../../../../src/lib/supabase/server';
+-import { appUrl } from '../../../../src/lib/supabase/env';
++import { authEmailOrigin } from '../../../../src/lib/supabase/env';
+ import { SignupSchema,EmailSchema,PasswordSchema } from '../../../../src/lib/account/schemas';
+ import { accountConfig } from '../../../../src/content/account-config';
+ import { AccountError } from '../../../../src/lib/account/errors';
+ import { apiError,sameOrigin,readBody,requireAccountContext } from '../../../../src/lib/account/http';
+-import { validRecoveryProof } from '../../../../src/lib/account/recovery';
++import { recoveryProof,validRecoveryProof } from '../../../../src/lib/account/recovery';
+ import { accountsConfigured } from '../../../../src/lib/supabase/admin';
+ function providerError(error:{status?:number;code?:string},fallback=new AccountError('VALIDATION_ERROR')) {
+   if(error.status===429 || ['over_email_send_rate_limit','over_request_rate_limit'].includes(error.code ?? ''))return new AccountError('RATE_LIMITED',429);
+@@ -17,19 +17,18 @@ function providerError(error:{status?:number;code?:string},fallback=new AccountE
+ export async function POST(request:Request) {
+   let stage='request';
+   const diagnostic=(error:unknown)=>{
+-    if(process.env.NODE_ENV!=='development')return;
+-    const value=(error instanceof z.ZodError ? new AccountError('VALIDATION_ERROR') : error) as {code?:string;message?:string};
+-    const redact=(text:string)=>text.replace(/(?:sb_(?:secret|publishable)_|eyJ)[A-Za-z0-9._-]+/g,'[redacted]');
+-    console.error('[account/auth]',{stage,code:value?.code ?? 'UNEXPECTED_ERROR',message:redact(value?.message ?? 'Unknown error')});
++    const value=(error instanceof z.ZodError ? new AccountError('VALIDATION_ERROR') : error) as {code?:string;status?:number};
++    // Log structured codes only: provider messages may contain sensitive data.
++    console.error('[account/auth]',{stage,code:value?.code ?? 'UNEXPECTED_ERROR',status:value?.status ?? null});
+   };
+   try {
+     sameOrigin(request);
+     const input:unknown=await readBody(request);
+-    const action=z.object({action:z.enum(['signup','login','reset','resend','update','logout']),data:z.unknown().optional()}).strict().parse(input);
++    const action=z.object({action:z.enum(['signup','login','reset','resend','recover','update','logout']),data:z.unknown().optional()}).strict().parse(input);
+     if(action.action!=='logout' && !accountsConfigured())throw new AccountError('CONFIGURATION_ERROR',503);
+     stage='supabase-client';
+     const client=await serverSupabase();
+-    const callback=`${appUrl()}/auth/callback`;
++    const callback=()=>`${authEmailOrigin()}/auth/callback`;
+     if(action.action==='signup') {
+       stage='validation';
+       const parsed=SignupSchema.safeParse(action.data);if(!parsed.success){
+@@ -43,10 +42,10 @@ export async function POST(request:Request) {
+       if(availability.error)diagnostic(availability.error);
+       if(!availability.error && availability.data===false)throw new AccountError('USERNAME_TAKEN',409);
+       stage='supabase-signup';
+-      const {data,error}=await client.auth.signUp({email:v.email,password:v.password,options:{emailRedirectTo:callback, data:{username:v.username,display_name:v.displayName,age_range:v.ageRange,parental_consent:v.parentalConsent,terms:true,privacy:true,terms_version:accountConfig.termsVersion,privacy_version:accountConfig.privacyVersion}}});
++      const {data,error}=await client.auth.signUp({email:v.email,password:v.password,options:{emailRedirectTo:callback(), data:{username:v.username,display_name:v.displayName,age_range:v.ageRange,parental_consent:v.parentalConsent,terms:true,privacy:true,terms_version:accountConfig.termsVersion,privacy_version:accountConfig.privacyVersion}}});
+       if(error) { diagnostic(error);if(error.code==='23505')throw new AccountError('USERNAME_TAKEN',409);const failure=providerError(error);if(failure.code!=='RATE_LIMITED'){const available=await client.rpc('username_available',{candidate:v.username}).abortSignal(AbortSignal.timeout(5000));if(!available.error && available.data===false)throw new AccountError('USERNAME_TAKEN',409);}throw failure; }
+       stage='response';
+-      return NextResponse.json({session:Boolean(data.session)},{headers:{'Cache-Control':'no-store'}});
++      return NextResponse.json({state:data.session?'authenticated':'check_email_or_login'},{headers:{'Cache-Control':'no-store'}});
+     }
+     if(action.action==='login') {
+       stage='supabase-login';
+@@ -56,10 +55,39 @@ export async function POST(request:Request) {
+     if(action.action==='reset' || action.action==='resend') {
+       stage=action.action==='reset'?'supabase-reset':'supabase-resend';
+       const {email}=z.object({email:EmailSchema}).strict().parse(action.data);
+-      const {error}=action.action==='reset'?await client.auth.resetPasswordForEmail(email,{redirectTo:`${callback}?next=/actualizeaza-parola`}):await client.auth.resend({type:'signup',email,options:{emailRedirectTo:callback}});
+-      if(error){const failure=providerError(error);if(failure.code!=='VALIDATION_ERROR')throw failure;}
++      const {error}=action.action==='reset'?await client.auth.resetPasswordForEmail(email,{redirectTo:`${authEmailOrigin()}/actualizeaza-parola`}):await client.auth.resend({type:'signup',email,options:{emailRedirectTo:callback()}});
++      if(error){diagnostic(error);const failure=providerError(error);if(failure.code!=='VALIDATION_ERROR')throw failure;}
+       // The reset response is deliberately identical for known and unknown emails.
+     }
++    if(action.action==='recover') {
++      // Validate both passwords BEFORE consuming a one-time token.
++      const value=z.object({tokenHash:z.string().min(1).max(512).regex(/^[A-Za-z0-9_-]+$/),password:PasswordSchema,repeatPassword:PasswordSchema}).strict().refine(v=>v.password===v.repeatPassword).parse(action.data);
++      const jar=await cookies();
++      let authorized=false;
++      if(jar.get('finly-recovery')?.value){
++        const {data,error}=await client.auth.getUser();
++        authorized=!error && Boolean(data.user && validRecoveryProof(jar.get('finly-recovery')?.value,data.user.id));
++      }
++      if(!authorized){
++        stage='verify-otp';
++        const {data,error}=await client.auth.verifyOtp({token_hash:value.tokenHash,type:'recovery'});
++        if(error || !data.user || !data.session){
++          console.error('[auth/recovery]',{stage,code:error?.status && error.status>=500?'PROVIDER_UNAVAILABLE':'TOKEN_REJECTED'});
++          throw new AccountError(error && (!error.status || error.status>=500)?'RECOVERY_TEMPORARY':'RECOVERY_REQUIRED',error && (!error.status || error.status>=500)?503:403);
++        }
++        jar.set('finly-recovery',recoveryProof(data.user.id),{httpOnly:true,secure:process.env.NODE_ENV==='production',sameSite:'lax',path:'/',maxAge:900});
++      }
++      stage='update-password';
++      try {
++        const {error}=await client.auth.updateUser({password:value.password});
++        if(error)throw new Error('update-failed');
++      }catch{
++        console.error('[auth/recovery]',{stage,code:'PASSWORD_UPDATE_FAILED'});
++        throw new AccountError('RECOVERY_TEMPORARY',503);
++      }
++      jar.delete('finly-recovery');
++      console.info('[auth/recovery] stage=response');
++    }
+     if(action.action==='update') {
+       stage='supabase-update';
+       const user=await requireUser();requireAccountContext(request,user);const jar=await cookies();
+diff --git a/app/auth/callback/route.ts b/app/auth/callback/route.ts
+index d73c739..d3be37d 100644
+--- a/app/auth/callback/route.ts
++++ b/app/auth/callback/route.ts
+@@ -5,22 +5,35 @@ import { safeNext } from '../../../src/lib/account/redirects';
+ import { z } from 'zod';
+ import { recoveryProof } from '../../../src/lib/account/recovery';
+ import { appUrl } from '../../../src/lib/supabase/env';
++import { apiError } from '../../../src/lib/account/http';
+ export async function GET(request:Request) {
+   const url=new URL(request.url);const next=safeNext(url.searchParams.get('next'),'/salveaza-progresul');
++  let origin:string;
++  try { origin=appUrl(); } catch(error) { return apiError(error); }
++  const recoveryRequested=url.searchParams.get('type')==='recovery' || next==='/actualizeaza-parola';
+   try {
+     const client=await serverSupabase();const code=url.searchParams.get('code');
+     const hash=url.searchParams.get('token_hash');
++    if(hash && url.searchParams.get('type')==='recovery') {
++      const target=new URL('/actualizeaza-parola',origin);target.searchParams.set('token_hash',hash);target.searchParams.set('type','recovery');
++      const response=NextResponse.redirect(target);response.headers.set('Cache-Control','no-store');return response;
++    }
+     const type=z.enum(['signup','email','recovery']).safeParse(url.searchParams.get('type'));
+     if(hash && type.success) {
+-      const {data,error}=await client.auth.verifyOtp({token_hash:hash,type:type.data});if(error || !data.user)throw new Error('invalid');
++      const {data,error}=await client.auth.verifyOtp({token_hash:hash,type:type.data});if(error || !data.user || !data.session)throw new Error('invalid');
+       if(type.data==='recovery')(await cookies()).set('finly-recovery',recoveryProof(data.user.id),{httpOnly:true,secure:process.env.NODE_ENV==='production',sameSite:'lax',path:'/',maxAge:900});
+-      const response=NextResponse.redirect(new URL(type.data==='recovery'?'/actualizeaza-parola':next,appUrl()));response.headers.set('Cache-Control','no-store');return response;
++      const response=NextResponse.redirect(new URL(type.data==='recovery'?'/actualizeaza-parola':next,origin));response.headers.set('Cache-Control','no-store');return response;
+     }
+     if(!code)throw new Error('invalid');
+-    const {data,error}=await client.auth.exchangeCodeForSession(code,url.searchParams.get('sb_flow_id')?{flowId:url.searchParams.get('sb_flow_id')!}:undefined);
+-    if(error || !data.user)throw new Error('invalid');
+-    const recovery=z.object({redirectType:z.string().nullable().optional()}).parse(data).redirectType==='recovery';
++    // Use the documented recovery event: redirectType exists at runtime in
++    // Auth JS 2.117.2, but is absent from its public AuthTokenResponse type.
++    // Never infer recovery from the caller-controlled `next` or `type` query.
++    let recovery=false;
++    const {data:{subscription}}=client.auth.onAuthStateChange(event=>{if(event==='PASSWORD_RECOVERY')recovery=true;});
++    const result=await client.auth.exchangeCodeForSession(code,url.searchParams.get('sb_flow_id')?{flowId:url.searchParams.get('sb_flow_id')!}:undefined).finally(()=>subscription.unsubscribe());
++    const {data,error}=result;
++    if(error || !data.user || !data.session)throw new Error('invalid');
+     if(recovery) (await cookies()).set('finly-recovery',recoveryProof(data.user.id),{httpOnly:true,secure:process.env.NODE_ENV==='production',sameSite:'lax',path:'/',maxAge:900});
+-    const response=NextResponse.redirect(new URL(recovery?'/actualizeaza-parola':next,appUrl()));response.headers.set('Cache-Control','no-store');return response;
+-  } catch { const response=NextResponse.redirect(new URL(next==='/actualizeaza-parola'?'/actualizeaza-parola?invalid=1':'/verifica-email?invalid=1',appUrl()));response.headers.set('Cache-Control','no-store');return response; }
++    const response=NextResponse.redirect(new URL(recovery?'/actualizeaza-parola':next,origin));response.headers.set('Cache-Control','no-store');return response;
++  } catch { console.error('[auth/callback]',{stage:'handoff',code:'CALLBACK_FAILED'});const response=NextResponse.redirect(new URL(recoveryRequested?'/actualizeaza-parola?invalid=1':'/verifica-email?invalid=1',origin));response.headers.set('Cache-Control','no-store');return response; }
+ }
+diff --git a/app/components/account-screens.tsx b/app/components/account-screens.tsx
+index 42f1c49..706ec1e 100644
+--- a/app/components/account-screens.tsx
++++ b/app/components/account-screens.tsx
+@@ -12,6 +12,7 @@ import { broadcastAuthChange } from '../../src/lib/account/events';
+ import { SnapshotSchema } from '../../src/lib/account/contracts';
+ import { writeAccountCache } from '../../src/lib/account/storage';
+ import { startUsernameCheck,usernameValidationMessage,usernameStatusCopy,type UsernameStatus } from '../../src/lib/account/username-availability';
++import { pendingVerificationEmail,rememberVerificationEmail,verificationCooldown,startVerificationCooldown,clearVerificationState,resetAvailableKey,resendAvailableKey } from '../../src/lib/account/verification';
+ import { errorCopy } from '../../src/lib/account/errors';
+ export function AccountShell({title,children,large=false,intro}:{title:string;children:React.ReactNode;large?:boolean;intro?:React.ReactNode}) {return <main className={`account-page ${large?'account-large':''}`}><Link className="account-brand" href="/bun-venit">finly<span>.</span></Link><section className="account-card"><FinlyMascot className="account-fini" framing={large?'bust':'head'} mood="normal" priority/>{intro}<h1>{title}</h1>{children}</section></main>;}
+ export function WelcomeScreen() {
+@@ -34,7 +35,7 @@ export function GateScreen({authenticated,userId=null}:{authenticated:boolean;us
+ }
+ function PasswordField({label,name}:{label:string;name:string}) {
+   const [shown,setShown]=useState(false);const description=name==='repeatPassword'?'confirmarea parolei':'parola';
+-  return <div className="account-field"><label htmlFor={name}>{label}</label><div className="account-password"><input id={name} required name={name} type={shown?'text':'password'} minLength={8} maxLength={128} autoComplete={name==='loginPassword'?'current-password':'new-password'}/><button type="button" onClick={()=>setShown(!shown)} aria-label={`${shown?'Ascunde':'Arată'} ${description}`} aria-controls={name} aria-pressed={shown}>{shown?<EyeOff size={20}/>:<Eye size={20}/>}</button></div></div>;
++  return <div className="account-field"><label htmlFor={name}>{label}</label><div className="account-password"><input id={name} required name={name} type={shown?'text':'password'} minLength={8} maxLength={128} autoComplete={name==='loginPassword'?'current-password':'new-password'}/><button type="button" onClick={()=>setShown(!shown)} aria-label={`${shown?'Ascunde':'Arată'} ${description}`} aria-controls={name} aria-pressed={shown}>{shown?<EyeOff size={20}/>:<Eye size={20}/>}</button></div>{name==="password" && <small>Minimum 8 caractere.</small>}</div>;
+ }
+ export function UsernameField({initial='',enabled=true}:{initial?:string;enabled?:boolean}) {
+   const [username,setUsername]=useState(initial);
+@@ -51,29 +52,55 @@ export function UsernameField({initial='',enabled=true}:{initial?:string;enabled
+ }
+ type Mode='signup'|'login'|'reset'|'update'|'verify';
+ const headings:Record<Mode,string>={signup:'Hai să-ți facem locul tău în Finly.',login:'Bine ai revenit.',reset:'Ai uitat parola?',update:'Alege o parolă nouă.',verify:'Verifică-ți emailul'};
+-export function AuthScreen({mode,recoveryValid=false,verificationInvalid=false,configured=Boolean(publicSupabaseConfig()),accountUserId=null,destination='/'}:{mode:Mode;recoveryValid?:boolean;verificationInvalid?:boolean;configured?:boolean;accountUserId?:string|null;destination?:string}) {
++export function AuthScreen({mode,recoveryTokenHash,recoveryValid=false,verificationInvalid=false,configured=Boolean(publicSupabaseConfig()),accountUserId=null,destination='/'}:{mode:Mode;recoveryTokenHash?:string;recoveryValid?:boolean;verificationInvalid?:boolean;configured?:boolean;accountUserId?:string|null;destination?:string}) {
+   const [busy,setBusy]=useState(false);const [error,setError]=useState<string|null>(verificationInvalid?'Linkul de confirmare nu mai este valid sau a expirat. Cere un email nou.':null);const [message,setMessage]=useState('');const [age,setAge]=useState('');const [cooldown,setCooldown]=useState(0);const alert=useRef<HTMLParagraphElement>(null);
+ 
+   useEffect(()=>{if(error)alert.current?.focus();},[error]);
+-  useEffect(()=>{if(!cooldown)return;const timer=setTimeout(()=>setCooldown(c=>c-1),1000);return()=>clearTimeout(timer);},[cooldown]);
++  const emailInput=useRef<HTMLInputElement>(null);
++  const cooldownUntil=useRef(0);
++  const recoveryChannel=useRef<BroadcastChannel|null>(null);
++  useEffect(()=>{
++    if(mode!=='reset' || typeof BroadcastChannel==='undefined')return;
++    const channel=new BroadcastChannel('finly.passwordRecoveryCooldown');recoveryChannel.current=channel;
++    channel.onmessage=event=>{
++      if(event.data==='query'){
++        const remaining=verificationCooldown(Date.now(),resetAvailableKey);
++        if(remaining>0)channel.postMessage(Date.now()+remaining*1000);
++      }else if(typeof event.data==='number' && event.data>Date.now() && event.data<=Date.now()+61000){
++        cooldownUntil.current=Math.max(cooldownUntil.current,event.data);
++        try{sessionStorage.setItem(resetAvailableKey,String(cooldownUntil.current));}catch{/* Provider remains authoritative. */}
++        setCooldown(Math.ceil((cooldownUntil.current-Date.now())/1000));
++      }
++    };
++    channel.postMessage('query');
++    return()=>{channel.close();recoveryChannel.current=null;};
++  },[mode]);
++  useEffect(()=>{
++    if(mode!=='verify' && mode!=='reset')return;
++    const key=mode==='reset'?resetAvailableKey:resendAvailableKey;
++    if(mode==='verify' && emailInput.current)emailInput.current.value=pendingVerificationEmail();
++    const update=()=>setCooldown(Math.max(verificationCooldown(Date.now(),key),Math.max(0,Math.ceil((cooldownUntil.current-Date.now())/1000))));
++    const frame=requestAnimationFrame(update);const timer=setInterval(update,1000);
++    return()=>{cancelAnimationFrame(frame);clearInterval(timer);};
++  },[mode]);
+   async function submit(event:React.FormEvent<HTMLFormElement>) {
+-    event.preventDefault();if(busy || !configured)return;const fields=new FormData(event.currentTarget);setError(null);setMessage('');
+-    const email=String(fields.get('email') ?? '');let data:unknown={email};
++    event.preventDefault();if(busy || !configured || ((mode==='verify' || mode==='reset') && (cooldown>0 || verificationCooldown(Date.now(),mode==='reset'?resetAvailableKey:resendAvailableKey)>0)))return;const fields=new FormData(event.currentTarget);setError(null);setMessage('');
++    const email=String(fields.get('email') ?? '').trim().toLowerCase();let data:unknown={email};
+     if(mode==='signup'){
+       if(fields.get('terms')!=='on' || fields.get('privacy')!=='on'){setError(errorCopy.LEGAL_CONSENT_REQUIRED);return;}
+       if(age==='14-15' && fields.get('parentalConsent')!=='on'){setError(errorCopy.PARENT_ACKNOWLEDGEMENT_REQUIRED);return;}
+       data={email,username:fields.get('username'),displayName:fields.get('displayName') ?? '',ageRange:fields.get('ageRange'),password:fields.get('password'),repeatPassword:fields.get('repeatPassword'),terms:true,privacy:true,parentalConsent:fields.get('parentalConsent')==='on'};const parsed=SignupSchema.safeParse(data);if(!parsed.success){setError(age==='Sub 14'?'Finly este momentan pentru persoane de 14 ani sau mai mult.':'Verifică username-ul, parola și confirmările obligatorii.');return;}data=parsed.data;
+     }
+     else if(mode==='login'){data={email,password:fields.get('loginPassword')};if(!EmailSchema.safeParse(email).success){setError('Verifică adresa de email.');return;}}
+-    else if(mode==='update'){const password=String(fields.get('password'));if(!PasswordSchema.safeParse(password).success || password!==fields.get('repeatPassword')){setError('Parola trebuie să aibă minimum 8 caractere, iar cele două parole să coincidă.');return;}data={password,repeatPassword:fields.get('repeatPassword')};}
++    else if(mode==='update'){const password=String(fields.get('password'));if(!PasswordSchema.safeParse(password).success || password!==fields.get('repeatPassword')){setError('Parola trebuie să aibă minimum 8 caractere, iar cele două parole să coincidă.');return;}data={password,repeatPassword:fields.get('repeatPassword'),...(recoveryTokenHash?{tokenHash:recoveryTokenHash}:{})};}
+     else if(!EmailSchema.safeParse(email).success){setError('Verifică adresa de email.');return;}
+     setBusy(true);
+-    try{const response=await fetch('/api/account/auth',{method:'POST',headers:{'Content-Type':'application/json','X-Finly-Account':accountUserId ?? ''},body:JSON.stringify({action:mode==='verify'?'resend':mode,data})});const result=await response.json();if(!response.ok)throw new Error(friendlyApiError(result.error?.code));
+-      if(mode==='signup' && !result.session){window.location.assign(new URL('/verifica-email',window.location.origin).href);return;}
+-      if(mode==='login' || mode==='signup' || mode==='update'){broadcastAuthChange('sessionChanged',accountUserId);window.location.assign(mode==='login' && destination!=='/'?destination:readTrial()?.completed?'/salveaza-progresul':'/');return;}
+-      if(mode==='reset')setMessage('Dacă există un cont pentru această adresă, vei primi un email cu instrucțiuni.');else{setMessage('Dacă emailul necesită confirmare, vei primi un link nou.');setCooldown(accountConfig.emailCooldownSeconds);}
+-    }catch(cause){setError(cause instanceof Error?cause.message:'Mai încearcă puțin mai târziu.');}finally{setBusy(false);}
++    try{const response=await fetch('/api/account/auth',{method:'POST',headers:{'Content-Type':'application/json','X-Finly-Account':accountUserId ?? ''},body:JSON.stringify({action:mode==='verify'?'resend':mode==='update' && recoveryTokenHash?'recover':mode,data})});const result=await response.json();if(!response.ok){if((mode==='verify' || mode==='reset') && result.error?.code==='RATE_LIMITED'){cooldownUntil.current=startVerificationCooldown(Date.now(),mode==='reset'?resetAvailableKey:resendAvailableKey);setCooldown(accountConfig.emailCooldownSeconds);throw new Error(mode==='reset'?'Mai așteaptă puțin înainte să ceri alt link.':'Mai așteaptă puțin înainte să ceri un email nou.');}throw new Error(result.error?.code==='RECOVERY_TEMPORARY'?errorCopy.RECOVERY_TEMPORARY:friendlyApiError(result.error?.code));}
++      if(mode==='signup' && result.state!=='authenticated'){rememberVerificationEmail(email);startVerificationCooldown();window.location.assign(new URL('/verifica-email',window.location.origin).href);return;}
++      if(mode==='login' || mode==='signup' || mode==='update'){clearVerificationState();broadcastAuthChange('sessionChanged',accountUserId);if(mode==='update')window.location.replace('/');else window.location.assign(mode==='login' && destination!=='/'?destination:readTrial()?.completed?'/salveaza-progresul':'/');return;}
++      if(mode==='reset'){setMessage('Dacă există un cont pentru această adresă, vei primi un email cu instrucțiuni.');cooldownUntil.current=startVerificationCooldown(Date.now(),resetAvailableKey);recoveryChannel.current?.postMessage(cooldownUntil.current);setCooldown(accountConfig.emailCooldownSeconds);}else{setMessage('Dacă emailul necesită confirmare, vei primi un link nou.');rememberVerificationEmail(email);cooldownUntil.current=startVerificationCooldown();setCooldown(accountConfig.emailCooldownSeconds);}
++    }catch(cause){setError(cause instanceof TypeError?'Verifică conexiunea și încearcă din nou.':cause instanceof Error?cause.message:'Mai încearcă puțin mai târziu.');}finally{setBusy(false);}
+   }
+-  if(mode==='update' && !recoveryValid)return <AccountShell title="Linkul nu mai este valid sau a expirat."><Link className="app-button" href="/resetare-parola">Cere un link nou</Link></AccountShell>;
+-  return <AccountShell title={headings[mode]}>{!configured && <p role="status">Conturile nu sunt configurate în acest mediu.</p>}{mode==='verify' && <p>Ți-am trimis un link pentru confirmarea contului. Prima lecție rămâne pregătită până îți confirmi emailul.</p>}<form onSubmit={submit} className="account-form">{mode!=='update' && <label>Email<input name="email" required type="email" autoComplete="email" maxLength={254}/></label>}{mode==='signup' && <><UsernameField enabled={configured}/><label>Cum vrei să-ți spunem? <small>Opțional. Poți folosi un nume inventat.</small><input name="displayName" maxLength={40} autoComplete="nickname"/></label><label>Interval de vârstă<select name="ageRange" required value={age} onChange={event=>setAge(event.target.value)}><option value="">Alege intervalul</option>{accountConfig.ageOptions.map(option=><option key={option}>{option}</option>)}</select></label>{age==='Sub 14' && <p role="status">Finly este momentan pentru persoane de 14 ani sau mai mult.</p>}{age==='14-15' && <label className="account-check"><input required type="checkbox" name="parentalConsent" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.PARENT_ACKNOWLEDGEMENT_REQUIRED)}/>Un părinte sau tutore știe că îmi fac cont.</label>}</>}{(mode==='signup' || mode==='update') && <><PasswordField label="Parolă" name="password"/><PasswordField label="Repetă parola" name="repeatPassword"/></>}{mode==='login' && <PasswordField label="Parolă" name="loginPassword"/>}{mode==='signup' && <><label className="account-check"><input type="checkbox" required name="terms" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.LEGAL_CONSENT_REQUIRED)}/>Accept <Link href="/termeni" target="_blank" rel="noopener noreferrer">Termenii și condițiile</Link>.</label><label className="account-check"><input type="checkbox" required name="privacy" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.LEGAL_CONSENT_REQUIRED)}/>Am citit <Link href="/confidentialitate" target="_blank" rel="noopener noreferrer">Politica de confidențialitate</Link>.</label></>}{error && <p id="signup-error" ref={alert} role="alert" tabIndex={-1}>{error}</p>}{message && <p role="status">{message}</p>}<button className="app-button" disabled={busy || !configured || (mode==='signup' && age==='Sub 14') || cooldown>0}>{busy?(mode==='signup'?'Se creează contul...':mode==='login'?'Te conectăm...':'Lucrăm la cererea ta...'):mode==='signup'?'Creează-mi cont':mode==='login'?'Conectează-te':mode==='reset'?'Trimite linkul':mode==='update'?'Salvează parola':cooldown>0?`Retrimite peste ${cooldown}s`:'Retrimite emailul'}</button></form>{mode==='login' && <><Link href="/resetare-parola">Ai uitat parola?</Link><p>Nu ai cont? <Link href="/creeaza-cont">Creează unul</Link></p></>}{mode==='signup' && <p>Am deja cont. <Link href="/autentificare">Conectează-te</Link></p>}</AccountShell>;
++  if(mode==='update' && !recoveryValid)return <AccountShell title="Acest link nu mai este valid. Cere un link nou."><Link className="app-button" href="/resetare-parola">Cere un link nou</Link></AccountShell>;
++  return <AccountShell title={headings[mode]}>{!configured && <p role="status">Conturile nu sunt configurate în acest mediu.</p>}{mode==='verify' && <p>Verifică-ți emailul pentru linkul de confirmare. Dacă adresa necesită confirmare, poți cere un link nou. Verifică și folderul Spam.</p>}<form onSubmit={submit} className="account-form">{mode!=='update' && <label>Email<input ref={emailInput} name="email" required type="email" autoComplete="email" maxLength={254}/></label>}{mode==='signup' && <><UsernameField enabled={configured}/><label>Cum vrei să-ți spunem? <small>Opțional. Poți folosi un nume inventat.</small><input name="displayName" maxLength={40} autoComplete="nickname"/></label><label>Interval de vârstă<select name="ageRange" required value={age} onChange={event=>setAge(event.target.value)}><option value="">Alege intervalul</option>{accountConfig.ageOptions.map(option=><option key={option}>{option}</option>)}</select></label>{age==='Sub 14' && <p role="status">Finly este momentan pentru persoane de 14 ani sau mai mult.</p>}{age==='14-15' && <label className="account-check"><input required type="checkbox" name="parentalConsent" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.PARENT_ACKNOWLEDGEMENT_REQUIRED)}/>Un părinte sau tutore știe că îmi fac cont.</label>}</>}{(mode==='signup' || mode==='update') && <><PasswordField label={mode==='update'?'Parolă nouă':'Parolă'} name="password"/><PasswordField label={mode==='update'?'Confirmă parola nouă':'Repetă parola'} name="repeatPassword"/></>}{mode==='login' && <PasswordField label="Parolă" name="loginPassword"/>}{mode==='signup' && <><label className="account-check"><input type="checkbox" required name="terms" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.LEGAL_CONSENT_REQUIRED)}/>Accept <Link href="/termeni" target="_blank" rel="noopener noreferrer">Termenii și condițiile</Link>.</label><label className="account-check"><input type="checkbox" required name="privacy" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.LEGAL_CONSENT_REQUIRED)}/>Am citit <Link href="/confidentialitate" target="_blank" rel="noopener noreferrer">Politica de confidențialitate</Link>.</label></>}{error && <p id="signup-error" ref={alert} role="alert" tabIndex={-1}>{error}</p>}{mode==='update' && error===errorCopy.RECOVERY_REQUIRED && <Link href="/resetare-parola">Cere un link nou</Link>}{message && <p role="status">{message}</p>}<button className="app-button" disabled={busy || !configured || (mode==='signup' && age==='Sub 14') || cooldown>0}>{busy?(mode==='signup'?'Se creează contul...':mode==='login'?'Te conectăm...':'Lucrăm la cererea ta...'):mode==='signup'?'Creează-mi cont':mode==='login'?'Conectează-te':mode==='reset'?(cooldown>0?`Retrimite peste ${cooldown}s`:'Trimite linkul'):mode==='update'?'Salvează parola':cooldown>0?`Retrimite peste ${cooldown}s`:'Retrimite emailul'}</button></form>{mode==='login' && <><Link href="/resetare-parola">Ai uitat parola?</Link><p>Nu ai cont? <Link href="/creeaza-cont">Creează unul</Link></p></>}{mode==='verify' && <><p>Ai confirmat deja emailul? <Link href="/autentificare">Conectează-te</Link></p><p><Link href="/resetare-parola">Ai uitat parola?</Link></p><p className="account-small"><Link href="/creeaza-cont">Ai folosit alt email? Înapoi la creare cont</Link></p></>}{mode==='signup' && <p>Am deja cont. <Link href="/autentificare">Conectează-te</Link></p>}</AccountShell>;
+ }
+diff --git a/src/lib/account/errors.ts b/src/lib/account/errors.ts
+index ad0e97f..86fd39f 100644
+--- a/src/lib/account/errors.ts
++++ b/src/lib/account/errors.ts
+@@ -8,6 +8,7 @@ export const errorCopy = {
+   PARENT_ACKNOWLEDGEMENT_REQUIRED: 'Pentru intervalul 14–15 ani trebuie să confirmi că un părinte sau tutore știe că îți creezi cont.',
+   INVALID_CREDENTIALS: 'Email sau parolă incorectă.',
+   RECOVERY_REQUIRED: 'Linkul nu mai este valid sau a expirat.',
++  RECOVERY_TEMPORARY: 'Nu am putut schimba parola acum. Încearcă din nou.',
+   RATE_LIMITED: 'Mai așteaptă puțin înainte de o nouă încercare.',
+   SERVER_ERROR: 'Nu am putut salva acum. Mai încearcă puțin mai târziu.',
+   ORIGIN_REJECTED: 'Cererea nu poate fi acceptată.',
+diff --git a/tests/auth.test.ts b/tests/auth.test.ts
+index 7ee8163..cfb2329 100644
+--- a/tests/auth.test.ts
++++ b/tests/auth.test.ts
+@@ -80,7 +80,7 @@ describe('Auth route contract with real SSR SDK and mocked provider transport',(
+   it('signup without immediate session directs the UI to email confirmation',async()=>{
+     vi.mocked(fetch).mockImplementation(async input=>String(input).includes('/rpc/')?Response.json(true):Response.json({user}));
+     const response=await request('signup',{email:user.email,username:'new_user',displayName:'',ageRange:'20+',parentalConsent:false,password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true});
+-    expect(await response.json()).toEqual({session:false});
++    expect(await response.json()).toEqual({state:'check_email_or_login'});
+   });
+   it('invalid login returns safe error and never persists credentials',async()=>{
+     vi.mocked(fetch).mockResolvedValue(Response.json({msg:'Invalid login credentials'},{status:400}));
+@@ -129,4 +129,130 @@ describe('Auth route contract with real SSR SDK and mocked provider transport',(
+     const result=await (await serverSupabase()).auth.getUser();expect(result.data.user?.id).toBe(id);
+     expect(requests.some(r=>r.url.includes('grant_type=refresh_token'))).toBe(true);
+   });
++  it('new and obfuscated confirmed signup outcomes have the same privacy-safe contract',async()=>{
++    for(const value of [user,{...user,id:'obfuscated',identities:[]}]){
++      requests=[];vi.mocked(fetch).mockImplementation(async(input,init)=>{requests.push({url:String(input),body:init?.body?JSON.parse(String(init.body)):null});return String(input).includes('/rpc/')?Response.json(true):Response.json({user:value});});
++      const response=await request('signup',{email:user.email,username:'new_user',ageRange:'20+',password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true});
++      expect(await response.json()).toEqual({state:'check_email_or_login'});
++      expect(requests.filter(r=>r.url.includes('/signup'))).toHaveLength(1);
++      expect(requests.every(r=>!r.url.includes('/admin') && !r.url.includes('/profiles'))).toBe(true);
++    }
++  });
++  it('resend can be called repeatedly and only sends signup resend requests',async()=>{
++    for(let i=0;i<3;i++)expect((await request('resend',{email:' UNIT@example.test '})).status).toBe(200);
++    expect(requests).toHaveLength(3);
++    for(const r of requests){expect(r.url).toContain('/resend');expect(r.url).toContain(encodeURIComponent('https://finly2-ruddy.vercel.app/auth/callback'));expect(r.body).toMatchObject({email:user.email,type:'signup'});}
++  });
++  it('masked resend failures retain safe provider diagnostics in production',async()=>{
++    vi.stubEnv('NODE_ENV','production');vi.stubEnv('NEXT_PUBLIC_APP_URL','https://finly2-ruddy.vercel.app');const log=vi.spyOn(console,'error').mockImplementation(()=>{});
++    try{
++      vi.mocked(fetch).mockResolvedValue(Response.json({error_code:'email_not_confirmed',msg:'Sensitive provider message'},{status:422}));
++      const response=await request('resend',{email:user.email},'https://finly2-ruddy.vercel.app');expect(await response.json()).toEqual({ok:true});
++      expect(log).toHaveBeenCalledWith('[account/auth]',{stage:'supabase-resend',code:'email_not_confirmed',status:422});
++      expect(JSON.stringify(log.mock.calls)).not.toContain(user.email);expect(JSON.stringify(log.mock.calls)).not.toContain('Sensitive');
++    }finally{log.mockRestore();}
++  });
++  it('valid signup OTP confirms through Auth and persists a session',async()=>{
++    const response=await callback(new Request('https://finly.test/auth/callback?token_hash=test&type=signup'));
++    expect(new URL(response.headers.get('location')!).pathname).toBe('/salveaza-progresul');expect(response.headers.get('cache-control')).toBe('no-store');
++    expect([...jar.keys()].some(key=>key.includes('auth-token'))).toBe(true);
++  });
++  it('expired OTP returns a safe verification recovery route',async()=>{
++    vi.mocked(fetch).mockResolvedValue(Response.json({error_code:'otp_expired',msg:'Expired'},{status:403}));
++    const response=await callback(new Request('https://finly.test/auth/callback?token_hash=test&type=signup&next=//evil.test'));
++    expect(response.headers.get('location')).toBe('https://finly.test/verifica-email?invalid=1');expect(response.headers.get('cache-control')).toBe('no-store');
++  });
++
++  it.each(['','invalid','http://localhost:3000','http://localhost:3115','https://127.0.0.1','https://192.168.0.12','https://10.0.0.1','https://[::1]'])('production rejects invalid app origin %s before sending email',async value=>{
++    vi.stubEnv('NODE_ENV','production');vi.stubEnv('NEXT_PUBLIC_APP_URL',value);
++    const log=vi.spyOn(console,'error').mockImplementation(()=>{});
++    try{
++      const response=await request('reset',{email:user.email});expect(response.status).toBe(503);expect((await response.json()).error.code).toBe('CONFIGURATION_ERROR');expect(requests).toHaveLength(0);
++      const result=await callback(new Request('https://finly2-ruddy.vercel.app/auth/callback?type=recovery&token_hash=secret'));
++      expect(result.status).toBe(503);expect(result.headers.has('location')).toBe(false);expect(requests).toHaveLength(0);
++    }finally{log.mockRestore();}
++  });
++  it('production reset goes directly to password page and development retains its explicit local port',async()=>{
++    for(const [mode,origin] of [['production','https://finly2-ruddy.vercel.app'],['development','http://localhost:3115']]){
++      vi.stubEnv('NODE_ENV',mode);vi.stubEnv('NEXT_PUBLIC_APP_URL',origin);vi.stubEnv('FINLY_DEV_AUTH_EMAIL_ORIGIN',mode==='development'?origin:'');requests=[];
++      expect((await request('reset',{email:user.email},origin)).status).toBe(200);
++      const r=requests.find(r=>new URL(r.url).pathname==='/auth/v1/recover')!;
++      const target=new URL(new URL(r.url).searchParams.get('redirect_to')!);
++      expect(target.origin).toBe(origin);expect(target.pathname).toBe('/actualizeaza-parola');expect(target.search).toBe('');
++    }
++  });
++  it('ordinary signup PKCE cannot obtain recovery proof by supplying recovery query parameters',async()=>{
++    await request('signup',{email:user.email,username:'new_user',ageRange:'20+',password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true});
++    const response=await callback(new Request('https://finly.test/auth/callback?code=ordinary&type=recovery&next=/actualizeaza-parola'));
++    expect(response.status).toBe(307);expect(jar.has('finly-recovery')).toBe(false);
++  });
++  it('recovery OTP creates proof and an authenticated session without requiring same-browser PKCE',async()=>{
++    const response=await request('recover',{tokenHash:'unit-recovery',password:'newpassword',repeatPassword:'newpassword'});
++    expect(response.status).toBe(200);expect(jar.has('finly-recovery')).toBe(false);
++    expect(requests.find(r=>r.url.endsWith('/verify'))?.body).toMatchObject({token_hash:'unit-recovery',type:'recovery'});
++    expect(requests.some(r=>r.url.includes('grant_type=pkce'))).toBe(false);
++    expect((await (await serverSupabase()).auth.getUser()).data.user?.id).toBe(id);
++  });
++  it.each([{password:'short',repeatPassword:'short'},{password:'validpassword',repeatPassword:'differentpassword'},{password:'',repeatPassword:''}])('server independently rejects invalid new passwords %#',async data=>{
++    await request('login',{email:user.email,password:'abcdefgh'});jar.set('finly-recovery',recoveryProof(id));requests=[];
++    const response=await request('update',data);expect(response.status).toBe(400);expect((await response.json()).error.code).toBe('VALIDATION_ERROR');
++    expect(requests.every(r=>!(r.body && typeof r.body==='object' && 'password' in r.body))).toBe(true);expect(jar.has('finly-recovery')).toBe(true);
++  });
++  it('expired OTP recovery link returns recovery error even without a next parameter',async()=>{
++    vi.mocked(fetch).mockResolvedValue(Response.json({error_code:'otp_expired',msg:'Expired'},{status:403}));
++    const response=await request('recover',{tokenHash:'expired',password:'newpassword',repeatPassword:'newpassword'});
++    expect(response.status).toBe(403);expect((await response.json()).error.message).toBe('Linkul nu mai este valid sau a expirat.');expect(jar.has('finly-recovery')).toBe(false);
++  });
++  it('recovery update keeps session, consumes proof, and new password replaces old password',async()=>{
++    let password='oldpassword';const transport=vi.mocked(fetch).getMockImplementation()!;
++    vi.mocked(fetch).mockImplementation(async(input,init)=>{
++      const url=String(input),body=init?.body?JSON.parse(String(init.body)):{};
++      if(url.includes('grant_type=password') && body.password!==password)return Response.json({msg:'Invalid login credentials'},{status:400});
++      if(url.endsWith('/user') && init?.method==='PUT')password=body.password;
++      return transport(input,init);
++    });
++    expect((await request('recover',{tokenHash:'fresh-token',password:'newpassword',repeatPassword:'newpassword'})).status).toBe(200);
++    expect(jar.has('finly-recovery')).toBe(false);expect((await (await serverSupabase()).auth.getUser()).data.user?.id).toBe(id);
++    expect((await request('update',{password:'anotherpassword',repeatPassword:'anotherpassword'})).status).toBe(403);
++    await request('logout');expect((await request('login',{email:user.email,password:'newpassword'})).status).toBe(200);
++    await request('logout');expect((await request('login',{email:user.email,password:'oldpassword'})).status).toBe(401);
++  });
++  it('update failure diagnostics never log password, recovery proof or provider message',async()=>{
++    await request('login',{email:user.email,password:'abcdefgh'});const proof=recoveryProof(id);jar.set('finly-recovery',proof);
++    const transport=vi.mocked(fetch).getMockImplementation()!;const log=vi.spyOn(console,'error').mockImplementation(()=>{});
++    try{
++      vi.mocked(fetch).mockImplementation((input,init)=>init?.method==='PUT'?Promise.resolve(Response.json({error_code:'weak_password',msg:'newpassword sensitive-token'},{status:422})):transport(input,init));
++      expect((await request('update',{password:'newpassword',repeatPassword:'newpassword'})).status).toBe(400);
++      const logs=JSON.stringify(log.mock.calls);expect(logs).not.toContain('newpassword');expect(logs).not.toContain('sensitive-token');expect(logs).not.toContain(proof);
++    }finally{log.mockRestore();}
++  });
++
++});
++
++describe('Submit-only recovery authorization',()=>{
++ it.each([{password:'short',repeatPassword:'short'},{password:'newpassword',repeatPassword:'differentpassword'},{password:'',repeatPassword:''},{password:'a'.repeat(129),repeatPassword:'a'.repeat(129)}])('validates before verify %#',async data=>{
++  expect((await request('recover',{tokenHash:'fresh',...data})).status).toBe(400);expect(requests).toHaveLength(0);
++ });
++ it('keeps proof/session after update failure and safely retries without reusing token',async()=>{
++  const transport=vi.mocked(fetch).getMockImplementation()!;let fail=true,verified=false;
++  vi.mocked(fetch).mockImplementation(async(input,init)=>{
++   if(String(input).endsWith('/verify')){if(verified)return Response.json({error_code:'otp_expired',msg:'Used'},{status:403});verified=true;}
++   if(init?.method==='PUT' && fail)return Response.json({msg:'Temporary sensitive-provider-text'},{status:500});
++   return transport(input,init);
++  });
++  const data={tokenHash:'single-use',password:'newpassword',repeatPassword:'newpassword'};
++  const log=vi.spyOn(console,'error').mockImplementation(()=>{});
++  try{
++   const failed=await request('recover',data);expect(failed.status).toBe(503);expect((await failed.json()).error.code).toBe('RECOVERY_TEMPORARY');
++   expect(validRecoveryProof(jar.get('finly-recovery'),id)).toBe(true);expect([...jar.keys()].some(k=>k.includes('auth-token'))).toBe(true);
++   fail=false;expect((await request('recover',data)).status).toBe(200);expect(jar.has('finly-recovery')).toBe(false);
++   expect(requests.filter(r=>r.url.endsWith('/verify'))).toHaveLength(1);
++   expect((await request('recover',data)).status).toBe(403);
++   const logs=JSON.stringify(log.mock.calls);for(const secret of ['single-use','newpassword','sensitive-provider-text'])expect(logs).not.toContain(secret);
++  }finally{log.mockRestore();}
++ });
++ it('recovery callback hash only redirects without consumption',async()=>{
++  const response=await callback(new Request('https://finly.test/auth/callback?token_hash=fresh&type=recovery'));
++  expect(response.headers.get('location')).toBe('https://finly.test/actualizeaza-parola?token_hash=fresh&type=recovery');expect(requests).toHaveLength(0);
++ });
+ });

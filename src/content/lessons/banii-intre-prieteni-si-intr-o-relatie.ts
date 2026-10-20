@@ -288,27 +288,46 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Banii împărțiți cer acorduri clare despre sume, scop și termen.",
+          "body": "Stabiliți clar suma, scopul și termenul banilor împărțiți.",
           "detail": "Lia achită factura, dar ea și Dan nu conveniseră aceeași regulă de împărțire. Plata temporară nu decide singură contribuțiile și nu transformă automat suma într-un cadou.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "contribuțiile",
+            "împărțire"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Doi colegi au o factură comună de 300 lei și aleg să împartă egal: 150 fiecare. Dacă au convenit o regulă de două treimi și o treime, sumele ar fi 200 și 100.",
-          "type": "normal"
+          "body": "Regula de împărțire se discută înainte de plată.",
+          "type": "normal",
+          "detail": "Împărțirea egală și împărțirea după utilizare pot duce la sume diferite. Acordul se face înainte de plată.",
+          "detailHighlights": [
+            "utilizare",
+            "plată"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Nu oferi acces la parole, PIN sau conturi ca dovadă de încredere.",
-          "type": "normal"
+          "body": "Încrederea nu cere parole, PIN sau acces la cont.",
+          "type": "normal",
+          "detail": "Încrederea nu cere acces la parole sau PIN. Puteți clarifica o contribuție fără să împărțiți conturile.",
+          "detailHighlights": [
+            "parole",
+            "acces"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Formulează un acord fictiv despre suma, termenul și regula unei cheltuieli comune.",
-          "type": "action"
+          "type": "action",
+          "detail": "Scrie dacă suma este cadou, împrumut sau contribuție și ce termen ați convenit. Evitați presupunerile diferite.",
+          "detailHighlights": [
+            "împrumut",
+            "termen"
+          ]
         }
       ]
     },

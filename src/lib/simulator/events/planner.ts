@@ -1,4 +1,5 @@
 import { decisionExpiry } from './decision-policy';
+import { eventInterest } from './interest';
 import type { LifeProfile } from '../life-profile';
 import { lifeProfileEventReason } from './profile-context';
 import { dayKey, daysBetween, monthKey, type DayKey } from '../calendar';
@@ -45,6 +46,9 @@ export interface PlannerInput {
   catalog: readonly EventDefinitionV1[]; history: readonly EventInstance[]; plannedAt: string; diagnostics?: boolean;
   consequenceState?: ConsequenceState;
   evaluationAt?: string;
+  /** Repair adds future opportunities without changing saved instances. */
+  notBefore?: string;
+  floorOnly?: boolean;
 }
 export type Rejection = { definitionId: string; window: string; reason: string };
 export function frequencyReason(definition: EventDefinitionV1, day: DayKey, history: readonly EventInstance[], engine: EventEngine, catalog: readonly EventDefinitionV1[]): string | null {
@@ -145,7 +149,7 @@ function planLifeDay(input:PlannerInput):{instances:EventInstance[];rejected:Rej
   // Bounded history serves exact/family cooldowns, monthly rules, and semantic windows.
   const recent=input.history.filter(e=>e.day<=day && daysBetween(e.day,day)<=90 && e.status!=='cancelled');
   const metadata=(e:EventInstance)=>e.snapshot.life??catalog.find(d=>d.id===e.definitionId)?.life;
-  const reason=(d:EventDefinitionV1,history:readonly EventInstance[]):string|null=>{
+  const reason=(d:EventDefinitionV1,history:readonly EventInstance[],relaxSemantic=false):string|null=>{
     const profileReason = lifeProfileEventReason(d, input.lifeProfile, null);
     if (profileReason) return profileReason;
     const life=d.life;if(!life)return 'missing_life_metadata';
@@ -162,52 +166,98 @@ function planLifeDay(input:PlannerInput):{instances:EventInstance[];rejected:Rej
     if(history.some(e=>e.definitionId===d.id && daysBetween(e.day,day)<d.rules.cooldownDays))return 'event_cooldown';
     if(history.some(e=>e.familyId===d.familyId && (e.day===day || daysBetween(e.day,day)<life.familyCooldownDays)))return 'family_cooldown';
     // A real unresolved problem may return; its own semantic tag must not block the follow-up.
-    if(!d.rules.state?.requiredFlags?.length)for(const tag of life.semanticTags){
+    if(!relaxSemantic && !d.rules.state?.requiredFlags?.length)for(const tag of life.semanticTags){
       const hard=policy.semanticHardDays[tag];
       if(hard && history.some(e=>daysBetween(e.day,day)<hard && metadata(e)?.semanticTags.includes(tag)))return `semantic_cooldown:${tag}`;
     }
     const global=frequencyReason({...d,rules:{...d.rules,cooldownDays:0}},day,history,engine,catalog);
     return global;
   };
-  for(const window of lifeOpportunities(day,engine.scheduleProfile,policy)){
+  const existing=recent.filter(e=>e.day===day);
+  const floor=policy.version===4?policy.minDailyEvents:0;
+  const passes=policy.version===4?(input.floorOnly?[1,2,3]:[0,1,2,3]):[0];
+  for(const pass of passes){
+  if(pass>0 && existing.length+instances.length>=floor)break;
+  const windows=pass===3 && policy.version===4
+    ? Array.from({length:2},()=>({id:'evening' as const,...policy.lateFloorWindow}))
+    : lifeOpportunities(day,engine.scheduleProfile,policy);
+  // Prefer unrepresented dayparts; maximize distance from saved opportunities.
+  while(windows.length){
+  if(pass>0)windows.sort((a,b)=>{
+    const chosen=[...existing,...instances];
+    const distance=(w:typeof a)=>chosen.length?Math.min(...chosen.map(e=>Math.abs(localInstant(day,Math.floor((w.start+w.end)/2)).getTime()-Date.parse(e.scheduledAt)))):1440-w.start;
+    return distance(b)-distance(a)||a.start-b.start;
+  });
+  const window=windows.shift()!;
+    if(pass>0 && existing.length+instances.length>=floor)break;
+    if(policy.version===4 && pass<3 && [...existing,...instances].some(e=>e.generationKey.includes(':'+window.id+':')))continue;
     const instants=new Map<number,string>();
     const states=new Map<number,ReturnType<typeof buildSimulatorStateAt>>();
     const instant=(minute:number)=>{let value=instants.get(minute);if(!value){value=localInstant(day,minute).toISOString();instants.set(minute,value);}return value;};
-    if(eventRng(runId,rngVersion,day,'life_opportunity',window.id)()>=policy.opportunityChances[window.id]){
+    if(pass===0 && eventRng(runId,rngVersion,day,'life_opportunity',window.id)()>=policy.opportunityChances[window.id]){
       for(const d of catalog.filter(d=>d.life?.opportunities.includes(window.id)))reject(d.id,window.id,'quiet_opportunity');
       continue;
     }
     const candidates: {definition:EventDefinitionV1;variation:EventVariation;scheduledAt:string;score:number}[]=[];
     for(const d of [...catalog].sort((a,b)=>a.id.localeCompare(b.id))){
+      if(pass===3 && policy.version===4 && !policy.evergreenDefinitionIds.includes(d.id))continue;
       if(!d.life?.opportunities.includes(window.id))continue;
-      const blocked=reason(d,[...recent,...instances]);if(blocked){reject(d.id,window.id,blocked);continue;}
+      const blocked=reason(d,[...recent,...instances],pass>=2);if(blocked){reject(d.id,window.id,blocked);continue;}
       const slot=`life:${window.id}:${d.id}`;
-      const variation=[...d.variations].sort((a,b)=>weightedScore(runId,rngVersion,day,'variation',`${slot}:${a.id}`,a.weight)-weightedScore(runId,rngVersion,day,'variation',`${slot}:${b.id}`,b.weight)||a.id.localeCompare(b.id))[0];
+      const variation=[...d.variations].filter(v=>policy.version!==4 || !v.additionalRules || (!v.additionalRules.requiresFutureFeature && (!v.additionalRules.weekendOnly || [0,6].includes(weekday(day))) && !frequencyReason({...d,rules:v.additionalRules},day,[...recent,...instances],engine,catalog))).sort((a,b)=>weightedScore(runId,rngVersion,day,'variation',`${slot}:${a.id}`,a.weight)-weightedScore(runId,rngVersion,day,'variation',`${slot}:${b.id}`,b.weight)||a.id.localeCompare(b.id))[0];
+      if(!variation)continue;
       const duration=Math.max(...variation.options.map(o=>o.durationMinutes)),occupied=occupiedSchedule(day,engine.scheduleProfile,policy);
       const minutes:number[]=[];
       for(let m=window.start;m<window.end;m++){
         if (lifeProfileEventReason(d, input.lifeProfile, occupied, m)) continue;
         const at=instant(m);
-        if(at<engine.startedAt || m+duration>=1440 || (duration && occupied && m<occupied.end && m+duration>occupied.start))continue;
-        if(instances.some(e=>Math.abs(Date.parse(e.scheduledAt)-Date.parse(at))<policy.minGapMinutes*60000))continue;
+        if(at<engine.startedAt || (input.notBefore && at<=input.notBefore) || m+duration>=1440 || (duration && occupied && m<occupied.end && m+duration>occupied.start))continue;
+        if((policy.version===4?[...existing,...instances]:instances).some(e=>Math.abs(Date.parse(e.scheduledAt)-Date.parse(at))<policy.minGapMinutes*60000))continue;
+        if(policy.version===4 && input.history.some(e=>e.day===day && e.definitionId===d.id))continue;
         if([...input.history,...instances].some(e=>e.day===day && e.status!=='cancelled' && (()=>{
           const start=Date.parse(e.activityStartAt??e.scheduledAt),end=e.status==='resolved'?e.activityEndAt?Date.parse(e.activityEndAt):start:start+Math.max(...e.snapshot.options.map(o=>o.durationMinutes))*60000;
           const next=Date.parse(at);return next<end && next+Math.max(duration,1)*60000>start;
         })()))continue;
         let state=states.get(m);if(!state){state=buildSimulatorStateAt(input.consequenceState??emptyConsequenceState(),at);states.set(m,state);}
         if(stateRuleReason(d.rules.state,state)||stateRuleReason(variation.additionalRules?.state,state))continue;
+        if(policy.version===4){
+          // Recognition belongs to a later civil day, even during a same-day floor repair.
+          const rules=[d.rules.state,variation.additionalRules?.state];
+          if(rules.some(r=>r?.requiredFlags?.some(flag=>{
+            const source=state.activeFlags.get(flag);return source && dayKey(new Date(source.effectiveAt))>=day;
+          }) || r?.requiredEffects?.some(family=>!state.activeEffects.some(effect=>effect.familyKey===family && dayKey(new Date(effect.effectiveAt))<day))))continue;
+        }
         minutes.push(m);
       }
       if(!minutes.length){reject(d.id,window.id,'state_or_schedule_conflict');continue;}
       const count=recent.filter(e=>daysBetween(e.day,day)<policy.semanticHistoryDays && metadata(e)?.semanticTags.some(t=>d.life!.semanticTags.includes(t))).length;
-      const weight=d.weight*policy.rarityWeights[d.life.rarity]*Math.pow(policy.repeatWeightFactor,Math.min(count,4));
-      candidates.push({definition:d,variation,scheduledAt:instant(minutes[uniformInt(eventRng(runId,rngVersion,day,'scheduled_time',slot,variation.id),0,minutes.length-1)]),score:weightedScore(runId,rngVersion,day,'candidate_score',slot,weight)});
+      const diversity=policy.version===4?[...existing,...instances].filter(e=>metadata(e)?.domain===d.life!.domain || metadata(e)?.semanticTags.some(t=>d.life!.semanticTags.includes(t))).length:0;
+      const weight=d.weight*policy.rarityWeights[d.life.rarity]*Math.pow(policy.repeatWeightFactor,Math.min(count,4))*Math.pow(.08,diversity);
+      // A late first start must leave room for the second 45-minute-spaced slot.
+      const minute=pass===3 && existing.length+instances.length===0?minutes[0]:minutes[uniformInt(eventRng(runId,rngVersion,day,'scheduled_time',slot,variation.id),0,minutes.length-1)];
+      candidates.push({definition:d,variation,scheduledAt:instant(minute),score:weightedScore(runId,rngVersion,day,'candidate_score',slot,weight)});
     }
-    const chosen=candidates.sort((a,b)=>a.score-b.score||a.definition.id.localeCompare(b.definition.id))[0];
+    // Only fill the floor with this preference; eligibility and diversity stay first.
+    const selectedToday=[...existing,...instances];
+    const needsInterest=policy.version===4 && selectedToday.length<floor && selectedToday.length>0 && selectedToday.every(e=>{
+      const definition=catalog.find(d=>d.id===e.definitionId);
+      return !definition || eventInterest(definition)==='routine';
+    });
+    const diversityRank=(d:EventDefinitionV1)=>selectedToday.filter(e=>metadata(e)?.domain===d.life!.domain || metadata(e)?.semanticTags.some(t=>d.life!.semanticTags.includes(t))).length;
+    const chosen=candidates.sort((a,b)=>{
+      if(needsInterest){
+        const diversity=diversityRank(a.definition)-diversityRank(b.definition);
+        if(diversity)return diversity;
+        const interest=Number(eventInterest(b.definition)==='engaging')-Number(eventInterest(a.definition)==='engaging');
+        if(interest)return interest;
+      }
+      return a.score-b.score||a.definition.id.localeCompare(b.definition.id);
+    })[0];
     if(!chosen)continue;
     for(const other of candidates.slice(1))reject(other.definition.id,window.id,'lower_rank');
-    const d=chosen.definition,v=chosen.variation,generationKey=`v2:p${engine.policyVersion}:${day}:${window.id}:${d.id}`;
-    instances.push({id:deterministicId(input,generationKey),runId,userId:input.userId,day,definitionId:d.id,definitionVersion:d.version,familyId:d.familyId,variationId:v.id,scheduledAt:chosen.scheduledAt,expiresAt:policy.version===3?decisionExpiry(chosen.scheduledAt):nextLocalMidnight(day).toISOString(),snapshotVersion:1,snapshot:materializeSnapshot(runId,rngVersion,day,d,v),status:'pending',resolutionMode:null,selectedOptionId:null,selectedCostBani:null,feedbackSnapshot:null,resolvedAt:null,activityStartAt:null,activityEndAt:null,generationKey,cancelReason:null,createdAt:input.plannedAt});
+    const d=chosen.definition,v=chosen.variation,generationKey=`v${engine.catalogVersion}:p${engine.policyVersion}:${day}:${window.id}:${d.id}`;
+    instances.push({id:deterministicId(input,generationKey),runId,userId:input.userId,day,definitionId:d.id,definitionVersion:d.version,familyId:d.familyId,variationId:v.id,scheduledAt:chosen.scheduledAt,expiresAt:policy.version>=3?decisionExpiry(chosen.scheduledAt):nextLocalMidnight(day).toISOString(),snapshotVersion:1,snapshot:materializeSnapshot(runId,rngVersion,day,d,v),status:'pending',resolutionMode:null,selectedOptionId:null,selectedCostBani:null,feedbackSnapshot:null,resolvedAt:null,activityStartAt:null,activityEndAt:null,generationKey,cancelReason:null,createdAt:input.plannedAt});
+  }
   }
   return {instances:instances.sort((a,b)=>a.scheduledAt.localeCompare(b.scheduledAt)||a.generationKey.localeCompare(b.generationKey)),rejected};
 }

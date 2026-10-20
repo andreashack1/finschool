@@ -292,27 +292,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Rata lunară este plata periodică, iar totalul de plată privește toate sumele datorate în scenariul stabilit.",
+          "body": "O rată mai mică nu înseamnă automat un credit mai ieftin.",
           "detail": "Pentru același împrumut fictiv, 24 de plăți de 60 lei costă 1.440 lei, iar 12 de 100 lei costă 1.200 lei. Prima variantă cere mai puțin lunar, dar mai mult în total.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "împrumut",
+            "lei"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Pentru același împrumut fictiv, oferta A cere 12 plăți de 100 lei, iar B cere 24 de 60 lei, fără alte costuri în exercițiu. Totalurile sunt 1.200 și 1.440 lei.",
-          "type": "normal"
+          "body": "Compară și totalul rambursat pe întreaga durată.",
+          "type": "normal",
+          "detail": "O durată mai lungă poate ușura plata lunară și mări costul total. Urmărește ambele efecte.",
+          "detailHighlights": [
+            "costul total",
+            "plata"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Nu compara numai rata atunci când există o plată finală mare sau comisioane separate.",
-          "type": "normal"
+          "body": "Lasă loc în buget pentru o lună mai dificilă.",
+          "type": "normal",
+          "detail": "O rată care încape azi poate deveni dificilă dacă venitul scade. Lasă loc și cheltuielilor necesare.",
+          "detailHighlights": [
+            "venitul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează totalul ratelor din exemplu și explică diferența față de rata lunară.",
-          "type": "action"
+          "type": "action",
+          "detail": "Compară două calendare de rambursare pentru aceeași sumă și notează ce primești în schimbul ratei mai mici.",
+          "detailHighlights": [
+            "rambursare",
+            "sumă"
+          ]
         }
       ]
     },

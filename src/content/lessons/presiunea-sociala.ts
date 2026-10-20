@@ -283,27 +283,44 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Presiunea socială apare când alegerea de bani este influențată de așteptările grupului.",
+          "body": "Bugetul tău nu trebuie să copieze planul grupului.",
           "detail": "Radu poate propune întâlnirea de 40 lei când ieșirea de 120 depășește limita sa de 60. Grupul poate alege altfel, fără ca el să ofere extrasul bancar sau să se împrumute pentru participare.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "limita",
+            "lei"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Un grup propune o ieșire de 120 lei, iar Radu a stabilit 60 pentru socializare. Spune limita și propune o întâlnire de 40.",
-          "type": "normal"
+          "body": "Poți spune limita și propune o alternativă concretă.",
+          "type": "normal",
+          "detail": "Poți spune limita de buget și propune o întâlnire mai ieftină, fără să arăți soldul contului.",
+          "detailHighlights": [
+            "soldul",
+            "limita"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "A spune nu unei sume nu înseamnă a spune nu persoanei.",
-          "type": "normal"
+          "body": "Refuzul unei cheltuieli nu este refuzul unei persoane.",
+          "type": "normal",
+          "detail": "Refuzul unui cost nu este refuzul relației. Poți participa doar la partea accesibilă a planului.",
+          "detailHighlights": [
+            "cost"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Scrie o formulare calmă prin care refuzi un cost și propui o alternativă.",
-          "type": "action"
+          "type": "action",
+          "detail": "Folosește o formulare cu o sumă sau un plan concret, ca grupul să poată răspunde la propunere.",
+          "detailHighlights": [
+            "sumă"
+          ]
         }
       ]
     },

@@ -292,27 +292,46 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Dobânda este un cost al folosirii banilor împrumutați.",
+          "body": "Dobânda și DAE descriu lucruri diferite despre costul unui credit.",
           "detail": "Două oferte cu aceeași dobândă pot avea costuri diferite dacă una cere un comision obligatoriu. Compară indicatorul anual împreună cu totalul în lei și calendarul, pentru aceeași sumă și durată.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "dobândă",
+            "totalul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Două oferte fictive pentru aceeași sumă și durată au dobândă afișată similară. Prima are și un comision obligatoriu, a doua nu.",
-          "type": "normal"
+          "body": "Compară ofertele pentru aceeași sumă și durată.",
+          "type": "normal",
+          "detail": "DAE ajută comparația doar împreună cu suma, durata și condițiile ofertelor.",
+          "detailHighlights": [
+            "condițiile",
+            "suma"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Un cost pentru întârziere nu descrie scenariul obișnuit de rambursare la timp.",
-          "type": "normal"
+          "body": "Citește condițiile împreună cu procentul afișat.",
+          "type": "normal",
+          "detail": "Unele costuri sau schimbări viitoare cer verificare separată. Cifra procentuală nu înlocuiește contractul.",
+          "detailHighlights": [
+            "contractul",
+            "costuri"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Construiește un tabel cu suma, durata, DAE și totalul de plată pentru două oferte fictive.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pune alături DAE, totalul de rambursat și calendarul plăților pentru aceeași sumă și aceeași durată.",
+          "detailHighlights": [
+            "plăților",
+            "totalul"
+          ]
         }
       ]
     },

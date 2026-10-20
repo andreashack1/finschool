@@ -292,27 +292,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Neplata poate aduce costuri, comunicări de recuperare și alte consecințe prevăzute de contract și lege.",
+          "body": "O întârziere poate adăuga costuri și alte consecințe.",
           "detail": "Oana anticipează dificultatea și cere situația datoriei și opțiuni documentate. O discuție telefonică sau un SMS cu alt cont nu confirmă singure un nou acord de plată.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "plată",
+            "acord"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Oana știe că nu va putea plăti integral următoarea rată. Cere în scris situația datoriei și opțiunile de adaptare a plăților.",
-          "type": "normal"
+          "body": "Contactează creditorul înainte să ignori o scadență dificilă.",
+          "type": "normal",
+          "detail": "Contactul timpuriu cu creditorul poate clarifica opțiunile înainte să se adune alte costuri. Cere condițiile în scris.",
+          "detailHighlights": [
+            "condițiile",
+            "contactul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "O notificare de recuperare trebuie verificată: identitatea expeditorului, documentele și baza sumei.",
-          "type": "normal"
+          "body": "Verifică notificările și termenele prin canale cunoscute.",
+          "type": "normal",
+          "detail": "Ignorarea notificărilor nu oprește termenele. Verifică autenticitatea lor și ce plată sau reacție se cere.",
+          "detailHighlights": [
+            "plată"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Scrie un mesaj fictiv prin care ceri situația datoriei și opțiunile de plată, fără date personale reale.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pe scenariul fictiv, notează scadența, contactul verificat și întrebările despre soluțiile disponibile.",
+          "detailHighlights": [
+            "contactul",
+            "scadența"
+          ]
         }
       ]
     },

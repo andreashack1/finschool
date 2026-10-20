@@ -285,25 +285,44 @@ export const lesson: ReadyLesson = {
           "title": "Ordine",
           "body": "Separă o contribuție planificată la intrarea venitului.",
           "detail": "Din 1.000 lei, costurile de 700 și contribuția de 100 lasă 200 lei pentru alte alegeri. Separarea a 400 lei nu ar repara lipsa banilor pentru costurile necesare.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "costurile",
+            "lei"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Buget",
           "body": "Nu ignora obligațiile relevante.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Transferul către economii nu elimină chiria sau transportul. Alege o sumă care lasă loc obligațiilor apropiate.",
+          "detailHighlights": [
+            "transportul",
+            "transferul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Revizuire",
           "body": "Automatizarea și suma se adaptează.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Dacă venitul scade, poți modifica transferul. Revizuirea planului este mai utilă decât un transfer urmat imediat de retragere.",
+          "detailHighlights": [
+            "transferul",
+            "retragere"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Simulează pe hârtie o contribuție mică la intrarea venitului și verifică ce rămâne după obligații.",
-          "type": "action"
+          "type": "action",
+          "detail": "Alege momentul după o încasare confirmată și verifică soldul necesar până la următoarea intrare.",
+          "detailHighlights": [
+            "încasare",
+            "soldul"
+          ]
         }
       ]
     },

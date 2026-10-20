@@ -285,25 +285,42 @@ export const lesson: ReadyLesson = {
           "title": "Denumiri",
           "body": "Termenii nu sunt sinonime perfecte.",
           "detail": "Două rețineri care reduc salariul pot susține mecanisme diferite. Pentru o plată necunoscută, cere denumirea, baza și scopul din document, fără să îi atribui o regulă doar după sumă.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "denumirea",
+            "plată"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Mecanisme",
           "body": "Caută baza, scopul și regulile.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "O reținere se înțelege prin documentul care o explică: la ce sumă se aplică și pentru ce mecanism.",
+          "detailHighlights": [
+            "sumă"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Verificare",
           "body": "Un cuvânt fiscal nu validează o solicitare de plată.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un mesaj care cere «taxă» poate fi fals. Deschide separat canalul instituției înainte de plată.",
+          "detailHighlights": [
+            "plată"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Alege o plată de pe un document și formulează întrebarea „ce mecanism reprezintă și unde îl verific?”.",
-          "type": "action"
+          "type": "action",
+          "detail": "Folosește denumirea exactă de pe document când cauți explicația; două sume egale pot avea scopuri diferite.",
+          "detailHighlights": [
+            "sume egale",
+            "denumirea"
+          ]
         }
       ]
     },

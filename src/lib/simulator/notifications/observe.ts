@@ -17,7 +17,7 @@ export function eventNotificationPresentation(e: EventInstance) {
   return {
     status,
     title: e.snapshot.presentation?.title ?? e.snapshot.title,
-    body: status === 'active' ? e.snapshot.presentation?.context ?? e.snapshot.description : `${status === 'missed' ? 'Simulatorul a ales' : 'Ai ales'}: ${option?.label ?? 'Varianta salvată'}`,
+    body: status === 'active' ? e.snapshot.presentation?.context ?? e.snapshot.description : `${status === 'missed' ? 'SimLife a ales' : 'Ai ales'}: ${option?.label ?? 'Varianta salvată'}`,
     amount: e.selectedCostBani,
     significantAt: e.status === 'resolved' ? e.resolutionEffectiveAt ?? e.resolvedAt ?? e.expiresAt : e.scheduledAt,
   };
@@ -69,7 +69,10 @@ export async function observeNotifications(loaded: Loaded | null, now: Date) {
     const event = n.target_kind === 'event' ? loaded.instances.find(e => e.id === n.target_id) : null;
     // Delivery relevance remains active-only; inbox relevance also includes results.
     const keep = event && n.type === 'event_available' ? event.status !== 'cancelled' && event.scheduledAt <= now.toISOString() : relevant(n, loaded, now);
-    if (!keep && !n.obsolete_at) checked(await db.from('sim_notifications').update({ obsolete_at: now.toISOString(), read_at: n.read_at ?? now.toISOString() }).eq('user_id', loaded.run.userId).eq('id', n.id));
+    if (!keep && !n.obsolete_at) {
+      checked(await db.from('sim_notifications').update({ obsolete_at: now.toISOString() }).eq('user_id', loaded.run.userId).eq('id', n.id));
+      checked(await db.from('sim_notifications').update({ read_at: now.toISOString() }).eq('user_id', loaded.run.userId).eq('id', n.id).is('read_at', null));
+    }
   }
   let created = 0;
   for (const n of notificationCandidates(loaded, now)) {
@@ -84,10 +87,13 @@ export async function observeNotifications(loaded: Loaded | null, now: Date) {
     if (Date.parse(saved.available_at) > Date.parse(n.available_at) && saved.title !== 'Situație nouă') continue;
     const changed = saved.body !== n.body || saved.title !== n.title || Date.parse(saved.available_at) !== Date.parse(n.available_at) || (saved.expires_at ? Date.parse(saved.expires_at) : null) !== (n.expires_at ? Date.parse(n.expires_at) : null) || saved.obsolete_at !== null;
     if (changed || (event.resolutionMode === 'manual' && !saved.read_at)) {
+      // Presentation changes never write read_at: even a concurrent mark-read
+      // after this snapshot must survive. Only manual handling may set NULL to a timestamp.
+      const markHandled = event.resolutionMode === 'manual' && !saved.read_at;
       let update = db.from('sim_notifications').update({ ...n, obsolete_at: null,
-        read_at: event.resolutionMode === 'manual' ? saved.read_at ?? new Date().toISOString() : changed && event.resolutionMode === 'automatic' ? null : saved.read_at,
+        ...(markHandled ? { read_at: now.toISOString() } : {}),
       }).eq('user_id', loaded.run.userId).eq('id', saved.id).eq('body', saved.body).eq('available_at', saved.available_at);
-      if (event.resolutionMode !== 'automatic') update = saved.read_at ? update.eq('read_at', saved.read_at) : update.is('read_at', null);
+      if (markHandled) update = update.is('read_at', null);
       checked(await update);
     }
   }
@@ -95,7 +101,7 @@ export async function observeNotifications(loaded: Loaded | null, now: Date) {
 }
 /** Delivery/storage failure cannot undo or block canonical settlement. */
 export async function observeSafely(loaded: Loaded | null, now: Date) {
-  try { await observeNotifications(loaded, now); } catch { if (process.env.NODE_ENV === 'development') console.warn('[notifications] storage unavailable; simulator preserved'); }
+  try { await observeNotifications(loaded, now); } catch { if (process.env.NODE_ENV === 'development') console.warn('[notifications] storage unavailable; SimLife preserved'); }
 }
 export async function observeUserSafely(userId: string, clock: import('../clock').SimulatorClock) {
   try {

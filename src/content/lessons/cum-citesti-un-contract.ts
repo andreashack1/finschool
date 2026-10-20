@@ -292,27 +292,42 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Citește un contract urmărind cine se obligă, ce trebuie făcut, cât se plătește și când începe sau încetează obligația.",
+          "body": "Caută obligațiile fiecărei părți, costurile și termenele.",
           "detail": "Ioana a discutat patru ore, dar documentul menționează opt și alt loc de muncă. Clarifică diferențele și cere anexa lipsă înainte să își organizeze cursurile după acea ofertă.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "ore"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Ioana compară discuția de recrutare cu documentul: i s-a spus patru ore, dar apare o normă de opt ore. Marchează diferența și cere corectarea ori explicația înainte de semnare.",
-          "type": "normal"
+          "body": "Citește și anexele înainte să semnezi.",
+          "type": "normal",
+          "detail": "Caută ce trebuie să faci tu și ce trebuie să ofere cealaltă parte. O obligație poate fi într-o anexă.",
+          "detailHighlights": [
+            "obligație"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Un termen neclar nu trebuie tratat ca avantaj.",
-          "type": "normal"
+          "body": "Verifică de la început cum poți încheia contractul.",
+          "type": "normal",
+          "detail": "O clauză despre plecare sau penalități contează chiar dacă nu te gândești acum la acel moment.",
+          "detailHighlights": [
+            "clauză"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Fă o listă de verificare cu norma, locul, salariul brut, durata și anexele unui contract fictiv.",
-          "type": "action"
+          "type": "action",
+          "detail": "Leagă fiecare întrebare de o clauză exactă și cere clarificarea în scris, în loc să te bazezi pe un rezumat verbal.",
+          "detailHighlights": [
+            "clauză"
+          ]
         }
       ]
     },

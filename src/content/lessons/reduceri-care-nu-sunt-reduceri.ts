@@ -285,25 +285,42 @@ export const lesson: ReadyLesson = {
           "title": "Baza contează",
           "body": "Procentul se aplică unei sume concrete.",
           "detail": "O reducere de 20% din 200 lei lasă 160 lei. Încă 10% se aplică noii baze și lasă 144 lei, deci reducerile succesive nu se adună automat.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "lei"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Totalul contează",
           "body": "Include transportul și condițiile.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Transportul și o cantitate minimă pot face totalul mai mare decât la un magazin fără promoție.",
+          "detailHighlights": [
+            "transportul",
+            "cantitate"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Procente succesive",
           "body": "Aplică fiecare reducere la baza potrivită.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "La reduceri succesive, a doua se aplică prețului deja redus. Nu aduna procentele automat.",
+          "detailHighlights": [
+            "procentele"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Recalculează o ofertă în lei și compară totalul cu o alternativă pentru același produs.",
-          "type": "action"
+          "type": "action",
+          "detail": "Păstrează în comparație același produs, aceeași cantitate și livrarea. Prețul tăiat nu este singurul reper.",
+          "detailHighlights": [
+            "cantitate",
+            "prețul"
+          ]
         }
       ]
     },

@@ -285,25 +285,42 @@ export const lesson: ReadyLesson = {
           "title": "Total complet",
           "body": "Adună activitățile și transportul.",
           "detail": "Filmul, masa și transportul din exemplu cer împreună 100 lei. Cu 80 lei disponibili, compară participarea parțială sau o variantă mai ieftină și păstrează o întoarcere sigură.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "participarea parțială",
+            "transportul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Acord clar",
           "body": "Stabiliți cum se împart cheltuielile.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Dacă unul plătește comanda comună, clarificați partea fiecăruia înainte. Plata inițială nu stabilește singură împărțirea.",
+          "detailHighlights": [
+            "plata"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Participare flexibilă",
           "body": "Poți adapta planul fără să judeci preferințele.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Poți veni la film și sări peste masa de după. Participarea parțială păstrează întâlnirea fără același cost pentru toți.",
+          "detailHighlights": [
+            "participarea parțială",
+            "cost"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Înaintea următoarei ieșiri, estimează totalul și clarifică o cheltuială comună cu grupul.",
-          "type": "action"
+          "type": "action",
+          "detail": "Include și întoarcerea acasă în estimare, apoi spune grupului ce parte a planului îți încape în buget.",
+          "detailHighlights": [
+            "buget"
+          ]
         }
       ]
     },

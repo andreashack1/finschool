@@ -13,6 +13,13 @@ export async function GET(request: Request) { return simulatorApi(request, async
   return inbox(user.id, effectiveNow(clock));
 }); }
 export async function POST(request: Request) { return simulatorApi(request, async user => {
-  const input = z.strictObject({ id: z.uuid().optional(), version: z.iso.datetime().optional() }).parse(await readBody(request));
-  return markRead(user.id, input.id, effectiveNow(await getServerClock()), input.version);
+  let stage = 'ack-parse';
+  try {
+    const input = z.strictObject({ id: z.uuid().optional(), version: z.iso.datetime({ offset: true }).optional() }).parse(await readBody(request));
+    stage = 'mark-read';
+    return await markRead(user.id, input.id, effectiveNow(await getServerClock()), input.version);
+  } catch (error) {
+    console.error('[notifications]', { stage, code: error instanceof z.ZodError ? 'INVALID_INPUT' : 'ACK_FAILED' });
+    throw error;
+  }
 }); }

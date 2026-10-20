@@ -283,27 +283,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "O conversație despre bani devine mai clară când are un scop concret, fapte și un moment potrivit.",
+          "body": "O conversație clară pornește de la fapte și un scop concret.",
           "detail": "Lia spune suma de 100 lei și termenul de vineri, în loc să eticheteze persoana. Dacă acceptă un nou acord, îl clarifică prin sumă și dată, fără să trateze intenția ca plată făcută.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "termenul",
+            "plată"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Lia a plătit 200 lei pentru o cheltuială comună, iar partea convenită a lui Dan era 100 până vineri. Luni încă nu a primit-o.",
-          "type": "normal"
+          "body": "Spune suma și termenul convenit, fără etichete despre persoană.",
+          "type": "normal",
+          "detail": "Suma, acordul și termenul descriu mai clar problema decât o etichetă despre caracterul persoanei.",
+          "detailHighlights": [
+            "termenul",
+            "suma"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Evită discuția în mijlocul unei certe ori în fața unui public inutil.",
-          "type": "normal"
+          "body": "Alege un moment potrivit și discută fără public inutil.",
+          "type": "normal",
+          "detail": "O discuție în public poate adăuga presiune fără să clarifice plata. Alege un moment potrivit pentru amândoi.",
+          "detailHighlights": [
+            "plata"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Transformă o acuzație generală într-o cerere cu sumă și termen, folosind un exemplu fictiv.",
-          "type": "action"
+          "type": "action",
+          "detail": "Dacă stabiliți un termen nou, notează-l explicit. Intenția de plată nu este încă o încasare.",
+          "detailHighlights": [
+            "încasare",
+            "termen"
+          ]
         }
       ]
     },

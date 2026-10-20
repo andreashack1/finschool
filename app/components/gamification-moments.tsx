@@ -31,12 +31,12 @@ function AccountMoments() {
   useEffect(() => {
     if (!levelUp || !dialog.current) return;
     returnFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    dialog.current.showModal(); void acknowledgeLevel();
+    dialog.current.showModal(); void acknowledgeLevel().catch(() => { /* Queued acknowledgement can reconcile later. */ });
     return () => returnFocus.current?.focus();
   }, [levelUp]);
   useEffect(() => {
     if (!toast) return;
-    if (toast) void acknowledgeAchievement(toast.id);
+    if (toast) void acknowledgeAchievement(toast.id).catch(() => { /* Queued acknowledgement can reconcile later. */ });
 
     const timer = window.setTimeout(() => { setToast(null); }, gamificationConfig.ui.toastMs);
     return () => window.clearTimeout(timer);

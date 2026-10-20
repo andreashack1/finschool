@@ -285,25 +285,44 @@ export const lesson: ReadyLesson = {
           "title": "Debit",
           "body": "Folosești disponibilul contului, cu facilități distincte.",
           "detail": "Teo are 120 lei în cont și 100 lei în portofel, dar cardul nu folosește automat bancnotele. Retragerea schimbă locul banilor; cumpărăturile și eventualele comisioane sunt costuri distincte.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "comisioane",
+            "costuri"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Retragere",
           "body": "Numerarul primit nu este automat consumat.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Banii retrași rămân ai tăi în portofel. În buget separi retragerea de cumpărăturile făcute ulterior.",
+          "detailHighlights": [
+            "buget",
+            "banii"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Evidență",
           "body": "Separă banii din cont de cei din portofel.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Dacă notezi și retragerea și plata în numerar drept consum, numeri aceiași bani de două ori.",
+          "detailHighlights": [
+            "numerar",
+            "plata"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La o retragere din istoricul tău, distinge suma mutată de eventualul comision și de cumpărăturile ulterioare.",
-          "type": "action"
+          "type": "action",
+          "detail": "Urmărește traseul unei sume: cont, portofel, cumpărătură. Doar comisionul retragerii este o cheltuială separată la mutare.",
+          "detailHighlights": [
+            "cumpărătură",
+            "comisionul"
+          ]
         }
       ]
     },

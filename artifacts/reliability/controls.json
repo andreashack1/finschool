@@ -1,0 +1,1122 @@
+[
+  {
+    "file": "app\\components\\account-boundary.tsx",
+    "line": 23,
+    "tag": "button",
+    "control": "<button className=\"app-button\" disabled={busy} onClick={()=>void retryLogout()}>",
+    "classification": "AUTH ACTION"
+  },
+  {
+    "file": "app\\components\\account-boundary.tsx",
+    "line": 25,
+    "tag": "button",
+    "control": "<button className=\"app-button\" onClick={()=>void refreshProgress()}>",
+    "classification": "SERVER READ"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 17,
+    "tag": "Link",
+    "control": "<Link className=\"account-brand\" href=\"/bun-venit\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 22,
+    "tag": "Link",
+    "control": "<Link className=\"app-button\" href=\"/incepe\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 22,
+    "tag": "Link",
+    "control": "<Link className=\"app-button secondary\" href=\"/autentificare\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 22,
+    "tag": "Link",
+    "control": "<Link href=\"/creeaza-cont\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 34,
+    "tag": "button",
+    "control": "<button className=\"app-button\" disabled={busy} onClick={()=>void sync()}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 34,
+    "tag": "Link",
+    "control": "<Link className=\"app-button\" href=\"/creeaza-cont\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 34,
+    "tag": "Link",
+    "control": "<Link className=\"app-button secondary\" href=\"/autentificare\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 38,
+    "tag": "input",
+    "control": "<input id={name} required name={name} type={shown?'text':'password'} minLength={8} maxLength={128} autoComplete={name==='loginPassword'?'current-password':'new-password'}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 38,
+    "tag": "button",
+    "control": "<button type=\"button\" onClick={()=>setShown(!shown)} aria-label={`${shown?'Ascunde':'Arată'} ${description}`} aria-controls={name} aria-pressed={shown}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 51,
+    "tag": "input",
+    "control": "<input ref={input} id=\"username\" required name=\"username\" value={username} onChange={event=>{const value=normalizeUsername(event.target.value);event.target.setCustomValidity(value?usernameValidationMessage(value):'');setUsername(value);}} minLength={3} maxLength={20} pattern=\"[a-z0-9_]{3,20}\" autoComplete=\"username\" aria-invalid={Boolean(invalid || taken)} aria-describedby=\"username-status\"/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 87,
+    "tag": "Link",
+    "control": "<Link className=\"app-button\" href=\"/resetare-parola\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "form",
+    "control": "<form onSubmit={submit} className=\"account-form\">",
+    "classification": "AUTH ACTION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "input",
+    "control": "<input ref={emailInput} name=\"email\" required type=\"email\" autoComplete=\"email\" maxLength={254}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "input",
+    "control": "<input name=\"displayName\" maxLength={40} autoComplete=\"nickname\"/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "select",
+    "control": "<select name=\"ageRange\" required value={age} onChange={event=>setAge(event.target.value)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "input",
+    "control": "<input required type=\"checkbox\" name=\"parentalConsent\" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.PARENT_ACKNOWLEDGEMENT_REQUIRED)}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "input",
+    "control": "<input type=\"checkbox\" required name=\"terms\" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.LEGAL_CONSENT_REQUIRED)}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "Link",
+    "control": "<Link href=\"/termeni\" target=\"_blank\" rel=\"noopener noreferrer\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "input",
+    "control": "<input type=\"checkbox\" required name=\"privacy\" aria-describedby={error ? 'signup-error' : undefined} onInvalid={()=>setError(errorCopy.LEGAL_CONSENT_REQUIRED)}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "Link",
+    "control": "<Link href=\"/confidentialitate\" target=\"_blank\" rel=\"noopener noreferrer\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "button",
+    "control": "<button className=\"app-button\" disabled={busy || !configured || (mode==='signup' && age==='Sub 14') || cooldown>0}>",
+    "classification": "AUTH ACTION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "Link",
+    "control": "<Link href=\"/resetare-parola\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "Link",
+    "control": "<Link href=\"/creeaza-cont\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "Link",
+    "control": "<Link href=\"/autentificare\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "Link",
+    "control": "<Link href=\"/resetare-parola\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "Link",
+    "control": "<Link href=\"/creeaza-cont\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-screens.tsx",
+    "line": 88,
+    "tag": "Link",
+    "control": "<Link href=\"/autentificare\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 35,
+    "tag": "button",
+    "control": "<button type=\"button\" className=\"profile-utility\" aria-label=\"Închide setările profilului\" disabled={busy} onClick={()=>dialog.current?.close()}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 38,
+    "tag": "form",
+    "control": "<form className=\"account-form\" onSubmit={save}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 38,
+    "tag": "input",
+    "control": "<input name=\"displayName\" defaultValue={p.profile.display_name ?? ''} maxLength={40}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 38,
+    "tag": "button",
+    "control": "<button className=\"app-button\" disabled={busy}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 38,
+    "tag": "button",
+    "control": "<button type=\"button\" className=\"app-button secondary\" disabled={busy} onClick={()=>dialog.current?.close()}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 39,
+    "tag": "Link",
+    "control": "<Link className=\"account-action\" href=\"/resetare-parola\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 39,
+    "tag": "button",
+    "control": "<button className=\"account-action\" disabled={busy} onClick={()=>void leave()}>",
+    "classification": "AUTH ACTION"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 40,
+    "tag": "button",
+    "control": "<button className=\"account-action\" disabled={busy} onClick={()=>setDeletion(1)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 40,
+    "tag": "button",
+    "control": "<button className=\"app-button secondary\" disabled={busy} onClick={()=>setDeletion(2)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 40,
+    "tag": "button",
+    "control": "<button className=\"account-action\" disabled={busy} onClick={()=>setDeletion(0)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 40,
+    "tag": "input",
+    "control": "<input value={confirmation} disabled={busy} onChange={event=>setConfirmation(event.target.value)} autoComplete=\"off\"/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 40,
+    "tag": "button",
+    "control": "<button className=\"app-button\" disabled={busy || confirmation!==p.profile.username} onClick={()=>void leave(true)}>",
+    "classification": "DESTRUCTIVE ACTION"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 40,
+    "tag": "button",
+    "control": "<button className=\"account-action\" disabled={busy} onClick={()=>setDeletion(0)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 41,
+    "tag": "Link",
+    "control": "<Link href=\"/termeni\" target=\"_blank\" rel=\"noopener noreferrer\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\account-settings.tsx",
+    "line": 41,
+    "tag": "Link",
+    "control": "<Link href=\"/confidentialitate\" target=\"_blank\" rel=\"noopener noreferrer\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\gamification-moments.tsx",
+    "line": 47,
+    "tag": "button",
+    "control": "<button className=\"app-button\" autoFocus onClick={() => setLevelUp(null)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\gamification-moments.tsx",
+    "line": 48,
+    "tag": "button",
+    "control": "<button aria-label=\"Închide notificarea\" onClick={() => { setToast(null); }}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\gamification-ui.tsx",
+    "line": 36,
+    "tag": "button",
+    "control": "<button key={option.id} disabled={Boolean(result) || saving} aria-pressed={result?.selectedOptionId === option.id} className={result && option.id === challenge.correctOptionId ? \"answer-correct\" : result?.selectedOptionId === option.id ? \"answer-wrong\" : \"\"} onClick={() => { void choose(option.id); }}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\components\\gamification-ui.tsx",
+    "line": 64,
+    "tag": "button",
+    "control": "<button type=\"button\" className={`activity-day ${day.state} ${day.date===today?'is-today':''}`} data-day={day.date} key={day.date} title={label} aria-label={label} onClick={()=>setDetail(day.state==='freeze'?`${localized}: Nu ai avut activitate în această zi, dar un Freeze ți-a păstrat streak-ul.`:label)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\gamification-ui.tsx",
+    "line": 70,
+    "tag": "Link",
+    "control": "<Link className=\"profile-learning-link\" href=\"/lectii\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\learning-ui.tsx",
+    "line": 27,
+    "tag": "Link",
+    "control": "<Link href={`/lectii/${getCategory(\"economii\")!.slug}`}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\learning-ui.tsx",
+    "line": 35,
+    "tag": "a",
+    "control": "<a className=\"skip-link\" href=\"#app-content\">",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\learning-ui.tsx",
+    "line": 35,
+    "tag": "Link",
+    "control": "<Link href=\"/\" className=\"brand-word\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\learning-ui.tsx",
+    "line": 35,
+    "tag": "Link",
+    "control": "<Link key={label} href={href} aria-current={label === \"Lecții\" ? \"page\" : undefined} className={label === \"Lecții\" ? \"active\" : \"\"}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\learning-ui.tsx",
+    "line": 42,
+    "tag": "Link",
+    "control": "<Link className=\"course-card app-card\" href={`/lectii/${category.slug}`} key={category.id}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\learning-ui.tsx",
+    "line": 48,
+    "tag": "Link",
+    "control": "<Link className=\"app-button\" href=\"/lectii\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\learning-ui.tsx",
+    "line": 51,
+    "tag": "Link",
+    "control": "<Link className=\"back-button\" href=\"/lectii\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\learning-ui.tsx",
+    "line": 57,
+    "tag": "Link",
+    "control": "<Link className={`path-row ${state}`} href={`/lectie/${lesson.slug}`} key={lesson.id} data-state={state}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\legal-document.tsx",
+    "line": 12,
+    "tag": "a",
+    "control": "<a href={`#${section.id}`}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\legal-document.tsx",
+    "line": 14,
+    "tag": "Link",
+    "control": "<Link href=\"/termeni\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\legal-document.tsx",
+    "line": 14,
+    "tag": "Link",
+    "control": "<Link href=\"/confidentialitate\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 26,
+    "tag": "Link",
+    "control": "<Link className=\"app-button\" href={href}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 123,
+    "tag": "Link",
+    "control": "<Link className=\"lesson-exit\" href={trial ? \"/bun-venit\" : `${categoryHref}#${lesson.chapterId}`} aria-label=\"Închide lecția\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 124,
+    "tag": "Link",
+    "control": "<Link className=\"app-button\" href=\"/salveaza-progresul\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 124,
+    "tag": "Link",
+    "control": "<Link className=\"lesson-restart\" href=\"/autentificare\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 124,
+    "tag": "Link",
+    "control": "<Link className=\"app-button\" href={`/lectie/${nextLesson.slug}`}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 124,
+    "tag": "Link",
+    "control": "<Link className=\"app-button\" href=\"/lectii\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 124,
+    "tag": "Link",
+    "control": "<Link className=\"lesson-restart\" href={`${categoryHref}#${lesson.chapterId}`}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 124,
+    "tag": "button",
+    "control": "<button className=\"lesson-restart\" onClick={() => { setShuffleSeed(createClientUuid()); setIndex(0); setAnswer(null); setDone(false); setCompletion(null); finishing.current = false; firstAnswers.current.clear(); sessionId.current = null; setOperationId(null); void saveLastLesson(lesson.id).catch(() => { /* Best-effort metadata; the progress queue handles reconciliation. */ }); }}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 124,
+    "tag": "Link",
+    "control": "<Link className=\"app-button\" href={categoryHref}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 125,
+    "tag": "summary",
+    "control": "<summary>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 125,
+    "tag": "a",
+    "control": "<a href={source.url} target=\"_blank\" rel=\"noopener noreferrer\">",
+    "classification": "EXTERNAL LINK"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 125,
+    "tag": "button",
+    "control": "<button key={option.id} data-option-id={option.id} className={`lesson-answer ${answer !== null && option.id === correct ? \"correct\" : answer === option.id ? \"wrong\" : \"\"}`} disabled={answer !== null} aria-pressed={answer === option.id} onClick={() => chooseAnswer(option.id)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 126,
+    "tag": "button",
+    "control": "<button className=\"app-button lesson-continue\" ref={continueButton} disabled={saving} onClick={() => { void next(); }}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\components\\lesson-player.tsx",
+    "line": 126,
+    "tag": "button",
+    "control": "<button className=\"app-button lesson-continue learning-text-continue\" ref={continueButton} disabled={saving} aria-busy={saving} onClick={next}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\components\\lesson-reading.tsx",
+    "line": 30,
+    "tag": "button",
+    "control": "<button type=\"button\" ref={trigger} className=\"lesson-case-trigger\" onClick={() => setOpen(true)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\lesson-reading.tsx",
+    "line": 30,
+    "tag": "button",
+    "control": "<button type=\"button\" autoFocus aria-label=\"Închide cazul\" onClick={() => setOpen(false)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\lesson-reading.tsx",
+    "line": 43,
+    "tag": "button",
+    "control": "<button id={`${panelId}-toggle`} type=\"button\" aria-expanded={open} aria-controls={panelId} onClick={() => setExpanded(current => { const next = new Set(current); if (next.has(item.id)) next.delete(item.id); else next.add(item.id); return next; })}>",
+    "classification": "DESTRUCTIVE ACTION"
+  },
+  {
+    "file": "app\\components\\notification-bell.tsx",
+    "line": 66,
+    "tag": "button",
+    "control": "<button ref={button} className=\"notification-bell\" aria-label={`Notificări${data.unread ? `, ${data.unread} necitite` : ''}`} aria-haspopup=\"dialog\" aria-expanded={open} onClick={() => setOpen(true)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\notification-bell.tsx",
+    "line": 68,
+    "tag": "button",
+    "control": "<button className=\"notification-read-all\" disabled={busy} onClick={() => void read()}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\components\\notification-bell.tsx",
+    "line": 68,
+    "tag": "button",
+    "control": "<button className=\"notification-settings-control\" aria-label=\"Setările notificărilor\" onClick={() => { dialog.current?.close(); setOpen(false); router.push('/?tab=profile#notification-settings'); }}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\components\\notification-bell.tsx",
+    "line": 68,
+    "tag": "button",
+    "control": "<button aria-label=\"Închide notificările\" onClick={() => setOpen(false)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\notification-bell.tsx",
+    "line": 70,
+    "tag": "button",
+    "control": "<button className=\"notification-retry\" onClick={() => void refresh()}>",
+    "classification": "SERVER READ"
+  },
+  {
+    "file": "app\\components\\notification-bell.tsx",
+    "line": 74,
+    "tag": "button",
+    "control": "<button disabled={busy} className={item.readAt ? '' : 'unread'} onClick={() => void read(item.id)}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\components\\notification-diagnostics.tsx",
+    "line": 15,
+    "tag": "button",
+    "control": "<button disabled={busy} onClick={() => void inspect()}>",
+    "classification": "SERVER READ"
+  },
+  {
+    "file": "app\\components\\notification-diagnostics.tsx",
+    "line": 15,
+    "tag": "button",
+    "control": "<button disabled={busy} onClick={() => void inspect('process')}>",
+    "classification": "SERVER READ"
+  },
+  {
+    "file": "app\\components\\notification-diagnostics.tsx",
+    "line": 15,
+    "tag": "button",
+    "control": "<button disabled={busy} onClick={() => void inspect('test')}>",
+    "classification": "SERVER READ"
+  },
+  {
+    "file": "app\\components\\notification-settings.tsx",
+    "line": 45,
+    "tag": "input",
+    "control": "<input type=\"checkbox\" checked={p.push_enabled} disabled={!loaded || busy || (!p.push_enabled && (permission === 'unsupported' || permission === 'denied' || !configured))} onChange={e => e.target.checked ? void activate() : void save({ ...p, push_enabled: false })}/>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\components\\notification-settings.tsx",
+    "line": 45,
+    "tag": "button",
+    "control": "<button className=\"app-button secondary\" disabled={busy || !loaded} onClick={() => void activate()}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\components\\notification-settings.tsx",
+    "line": 45,
+    "tag": "input",
+    "control": "<input type=\"checkbox\" checked={p[item.key]} disabled={!loaded || busy} onChange={e => void save({ ...p, [item.key]: e.target.checked })}/>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\confidentialitate\\page.tsx",
+    "line": 19,
+    "tag": "a",
+    "control": "<a href=\"https://commission.europa.eu/law/law-topic/data-protection/information-individuals_en\" target=\"_blank\" rel=\"noopener noreferrer\">",
+    "classification": "EXTERNAL LINK"
+  },
+  {
+    "file": "app\\despre\\page.tsx",
+    "line": 35,
+    "tag": "a",
+    "control": "<a className=\"skip-link\" href=\"#app-content\">",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\despre\\page.tsx",
+    "line": 36,
+    "tag": "Link",
+    "control": "<Link href=\"/\" className=\"brand-word\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\despre\\page.tsx",
+    "line": 38,
+    "tag": "Link",
+    "control": "<Link className=\"back-button\" href=\"/?tab=profile\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\despre\\page.tsx",
+    "line": 44,
+    "tag": "Link",
+    "control": "<Link className=\"back-button\" href=\"/simulator\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\despre\\page.tsx",
+    "line": 46,
+    "tag": "Link",
+    "control": "<Link className=\"app-button\" href=\"/lectii\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\despre\\page.tsx",
+    "line": 47,
+    "tag": "Link",
+    "control": "<Link href=\"/termeni\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\despre\\page.tsx",
+    "line": 47,
+    "tag": "Link",
+    "control": "<Link href=\"/confidentialitate\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\despre\\page.tsx",
+    "line": 49,
+    "tag": "Link",
+    "control": "<Link key={href} href={href} className={label === \"Profil\" ? \"active\" : undefined}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\finly-client.tsx",
+    "line": 40,
+    "tag": "Link",
+    "control": "<Link className=\"app-button\" href={lesson ? `/lectie/${lesson.slug}` : \"/lectii\"}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\finly-client.tsx",
+    "line": 49,
+    "tag": "Link",
+    "control": "<Link className=\"recommendation-all\" href=\"/lectii\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\finly-client.tsx",
+    "line": 53,
+    "tag": "Link",
+    "control": "<Link className=\"recommendation-row\" href={`/lectie/${lesson.slug}`} key={lesson.id}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\finly-client.tsx",
+    "line": 61,
+    "tag": "Link",
+    "control": "<Link className=\"profile-avatar\" href=\"/?tab=profile\" aria-label=\"Deschide profilul\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\finly-client.tsx",
+    "line": 64,
+    "tag": "button",
+    "control": "<button className={`category-tile cat-${id}`} key={id} onClick={() => explore(id)}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\finly-client.tsx",
+    "line": 66,
+    "tag": "Link",
+    "control": "<Link className=\"simulator-teaser\" href=\"/simulator\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\finly-client.tsx",
+    "line": 81,
+    "tag": "button",
+    "control": "<button className=\"profile-edit profile-utility\" aria-label=\"Editează profilul\" onClick={()=>setSettingsOpen(true)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\finly-client.tsx",
+    "line": 81,
+    "tag": "Link",
+    "control": "<Link className=\"about-link\" href=\"/despre\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\finly-client.tsx",
+    "line": 91,
+    "tag": "a",
+    "control": "<a className=\"skip-link\" href=\"#app-content\">",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\finly-client.tsx",
+    "line": 91,
+    "tag": "Link",
+    "control": "<Link href=\"/\" className=\"brand-word\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\finly-client.tsx",
+    "line": 92,
+    "tag": "Link",
+    "control": "<Link className=\"app-button\" href=\"/simulator\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\finly-client.tsx",
+    "line": 93,
+    "tag": "Link",
+    "control": "<Link key={id} href={id === \"home\" ? \"/\" : id === \"learn\" ? \"/lectii\" : id === \"simulator\" ? \"/simulator\" : `/?tab=${id}`} aria-current={tab === id ? \"page\" : undefined} className={tab === id ? \"active\" : \"\"}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\simulator\\eveniment\\[id]\\event-detail-client.tsx",
+    "line": 44,
+    "tag": "Link",
+    "control": "<Link className=\"sim-event-back\" href=\"/simulator\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\simulator\\eveniment\\[id]\\event-detail-client.tsx",
+    "line": 47,
+    "tag": "button",
+    "control": "<button className=\"app-button secondary\" onClick={()=>void refresh()}>",
+    "classification": "SERVER READ"
+  },
+  {
+    "file": "app\\simulator\\eveniment\\[id]\\event-detail-client.tsx",
+    "line": 61,
+    "tag": "button",
+    "control": "<button className=\"sim-choice-card\" disabled={!online||busy||Boolean(expired)||Boolean(option.unavailableReason)||!data.caughtUp} aria-describedby={option.unavailableReason?`${option.id}-reason`:undefined} onClick={()=>option.costBani>0?setConfirm(option):void choose(option.id)}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\simulator\\eveniment\\[id]\\event-detail-client.tsx",
+    "line": 62,
+    "tag": "button",
+    "control": "<button className=\"app-button\" disabled={!online||busy||Boolean(expired)} onClick={()=>void choose(confirm.id)}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\simulator\\eveniment\\[id]\\event-detail-client.tsx",
+    "line": 62,
+    "tag": "button",
+    "control": "<button className=\"app-button secondary\" disabled={busy} onClick={()=>setConfirm(null)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\event-area.tsx",
+    "line": 20,
+    "tag": "Link",
+    "control": "<Link href={`/simulator/eveniment/${event.id}`}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\simulator\\event-area.tsx",
+    "line": 20,
+    "tag": "Link",
+    "control": "<Link className=\"app-button secondary\" href={`/simulator/eveniment/${event.id}`}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 81,
+    "tag": "button",
+    "control": "<button type=\"button\" disabled={disabled} className=\"sim-calendar-action\" onClick={() => { setMonth(today.slice(0, 7)); setSelected(today); setCalendar(null); setError(''); setView('calendar'); }}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 81,
+    "tag": "button",
+    "control": "<button type=\"button\" disabled={disabled} className=\"sim-add-action\" onClick={() => openForm(null)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 83,
+    "tag": "button",
+    "control": "<button type=\"button\" aria-label=\"Închide\" disabled={busy} onClick={close}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 85,
+    "tag": "form",
+    "control": "<form onSubmit={save}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 85,
+    "tag": "input",
+    "control": "<input autoFocus maxLength={60} required placeholder=\"Ex. Abonament sală\" value={name} onChange={e => { changed(); setName(e.target.value); }}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 85,
+    "tag": "input",
+    "control": "<input aria-label=\"Cost\" required inputMode=\"decimal\" placeholder=\"300\" value={amount} onChange={e => { changed(); setAmount(e.target.value); }}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 85,
+    "tag": "input",
+    "control": "<input required type=\"date\" min={today} value={due} onChange={e => { changed(); setDue(e.target.value); }}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 85,
+    "tag": "select",
+    "control": "<select aria-label=\"Se repetă\" value={interval} onChange={e => { changed(); setInterval(Number(e.target.value)); }}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 85,
+    "tag": "summary",
+    "control": "<summary>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 85,
+    "tag": "input",
+    "control": "<input type=\"date\" min={due} value={endsOn} onChange={e => { changed(); setEndsOn(e.target.value); }}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 88,
+    "tag": "button",
+    "control": "<button type=\"submit\" className=\"app-button sim-save-subscription\">",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 89,
+    "tag": "button",
+    "control": "<button type=\"button\" aria-label=\"Luna precedentă\" disabled={!calendarReady || month <= calendar!.firstMonth} onClick={() => { setMonth(monthShift(month, -1)); setSelected(`${monthShift(month, -1)}-01`); setError(''); }}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 89,
+    "tag": "button",
+    "control": "<button type=\"button\" aria-label=\"Luna următoare\" disabled={!calendarReady || month === '9999-12'} onClick={() => { setMonth(monthShift(month, 1)); setSelected(`${monthShift(month, 1)}-01`); setError(''); }}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 90,
+    "tag": "button",
+    "control": "<button type=\"button\" key={d.day} aria-label={`${formatSimulatorDate(d.day)}${d.day === today ? ', astăzi' : ''}, ${d.items.length} mișcări financiare`} aria-pressed={d.day === selected} aria-current={d.day === today ? 'date' : undefined} className={`${d.day === today ? 'today' : ''} ${d.day === selected ? 'selected' : ''}`} onClick={() => setSelected(d.day)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 92,
+    "tag": "button",
+    "control": "<button type=\"button\" disabled={!online || busy} onClick={() => openForm(s)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\financial-controls.tsx",
+    "line": 92,
+    "tag": "button",
+    "control": "<button type=\"button\" disabled={!online || busy} onClick={() => { if (window.confirm(`Anulează abonamentul „${s.name}”? Plățile deja înregistrate rămân în jurnal.`)) { operation.current = null; void mutate('cancel', { id: s.id, revision: s.revision }); } }}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\simulator\\life-setup.tsx",
+    "line": 26,
+    "tag": "button",
+    "control": "<button key={c.value} className={`sim-housing ${selected === c.value ? 'selected' : ''}`} aria-pressed={selected === c.value} disabled={busy} onClick={() => {\n        if (step === 0) setActivity(c.value as LifeProfile['activityStatus']);\n        if (step === 1) setHousing(c.value as LifeProfile['housingStatus']);\n        if (step === 2) setTransport(c.value as LifeProfile['transportMode']);\n      }}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\life-setup.tsx",
+    "line": 37,
+    "tag": "button",
+    "control": "<button className=\"app-button secondary\" disabled={busy} onClick={() => setStep(step - 1)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\life-setup.tsx",
+    "line": 38,
+    "tag": "button",
+    "control": "<button className=\"app-button\" disabled={busy || !selected} onClick={() => setStep(step + 1)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\life-setup.tsx",
+    "line": 38,
+    "tag": "button",
+    "control": "<button className=\"app-button\" disabled={busy || !profile} onClick={() => profile && start(profile)}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\simulator\\monthly-review-panel.tsx",
+    "line": 36,
+    "tag": "button",
+    "control": "<button ref={button} className=\"app-button primary\" disabled={!online || busy} onClick={()=>void submit()}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\simulator\\savings-goal.tsx",
+    "line": 28,
+    "tag": "button",
+    "control": "<button className=\"app-button\" disabled={unavailable} onClick={()=>setView('create')}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\savings-goal.tsx",
+    "line": 28,
+    "tag": "button",
+    "control": "<button className=\"sim-text-button\" disabled={unavailable||goal.savedAmountBani===0} onClick={()=>setView('withdrawal')}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\savings-goal.tsx",
+    "line": 28,
+    "tag": "summary",
+    "control": "<summary aria-label=\"Opțiuni obiectiv\">",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\savings-goal.tsx",
+    "line": 28,
+    "tag": "button",
+    "control": "<button disabled={unavailable} onClick={()=>manage('edit')}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\savings-goal.tsx",
+    "line": 28,
+    "tag": "button",
+    "control": "<button disabled={unavailable} onClick={()=>manage('archive')}>",
+    "classification": "DESTRUCTIVE ACTION"
+  },
+  {
+    "file": "app\\simulator\\savings-goal.tsx",
+    "line": 65,
+    "tag": "button",
+    "control": "<button aria-label=\"Închide\" disabled={busy} onClick={close}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\savings-goal.tsx",
+    "line": 65,
+    "tag": "form",
+    "control": "<form onSubmit={submit}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\simulator\\savings-goal.tsx",
+    "line": 66,
+    "tag": "input",
+    "control": "<input id=\"sim-goal-name\" autoFocus required maxLength={60} placeholder=\"Ex. Laptop\" value={name} onChange={e=>{changed();setName(e.target.value);}} aria-invalid={!!error} aria-describedby={error?'sim-goal-error':undefined}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\savings-goal.tsx",
+    "line": 68,
+    "tag": "input",
+    "control": "<input id=\"sim-goal-amount\" aria-label={view==='create'||view==='edit'?'Suma obiectivului':view==='contribution'?'Cât vrei să pui deoparte?':'Cât vrei să scoți?'} autoFocus={view==='contribution'||view==='withdrawal'} required inputMode=\"decimal\" placeholder=\"100\" value={amount} onChange={e=>{changed();setAmount(e.target.value);}} aria-invalid={!!error} aria-describedby={error?'sim-goal-error':undefined}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\savings-goal.tsx",
+    "line": 69,
+    "tag": "button",
+    "control": "<button type=\"button\" key={n} disabled={n*100>max} onClick={()=>{changed();setAmount(String(n));}}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\savings-goal.tsx",
+    "line": 72,
+    "tag": "button",
+    "control": "<button className=\"app-button sim-save-subscription\" type=\"submit\" aria-busy={busy}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\simulator\\savings-goal.tsx",
+    "line": 72,
+    "tag": "button",
+    "control": "<button type=\"button\" className=\"sim-text-button\" disabled={busy} onClick={close}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\schedule-options.tsx",
+    "line": 15,
+    "tag": "input",
+    "control": "<input type=\"radio\" name=\"schedule\" checked={selected === option.value} onChange={() => choose(option.value)}/>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\schedule-options.tsx",
+    "line": 18,
+    "tag": "button",
+    "control": "<button key={option.value} type=\"button\" className=\"sim-schedule-option\" onClick={() => choose(option.value)}>",
+    "classification": "SERVER MUTATION"
+  },
+  {
+    "file": "app\\simulator\\simulator-client.tsx",
+    "line": 24,
+    "tag": "a",
+    "control": "<a className=\"skip-link\" href=\"#simulator-content\">",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\simulator-client.tsx",
+    "line": 24,
+    "tag": "Link",
+    "control": "<Link href=\"/\" className=\"brand-word\">",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\simulator\\simulator-client.tsx",
+    "line": 24,
+    "tag": "Link",
+    "control": "<Link key={label} href={href} aria-current={label === 'SimLife' ? 'page' : undefined} className={label === 'SimLife' ? 'active' : ''}>",
+    "classification": "NAVIGATION"
+  },
+  {
+    "file": "app\\simulator\\simulator-client.tsx",
+    "line": 32,
+    "tag": "button",
+    "control": "<button aria-label=\"Luna precedentă\" disabled={busy || !journal.previousMonth} onClick={() => journal.previousMonth && select(journal.previousMonth)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\simulator-client.tsx",
+    "line": 32,
+    "tag": "button",
+    "control": "<button aria-label=\"Luna următoare\" disabled={busy || !journal.nextMonth} onClick={() => journal.nextMonth && select(journal.nextMonth)}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\simulator-client.tsx",
+    "line": 32,
+    "tag": "button",
+    "control": "<button className=\"sim-text-button\" onClick={retry}>",
+    "classification": "SERVER READ"
+  },
+  {
+    "file": "app\\simulator\\simulator-client.tsx",
+    "line": 47,
+    "tag": "button",
+    "control": "<button className=\"sim-goal-balance-action\" disabled={busy || events?.caughtUp === false || state.goal?.remainingAmountBani === 0} onClick={putMoneyAside}>",
+    "classification": "LOCAL UI STATE"
+  },
+  {
+    "file": "app\\simulator\\simulator-client.tsx",
+    "line": 140,
+    "tag": "button",
+    "control": "<button className=\"app-button secondary\" disabled={busy} onClick={() => void refresh()}>",
+    "classification": "SERVER READ"
+  }
+]

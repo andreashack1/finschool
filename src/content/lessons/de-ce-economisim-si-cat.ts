@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Scop",
           "body": "Clarifică suma și termenul.",
           "detail": "Cursul de 600 lei în șase luni ar cere 100 lei lunar dacă nu există economii inițiale. Dacă sunt realizabili numai 75 lei, marchează diferența și compară alt termen sau o alternativă.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "economii",
+            "termen"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Realism",
           "body": "Contribuția trebuie susținută de buget.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Suma potrivită depinde de obligații și termen. Un procent care te obligă apoi să împrumuți nu ajută planul.",
+          "detailHighlights": [
+            "împrumuți",
+            "termen"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Separare",
           "body": "Nu număra aceeași sumă pentru două scopuri.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Separarea economiilor face progresul vizibil, dar banii pentru urgențe trebuie să rămână accesibili.",
+          "detailHighlights": [
+            "banii"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Alege un scop mic și estimează suma și termenul, fără să stabilești o contribuție pe care nu o poți susține.",
-          "type": "action"
+          "type": "action",
+          "detail": "Lângă obiectiv scrie data și suma lipsă. Așa poți verifica dacă ritmul ales este realist pentru venitul tău.",
+          "detailHighlights": [
+            "obiectiv",
+            "venitul"
+          ]
         }
       ]
     },

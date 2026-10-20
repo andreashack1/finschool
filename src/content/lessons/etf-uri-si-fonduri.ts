@@ -292,27 +292,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Un fond reunește investițiile mai multor persoane într-un portofoliu administrat după o politică.",
+          "body": "Un fond reunește investiții după o politică declarată.",
           "detail": "Două fonduri cu multe poziții pot avea concentrare sectorială diferită. Lia citește politica și expunerile, apoi verifică tarifele fondului, tranzacției și conversiei.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "tranzacției",
+            "expunerile"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Lia compară un fond concentrat într-un sector cu unul care urmărește o piață mai largă. Ambele pot avea multe dețineri, dar expunerile diferă.",
-          "type": "normal"
+          "body": "Compară expunerile, nu doar numărul deținerilor.",
+          "type": "normal",
+          "detail": "Două fonduri cu multe dețineri pot avea expuneri foarte diferite. Numărul pozițiilor nu explică singur diversificarea.",
+          "detailHighlights": [
+            "expuneri"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Un ETF nu garantează profit și nu este automat ieftin în orice situație.",
-          "type": "normal"
+          "body": "Un ETF nu garantează profit și nu este automat ieftin.",
+          "type": "normal",
+          "detail": "Pe lângă tariful fondului pot exista costuri de tranzacție și conversie valutară.",
+          "detailHighlights": [
+            "conversie",
+            "fondului"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară două fonduri fictive după obiectiv, expunere, cost și monedă, fără să alegi un produs real.",
-          "type": "action"
+          "type": "action",
+          "detail": "Compară obiectivul, expunerile și toate costurile pentru aceeași sumă fictivă, fără să deduci siguranța din eticheta ETF.",
+          "detailHighlights": [
+            "expunerile",
+            "costurile"
+          ]
         }
       ]
     },

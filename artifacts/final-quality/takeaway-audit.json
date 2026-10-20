@@ -1,0 +1,502 @@
+[
+  {
+    "lessonId": "ce-sunt-banii",
+    "items": 4,
+    "addedDetails": 1
+  },
+  {
+    "lessonId": "venit-cheltuieli-si-ce-ramane",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "ce-detii-si-ce-datorezi",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "ce-este-inflatia",
+    "items": 5,
+    "addedDetails": 0
+  },
+  {
+    "lessonId": "dobanda",
+    "items": 4,
+    "addedDetails": 1
+  },
+  {
+    "lessonId": "banca-centrala-bnr",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cerere-si-oferta",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "tva",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "impozit-taxa-si-contributie",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cursul-valutar-si-euro",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "nevoi-vs-dorinte",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "costul-real-al-unui-produs",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "bonul-factura-si-chitanta",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cumparaturile-pe-impuls",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "reduceri-care-nu-sunt-reduceri",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cum-te-conving-reclamele",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cumparaturi-in-jocuri-si-aplicatii",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "abonamentele",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "drepturile-consumatorului",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "iesiri-cu-prietenii-fara-sa-te-golesti",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "ce-face-o-banca-si-cum-alegi-un-cont",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "iban",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "comisioane-bancare",
+    "items": 4,
+    "addedDetails": 2
+  },
+  {
+    "lessonId": "cardul-de-debit",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "plati-digitale",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "transferuri-si-plati-instant",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cardul-in-strainatate",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "extrasul-de-cont",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "sunt-banii-mei-in-siguranta-la-banca",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "contul-pentru-minori",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "phishing",
+    "items": 5,
+    "addedDetails": 0
+  },
+  {
+    "lessonId": "apelul-fals-de-la-banca",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "anunturi-si-livrari-false",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "magazine-false",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "oferte-prea-bune-ca-sa-fie-reale",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "piramide-si-scheme-bani-rapizi",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "protejeaza-datele-cardului",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "furtul-de-identitate",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "conturi-folosite-de-altii",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "ce-faci-daca-ai-fost-inselat",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "primul-buget",
+    "items": 5,
+    "addedDetails": 0
+  },
+  {
+    "lessonId": "unde-dispar-banii",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "metoda-50-30-20",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "bani-de-buzunar-si-venituri-neregulate",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "de-ce-economisim-si-cat",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "plateste-te-pe-tine-primul",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "obiective-de-economisire",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "fondul-de-urgenta",
+    "items": 5,
+    "addedDetails": 0
+  },
+  {
+    "lessonId": "unde-tii-banii-cont-depozit-numerar",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "dobanda-compusa",
+    "items": 5,
+    "addedDetails": 0
+  },
+  {
+    "lessonId": "primul-contract-de-munca",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cum-citesti-un-contract",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "munca-part-time-si-student",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "salariu-brut-vs-net",
+    "items": 5,
+    "addedDetails": 0
+  },
+  {
+    "lessonId": "fluturasul-de-salariu",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "salariul-minim",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "tichete-si-beneficii",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "taxele-pe-salariu-cas-cass-impozit",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "pensia-de-ce-conteaza-de-la-primul-salariu",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "ce-faci-cu-primul-salariu",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "ce-este-creditul",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "dobanda-la-credit-si-dae",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "rata-lunara-si-costul-total",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "dobanda-fixa-vs-variabila",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cardul-de-credit",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "plata-in-rate-si-cumpara-acum-plateste-mai-tarziu",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "creditele-rapide-ifn",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "scorul-de-credit",
+    "items": 5,
+    "addedDetails": 0
+  },
+  {
+    "lessonId": "ce-se-intampla-daca-nu-ti-platesti-datoria",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cum-iesi-din-datorii",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cat-costa-sa-te-muti-singur",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "chirie-si-contract-de-inchiriere",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "utilitati-si-cum-citesti-o-factura",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cumperi-casa-sau-inchiriezi",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "primul-telefon-sau-laptop",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "asigurari-rca-locuinta-calatorie",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "burse-si-costul-facultatii",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cheltuielile-din-supermarket",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cheltuieli-neprevazute",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "banii-intre-prieteni-si-intr-o-relatie",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "fomo-si-cheltuieli",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "presiunea-sociala",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cum-vorbesti-despre-bani",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cheltuieli-emotionale",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "efectul-de-ancorare",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "preturile-psihologice-99-99",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "de-ce-cheltuim-mai-mult-cu-cardul-decat-cu-numerarul",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "gratificarea-imediata-vs-viitor",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cheltuieli-mici-care-se-aduna",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "obiceiuri-bune-cu-banii",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "de-ce-investim",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "risc-si-randament",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "diversificarea",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "actiuni",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "obligatiuni-si-titluri-de-stat",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "etf-uri-si-fonduri",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cum-functioneaza-bursa",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "investesti-vs-speculezi",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "crypto-ce-trebuie-sa-stii",
+    "items": 4,
+    "addedDetails": 3
+  },
+  {
+    "lessonId": "cum-incepi-cu-sume-mici",
+    "items": 4,
+    "addedDetails": 3
+  }
+]

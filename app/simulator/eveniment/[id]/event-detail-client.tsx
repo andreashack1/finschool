@@ -41,7 +41,7 @@ export default function EventDetailClient({id,userId}:{id:string;userId:string})
  }
  const event=data?.event,expired=event?.id===expiredId;
  return <div className="finly-app simulator-app"><main className="simulator-content sim-event-detail">
-  <Link className="sim-event-back" href="/simulator"><ArrowLeft size={17} aria-hidden="true"/>Înapoi la simulator</Link>
+  <Link className="sim-event-back" href="/simulator"><ArrowLeft size={17} aria-hidden="true"/>Înapoi la SimLife</Link>
   <section className="app-card sim-situation">
    {!online&&<p role="status">Ești offline. Reconectează-te pentru a alege.</p>}
    {error&&<div role="alert"><p>{error}</p><button className="app-button secondary" onClick={()=>void refresh()}>Încearcă din nou</button></div>}
@@ -49,14 +49,14 @@ export default function EventDetailClient({id,userId}:{id:string;userId:string})
     <header><h1>{event.title}</h1><p className="sim-event-context">{event.description}</p></header>
     {event.status==='pending'&&event.presentation&&<ul className="sim-situation-details">{event.presentation.bullets.map((b,i)=><li key={i}>{b.text}{b.amountBani!==undefined&&<> — <strong>{b.amountKind==='approx'?'~':''}{formatLei(b.amountBani)}</strong></>}</li>)}</ul>}
     {event.status==='cancelled'?<p role="status">Situația nu mai necesită o decizie.</p>:event.status==='resolved'?<section className="sim-event-result" aria-labelledby="result-title" role="status" aria-live="polite">
-     <div className="sim-result-heading"><Check size={20} aria-hidden="true"/><h2 id="result-title">{event.resolutionMode==='automatic'?'Simulatorul a ales':'Ai ales'}</h2></div>
+     <div className="sim-result-heading"><Check size={20} aria-hidden="true"/><h2 id="result-title">{event.resolutionMode==='automatic'?'SimLife a ales':'Ai ales'}</h2></div>
      <p className="sim-result-choice">{event.options.find(o=>o.id===event.selectedOptionId)?.label}</p>
-     {event.resolutionMode==='automatic'&&<p className="sim-event-note">Nu ai răspuns la timp, iar simulatorul a ales automat această variantă.</p>}
+     {event.resolutionMode==='automatic'&&<p className="sim-event-note">Nu ai răspuns la timp, iar SimLife a ales automat această variantă.</p>}
      <dl className="sim-result-stats"><div><dt>Cost</dt><dd>{formatLei(event.selectedCostBani!)}</dd></div><div><dt>{event.balanceAfterChoiceBani!=null?'Sold după alegere':'Sold curent'}</dt><dd>{formatLei(event.balanceAfterChoiceBani??data.balanceBani)}</dd></div></dl>
     </section>:<>
      <EventCountdown expiresAt={event.expiresAt} anchor={data.anchor} onExpire={()=>{setExpiredId(event.id);setConfirm(null);void refresh();}}/>
-     <p className="sim-event-note">Dacă nu alegi la timp, simulatorul va alege automat una dintre variantele disponibile.</p>
-     {!data.caughtUp&&<p role="status">Actualizăm zilele precedente. Revino la simulator pentru continuare.</p>}
+     <p className="sim-event-note">Dacă nu alegi la timp, SimLife va alege automat una dintre variantele disponibile.</p>
+     {!data.caughtUp&&<p role="status">Actualizăm zilele precedente. Revino la SimLife pentru continuare.</p>}
      <h2 className="sim-choice-heading">Ce faci?</h2>
      <div className="sim-event-options">{event.options.map(option=><div key={option.id}><button className="sim-choice-card" disabled={!online||busy||Boolean(expired)||Boolean(option.unavailableReason)||!data.caughtUp} aria-describedby={option.unavailableReason?`${option.id}-reason`:undefined} onClick={()=>option.costBani>0?setConfirm(option):void choose(option.id)}><span>{option.label}</span><strong>{option.costBani>0?'−':''}{formatLei(option.costBani)}</strong></button>{option.unavailableReason&&<p className="sim-event-note" id={`${option.id}-reason`}>{reasons[option.unavailableReason]}</p>}</div>)}</div>
      {confirm&&<div className="sim-confirm" role="group" aria-labelledby="confirm-title" tabIndex={-1} ref={panel}><h2 id="confirm-title">Confirmi alegerea?</h2><p>{confirm.label} · {formatLei(confirm.costBani)}</p><div className="sim-event-actions"><button className="app-button" disabled={!online||busy||Boolean(expired)} onClick={()=>void choose(confirm.id)}>Confirmă</button><button className="app-button secondary" disabled={busy} onClick={()=>setConfirm(null)}>Înapoi</button></div></div>}

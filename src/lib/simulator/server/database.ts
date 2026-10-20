@@ -10,6 +10,7 @@ type SimulatorDatabase = {
     Tables: { sim_runs: { Row: { id: string; user_id: string }; Insert: never; Update: never; Relationships: [] } };
     Views: Record<string, never>; Enums: Record<string, never>; CompositeTypes: Record<string, never>;
     Functions: {
+      upgrade_simulator_daily_floor: { Args: { p_user:string;p_run:string;p_expected:number;p_day:string;p_now:string;p_development:boolean;p_policy:Json };Returns:Json };
       mutate_simulator_goal: { Args: { p_user:string;p_run:string;p_expected:number;p_day:string;p_now:string;p_development:boolean;p_input:Json };Returns:Json };
       upgrade_simulator_decisions: { Args: { p_user:string;p_run:string;p_expected:number;p_day:string;p_now:string;p_development:boolean;p_policy:Json };Returns:Json };
       finalize_simulator_month: { Args: { p_user:string;p_run:string;p_expected:number;p_day:string;p_snapshot:Json };Returns:Json };

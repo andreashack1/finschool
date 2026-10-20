@@ -1,5 +1,7 @@
 # Activarea conturilor Finly
 
+Pentru producție, urmează obligatoriu [Email verification V2](AUTH_EMAIL_VERIFICATION.md): Confirm email activat, URL-urile Finly și SMTP custom.
+
 Codul folosește Next 16 `proxy.ts`, Supabase JS 2.117.2 și SSR 0.12.7. Database
 este singura sursă de progres pentru cont. `progress.ts` și gamification config
 rămân motorul unic; SQL persistă rezultatul calculat de server, fără motor XP separat.
@@ -41,8 +43,8 @@ completată. Valorile reale nu sunt în git și nu au fost afișate în raport.
      NEXT_PUBLIC_APP_URL și adaugă ambele variante pentru acel host.
    - Recuperarea folosește același callback cu `next=/actualizeaza-parola`.
      Callback-ul acceptă code PKCE și token_hash OTP, cu redirects interne validate.
-6. Verifică opțiunea Confirm email și template-urile email. Signup suportă atât
-   confirmarea activată, cât și sesiunea imediată. PKCE trebuie deschis în browserul
+6. Verifică opțiunea Confirm email și template-urile email. Finly necesită
+   confirmarea activată; nu activa auto-confirmarea. PKCE trebuie deschis în browserul
    care a cerut linkul; callback-ul OTP poate fi folosit cu template token_hash.
    Pentru confirmare care poate fi deschisă și în alt browser, template-ul
    **Confirm signup** poate folosi linkul:

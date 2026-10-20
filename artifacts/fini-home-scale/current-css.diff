@@ -1,0 +1,109 @@
+diff --git a/app/finly-app.css b/app/finly-app.css
+index c88f6a8..36e367d 100644
+--- a/app/finly-app.css
++++ b/app/finly-app.css
+@@ -85,8 +85,7 @@
+ .app-button.secondary { background: white; border-color: var(--border); }
+ .app-button.secondary:hover { background: var(--light-blue); }
+ .continue-bottom .app-button { font-size: 12px; padding-inline: 15px; gap: 8px; }
+-.explore-section, .quick-section { margin-top: 25px; }
+-.swipe-hint { display: flex; align-items: center; gap: 5px; }
++.explore-section, .recommendation-section { margin-top: 25px; }
+ .category-scroll { display: flex; gap: 10px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; padding: 2px 2px 6px; margin-inline: -2px; scroll-snap-type: x proximity; }
+ .category-scroll::-webkit-scrollbar { display: none; }
+ .category-tile { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 14px; flex: 0 0 108px; min-height: 94px; padding: 14px 13px; border: 1px solid #DBEAF7; border-radius: 16px; text-align: left; color: #325F88; scroll-snap-align: start; background: #EDF5FF; }
+@@ -97,17 +96,15 @@
+ .cat-money, .cat-savings, .cat-bani-de-zi-cu-zi, .cat-economii { background: #EEF6F6; color: #437B85; }
+ .cat-safety, .cat-siguranta-financiara { background: #EDF5FA; color: #467B96; }
+ .cat-economy, .cat-economia-pe-scurt { background: #EEF3FA; color: #5176A2; }
+-.quick-list { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 0 16px; }
+-.quick-row { display: flex; align-items: center; gap: 13px; min-height: 79px; padding: 13px 0; }
+-.quick-row + .quick-row { border-top: 1px solid #EDF2F8; }
+-.quick-row > div { flex: 1; }
+-.quick-row strong { display: block; font-size: 14px; font-weight: 700; letter-spacing: -.2px; }
+-.quick-row div > span { display: flex; align-items: center; gap: 7px; margin-top: 5px; color: var(--secondary); font-size: 11px; }
+-.quick-row i { display: block; width: 3px; height: 3px; border-radius: 50%; background: #A0ACBA; }
+-.quick-row > svg { color: #7F94AB; }
+-.quick-row:hover { color: var(--blue-ink); }
++.recommendation-list { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 0 16px; }
++.recommendation-row { display: flex; align-items: center; gap: 13px; min-height: 68px; padding: 10px 0; }
++.recommendation-row + .recommendation-row { border-top: 1px solid #EDF2F8; }
++.recommendation-row > div { flex: 1; min-width: 0; }
++.recommendation-row strong { display: block; font-size: 14px; line-height: 1.35; font-weight: 700; letter-spacing: -.2px; overflow-wrap: anywhere; }
++.recommendation-row div > span { display: block; margin-top: 3px; color: var(--secondary); font-size: 11px; }
++.recommendation-row > svg { color: #7F94AB; }
++.recommendation-row:hover { color: var(--blue-ink); }
+ .icon-tile { width: 42px; height: 42px; border-radius: 13px; background: #EDF5FF; color: var(--blue-ink); display: inline-grid; place-items: center; flex-shrink: 0; }
+-.quick-row .completed-icon { color: #25815B; }
+ .home-secondary { display: grid; gap: 19px; margin-top: 28px; }
+ .daily-card { padding: 21px; }
+ .daily-card .section-top { margin-bottom: 17px; }
+@@ -199,7 +196,7 @@
+ .sim-history > div { display: flex; align-items: center; gap: 9px; font-size: 12px; color: var(--secondary); }
+ .sim-history svg { color: var(--blue-ink); }
+ .screen-note { color: var(--secondary); font-size: 11px; line-height: 1.7; text-align: center; margin-top: 24px !important; }
+-.profile-card { padding: 27px 24px; text-align: center; }
++.profile-card { position: relative; padding: 27px 24px; text-align: center; }
+ .profile-badge { position: relative; width: 100px; height: 102px; margin: 0 auto 18px; background: #EAF6FF; border-radius: 30px; }
+ .profile-badge img { width: 90px; height: 90px; margin: 1px auto; }
+ .profile-badge > span { position: absolute; bottom: -5px; left: 7px; right: 7px; display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 9px; border: 3px solid white; background: #69B9FF; }
+@@ -291,7 +288,6 @@
+   .course-card h3 { font-size: 14px; }
+   .course-card p { font-size: 11px; }
+   .sim-goal > div:first-child { font-size: 10px; }
+-  .swipe-hint { display: none; }
+ }
+ @media (prefers-reduced-motion: reduce) { .finly-app *, .salary-lesson * { animation: none !important; transition: none !important; } }
+ 
+@@ -355,9 +351,22 @@
+ .lesson-remember article > button { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%; min-height: 44px; border: 0; padding: 0; text-align: left; background: transparent; color: var(--foreground); font: inherit; font-weight: 650; line-height: 1.5; }
+ .lesson-remember article > button:focus-visible { outline: 2px solid var(--blue-ink); outline-offset: 4px; border-radius: 4px; }
+ .lesson-lead-in { color: var(--blue-ink); line-height: 1.5; }
+-.remember-body { display: none; }
+-.remember-body.is-open { display: block; }
+-.remember-body > p, .remember-preview { font-size: 16px; line-height: 1.6; margin-top: 12px; }
++.lesson-remember article { transition: border-color 220ms ease, background-color 220ms ease; min-width: 0; }
++.lesson-remember article.is-open { border-color: #A9CEF0; background: #F7FBFF; }
++.lesson-remember article > button > span:first-child { min-width: 0; overflow-wrap: anywhere; }
++.remember-toggle { position: relative; display: grid; place-items: center; flex: 0 0 44px; height: 44px; border-radius: 14px; background: var(--light-blue); color: var(--blue-ink); }
++.remember-toggle-horizontal, .remember-toggle-vertical { position: absolute; width: 16px; height: 2px; border-radius: 2px; background: currentColor; }
++.remember-toggle-vertical { transform: rotate(90deg); transition: transform 220ms ease, opacity 220ms ease; }
++.is-open > button .remember-toggle-vertical { transform: rotate(0); opacity: 0; }
++.remember-body { display: grid; grid-template-rows: 0fr; opacity: 0; visibility: hidden; transition: grid-template-rows 220ms ease, opacity 220ms ease, visibility 220ms; }
++.remember-body.is-open { grid-template-rows: 1fr; opacity: 1; visibility: visible; }
++.remember-body > div { overflow: hidden; min-height: 0; }
++.remember-body p { border-left: 2px solid #A9CEF0; padding-left: 13px; margin: 14px 0 0; font-size: 16px; line-height: 1.65; color: var(--secondary); overflow-wrap: anywhere; }
++.remember-keyword { color: var(--blue-ink); font-weight: 650; }
++.remember-preview { font-size: 16px; line-height: 1.6; margin-top: 10px; overflow-wrap: anywhere; }
++.sim-event-time { display: block; margin-bottom: 4px; color: var(--secondary); font-size: 12px; font-variant-numeric: tabular-nums; }
++.sim-event-list .sim-event-resolved :is(span, a) { color: var(--secondary); font-size: 12px; line-height: 1.6; }
++@media (prefers-reduced-motion: reduce) { .lesson-remember article, .remember-body, .remember-toggle-vertical { transition: none; } }
+ .remember-body small { display: block; font-size: 13px; line-height: 1.6; margin-top: 12px; color: var(--secondary); }
+ .remember-body small strong { display: block; color: var(--blue-ink); }
+ @media (max-width: 600px) { .lesson-case-dialog { margin: auto auto max(16px, env(safe-area-inset-bottom)); padding: 20px; } }
+@@ -393,3 +402,25 @@
+ .finly-achievement-toast p { font-size: 13px; line-height: 1.5; color: var(--secondary); margin: 6px 0 0; }
+ .finly-achievement-toast > button { border: 0; background: var(--light-blue); color: var(--blue-ink); border-radius: 9px; display: grid; place-items: center; width: 36px; height: 36px; flex-shrink: 0; }
+ @media (max-width: 430px) { .status-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .status-row > span { justify-content: center; font-size: 12px; padding-inline: 9px; } }
++
++/* Home discovery: compact rows, with room for long Romanian titles. */
++.recommendation-row .icon-tile { width: 36px; height: 36px; border-radius: 11px; }
++.recommendation-all { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: 12px; color: var(--blue-ink); white-space: nowrap; }
++.recommendation-section .section-top { margin-bottom: 8px; }
++@media (max-width: 899px) {
++  .tab-home .explore-section, .tab-home .recommendation-section { margin-top: 20px; }
++  .tab-home .home-secondary { margin-top: 20px; }
++}
++
++/* V2's lion fills 67% of its canvas width; compensate for its transparent padding. */
++.continue-card .continue-fini { width: 220px; height: 220px; right: -16px; top: 24px; opacity: 1; object-position: center; }
++.continue-card .continue-copy { max-width: calc(100% - 156px); min-height: 220px; }
++.continue-card .continue-copy h2 { overflow-wrap: break-word; }
++@media (min-width: 900px) {
++  .continue-card .continue-fini { width: 250px; height: 250px; right: -16px; top: 16px; }
++  .continue-card .continue-copy { max-width: calc(100% - 180px); min-height: 250px; }
++}
++@media (max-width: 430px) {
++  .continue-card .continue-fini { width: 210px; height: 210px; right: -16px; top: 32px; }
++  .continue-card .continue-copy { max-width: calc(100% - 150px); min-height: 222px; }
++}

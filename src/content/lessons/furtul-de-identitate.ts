@@ -285,25 +285,44 @@ export const lesson: ReadyLesson = {
           "title": "Confirmă",
           "body": "Mesajul și operațiunea se verifică separat.",
           "detail": "Mesajul despre un cont necunoscut poate fi el însuși o înșelătorie. Confirmă dacă există cererea prin instituția contactată separat, înainte să trimiți documente sau o taxă de anulare.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "instituția",
+            "cont"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Acces",
           "body": "Protejează e-mailul și credențialele.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Schimbă credențialele compromise și verifică sesiunile active. Recuperarea unui cont nu confirmă că toate celelalte sunt sigure.",
+          "detailHighlights": [
+            "credențialele",
+            "cont"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Documentează",
           "body": "Păstrează cronologia fără să publici actele.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Păstrează mesajele și datele operațiunilor suspecte. O cronologie ajută instituțiile să înțeleagă ce s-a întâmplat.",
+          "detailHighlights": [
+            "cronologie",
+            "datele"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Verifică sesiunile contului de e-mail și modul legitim de recuperare a accesului.",
-          "type": "action"
+          "type": "action",
+          "detail": "Alege un cont important și verifică metoda de recuperare. O adresă veche inaccesibilă poate îngreuna recâștigarea accesului.",
+          "detailHighlights": [
+            "recuperare",
+            "cont"
+          ]
         }
       ]
     },

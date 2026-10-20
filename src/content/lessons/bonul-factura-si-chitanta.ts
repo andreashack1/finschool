@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Roluri",
           "body": "Achiziția, obligația și încasarea se disting.",
           "detail": "Factura poate descrie suma datorată fără să confirme singură plata. Leagă documentul de încasare sau tranzacție prin comerciant, sumă și referință, fără să numeri aceeași cumpărătură de două ori.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "cumpărătură",
+            "încasare"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Legătură",
           "body": "Compară datele și referințele documentelor.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Data, suma și referința te ajută să legi factura de plata din cont, chiar dacă documentele au nume diferite.",
+          "detailHighlights": [
+            "documentele",
+            "plata"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Evidență",
           "body": "Două documente nu înseamnă două cheltuieli.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un bon și confirmarea din aplicație pot descrie aceeași cumpărătură. În buget o treci o singură dată.",
+          "detailHighlights": [
+            "cumpărătură",
+            "confirmarea"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Alege un document de cumpărare și găsește comerciantul, data, totalul și informația despre plată.",
-          "type": "action"
+          "type": "action",
+          "detail": "Caută și dacă documentul spune «achitat» sau doar «de plată». Păstrează dovada fără să distribui date personale.",
+          "detailHighlights": [
+            "plată"
+          ]
         }
       ]
     },

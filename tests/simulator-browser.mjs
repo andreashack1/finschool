@@ -83,7 +83,7 @@ try {
   await page.goto(origin + '/simulator/dev'); assert(new URL(page.url()).pathname === '/bun-venit', 'Anonymous dev page not guarded');
   assert((await page.request.get(origin + '/api/simulator/state')).status() === 401, 'Anonymous simulator API not 401');
   await page.goto(origin + '/autentificare'); await page.getByLabel('Email', { exact: true }).fill('simulator_a@finly.test'); await page.getByLabel('Parolă', { exact: true }).fill('localtestpass'); await page.getByRole('button', { name: 'Conectează-te', exact: true }).click(); await page.getByRole('heading', { name: 'Ce învățăm azi?' }).waitFor();
-  await page.goto(origin + '/simulator/dev'); await page.getByRole('heading', { name: 'Simulator — development' }).waitFor();
+  await page.goto(origin + '/simulator/dev'); await page.getByRole('heading', { name: 'SimLife — development' }).waitFor();
   const empty = await api(); assert(empty.run === null, 'Fresh user has run');
   await page.waitForFunction(() => ![...document.querySelectorAll('button')].find(b => b.textContent === 'Pornește run')?.disabled);
   await page.getByLabel('Locuință').selectOption('parinti');
@@ -114,7 +114,7 @@ try {
   report.checks.push('Existing run wins start requests; reset cascades current-user data only, preserves B and resets offset');
   await page.getByLabel('Locuință').selectOption('chirie'); const restarted = await click('Pornește run', 'run'); assert(restarted.created && restarted.run.id !== progressed.run.id, 'Restart failed');
   await page.screenshot({ path: 'artifacts/simulator-qa/dev.png', fullPage: false, animations: 'disabled', timeout: 15000 });
-  await page.goto(origin + '/simulator'); await page.getByRole('heading', { name: 'Simulator', exact: true }).waitFor();
+  await page.goto(origin + '/simulator'); await page.getByRole('heading', { name: 'SimLife', exact: true }).waitFor();
   report.checks.push('Reset then fresh rental run; /simulator renders the canonical dashboard');
   await api('dev/reset', {});
   await page.goto(origin + '/simulator'); await page.getByRole('heading', { name: 'Începe viața pe cont propriu' }).waitFor();
@@ -135,11 +135,11 @@ try {
   await Promise.all([page.getByRole('button', { name: 'Începe simularea', exact: true }).click(), otherTab.getByRole('button', { name: 'Începe simularea', exact: true }).click()]);
   const startValues = await Promise.all(startResponses.map(async r => { const response = await r; assert(response.ok(), 'Concurrent UI start failed'); return response.json(); }));
   assert(startValues[0].dashboard.runId === startValues[1].dashboard.runId, 'Two tabs created two runs');
-  await page.getByRole('heading', { name: 'Simulator', exact: true }).waitFor(); await otherTab.close();
+  await page.getByRole('heading', { name: 'SimLife', exact: true }).waitFor(); await otherTab.close();
   const authoritative = (await (await page.request.get(origin + '/api/simulator/dashboard')).json()).dashboard;
   assert(authoritative.balanceBani === (await api()).state.balanceBani, 'Canonical balance mismatch');
   const hero = await page.locator('.sim-balance-amount').innerText();
-  await page.reload(); await page.getByRole('heading', { name: 'Simulator', exact: true }).waitFor(); assert(await page.locator('.sim-balance-amount').innerText() === hero, 'UI refresh changed balance');
+  await page.reload(); await page.getByRole('heading', { name: 'SimLife', exact: true }).waitFor(); assert(await page.locator('.sim-balance-amount').innerText() === hero, 'UI refresh changed balance');
   for (const width of [320, 390, 430, 1440]) {
     await page.setViewportSize({ width, height: 960 });
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), `Dashboard overflow ${width}`);
@@ -160,13 +160,13 @@ try {
   const retryStart = await page.request.post(origin + '/api/simulator/start', { data: { housing: 'parinti' }, headers: { origin } });
   assert((await retryStart.json()).dashboard.runId === authoritative.runId, 'Retry created a new run');
   const device = await browser.newContext(); await device.addCookies(await context.cookies()); const devicePage = await device.newPage();
-  await devicePage.goto(origin + '/simulator'); await devicePage.getByRole('heading', { name: 'Simulator', exact: true }).waitFor(); assert(await devicePage.locator('.sim-balance-amount').innerText() === hero, 'Other device differs'); await device.close();
+  await devicePage.goto(origin + '/simulator'); await devicePage.getByRole('heading', { name: 'SimLife', exact: true }).waitFor(); assert(await devicePage.locator('.sim-balance-amount').innerText() === hero, 'Other device differs'); await device.close();
   await page.goto(origin + '/?tab=profile'); await page.getByRole('button', { name: 'Deconectează-te', exact: true }).click(); await page.waitForURL('**/bun-venit');
   await page.goto(origin + '/autentificare'); await page.getByLabel('Email', { exact: true }).fill('simulator_a@finly.test'); await page.getByLabel('Parolă', { exact: true }).fill('localtestpass'); await page.getByRole('button', { name: 'Conectează-te', exact: true }).click(); await page.getByRole('heading', { name: 'Ce învățăm azi?' }).waitFor();
-  await page.goto(origin + '/simulator'); await page.getByRole('heading', { name: 'Simulator', exact: true }).waitFor(); assert(await page.locator('.sim-balance-amount').innerText() === hero, 'Logout/login lost state');
+  await page.goto(origin + '/simulator'); await page.getByRole('heading', { name: 'SimLife', exact: true }).waitFor(); assert(await page.locator('.sim-balance-amount').innerText() === hero, 'Logout/login lost state');
   report.checks.push('Lost response retry; separate browser context; real logout/login retains run');
   // Advance only through existing dev API, then view month history in main UI.
-  await api('dev/clock', { increment: 30 }); await page.reload(); await page.getByRole('heading', { name: 'Simulator', exact: true }).waitFor();
+  await api('dev/clock', { increment: 30 }); await page.reload(); await page.getByRole('heading', { name: 'SimLife', exact: true }).waitFor();
   const currentHero = await page.locator('.sim-balance-amount').innerText();
   await page.getByRole('button', { name: 'Luna precedentă' }).click(); await page.waitForFunction(() => !document.querySelector('.sim-journal-status')?.textContent.includes('Încărcăm'));
   assert(await page.locator('.sim-balance-amount').innerText() === currentHero, 'History changed current dashboard');
@@ -187,7 +187,7 @@ try {
   });
   await page.getByRole('button', { name: 'Începe simularea', exact: true }).click(); await lostStartHandled; assert(!lostStartError, `Lost-response interception: ${lostStartError?.message}`); await page.locator('.sim-error[role="alert"]').waitFor();
   assert(await page.locator('.sim-balance-amount').count() === 0, 'Optimistic money rendered after lost response');
-  await page.unroute('**/api/simulator/start'); await page.getByRole('button', { name: 'Încearcă din nou', exact: true }).click(); await page.getByRole('heading', { name: 'Simulator', exact: true }).waitFor();
+  await page.unroute('**/api/simulator/start'); await page.getByRole('button', { name: 'Încearcă din nou', exact: true }).click(); await page.getByRole('heading', { name: 'SimLife', exact: true }).waitFor();
   const recovered = await api(); assert((await db.query('select id from public.sim_runs where user_id=$1 and status=\'activ\'', [recovered.run.userId])).rows.length === 1, 'Lost response created duplicate');
   report.checks.push('Discarded committed start response and delivered 503; no optimistic dashboard; retry recovers one persisted run');
   // A delayed initial snapshot renders a skeleton, never setup or invented zero.
@@ -196,12 +196,12 @@ try {
   await page.route('**/api/simulator/dashboard', async route => { await initialGate; await route.continue(); });
   await page.reload({ waitUntil: 'domcontentloaded' }); await page.locator('.sim-skeleton').waitFor();
   assert(await page.locator('.sim-balance-amount').count() === 0 && await page.getByRole('radio').count() === 0, 'Initial loading fabricated money/setup');
-  releaseInitial(); await page.getByRole('heading', { name: 'Simulator', exact: true }).waitFor(); await page.unroute('**/api/simulator/dashboard');
+  releaseInitial(); await page.getByRole('heading', { name: 'SimLife', exact: true }).waitFor(); await page.unroute('**/api/simulator/dashboard');
   report.checks.push('Initial delayed response shows stable skeleton, never fake zero or setup');
   await page.route('**/api/simulator/dashboard', route => route.abort());
   await page.reload({ waitUntil: 'domcontentloaded' }); await page.locator('.sim-error').filter({ hasText: 'Nu am putut încărca simulatorul.' }).waitFor();
   assert(await page.locator('.sim-balance-amount').count() === 0 && await page.getByRole('radio').count() === 0, 'Initial error fabricated financial state');
-  await page.unroute('**/api/simulator/dashboard'); await page.getByRole('button', { name: 'Încearcă din nou', exact: true }).click(); await page.getByRole('heading', { name: 'Simulator', exact: true }).waitFor();
+  await page.unroute('**/api/simulator/dashboard'); await page.getByRole('button', { name: 'Încearcă din nou', exact: true }).click(); await page.getByRole('heading', { name: 'SimLife', exact: true }).waitFor();
   report.checks.push('Initial network error has no financial data; retry restores persisted dashboard');
   // Time-only fixture: a server deadline triggers one revalidation. Money stays SQL-derived.
   let deadlineRequests = 0;
@@ -212,7 +212,7 @@ try {
     await route.fulfill({ json: snapshot });
   });
   const deadlineRefresh = page.waitForResponse(r => r.url().endsWith('/api/simulator/dashboard') && deadlineRequests === 2);
-  await page.reload({ waitUntil: 'domcontentloaded' }); await deadlineRefresh; await page.getByRole('heading', { name: 'Simulator', exact: true }).waitFor();
+  await page.reload({ waitUntil: 'domcontentloaded' }); await deadlineRefresh; await page.getByRole('heading', { name: 'SimLife', exact: true }).waitFor();
   assert(deadlineRequests === 2, 'Server deadline did not produce exactly one refresh'); await page.unroute('**/api/simulator/dashboard');
   report.checks.push('Server timing deadline revalidates open tab once; subsequent deadline follows real server time');
   // Presentation fixtures only: all real finance checks above use persisted SQL.
@@ -223,7 +223,7 @@ try {
     fixture.dashboard.monthlyJournal.entries = label === 'zero' ? [] : Array.from({ length: 80 }, (_, i) => ({ ...fixture.dashboard.monthlyJournal.entries[0], label: 'Tranzacție cu o denumire foarte lungă pentru testarea jurnalului financiar', sequence: i }));
     await page.route('**/api/simulator/dashboard', route => route.fulfill({ json: fixture }));
     for (const width of [320, 390, 430, 1440]) {
-      await page.setViewportSize({ width, height: 960 }); await page.reload({ waitUntil: 'domcontentloaded' }); await page.getByRole('heading', { name: 'Simulator', exact: true }).waitFor();
+      await page.setViewportSize({ width, height: 960 }); await page.reload({ waitUntil: 'domcontentloaded' }); await page.getByRole('heading', { name: 'SimLife', exact: true }).waitFor();
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), `Presentation ${label} overflow ${width}`);
       if (label === 'zero') assert(await page.getByText('Nu există tranzacții în această lună.').count() === 1, 'Empty journal missing');
       if (label === 'negative') assert((await page.locator('.sim-balance-amount').innerText()).includes('-'), 'Negative sign hidden');
@@ -232,8 +232,8 @@ try {
     await page.unroute('**/api/simulator/dashboard');
   }
   report.checks.push('Presentation fixtures: 0, −1350.50, 125000 lei, long labels, 80 entries and empty journal at all four widths');
-  await page.goto(origin + '/?tab=simulator'); await page.getByRole('heading', { name: 'Simulator', exact: true }).waitFor(); assert(new URL(page.url()).pathname === '/simulator', 'Legacy link not redirected');
-  await page.goto(origin + '/lectii'); await page.getByRole('link', { name: 'Simulator', exact: true }).waitFor();
+  await page.goto(origin + '/?tab=simulator'); await page.getByRole('heading', { name: 'SimLife', exact: true }).waitFor(); assert(new URL(page.url()).pathname === '/simulator', 'Legacy link not redirected');
+  await page.goto(origin + '/lectii'); await page.getByRole('link', { name: 'SimLife', exact: true }).waitFor();
   await page.goto(origin + '/lectie/salariu-brut-vs-net'); await page.locator('.salary-lesson').waitFor();
   const afterProgress = await db.query('select public.read_account_progress($1) as state', [[...users.values()][0].user.id]);
   const before = beforeProgress.rows[0].state, after = afterProgress.rows[0].state;

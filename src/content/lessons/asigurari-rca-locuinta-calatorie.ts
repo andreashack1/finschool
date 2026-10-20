@@ -288,27 +288,43 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Asigurarea transferă anumite riscuri în condițiile poliței, în schimbul unei prime.",
+          "body": "Asigurarea acoperă anumite riscuri, în condițiile poliței.",
           "detail": "Irina verifică dacă sportul planificat este acoperit de polița de călătorie. În exemplul cu daună eligibilă de 1.000 și franșiză de 200, partea asigurătorului este 800, sub ipotezele precizate.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "franșiză"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Pe o poliță fictivă, un risc este acoperit până la o limită, dar are franșiză de 200 lei. Pentru o daună eligibilă de 1.000 lei, presupunând că nu există alte ajustări, partea suportată de asigurător ar fi 800.",
-          "type": "normal"
+          "body": "Verifică franșiza separat de limita despăgubirii.",
+          "type": "normal",
+          "detail": "Franșiza este partea suportată de tine în condițiile poliței. Limita de despăgubire este un alt element.",
+          "detailHighlights": [
+            "despăgubire",
+            "condițiile"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Nu orice incident este acoperit și nu orice poliță cu același titlu are aceleași condiții.",
-          "type": "normal"
+          "body": "Titlul poliței nu înseamnă că orice incident este acoperit.",
+          "type": "normal",
+          "detail": "O activitate exclusă poate rămâne pe cheltuiala ta chiar dacă ai plătit polița.",
+          "detailHighlights": [
+            "plătit"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Citește un exemplu public de poliță și identifică o limită, o excludere și procedura de notificare.",
-          "type": "action"
+          "type": "action",
+          "detail": "Caută un risc concret și urmărește-l până la excluderi, limită și pașii de notificare, nu doar titlul poliței.",
+          "detailHighlights": [
+            "risc"
+          ]
         }
       ]
     },

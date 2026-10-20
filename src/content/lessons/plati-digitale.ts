@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Operațiune",
           "body": "Verifică suma, moneda și destinatarul.",
           "detail": "Dacă ai ales o cumpărătură de 45 lei, o solicitare de 450 lei trebuie clarificată înainte de aprobare. Autentificarea nu confirmă singură că suma și comerciantul sunt cei intenționați.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "autentificarea",
+            "cumpărătură"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Acces",
           "body": "Protejează dispozitivul și aplicațiile.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Blocarea ecranului și aplicațiile actualizate reduc accesul nedorit. Telefonul deblocat nu ar trebui dat altcuiva pentru plăți.",
+          "detailHighlights": [
+            "accesul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Coduri",
           "body": "Nu comunica autorizări unui apelant.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un apelant poate pretinde că «anulează» o fraudă, dar codul cerut poate autoriza o plată nouă.",
+          "detailHighlights": [
+            "fraudă",
+            "codul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La următoarea plată, citește suma și moneda înainte să confirmi.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pe ecranul de confirmare verifică și destinatarul; autentificarea nu dovedește că ai ales comerciantul corect.",
+          "detailHighlights": [
+            "autentificarea",
+            "confirmare"
+          ]
         }
       ]
     },

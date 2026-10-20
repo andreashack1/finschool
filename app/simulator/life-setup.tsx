@@ -21,7 +21,7 @@ export default function LifeSetup({ busy, start }: { busy: boolean; start: (prof
   ];
   const selected = [activity, housing, transport][step];
   return <section className="sim-life-setup app-card" aria-busy={busy}>
-    <header><h1>{step < 3 ? 'Cum începi?' : 'Așa începi'}</h1><p>{step < 3 ? 'Alege situația cu care vrei să începi în simulator.' : 'Banii și programul urmează alegerile tale.'}</p></header>
+    <header><h1>{step < 3 ? 'Cum începi?' : 'Așa începi'}</h1><p>{step < 3 ? 'Alege situația cu care vrei să începi în SimLife.' : 'Banii și programul urmează alegerile tale.'}</p></header>
     {step < 3 ? <><p className="sim-muted">{step + 1} / 3</p><h2>{questions[step]}</h2><p>Răspunsurile schimbă programul, banii și situațiile care pot apărea.</p>
       <div className="sim-life-options">{choices[step].map(c => <button key={c.value} className={`sim-housing ${selected === c.value ? 'selected' : ''}`} aria-pressed={selected === c.value} disabled={busy} onClick={() => {
         if (step === 0) setActivity(c.value as LifeProfile['activityStatus']);

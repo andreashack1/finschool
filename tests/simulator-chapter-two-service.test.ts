@@ -37,7 +37,7 @@ describe('Canonical server orchestration', () => {
   });
   it('concurrent checkpoint ahead fails safely; no mismatched ledger/cursor snapshot', async () => {
     mocks.load.mockResolvedValue(loaded('2026-10-02', '2026-10-09'));
-    await expect(simulatorPageState(userA, clock)).rejects.toThrow('Starea simulatorului');
+    await expect(simulatorPageState(userA, clock)).rejects.toThrow('Starea SimLife');
   });
   it('start returns committed dashboard and recalculates with the given authoritative day', async () => {
     const data = loaded(); mocks.load.mockResolvedValue(data);

@@ -292,27 +292,46 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Salariul minim este un prag legal al salariului de bază brut, în condițiile aplicabile.",
+          "body": "Salariul minim este un prag legal care trebuie verificat pentru perioada relevantă.",
           "detail": "Oferta lui Mihai separă baza, tichetele și o primă posibilă. Pentru comparația cu pragul relevant, verifică data, norma și baza din contract, fără să confunzi totalul pachetului cu netul.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "contract",
+            "totalul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Mihai găsește două articole cu praguri diferite și observă că unul este vechi. Caută actul aplicabil la data începerii jobului și verifică dacă oferta este pentru normă întreagă.",
-          "type": "normal"
+          "body": "Caută suma împreună cu data și condițiile aplicării.",
+          "type": "normal",
+          "detail": "Verifică data aplicării, programul și categoria pentru care este anunțată suma. Un titlu de știre poate omite aceste condiții.",
+          "detailHighlights": [
+            "programul",
+            "condiții"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Un salariu de bază și o primă ocazională sunt componente diferite.",
-          "type": "normal"
+          "body": "Un prag brut nu este netul identic pentru toată lumea.",
+          "type": "normal",
+          "detail": "Pragul brut nu este suma netă garantată în orice situație personală.",
+          "detailHighlights": [
+            "suma netă",
+            "brut"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Verifică într-o sursă oficială data unei reguli salariale, fără să memorezi un prag dintr-un articol vechi.",
-          "type": "action"
+          "type": "action",
+          "detail": "Notează sursa oficială și data consultării. O cifră salvată fără context poate deveni depășită.",
+          "detailHighlights": [
+            "sursa",
+            "data"
+          ]
         }
       ]
     },

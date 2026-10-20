@@ -68,7 +68,7 @@ export default function SimulatorDevClient({ userId }: { userId: string }) {
     finally { pending.current = false; setBusy(false); }
   }
   return <main className="mx-auto max-w-5xl space-y-6 p-6"><NotificationDiagnostics userId={userId}/>
-    <h1 className="text-2xl font-bold">Simulator — development</h1><button className="rounded-lg border p-3" onClick={async () => { const response = await fetch('/api/simulator/dev/subscriptions', { cache:'no-store', headers:{'X-Finly-Account':userId} }); if(response.ok) setDiagnostics(await response.json()); else setError('Nu putem citi abonamentele.'); }}>Inspectează abonamentele și plățile</button>
+    <h1 className="text-2xl font-bold">SimLife — development</h1><button className="rounded-lg border p-3" onClick={async () => { const response = await fetch('/api/simulator/dev/subscriptions', { cache:'no-store', headers:{'X-Finly-Account':userId} }); if(response.ok) setDiagnostics(await response.json()); else setError('Nu putem citi abonamentele.'); }}>Inspectează abonamentele și plățile</button>
     <button className="rounded-lg border p-3" disabled={busy} onClick={async()=>{const response=await fetch('/api/simulator/dev/monthly-reviews',{cache:'no-store',headers:{'X-Finly-Account':userId}});if(response.ok)setDiagnostics(await response.json());else setError('Nu putem citi lunile încheiate.');}}>Inspectează lunile încheiate / snapshot / insights</button><a className="rounded-lg border p-3" href="/simulator">Parcurge review-ul cu Fini</a>
     <p>Fundație tehnică. Valorile economice sunt exemple educaționale.</p>
     <div className="flex flex-wrap gap-3 rounded-2xl border p-4"><label>Zi pentru analiza vieții <input type="date" value={lifeDay} onChange={e=>setLifeDay(e.target.value)} className="rounded-lg border p-2" /></label>{(['liceu','lucrez'] as const).map(profile=><button key={profile} className="rounded-lg border p-3" disabled={busy} onClick={async()=>{setBusy(true);try{const response=await fetch(`/api/simulator/dev/life?day=${encodeURIComponent(lifeDay)}&profile=${profile}&days=90&seed=finly-life-${profile}`,{cache:'no-store',headers:{'X-Finly-Account':userId}});if(!response.ok)throw new Error('Nu putem genera raportul.');setDiagnostics(await response.json());}catch(e){setError(e instanceof Error?e.message:'Raport indisponibil.');}finally{setBusy(false);}}}>Raport 90 zile — {profile==='liceu'?'Liceu':'Lucrez'}</button>)}</div>
@@ -82,11 +82,11 @@ export default function SimulatorDevClient({ userId }: { userId: string }) {
         {([1, 7, 30] as const).map(increment => <button key={increment} className="rounded-lg border px-3 py-2 focus-visible:outline-2" disabled={busy || !run} onClick={() => act('/api/simulator/dev/clock', { increment })}>{increment === 1 ? 'Mută data +1 zi' : `+${increment} zile`}</button>)}
         <button className="rounded-lg border px-3 py-2 focus-visible:outline-2" disabled={busy || !data} onClick={() => act('/api/simulator/dev/reset', {})}>Resetează</button>
       </div>
-      <p className="mt-2 text-sm">Reset șterge doar run-urile simulatorului pentru contul curent și readuce offset-ul la 0.</p>
+      <p className="mt-2 text-sm">Reset șterge doar run-urile SimLife pentru contul curent și readuce offset-ul la 0.</p>
     </div>
     {error && <p role="alert">{error}</p>}
     <section className="rounded-2xl border p-4"><h2>Consecințe — scenarii de verificare</h2>
-      <p>Necesită run și program activ. Scenariul apare peste un minut; avansează +15 minute, apoi alege în simulator. Aceste controale există doar în development.</p>
+      <p>Necesită run și program activ. Scenariul apare peste un minut; avansează +15 minute, apoi alege în SimLife. Aceste controale există doar în development.</p>
       <div className="mt-3 flex flex-wrap gap-3">{([
         ['coverage', 'A. Provizii 2 zile'], ['coverage_probe', 'Verifică excluderea mesei'], ['phone_problem', 'B. Problemă telefon'],
         ['phone_resolution', 'Repară telefonul'], ['phone_followup', 'A doua verificare'], ['extend', 'C. Extinde proviziile'],
@@ -98,7 +98,7 @@ export default function SimulatorDevClient({ userId }: { userId: string }) {
       <button className="rounded-lg border p-3" disabled={busy || !run} onClick={() => void profile('liceu')}>Liceu</button><button className="rounded-lg border p-3" disabled={busy || !run} onClick={() => void profile('lucrez')}>Lucrez</button>
       <button className="rounded-lg border p-3" disabled={busy || !run} onClick={() => void inspect()}>Inspectează planul / continuă sincronizarea</button>
       {([[29,'+29 minute'],[1,'+1 minut'],[15,'+15 minute'],[60,'+1 oră'],[360,'+6 ore'],[1440,'+1 zi'],[10080,'+7 zile']] as const).map(([minutes,label]) => <button className="rounded-lg border p-3" key={minutes} disabled={busy || !run} onClick={() => void inspect(minutes)}>{label}</button>)}
-    </div><p>Diagnosticul include instanțele viitoare. Acestea sunt ascunse în simulatorul normal.</p><pre className="max-h-[600px] overflow-auto text-sm">{JSON.stringify(diagnostics,null,2)}</pre></section>
+    </div><p>Diagnosticul include instanțele viitoare. Acestea sunt ascunse în SimLife.</p><pre className="max-h-[600px] overflow-auto text-sm">{JSON.stringify(diagnostics,null,2)}</pre></section>
     {run && state && <>
       <section className="rounded-2xl border p-4"><h2 className="font-bold">Run</h2><dl className="grid gap-2 sm:grid-cols-2">
         <div><dt>ID</dt><dd className="break-all">{run.id}</dd></div><div><dt>Versiuni reguli / RNG</dt><dd>{run.rulesVersion} / {run.rngVersion}</dd></div>

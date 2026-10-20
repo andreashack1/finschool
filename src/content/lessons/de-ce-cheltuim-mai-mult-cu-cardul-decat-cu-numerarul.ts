@@ -283,27 +283,46 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "La unele persoane, plata cu cardul face mai puțin vizibilă pierderea imediată a banilor decât numerarul.",
+          "body": "Plata cu cardul poate face cheltuiala mai puțin vizibilă pentru unele persoane.",
           "detail": "Cele cinci plăți de 20 lei ale lui Luca consumă 100 lei, chiar dacă nu și le amintește separat. Notificările și evidența fac totalul mai vizibil fără să impună aceeași metodă tuturor.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "totalul",
+            "lei"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Luca face cinci plăți de 20 lei într-o săptămână. Totalul este 100 chiar dacă fiecare atingere a cardului pare mică.",
-          "type": "normal"
+          "body": "Adună plățile mici ca să vezi efectul lor real.",
+          "type": "normal",
+          "detail": "Plățile mici pot fi uitate separat. Istoricul și notificările te ajută să vezi totalul intervalului.",
+          "detailHighlights": [
+            "totalul",
+            "plățile"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Numerarul poate face limita vizibilă, dar poate fi pierdut și nu apare automat în extras.",
-          "type": "normal"
+          "body": "Numerarul are și limite: se poate pierde și trebuie urmărit separat.",
+          "type": "normal",
+          "detail": "Numerarul face uneori limita vizibilă, dar poate fi pierdut și nu apare automat în extras.",
+          "detailHighlights": [
+            "numerarul",
+            "limita"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Adună cinci plăți fictive mici și propune o metodă de a le vedea totalul.",
-          "type": "action"
+          "type": "action",
+          "detail": "Alege o metodă care include și plățile cash. Altfel comparația dintre card și numerar rămâne incompletă.",
+          "detailHighlights": [
+            "plățile",
+            "numerar"
+          ]
         }
       ]
     },

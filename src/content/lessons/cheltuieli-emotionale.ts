@@ -283,27 +283,43 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "O cumpărătură poate fi folosită pentru confort, recompensă ori reducerea stresului.",
+          "body": "Observă când o cumpărătură promite să repare o stare.",
           "detail": "Sofia observă că impulsul pentru produsul de 180 lei a apărut după stres. Cu 200 lei pentru săptămână, pauza și alternativa îi permit să verifice nevoile înainte să rămână numai cu 20 lei.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "lei"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "După o zi dificilă, Sofia pune în coș un produs de 180 lei pe care nu îl planificase. Are 200 pentru restul săptămânii.",
-          "type": "normal"
+          "body": "O pauză te ajută să verifici utilitatea și costul.",
+          "type": "normal",
+          "detail": "După o zi grea, o pauză poate separa nevoia de confort de utilitatea produsului. Verifică și obligațiile săptămânii.",
+          "detailHighlights": [
+            "obligațiile",
+            "produsului"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Nu diagnostica o persoană doar dintr-o cumpărătură și nu presupune că pauza funcționează identic pentru toată lumea.",
-          "type": "normal"
+          "body": "Nu judeca o persoană după o singură cumpărătură.",
+          "type": "normal",
+          "detail": "O singură cumpărătură nu explică starea unei persoane. Observă tiparul fără să pui etichete.",
+          "detailHighlights": [
+            "cumpărătură"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează un declanșator posibil și o alternativă fără cumpărare pe care ai putea să o încerci.",
-          "type": "action"
+          "type": "action",
+          "detail": "Alege o alternativă concretă, precum o plimbare sau o conversație, apoi revino la coș când poți evalua costul.",
+          "detailHighlights": [
+            "costul"
+          ]
         }
       ]
     },

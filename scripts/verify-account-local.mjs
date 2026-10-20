@@ -65,7 +65,7 @@ try{
   await db.exec(fs.readFileSync('supabase/migrations/0002_username_check.sql','utf8'));
   await db.exec(fs.readFileSync('supabase/migrations/0011_streak_freeze_moments.sql','utf8'));
   await new Promise(resolve=>server.listen(3116,'127.0.0.1',resolve));
-  next=spawn(process.execPath,['--use-system-ca','node_modules/next/dist/bin/next',process.env.FINLY_QA_PRODUCTION?'start':'dev','--hostname','127.0.0.1','--port','3115'],{env:{...process.env,NEXT_PUBLIC_SUPABASE_URL:provider,NEXT_PUBLIC_SUPABASE_ANON_KEY:'local-qa-anon',SUPABASE_SERVICE_ROLE_KEY:'local-qa-server-secret',NEXT_PUBLIC_APP_URL:origin},stdio:['ignore','pipe','pipe'],windowsHide:true});
+  next=spawn(process.execPath,['--use-system-ca','node_modules/next/dist/bin/next',process.env.FINLY_QA_PRODUCTION?'start':'dev','--hostname','127.0.0.1','--port','3115'],{env:{...process.env,NEXT_PUBLIC_SUPABASE_URL:provider,NEXT_PUBLIC_SUPABASE_ANON_KEY:'local-qa-anon',SUPABASE_SERVICE_ROLE_KEY:'local-qa-server-secret',NEXT_PUBLIC_APP_URL:origin,FINLY_DEV_AUTH_EMAIL_ORIGIN:origin},stdio:['ignore','pipe','pipe'],windowsHide:true});
   next.stdout.resume();next.stderr.resume();
   let ready=false;for(let i=0;i<120;i++){if(next.exitCode!==null)throw Error('Next QA process stopped');try{const response=await fetch(origin+'/bun-venit');if(response.ok){ready=true;break;}}catch{}await new Promise(resolve=>setTimeout(resolve,500));}assert(ready,'Next QA did not start');
   if(!process.env.FINLY_QA_REUSE_PUBLIC){const publicQa=spawn(process.execPath,['scripts/verify-account-browser.mjs'],{env:{...process.env,FINLY_QA_URL:origin},stdio:'inherit',windowsHide:true});assert(await new Promise(resolve=>publicQa.on('exit',resolve))===0,'Public browser QA failed');}
@@ -175,7 +175,7 @@ try{
   report.checks.push('Logout transport outage: private profile hidden, account cache/queue cleared, uncertain server session explicitly reported, retry then login succeeds');
   await reopenedPage.goto(origin+'/auth/callback?token_hash=local-recovery&type=recovery');await reopenedPage.getByRole('heading',{name:'Alege o parolă nouă.'}).waitFor();
   for(const width of [375,390,430,1440])await screenshot(reopenedPage,width,'/actualizeaza-parola','actualizeaza-parola-valid');
-  await reopenedPage.getByLabel('Parolă',{exact:true}).fill('newpassword');await reopenedPage.getByLabel('Repetă parola',{exact:true}).fill('newpassword');await reopenedPage.getByRole('button',{name:'Salvează parola',exact:true}).click();await reopenedPage.getByRole('heading',{name:'Ce învățăm azi?'}).waitFor();
+  await reopenedPage.getByLabel('Parolă nouă',{exact:true}).fill('newpassword');await reopenedPage.getByLabel('Confirmă parola nouă',{exact:true}).fill('newpassword');await reopenedPage.getByRole('button',{name:'Salvează parola',exact:true}).click();await reopenedPage.getByRole('heading',{name:'Ce învățăm azi?'}).waitFor();
   await reopenedPage.goto(origin+'/profil');await reopenedPage.getByRole('button',{name:'Deconectează-te',exact:true}).click();await reopenedPage.waitForURL('**/bun-venit');await login(reopenedPage,'newpassword');
   report.checks.push('Recovery OTP callback, signed proof, password form and login with new password (simulated Auth)');
   await reopened.close();assert(report.errors.length===0,report.errors.join('\n'));

@@ -285,25 +285,44 @@ export const lesson: ReadyLesson = {
           "title": "Adună pe termen lung",
           "body": "Costul lunar se repetă.",
           "detail": "Un serviciu de 25 lei lunar cere 300 lei pentru douăsprezece luni cu preț constant. Compară această sumă cu utilizarea probabilă și verifică reînnoirea, nu doar ultima plată.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "utilizarea",
+            "reînnoirea"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Utilizare",
           "body": "Plata și folosirea nu sunt același lucru.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Poți plăti un serviciu luni întregi fără să îl deschizi. Verifică ultima utilizare, nu doar dacă ai acces.",
+          "detailHighlights": [
+            "utilizare",
+            "acces"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Anulare verificată",
           "body": "Ștergerea aplicației poate să nu oprească plata.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Anularea se face prin serviciul sau magazinul care gestionează abonamentul. Caută confirmarea și data până la care ai acces.",
+          "detailHighlights": [
+            "abonamentul",
+            "confirmarea"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Fă o listă privată cu abonamentele tale, costul și data următoarei plăți, dacă există.",
-          "type": "action"
+          "type": "action",
+          "detail": "Lângă cost notează reînnoirea și unde se anulează. O perioadă gratuită poate deveni o plată automată.",
+          "detailHighlights": [
+            "reînnoirea",
+            "plată"
+          ]
         }
       ]
     },

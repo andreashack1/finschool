@@ -1,8 +1,7 @@
 'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { Bell, X } from 'lucide-react';
+import { Bell, CheckCheck, Settings, X } from 'lucide-react';
 import { z } from 'zod';
 import { notificationRequest, pushSupported, NotificationSessionError } from '../../src/lib/simulator/notifications/client';
 import { inboxSchema, notificationBadge, notificationGroup, notificationStatus, notificationTime } from '../../src/lib/simulator/notifications/inbox-view';
@@ -51,18 +50,22 @@ function AccountNotificationBell({ userId }: { userId: string }) {
     try {
       await flight.current;
       const raw = await notificationRequest(userId, '', id ? { id, version: data.items.find(i => i.id === id)?.availableAt } : {});
-      const value = z.object({ target: z.string() }).parse(raw), next = inboxSchema.parse(raw);
-      if (mounted.current) { setData(next); anchor.current = performance.now(); }
-      mutating.current = false; await refresh();
+      const value = z.object({ target: z.string().regex(/^\/simulator(?:\?calendar=\d{4}-\d{2}-\d{2}|\/eveniment\/[a-f0-9-]+)?$/) }).parse(raw), next = inboxSchema.parse(raw);
+      if (mounted.current) {
+        if (!id && dialog.current?.contains(document.activeElement) && document.activeElement?.classList.contains('notification-read-all')) {
+          dialog.current.querySelector<HTMLButtonElement>('.notification-settings-control')?.focus();
+        }
+        setData(next); setError(''); anchor.current = performance.now();
+      }
       if (mounted.current && id) { setOpen(false); router.push(value.target); }
     }
-    catch { mutating.current = false; await refresh(); if (mounted.current) setError('Nu putem salva acum. Reîncearcă.'); } finally { mutating.current = false; if (mounted.current) setBusy(false); }
+    catch { if (mounted.current) setError(id ? 'Nu am putut deschide acum. Încearcă din nou.' : 'Nu putem marca notificările acum. Încearcă din nou.'); } finally { mutating.current = false; if (mounted.current) setBusy(false); }
   }
   const badge = notificationBadge(data.unread);
   return <>
     <button ref={button} className="notification-bell" aria-label={`Notificări${data.unread ? `, ${data.unread} necitite` : ''}`} aria-haspopup="dialog" aria-expanded={open} onClick={() => setOpen(true)}><Bell size={21}/>{badge && <span aria-hidden="true">{badge}</span>}</button>
     <dialog ref={dialog} className="notification-inbox" aria-labelledby="notification-title" onCancel={() => setOpen(false)} onClose={() => { setOpen(false); button.current?.focus(); }} onClick={event => { if (event.target === dialog.current) setOpen(false); }}>
-      <header><div><h2 id="notification-title">Notificări</h2>{data.unread > 0 && <button className="notification-read-all" disabled={busy} onClick={() => void read()}>Marchează toate ca citite</button>}</div><button aria-label="Închide notificările" onClick={() => setOpen(false)}><X size={20}/></button></header>
+      <header><h2 id="notification-title">Notificări</h2>{data.unread > 0 && <button className="notification-read-all" disabled={busy} onClick={() => void read()}><CheckCheck size={17} aria-hidden="true"/>Marchează citite</button>}<div className="notification-header-controls"><button className="notification-settings-control" aria-label="Setările notificărilor" onClick={() => { dialog.current?.close(); setOpen(false); router.push('/?tab=profile#notification-settings'); }}><Settings size={20} aria-hidden="true"/></button><button aria-label="Închide notificările" onClick={() => setOpen(false)}><X size={20} aria-hidden="true"/></button></div></header>
       <div className="notification-list" aria-busy={busy}>
         {error && <div role="status"><p>{error}</p><button className="notification-retry" onClick={() => void refresh()}>Încearcă din nou</button></div>}
         {!loaded && !error && <p role="status">Încărcăm notificările…</p>}
@@ -73,14 +76,13 @@ function AccountNotificationBell({ userId }: { userId: string }) {
             <span><strong>{item.title}</strong><span className="notification-summary">{item.body}</span><span className="notification-meta">{notificationStatus(item)}{notificationStatus(item) && ' · '}<time dateTime={item.availableAt}>{notificationTime(item.availableAt, data.serverNow)}</time></span>
               {item.expiresAt && <small>Mai ai {Math.max(1, Math.ceil((Date.parse(item.expiresAt) - Date.parse(data.serverNow)) / 60000))} min</small>}
               {item.amount !== null && <small>Cost: {formatLei(bani(item.amount))}</small>}
-              <span className="notification-cta">{item.status === 'active' ? 'Vezi opțiunile' : item.status === 'information' ? 'Vezi detaliile' : 'Vezi ce s-a întâmplat'}</span>
+              <span className="notification-cta">{item.status === 'active' ? 'Deschide' : 'Detalii'}</span>
               {!item.readAt && <span className="sr-only">Necitită</span>}
             </span>
           </button></li>)}</ol></section> : null;
         })}
-        {loaded && !data.items.length && <div className="notification-empty"><Bell size={28} aria-hidden="true"/><strong>Ești la zi.</strong><p>Noile situații din simulator vor apărea aici.</p></div>}
+        {loaded && !data.items.length && <div className="notification-empty"><Bell size={28} aria-hidden="true"/><strong>Ești la zi.</strong><p>Noile situații din SimLife vor apărea aici.</p></div>}
       </div>
-      <footer><Link href="/?tab=profile" onClick={() => setOpen(false)}>Setările notificărilor</Link></footer>
     </dialog>
   </>;
 }

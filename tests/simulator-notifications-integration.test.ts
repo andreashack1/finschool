@@ -57,6 +57,9 @@ describe('Chapter 8 actual PostgreSQL storage, worker, privacy and equivalence',
  beforeAll(async () => {
   db = await initialize(); mock.notification = notificationDbFixture(() => db);
   mock.rpc.mockImplementation(async (name: string, args: Record<string, unknown>) => {
+   // This historical fixture installs migrations through 0010: mirror PostgREST's missing-RPC response.
+   if(name==='upgrade_simulator_daily_floor')return {data:null,error:{code:'PGRST202',message:'Daily floor migration not installed in historical fixture'}};
+
    const keys = signatures[name]; if (!keys) throw Error(`Unknown RPC ${name}`);
    const params = keys.map(k => args[k] === undefined ? (k === 'p_subscriptions' || k === 'p_operations' ? '[]' : null) : args[k] !== null && typeof args[k] === 'object' ? JSON.stringify(args[k]) : args[k]);
    try { const r = await db.query<{ result: unknown }>(`select public.${name}(${keys.map((_, i) => `$${i + 1}`).join(',')}) as result`, params); return { data: r.rows[0]?.result ?? null, error: null }; } catch (error) { return { data: null, error }; }
@@ -78,22 +81,81 @@ describe('Chapter 8 actual PostgreSQL storage, worker, privacy and equivalence',
   }
   throw Error('No actionable event in real fixture');
  }
- it('read active → automatic outcome becomes unread once; concurrent retries retain one result and deep link',async()=>{
+ it('an obsolete notification with a removed event falls back safely without deleting history',async()=>{
+  const {id,event,at}=await activeSituation();
+  const n=(await inbox(id,at)).items.find(n=>n.eventId===event.id)!;
+  await db.query('update sim_notifications set target_id=$1,obsolete_at=$2 where id=$3',[crypto.randomUUID(),at.toISOString(),n.id]);
+  expect((await markRead(id,n.id,at,n.availableAt)).target).toBe('/simulator');
+  expect((await db.query('select id from sim_notifications where id=$1',[n.id])).rows).toHaveLength(1);
+ });
+ it('read active → automatic outcome → reconciliation → fresh inbox remains permanently read',async()=>{
   const {id,event,current,at}=await activeSituation();
   const n=(await inbox(id,at)).items.find(n=>n.eventId===event.id)!;expect(n.status).toBe('active');expect(n.readAt).toBeNull();
-  await markRead(id,n.id,at,n.availableAt);expect((await inbox(id,at)).items.find(i=>i.id===n.id)!.readAt).toBeTruthy();
+  const marked=await markRead(id,n.id,at,n.availableAt), readAt=marked.items.find(i=>i.id===n.id)!.readAt;expect(readAt).toBeTruthy();
   const expired=new Date(Date.parse(event.expiresAt)+1000), later={...current,effectiveDay:dayKey(expired),effectiveNow:expired.toISOString()};
   const loaded=(await syncSimulatorThrough(id,later))!;
   await Promise.all([observeNotifications(loaded,expired),observeNotifications(loaded,expired)]);
-  const result=(await inbox(id,expired)).items.find(i=>i.id===n.id)!;expect(result.status).toBe('missed');expect(result.readAt).toBeNull();expect(result.body).toContain('Simulatorul a ales:');expect(result.amount).not.toBeNull();expect(result.expiresAt).toBeNull();
-  await markRead(id,n.id,expired,n.availableAt);expect((await inbox(id,expired)).items.find(i=>i.id===n.id)!.readAt).toBeNull(); // stale acknowledgment
+  const refreshed=await inbox(id,expired),result=refreshed.items.find(i=>i.id===n.id)!;expect(result.status).toBe('missed');expect(result.readAt).toBe(readAt);expect(result.body).toContain('SimLife a ales:');expect(result.amount).not.toBeNull();expect(result.expiresAt).toBeNull();
+  expect(refreshed.unread).toBe(marked.unread);
+  await markRead(id,n.id,expired,n.availableAt);expect((await inbox(id,expired)).items.find(i=>i.id===n.id)!.readAt).toBe(readAt);
   expect((await markRead(id,n.id,expired,result.availableAt)).target).toBe(`/simulator/eveniment/${event.id}`);
   await observeNotifications(loaded,expired);expect((await inbox(id,expired)).items.find(i=>i.id===n.id)!.readAt).toBeTruthy();
   await observeNotifications({...loaded,instances:loaded.instances.map(e=>e.id===event.id?event:e)},at); // stale device snapshot cannot regress a result
   expect((await inbox(id,expired)).items.find(i=>i.id===n.id)!.status).toBe('missed');
   expect((await db.query('select id from sim_notifications where user_id=$1 and target_id=$2 and obsolete_at is null',[id,event.id])).rows).toHaveLength(1);
+  mock.notification=notificationDbFixture(()=>db); // Fresh transport/client, no React or client cache.
+  expect((await inbox(id,new Date(expired.getTime()+86400000))).items.find(i=>i.id===n.id)!.readAt).toBe(readAt);
  },20000);
- it('manual resolution from simulator is read and remains a single historical item',async()=>{
+ it('mark-all persists three rows across a fresh client and next day; only a new fourth row is unread',async()=>{
+  const id=await user(),at=new Date(clock().effectiveNow!);
+  const original=await Promise.all(['first','second','third'].map(s=>testNotification(id,s)));
+  expect((await inbox(id,at)).unread).toBe(3);
+  const response=await markRead(id,undefined,at);
+  expect(response.unread).toBe(0);expect(response.items).toHaveLength(3);
+  const timestamps=new Map(response.items.map(n=>[n.id,n.readAt]));
+  expect([...timestamps.values()].every(Boolean)).toBe(true);
+  mock.notification=notificationDbFixture(()=>db);
+  const tomorrow=new Date(at.getTime()+86400000);
+  expect((await inbox(id,tomorrow)).unread).toBe(0);
+  await testNotification(id,'fourth');
+  const fresh=await inbox(id,tomorrow);expect(fresh.unread).toBe(1);
+  for(const n of original)expect(fresh.items.find(i=>i.id===n!.id)!.readAt).toBe(timestamps.get(n!.id));
+  const persisted=(await db.query<{read_at:Date|null}>('select read_at from sim_notifications where user_id=$1 and semantic_key<>$2',[id,'test:fourth'])).rows;
+  expect(persisted).toHaveLength(3);expect(persisted.every(n=>n.read_at!==null)).toBe(true);
+ },20000);
+ it('a concurrent mark-read after observer snapshot survives automatic reconciliation',async()=>{
+  const {id,event,current}=await activeSituation();
+  const expired=new Date(Date.parse(event.expiresAt)+1000);
+  const loaded=(await syncSimulatorThrough(id,{...current,effectiveDay:dayKey(expired),effectiveNow:expired.toISOString()}))!;
+  const before=await inbox(id,expired),row=before.items.find(n=>n.eventId===event.id)!;
+  expect(row.readAt).toBeNull();
+  const database=notificationDbFixture(()=>db),readAt='2026-10-19T10:00:00.000Z';
+  let concurrent:ReturnType<typeof db.query>|undefined;
+  mock.notification={...database,from:(table:string)=>{
+   const query=database.from(table),update=query.update.bind(query);
+   query.update=values=>{
+    if(table==='sim_notifications' && values.body && !concurrent){
+     concurrent=db.query('update sim_notifications set read_at=$1 where id=$2',[readAt,row.id]);
+    }
+    return update(values);
+   };
+   return query;
+  }};
+  try{await observeNotifications(loaded,expired);await concurrent;}
+  finally{mock.notification=database;}
+  const fresh=await inbox(id,expired);
+  expect(fresh.items.find(n=>n.id===row.id)).toMatchObject({status:'missed',readAt});
+  expect(fresh.unread).toBe(before.unread-1);
+ },20000);
+ it('previously unread automatic results remain unread without duplicate threads',async()=>{
+  const {id,event,current}=await activeSituation(),expired=new Date(Date.parse(event.expiresAt)+1000);
+  const loaded=(await syncSimulatorThrough(id,{...current,effectiveDay:dayKey(expired),effectiveNow:expired.toISOString()}))!;
+  const before=await inbox(id,expired),row=before.items.find(n=>n.eventId===event.id)!;
+  await observeNotifications(loaded,expired);await observeNotifications(loaded,expired);
+  const fresh=await inbox(id,expired);expect(fresh.items.find(n=>n.id===row.id)).toMatchObject({status:'missed',readAt:null});
+  expect(fresh.unread).toBe(before.unread);expect(fresh.items.filter(n=>n.eventId===event.id)).toHaveLength(1);
+ },20000);
+ it('manual resolution from SimLife is read and remains a single historical item',async()=>{
   const {id,event,current,at}=await activeSituation();
   const detail=await import('../src/lib/simulator/server/events');const view=await detail.eventDetail(id,event.id,current);
   const option=view.event.options.find(o=>!o.unavailableReason)!;expect(option).toBeTruthy();

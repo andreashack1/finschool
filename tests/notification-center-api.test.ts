@@ -14,6 +14,15 @@ const request=(body?:unknown,extra:Record<string,string>={})=>new Request('http:
 beforeEach(()=>{vi.resetAllMocks();vi.stubEnv('NODE_ENV','development');vi.stubEnv('NEXT_PUBLIC_APP_URL','http://localhost:3000');mocks.user.mockResolvedValue({id:user});mocks.clock.mockResolvedValue({effectiveNow:now});mocks.load.mockResolvedValue(null);mocks.inbox.mockResolvedValue({items:[],unread:0});mocks.read.mockResolvedValue({target:'/simulator',items:[],unread:0});});
 afterEach(()=>vi.unstubAllEnvs());
 describe('notification API ownership and lifecycle',()=>{
+ it.each(['2026-10-16T12:59:00+00:00','2026-10-16T15:59:00+03:00','2026-10-16T14:59:00+02:00'])('accepts PostgREST timestamp %s without losing the concurrency version',async version=>{
+  mocks.read.mockResolvedValue({target:`/simulator/eveniment/${id}`,items:[],unread:0});
+  const response=await POST(request({id,version}));
+  expect(response.status).toBe(200);expect(mocks.read).toHaveBeenCalledWith(user,id,new Date(now),version);
+  expect((await response.json()).target).toBe(`/simulator/eveniment/${id}`);
+ });
+ it.each(['garbage','2026-10-16','2026-13-16T12:59:00+00:00','2026-10-16T12:59:00','2026-10-16T12:59:00+99:99'])('rejects malformed timestamp %s',async version=>{
+  expect((await POST(request({id,version}))).status).toBe(400);expect(mocks.read).not.toHaveBeenCalled();
+ });
  it('settles canonical simulator before observing; opening bell is read-only',async()=>{
   const r=await GET(request());expect(r.status).toBe(200);expect(r.headers.get('cache-control')).toBe('no-store');
   expect(mocks.sync).toHaveBeenCalledWith(user,{effectiveNow:now});expect(mocks.sync.mock.invocationCallOrder[0]).toBeLessThan(mocks.observe.mock.invocationCallOrder[0]);expect(mocks.read).not.toHaveBeenCalled();

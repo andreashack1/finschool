@@ -285,25 +285,44 @@ export const lesson: ReadyLesson = {
           "title": "Condiții",
           "body": "Nu deduce regulile din numele produsului.",
           "detail": "Un card și o aplicație din reclamă nu descriu cine poate autoriza fiecare operațiune. Verifică accesul, limitele și schimbările de condiții odată cu vârsta prin instituția cunoscută.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "operațiune",
+            "instituția"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Acces",
           "body": "Clarifică cine vede și autorizează operațiuni.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Verifică ce poate vedea reprezentantul legal și cine aprobă plățile. Accesul în aplicație nu descrie toate drepturile.",
+          "detailHighlights": [
+            "reprezentantul legal",
+            "plățile"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Control",
           "body": "Nu lăsa altă persoană să folosească contul în numele tău.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Dacă lași pe cineva să încaseze și să mute bani prin contul tău, pierzi controlul asupra unor operațiuni pe numele tău.",
+          "detailHighlights": [
+            "contul",
+            "bani"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează trei întrebări despre acces, limite și tarife pe care le-ai verifica la un cont pentru minor.",
-          "type": "action"
+          "type": "action",
+          "detail": "Întreabă și ce se schimbă la împlinirea vârstei relevante: limite, tarife sau acces. Nu presupune că oferta rămâne identică.",
+          "detailHighlights": [
+            "limite",
+            "acces"
+          ]
         }
       ]
     },

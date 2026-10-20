@@ -285,25 +285,40 @@ export const lesson: ReadyLesson = {
           "title": "Documentează",
           "body": "Păstrează dovada și descrie problema.",
           "detail": "Pentru lampa defectă, Vlad pregătește dovada cumpărării, fotografiile și cronologia. Aceste date ajută comerciantul să înțeleagă cazul, dar nu confirmă automat aceeași soluție pentru orice problemă.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "dovada cumpărării"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Diferențiază",
           "body": "Defectul, livrarea greșită și răzgândirea nu sunt identice.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Pentru o livrare greșită descrii altă problemă decât pentru un produs defect sau o răzgândire. Procedura poate diferi.",
+          "detailHighlights": [
+            "livrare greșită"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Verifică oficial",
           "body": "Procedura și termenele actuale cer surse competente.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Termenele și excepțiile depind de caz și de regulile actuale. Verifică informația la comerciant și în surse competente.",
+          "detailHighlights": [
+            "surse"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Găsește unde păstrezi dovada unei cumpărături și notează canalul verificat al comerciantului.",
-          "type": "action"
+          "type": "action",
+          "detail": "Păstrează împreună bonul, mesajele și fotografiile problemei. O cronologie clară ajută când ceri o soluție.",
+          "detailHighlights": [
+            "cronologie"
+          ]
         }
       ]
     },

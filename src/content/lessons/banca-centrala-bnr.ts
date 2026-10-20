@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Rol distinct",
           "body": "BNR este banca centrală, nu contul tău curent.",
           "detail": "O știre despre politica monetară oferă context pentru economie. Pentru o problemă cu tranzacția sau contul personal, verifică produsul și contactează banca la care îl folosești.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "politica monetară",
+            "tranzacția"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Efecte generale",
           "body": "Politica monetară se transmite prin mai multe mecanisme.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "O schimbare de politică monetară nu ajunge simultan și identic la toate creditele și depozitele.",
+          "detailHighlights": [
+            "politică monetară",
+            "creditele"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Tranzacția ta",
           "body": "Verifică oferta efectivă a instituției folosite.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Banca la care ai cont își publică propriile tarife și condiții. O știre despre BNR nu le înlocuiește.",
+          "detailHighlights": [
+            "condiții",
+            "banca"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Ia o știre despre BNR și separă efectul general descris de operațiunea personală pe care ai vrea să o faci.",
-          "type": "action"
+          "type": "action",
+          "detail": "Separă în notițe decizia BNR de oferta băncii tale; verifică dacă știrea chiar spune când și cui i se aplică efectul.",
+          "detailHighlights": [
+            "BNR"
+          ]
         }
       ]
     },

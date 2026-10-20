@@ -46,7 +46,7 @@ export function synchronizeEvents(state: EventState, now: Date, catalog: readonl
       const cancelled = cancelIrrelevantEvent(instance, consequenceState, instance.expiresAt);
       if (cancelled) { instances[instances.findIndex(e => e.id === instance.id)] = cancelled; cancellations.push(cancelled); continue; }
       const balance = calculateBalance(ledger), option = automaticOption(instance, balance, instances, engine, run.rngVersion, consequenceState);
-      const stableIndex=instance.generationKey.startsWith('v2:p3:') ? instances.filter(e=>e.day===cursor).sort((a,b)=>a.scheduledAt.localeCompare(b.scheduledAt)||a.generationKey.localeCompare(b.generationKey)).findIndex(e=>e.id===instance.id) : resolutionIndex;
+      const stableIndex=(instance.generationKey.startsWith('v2:p3:') || instance.generationKey.startsWith('v3:p4:')) ? instances.filter(e=>e.day===cursor).sort((a,b)=>a.scheduledAt.localeCompare(b.scheduledAt)||a.generationKey.localeCompare(b.generationKey)).findIndex(e=>e.id===instance.id) : resolutionIndex;
       const result = resolveEvent(instance, option, 'automatic', nowIso, balance, instances, engine, stableIndex, consequenceState, recordedAt);
       consequenceState = result.consequenceState; newOperations.push(...result.operations);
       instances[instances.findIndex(e => e.id === instance.id)] = result.instance; resolutions.push(result.instance);
@@ -68,6 +68,19 @@ export function synchronizeEvents(state: EventState, now: Date, catalog: readonl
     const cancelled = cancelIrrelevantEvent(instance, consequenceState, nowIso);
     if (cancelled) { instances[instances.findIndex(e => e.id === instance.id)] = cancelled; cancellations.push(cancelled); }
   }
+  // Only the active open civil day is repairable. Saved snapshots are immutable.
+  const active=days.find(d=>d.day===targetDay && !d.closedAt);
+  const currentEngine=planningEngineForDay(engine,targetDay);
+  if(caughtUp && active && currentEngine.policySnapshot.version===4){
+    const usable=instances.filter(e=>e.day===targetDay && e.status!=='cancelled');
+    if(usable.length<currentEngine.policySnapshot.minDailyEvents){
+      const plan=planEventDay({lifeProfile:run.configSnapshot.lifeProfile,runId:run.id,userId:run.userId,rngVersion:run.rngVersion,day:targetDay,engine:currentEngine,catalog,history:instances,plannedAt:nowIso,notBefore:nowIso,floorOnly:true,diagnostics,consequenceState});
+      instances.push(...plan.instances);newInstances.push(...plan.instances);rejected.push(...plan.rejected);
+    }
+    const count=instances.filter(e=>e.day===targetDay && e.status!=='cancelled').length;
+    if(active.eventCount!==count){active.eventCount=count;if(!plannedDays.some(d=>d.day===targetDay))plannedDays.push(active);}
+  }
+  instances.sort((a,b)=>a.scheduledAt.localeCompare(b.scheduledAt)||a.generationKey.localeCompare(b.generationKey));
   return { run, engine, ledger, subscriptions, instances, days, consequenceState, newOperations, cancellations, revision: state.revision, newEntries, newInstances, resolutions, plannedDays, closedDays, rejected,
     caughtUp, processedThrough: run.lastSettledOn!, targetDay, remainingDaysEstimate: Math.max(0, daysBetween(run.lastSettledOn!, targetDay)) };
 }

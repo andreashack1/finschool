@@ -69,7 +69,7 @@ describe('Auth route contract with real SSR SDK and mocked provider transport',(
     const response=await deleteAccount(new Request('https://finly.test/api/account/profile',{method:'DELETE',headers:{Origin:'https://finly.test','Content-Type':'application/json','X-Finly-Account':'22222222-2222-4222-8222-222222222222'},body:JSON.stringify({confirmation:'unit_user'})}));
     expect(response.status).toBe(401);expect(requests.slice(start).every(r=>!r.url.includes('/rest/') && !r.url.includes('/admin/'))).toBe(true);
   });
-  it('normal login cannot update a password through the recovery route',async()=>{await request('login',{email:user.email,password:'abcdefgh'});const response=await request('update',{password:'newpassword',repeatPassword:'newpassword'});expect(response.status).toBe(403);expect((await response.json()).error.code).toBe('RECOVERY_REQUIRED');});
+  it('normal login cannot update a password through the recovery route',async()=>{await request('login',{email:user.email,password:'abcdefgh'});const response=await request('update',{password:'newpassword',repeatPassword:'newpassword'});expect(response.status).toBe(403);expect((await response.json()).error.code).toBe('RECOVERY_AUTH_REQUIRED');});
   it('valid recovery proof permits update and is consumed',async()=>{await request('login',{email:user.email,password:'abcdefgh'});jar.set('finly-recovery',recoveryProof(id));const response=await request('update',{password:'newpassword',repeatPassword:'newpassword'});expect(response.status).toBe(200);expect(jar.has('finly-recovery')).toBe(false);});
   it('recovery proof rejects tampering, expiry and different account',()=>{const proof=recoveryProof(id);expect(validRecoveryProof(proof,id)).toBe(true);expect(validRecoveryProof(proof,'22222222-2222-4222-8222-222222222222')).toBe(false);expect(validRecoveryProof(proof.slice(0,-1)+'z',id)).toBe(false);expect(validRecoveryProof(recoveryProof(id,Date.now()-1000000),id)).toBe(false);});
   it('invalid callback and malicious next cannot open redirect',async()=>{const response=await callback(new Request('https://finly.test/auth/callback?next=https://evil.test'));expect(new URL(response.headers.get('location')!).origin).toBe('https://finly.test');});
@@ -80,7 +80,7 @@ describe('Auth route contract with real SSR SDK and mocked provider transport',(
   it('signup without immediate session directs the UI to email confirmation',async()=>{
     vi.mocked(fetch).mockImplementation(async input=>String(input).includes('/rpc/')?Response.json(true):Response.json({user}));
     const response=await request('signup',{email:user.email,username:'new_user',displayName:'',ageRange:'20+',parentalConsent:false,password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true});
-    expect(await response.json()).toEqual({session:false});
+    expect(await response.json()).toEqual({state:'check_email_or_login'});
   });
   it('invalid login returns safe error and never persists credentials',async()=>{
     vi.mocked(fetch).mockResolvedValue(Response.json({msg:'Invalid login credentials'},{status:400}));
@@ -129,4 +129,147 @@ describe('Auth route contract with real SSR SDK and mocked provider transport',(
     const result=await (await serverSupabase()).auth.getUser();expect(result.data.user?.id).toBe(id);
     expect(requests.some(r=>r.url.includes('grant_type=refresh_token'))).toBe(true);
   });
+  it('new and obfuscated confirmed signup outcomes have the same privacy-safe contract',async()=>{
+    for(const value of [user,{...user,id:'obfuscated',identities:[]}]){
+      requests=[];vi.mocked(fetch).mockImplementation(async(input,init)=>{requests.push({url:String(input),body:init?.body?JSON.parse(String(init.body)):null});return String(input).includes('/rpc/')?Response.json(true):Response.json({user:value});});
+      const response=await request('signup',{email:user.email,username:'new_user',ageRange:'20+',password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true});
+      expect(await response.json()).toEqual({state:'check_email_or_login'});
+      expect(requests.filter(r=>r.url.includes('/signup'))).toHaveLength(1);
+      expect(requests.every(r=>!r.url.includes('/admin') && !r.url.includes('/profiles'))).toBe(true);
+    }
+  });
+  it('resend can be called repeatedly and only sends signup resend requests',async()=>{
+    for(let i=0;i<3;i++)expect((await request('resend',{email:' UNIT@example.test '})).status).toBe(200);
+    expect(requests).toHaveLength(3);
+    for(const r of requests){expect(r.url).toContain('/resend');expect(r.url).toContain(encodeURIComponent('https://finly2-ruddy.vercel.app/auth/callback'));expect(r.body).toMatchObject({email:user.email,type:'signup'});}
+  });
+  it('masked resend failures retain safe provider diagnostics in production',async()=>{
+    vi.stubEnv('NODE_ENV','production');vi.stubEnv('NEXT_PUBLIC_APP_URL','https://finly2-ruddy.vercel.app');const log=vi.spyOn(console,'error').mockImplementation(()=>{});
+    try{
+      vi.mocked(fetch).mockResolvedValue(Response.json({error_code:'email_not_confirmed',msg:'Sensitive provider message'},{status:422}));
+      const response=await request('resend',{email:user.email},'https://finly2-ruddy.vercel.app');expect(await response.json()).toEqual({ok:true});
+      expect(log).toHaveBeenCalledWith('[account/auth]',{stage:'supabase-resend',code:'email_not_confirmed',status:422});
+      expect(JSON.stringify(log.mock.calls)).not.toContain(user.email);expect(JSON.stringify(log.mock.calls)).not.toContain('Sensitive');
+    }finally{log.mockRestore();}
+  });
+  it('valid signup OTP confirms through Auth and persists a session',async()=>{
+    const response=await callback(new Request('https://finly.test/auth/callback?token_hash=test&type=signup'));
+    expect(new URL(response.headers.get('location')!).pathname).toBe('/salveaza-progresul');expect(response.headers.get('cache-control')).toBe('no-store');
+    expect([...jar.keys()].some(key=>key.includes('auth-token'))).toBe(true);
+  });
+  it('expired OTP returns a safe verification recovery route',async()=>{
+    vi.mocked(fetch).mockResolvedValue(Response.json({error_code:'otp_expired',msg:'Expired'},{status:403}));
+    const response=await callback(new Request('https://finly.test/auth/callback?token_hash=test&type=signup&next=//evil.test'));
+    expect(response.headers.get('location')).toBe('https://finly.test/verifica-email?invalid=1');expect(response.headers.get('cache-control')).toBe('no-store');
+  });
+
+  it.each(['','invalid','http://localhost:3000','http://localhost:3115','https://127.0.0.1','https://192.168.0.12','https://10.0.0.1','https://[::1]'])('production rejects invalid app origin %s before sending email',async value=>{
+    vi.stubEnv('NODE_ENV','production');vi.stubEnv('NEXT_PUBLIC_APP_URL',value);
+    const log=vi.spyOn(console,'error').mockImplementation(()=>{});
+    try{
+      const response=await request('reset',{email:user.email});expect(response.status).toBe(503);expect((await response.json()).error.code).toBe('CONFIGURATION_ERROR');expect(requests).toHaveLength(0);
+      const result=await callback(new Request('https://finly2-ruddy.vercel.app/auth/callback?type=recovery&token_hash=secret'));
+      expect(result.status).toBe(503);expect(result.headers.has('location')).toBe(false);expect(requests).toHaveLength(0);
+    }finally{log.mockRestore();}
+  });
+  it('production reset goes directly to password page and development retains its explicit local port',async()=>{
+    for(const [mode,origin] of [['production','https://finly2-ruddy.vercel.app'],['development','http://localhost:3115']]){
+      vi.stubEnv('NODE_ENV',mode);vi.stubEnv('NEXT_PUBLIC_APP_URL',origin);vi.stubEnv('FINLY_DEV_AUTH_EMAIL_ORIGIN',mode==='development'?origin:'');requests=[];
+      expect((await request('reset',{email:user.email},origin)).status).toBe(200);
+      const r=requests.find(r=>new URL(r.url).pathname==='/auth/v1/recover')!;
+      const target=new URL(new URL(r.url).searchParams.get('redirect_to')!);
+      expect(target.origin).toBe(origin);expect(target.pathname).toBe('/actualizeaza-parola');expect(target.search).toBe('');
+    }
+  });
+  it('ordinary signup PKCE cannot obtain recovery proof by supplying recovery query parameters',async()=>{
+    await request('signup',{email:user.email,username:'new_user',ageRange:'20+',password:'abcdefgh',repeatPassword:'abcdefgh',terms:true,privacy:true});
+    const response=await callback(new Request('https://finly.test/auth/callback?code=ordinary&type=recovery&next=/actualizeaza-parola'));
+    expect(response.status).toBe(307);expect(jar.has('finly-recovery')).toBe(false);
+  });
+  it('recovery OTP creates proof and an authenticated session without requiring same-browser PKCE',async()=>{
+    expect([...jar.keys()]).toEqual([]);
+    const response=await request('recover',{tokenHash:'unit-recovery',password:'newpassword',repeatPassword:'newpassword'});
+    expect(response.status).toBe(200);expect(jar.has('finly-recovery')).toBe(false);
+    expect(requests.find(r=>r.url.endsWith('/verify'))?.body).toMatchObject({token_hash:'unit-recovery',type:'recovery'});
+    expect(requests.some(r=>r.url.includes('grant_type=pkce'))).toBe(false);
+    const verifyIndex=requests.findIndex(r=>r.url.endsWith('/verify'));
+    const updateIndex=requests.findIndex(r=>r.url.endsWith('/user') && (r.body as {password?:string})?.password==='newpassword');
+    expect(verifyIndex).toBeGreaterThanOrEqual(0);expect(updateIndex).toBeGreaterThan(verifyIndex);
+    expect([...jar.keys()].some(key=>key.includes('code-verifier'))).toBe(false);
+    expect((await (await serverSupabase()).auth.getUser()).data.user?.id).toBe(id);
+  });
+  it.each([{password:'short',repeatPassword:'short'},{password:'validpassword',repeatPassword:'differentpassword'},{password:'',repeatPassword:''}])('server independently rejects invalid new passwords %#',async data=>{
+    await request('login',{email:user.email,password:'abcdefgh'});jar.set('finly-recovery',recoveryProof(id));requests=[];
+    const response=await request('update',data);expect(response.status).toBe(400);expect((await response.json()).error.code).toBe('VALIDATION_ERROR');
+    expect(requests.every(r=>!(r.body && typeof r.body==='object' && 'password' in r.body))).toBe(true);expect(jar.has('finly-recovery')).toBe(true);
+  });
+  it('expired OTP recovery link returns recovery error even without a next parameter',async()=>{
+    vi.mocked(fetch).mockResolvedValue(Response.json({error_code:'otp_expired',msg:'Expired'},{status:403}));
+    const response=await request('recover',{tokenHash:'expired',password:'newpassword',repeatPassword:'newpassword'});
+    expect(response.status).toBe(403);expect((await response.json()).error.message).toBe('Linkul nu mai este valid sau a expirat.');expect(jar.has('finly-recovery')).toBe(false);
+  });
+  it('recovery update keeps session, consumes proof, and new password replaces old password',async()=>{
+    let password='oldpassword';const transport=vi.mocked(fetch).getMockImplementation()!;
+    vi.mocked(fetch).mockImplementation(async(input,init)=>{
+      const url=String(input),body=init?.body?JSON.parse(String(init.body)):{};
+      if(url.includes('grant_type=password') && body.password!==password)return Response.json({msg:'Invalid login credentials'},{status:400});
+      if(url.endsWith('/user') && init?.method==='PUT')password=body.password;
+      return transport(input,init);
+    });
+    expect((await request('recover',{tokenHash:'fresh-token',password:'newpassword',repeatPassword:'newpassword'})).status).toBe(200);
+    expect(jar.has('finly-recovery')).toBe(false);expect((await (await serverSupabase()).auth.getUser()).data.user?.id).toBe(id);
+    expect((await request('update',{password:'anotherpassword',repeatPassword:'anotherpassword'})).status).toBe(403);
+    await request('logout');expect((await request('login',{email:user.email,password:'newpassword'})).status).toBe(200);
+    await request('logout');expect((await request('login',{email:user.email,password:'oldpassword'})).status).toBe(401);
+  });
+  it('update failure diagnostics never log password, recovery proof or provider message',async()=>{
+    await request('login',{email:user.email,password:'abcdefgh'});const proof=recoveryProof(id);jar.set('finly-recovery',proof);
+    const transport=vi.mocked(fetch).getMockImplementation()!;const log=vi.spyOn(console,'error').mockImplementation(()=>{});
+    try{
+      vi.mocked(fetch).mockImplementation((input,init)=>init?.method==='PUT'?Promise.resolve(Response.json({error_code:'weak_password',msg:'newpassword sensitive-token'},{status:422})):transport(input,init));
+      expect((await request('update',{password:'newpassword',repeatPassword:'newpassword'})).status).toBe(400);
+      const logs=JSON.stringify(log.mock.calls);expect(logs).not.toContain('newpassword');expect(logs).not.toContain('sensitive-token');expect(logs).not.toContain(proof);
+    }finally{log.mockRestore();}
+  });
+
+});
+
+describe('Submit-only recovery authorization',()=>{
+ it.each([{status:429,code:'over_request_rate_limit',expected:'RATE_LIMITED'},{status:500,code:'unexpected_failure',expected:'RECOVERY_TEMPORARY'},{status:400,code:'validation_failed',expected:'RECOVERY_TEMPORARY'}])('does not mislabel provider $status/$code as an expired token',async({status,code,expected})=>{
+  vi.mocked(fetch).mockResolvedValue(Response.json({error_code:code,msg:'Provider failure'},{status}));
+  const response=await request('recover',{tokenHash:'fresh',password:'newpassword',repeatPassword:'newpassword'});
+  expect((await response.json()).error.code).toBe(expected);expect(jar.has('finly-recovery')).toBe(false);
+ });
+ it('ordinary login cannot skip verification on recover and browser cannot select an OTP type',async()=>{
+  await request('login',{email:user.email,password:'abcdefgh'});requests=[];
+  const data={tokenHash:'fresh',password:'newpassword',repeatPassword:'newpassword'};
+  expect((await request('recover',{...data,type:'signup'})).status).toBe(400);expect(requests).toHaveLength(0);
+  expect((await request('recover',data)).status).toBe(200);
+  expect(requests.filter(r=>r.url.endsWith('/verify'))).toHaveLength(1);
+ });
+ it.each([{password:'short',repeatPassword:'short'},{password:'newpassword',repeatPassword:'differentpassword'},{password:'',repeatPassword:''},{password:'a'.repeat(129),repeatPassword:'a'.repeat(129)}])('validates before verify %#',async data=>{
+  expect((await request('recover',{tokenHash:'fresh',...data})).status).toBe(400);expect(requests).toHaveLength(0);
+ });
+ it('keeps proof/session after update failure and safely retries without reusing token',async()=>{
+  const transport=vi.mocked(fetch).getMockImplementation()!;let fail=true,verified=false;
+  vi.mocked(fetch).mockImplementation(async(input,init)=>{
+   if(String(input).endsWith('/verify')){if(verified)return Response.json({error_code:'otp_expired',msg:'Used'},{status:403});verified=true;}
+   if(init?.method==='PUT' && fail)return Response.json({msg:'Temporary sensitive-provider-text'},{status:500});
+   return transport(input,init);
+  });
+  const data={tokenHash:'single-use',password:'newpassword',repeatPassword:'newpassword'};
+  const log=vi.spyOn(console,'error').mockImplementation(()=>{});
+  try{
+   const failed=await request('recover',data);expect(failed.status).toBe(503);expect((await failed.json()).error.code).toBe('RECOVERY_TEMPORARY');
+   expect(validRecoveryProof(jar.get('finly-recovery'),id)).toBe(true);expect([...jar.keys()].some(k=>k.includes('auth-token'))).toBe(true);
+   fail=false;expect((await request('recover',data)).status).toBe(200);expect(jar.has('finly-recovery')).toBe(false);
+   expect(requests.filter(r=>r.url.endsWith('/verify'))).toHaveLength(1);
+   expect((await request('recover',data)).status).toBe(403);
+   const logs=JSON.stringify(log.mock.calls);for(const secret of ['single-use','newpassword','sensitive-provider-text'])expect(logs).not.toContain(secret);
+  }finally{log.mockRestore();}
+ });
+ it('recovery callback hash only redirects without consumption',async()=>{
+  const response=await callback(new Request('https://finly.test/auth/callback?token_hash=fresh&type=recovery'));
+  expect(response.headers.get('location')).toBe('https://finly.test/actualizeaza-parola?token_hash=fresh&type=recovery');expect(requests).toHaveLength(0);
+ });
 });

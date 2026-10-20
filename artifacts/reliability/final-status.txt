@@ -1,0 +1,250 @@
+ M app/actualizeaza-parola/page.tsx
+ M app/api/account/auth/route.ts
+ M app/api/account/profile/route.ts
+ M app/api/notifications/route.ts
+ M app/auth/callback/route.ts
+ M app/components/account-boundary.tsx
+ M app/components/account-screens.tsx
+ M app/components/account-settings.tsx
+ M app/components/finly-brand.tsx
+ M app/components/gamification-moments.tsx
+ M app/components/gamification-ui.tsx
+ M app/components/learning-ui.tsx
+ M app/components/lesson-player.tsx
+ M app/components/lesson-reading.tsx
+ M app/components/notification-bell.tsx
+ M app/components/notification-diagnostics.tsx
+ M app/components/notification-settings.tsx
+ M app/despre/page.tsx
+ M app/finly-app.css
+ M app/finly-client.tsx
+ M app/globals.css
+ M app/layout.tsx
+ M app/notifications.css
+ M app/simulator/dev/simulator-dev-client.tsx
+ M app/simulator/eveniment/[id]/event-detail-client.tsx
+ M app/simulator/event-area.tsx
+ M app/simulator/financial-controls.tsx
+ M app/simulator/life-setup.tsx
+ M app/simulator/page.tsx
+ M app/simulator/schedule-options.tsx
+ M app/simulator/simulator-client.tsx
+ M app/verifica-email/page.tsx
+ M next.config.ts
+ M public/brand/SOURCES.md
+ D public/brand/fini-bust-correct.svg
+ D public/brand/fini-bust-excited.svg
+ D public/brand/fini-bust-normal.svg
+ D public/brand/fini-bust-serious.svg
+ D public/brand/fini-bust-thinking.svg
+ D public/brand/fini-bust-wrong.svg
+ D public/brand/fini-full-correct.svg
+ D public/brand/fini-full-excited.svg
+ D public/brand/fini-full-normal.svg
+ D public/brand/fini-full-serious.svg
+ D public/brand/fini-full-thinking.svg
+ D public/brand/fini-full-wrong.svg
+ D public/brand/fini-head-correct.svg
+ D public/brand/fini-head-excited.svg
+ D public/brand/fini-head-normal.svg
+ D public/brand/fini-head-serious.svg
+ D public/brand/fini-head-thinking.svg
+ D public/brand/fini-head-wrong.svg
+ D public/brand/fini.svg
+ D scripts/create-fini-variants.cjs
+ M scripts/verify-about.mjs
+ M scripts/verify-account-local.mjs
+ M scripts/verify-answer-options.cjs
+ M scripts/write-curriculum-lessons.cjs
+ M src/content/README.md
+ M src/content/achievements.ts
+ M src/content/lessons/abonamentele.ts
+ M src/content/lessons/actiuni.ts
+ M src/content/lessons/anunturi-si-livrari-false.ts
+ M src/content/lessons/apelul-fals-de-la-banca.ts
+ M src/content/lessons/asigurari-rca-locuinta-calatorie.ts
+ M src/content/lessons/banca-centrala-bnr.ts
+ M src/content/lessons/bani-de-buzunar-si-venituri-neregulate.ts
+ M src/content/lessons/banii-intre-prieteni-si-intr-o-relatie.ts
+ M src/content/lessons/bonul-factura-si-chitanta.ts
+ M src/content/lessons/burse-si-costul-facultatii.ts
+ M src/content/lessons/cardul-de-credit.ts
+ M src/content/lessons/cardul-de-debit.ts
+ M src/content/lessons/cardul-in-strainatate.ts
+ M src/content/lessons/cat-costa-sa-te-muti-singur.ts
+ M src/content/lessons/ce-detii-si-ce-datorezi.ts
+ M src/content/lessons/ce-este-creditul.ts
+ M src/content/lessons/ce-face-o-banca-si-cum-alegi-un-cont.ts
+ M src/content/lessons/ce-faci-cu-primul-salariu.ts
+ M src/content/lessons/ce-faci-daca-ai-fost-inselat.ts
+ M src/content/lessons/ce-se-intampla-daca-nu-ti-platesti-datoria.ts
+ M src/content/lessons/ce-sunt-banii.ts
+ M src/content/lessons/cerere-si-oferta.ts
+ M src/content/lessons/cheltuieli-emotionale.ts
+ M src/content/lessons/cheltuieli-mici-care-se-aduna.ts
+ M src/content/lessons/cheltuieli-neprevazute.ts
+ M src/content/lessons/cheltuielile-din-supermarket.ts
+ M src/content/lessons/chirie-si-contract-de-inchiriere.ts
+ M src/content/lessons/comisioane-bancare.ts
+ M src/content/lessons/contul-pentru-minori.ts
+ M src/content/lessons/conturi-folosite-de-altii.ts
+ M src/content/lessons/costul-real-al-unui-produs.ts
+ M src/content/lessons/creditele-rapide-ifn.ts
+ M src/content/lessons/crypto-ce-trebuie-sa-stii.ts
+ M src/content/lessons/cum-citesti-un-contract.ts
+ M src/content/lessons/cum-functioneaza-bursa.ts
+ M src/content/lessons/cum-iesi-din-datorii.ts
+ M src/content/lessons/cum-incepi-cu-sume-mici.ts
+ M src/content/lessons/cum-te-conving-reclamele.ts
+ M src/content/lessons/cum-vorbesti-despre-bani.ts
+ M src/content/lessons/cumparaturi-in-jocuri-si-aplicatii.ts
+ M src/content/lessons/cumparaturile-pe-impuls.ts
+ M src/content/lessons/cumperi-casa-sau-inchiriezi.ts
+ M src/content/lessons/cursul-valutar-si-euro.ts
+ M src/content/lessons/de-ce-cheltuim-mai-mult-cu-cardul-decat-cu-numerarul.ts
+ M src/content/lessons/de-ce-economisim-si-cat.ts
+ M src/content/lessons/de-ce-investim.ts
+ M src/content/lessons/diversificarea.ts
+ M src/content/lessons/dobanda-compusa.ts
+ M src/content/lessons/dobanda-fixa-vs-variabila.ts
+ M src/content/lessons/dobanda-la-credit-si-dae.ts
+ M src/content/lessons/dobanda.ts
+ M src/content/lessons/drepturile-consumatorului.ts
+ M src/content/lessons/efectul-de-ancorare.ts
+ M src/content/lessons/etf-uri-si-fonduri.ts
+ M src/content/lessons/extrasul-de-cont.ts
+ M src/content/lessons/fluturasul-de-salariu.ts
+ M src/content/lessons/fomo-si-cheltuieli.ts
+ M src/content/lessons/fondul-de-urgenta.ts
+ M src/content/lessons/furtul-de-identitate.ts
+ M src/content/lessons/gratificarea-imediata-vs-viitor.ts
+ M src/content/lessons/iban.ts
+ M src/content/lessons/iesiri-cu-prietenii-fara-sa-te-golesti.ts
+ M src/content/lessons/impozit-taxa-si-contributie.ts
+ M src/content/lessons/inflatia.ts
+ M src/content/lessons/investesti-vs-speculezi.ts
+ M src/content/lessons/magazine-false.ts
+ M src/content/lessons/metoda-50-30-20.ts
+ M src/content/lessons/munca-part-time-si-student.ts
+ M src/content/lessons/nevoi-vs-dorinte.ts
+ M src/content/lessons/obiceiuri-bune-cu-banii.ts
+ M src/content/lessons/obiective-de-economisire.ts
+ M src/content/lessons/obligatiuni-si-titluri-de-stat.ts
+ M src/content/lessons/oferte-prea-bune-ca-sa-fie-reale.ts
+ M src/content/lessons/pensia-de-ce-conteaza-de-la-primul-salariu.ts
+ M src/content/lessons/phishing.ts
+ M src/content/lessons/piramide-si-scheme-bani-rapizi.ts
+ M src/content/lessons/plata-in-rate-si-cumpara-acum-plateste-mai-tarziu.ts
+ M src/content/lessons/plateste-te-pe-tine-primul.ts
+ M src/content/lessons/plati-digitale.ts
+ M src/content/lessons/presiunea-sociala.ts
+ M src/content/lessons/preturile-psihologice-99-99.ts
+ M src/content/lessons/primul-buget.ts
+ M src/content/lessons/primul-contract-de-munca.ts
+ M src/content/lessons/primul-telefon-sau-laptop.ts
+ M src/content/lessons/protejeaza-datele-cardului.ts
+ M src/content/lessons/rata-lunara-si-costul-total.ts
+ M src/content/lessons/reduceri-care-nu-sunt-reduceri.ts
+ M src/content/lessons/risc-si-randament.ts
+ M src/content/lessons/salariu-brut-vs-net.ts
+ M src/content/lessons/salariul-minim.ts
+ M src/content/lessons/scorul-de-credit.ts
+ M src/content/lessons/sunt-banii-mei-in-siguranta-la-banca.ts
+ M src/content/lessons/taxele-pe-salariu-cas-cass-impozit.ts
+ M src/content/lessons/tichete-si-beneficii.ts
+ M src/content/lessons/transferuri-si-plati-instant.ts
+ M src/content/lessons/tva.ts
+ M src/content/lessons/unde-dispar-banii.ts
+ M src/content/lessons/unde-tii-banii-cont-depozit-numerar.ts
+ M src/content/lessons/utilitati-si-cum-citesti-o-factura.ts
+ M src/content/lessons/venit-cheltuieli-si-ce-ramane.ts
+ M src/content/simulator/events/consequence-demos.server.ts
+ M src/content/simulator/events/registry.server.ts
+ M src/lib/progress.ts
+ M src/lib/simulator/CHAPTER_7.md
+ M src/lib/simulator/errors.ts
+ M src/lib/simulator/events/decision-policy.ts
+ M src/lib/simulator/events/planner.ts
+ M src/lib/simulator/events/resolve.ts
+ M src/lib/simulator/events/synchronize.ts
+ M src/lib/simulator/events/types.ts
+ M src/lib/simulator/notifications/observe.ts
+ M src/lib/simulator/server/database.ts
+ M src/lib/simulator/server/events.ts
+ M src/lib/supabase/env.ts
+ M src/types/learning-schema.ts
+ M supabase/SETUP.md
+ M tests/auth.test.ts
+ M tests/gamification.test.ts
+ M tests/lesson-quality.test.ts
+ M tests/notification-center-api.test.ts
+ M tests/notification-center-browser.mjs
+ M tests/notification-center.test.ts
+ M tests/proxy.test.ts
+ M tests/simulator-browser.mjs
+ M tests/simulator-chapter-two-service.test.ts
+ M tests/simulator-consequences-integration.test.ts
+ M tests/simulator-event-ux-browser.mjs
+ M tests/simulator-events-browser.mjs
+ M tests/simulator-events-integration.test.ts
+ M tests/simulator-events.test.ts
+ M tests/simulator-life-integration.test.ts
+ M tests/simulator-monthly-review-integration.test.ts
+ M tests/simulator-notifications-browser.mjs
+ M tests/simulator-notifications-integration.test.ts
+ M tests/simulator-service.test.ts
+ M tests/simulator-subscriptions-browser.mjs
+ M tests/simulator-subscriptions-integration.test.ts
+ M vitest.config.mts
+?? app/profile.css
+?? artifacts/auth-verification/
+?? artifacts/daily-polish/
+?? artifacts/final-quality/
+?? artifacts/fini-home-scale/
+?? artifacts/fini-v2-bust.png
+?? artifacts/fini-v2-full.png
+?? artifacts/fini-v2-head.png
+?? artifacts/fini-v2/
+?? artifacts/home-cleanup/
+?? artifacts/interaction-async-audit.txt
+?? artifacts/interaction-audit-inventory.txt
+?? artifacts/interaction-core-controls.txt
+?? artifacts/interaction-final-diff.patch
+?? artifacts/interaction-final-status.txt
+?? artifacts/password-recovery/
+?? artifacts/profile-polish/
+?? artifacts/reliability/
+?? design-references/
+?? public/brand/fini-v2/
+?? scripts/create-fini-v2.cjs
+?? scripts/final-takeaway-details.cjs
+?? scripts/final-takeaway-editorial.cjs
+?? scripts/final-takeaway-summaries.cjs
+?? src/content/daily-facts.ts
+?? src/content/simulator/events/catalog-v3.server.ts
+?? src/content/simulator/events/policy-v4.ts
+?? src/lib/account/verification.ts
+?? src/lib/home-recommendations.ts
+?? src/lib/profile-progress.ts
+?? src/lib/simulator/events/interest.ts
+?? supabase/AUTH_EMAIL_VERIFICATION.md
+?? supabase/AUTH_PASSWORD_RECOVERY.md
+?? supabase/migrations/0013_simulator_daily_floor.sql
+?? tests/auth-email-origin.test.ts
+?? tests/auth-verification-browser.mjs
+?? tests/daily-facts.test.ts
+?? tests/daily-polish-browser.mjs
+?? tests/final-quality-browser.mjs
+?? tests/fini-v2-browser.mjs
+?? tests/fini-v2.test.ts
+?? tests/home-recommendations.test.ts
+?? tests/password-recovery-browser.mjs
+?? tests/profile-branding.test.ts
+?? tests/profile-polish-browser.mjs
+?? tests/profile-progress.test.ts
+?? tests/profile-reconciliation.test.ts
+?? tests/simulator-continuity-interest.test.ts
+?? tests/simulator-daily-floor-integration.test.ts
+?? tests/simulator-daily-floor.test.ts
+?? tests/takeaway-final-quality.test.ts
+?? tests/verification.test.ts

@@ -288,27 +288,46 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "O factură de utilități arată perioada, consumul, tarifele, taxele, eventualul sold anterior și termenul de plată.",
+          "body": "Separă pe factură consumul curent, costurile fixe și soldul anterior.",
           "detail": "Factura de 150 lei include 100 consum, 20 cost fix și 30 sold anterior. Diferența față de o factură veche nu dovedește singură creșterea tarifului; verifică și perioada și indexul.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "sold anterior",
+            "cost fix"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Pe o factură fictivă, consumul este 100 de unități la 1 leu, cu un cost fix de 20 lei. Totalul acestor componente este 120 lei.",
-          "type": "normal"
+          "body": "O factură mai mare nu dovedește singură un tarif mai mare.",
+          "type": "normal",
+          "detail": "Totalul poate include sold anterior, cost fix și consum curent. O sumă mai mare nu dovedește singură un tarif mai mare.",
+          "detailHighlights": [
+            "sold anterior",
+            "consum curent"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "O factură estimată poate fi ajustată ulterior prin regularizare.",
-          "type": "normal"
+          "body": "Consumul estimat poate fi corectat ulterior prin regularizare.",
+          "type": "normal",
+          "detail": "La regularizare, consumul real poate corecta estimările anterioare. Compară indexurile și perioada.",
+          "detailHighlights": [
+            "indexurile",
+            "perioada"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe o factură fictivă, separă consumul curent, costul fix, soldul anterior și scadența.",
-          "type": "action"
+          "type": "action",
+          "detail": "Urmărește scadența separat de perioada de consum; factura poate cere plata acum pentru o perioadă deja încheiată.",
+          "detailHighlights": [
+            "scadența",
+            "perioada"
+          ]
         }
       ]
     },

@@ -292,27 +292,43 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Bursa oferă un cadru de tranzacționare în care ordinele de cumpărare și vânzare pot fi potrivite conform regulilor pieței.",
+          "body": "La bursă se întâlnesc ordine de cumpărare și de vânzare.",
           "detail": "Limita de cumpărare de 100 lei nu se potrivește vânzătorului care cere 102 în exercițiu. Plasarea ordinului nu confirmă executarea; verifică statusul și confirmarea tranzacției.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "confirmarea tranzacției",
+            "limita"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Un cumpărător fictiv acceptă cel mult 100 lei, iar un vânzător cere 102. Ordinele nu se potrivesc la aceste limite.",
-          "type": "normal"
+          "body": "Un ordin limită are nevoie de o ofertă compatibilă ca să se execute.",
+          "type": "normal",
+          "detail": "Un ordin limită poate rămâne neexecutat dacă nu există o ofertă compatibilă.",
+          "detailHighlights": [
+            "ordin limită"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Nu confunda plasarea ordinului cu executarea sa.",
-          "type": "normal"
+          "body": "Plasarea ordinului nu confirmă tranzacția.",
+          "type": "normal",
+          "detail": "Confirmarea plasării nu confirmă cumpărarea. Verifică statusul și eventualele execuții parțiale.",
+          "detailHighlights": [
+            "confirmarea"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Simulează două ordine limită și explică de ce unele limite nu se potrivesc.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pe desen, separă prețul maxim acceptat de cumpărător de cel minim cerut de vânzător și caută unde se întâlnesc.",
+          "detailHighlights": [
+            "prețul"
+          ]
         }
       ]
     },

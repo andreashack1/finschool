@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Două liste",
           "body": "Bunurile și obligațiile se notează separat.",
           "detail": "Daria poate avea un laptop valoros și o datorie de plătit în două săptămâni. Bunul nevândut nu este numerar pentru scadență, chiar dacă poziția ei financiară pe hârtie este pozitivă.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "scadență",
+            "numerar"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Valoare actuală",
           "body": "Prețul plătit nu este garantat la revânzare.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Pentru un telefon folosit contează cât ai putea primi acum, nu prețul de pe bonul vechi.",
+          "detailHighlights": [
+            "prețul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Acces la bani",
           "body": "Un bun valoros nu plătește automat o factură mâine.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Dacă scadența este mâine, găsirea unui cumpărător poate dura prea mult. Separă bunurile de banii accesibili imediat.",
+          "detailHighlights": [
+            "scadența",
+            "banii"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Fă două liste private: trei lucruri pe care le deții și obligațiile de plată pe care le ai, dacă există.",
-          "type": "action"
+          "type": "action",
+          "detail": "Lângă fiecare obligație scrie scadența; lângă fiecare bun, dacă poate fi folosit direct pentru plată.",
+          "detailHighlights": [
+            "obligație",
+            "scadența"
+          ]
         }
       ]
     },

@@ -304,36 +304,55 @@ export const budgetLesson: ReadyLesson = {
           "id": "punct-1",
           "title": "Începi cu venitul",
           "body": "Notezi venitul disponibil confirmat. Nu pornești de la un bonus pe care doar îl speri.",
-          "detail": "O listă simplă este suficientă pentru început.",
-          "type": "normal"
+          "detail": "Un bonus posibil poate lipsi luna aceasta. Planul de cheltuieli pornește de la încasările confirmate, apoi se ajustează când intră alte sume.",
+          "type": "normal",
+          "detailHighlights": [
+            "încasările",
+            "bonus"
+          ]
         },
         {
           "id": "punct-2",
           "title": "Categorii utile",
           "body": "Separi sumele previzibile de cele care variază. Categoria nu spune dacă o cheltuială este importantă sau inutilă.",
-          "detail": "Mâncarea poate fi variabilă și esențială.",
-          "type": "normal"
+          "detail": "Mâncarea poate varia de la o săptămână la alta și rămâne esențială. Separă flexibilitatea sumei de importanța nevoii.",
+          "type": "normal",
+          "detailHighlights": [
+            "flexibilitatea sumei"
+          ]
         },
         {
           "id": "punct-3",
           "title": "Planifici înainte",
           "body": "Obiectivele primesc un loc în buget. Diferența rămasă nu este automat disponibilă pentru orice.",
-          "detail": "Verifică ce rol ai dat deja fiecărei sume.",
-          "type": "normal"
+          "detail": "Soldul include uneori bani deja rezervați pentru o scadență. Verifică ce rol ai dat fiecărei sume înainte de o cumpărătură nouă.",
+          "type": "normal",
+          "detailHighlights": [
+            "cumpărătură",
+            "scadență"
+          ]
         },
         {
           "id": "punct-4",
           "title": "Flexibilitate vizibilă",
           "body": "Poți ajusta un plan fără să renunți la el. O abatere îți arată ce estimare merită schimbată.",
-          "detail": "Arată de unde vine diferența unei cheltuieli noi.",
-          "type": "normal"
+          "detail": "Dacă adaugi o ieșire, notează ce categorie scade sau ce venit confirmat acoperă diferența. Totalul trebuie să rămână explicabil.",
+          "type": "normal",
+          "detailHighlights": [
+            "venit confirmat",
+            "totalul"
+          ]
         },
         {
           "id": "punct-5",
           "title": "Ce poți face azi",
           "body": "Notează ultimele cinci cheltuieli. Pune-le în categorii și observă una pe care nu ai planificat-o.",
-          "detail": "Nu trebuie să le judeci; folosește-le ca informație.",
-          "type": "action"
+          "detail": "Include și numerarul când alegi cele trei plăți. Folosește observațiile ca să corectezi planul, fără să numeri transferurile între conturi ca un consum nou.",
+          "type": "action",
+          "detailHighlights": [
+            "transferurile",
+            "numerarul"
+          ]
         }
       ]
     },

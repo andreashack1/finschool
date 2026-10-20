@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Sursă",
           "body": "Înțelege de unde vin și unde merg banii.",
           "detail": "Comisionul promis nu explică legitimitatea transferurilor prin contul tău. La o sumă necunoscută, verifică prin bancă înainte să o cheltuiești sau să o retransmiți la indicațiile aceleiași persoane.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "comisionul",
+            "contul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Control",
           "body": "Nu da contul și autorizările altcuiva.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Dacă altcineva folosește parola ta, nu mai controlezi efectiv plățile făcute pe numele tău.",
+          "detailHighlights": [
+            "plățile",
+            "parola"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Limită",
           "body": "Poți refuza operațiuni neclare fără moralizare.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un comision pentru «doar un transfer» nu explică sursa banilor. Refuză intermedierea și verifică situația prin bancă.",
+          "detailHighlights": [
+            "sursa"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pregătește o formulare scurtă prin care refuzi folosirea contului tău pentru transferuri fără scop verificat.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pregătește un refuz clar: nu oferi contul sau codurile și nu încasa bani pentru a-i retrimite unei persoane necunoscute.",
+          "detailHighlights": [
+            "contul",
+            "bani"
+          ]
         }
       ]
     },

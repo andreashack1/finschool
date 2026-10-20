@@ -3,7 +3,7 @@ import { categories } from "./categories";
 import { getLessonById } from "./lessons";
 export const AchievementIconSchema = z.enum(["Footprints", "Flame", "CalendarCheck", "Trophy", "PiggyBank", "ShieldCheck", "WalletCards", "BriefcaseBusiness"]);
 export const AchievementConditionSchema = z.object({ type: z.enum(["completed-lessons", "perfect-lessons", "specialist", "longest-streak", "daily-goals", "total-xp", "daily-answers", "daily-correct", "category", "chapter", "lesson", "simulator"]), target: z.number().int().positive(), refId: z.string().min(1).optional(), categoryId: z.string().min(1).optional() });
-export const AchievementSchema = z.object({ id: z.string().min(1), title: z.string().min(1), description: z.string().min(1), icon: AchievementIconSchema, group: z.enum(["Învățare", "Consecvență", "XP", "Provocări", "Subiecte", "Simulator"]), condition: AchievementConditionSchema });
+export const AchievementSchema = z.object({ id: z.string().min(1), title: z.string().min(1), description: z.string().min(1), icon: AchievementIconSchema, group: z.enum(["Învățare", "Consecvență", "XP", "Provocări", "Subiecte", "SimLife"]), condition: AchievementConditionSchema });
 export function validateAchievements(value: unknown) {
   const parsed = AchievementSchema.array().length(21).parse(value);
   if (new Set(parsed.map(a => a.id)).size !== parsed.length) throw new Error("Duplicate achievement ID");
@@ -37,7 +37,7 @@ const entries: Entry[] = [
   ["budget-ready", "Buget gata", "Termină lecția «Primul tău buget».", "WalletCards", "Subiecte", { type: "lesson", target: 1, refId: "primul-buget" }],
   ["first-pay", "Prima plată", "Termină toate lecțiile disponibile din capitolul «Salariul».", "BriefcaseBusiness", "Subiecte", { type: "chapter", target: 1, refId: "salariul", categoryId: "primul-job" }],
   ["calm-credit", "Calm la credit", "Termină lecția «Scorul de credit».", "WalletCards", "Subiecte", { type: "lesson", target: 1, refId: "scorul-de-credit" }],
-  ["first-month", "Prima lună", "Termină simulatorul pentru prima dată.", "PiggyBank", "Simulator", { type: "simulator", target: 1, refId: "simulator" }],
+  ["first-month", "Prima lună", "Completează prima lună în SimLife.", "PiggyBank", "SimLife", { type: "simulator", target: 1, refId: "simulator" }],
 ];
 export const achievements = validateAchievements(entries.map(([id, title, description, icon, group, condition]) => ({ id, title, description, icon, group, condition })));
 export type Achievement = z.infer<typeof AchievementSchema>;

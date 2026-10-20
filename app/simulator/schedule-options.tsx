@@ -9,7 +9,7 @@ const schedules = [
 export default function ScheduleOptions({ selected, busy, choose, setup = false }: { selected?: ScheduleProfile | null; busy: boolean; choose: (value: ScheduleProfile) => void; setup?: boolean }) {
   return <fieldset className="sim-schedule" disabled={busy}>
     <legend>Cum arată ziua ta de obicei?</legend>
-    <p>Folosim programul doar ca situațiile din simulator să apară la ore care au sens.</p>
+    <p>Folosim programul doar ca situațiile din SimLife să apară la ore care au sens.</p>
     <div className="sim-schedule-options">{schedules.map(option => setup ?
       <label key={option.value} className={`sim-schedule-option ${selected === option.value ? 'selected' : ''}`}>
         <span><input type="radio" name="schedule" checked={selected === option.value} onChange={() => choose(option.value)}/><strong>{option.label}</strong></span>
@@ -19,6 +19,6 @@ export default function ScheduleOptions({ selected, busy, choose, setup = false 
         <strong>{option.label}</strong><span>{option.description}</span><small>Scenariu: {option.hours}</small>
       </button>
     )}</div>
-    <p className="sim-schedule-note">Programul influențează doar momentul în care pot apărea situațiile din simulator. Nu schimbă salariul.</p>
+    <p className="sim-schedule-note">Programul influențează doar momentul în care pot apărea situațiile din SimLife. Nu schimbă salariul.</p>
   </fieldset>;
 }

@@ -292,27 +292,43 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Pachetul de remunerare poate include bani și beneficii cu utilizări diferite.",
+          "body": "Compară separat salariul în bani și beneficiile.",
           "detail": "Un abonament medical poate înlocui un serviciu folosit, dar nu intră automat ca numerar pentru chirie. Lia compară separat netul fix, serviciile utile și bonusurile condiționate.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "numerar"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Lia compară o ofertă cu 3.000 lei net și beneficii cu una de 3.200 lei net fără aceleași beneficii. Nu adună abonamentul medical la soldul pentru chirie.",
-          "type": "normal"
+          "body": "Un beneficiu cu utilizare limitată nu înlocuiește orice cheltuială.",
+          "type": "normal",
+          "detail": "Tichetele pot avea utilizări limitate și nu plătesc orice obligație. Nu le trata automat ca numerar pentru chirie.",
+          "detailHighlights": [
+            "obligație",
+            "numerar"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "O valoare din reclamă poate fi brută, condiționată sau limitată la anumite utilizări.",
-          "type": "normal"
+          "body": "Verifică ce beneficii sunt sigure și care depind de condiții.",
+          "type": "normal",
+          "detail": "Un beneficiu condiționat de prezență sau de o regulă internă poate varia între luni.",
+          "detailHighlights": [
+            "beneficiu"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Separă într-o ofertă fictivă netul fix, beneficiile folosite și bonusurile condiționate.",
-          "type": "action"
+          "type": "action",
+          "detail": "În comparația ofertelor, separă salariul disponibil de beneficiile cu destinație sau condiții proprii.",
+          "detailHighlights": [
+            "condiții"
+          ]
         }
       ]
     },

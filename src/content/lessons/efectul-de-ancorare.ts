@@ -283,27 +283,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Ancorarea apare când prima valoare întâlnită influențează evaluarea unei valori ulterioare.",
+          "body": "Prima cifră văzută poate influența ce ți se pare ieftin.",
           "detail": "Prețul tăiat de 500 lei face oferta de 300 să pară atractivă. Oferta comparabilă de 280 arată că reperul inițial nu confirmă cel mai mic cost actual.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "reperul",
+            "prețul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Un magazin afișează 500 lei tăiat și preț nou 300. Alt magazin are un produs comparabil la 280.",
-          "type": "normal"
+          "body": "Compară prețul actual cu oferte independente.",
+          "type": "normal",
+          "detail": "Prețul tăiat poate deveni reperul comparației chiar când alt magazin oferă mai ieftin același produs.",
+          "detailHighlights": [
+            "reperul",
+            "prețul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Prețul de referință trebuie verificat în contextul regulilor reducerii, dar nici un preț vechi real nu garantează valoarea actuală pentru tine.",
-          "type": "normal"
+          "body": "Un preț vechi real nu garantează o ofertă bună astăzi.",
+          "type": "normal",
+          "detail": "Un preț vechi real nu garantează utilitatea sau cel mai bun cost actual.",
+          "detailHighlights": [
+            "utilitatea",
+            "preț"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară o ofertă cu preț tăiat cu două repere independente, folosind cifre fictive.",
-          "type": "action"
+          "type": "action",
+          "detail": "Caută două oferte comparabile cu transport inclus înainte să decizi cât de bun este prețul redus.",
+          "detailHighlights": [
+            "prețul"
+          ]
         }
       ]
     },

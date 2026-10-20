@@ -287,36 +287,54 @@ export const emergencyFundLesson: ReadyLesson = {
           "id": "punct-1",
           "title": "Surprize reale",
           "body": "Fondul este pentru cheltuieli importante și neașteptate. O dorință nu devine urgență fiindcă este la reducere.",
-          "detail": "Întreabă ce se întâmplă dacă amâni cheltuiala.",
-          "type": "normal"
+          "detail": "O reparație care îți blochează drumul necesar poate cere reacție rapidă. O ofertă care expiră nu are aceeași consecință dacă o lași să treacă.",
+          "type": "normal",
+          "detailHighlights": [
+            "reparație"
+          ]
         },
         {
           "id": "punct-2",
           "title": "Cheltuieli de bază",
           "body": "Dimensiunea poate porni de la cheltuielile esențiale. Mai multe luni sunt o idee practică, nu o lege universală.",
-          "detail": "Folosește cheltuielile tale din exemplul de plan, nu un număr ales la întâmplare.",
-          "type": "normal"
+          "detail": "Rezerva se raportează la cheltuielile de bază: locuire, hrană și transport necesar. Planurile opționale se pot pregăti separat.",
+          "type": "normal",
+          "detailHighlights": [
+            "cheltuielile",
+            "rezerva"
+          ]
         },
         {
           "id": "punct-3",
           "title": "Acces când ai nevoie",
           "body": "Rezerva trebuie să poată fi folosită la o problemă reală. Separarea ei de dorințe ajută la păstrarea scopului.",
-          "detail": "O sumă greu de accesat poate să nu rezolve urgența la timp.",
-          "type": "normal"
+          "detail": "Banii blocați până la o scadență îndepărtată pot fi greu de folosit într-o urgență. Verifică accesul și condițiile retragerii.",
+          "type": "normal",
+          "detailHighlights": [
+            "condițiile",
+            "scadență"
+          ]
         },
         {
           "id": "punct-4",
           "title": "Începi și reconstruiești",
           "body": "Poți începe mic. După utilizare, contribuțiile sustenabile refac treptat fondul.",
-          "detail": "Nu trata utilizarea pentru o urgență ca pe un eșec.",
-          "type": "normal"
+          "detail": "Dacă folosești rezerva pentru o urgență reală, ea și-a îndeplinit rolul. Adaugă în buget pași realiști pentru refacerea sumei.",
+          "type": "normal",
+          "detailHighlights": [
+            "urgență",
+            "rezerva"
+          ]
         },
         {
           "id": "punct-5",
           "title": "Ce poți face azi",
           "body": "Notează trei situații care ar conta pentru tine ca urgență. Pentru fiecare, explică de ce este importantă și neașteptată.",
-          "detail": "Lista te ajută când apare o ofertă care pune presiune.",
-          "type": "action"
+          "detail": "Lângă fiecare cost notează consecința amânării și dacă era previzibil. Asta ajută să separi urgențele de promoții și costurile anuale.",
+          "type": "action",
+          "detailHighlights": [
+            "costurile"
+          ]
         }
       ]
     },

@@ -285,25 +285,42 @@ export const lesson: ReadyLesson = {
           "title": "Nu te grăbi",
           "body": "Urgența poate fi parte din poveste.",
           "detail": "Povestea despre un credit necunoscut îl împinge pe Vlad să mute bani și să comunice un cod. Închide apelul și verifică situația prin contactul băncii găsit separat, fără să urmeze numărul dictat.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "contactul",
+            "bani"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Canal separat",
           "body": "Sună folosind datele oficiale cunoscute.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Închide apelul și formează tu numărul oficial. Nu folosi numărul dictat pentru «verificare».",
+          "detailHighlights": [
+            "numărul oficial"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Coduri protejate",
           "body": "Nu comunica autorizări apelantului.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Citește ce autorizează codul. Eticheta de «anulare» folosită de apelant nu schimbă operațiunea de pe ecran.",
+          "detailHighlights": [
+            "operațiunea",
+            "codul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Găsește și salvează canalul oficial de contact al băncii tale, fără să pornești de la un mesaj nesolicitat.",
-          "type": "action"
+          "type": "action",
+          "detail": "Salvează contactul din aplicația sau pagina oficială, ca să poți verifica fără ajutorul persoanei care te sună.",
+          "detailHighlights": [
+            "contactul"
+          ]
         }
       ]
     },

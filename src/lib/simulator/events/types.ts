@@ -37,10 +37,16 @@ export const policyV3Schema = z.strictObject({
   ...policyV2Schema.shape, version: z.literal(3), decisionWindowMinutes: z.literal(30),
   decisionUpgrade: z.strictObject({ startsOn: dayKeySchema, previousPolicy: policyV2Schema }).optional(),
 });
-export const policySchema = z.union([policyV1Schema, policyV2Schema, policyV3Schema]);
+export const policyV4Schema = z.strictObject({
+  ...policyV3Schema.shape, version: z.literal(4), minDailyEvents: z.literal(2),
+  lateFloorWindow: scheduleSchema,
+  evergreenDefinitionIds: z.array(stableKeySchema).min(3).max(12).refine(ids=>new Set(ids).size===ids.length),
+  floorUpgrade: z.strictObject({ startsOn: dayKeySchema, previousCatalogVersion: z.union([z.literal(1),z.literal(2)]), previousPolicy: z.union([policyV1Schema, policyV2Schema, policyV3Schema]) }).optional(),
+});
+export const policySchema = z.union([policyV1Schema, policyV2Schema, policyV3Schema, policyV4Schema]);
 export type EventPolicy = z.infer<typeof policySchema>;
 export const engineSchema = z.strictObject({
-  scheduleProfile: profileSchema, startedAt: z.iso.datetime(), catalogVersion: z.union([z.literal(1),z.literal(2)]), policyVersion: z.union([z.literal(1),z.literal(2),z.literal(3)]),
+  scheduleProfile: profileSchema, startedAt: z.iso.datetime(), catalogVersion: z.union([z.literal(1),z.literal(2),z.literal(3)]), policyVersion: z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4)]),
   policySnapshot: policySchema, lastClosedDay: dayKeySchema.nullable(), processedAt: z.iso.datetime().nullable(),
 }).refine(e => e.policyVersion === e.policySnapshot.version);
 export type EventEngine = z.infer<typeof engineSchema>;
@@ -109,7 +115,7 @@ export const instanceSchema = z.strictObject({
 });
 export type EventInstance = z.infer<typeof instanceSchema>;
 export const eventDaySchema = z.strictObject({
-  day: dayKeySchema, catalogVersion: z.union([z.literal(1),z.literal(2)]), policyVersion: z.union([z.literal(1),z.literal(2),z.literal(3)]), plannedAt: z.iso.datetime(),
+  day: dayKeySchema, catalogVersion: z.union([z.literal(1),z.literal(2),z.literal(3)]), policyVersion: z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4)]), plannedAt: z.iso.datetime(),
   closedAt: z.iso.datetime().nullable(), eventCount: z.number().int().nonnegative(),
 });
 export type EventDay = z.infer<typeof eventDaySchema>;

@@ -1,0 +1,51 @@
+module.exports = {
+  'ce-este-inflatia': [
+    'Un telefon se poate scumpi din cauza stocului, în timp ce alte produse se ieftinesc. Inflația urmărește un ansamblu de prețuri, nu un singur raft.',
+    'Dacă ai economisit pentru un ghiozdan și prețul crește, suma păstrată poate să nu mai ajungă. Verifică prețul înainte de cumpărare.',
+    'Procentul se aplică prețului de pornire. Două produse cu prețuri diferite pot avea aceeași creștere procentuală și diferențe diferite în lei.',
+    'O ajustare salarială doar discutată nu plătește cumpărăturile de azi. Folosește în buget venitul confirmat, apoi revizuiește-l când se schimbă.',
+    'Compară și cantitatea din ambalaj. Un preț neschimbat pentru mai puțin produs înseamnă un cost mai mare pe unitate.',
+  ],
+  'phishing': [
+    'Un mesaj despre blocarea contului încearcă să te facă să sari peste verificare. Poți închide conversația și verifica separat fără să folosești linkul primit.',
+    'Și numărul de telefon de pe o pagină falsă poate aparține atacatorului. Găsește contactul în aplicația pe care o foloseai deja.',
+    'Codul poate autoriza o plată sau accesul la cont. Citește operațiunea și nu oferi nici fragmente din cod unei persoane care îl cere.',
+    'Un cont de prieten poate fi compromis. Sună la numărul deja cunoscut înainte să răspunzi unei cereri neobișnuite de bani.',
+    'Salvează contactul din aplicația oficială. Când apare o alertă, îl poți folosi fără să depinzi de datele din mesaj.',
+  ],
+  'primul-buget': [
+    'Un bonus posibil poate lipsi luna aceasta. Planul de cheltuieli pornește de la încasările confirmate, apoi se ajustează când intră alte sume.',
+    'Mâncarea poate varia de la o săptămână la alta și rămâne esențială. Separă flexibilitatea sumei de importanța nevoii.',
+    'Soldul include uneori bani deja rezervați pentru o scadență. Verifică ce rol ai dat fiecărei sume înainte de o cumpărătură nouă.',
+    'Dacă adaugi o ieșire, notează ce categorie scade sau ce venit confirmat acoperă diferența. Totalul trebuie să rămână explicabil.',
+    'Include și numerarul când alegi cele trei plăți. Folosește observațiile ca să corectezi planul, fără să numeri transferurile între conturi ca un consum nou.',
+  ],
+  'fondul-de-urgenta': [
+    'O reparație care îți blochează drumul necesar poate cere reacție rapidă. O ofertă care expiră nu are aceeași consecință dacă o lași să treacă.',
+    'Rezerva se raportează la cheltuielile de bază: locuire, hrană și transport necesar. Planurile opționale se pot pregăti separat.',
+    'Banii blocați până la o scadență îndepărtată pot fi greu de folosit într-o urgență. Verifică accesul și condițiile retragerii.',
+    'Dacă folosești rezerva pentru o urgență reală, ea și-a îndeplinit rolul. Adaugă în buget pași realiști pentru refacerea sumei.',
+    'Lângă fiecare cost notează consecința amânării și dacă era previzibil. Asta ajută să separi urgențele de promoții și costurile anuale.',
+  ],
+  'dobanda-compusa': [
+    'Când lași dobânda în cont, calculul următor poate folosi suma inițială plus câștigul păstrat. Retragerea lui schimbă baza.',
+    'Compară aceeași sumă și aceeași rată pe perioade diferite ca să vezi efectul timpului. Altfel poți confunda durata cu o ofertă diferită.',
+    'O simulare cu rată constantă explică mecanismul. Într-un produs real, rata, taxele sau costurile pot modifica rezultatul.',
+    'Capitalizarea nu elimină riscul produsului. Verifică separat dacă rezultatul este garantat și în ce condiții ai acces la bani.',
+    'Scrie dacă dobânda se reinvestește și cât de des. Două simulări cu aceleași procente pot folosi calendare de capitalizare diferite.',
+  ],
+  'salariu-brut-vs-net': [
+    'În ofertă, brutul este suma înainte de reținerile aplicabile. Dacă eticheta lipsește, cere clarificarea înainte să îți planifici cheltuielile.',
+    'Din net plătești apoi propriile cheltuieli, precum transportul sau chiria. Suma încasată și suma rămasă la final de lună sunt diferite.',
+    'Un bonus condiționat poate lipsi într-o lună. Compară separat salariul fix și ce trebuie îndeplinit ca să primești bonusul.',
+    'Tichetele cu utilizare limitată nu acoperă orice plată. Separă banii disponibili de beneficiile care au reguli proprii.',
+    'Două joburi pot afișa sume similare, dar comparația corectă cere aceeași bază și beneficiile incluse. O întrebare despre brut sau net poate schimba întregul calcul.',
+  ],
+  'scorul-de-credit': [
+    'Instituțiile pot folosi informații și criterii diferite. Un singur număr nu descrie automat toate deciziile de creditare.',
+    'Un transfer programat poate eșua dacă nu sunt bani în cont. Verifică plata confirmată înainte să consideri scadența acoperită.',
+    'Un istoric bun nu face rata comodă dacă îți consumă banii pentru nevoi apropiate. Verifică separat spațiul din buget.',
+    'Pentru date incorecte sau reguli de raportare, caută procedura oficială și documentele necesare. Nu te baza pe promisiuni de ștergere garantată.',
+    'Notează suma, scadența și sursa banilor pentru fiecare obligație. Așa poți observa un termen dificil înainte să întârzii.',
+  ],
+};

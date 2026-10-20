@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Operațiunea",
           "body": "Încasarea nu este autorizarea unei plăți.",
           "detail": "Ana vinde o carte, dar pagina de încasare îi cere să aprobe o plată. Citește operațiunea descrisă de confirmare și verifică intrarea în propriul cont înainte de expediere.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "operațiunea",
+            "confirmare"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Coletul",
           "body": "Verifică starea prin canalul cunoscut.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Intră separat în contul magazinului sau curierului pentru status. Mesajul primit poate copia numele lor.",
+          "detailHighlights": [
+            "contul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Dovada",
           "body": "Confirmă încasarea, nu doar captura.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Verifică încasarea în contul tău înainte să trimiți obiectul. O captură poate fi modificată.",
+          "detailHighlights": [
+            "încasarea",
+            "contul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La un mesaj de livrare, verifică separat comanda și expeditorul înainte să deschizi linkul.",
-          "type": "action"
+          "type": "action",
+          "detail": "Compară mesajul cu o comandă reală: comerciant, colet și sumă. O cerere neașteptată de plată merită o verificare separată.",
+          "detailHighlights": [
+            "plată",
+            "sumă"
+          ]
         }
       ]
     },

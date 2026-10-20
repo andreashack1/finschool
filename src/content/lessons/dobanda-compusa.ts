@@ -296,36 +296,56 @@ export const compoundInterestLesson: ReadyLesson = {
           "id": "punct-1",
           "title": "Dobândă la dobândă",
           "body": "Câștigurile păstrate pot intra în baza următorului calcul. Baza poate crește de la o perioadă la alta.",
-          "detail": "Retragerea câștigului schimbă exemplul.",
-          "type": "normal"
+          "detail": "Când lași dobânda în cont, calculul următor poate folosi suma inițială plus câștigul păstrat. Retragerea lui schimbă baza.",
+          "type": "normal",
+          "detailHighlights": [
+            "dobânda",
+            "cont"
+          ]
         },
         {
           "id": "punct-2",
           "title": "Timpul contează",
           "body": "Mai multe perioade pot amplifica efectul mecanismului. Comparația cere aceleași condiții în celelalte privințe.",
-          "detail": "Separă timpul de diferențele dintre produse.",
-          "type": "normal"
+          "detail": "Compară aceeași sumă și aceeași rată pe perioade diferite ca să vezi efectul timpului. Altfel poți confunda durata cu o ofertă diferită.",
+          "type": "normal",
+          "detailHighlights": [
+            "perioade",
+            "sumă"
+          ]
         },
         {
           "id": "punct-3",
           "title": "Rata este o ipoteză",
           "body": "Procentul de 10% din lecție servește calculului. Nu reprezintă o ofertă sau o rată curentă.",
-          "detail": "O rată reală poate avea alte condiții.",
-          "type": "normal"
+          "detail": "O simulare cu rată constantă explică mecanismul. Într-un produs real, rata, taxele sau costurile pot modifica rezultatul.",
+          "type": "normal",
+          "detailHighlights": [
+            "costurile",
+            "rata"
+          ]
         },
         {
           "id": "punct-4",
           "title": "Calculul nu garantează",
           "body": "Un total matematic depinde de ipotezele folosite. În investiții reale contează și riscurile și costurile.",
-          "detail": "Educația despre mecanism nu este sfat financiar.",
-          "type": "normal"
+          "detail": "Capitalizarea nu elimină riscul produsului. Verifică separat dacă rezultatul este garantat și în ce condiții ai acces la bani.",
+          "type": "normal",
+          "detailHighlights": [
+            "capitalizarea",
+            "produsului"
+          ]
         },
         {
           "id": "punct-5",
           "title": "Ce poți face azi",
           "body": "Calculează pe hârtie două perioade pornind de la 100 lei și o rată ipotetică de 10%. Aplică al doilea procent totalului obținut după prima perioadă.",
-          "detail": "Compară rezultatul cu două câștiguri de câte 10 lei.",
-          "type": "action"
+          "detail": "Scrie dacă dobânda se reinvestește și cât de des. Două simulări cu aceleași procente pot folosi calendare de capitalizare diferite.",
+          "type": "action",
+          "detailHighlights": [
+            "capitalizare",
+            "dobânda"
+          ]
         }
       ]
     },

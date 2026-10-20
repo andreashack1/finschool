@@ -283,27 +283,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "FOMO este teama că pierzi o experiență sau o oportunitate pe care ceilalți o au.",
+          "body": "Teama că ratezi ceva poate grăbi o cumpărătură.",
           "detail": "Biletul de 150 lei nu încape în cei 120 rămași după transportul necesar. Chiar dacă oferta expiră cu adevărat, Mara poate căuta altă întâlnire fără să ignore această diferență.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "transportul",
+            "lei"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Mara vede un bilet de 150 lei cu mesajul ultima șansă. Are 200 disponibili până la următoarea intrare și un transport necesar de 80.",
-          "type": "normal"
+          "body": "Scade obligațiile apropiate înainte să decizi pentru un bilet.",
+          "type": "normal",
+          "detail": "O ofertă poate expira cu adevărat și totuși să nu încapă în banii rămași după obligații.",
+          "detailHighlights": [
+            "banii"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "O ofertă poate fi limitată și totuși nepotrivită bugetului tău.",
-          "type": "normal"
+          "body": "O ofertă limitată poate fi tot nepotrivită bugetului tău.",
+          "type": "normal",
+          "detail": "Fotografiile altora arată o parte a experienței, nu costurile sau bugetul lor complet.",
+          "detailHighlights": [
+            "costurile",
+            "bugetul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează o achiziție atrasă de urgență și compar-o cu nevoia și disponibilul real.",
-          "type": "action"
+          "type": "action",
+          "detail": "Înainte de cumpărare, compară costul cu ce ai deja planificat până la următoarea încasare.",
+          "detailHighlights": [
+            "încasare",
+            "costul"
+          ]
         }
       ]
     },

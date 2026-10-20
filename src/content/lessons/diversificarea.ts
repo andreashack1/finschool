@@ -292,27 +292,44 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Diversificarea înseamnă distribuirea expunerilor pentru a reduce dependența de un singur rezultat.",
+          "body": "Diversificarea reduce dependența de un singur rezultat.",
           "detail": "Cinci poziții pot depinde de același sector și pot reacționa la un șoc comun. Verifică expunerile și suprapunerile, nu doar numărul produselor din cont.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "expunerile",
+            "sector"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Lia are 1.000 lei într-o singură companie. Un alt portofoliu fictiv împarte aceeași sumă între cinci companii, câte 200.",
-          "type": "normal"
+          "body": "Mai multe investiții nu garantează expuneri diferite.",
+          "type": "normal",
+          "detail": "Mai multe poziții nu înseamnă automat expuneri diferite. Ele pot depinde de aceiași clienți sau același sector.",
+          "detailHighlights": [
+            "expuneri diferite",
+            "sector"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Cinci companii din același sector pot reacționa similar la un șoc.",
-          "type": "normal"
+          "body": "Companiile din același sector pot scădea împreună.",
+          "type": "normal",
+          "detail": "Un șoc comun poate afecta simultan mai multe companii. Diversificarea reduce unele dependențe, fără să elimine riscul.",
+          "detailHighlights": [
+            "riscul"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Desenează două portofolii fictive și caută o dependență comună ascunsă.",
-          "type": "action"
+          "type": "action",
+          "detail": "Lângă fiecare poziție fictivă notează sectorul și sursa veniturilor, apoi caută suprapuneri.",
+          "detailHighlights": [
+            "sursa"
+          ]
         }
       ]
     },

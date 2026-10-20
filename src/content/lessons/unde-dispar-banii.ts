@@ -285,25 +285,42 @@ export const lesson: ReadyLesson = {
           "title": "Frecvență",
           "body": "Urmărește totalul plăților mici.",
           "detail": "Gustările de 12 lei în 15 zile costă 180 lei, mai mult decât transportul de 120 lei din exemplu. Totalul poate contrazice impresia creată de o singură plată mare.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "transportul",
+            "totalul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Evidență",
           "body": "Separă mutările de consum.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Notează și numerarul, nu doar ce apare în aplicația bancară. Altfel o parte din consum rămâne invizibilă.",
+          "detailHighlights": [
+            "numerarul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Context",
           "body": "Distinge repetițiile de excepții.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "O zi ieșită din comun nu descrie toată luna. Compară perioade și frecvențe realiste.",
+          "detailHighlights": [
+            "frecvențe",
+            "perioade"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Adună o categorie de cheltuieli mici din ultima săptămână și compar-o cu estimarea ta inițială.",
-          "type": "action"
+          "type": "action",
+          "detail": "Alege un interval complet și verifică dacă ai numărat transferurile proprii de două ori.",
+          "detailHighlights": [
+            "transferurile"
+          ]
         }
       ]
     },

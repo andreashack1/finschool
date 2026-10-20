@@ -285,25 +285,44 @@ export const lesson: ReadyLesson = {
           "title": "Scop",
           "body": "Compară locul cu momentul folosirii.",
           "detail": "Banii pentru drumul de săptămâna viitoare cer acces diferit de cei pentru cursul de peste câteva luni. Dobânda mai mare nu spune ce se întâmplă la retragerea înainte de termen.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "dobânda",
+            "termen"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Condiții",
           "body": "Accesul și costurile contează alături de dobândă.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "La un depozit verifică scadența și ce pierzi dacă retragi mai devreme. Accesul contează pentru scopurile apropiate.",
+          "detailHighlights": [
+            "scadența",
+            "accesul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Total",
           "body": "Mutarea banilor nu creează venit.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Banii împărțiți între cont și numerar formează tot același total. Mutarea nu este economisire nouă.",
+          "detailHighlights": [
+            "numerar",
+            "banii"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară pe hârtie contul, depozitul și numerarul pentru două scopuri cu termene diferite.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pentru fiecare scop, scrie când ai nevoie de bani și ce condiție de acces accepți, înainte să compari dobânda.",
+          "detailHighlights": [
+            "dobânda",
+            "nevoie"
+          ]
         }
       ]
     },

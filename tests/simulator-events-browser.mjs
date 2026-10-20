@@ -94,7 +94,7 @@ try {
   await page.goto(origin + '/simulator/dev'); assert(new URL(page.url()).pathname === '/bun-venit', 'Anonymous dev page not guarded');
   assert((await page.request.get(origin + '/api/simulator/state')).status() === 401, 'Anonymous simulator API not 401');
   await page.goto(origin + '/autentificare'); await page.waitForFunction(() => { const form = document.querySelector('form'); return form && Object.keys(form).some(key => key.startsWith('__reactProps')); }); await page.getByLabel('Email', { exact: true }).fill('simulator_a@finly.test'); await page.getByLabel('Parolă', { exact: true }).fill('localtestpass'); await page.getByRole('button', { name: 'Conectează-te', exact: true }).click(); await page.getByRole('heading', { name: 'Ce învățăm azi?' }).waitFor();
-  await page.goto(origin + '/simulator/dev'); await page.getByRole('heading', { name: 'Simulator — development' }).waitFor();
+  await page.goto(origin + '/simulator/dev'); await page.getByRole('heading', { name: 'SimLife — development' }).waitFor();
   await page.goto(origin + '/simulator');
   await page.getByRole('heading', { name: 'Începe viața pe cont propriu' }).waitFor();
   assert(await page.getByRole('group', { name: 'Cum locuiești?' }).count() === 1, 'Housing absent in setup');
@@ -149,7 +149,7 @@ try {
   await api('dev/events',{minutes:10080}); today=await api('dashboard');
   const sums=(await db.query('select sum(amount_bani)::integer as balance,count(*)::integer as n,count(distinct ref_key)::integer as u from public.sim_ledger where run_id=$1',[first.dashboard.runId])).rows[0];
   assert(sums.balance===today.dashboard.balanceBani && sums.n===sums.u,'Absence ledger mismatch');
-  await page.goto(origin+'/simulator'); await page.getByRole('heading',{name:'Simulator',exact:true}).waitFor();
+  await page.goto(origin+'/simulator'); await page.getByRole('heading',{name:'SimLife',exact:true}).waitFor();
   for(const width of [320,390,430]){await page.setViewportSize({width,height:900}); assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`Dashboard overflow ${width}`); await page.screenshot({path:`artifacts/simulator-events-qa/dashboard-${width}.png`,fullPage:true,animations:'disabled'});}
   for(const name of ['Salariul tău','Cheltuieli fixe','Jurnal financiar'])assert(await page.getByRole('heading',{name,exact:true}).count()===1,`${name} regression`);
   report.checks.push('Seven-day absence matches ledger; Chapter 2 UI and mobile retained');
@@ -258,7 +258,7 @@ try {
   await page.getByRole('link', { name: '← Înapoi la simulator', exact: true }).click();
   assert((await api('dashboard')).dashboard.currentStates.every(s => s.kind !== 'flag'), 'Cleared flag still visible');
   await api('dev/events', { minutes: 10080 });
-  await page.reload(); await page.getByRole('heading', { name: 'Simulator', exact: true }).waitFor();
+  await page.reload(); await page.getByRole('heading', { name: 'SimLife', exact: true }).waitFor();
   assert((await api('dashboard')).dashboard.currentStates.length === 0, 'Expired state still active');
   assert(await page.getByRole('heading', { name: 'Acum', exact: true }).count() === 0, 'Empty Acum after expiry');
   await checkEventsSlot('chapter-four-expired');

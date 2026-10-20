@@ -4,6 +4,7 @@ import "./globals.css";
 import "./finly-app.css";
 import './account.css';
 import './notifications.css';
+import './profile.css';
 import './streak-moments.css';
 import { GamificationMoments } from "./components/gamification-moments";
 import { AccountBoundary } from './components/account-boundary';

@@ -22,7 +22,7 @@ describe('notification center presentation', () => {
     const event = { status:'pending',scheduledAt:'2026-10-13T00:00:00Z',expiresAt:'2026-10-13T00:30:00Z',selectedCostBani:null,snapshot:{title:'Cafea după ore',description:'Colegii te invită.',options:[{id:'home',label:'Rămâi acasă'}]} } as EventInstance;
     expect(eventNotificationPresentation(event)).toMatchObject({title:'Cafea după ore',body:'Colegii te invită.',status:'active'});
     const resolved = {...event,status:'resolved' as const,resolutionMode:'automatic' as const,resolutionEffectiveAt:event.expiresAt,selectedOptionId:'home',selectedCostBani:bani(0)};
-    expect(eventNotificationPresentation(resolved)).toMatchObject({status:'missed',body:'Simulatorul a ales: Rămâi acasă',amount:0,significantAt:event.expiresAt});
+    expect(eventNotificationPresentation(resolved)).toMatchObject({status:'missed',body:'SimLife a ales: Rămâi acasă',amount:0,significantAt:event.expiresAt});
     expect(eventNotificationPresentation({...resolved,resolutionMode:'manual'}).body).toBe('Ai ales: Rămâi acasă');
   });
 });

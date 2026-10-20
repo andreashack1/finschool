@@ -292,27 +292,46 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Un IFN este o instituție financiară nebancară; viteza acordării nu descrie costul creditului.",
+          "body": "Viteza aprobării nu spune cât costă un împrumut.",
           "detail": "Dan vede aprobarea în câteva minute, dar nu are un venit confirmat înainte de scadență. Prelungirea poate schimba costurile, deci timpul aprobării nu înlocuiește planul de rambursare.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "venit confirmat",
+            "rambursare"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Într-un exemplu, un împrumut de 1.000 lei cere 1.150 la termen. Diferența este 150 lei.",
-          "type": "normal"
+          "body": "Compară suma primită cu totalul datorat la termen.",
+          "type": "normal",
+          "detail": "Accesul rapid nu reduce suma de rambursat. Compară costul și termenul înainte să te lași convins de viteză.",
+          "detailHighlights": [
+            "termenul",
+            "accesul"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Un nou împrumut luat pentru a acoperi vechiul credit poate amplifica problema dacă venitul nu susține plățile.",
-          "type": "normal"
+          "body": "Prelungirea unei datorii poate adăuga alte costuri.",
+          "type": "normal",
+          "detail": "Prelungirea poate adăuga costuri fără să rezolve lipsa de bani. Verifică alternativele înainte de o nouă datorie.",
+          "detailHighlights": [
+            "costuri",
+            "bani"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Compară într-un scenariu suma primită, totalul de plată și data sursei de rambursare.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pe un exemplu fictiv, notează suma efectiv primită și totalul cerut la scadență, inclusiv costurile afișate separat.",
+          "detailHighlights": [
+            "costurile",
+            "scadență"
+          ]
         }
       ]
     },

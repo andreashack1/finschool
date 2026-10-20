@@ -292,27 +292,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Randamentul descrie schimbarea valorii și veniturile unei investiții în raport cu suma investită.",
+          "body": "Randamentul arată rezultatul în raport cu suma investită.",
           "detail": "Creșterea fictivă de 100 lei dintr-o investiție de 1.000 lasă 80 lei după costuri de 20. Rezultatul net diferă de cifra inițială, iar scenariul nu garantează evoluția următoare.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "costuri",
+            "net"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "O investiție fictivă de 1.000 lei valorează 1.100 înainte de costuri, o creștere de 10%. Dacă ai costuri de 20 lei incluse în exercițiu, rezultatul net este 80, adică 8% față de suma inițială.",
-          "type": "normal"
+          "body": "Costurile pot reduce câștigul față de cifra afișată.",
+          "type": "normal",
+          "detail": "Costurile reduc rezultatul față de creșterea afișată. Compară sume nete pentru același interval.",
+          "detailHighlights": [
+            "costurile",
+            "sume"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Toleranța emoțională la fluctuații și capacitatea financiară de a suporta o pierdere sunt diferite.",
-          "type": "normal"
+          "body": "A suporta emoțional fluctuația diferă de a-ți permite pierderea.",
+          "type": "normal",
+          "detail": "Poți accepta emoțional fluctuația și totuși să nu îți permiți financiar pierderea banilor pentru chirie.",
+          "detailHighlights": [
+            "pierderea"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Calculează un rezultat fictiv înainte și după costuri și notează un scenariu de pierdere.",
-          "type": "action"
+          "type": "action",
+          "detail": "În scenariul de pierdere, verifică și dacă mai poți acoperi obligațiile apropiate, separat de reacția la scădere.",
+          "detailHighlights": [
+            "obligațiile",
+            "pierdere"
+          ]
         }
       ]
     },

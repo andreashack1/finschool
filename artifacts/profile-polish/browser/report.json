@@ -1,0 +1,12 @@
+{
+  "mode": "real Next/SDK/PostgreSQL; simulated local Auth; no remote migration",
+  "checks": [
+    "Profile is compact; identity/stats/activity preserved; pencil dialog 390/375/360/350; keyboard/focus; cancel, save error/retry, real username/display-name update, hidden email/age retained, password route",
+    "Five independent native checkboxes, Space toggle, white empty circles, blue filled circles without checkmarks, clickable labels and disabled save state",
+    "New, 3-lesson, 25-lesson/15-unlock/60-day-streak, and all-lessons/all-21-unlock profiles at all four widths; max five active goals/max three category rows; completed state",
+    "Home teaser, bottom navigation, /simulator heading and metadata, settings/inbox and About all use SimLife; technical /simulator route preserved",
+    "Real logout clears protected session; deletion remains two-step plus exact username; wrong server confirmation rejected; correct local deletion/cleanup/cascade succeeds"
+  ],
+  "errors": [],
+  "providerErrors": []
+}

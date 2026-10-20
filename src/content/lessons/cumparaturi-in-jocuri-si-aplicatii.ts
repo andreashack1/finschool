@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Adună plățile",
           "body": "Sumele mici pot forma un total mare.",
           "detail": "Zece plăți de 8 lei consumă 80 lei din bugetul real. Unitățile virtuale rămase după un pachet nu sunt automat numerar recuperabil și nu te obligă să mai cumperi.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "bugetul",
+            "numerar"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Tradu în lei",
           "body": "Monedele virtuale nu elimină costul.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Transformă pachetul de monede în lei înainte de confirmare. Unitățile virtuale rămase nu te obligă la altă plată.",
+          "detailHighlights": [
+            "confirmare",
+            "plată"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Șansă și garanție",
           "body": "O recompensă incertă poate să nu apară.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "La o recompensă aleatorie, plata cumpără o șansă. Nu înseamnă că obiectul dorit apare după un număr sigur de încercări.",
+          "detailHighlights": [
+            "plata"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Verifică istoricul cumpărăturilor dintr-o aplicație și adună costul unei săptămâni, dacă există.",
-          "type": "action"
+          "type": "action",
+          "detail": "Include și plățile mici repetate. Istoricul în lei arată mai clar costul decât numărul de monede din joc.",
+          "detailHighlights": [
+            "plățile",
+            "costul"
+          ]
         }
       ]
     },

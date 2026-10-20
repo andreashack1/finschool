@@ -7,6 +7,8 @@ export function decisionExpiry(scheduledAt: string) {
 }
 /** Resolve historical policies without reinterpreting already planned days. */
 export function planningEngineForDay(engine:EventEngine,day:DayKey):EventEngine {
+ const floorUpgrade=engine.policySnapshot.version===4?engine.policySnapshot.floorUpgrade:undefined;
+ if(floorUpgrade && day<floorUpgrade.startsOn)return planningEngineForDay({...engine,catalogVersion:floorUpgrade.previousCatalogVersion,policyVersion:floorUpgrade.previousPolicy.version,policySnapshot:floorUpgrade.previousPolicy},day);
  const decisionUpgrade=engine.policySnapshot.version===3?engine.policySnapshot.decisionUpgrade:undefined;
  const historical=decisionUpgrade&&day<decisionUpgrade.startsOn?decisionUpgrade.previousPolicy:engine.policySnapshot;
  const upgrade=historical.version!==1?historical.upgrade:undefined;

@@ -285,25 +285,41 @@ export const lesson: ReadyLesson = {
           "title": "Funcție",
           "body": "Începe cu problema reală de rezolvat.",
           "detail": "Ambele perechi din exemplu pot proteja de ploaie, dar designul preferat costă în plus. Separă funcția necesară de preferință înainte să compari diferența cu alte obligații.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "funcția necesară"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Context",
           "body": "Același produs poate avea roluri diferite.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un laptop pentru proiecte și unul ales pentru funcții nefolosite pot semăna la raft. Contează utilizarea ta.",
+          "detailHighlights": [
+            "utilizarea"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Preferințe",
           "body": "Dorințele pot fi planificate, fără vinovăție.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Poți pune bani deoparte și pentru un concert. Diferența este să îi planifici după obligațiile apropiate.",
+          "detailHighlights": [
+            "obligațiile",
+            "bani"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La o cumpărătură pe care o ai în minte, scrie funcția necesară și preferința suplimentară.",
-          "type": "action"
+          "type": "action",
+          "detail": "Scrie separat ce trebuie să facă produsul și ce ți-ar plăcea în plus. Așa poți compara alternative fără să ignori preferințele.",
+          "detailHighlights": [
+            "preferințele"
+          ]
         }
       ]
     },

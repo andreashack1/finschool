@@ -285,25 +285,44 @@ export const lesson: ReadyLesson = {
           "title": "Straturi",
           "body": "Produsul, instituția și accesul sunt distincte.",
           "detail": "O investiție afișată lângă cont nu dobândește automat protecția unui depozit. Separă documentele produsului de verificarea accesului și a solicitărilor suspecte de transfer.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "verificarea",
+            "documentele"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Documente",
           "body": "Verifică protecția aplicabilă, nu aspectul aplicației.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un produs de investiții nu devine depozit garantat doar pentru că apare lângă cont în aceeași aplicație.",
+          "detailHighlights": [
+            "depozit",
+            "cont"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Fraudă",
           "body": "Nu autoriza transferuri cerute de apelanți neverificați.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Povestea despre un «cont sigur» poate ascunde o fraudă. Nu transfera bani ca să verifici identitatea unui apelant.",
+          "detailHighlights": [
+            "identitatea",
+            "fraudă"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Găsește în documentele contului unde este explicată protecția depozitului, fără să publici date personale.",
-          "type": "action"
+          "type": "action",
+          "detail": "Caută denumirea produsului și instituția care îl oferă; protecția aplicabilă se verifică pentru acestea, nu pentru aspectul aplicației.",
+          "detailHighlights": [
+            "produsului",
+            "instituția"
+          ]
         }
       ]
     },

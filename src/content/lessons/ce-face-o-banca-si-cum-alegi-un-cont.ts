@@ -285,25 +285,43 @@ export const lesson: ReadyLesson = {
           "title": "Utilizare",
           "body": "Compară conturi pentru operațiunile tale.",
           "detail": "Administrarea gratuită nu stabilește automat tariful retragerilor și transferurilor. Notează operațiunile folosite și verifică dacă bursa îndeplinește condiția ofertei, inclusiv în lunile fără încasare.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "încasare",
+            "tariful"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Condiții",
           "body": "Gratuitatea poate fi limitată sau condiționată.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Administrarea gratuită poate cere încasări sau o anumită vârstă. Verifică ce se întâmplă când condiția nu mai este îndeplinită.",
+          "detailHighlights": [
+            "încasări"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Acces",
           "body": "Costul și serviciile trebuie analizate împreună.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Un tarif mic nu ajută dacă serviciul necesar lipsește. Verifică aplicația, retragerile și suportul pentru utilizarea ta.",
+          "detailHighlights": [
+            "retragerile",
+            "utilizarea"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Notează trei operațiuni bancare de care ai nevoie și unde ai verifica prețul fiecăreia.",
-          "type": "action"
+          "type": "action",
+          "detail": "Folosește scenariul tău: de exemplu, o încasare și două retrageri lunar. Compară costul acestuia în fiecare ofertă.",
+          "detailHighlights": [
+            "încasare",
+            "costul"
+          ]
         }
       ]
     },

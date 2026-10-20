@@ -292,27 +292,45 @@ export const lesson: ReadyLesson = {
         {
           "id": "idee-0",
           "title": "Ideea de bază",
-          "body": "Creditul îți permite să folosești acum o sumă pe care te obligi să o restitui conform unui contract.",
+          "body": "Creditul aduce bani acum și obligații de plată mai târziu.",
           "detail": "Mara primește 1.000 lei, dar trebuie să restituie 1.100 în exemplu. Intrarea din cont vine împreună cu o obligație; verifică sursa plăților și termenele înainte să folosești limita aprobată.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "obligație",
+            "plăților"
+          ]
         },
         {
           "id": "idee-1",
           "title": "În exemplu",
-          "body": "Mara împrumută ipotetic 1.000 lei și trebuie să returneze în total 1.100 lei în perioada stabilită. Costul este 100 lei, iar intrarea inițială nu îi crește averea cu 1.000: are și obligația de plată.",
-          "type": "normal"
+          "body": "Urmărește toate ratele și termenele, nu doar suma primită.",
+          "type": "normal",
+          "detail": "În buget contează ratele viitoare, nu doar suma pe care o primești azi. Banii împrumutați vin cu rambursare.",
+          "detailHighlights": [
+            "rambursare",
+            "ratele"
+          ]
         },
         {
           "id": "idee-2",
           "title": "Capcana",
-          "body": "Aprobarea unui împrumut nu garantează că toate lunile viitoare vor fi ușoare.",
-          "type": "normal"
+          "body": "Aprobarea creditului nu garantează că rata îți este comodă.",
+          "type": "normal",
+          "detail": "Aprobarea creditului nu confirmă că rata îți va fi comodă în fiecare lună.",
+          "detailHighlights": [
+            "rata"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "Pe hârtie, separă o sumă împrumutată de venitul câștigat și notează obligația de rambursare.",
-          "type": "action"
+          "type": "action",
+          "detail": "Pe un exemplu fictiv, marchează suma primită, toate plățile și termenele. Nu număra împrumutul ca venit câștigat.",
+          "detailHighlights": [
+            "împrumutul",
+            "plățile"
+          ]
         }
       ]
     },

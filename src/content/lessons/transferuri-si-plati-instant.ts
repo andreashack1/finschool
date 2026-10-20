@@ -285,25 +285,42 @@ export const lesson: ReadyLesson = {
           "title": "Înainte",
           "body": "Verifică datele înainte de autorizare.",
           "detail": "Radu corectează 4.500 lei la 450 lei înainte de confirmare și verifică separat contul schimbat. Viteza transferului nu înlocuiește controlul datelor și nu garantează anularea unei plăți greșite.",
-          "type": "normal"
+          "type": "normal",
+          "detailHighlights": [
+            "confirmare",
+            "contul"
+          ]
         },
         {
           "id": "idee-1",
           "title": "Separat",
           "body": "Confirmă schimbările prin contactul cunoscut.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "Dacă cineva anunță un cont nou, sună la numărul pe care îl aveai deja, separat de mesajul cu modificarea.",
+          "detailHighlights": [
+            "cont nou"
+          ]
         },
         {
           "id": "idee-2",
           "title": "După",
           "body": "Urmărește starea și intrarea reală în cont.",
-          "type": "normal"
+          "type": "normal",
+          "detail": "O captură de ecran nu confirmă singură încasarea. Urmărește tranzacția în propriul cont și starea ei.",
+          "detailHighlights": [
+            "tranzacția",
+            "încasarea"
+          ]
         },
         {
           "id": "azi",
           "title": "Ce poți face azi",
           "body": "La un transfer viitor, folosește ecranul de revizuire pentru destinatar, sumă și monedă.",
-          "type": "action"
+          "type": "action",
+          "detail": "Verifică din nou cifra introdusă înainte de confirmare. Viteza transferului lasă mai puțin timp să observi o greșeală după trimitere.",
+          "detailHighlights": [
+            "confirmare"
+          ]
         }
       ]
     },
